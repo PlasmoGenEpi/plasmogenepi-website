@@ -1,114 +1,107 @@
+import Image from "next/image";
+import LogoPlay from "./components/LogoPlay";
+
 export default function Home() {
+  // return (
+  //   <div className="relative flex min-h-screen flex-col overflow-hidden">
+  //     <div className="absolute mx-auto flex w-full max-w-6xl items-center justify-between">
+  //       <div className="bg-[rgb(22,22,22)]">
+  //         <LogoPlay />
+  //       </div>
+  //       <div>
+  //         <span className="text-4xl text-[rgb(22,22,22)]">PlasmoGenEpi</span>
+  //       </div>
+  //     </div>
+  //     <div className="max-h-[700px] bg-[rgb(22,22,22)]">
+  //       <Image
+  //         src={"/bw_world_abstract.png"}
+  //         height={700}
+  //         width={1200}
+  //         alt=""
+  //         className="mx-auto [object-position:15%]"
+  //       ></Image>
+  //     </div>
+  //   </div>
+  // );
   return (
-    <div>
-      <span>This is the new home page ohhhhh ya</span>
+    <div className="relative min-h-screen">
+      <div className="relative max-h-[70vh] overflow-hidden">
+        <Image
+          fill
+          src={"/vert_dna_hd.jpeg"}
+          // height={1200}
+          // width={3000}
+          alt=""
+          className="bg-black object-cover opacity-30 [object-position:15%]"
+        ></Image>
+        <div className="relative h-[70vh] w-full overflow-hidden">
+          <div className="absolute inset-0 grid max-w-6xl grid-rows-4 md:grid-cols-2 lg:mx-auto">
+            <div className="col-end-2 row-start-1 row-end-4 flex max-w-6xl">
+              {/* <div className="ml-auto"> */}
+              <LogoPlay width={400} dialFill="#ffbcbc" />
+              {/* </div> */}
+            </div>
+
+            <div className="col-start-1 col-end-[-1] row-start-4 flex items-center justify-center md:mx-4 md:justify-end md:pb-0">
+              {/* #ffa4a4 */}
+              {/* #ffbcbc */}
+              {/* #e0a7a7 */}
+              {/* #8fd3d6 */}
+              {/* #343b4c */}
+              {/* #294078 */}
+              <div className="text-center text-5xl font-semibold text-black">
+                <span className="[fontSize:clamp(3rem,10vw,5rem)]">
+                  PlasmoGenEpi
+                </span>
+              </div>
+            </div>
+          </div>
+          {/* <div className="pointer-events-none inset-0 origin-top-left scale-110 bg-black bg-opacity-20  bg-blend-overlay transition-all duration-1000 [background-image:url('/horz_dna.jpeg')] [background-size:100%] hover:origin-bottom-right hover:transition-all hover:duration-1000"></div> */}
+        </div>
+      </div>
+      <div className="mx-4 max-w-4xl md:mx-auto md:mt-12">
+        <div className="grid text-center md:gap-6">
+          {/* <h2 className="text-4xl font-extrabold text-[#F3B941]">Who We Are</h2> */}
+          {/* #ff7676 */}
+          {/* #588deb */}
+          {/* <h2 className="text-4xl font-extrabold text-[#F3B941]">Who We Are</h2> */}
+          <div className="min-h-80 grid gap-4 [grid-template-rows:auto_auto] md:grid-cols-2">
+            <div className="my-auto px-2 py-8">
+              <h2 className="py-4 text-4xl font-extrabold text-[#ffa4a4]">
+                Who We Are
+              </h2>
+              <p className="text-lg font-light text-black ">
+                We are a network of scientists who have come together since 2018
+                to address challenges in malaria genomic epidemiology.
+              </p>
+            </div>
+            <div className="flex flex-col text-3xl">
+              <h3 className="font-serif">Sign up for our mailing list</h3>
+              <button className="my-auto py-6 font-semibold">Sign up</button>
+            </div>
+          </div>
+          <div className="min-h-80 grid gap-4 border-t-4 py-4 pb-20 [grid-template-rows:auto_auto] md:grid-cols-2 md:grid-rows-1 md:pt-8">
+            <div className=" px-2  md:col-start-2 md:py-0">
+              <h2 className="py-4 text-4xl font-extrabold text-[#F3B941]">
+                What We Do
+              </h2>
+              <p className="text-lg font-light text-black ">
+                We advance development and dissemination of approaches for
+                plasmodium genomic epidemiology through creativity,
+                collaboration, and coding.
+              </p>
+            </div>
+            <div className="flex flex-col justify-around gap-6 text-3xl md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2">
+              <h3 className="font-serif">Our Work So Far</h3>
+              <button className="text-xl font-semibold">Online Course</button>
+              <button className="text-xl font-semibold">Data Standards</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="h-40 bg-black bg-opacity-90">
+        <div className=""></div>
+      </div>
     </div>
-    // <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    //   <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-    //     <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-    //       Get started by editing&nbsp;
-    //       <code className="font-mono font-bold">app/page.tsx</code>
-    //     </p>
-    //     <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-    //       <a
-    //         className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-    //         href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         By{' '}
-    //         <Image
-    //           src="/vercel.svg"
-    //           alt="Vercel Logo"
-    //           className="dark:invert"
-    //           width={100}
-    //           height={24}
-    //           priority
-    //         />
-    //       </a>
-    //     </div>
-    //   </div>
-
-    //   <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-    //     <Image
-    //       className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-    //       src="/next.svg"
-    //       alt="Next.js Logo"
-    //       width={180}
-    //       height={37}
-    //       priority
-    //     />
-    //   </div>
-
-    //   <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-    //     <a
-    //       href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-    //       className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <h2 className={`mb-3 text-2xl font-semibold`}>
-    //         Docs{' '}
-    //         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-    //           -&gt;
-    //         </span>
-    //       </h2>
-    //       <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-    //         Find in-depth information about Next.js features and API.
-    //       </p>
-    //     </a>
-
-    //     <a
-    //       href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-    //       className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <h2 className={`mb-3 text-2xl font-semibold`}>
-    //         Learn{' '}
-    //         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-    //           -&gt;
-    //         </span>
-    //       </h2>
-    //       <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-    //         Learn about Next.js in an interactive course with&nbsp;quizzes!
-    //       </p>
-    //     </a>
-
-    //     <a
-    //       href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-    //       className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <h2 className={`mb-3 text-2xl font-semibold`}>
-    //         Templates{' '}
-    //         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-    //           -&gt;
-    //         </span>
-    //       </h2>
-    //       <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-    //         Explore the Next.js 13 playground.
-    //       </p>
-    //     </a>
-
-    //     <a
-    //       href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-    //       className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <h2 className={`mb-3 text-2xl font-semibold`}>
-    //         Deploy{' '}
-    //         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-    //           -&gt;
-    //         </span>
-    //       </h2>
-    //       <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-    //         Instantly deploy your Next.js site to a shareable URL with Vercel.
-    //       </p>
-    //     </a>
-    //   </div>
-    // </main>
   );
 }
