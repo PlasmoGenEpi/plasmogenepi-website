@@ -3,13 +3,23 @@
 import AmpliconFileFormat from "@/app/components/DataStandards/Markdown/AmpliconFileFormat";
 import AmpliconFileFormatIntroduction from "@/app/components/DataStandards/Markdown/AmpliconFileFormatIntroduction";
 import MissionStatement from "@/app/components/DataStandards/MissionStatement";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function DataStandards() {
   const [page, setPage] = useState(0);
   return (
-    <div className="">
+    <div className="flex flex-col">
+      <div className="mx-auto px-4">
+        <Image
+          alt="schema"
+          src="/graph2.png"
+          width={1200}
+          height={700}
+          className=""
+        />
+      </div>
       <div className="mx-auto max-w-4xl py-12">
         <div className="tabs  justify-center">
           <a
@@ -17,7 +27,7 @@ export default function DataStandards() {
               setPage(0);
             }}
             className={
-              page === 0 ? "tab-active tab tab-lifted " : "tab tab-lifted pl-4"
+              page === 0 ? "tab tab-active tab-lifted " : "tab tab-lifted pl-4"
             }
           >
             Overview
@@ -27,7 +37,7 @@ export default function DataStandards() {
               setPage(1);
             }}
             className={
-              page === 1 ? "tab-active tab tab-lifted" : "tab tab-lifted"
+              page === 1 ? "tab tab-active tab-lifted" : "tab tab-lifted"
             }
           >
             File Format
@@ -37,7 +47,7 @@ export default function DataStandards() {
               setPage(2);
             }}
             className={
-              page === 2 ? "tab-active tab tab-lifted" : "tab tab-lifted"
+              page === 2 ? "tab tab-active tab-lifted" : "tab tab-lifted"
             }
           >
             Schema
@@ -47,7 +57,7 @@ export default function DataStandards() {
               setPage(3);
             }}
             className={
-              page === 3 ? "tab-active tab tab-lifted" : "tab tab-lifted"
+              page === 3 ? "tab tab-active tab-lifted" : "tab tab-lifted"
             }
           >
             Feedback

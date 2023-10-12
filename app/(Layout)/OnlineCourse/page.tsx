@@ -1,71 +1,40 @@
 import Accordion from "@/app/components/Accordion";
 import Logo from "@/app/components/Logo";
 import Opening from "@/app/components/OnlineCourse/Opening";
-// &ndash;
-const pages: { id: number; content: string[]; title: string }[] = [
-  {
-    id: 0,
-    content: [],
-    title: "M0 - Malaria 101 - A prelude to Genetic Surveillance",
-  },
-  {
-    id: 0,
-    content: [],
-    title: "M1 - Malaria Epidemiology and Surveillance",
-  },
-  {
-    id: 0,
-    content: [],
-    title: "M2 - Basics of Malaria Genetic Surveillance",
-  },
-  {
-    id: 0,
-    content: [],
-    title: "M3 - Drug and Diagnostic Resistance",
-  },
-  {
-    id: 0,
-    content: [],
-    title: "M4 - Genetic Data Generation, Interpretation, and Applications",
-  },
-  {
-    id: 0,
-    content: [],
-    title:
-      "M5 - Using Genetic Diversity and Relatedness to Evaluate Transmission",
-  },
-  {
-    id: 0,
-    content: [],
-    title: "M6 - Study Design for Malaria Genetic Surveillance, Part 1 - Study",
-  },
-  {
-    id: 0,
-    content: [],
-    title: "Design and Sampling",
-  },
-  {
-    id: 0,
-    content: [],
-    title:
-      "M4.2 - Study Design for Malaria Genetic Surveillance, Part 2 - Power and Sample Size",
-  },
-  {
-    id: 0,
-    content: [],
-    title:
-      "M4.3 - Study Design for Malaria Genetic Surveillance, Part 3 - Connectivity and Importation",
-  },
-  {
-    id: 0,
-    content: [],
-    title: "M7 - Interpreting Results and Making Policy Recommendations",
-  },
-];
+import Link from "next/link";
 
 export default function OnlineCourse() {
   return (
     <div className="mx-4 max-w-6xl py-12 pb-80 md:mx-auto">
+      <div className=" grid pb-12 md:grid-cols-2">
+        <div className="flex text-center">
+          <div className="my-auto">
+            <h2 className="mb-4 text-2xl">Get Started on the Course</h2>
+            <p className="hidden md:block">
+              Follow the links to the right to get started with your Sleuthing &
+              Surveillance exercises.
+            </p>
+            <p className="md:hidden">
+              Follow the links below to get started with your Sleuthing &
+              Surveillance exercises.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-12 text-center md:mt-8">
+          <Link
+            href="https://rise.articulate.com/share/YNOwF89jtNTsz3q9YcC0xAJewoNCWqFy#/"
+            className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-4 text-xl font-bold text-[white]"
+          >
+            Genotype Sleuthing with SNPs and Microhaplotypes
+          </Link>
+          <Link
+            className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-4 text-xl font-bold text-[white]"
+            href="https://rise.articulate.com/share/6TCn8pd8EYNv9SYxpWmN4VSjs5JsWjJV#/"
+          >
+            M2 - Basics of Malaria Genetic Surveillance
+          </Link>
+        </div>
+      </div>
       <div className="">
         <Opening />
       </div>

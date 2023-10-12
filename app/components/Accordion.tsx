@@ -19,7 +19,11 @@ export default function Accordion({
         }}
         className={openPage === 0 ? "collapse collapse-open" : "collapse"}
       >
-        <div className="collapse-title text-2xl font-medium">
+        <div
+          className={
+            "collapse-title cursor-pointer text-2xl font-medium text-black"
+          }
+        >
           <h2 className=" text-2xl font-bold">
             {" "}
             Malaria 101 &ndash; A Prelude to Genetic Surveillance{" "}
@@ -257,7 +261,7 @@ export default function Accordion({
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
-            M6 - Study Design for Malaria Genetic Surveillance, Part 1 - Study
+            M6 - Study Design for Malaria Genetic Surveillance
           </h2>
         </div>
         <div className="collapse-content px-8">
@@ -316,7 +320,7 @@ export default function Accordion({
           </ul>
         </div>
       </div>
-      <div
+      {/* <div
         onClick={(e) => {
           // console.log("hi", idx);
           setOpenPage(8);
@@ -370,7 +374,7 @@ export default function Accordion({
             <li className="list-disc">2 activites (20 minutes)</li>
           </ul>
         </div>
-      </div>
+      </div> */}
       <div
         onClick={(e) => {
           // console.log("hi", idx);
