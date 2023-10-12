@@ -100,7 +100,11 @@ export default function Home() {
         </div>
       </div>
       <div className="h-40 bg-black bg-opacity-90">
-        <div className=""></div>
+        <div className="flex max-w-6xl justify-end">
+          <div className="flex flex-col items-center">
+            <span className="text-[#F3B941]">info@plasmogenepi.org</span>
+          </div>
+        </div>
       </div>
     </div>
   );
