@@ -56,7 +56,8 @@ export default function DataStandards() {
                   Make data publicly available for analysis
                 </li>
                 <li className="mb-2">
-                  Facilitate cross-study analysis and tools e.g. "next-malaria"
+                  Facilitate cross-study analysis and tools e.g.
+                  &quot;next-malaria&quot;
                 </li>
               </ul>
               <h2 className="mb-2 text-2xl font-bold">Standards</h2>
@@ -87,8 +88,8 @@ export default function DataStandards() {
               <p className="mb-4">
                 GSC have developed several standards in order to try to
                 standardized the way we describe genomics/sequencing data and
-                have developed what is called "Minimum Information about any (X)
-                Sequence" (MIxS) specification
+                have developed what is called &quot;Minimum Information about
+                any (X) Sequence&quot; (MIxS) specification
               </p>
               <Link
                 href="https://github.com/GenomicsStandardsConsortium/mixs/"
@@ -130,8 +131,8 @@ export default function DataStandards() {
               <p className="mb-4">
                 GSC have developed several standards in order to try to
                 standardized the way we describe genomics/sequencing data and
-                have developed what is called "Minimum Information about any (X)
-                Sequence" (MIxS) specification
+                have developed what is called &quot;Minimum Information about
+                any (X) Sequence&quot; (MIxS) specification
               </p>
               <a
                 href="https://github.com/GenomicsStandardsConsortium/mixs/"
