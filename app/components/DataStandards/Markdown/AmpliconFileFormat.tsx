@@ -1,6 +1,9 @@
 export default function AmpliconFileFormat() {
   return (
     <div className="container mx-auto px-4">
+      <h1 className="mb-8 text-center text-4xl font-bold">
+        New proposed PlasmoGenEpi targeted amplicon results datafields
+      </h1>
       <p className="mb-4">
         Creating fields with efforts to be consistent with{" "}
         <a
