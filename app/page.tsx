@@ -2,6 +2,7 @@ import Image from "next/image";
 import LogoPlay from "./components/LogoPlay";
 import Footer from "./components/Footer";
 import Link from "next/link";
+import Logo from "./components/Logo";
 
 export default function Home() {
   // return (
@@ -40,7 +41,7 @@ export default function Home() {
           <div className="absolute inset-0 grid max-w-6xl grid-rows-4 md:grid-cols-2 lg:mx-auto">
             <div className="col-end-2 row-start-1 row-end-4 flex max-w-6xl">
               {/* <div className="ml-auto"> */}
-              <LogoPlay width={400} dialFill="#ffbcbc" />
+              <Logo width={400} />
               {/* </div> */}
             </div>
 
