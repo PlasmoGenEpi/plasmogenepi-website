@@ -8,6 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      darkMode: false,
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
