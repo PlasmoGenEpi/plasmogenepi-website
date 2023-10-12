@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AmpliconFileFormat() {
   return (
     <div className="">
@@ -10,12 +12,12 @@ export default function AmpliconFileFormat() {
               </h1>
               <p className="mb-4">
                 Creating fields with efforts to be consistent with{" "}
-                <a
+                <Link
                   href="https://genomicsstandardsconsortium.github.io/mixs/"
-                  className="text-blue-500 underline"
+                  className="w-fit text-blue-500 underline"
                 >
                   MIxS standards
-                </a>
+                </Link>
               </p>
               <p className="mb-4">
                 Important aspects to keep in mind is to create an efficient low
@@ -24,12 +26,12 @@ export default function AmpliconFileFormat() {
                 to generate certain fields that are important but not necessary.
                 Also since we are proposing to keep this data in a singular file
                 in{" "}
-                <a
+                <Link
                   href="https://en.wikipedia.org/wiki/JSON"
-                  className="text-blue-500 underline"
+                  className="w-fit text-blue-500 underline"
                 >
                   JSON format
-                </a>{" "}
+                </Link>{" "}
                 we are not limited to keeping data in a tabular format for
                 organization, output generated from this file can certainly be a
                 table but we don&apos;t have to store things as a table, e.g.
@@ -41,100 +43,206 @@ export default function AmpliconFileFormat() {
               </p>
               <p className="mb-4">
                 Consider adapting{" "}
-                <a
+                <Link
                   href="https://linkml.io/linkml/"
-                  className="text-blue-500 underline"
+                  className="w-fit text-blue-500 underline"
                 >
                   LinkML
-                </a>{" "}
+                </Link>{" "}
                 to generate scheme and/or{" "}
-                <a
+                <Link
                   href="https://json-schema.org/"
-                  className="text-blue-500 underline"
+                  className="w-fit text-blue-500 underline"
                 >
                   JSON Schema
-                </a>
+                </Link>
               </p>
               <p className="mb-4">
                 Other notable users of LinkML/MIxS{" "}
-                <a
+                <Link
                   href="https://github.com/microbiomedata/nmdc-schema"
-                  className="text-blue-500 underline"
+                  className="w-fit text-blue-500 underline"
                 >
                   National Microbiome Data Collaborative Schema
-                </a>
+                </Link>
               </p>
               <h2 className="mb-2 text-2xl font-bold">SpecimenInfo</h2>
-              <a
+              <Link
                 href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/SpecimenInfo/"
-                className="mb-4 block text-blue-500 underline"
+                className="mb-4 block w-fit text-blue-500 underline"
               >
                 https://plasmogenepi.github.io/plasmo-tar-amp-schema/SpecimenInfo/
-              </a>
+              </Link>
               <ul className="mb-4 list-disc pl-5">
-                <li className="mb-2">sample_name</li>
-                <li className="mb-2">samp_taxon_id</li>
-                <li className="mb-2">host_taxon_id</li>
                 <li className="mb-2">
-                  alternate_identifiers
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    sample_name
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    samp_taxon_id
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    host_taxon_id
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    alternate_identifiers
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
                     <li className="mb-2">a list of additional identifiers</li>
                   </ul>
                 </li>
-                <li className="mb-2">parasite_density</li>
                 <li className="mb-2">
-                  collection_date
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    parasite_density
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    collection_date
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       format YYYY-MM-DD, e.g. January 6th 2018 would be
                       2018-01-06
                     </li>
                   </ul>
                 </li>
-                <li className="mb-2">lat_lon</li>
-                <li className="mb-2">collector</li>
-                <li className="mb-2">samp_store_loc</li>
-                <li className="mb-2">samp_collect_device</li>
-                <li className="mb-2">project_name</li>
-                <li className="mb-2">accession</li>
-                <li className="mb-2">sample_comments</li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    lat_lon
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    collector
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    samp_store_loc
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    samp_collect_device
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    project_name
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    accession
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    sample_comments
+                  </code>
+                </li>
               </ul>
               <h2 className="mb-2 text-2xl font-bold">SequencingInfo</h2>
-              <a
+              <Link
                 href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/SequencingInfo/"
-                className="mb-4 block text-blue-500 underline"
+                className="mb-4 block w-fit text-blue-500 underline"
               >
                 https://plasmogenepi.github.io/plasmo-tar-amp-schema/SequencingInfo/
-              </a>
+              </Link>
               <ul className="mb-4 list-disc pl-5">
-                <li className="mb-2">seq_instrument</li>
-                <li className="mb-2">seq_date</li>
-                <li className="mb-2">nucl_acid_ext</li>
-                <li className="mb-2">nucl_acid_amp</li>
-                <li className="mb-2">nucl_acid_date</li>
-                <li className="mb-2">pcr_cond</li>
-                <li className="mb-2">lib_screen</li>
-                <li className="mb-2">lib_prep_date</li>
-                <li className="mb-2">lib_prep_method</li>
-                <li className="mb-2">lib_prep_person</li>
-                <li className="mb-2">lib_screen_person</li>
-                <li className="mb-2">seq_person</li>
-                <li className="mb-2">lib_kit</li>
-                <li className="mb-2">seq_center</li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    seq_instrument
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    seq_date
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    nucl_acid_ext
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    nucl_acid_amp
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    nucl_acid_date
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    pcr_cond
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    lib_screen
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    lib_prep_date
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    lib_prep_method
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    lib_prep_person
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    lib_screen_person
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    seq_person
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    lib_kit
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    seq_center
+                  </code>
+                </li>
               </ul>
               <h2 className="mb-2 text-2xl font-bold">
                 TarAmpBioinformaticsInfo
               </h2>
-              <a
+              <Link
                 href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/TarAmpBioinformaticsInfo/"
-                className="mb-4 block text-blue-500 underline"
+                className="mb-4 block w-fit text-blue-500 underline"
               >
                 https://plasmogenepi.github.io/plasmo-tar-amp-schema/TarAmpBioinformaticsInfo/
-              </a>
+              </Link>
               <ul className="mb-4 list-disc pl-5">
                 <li className="mb-2">
-                  method
-                  <ul className="mb-4 list-disc pl-5">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    method
+                  </code>
+                  <ul className="mb-4 list-disc pl-5 text-sm font-light">
                     <li className="mb-2">
                       program e.g. dada2, SeekDeep qluster
                     </li>
@@ -148,101 +256,162 @@ export default function AmpliconFileFormat() {
                     </li>
                   </ul>
                 </li>
-                <li className="mb-2">demultiplexing_method</li>
-                <li className="mb-2">denoising_method</li>
-                <li className="mb-2">population_clustering_method</li>
-                <li className="mb-2">additional_methods</li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    demultiplexing_method
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    denoising_method
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    population_clustering_method
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    additional_methods
+                  </code>
+                </li>
               </ul>
               <h2 className="mb-2 text-2xl font-bold">PanelInfo:</h2>
-              <a
+              <Link
                 href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/PanelInfo/"
-                className="mb-4 block text-blue-500 underline"
+                className="mb-4 block w-fit text-blue-500 underline"
               >
                 https://plasmogenepi.github.io/plasmo-tar-amp-schema/PanelInfo/
-              </a>
+              </Link>
               <p className="mb-4">
                 Description of a targeted amplicon panel, consists of a panel id
                 and a list of target_ids
               </p>
               <ul className="mb-4 list-disc pl-5">
-                <li className="mb-2">panel_id</li>
-                <li className="mb-2">target_ids</li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    panel_id
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    target_ids
+                  </code>
+                </li>
               </ul>
               <h2 className="mb-2 text-2xl font-bold">TargetInfo</h2>
-              <a
+              <Link
                 href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/TargetInfo/"
-                className="mb-4 block text-blue-500 underline"
+                className="mb-4 block w-fit text-blue-500 underline"
               >
                 https://plasmogenepi.github.io/plasmo-tar-amp-schema/TargetInfo/
-              </a>
+              </Link>
               <p className="mb-4">Information on a target</p>
               <ul className="mb-4 list-disc pl-5">
-                <li className="mb-2">target_id</li>
-                <li className="mb-2">gene_id</li>
                 <li className="mb-2">
-                  target_genome
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    target_id
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    gene_id
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    target_genome
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       name GENOME:SEQ:VER: genome/version for start/end
                       positions
                     </li>
-                    <li className="mb-2">taxon_id</li>
-                    <li className="mb-2">url</li>
+                    <li className="mb-2">
+                      <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                        taxon_id
+                      </code>
+                    </li>
+                    <li className="mb-2">
+                      <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                        url
+                      </code>
+                    </li>
                   </ul>
                 </li>
-                <li className="mb-2">taxon_id</li>
                 <li className="mb-2">
-                  insert_chrom
-                  <ul className="mb-4 list-disc pl-5">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    taxon_id
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    insert_chrom
+                  </code>
+                  <ul className="mb-4 list-disc pl-5 text-sm font-light">
                     <li className="mb-2">intended chromosome</li>
                   </ul>
                 </li>
                 <li className="mb-2">
-                  insert_start
-                  <ul className="mb-4 list-disc pl-5">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    insert_start
+                  </code>
+                  <ul className="mb-4 list-disc pl-5 text-sm font-light">
                     <li className="mb-2">intended chromosome, base position</li>
                   </ul>
                 </li>
                 <li className="mb-2">
-                  insert_end
-                  <ul className="mb-4 list-disc pl-5">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    insert_end
+                  </code>
+                  <ul className="mb-4 list-disc pl-5 text-sm font-light">
                     <li className="mb-2">intended chromosome, base position</li>
                   </ul>
                 </li>
                 <li className="mb-2">
-                  forward_primers:
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    forward_primers:
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       A list of primers that include the primer sequence, the
                       start and end positions of the primer
                     </li>
-                    {/* <li className="mb-``` */}
                     <li className="mb-2">
-                      seq
+                      <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                        seq
+                      </code>
                       <ul className="mb-4 list-disc pl-5">
-                        <li className="mb-2">
+                        <li className="mb-2 text-sm font-light">
                           primer seq (including any degeneracy), 5`-3` direction
                         </li>
                       </ul>
                     </li>
                     <li className="mb-2">
-                      chrom
-                      <ul className="mb-4 list-disc pl-5">
+                      <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                        chrom
+                      </code>
+                      <ul className="mb-4 list-disc pl-5 text-sm font-light">
                         <li className="mb-2">intended chromosome</li>
                       </ul>
                     </li>
                     <li className="mb-2">
-                      start
+                      <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                        start
+                      </code>
                       <ul className="mb-4 list-disc pl-5">
-                        <li className="mb-2">
+                        <li className="mb-2 text-sm font-light">
                           Primer start position (intended) (chromosome, base
                           position, 0-based)
                         </li>
                       </ul>
                     </li>
                     <li className="mb-2">
-                      end
-                      <ul className="mb-4 list-disc pl-5">
+                      <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                        end
+                      </code>
+                      <ul className="mb-4 list-disc pl-5 text-sm font-light">
                         <li className="mb-2">
                           Primer end position (intended) (chromosome, base
                           position, 0-based)
@@ -252,38 +421,48 @@ export default function AmpliconFileFormat() {
                   </ul>
                 </li>
                 <li className="mb-2">
-                  reverse_primer:
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    reverse_primer:
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       A list of primers that include the primer sequence, the
                       start and end positions of the primer
                     </li>
                     <li className="mb-2">
-                      seq
-                      <ul className="mb-4 list-disc pl-5">
+                      <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                        seq
+                      </code>
+                      <ul className="mb-4 list-disc pl-5 text-sm font-light">
                         <li className="mb-2">
                           primer seq (including any degeneracy), 5`-3` direction
                         </li>
                       </ul>
                     </li>
                     <li className="mb-2">
-                      chrom
-                      <ul className="mb-4 list-disc pl-5">
+                      <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                        chrom
+                      </code>
+                      <ul className="mb-4 list-disc pl-5 text-sm font-light">
                         <li className="mb-2">intended chromosome</li>
                       </ul>
                     </li>
                     <li className="mb-2">
-                      start
+                      <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                        start
+                      </code>
                       <ul className="mb-4 list-disc pl-5">
-                        <li className="mb-2">
+                        <li className="mb-2 text-sm font-light">
                           Primer start position (intended) (chromosome, base
                           position, 0-based)
                         </li>
                       </ul>
                     </li>
                     <li className="mb-2">
-                      end
-                      <ul className="mb-4 list-disc pl-5">
+                      <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                        end
+                      </code>
+                      <ul className="mb-4 list-disc pl-5 text-sm font-light">
                         <li className="mb-2">
                           Primer end position (intended) (chromosome, base
                           position, 0-based)
@@ -296,20 +475,34 @@ export default function AmpliconFileFormat() {
               <h2 className="mb-2 text-2xl font-bold">
                 RepresentativeHaplotypeSequence
               </h2>
-              <a
+              <Link
                 href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequence/"
-                className="mb-4 block text-blue-500 underline"
+                className="mb-4 block w-fit text-blue-500 underline"
               >
                 https://plasmogenepi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequence/
-              </a>
+              </Link>
               <ul className="mb-4 list-disc pl-5">
-                <li className="mb-2">haplotype_id</li>
-                <li className="mb-2">seq</li>
-                <li className="mb-2">quality</li>
                 <li className="mb-2">
-                  annotations
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    haplotype_id
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    seq
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    quality
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    annotations
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       list of additional info on haplotype like specific amino
                       changes C580Y or &quot;wildtype&quot; C580
                     </li>
@@ -319,58 +512,70 @@ export default function AmpliconFileFormat() {
               <h2 className="mb-2 text-2xl font-bold">
                 RepresentativeHaplotypeSequences
               </h2>
-              <a
+              <Link
                 href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequences/"
-                className="mb-4 block text-blue-500 underline"
+                className="mb-4 block w-fit text-blue-500 underline"
               >
                 https://plasmogenepi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequences/
-              </a>
+              </Link>
               <ul className="mb-4 list-disc pl-5">
-                <li className="mb-2">target_id</li>
                 <li className="mb-2">
-                  seqs
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    target_id
+                  </code>
+                </li>
+                <li className="mb-2">
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    seqs
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       a vector of RepresentativeHaplotypeSequence
                     </li>
                   </ul>
                 </li>
               </ul>
               <h2 className="mb-2 text-2xl font-bold">HaplotypesDetected</h2>
-              <a
+              <Link
                 href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/HaplotypesDetected/"
-                className="mb-4 text-blue-500 underline"
-              ></a>
-              <a
+                className="mb-4 w-fit text-blue-500 underline"
+              ></Link>
+              <Link
                 href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/HaplotypesDetected/"
-                className="mb-4 block text-blue-500 underline"
+                className="mb-4 block w-fit text-blue-500 underline"
               >
                 https://plasmogenepi.github.io/plasmo-tar-amp-schema/HaplotypesDetected/
-              </a>
+              </Link>
               <p className="mb-4">The final results file of a sequencing run</p>
               <ul className="mb-4 list-disc pl-5">
                 <li className="mb-2">
-                  sequencing_id
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    sequencing_id
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       the id to the wetlab workflow info used to process this
                       sample
                     </li>
                   </ul>
                 </li>
                 <li className="mb-2">
-                  bioinformatics_id
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    bioinformatics_id
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       the id to the bioinformatics workflow info used to process
                       this sample
                     </li>
                   </ul>
                 </li>
                 <li className="mb-2">
-                  info
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    info
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       a vector of RepresentativeHaplotypeSequences
                     </li>
                   </ul>
@@ -379,38 +584,44 @@ export default function AmpliconFileFormat() {
               <h2 className="mb-2 text-2xl font-bold">
                 HaplotypesDetectedSummary
               </h2>
-              <a
+              <Link
                 href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/HaplotypesDetectedSummary/"
-                className="mb-4 block text-blue-500 underline"
+                className="mb-4 block w-fit text-blue-500 underline"
               >
                 https://plasmogenepi.github.io/plasmo-tar-amp-schema/HaplotypesDetectedSummary/
-              </a>
+              </Link>
               <p className="mb-4">
                 A summary file of the results of a sequencing run
               </p>
               <ul className="mb-4 list-disc pl-5">
                 <li className="mb-2">
-                  sequencing_id
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    sequencing_id
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       the id to the wetlab workflow info used to process this
                       sample
                     </li>
                   </ul>
                 </li>
                 <li className="mb-2">
-                  bioinformatics_id
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    bioinformatics_id
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       the id to the bioinformatics workflow info used to process
                       this sample
                     </li>
                   </ul>
                 </li>
                 <li className="mb-2">
-                  info
+                  <code className="rounded bg-zinc-100 px-1 pb-[2px] pt-1">
+                    info
+                  </code>
                   <ul className="mb-4 list-disc pl-5">
-                    <li className="mb-2">
+                    <li className="mb-2 text-sm font-light">
                       a vector of target_id and haplotype_id
                     </li>
                   </ul>
