@@ -3,7 +3,9 @@ import Link from "next/link";
 export default function MissionStatement() {
   return (
     <div className="mx-4 pb-40">
-      <h2 className="mb-4 text-2xl font-medium">A Standard</h2>
+      <h2 className="mb-4 text-2xl font-bold">
+        Proposed standards for targeted amplicon data and metadata
+      </h2>
       <p className="mb-2">
         With generation of amplicon sequencing data for Plasmodium accelerating,
         there is a timely opportunity to create shared resources to disseminate,
@@ -20,12 +22,12 @@ export default function MissionStatement() {
         tools, increasing incentives to develop robust, reusable software and
         allow cross-study analyses.
       </p>
-      <p className="mb-4">
+      <p className="mb-6">
         We propose a single, relational data structure using JSON as a portable
         file. This approach allows for design which is efficient, lightweight,
         and flexible, organizing metadata together with genetic data.
       </p>
-      <div className="mb-8 text-center">
+      <div className="mb-8 text-center font-medium">
         <Link
           className="mx-auto w-fit text-lg text-blue-500"
           href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/PlasmoTarAmpResults"
