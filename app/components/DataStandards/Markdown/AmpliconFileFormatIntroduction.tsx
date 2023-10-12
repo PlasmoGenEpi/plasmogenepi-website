@@ -4,8 +4,8 @@ export default function AmpliconFileFormatIntroduction() {
   return (
     <div className="">
       <div className="mx-auto max-w-4xl">
-        <div className="mt-6 min-h-screen border-x">
-          <div className="py-8">
+        <div className="mt-6 min-h-screen">
+          <div className="pb-8">
             <div className=" mx-auto overflow-hidden px-4">
               <h1 className="mb-8 text-center text-4xl font-bold">
                 Plasmodium amplicon file format
