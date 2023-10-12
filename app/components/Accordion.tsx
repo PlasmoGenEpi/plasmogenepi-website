@@ -14,17 +14,10 @@ export default function Accordion({
     <div>
       <div
         onClick={(e) => {
-          if (openPage === 0) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(0);
-          }
+          // console.log("hi", idx);
+          setOpenPage(0);
         }}
-        className={
-          openPage === 0
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 0 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
@@ -56,17 +49,10 @@ export default function Accordion({
       </div>
       <div
         onClick={(e) => {
-          if (openPage === 1) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(1);
-          }
+          // console.log("hi", idx);
+          setOpenPage(1);
         }}
-        className={
-          openPage === 1
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 1 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
@@ -91,17 +77,10 @@ export default function Accordion({
       </div>
       <div
         onClick={(e) => {
-          if (openPage === 2) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(2);
-          }
+          // console.log("hi", idx);
+          setOpenPage(2);
         }}
-        className={
-          openPage === 2
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 2 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
@@ -150,17 +129,10 @@ export default function Accordion({
       </div>
       <div
         onClick={(e) => {
-          if (openPage === 3) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(3);
-          }
+          // console.log("hi", idx);
+          setOpenPage(3);
         }}
-        className={
-          openPage === 3
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 3 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
@@ -186,17 +158,10 @@ export default function Accordion({
       </div>
       <div
         onClick={(e) => {
-          if (openPage === 4) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(4);
-          }
+          // console.log("hi", idx);
+          setOpenPage(4);
         }}
-        className={
-          openPage === 4
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 4 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
@@ -239,17 +204,10 @@ export default function Accordion({
       </div>
       <div
         onClick={(e) => {
-          if (openPage === 5) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(5);
-          }
+          // console.log("hi", idx);
+          setOpenPage(5);
         }}
-        className={
-          openPage === 5
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 5 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
@@ -292,17 +250,10 @@ export default function Accordion({
       </div>
       <div
         onClick={(e) => {
-          if (openPage === 6) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(6);
-          }
+          // console.log("hi", idx);
+          setOpenPage(6);
         }}
-        className={
-          openPage === 6
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 6 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
@@ -341,17 +292,10 @@ export default function Accordion({
       </div>
       <div
         onClick={(e) => {
-          if (openPage === 7) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(7);
-          }
+          // console.log("hi", idx);
+          setOpenPage(7);
         }}
-        className={
-          openPage === 7
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 7 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className="text-2xl font-bold">Design and Sampling</h2>
@@ -374,17 +318,10 @@ export default function Accordion({
       </div>
       <div
         onClick={(e) => {
-          if (openPage === 8) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(8);
-          }
+          // console.log("hi", idx);
+          setOpenPage(8);
         }}
-        className={
-          openPage === 8
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 8 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
@@ -408,17 +345,10 @@ export default function Accordion({
       </div>
       <div
         onClick={(e) => {
-          if (openPage === 9) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(9);
-          }
+          // console.log("hi", idx);
+          setOpenPage(9);
         }}
-        className={
-          openPage === 9
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 9 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
@@ -443,17 +373,10 @@ export default function Accordion({
       </div>
       <div
         onClick={(e) => {
-          if (openPage === 10) {
-            setOpenPage(null);
-          } else {
-            setOpenPage(10);
-          }
+          // console.log("hi", idx);
+          setOpenPage(10);
         }}
-        className={
-          openPage === 10
-            ? "collapse collapse-open"
-            : "collapse hover:bg-pink-50"
-        }
+        className={openPage === 11 ? "collapse collapse-open" : "collapse"}
       >
         <div className="collapse-title text-2xl font-medium">
           <h2 className=" text-2xl font-bold">
