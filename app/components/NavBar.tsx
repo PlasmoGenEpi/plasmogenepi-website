@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import LogoPlay from "./LogoPlay";
 import Link from "next/link";
+import Logo from "./Logo";
 
 export default function NavBar() {
   return (
@@ -10,7 +11,8 @@ export default function NavBar() {
           <div className="relative flex h-full justify-between ">
             <div className="absolute -bottom-8 -left-8">
               <Link href="/">
-                <LogoPlay width={120} />
+                {/* <LogoPlay width={120} /> */}
+                <Logo width={120} />
               </Link>
             </div>
             <div></div>
