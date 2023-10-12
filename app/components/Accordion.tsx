@@ -15,9 +15,7 @@ export default function Accordion({
     <div className="min-h-[900px]">
       <div className={openPage === 0 ? "collapse collapse-open" : "collapse"}>
         <div
-          className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
-          }
+          className={"collapse-title relative text-2xl font-medium text-black "}
         >
           <div
             onClick={(e) => {
@@ -27,11 +25,11 @@ export default function Accordion({
                 setOpenPage(0);
               }
             }}
-            className="absolute right-8 p-2"
+            className="absolute right-8 cursor-pointer p-2"
           >
             <ExpandIcon />
           </div>
-          <h2 className=" text-2xl font-bold">
+          <h2 className=" cursor-auto text-2xl font-bold">
             {" "}
             M0 &ndash; Malaria 101 &ndash; A Prelude to Genetic Surveillance{" "}
           </h2>
@@ -61,7 +59,7 @@ export default function Accordion({
       <div className={openPage === 1 ? "collapse collapse-open" : "collapse"}>
         <div
           className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div
@@ -76,7 +74,7 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" text-2xl font-bold">
+          <h2 className=" cursor-auto text-2xl font-bold">
             M1 &ndash; Malaria Epidemiology and Surveillance
           </h2>
         </div>
@@ -99,7 +97,7 @@ export default function Accordion({
       <div className={openPage === 2 ? "collapse collapse-open" : "collapse"}>
         <div
           className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div
@@ -114,7 +112,7 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" text-2xl font-bold">
+          <h2 className=" cursor-auto text-2xl font-bold">
             M2 &ndash; Basics of Malaria Genetic Surveillance
           </h2>
         </div>
@@ -161,7 +159,7 @@ export default function Accordion({
       <div className={openPage === 3 ? "collapse collapse-open" : "collapse"}>
         <div
           className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div
@@ -176,7 +174,7 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" text-2xl font-bold">
+          <h2 className=" cursor-auto text-2xl font-bold">
             M3 &ndash; Drug and Diagnostic Resistance
           </h2>
         </div>
@@ -200,7 +198,7 @@ export default function Accordion({
       <div className={openPage === 4 ? "collapse collapse-open" : "collapse"}>
         <div
           className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div
@@ -215,7 +213,7 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" text-2xl font-bold">
+          <h2 className=" cursor-auto text-2xl font-bold">
             M4 &ndash; Genetic Data Generation, Interpretation, and Applications
           </h2>
         </div>
@@ -256,7 +254,7 @@ export default function Accordion({
       <div className={openPage === 5 ? "collapse collapse-open" : "collapse"}>
         <div
           className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div
@@ -271,7 +269,7 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" text-2xl font-bold">
+          <h2 className=" cursor-auto text-2xl font-bold">
             M5 &ndash; Using Genetic Diversity and Relatedness to Evaluate
             Transmission
           </h2>
@@ -312,7 +310,7 @@ export default function Accordion({
       <div className={openPage === 6 ? "collapse collapse-open" : "collapse"}>
         <div
           className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div
@@ -327,7 +325,7 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" text-2xl font-bold">
+          <h2 className=" cursor-auto text-2xl font-bold">
             M6 &ndash; Study Design for Malaria Genetic Surveillance
           </h2>
         </div>
@@ -364,7 +362,7 @@ export default function Accordion({
       {/* <div className={openPage === 7 ? "collapse collapse-open" : "collapse"}>
         <div
           className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div
@@ -410,7 +408,7 @@ export default function Accordion({
           }
         >
         <div className=" right-8absolute">
-        <ExpandIcon /></div>          <h2 className=" text-2xl font-bold">
+        <ExpandIcon /></div>          <h2 className=" text-2xl font-bold cursor-auto">
             M4.2 - Study Design for Malaria Genetic Surveillance, Part 2 - Power
             and Sample Size
           </h2>
@@ -440,7 +438,7 @@ export default function Accordion({
           className={
             "collapse-title relative cursor-pointer text-2xl font-medium text-black "
           }
-        >          <h2 className=" text-2xl font-bold">
+        >          <h2 className=" text-2xl font-bold cursor-auto">
             M4.3 - Study Design for Malaria Genetic Surveillance, Part 3 -
             Connectivity and Importation
           </h2>
@@ -469,7 +467,7 @@ export default function Accordion({
       >
         <div
           className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div
@@ -484,7 +482,7 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" text-2xl font-bold">
+          <h2 className=" cursor-auto text-2xl font-bold">
             M7 &ndash; Interpreting Results and Making Policy Recommendations
           </h2>
         </div>

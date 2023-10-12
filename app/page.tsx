@@ -88,7 +88,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="min-h-80 grid gap-4 border-t-4 py-4 pb-20 [grid-template-rows:auto_auto] md:grid-cols-2 md:grid-rows-1 md:pt-8">
+          <div className="min-h-80 grid gap-4 border-t-4 py-4 pb-20 [grid-template-rows:auto_auto] md:grid-cols-2 md:grid-rows-2 md:pt-8">
             <div className=" px-2  md:col-start-2 md:py-0">
               <h2 className="py-4 text-4xl font-extrabold text-[#F3B941] ">
                 What We Do
@@ -99,12 +99,18 @@ export default function Home() {
                 collaboration, and coding.
               </p>
             </div>
-            <div className="flex flex-col justify-around gap-6 text-3xl md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2">
+            <div className="flex flex-col gap-6 text-3xl md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-3">
               <h3 className="font-serif">Our Work So Far</h3>
-              <Link href="/OnlineCourse" className="text-xl font-semibold">
+              <Link
+                href="/OnlineCourse"
+                className="mx-auto mt-8  w-fit text-2xl font-semibold"
+              >
                 Online Course
               </Link>
-              <Link href="/DataStandards" className="text-xl font-semibold">
+              <Link
+                href="/DataStandards"
+                className="mx-auto w-fit text-2xl font-semibold"
+              >
                 Data Standards
               </Link>
             </div>

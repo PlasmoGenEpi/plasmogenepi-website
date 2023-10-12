@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 export default function NavBar() {
   return (
-    <div className=" bg-[#F4F3F3] text-white">
+    <div className=" bg-[#F4F3F3]">
       <div className="h-[100px] max-w-6xl md:mx-auto">
         <div className="h-full p-4">
           <div className="relative flex h-full justify-between ">
@@ -16,13 +16,9 @@ export default function NavBar() {
               </Link>
             </div>
             <div></div>
-            <div className="text-ye flex items-center gap-4 font-semibold">
-              <Link className="text-[black]" href="/OnlineCourse">
-                Online Course
-              </Link>
-              <Link className="text-[black]" href="/DataStandards">
-                Data Standards
-              </Link>
+            <div className="flex items-center gap-4 font-semibold text-black">
+              <Link href="/OnlineCourse">Online Course</Link>
+              <Link href="/DataStandards">Data Standards</Link>
               {/* <button className="btn btn-square btn-ghost">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
