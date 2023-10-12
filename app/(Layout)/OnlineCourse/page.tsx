@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function OnlineCourse() {
   return (
-    <div className="mx-4 max-w-6xl py-12 pb-80 md:mx-auto">
+    <div className="mx-4 max-w-6xl py-12 md:mx-auto">
       <div className=" grid pb-12 md:grid-cols-2">
         <div className="flex text-center">
           <div className="my-auto">
