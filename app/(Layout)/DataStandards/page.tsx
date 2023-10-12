@@ -4,7 +4,7 @@ export default function DataStandards() {
   return (
     <div className="">
       <div className="mx-auto max-w-4xl">
-        <div className="min-h-screen border-2 border-x">
+        <div className="mt-6 min-h-screen border-x">
           <div className="py-8">
             <div className=" mx-auto overflow-hidden px-4">
               <h1 className="mb-8 text-center text-4xl font-bold">

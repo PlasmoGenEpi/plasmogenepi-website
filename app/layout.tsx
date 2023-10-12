@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/* text-[#E1EAFA] */}
-        <main className="min-h-screen bg-gradient-to-t from-zinc-50 to-zinc-100 text-black">
+        <main className="min-h-screen bg-white bg-gradient-to-t text-black">
           {children}
         </main>
       </body>

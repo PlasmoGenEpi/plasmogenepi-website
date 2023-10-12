@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 export default function NavBar() {
   return (
-    <div className=" bg-[#C7D2D7]">
+    <div className=" bg-[#F4F3F3]">
       <div className="h-[100px] max-w-6xl md:mx-auto">
         <div className="h-full p-4">
           <div className="relative flex h-full justify-between ">

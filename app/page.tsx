@@ -28,7 +28,7 @@ export default function Home() {
   // );
   return (
     <div className="relative min-h-screen">
-      <div className="relative max-h-[70vh] overflow-hidden">
+      <div className="relative max-h-[50vh] overflow-hidden">
         <Image
           fill
           src={"/vert_dna_hd.jpeg"}
@@ -37,7 +37,7 @@ export default function Home() {
           alt=""
           className="bg-black object-cover opacity-30 [object-position:15%]"
         ></Image>
-        <div className="relative h-[70vh] w-full overflow-hidden">
+        <div className="relative h-[50vh] w-full overflow-hidden">
           <div className="absolute inset-0 grid max-w-6xl grid-rows-4 md:grid-cols-2 lg:mx-auto">
             <div className="col-end-2 row-start-1 row-end-4 flex max-w-6xl">
               {/* <div className="ml-auto"> */}
