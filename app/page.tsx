@@ -1,5 +1,7 @@
 import Image from "next/image";
 import LogoPlay from "./components/LogoPlay";
+import Footer from "./components/Footer";
+import Link from "next/link";
 
 export default function Home() {
   // return (
@@ -65,9 +67,9 @@ export default function Home() {
           {/* #ff7676 */}
           {/* #588deb */}
           {/* <h2 className="text-4xl font-extrabold text-[#F3B941]">Who We Are</h2> */}
-          <div className="min-h-80 grid gap-4 [grid-template-rows:auto_auto] md:grid-cols-2">
-            <div className="my-auto px-2 py-8">
-              <h2 className="py-4 text-4xl font-extrabold text-[#ffa4a4]">
+          <div className="min-h-80 grid gap-4 p-4 [grid-template-rows:auto_auto] md:grid-cols-2">
+            <div className="my-auto py-8">
+              <h2 className="py-4 text-4xl font-extrabold text-[#F3B941]">
                 Who We Are
               </h2>
               <p className="text-lg font-light text-black ">
@@ -76,13 +78,18 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col text-3xl">
-              <h3 className="font-serif">Sign up for our mailing list</h3>
-              <button className="my-auto py-6 font-semibold">Sign up</button>
+              <h3 className="mb-8 font-serif">Sign up for our mailing list</h3>
+              <Link
+                href="/SignUp"
+                className=" m-auto mt-4 w-fit rounded-xl border-black bg-[#FFBCBC] px-12 py-6 font-semibold text-white shadow-lg"
+              >
+                Sign up
+              </Link>
             </div>
           </div>
           <div className="min-h-80 grid gap-4 border-t-4 py-4 pb-20 [grid-template-rows:auto_auto] md:grid-cols-2 md:grid-rows-1 md:pt-8">
             <div className=" px-2  md:col-start-2 md:py-0">
-              <h2 className="py-4 text-4xl font-extrabold text-[#F3B941]">
+              <h2 className="py-4 text-4xl font-extrabold text-[#F3B941] ">
                 What We Do
               </h2>
               <p className="text-lg font-light text-black ">
@@ -93,19 +100,17 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-around gap-6 text-3xl md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2">
               <h3 className="font-serif">Our Work So Far</h3>
-              <button className="text-xl font-semibold">Online Course</button>
-              <button className="text-xl font-semibold">Data Standards</button>
+              <Link href="/OnlineCourse" className="text-xl font-semibold">
+                Online Course
+              </Link>
+              <Link href="/DataStandards" className="text-xl font-semibold">
+                Data Standards
+              </Link>
             </div>
           </div>
         </div>
       </div>
-      <div className="h-40 bg-black bg-opacity-90">
-        <div className="flex max-w-6xl justify-end">
-          <div className="flex flex-col items-center">
-            <span className="text-[#F3B941]">info@plasmogenepi.org</span>
-          </div>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }
