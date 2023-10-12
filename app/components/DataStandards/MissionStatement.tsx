@@ -1,6 +1,6 @@
 export default function MissionStatement() {
   return (
-    <div>
+    <div className="mx-4">
       <p>
         With generation of amplicon sequencing data for Plasmodium accelerating,
         there is a timely opportunity to create shared resources to disseminate,

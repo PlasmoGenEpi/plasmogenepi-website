@@ -1,6 +1,6 @@
 export default function Opening() {
   return (
-    <div>
+    <div className="mb-8">
       <h1 className="mb-4 text-3xl font-bold">
         From Data to Insight - A Practical Introduction to Interpreting Malaria
         Genetics for Surveillance
@@ -18,7 +18,7 @@ export default function Opening() {
         forums and job aids.
       </p>
       <h2 className="mb-2 text-2xl font-bold">What you will learn:</h2>
-      <ol className="list-decimal">
+      <ol className="ml-8 list-decimal">
         <li>
           Summarize the basic concepts and main use cases of malaria Genetic
           epidemiology.
