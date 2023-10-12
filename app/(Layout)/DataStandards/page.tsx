@@ -20,7 +20,7 @@ export default function DataStandards() {
           className=""
         />
       </div>
-      <div className="mx-auto max-w-4xl py-12">
+      {/* <div className="mx-auto max-w-4xl py-12">
         <div className="tabs  justify-center">
           <a
             onClick={(e) => {
@@ -64,7 +64,7 @@ export default function DataStandards() {
           </a>
           <div className="tab tab-lifted pointer-events-none grow"></div>
         </div>
-      </div>
+      </div> */}
       <div className="mx-auto mt-8 max-w-4xl">
         {page === 0 ? (
           <MissionStatement />
