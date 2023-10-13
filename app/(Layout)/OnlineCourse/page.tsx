@@ -47,7 +47,7 @@ export default function OnlineCourse() {
           className="[object-position:50%]"
         />
       </div> */}
-      <div className="mx-auto mb-8 mt-4 grid max-w-6xl gap-4 md:hidden md:grid-cols-2">
+      <div className="mx-auto mb-8 mt-4 grid max-w-6xl gap-4  md:grid-cols-2">
         <div className="mx-auto flex text-center text-black">
           <div className="mt-auto">
             <h2 className="mb-4 font-serif text-4xl md:text-5xl">
