@@ -12,10 +12,10 @@ export default function Accordion({
   const [openPages, setOpenPages] = useState<number[]>([]);
 
   return (
-    <div className="min-h-[600px]  md:grid md:grid-cols-2">
+    <div className=" min-h-[600px] md:grid md:grid-cols-2">
       <div
         className={
-          openPages.includes(0) ? "collapse collapse-open" : "collapse"
+          openPages.includes(0) ? "collapse collapse-open" : "collapse pr-0"
         }
       >
         <div
@@ -26,7 +26,7 @@ export default function Accordion({
               {" "}
               M0 &ndash; Malaria 101 &ndash; A Prelude to Genetic Surveillance{" "}
             </h2>
-            <div
+            <button
               onClick={(e) => {
                 if (openPages.includes(0)) {
                   let index = openPages.indexOf(0);
@@ -41,10 +41,10 @@ export default function Accordion({
               className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
             >
               <ExpandIcon />
-            </div>
+            </button>
           </div>
         </div>
-        <div className={"collapse-content px-8 py-4"}>
+        <div className={"collapse-content p-4"}>
           <p className="mb-4">
             In this introductory module we will quickly review the basic
             epidemiology of malaria, including its transmission, health
@@ -81,7 +81,7 @@ export default function Accordion({
               {" "}
               M1 &ndash; Malaria Epidemiology and Surveillance
             </h2>
-            <div
+            <button
               onClick={(e) => {
                 if (openPages.includes(1)) {
                   let index = openPages.indexOf(1);
@@ -96,7 +96,7 @@ export default function Accordion({
               className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
             >
               <ExpandIcon />
-            </div>
+            </button>
           </div>
           {/* <div
             onClick={(e) => {
@@ -145,7 +145,7 @@ export default function Accordion({
               {" "}
               M2 &ndash; Basics of Malaria Genetic Surveillance
             </h2>
-            <div
+            <button
               onClick={(e) => {
                 if (openPages.includes(2)) {
                   let index = openPages.indexOf(2);
@@ -160,7 +160,7 @@ export default function Accordion({
               className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
             >
               <ExpandIcon />
-            </div>
+            </button>
           </div>
           {/* <div
             onClick={(e) => {
@@ -233,7 +233,7 @@ export default function Accordion({
               {" "}
               M3 &ndash; Drug and Diagnostic Resistance
             </h2>
-            <div
+            <button
               onClick={(e) => {
                 if (openPages.includes(3)) {
                   let index = openPages.indexOf(3);
@@ -248,7 +248,7 @@ export default function Accordion({
               className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
             >
               <ExpandIcon />
-            </div>
+            </button>
           </div>
           {/* <div
             onClick={(e) => {
@@ -299,7 +299,7 @@ export default function Accordion({
               M4 &ndash; Genetic Data Generation, Interpretation, and
               Applications
             </h2>
-            <div
+            <button
               onClick={(e) => {
                 if (openPages.includes(4)) {
                   let index = openPages.indexOf(4);
@@ -314,7 +314,7 @@ export default function Accordion({
               className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
             >
               <ExpandIcon />
-            </div>
+            </button>
           </div>
           {/* <div
             onClick={(e) => {
@@ -382,7 +382,7 @@ export default function Accordion({
               M5 &ndash; Using Genetic Diversity and Relatedness to Evaluate
               Transmission
             </h2>
-            <div
+            <button
               onClick={(e) => {
                 if (openPages.includes(5)) {
                   let index = openPages.indexOf(5);
@@ -397,7 +397,7 @@ export default function Accordion({
               className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
             >
               <ExpandIcon />
-            </div>
+            </button>
           </div>
           {/* <div
             onClick={(e) => {
@@ -464,7 +464,7 @@ export default function Accordion({
               {" "}
               M6 &ndash; Study Design for Malaria Genetic Surveillance
             </h2>
-            <div
+            <button
               onClick={(e) => {
                 if (openPages.includes(6)) {
                   let index = openPages.indexOf(6);
@@ -479,7 +479,7 @@ export default function Accordion({
               className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
             >
               <ExpandIcon />
-            </div>
+            </button>
           </div>
           {/* <div
             onClick={(e) => {
@@ -645,7 +645,7 @@ export default function Accordion({
               {" "}
               M7 &ndash; Interpreting Results and Making Policy Recommendations
             </h2>
-            <div
+            <button
               onClick={(e) => {
                 if (openPages.includes(7)) {
                   let index = openPages.indexOf(7);
@@ -660,7 +660,7 @@ export default function Accordion({
               className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
             >
               <ExpandIcon />
-            </div>
+            </button>
           </div>
           {/* <div
             onClick={(e) => {

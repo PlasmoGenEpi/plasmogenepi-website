@@ -3,6 +3,7 @@ import LogoPlay from "./components/LogoPlay";
 import Footer from "./components/Footer";
 import Link from "next/link";
 import Logo from "./components/Logo";
+import NavBar from "./components/NavBar";
 
 export default function Home() {
   // return (
@@ -28,6 +29,7 @@ export default function Home() {
   // );
   return (
     <div className="relative min-h-screen">
+      {/* <NavBar /> */}
       <div className="relative max-h-[50vh] overflow-hidden">
         <Image
           fill
@@ -35,7 +37,7 @@ export default function Home() {
           // height={1200}
           // width={3000}
           alt=""
-          className="bg-black object-cover opacity-30 [object-position:15%]"
+          className="bg-black object-cover opacity-60 [object-position:15%]"
         ></Image>
         <div className="relative h-[50vh] w-full overflow-hidden">
           <div className="absolute inset-0 grid max-w-6xl grid-rows-4 md:grid-cols-2 lg:mx-auto">
@@ -52,7 +54,7 @@ export default function Home() {
               {/* #8fd3d6 */}
               {/* #343b4c */}
               {/* #294078 */}
-              <div className="text-center text-5xl font-semibold text-black">
+              <div className="text-center text-5xl font-medium text-black">
                 <span className="[fontSize:clamp(3rem,10vw,5rem)]">
                   PlasmoGenEpi
                 </span>
@@ -63,7 +65,7 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-4 max-w-4xl md:mx-auto md:mt-12">
-        <div className="grid text-center md:gap-6">
+        <div className="grid gap-4 text-center md:gap-6">
           {/* <h2 className="text-4xl font-extrabold text-[#F3B941]">Who We Are</h2> */}
           {/* #ff7676 */}
           {/* #588deb */}
@@ -82,13 +84,13 @@ export default function Home() {
               <h3 className="mb-8 font-serif">Sign up for our mailing list</h3>
               <Link
                 href="/SignUp"
-                className=" m-auto mt-4 w-fit rounded-xl border-black bg-[#FFBCBC] px-12 py-6 font-semibold text-white shadow-lg"
+                className="hover:transiton-colors m-auto w-fit rounded-xl border-black bg-[#FFBCBC] px-12 py-6 font-semibold text-white shadow-lg transition-colors hover:bg-[#ffa8a8] md:mt-4"
               >
                 Sign up
               </Link>
             </div>
           </div>
-          <div className="min-h-80 grid gap-4 border-t-4 py-4 pb-20 [grid-template-rows:auto_auto] md:grid-cols-2 md:grid-rows-2 md:pt-8">
+          <div className="min-h-80 grid gap-8 border-t-4 py-4 pb-20 [grid-template-rows:auto_auto] md:grid-cols-2 md:grid-rows-2 md:gap-4 md:pt-8">
             <div className=" px-2  md:col-start-2 md:py-0">
               <h2 className="py-4 text-4xl font-extrabold text-[#F3B941] ">
                 What We Do
@@ -103,13 +105,13 @@ export default function Home() {
               <h3 className="font-serif">Our Work So Far</h3>
               <Link
                 href="/OnlineCourse"
-                className="mx-auto mt-8  w-fit text-2xl font-semibold"
+                className="mx-auto w-fit  text-2xl font-semibold text-black text-opacity-60 hover:text-opacity-100 md:mt-8"
               >
                 Online Course
               </Link>
               <Link
                 href="/DataStandards"
-                className="mx-auto w-fit text-2xl font-semibold"
+                className="mx-auto w-fit text-2xl font-semibold text-black text-opacity-60 hover:text-opacity-100"
               >
                 Data Standards
               </Link>

@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <div className="absolute bottom-0 h-40 w-full bg-black bg-opacity-90 p-8">
-      <div className="mx-auto grid max-w-6xl grid-cols-2">
-        <div className="col-start-2 col-end-3 ml-auto flex w-fit flex-col items-center">
+    <div className="h-40 w-full bg-black bg-opacity-90 p-8">
+      <div className="mx-auto grid max-w-6xl">
+        <div className="mx-auto flex w-fit flex-col items-center justify-center">
           <div>
             <span className="mx-auto text-[#F3B941]">Contact Us</span>
           </div>

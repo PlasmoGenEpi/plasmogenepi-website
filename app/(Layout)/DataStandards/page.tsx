@@ -10,14 +10,14 @@ import { useState } from "react";
 export default function DataStandards() {
   const [page, setPage] = useState(0);
   return (
-    <div className="flex flex-col">
-      <div className="mx-auto px-4">
+    <div className="flex flex-col items-center">
+      <div className="flex overflow-hidden px-4">
         <Image
           alt="schema"
           src="/graph2.png"
           width={1200}
           height={700}
-          className=""
+          className=" min-w-[600px] [object-position:50%]"
         />
       </div>
       {/* <div className="mx-auto max-w-4xl py-12">
