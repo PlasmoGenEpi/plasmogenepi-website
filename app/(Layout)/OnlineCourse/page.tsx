@@ -8,7 +8,7 @@ export default function OnlineCourse() {
     <div className="max-w-6xl py-12 md:mx-auto">
       <div className="px-4">
         <div className=" mb-8 grid gap-4 md:grid-cols-2">
-          <div className="flex text-center">
+          <div className="mx-auto flex text-center">
             <div className="my-auto">
               <h2 className="mb-4 font-serif text-5xl">
                 Get started on the course
