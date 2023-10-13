@@ -65,7 +65,7 @@ export default function DataStandards() {
           <div className="tab tab-lifted pointer-events-none grow"></div>
         </div>
       </div> */}
-      <div className="mx-auto mt-8 max-w-4xl">
+      <div className="mx-auto max-w-4xl">
         {page === 0 ? (
           <MissionStatement />
         ) : page === 1 ? (
