@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="h-40 bg-black bg-opacity-90 p-8">
+    <div className="absolute bottom-0 h-40 w-full bg-black bg-opacity-90 p-8">
       <div className="mx-auto grid max-w-6xl grid-cols-2">
         <div className="col-start-2 col-end-3 ml-auto flex w-fit flex-col items-center">
           <div>

@@ -9,32 +9,42 @@ export default function Accordion({
 }: {
   pages: { id: number; content: string[]; title: string }[];
 }) {
-  const [openPage, setOpenPage] = useState<number | null>(null);
+  const [openPages, setOpenPages] = useState<number[]>([]);
 
   return (
-    <div className="min-h-[900px]">
-      <div className={openPage === 0 ? "collapse collapse-open" : "collapse"}>
+    <div className="min-h-[600px]  md:grid md:grid-cols-2">
+      <div
+        className={
+          openPages.includes(0) ? "collapse collapse-open" : "collapse"
+        }
+      >
         <div
           className={"collapse-title relative text-2xl font-medium text-black "}
         >
-          <div
-            onClick={(e) => {
-              if (openPage === 0) {
-                setOpenPage(null);
-              } else {
-                setOpenPage(0);
-              }
-            }}
-            className="absolute right-8 cursor-pointer p-2"
-          >
-            <ExpandIcon />
+          <div className="flex justify-between">
+            <h2 className=" cursor-auto text-xl text-black">
+              {" "}
+              M0 &ndash; Malaria 101 &ndash; A Prelude to Genetic Surveillance{" "}
+            </h2>
+            <div
+              onClick={(e) => {
+                if (openPages.includes(0)) {
+                  let index = openPages.indexOf(0);
+                  let newArr = openPages
+                    .slice(0, index)
+                    .concat(openPages.slice(index + 1, openPages.length));
+                  setOpenPages(newArr);
+                } else {
+                  setOpenPages([...openPages, 0]);
+                }
+              }}
+              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+            >
+              <ExpandIcon />
+            </div>
           </div>
-          <h2 className=" cursor-auto text-2xl font-bold">
-            {" "}
-            M0 &ndash; Malaria 101 &ndash; A Prelude to Genetic Surveillance{" "}
-          </h2>
         </div>
-        <div className="collapse-content mr-8 px-8">
+        <div className={"collapse-content px-8 py-4"}>
           <p className="mb-4">
             In this introductory module we will quickly review the basic
             epidemiology of malaria, including its transmission, health
@@ -56,29 +66,55 @@ export default function Accordion({
           </p>
         </div>
       </div>
-      <div className={openPage === 1 ? "collapse collapse-open" : "collapse"}>
+      <div
+        className={
+          openPages.includes(1) ? "collapse collapse-open" : "collapse"
+        }
+      >
         <div
           className={
             "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
-          <div
+          <div className="flex justify-between">
+            <h2 className=" cursor-auto text-xl text-black">
+              {" "}
+              M1 &ndash; Malaria Epidemiology and Surveillance
+            </h2>
+            <div
+              onClick={(e) => {
+                if (openPages.includes(1)) {
+                  let index = openPages.indexOf(1);
+                  let newArr = openPages
+                    .slice(0, index)
+                    .concat(openPages.slice(index + 1, openPages.length));
+                  setOpenPages(newArr);
+                } else {
+                  setOpenPages([...openPages, 1]);
+                }
+              }}
+              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+            >
+              <ExpandIcon />
+            </div>
+          </div>
+          {/* <div
             onClick={(e) => {
-              if (openPage === 1) {
-                setOpenPage(null);
+              if (openPages.includes(1)) {
+                setOpenPages(null);
               } else {
-                setOpenPage(1);
+                setOpenPages(1);
               }
             }}
-            className="absolute right-8 p-2"
+            className="absolute right-2 p-2 md:right-8"
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-2xl font-bold">
+          <h2 className=" cursor-auto text-xl font-bold">
             M1 &ndash; Malaria Epidemiology and Surveillance
-          </h2>
+          </h2> */}
         </div>
-        <div className="collapse-content mr-8 px-8">
+        <div className="collapse-content px-8 py-4">
           <p className="mb-4">
             Traditional surveillance is the foundation of effective malaria
             control, but it has some limitations. In this module, you will learn
@@ -94,29 +130,55 @@ export default function Accordion({
           </ul>
         </div>
       </div>
-      <div className={openPage === 2 ? "collapse collapse-open" : "collapse"}>
+      <div
+        className={
+          openPages.includes(2) ? "collapse collapse-open" : "collapse"
+        }
+      >
         <div
           className={
             "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
-          <div
+          <div className="flex justify-between">
+            <h2 className=" cursor-auto text-xl text-black">
+              {" "}
+              M2 &ndash; Basics of Malaria Genetic Surveillance
+            </h2>
+            <div
+              onClick={(e) => {
+                if (openPages.includes(2)) {
+                  let index = openPages.indexOf(2);
+                  let newArr = openPages
+                    .slice(0, index)
+                    .concat(openPages.slice(index + 1, openPages.length));
+                  setOpenPages(newArr);
+                } else {
+                  setOpenPages([...openPages, 2]);
+                }
+              }}
+              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+            >
+              <ExpandIcon />
+            </div>
+          </div>
+          {/* <div
             onClick={(e) => {
-              if (openPage === 2) {
-                setOpenPage(null);
+              if (openPages.includes(2)) {
+                setOpenPages(null);
               } else {
-                setOpenPage(2);
+                setOpenPages(2);
               }
             }}
-            className="absolute right-8 p-2"
+            className="absolute right-2 p-2 md:right-8"
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-2xl font-bold">
+          <h2 className=" cursor-auto text-xl font-bold">
             M2 &ndash; Basics of Malaria Genetic Surveillance
-          </h2>
+          </h2> */}
         </div>
-        <div className="collapse-content mr-8 px-8">
+        <div className="collapse-content px-8 py-4">
           <p className="mb-4">
             What can the DNA of malaria parasites tell you about where an
             infection came from, if you’ll be able to detect it with a standard
@@ -156,29 +218,55 @@ export default function Accordion({
           </div>
         </div>
       </div>
-      <div className={openPage === 3 ? "collapse collapse-open" : "collapse"}>
+      <div
+        className={
+          openPages.includes(3) ? "collapse collapse-open" : "collapse"
+        }
+      >
         <div
           className={
             "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
-          <div
+          <div className="flex justify-between">
+            <h2 className=" cursor-auto text-xl text-black">
+              {" "}
+              M3 &ndash; Drug and Diagnostic Resistance
+            </h2>
+            <div
+              onClick={(e) => {
+                if (openPages.includes(3)) {
+                  let index = openPages.indexOf(3);
+                  let newArr = openPages
+                    .slice(0, index)
+                    .concat(openPages.slice(index + 1, openPages.length));
+                  setOpenPages(newArr);
+                } else {
+                  setOpenPages([...openPages, 3]);
+                }
+              }}
+              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+            >
+              <ExpandIcon />
+            </div>
+          </div>
+          {/* <div
             onClick={(e) => {
-              if (openPage === 3) {
-                setOpenPage(null);
+              if (openPages.includes(3)) {
+                setOpenPages(null);
               } else {
-                setOpenPage(3);
+                setOpenPages(3);
               }
             }}
-            className="absolute right-8 p-2"
+            className="absolute right-2 p-2 md:right-8"
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-2xl font-bold">
+          <h2 className=" cursor-auto text-xl font-bold">
             M3 &ndash; Drug and Diagnostic Resistance
-          </h2>
+          </h2> */}
         </div>
-        <div className="collapse-content mr-8 px-8">
+        <div className="collapse-content px-8 py-4">
           <p className="mb-4">
             Drug and diagnostic resistance are two of the most relevant genetic
             epidemiology use cases. In this module you will explore the
@@ -195,29 +283,56 @@ export default function Accordion({
           </ul>
         </div>
       </div>
-      <div className={openPage === 4 ? "collapse collapse-open" : "collapse"}>
+      <div
+        className={
+          openPages.includes(4) ? "collapse collapse-open" : "collapse"
+        }
+      >
         <div
           className={
             "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
-          <div
+          <div className="flex justify-between">
+            <h2 className=" cursor-auto text-xl text-black">
+              {" "}
+              M4 &ndash; Genetic Data Generation, Interpretation, and
+              Applications
+            </h2>
+            <div
+              onClick={(e) => {
+                if (openPages.includes(4)) {
+                  let index = openPages.indexOf(4);
+                  let newArr = openPages
+                    .slice(0, index)
+                    .concat(openPages.slice(index + 1, openPages.length));
+                  setOpenPages(newArr);
+                } else {
+                  setOpenPages([...openPages, 4]);
+                }
+              }}
+              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+            >
+              <ExpandIcon />
+            </div>
+          </div>
+          {/* <div
             onClick={(e) => {
-              if (openPage === 4) {
-                setOpenPage(null);
+              if (openPages.includes(4)) {
+                setOpenPages(null);
               } else {
-                setOpenPage(4);
+                setOpenPages(4);
               }
             }}
-            className="absolute right-8 p-2"
+            className="absolute right-2 p-2 md:right-8"
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-2xl font-bold">
+          <h2 className=" cursor-auto text-xl font-bold">
             M4 &ndash; Genetic Data Generation, Interpretation, and Applications
-          </h2>
+          </h2> */}
         </div>
-        <div className="collapse-content mr-8 px-8">
+        <div className="collapse-content px-8 py-4">
           <p className="mb-4">
             Different use cases require different methods. This module explores
             the strengths and weaknesses of different techniques for generating
@@ -251,30 +366,57 @@ export default function Accordion({
           </ul>
         </div>
       </div>
-      <div className={openPage === 5 ? "collapse collapse-open" : "collapse"}>
+      <div
+        className={
+          openPages.includes(5) ? "collapse collapse-open" : "collapse"
+        }
+      >
         <div
           className={
             "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
-          <div
+          <div className="flex justify-between">
+            <h2 className=" cursor-auto text-xl text-black">
+              {" "}
+              M5 &ndash; Using Genetic Diversity and Relatedness to Evaluate
+              Transmission
+            </h2>
+            <div
+              onClick={(e) => {
+                if (openPages.includes(5)) {
+                  let index = openPages.indexOf(5);
+                  let newArr = openPages
+                    .slice(0, index)
+                    .concat(openPages.slice(index + 1, openPages.length));
+                  setOpenPages(newArr);
+                } else {
+                  setOpenPages([...openPages, 5]);
+                }
+              }}
+              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+            >
+              <ExpandIcon />
+            </div>
+          </div>
+          {/* <div
             onClick={(e) => {
-              if (openPage === 5) {
-                setOpenPage(null);
+              if (openPages.includes(5)) {
+                setOpenPages(null);
               } else {
-                setOpenPage(5);
+                setOpenPages(5);
               }
             }}
-            className="absolute right-8 p-2"
+            className="absolute right-2 p-2 md:right-8"
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-2xl font-bold">
+          <h2 className=" cursor-auto text-xl font-bold">
             M5 &ndash; Using Genetic Diversity and Relatedness to Evaluate
             Transmission
-          </h2>
+          </h2> */}
         </div>
-        <div className="collapse-content mr-8 px-8">
+        <div className="collapse-content px-8 py-4">
           <p className="mb-4">
             Now that you&apos;ve generated some Genetic data, you need to choose
             the right metrics.{" "}
@@ -307,29 +449,55 @@ export default function Accordion({
           </ul>
         </div>
       </div>
-      <div className={openPage === 6 ? "collapse collapse-open" : "collapse"}>
+      <div
+        className={
+          openPages.includes(6) ? "collapse collapse-open" : "collapse"
+        }
+      >
         <div
           className={
             "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
-          <div
+          <div className="flex justify-between">
+            <h2 className=" cursor-auto text-xl text-black">
+              {" "}
+              M6 &ndash; Study Design for Malaria Genetic Surveillance
+            </h2>
+            <div
+              onClick={(e) => {
+                if (openPages.includes(6)) {
+                  let index = openPages.indexOf(6);
+                  let newArr = openPages
+                    .slice(0, index)
+                    .concat(openPages.slice(index + 1, openPages.length));
+                  setOpenPages(newArr);
+                } else {
+                  setOpenPages([...openPages, 6]);
+                }
+              }}
+              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+            >
+              <ExpandIcon />
+            </div>
+          </div>
+          {/* <div
             onClick={(e) => {
-              if (openPage === 6) {
-                setOpenPage(null);
+              if (openPages.includes(6)) {
+                setOpenPages(null);
               } else {
-                setOpenPage(6);
+                setOpenPages(6);
               }
             }}
-            className="absolute right-8 p-2"
+            className="absolute right-2 p-2 md:right-8"
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-2xl font-bold">
+          <h2 className=" cursor-auto text-xl font-bold">
             M6 &ndash; Study Design for Malaria Genetic Surveillance
-          </h2>
+          </h2> */}
         </div>
-        <div className="collapse-content mr-8 px-8">
+        <div className="collapse-content px-8 py-4">
           <p className="m4-2">
             Now that you&apos;ve generated some Genetic data, you need to choose
             the right metrics.
@@ -359,7 +527,7 @@ export default function Accordion({
           </ul>
         </div>
       </div>
-      {/* <div className={openPage === 7 ? "collapse collapse-open" : "collapse"}>
+      {/* <div className={openPages.includes(7 )? "collapse collapse-open" : "collapse"}>
         <div
           className={
             "collapse-title relative cursor-auto text-2xl font-medium text-black "
@@ -367,19 +535,19 @@ export default function Accordion({
         >
           <div
             onClick={(e) => {
-              if (openPage === 7) {
-                setOpenPage(null);
+              if (openPages.includes(7)) {
+                setOpenPages(null);
               } else {
-                setOpenPage(7);
+                setOpenPages(7);
               }
             }}
-            className="absolute right-8 p-2"
+            className="absolute right-2 md:right-8 p-2"
           >
             <ExpandIcon />
           </div>{" "}
           <h2 className="text-2xl font-bold">Design and Sampling</h2>
         </div>
-        <div className="collapse-content mr-8 px-8">
+        <div className="collapse-content px-8 py-4">
           <p className="mb-4">
             Genetic data are only as good as the surveillance system or study
             that from which they were collected. But what makes a good malaria
@@ -398,16 +566,16 @@ export default function Accordion({
       {/* <div
         onClick={(e) => {
           // console.log("hi", idx);
-          setOpenPage(8);
+          setOpenPages(8);
         }}
-        className={openPage === 8 ? "collapse collapse-open" : "collapse"}
+        className={openPages.includes(8 )? "collapse collapse-open" : "collapse"}
       >
 <div
           className={
             "collapse-title relative cursor-pointer text-2xl font-medium text-black "
           }
         >
-        <div className=" right-8absolute">
+        <div className=" right-2 md:right-8absolute">
         <ExpandIcon /></div>          <h2 className=" text-2xl font-bold cursor-auto">
             M4.2 - Study Design for Malaria Genetic Surveillance, Part 2 - Power
             and Sample Size
@@ -430,9 +598,9 @@ export default function Accordion({
       <div
         onClick={(e) => {
           // console.log("hi", idx);
-          setOpenPage(9);
+          setOpenPages(9);
         }}
-        className={openPage === 9 ? "collapse collapse-open" : "collapse"}
+        className={openPages.includes(9 )? "collapse collapse-open" : "collapse"}
       >
 <div
           className={
@@ -461,32 +629,56 @@ export default function Accordion({
       <div
         onClick={(e) => {
           // console.log("hi", idx);
-          // setOpenPage(10);
+          // setOpenPages(10);
         }}
-        className={openPage === 10 ? "collapse collapse-open" : "collapse"}
+        className={
+          openPages.includes(7) ? "collapse collapse-open" : "collapse"
+        }
       >
         <div
           className={
             "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
-          <div
+          <div className="flex justify-between">
+            <h2 className=" cursor-auto text-xl text-black">
+              {" "}
+              M7 &ndash; Interpreting Results and Making Policy Recommendations
+            </h2>
+            <div
+              onClick={(e) => {
+                if (openPages.includes(7)) {
+                  let index = openPages.indexOf(7);
+                  let newArr = openPages
+                    .slice(0, index)
+                    .concat(openPages.slice(index + 1, openPages.length));
+                  setOpenPages(newArr);
+                } else {
+                  setOpenPages([...openPages, 7]);
+                }
+              }}
+              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+            >
+              <ExpandIcon />
+            </div>
+          </div>
+          {/* <div
             onClick={(e) => {
-              if (openPage === 10) {
-                setOpenPage(null);
+              if (openPages.includes(10)) {
+                setOpenPages(null);
               } else {
-                setOpenPage(10);
+                setOpenPages(10);
               }
             }}
-            className="absolute right-8 p-2"
+            className="absolute right-2 p-2 md:right-8"
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-2xl font-bold">
+          <h2 className=" cursor-auto text-xl font-bold">
             M7 &ndash; Interpreting Results and Making Policy Recommendations
-          </h2>
+          </h2> */}
         </div>
-        <div className="collapse-content mr-8 px-8">
+        <div className="collapse-content px-8 py-4">
           <p className="mb-4">
             The goal of malaria Genetic surveillance is to design and deliver
             more effective control programs, which will prevent illness and
