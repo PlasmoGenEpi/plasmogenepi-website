@@ -16,7 +16,7 @@ export default function NavBar() {
               </Link>
             </div>
             <div></div>
-            <div className="flex items-center gap-4 font-semibold text-black">
+            <div className="flex items-center gap-4 text-sm font-semibold uppercase text-black">
               <Link href="/OnlineCourse">Online Course</Link>
               <Link href="/DataStandards">Data Standards</Link>
               {/* <button className="btn btn-square btn-ghost">

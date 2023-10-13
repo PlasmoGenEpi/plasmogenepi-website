@@ -11,7 +11,7 @@ export default function DataStandards() {
   const [page, setPage] = useState(0);
   return (
     <div className="flex flex-col items-center">
-      <div className="flex overflow-hidden px-4">
+      <div className="mx-4 flex max-w-full justify-center overflow-hidden">
         <Image
           alt="schema"
           src="/graph2.png"
