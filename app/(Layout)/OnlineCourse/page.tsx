@@ -7,8 +7,8 @@ import Link from "next/link";
 export default function OnlineCourse() {
   return (
     <div>
-      <div className="relative flex max-h-[50vh] flex-col justify-center overflow-hidden border-y-4 md:max-h-[40vh]">
-        <div className="absolute inset-0 mx-auto mb-8 hidden max-w-6xl gap-4 px-4 md:grid md:grid-cols-2">
+      <div className="relative flex max-h-[50vh] flex-col justify-center overflow-hidden md:max-h-[max(400px,40vh)]">
+        <div className="absolute inset-0 mx-auto hidden max-w-6xl gap-4 p-4 md:grid md:grid-cols-2">
           <div className="mx-auto flex text-center text-white">
             <div className="mt-auto">
               <h2 className="mb-4 font-serif text-2xl md:text-5xl">
@@ -44,10 +44,10 @@ export default function OnlineCourse() {
           width={2000}
           height={1000}
           alt="man looking at computer"
-          className="[object-position:50%]"
+          className="mx-auto [object-position:50%]"
         />
       </div>
-      <div className="mx-auto mb-8 mt-4 grid max-w-6xl gap-4 md:hidden  md:grid-cols-2">
+      <div className="mx-auto mb-8 mt-4 grid max-w-6xl gap-4 px-2 md:hidden md:grid-cols-2">
         <div className="mx-auto flex text-center text-black">
           <div className="mt-auto">
             <h2 className="mb-4 font-serif text-4xl md:text-5xl">
@@ -79,8 +79,8 @@ export default function OnlineCourse() {
         </div>
       </div>
 
-      <div className="max-w-6xl py-6 md:mx-auto md:py-12">
-        <div className="px-4">
+      <div className="max-w-4xl px-2 py-6 md:mx-auto md:py-12">
+        <div className="">
           {/* <div className=" mb-8 grid gap-4 md:grid-cols-2">
             <div className="mx-auto flex text-center">
               <div className="my-auto">

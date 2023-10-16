@@ -30,8 +30,9 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
       {/* <NavBar /> */}
-      <div className="relative max-h-[50vh] overflow-hidden">
+      <div className="relative max-h-[50vh] min-h-[300px] overflow-hidden">
         <Image
+          loading={"eager"}
           fill
           src={"/vert_dna_hd.jpeg"}
           // height={1200}
@@ -39,15 +40,15 @@ export default function Home() {
           alt=""
           className="bg-black object-cover opacity-60 [object-position:15%]"
         ></Image>
-        <div className="relative h-[50vh] w-full overflow-hidden">
-          <div className="absolute inset-0 grid max-w-6xl grid-rows-4 md:grid-cols-2 lg:mx-auto">
-            <div className="col-end-2 row-start-1 row-end-4 flex max-w-6xl">
+        <div className="relative h-[50vh] min-h-[300px] w-full overflow-hidden">
+          <div className="absolute inset-0 grid max-w-6xl grid-rows-4 p-4 md:grid-cols-2 lg:mx-auto">
+            <div className="col-end-2 row-span-full flex max-w-[calc(100%-32px)]">
               {/* <div className="ml-auto"> */}
               <Logo width={400} />
               {/* </div> */}
             </div>
 
-            <div className="col-start-1 col-end-[-1] row-start-4 flex items-center justify-center md:mx-4 md:justify-end md:pb-0">
+            <div className="col-start-1 col-end-[-1] row-start-4 flex max-w-[calc(100%-32px)] items-end justify-center md:mx-4 md:justify-end md:pb-0">
               {/* #ffa4a4 */}
               {/* #ffbcbc */}
               {/* #e0a7a7 */}
