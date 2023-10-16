@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function MissionStatement() {
   return (
-    <div className="mx-4 pb-40">
+    <div className="px-2 pb-40">
       <h2 className="mb-4 text-2xl font-bold">
         Proposed standards for targeted amplicon data and metadata
       </h2>

@@ -17,7 +17,7 @@ export default function Opening() {
         video lectures, interactive case studies, quizzes, moderated discussion
         forums and job aids.
       </p>
-      <h2 className="mb-2 text-2xl font-bold">What you will learn:</h2>
+      <h3 className="mb-2 text-xl font-bold">What you will learn:</h3>
       <ol className="ml-8 list-decimal">
         <li>
           Summarize the basic concepts and main use cases of malaria Genetic
