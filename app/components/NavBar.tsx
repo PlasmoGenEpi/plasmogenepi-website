@@ -10,7 +10,7 @@ export default function NavBar() {
 
   return (
     <div className=" border-b border-black bg-[#ffffff]">
-      {navOpen && <NavPage setter={setNavOpen} />}
+      {/* {navOpen && <NavPage setter={setNavOpen} />} */}
       <div className=" max-w-6xl md:mx-auto">
         <div className="px-2">
           <div className="relative flex h-[100px] justify-end">
@@ -21,7 +21,7 @@ export default function NavBar() {
               </Link>
             </div>
             <div className="flex items-center pt-8">
-              <div
+              {/* <div
                 onClick={(e) => {
                   setNavOpen(!navOpen);
                 }}
@@ -41,14 +41,14 @@ export default function NavBar() {
                     <path d="m1125 600c0 82.844-67.156 150-150 150s-150-67.156-150-150 67.156-150 150-150 150 67.156 150 150" />
                   </g>
                 </svg>
-              </div>
-              <div className="hidden items-center gap-4 text-sm font-semibold uppercase text-black md:flex">
-                <Link
+              </div> */}
+              <div className="flex items-center gap-4 text-sm font-semibold uppercase text-black">
+                {/* <Link
                   className="text-black text-opacity-70 hover:text-opacity-100"
                   href="/"
                 >
                   Home
-                </Link>
+                </Link> */}
 
                 <Link
                   className="text-black text-opacity-70 hover:text-opacity-100"

@@ -37,7 +37,7 @@ export default function Home() {
           src={"/vert_dna_hd.jpeg"}
           // height={1200}
           // width={3000}
-          alt=""
+          alt="dna strand background"
           className="bg-black object-cover opacity-60 [object-position:15%]"
         ></Image>
         <div className="relative h-[50vh] min-h-[300px] w-full overflow-hidden">
