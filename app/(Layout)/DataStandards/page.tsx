@@ -17,7 +17,7 @@ export default function DataStandards() {
           src="/graph2.png"
           width={1200}
           height={700}
-          className=" min-w-[600px] [object-position:50%]"
+          className=" min-w-[600px] bg-black bg-opacity-50 bg-blend-multiply [object-position:50%]"
         />
       </div>
       {/* <div className="mx-auto max-w-4xl py-12">

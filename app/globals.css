@@ -29,3 +29,9 @@ body {
 .collapse-title {
   cursor: auto !important;
 }
+
+.myImg {
+  background-image: url("https://as2.ftcdn.net/v2/jpg/03/54/02/33/1000_F_354023351_fGecst2p9tAB0YKUtwDgLZekPe7ZA8ef.jpg");
+  height:"1000px",
+  /* object-position:50% */
+}
