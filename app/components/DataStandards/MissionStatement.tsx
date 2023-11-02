@@ -30,7 +30,7 @@ export default function MissionStatement() {
       <div className="mb-8 text-center font-medium">
         <Link
           className="mx-auto w-fit text-lg text-blue-500"
-          href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/PlasmoTarAmpResults"
+          href="https://seekdeep.brown.edu/Portable_Microhaplotype_Object/format/FormatOverview.html"
         >
           Draft Schema
         </Link>
