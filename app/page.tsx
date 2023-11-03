@@ -26,7 +26,7 @@ export default function Home() {
                 <h2 className="font-poppins font-semibold text-[#F3B941]">
                   Who We Are
                 </h2>
-                <p className="mx-auto mt-2 max-w-[500px] font-sans text-lg font-light">
+                <p className="font-roboto mx-auto mt-2 max-w-[500px] text-lg font-extralight ">
                   {" "}
                   We are a network of scientists who have come together since
                   2018 to address challenges in malaria genomic epidemiology.
@@ -38,7 +38,7 @@ export default function Home() {
                 <h2 className="font-poppins font-semibold text-[#F3B941]">
                   What We Do
                 </h2>
-                <p className="mx-auto mt-2 max-w-[500px] font-sans text-lg font-light">
+                <p className="font-roboto mx-auto mt-2 max-w-[500px] text-lg font-extralight ">
                   We advance development and dissemination of approaches for
                   plasmodium genomic epidemiology through creativity,
                   collaboration, and coding.

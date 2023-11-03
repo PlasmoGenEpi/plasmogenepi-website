@@ -5,7 +5,7 @@ export default function NavBar2({ currentNav }: { currentNav: string }) {
   return (
     <div className="">
       <div className="border-b">
-        <div className="mx-auto flex max-w-6xl p-2">
+        <div className="mx-auto flex max-w-5xl p-2">
           <Link href="/">
             <LogoTransparent width={75} color="black" />
           </Link>
@@ -14,8 +14,8 @@ export default function NavBar2({ currentNav }: { currentNav: string }) {
             <Link
               className={
                 currentNav === "OnlineCourse"
-                  ? "place-self-end border-b-4 border-[rgba(12,25,44)] py-2 font-sans font-bold transition-all"
-                  : "place-self-end border-b-4 border-transparent py-2 font-sans font-bold text-black text-opacity-60 transition-all hover:text-opacity-100 hover:transition-all"
+                  ? "place-self-end border-b-2 border-[rgba(12,25,44)] py-2 font-sans font-bold transition-all"
+                  : "place-self-end border-b-2 border-transparent py-2 font-sans font-bold text-black text-opacity-60 transition-all hover:text-opacity-100 hover:transition-all"
               }
               href="/OnlineCourse"
             >
@@ -24,8 +24,8 @@ export default function NavBar2({ currentNav }: { currentNav: string }) {
             <Link
               className={
                 currentNav === "DataStandards"
-                  ? "place-self-end border-b-4 border-[rgba(12,25,44)] py-2 font-sans font-bold transition-all"
-                  : "place-self-end border-b-4 border-transparent py-2 font-sans  font-bold text-black text-opacity-60 transition-all hover:text-opacity-100 hover:transition-all"
+                  ? "place-self-end border-b-2 border-[rgba(12,25,44)] py-2 font-sans font-bold transition-all"
+                  : "place-self-end border-b-2 border-transparent py-2 font-sans  font-bold text-black text-opacity-60 transition-all hover:text-opacity-100 hover:transition-all"
               }
               href="/DataStandards"
             >
