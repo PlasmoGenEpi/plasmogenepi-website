@@ -30,6 +30,8 @@ export default function MissionStatement() {
       <div className="mb-8 text-center font-medium">
         <Link
           className="mx-auto w-fit text-lg font-bold text-blue-500"
+          rel="noopener noreferrer"
+          target="_blank"
           href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/PlasmoTarAmpResults"
         >
           Draft Schema
