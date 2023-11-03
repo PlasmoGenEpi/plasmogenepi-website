@@ -22,10 +22,10 @@ export default function Accordion({
           className={"collapse-title relative text-2xl font-medium text-black "}
         >
           <div className="flex justify-between">
-            <h2 className=" cursor-auto text-xl text-black">
+            <h3 className=" cursor-auto text-xl text-black ">
               {" "}
               M0 &ndash; Malaria 101 &ndash; A Prelude to Genetic Surveillance{" "}
-            </h2>
+            </h3>
             <button
               onClick={(e) => {
                 if (openPages.includes(0)) {
@@ -77,10 +77,10 @@ export default function Accordion({
           }
         >
           <div className="flex justify-between">
-            <h2 className=" cursor-auto text-xl text-black">
+            <h3 className=" cursor-auto text-xl text-black">
               {" "}
               M1 &ndash; Malaria Epidemiology and Surveillance
-            </h2>
+            </h3>
             <button
               onClick={(e) => {
                 if (openPages.includes(1)) {
@@ -110,9 +110,9 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-xl font-bold">
+          <h3 className=" cursor-auto text-xl font-bold">
             M1 &ndash; Malaria Epidemiology and Surveillance
-          </h2> */}
+          </h3> */}
         </div>
         <div className="py- collapse-content px-6">
           <p className="mb-4">
@@ -141,10 +141,10 @@ export default function Accordion({
           }
         >
           <div className="flex justify-between">
-            <h2 className=" cursor-auto text-xl text-black">
+            <h3 className=" cursor-auto text-xl text-black">
               {" "}
               M2 &ndash; Basics of Malaria Genetic Surveillance
-            </h2>
+            </h3>
             <button
               onClick={(e) => {
                 if (openPages.includes(2)) {
@@ -174,9 +174,9 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-xl font-bold">
+          <h3 className=" cursor-auto text-xl font-bold">
             M2 &ndash; Basics of Malaria Genetic Surveillance
-          </h2> */}
+          </h3> */}
         </div>
         <div className="py- collapse-content px-6">
           <p className="mb-4">
@@ -189,7 +189,7 @@ export default function Accordion({
             genetic variation and how to interpret simple phenotypes from
             malaria parasites and vectors.
           </p>
-          <ul className="mb-4">
+          <ul className="mb-4 pl-8">
             <li className="list-disc">6 lecture videos (30 minutes)</li>
             <li className="list-disc">4 quizzes/activities (40 minutes)</li>
             <li className="list-disc">2 Job Aids (10 minutes)</li>
@@ -229,10 +229,10 @@ export default function Accordion({
           }
         >
           <div className="flex justify-between">
-            <h2 className=" cursor-auto text-xl text-black">
+            <h3 className=" cursor-auto text-xl text-black">
               {" "}
               M3 &ndash; Drug and Diagnostic Resistance
-            </h2>
+            </h3>
             <button
               onClick={(e) => {
                 if (openPages.includes(3)) {
@@ -262,9 +262,9 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-xl font-bold">
+          <h3 className=" cursor-auto text-xl font-bold">
             M3 &ndash; Drug and Diagnostic Resistance
-          </h2> */}
+          </h3> */}
         </div>
         <div className="py- collapse-content px-6">
           <p className="mb-4">
@@ -294,11 +294,11 @@ export default function Accordion({
           }
         >
           <div className="flex justify-between">
-            <h2 className=" cursor-auto text-xl text-black">
+            <h3 className=" cursor-auto text-xl text-black">
               {" "}
               M4 &ndash; Genetic Data Generation, Interpretation, and
               Applications
-            </h2>
+            </h3>
             <button
               onClick={(e) => {
                 if (openPages.includes(4)) {
@@ -328,9 +328,9 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-xl font-bold">
+          <h3 className=" cursor-auto text-xl font-bold">
             M4 &ndash; Genetic Data Generation, Interpretation, and Applications
-          </h2> */}
+          </h3> */}
         </div>
         <div className="py- collapse-content px-6">
           <p className="mb-4">
@@ -377,11 +377,11 @@ export default function Accordion({
           }
         >
           <div className="flex justify-between">
-            <h2 className=" cursor-auto text-xl text-black">
+            <h3 className=" cursor-auto text-xl text-black">
               {" "}
               M5 &ndash; Using Genetic Diversity and Relatedness to Evaluate
               Transmission
-            </h2>
+            </h3>
             <button
               onClick={(e) => {
                 if (openPages.includes(5)) {
@@ -411,10 +411,10 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-xl font-bold">
+          <h3 className=" cursor-auto text-xl font-bold">
             M5 &ndash; Using Genetic Diversity and Relatedness to Evaluate
             Transmission
-          </h2> */}
+          </h3> */}
         </div>
         <div className="py- collapse-content px-6">
           <p className="mb-4">
@@ -460,10 +460,10 @@ export default function Accordion({
           }
         >
           <div className="flex justify-between">
-            <h2 className=" cursor-auto text-xl text-black">
+            <h3 className=" cursor-auto text-xl text-black">
               {" "}
               M6 &ndash; Study Design for Malaria Genetic Surveillance
-            </h2>
+            </h3>
             <button
               onClick={(e) => {
                 if (openPages.includes(6)) {
@@ -493,9 +493,9 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-xl font-bold">
+          <h3 className=" cursor-auto text-xl font-bold">
             M6 &ndash; Study Design for Malaria Genetic Surveillance
-          </h2> */}
+          </h3> */}
         </div>
         <div className="py- collapse-content px-6">
           <p className="m4-2">
@@ -545,7 +545,7 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className="text-2xl font-bold">Design and Sampling</h2>
+          <h3 className="text-2xl font-bold">Design and Sampling</h3>
         </div>
         <div className="collapse-content px-6 py-">
           <p className="mb-4">
@@ -576,10 +576,10 @@ export default function Accordion({
           }
         >
         <div className=" right-2 md:right-8absolute">
-        <ExpandIcon /></div>          <h2 className=" text-2xl font-bold cursor-auto">
+        <ExpandIcon /></div>          <h3 className=" text-2xl font-bold cursor-auto">
             M4.2 - Study Design for Malaria Genetic Surveillance, Part 2 - Power
             and Sample Size
-          </h2>
+          </h3>
         </div>
         <div className="collapse-content px-6 mr-8">
           <p>
@@ -606,10 +606,10 @@ export default function Accordion({
           className={
             "collapse-title relative cursor-pointer text-2xl font-medium text-black "
           }
-        >          <h2 className=" text-2xl font-bold cursor-auto">
+        >          <h3 className=" text-2xl font-bold cursor-auto">
             M4.3 - Study Design for Malaria Genetic Surveillance, Part 3 -
             Connectivity and Importation
-          </h2>
+          </h3>
         </div>
         <div className="collapse-content px-6 mr-8">
           <p className="mb-4">
@@ -641,10 +641,10 @@ export default function Accordion({
           }
         >
           <div className="flex justify-between">
-            <h2 className=" cursor-auto text-xl text-black">
+            <h3 className=" cursor-auto text-xl text-black">
               {" "}
               M7 &ndash; Interpreting Results and Making Policy Recommendations
-            </h2>
+            </h3>
             <button
               onClick={(e) => {
                 if (openPages.includes(7)) {
@@ -674,9 +674,9 @@ export default function Accordion({
           >
             <ExpandIcon />
           </div>{" "}
-          <h2 className=" cursor-auto text-xl font-bold">
+          <h3 className=" cursor-auto text-xl font-bold">
             M7 &ndash; Interpreting Results and Making Policy Recommendations
-          </h2> */}
+          </h3> */}
         </div>
         <div className="py- collapse-content px-6">
           <p className="mb-4">
