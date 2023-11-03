@@ -1,126 +1,123 @@
 import Image from "next/image";
-import LogoPlay from "./components/LogoPlay";
+import LogoTransparent from "./components/LogoTransparent";
 import Footer from "./components/Footer";
 import Link from "next/link";
-import Logo from "./components/Logo";
-import NavBar from "./components/NavBar";
 
 export default function Home() {
-  // return (
-  //   <div className="relative flex min-h-screen flex-col overflow-hidden">
-  //     <div className="absolute mx-auto flex w-full max-w-6xl items-center justify-between">
-  //       <div className="bg-[rgb(22,22,22)]">
-  //         <LogoPlay />
-  //       </div>
-  //       <div>
-  //         <span className="text-4xl text-[rgb(22,22,22)]">PlasmoGenEpi</span>
-  //       </div>
-  //     </div>
-  //     <div className="max-h-[700px] bg-[rgb(22,22,22)]">
-  //       <Image
-  //         src={"/bw_world_abstract.png"}
-  //         height={700}
-  //         width={1200}
-  //         alt=""
-  //         className="mx-auto [object-position:15%]"
-  //       ></Image>
-  //     </div>
-  //   </div>
-  // );
   return (
-    <div className="relative min-h-screen">
-      {/* <NavBar /> */}
-      <div className="relative max-h-[50vh] min-h-[300px] overflow-hidden">
-        <Image
-          loading={"eager"}
-          fill
-          src={"/vert_dna_hd.jpeg"}
-          // height={1200}
-          // width={3000}
-          alt="dna strand background"
-          className="bg-black object-cover opacity-60 [object-position:15%]"
-        ></Image>
-        <div className="relative h-[50vh] min-h-[300px] w-full overflow-hidden">
-          <div className="absolute inset-0 grid max-w-6xl grid-rows-4 p-4 md:grid-cols-2 lg:mx-auto">
-            <div className="col-end-2 row-span-full flex max-w-[calc(100%-32px)]">
-              {/* <div className="ml-auto"> */}
-              <Logo width={400} />
-              {/* </div> */}
-            </div>
-
-            <div className="col-start-1 col-end-[-1] row-start-4 flex max-w-[calc(100%-32px)] items-end justify-center md:mx-4 md:justify-end md:pb-0">
-              {/* #ffa4a4 */}
-              {/* #ffbcbc */}
-              {/* #e0a7a7 */}
-              {/* #8fd3d6 */}
-              {/* #343b4c */}
-              {/* #294078 */}
-              <div className="text-center text-5xl font-medium text-black">
-                <span className="[fontSize:clamp(3rem,10vw,5rem)]">
-                  PlasmoGenEpi
-                </span>
+    <div className="">
+      <div className="relative h-[max(100vh,1200px)] w-full overflow-hidden md:h-[max(100vh,900px)]">
+        <div className="absolute inset-0 z-20 grid grid-rows-2 bg-gradient-to-l from-[#ffffffa0] to-transparent bg-blend-overlay md:grid-cols-2 md:grid-rows-2 lg:grid-rows-3">
+          <div className="flex flex-col items-center justify-center p-4 md:col-start-2 lg:row-span-2">
+            <LogoTransparent width={180} color={"black"} />
+            <h1 className="font-poppins mt-8 font-semibold tracking-tight text-[rgba(12,25,44)] [font-size:clamp(2rem,10vw,3.5rem)] md:mt-4">
+              PlasmoGenEpi
+            </h1>
+          </div>
+          {/* rgba(14,14,41,.8) */}
+          {/* rgba(10,10,41,0.8) */}
+          {/* rgba(4,11,17,0.8) */}
+          {/* rgba(12,25,44,0.8) */}
+          <div className="col-span-full overflow-hidden bg-[rgba(12,25,44,.95)] px-4 py-8 backdrop-blur md:row-span-1 lg:row-start-3">
+            <div className="mx-auto grid h-full max-w-6xl gap-6 text-center text-xl text-white md:grid-cols-2 md:grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
+              <div className="relative border-white border-opacity-20">
+                <div className="absolute -left-3 z-30 hidden h-full w-[1px] [background-image:linear-gradient(#ffffff40,silver,#ffffff40,transparent)] xl:block"></div>
+                {/* <div className="absolute -right-1 z-30 hidden h-full w-[1px] [background-image:linear-gradient(#ffffff40,white,#ffffff40,transparent)] lg:block"></div> */}
+                <h2 className="font-poppins font-semibold text-[#F3B941]">
+                  Who We Are
+                </h2>
+                <p className="font-roboto mx-auto mt-2 max-w-[500px] text-lg font-extralight ">
+                  {" "}
+                  We are a network of scientists who have come together since
+                  2018 to address challenges in malaria genomic epidemiology.
+                </p>
+              </div>
+              <div className="relative border-white border-opacity-20 lg:translate-y-20">
+                <div className="absolute -left-3 z-30 hidden h-full w-[1px] [background-image:linear-gradient(#ffffff40,silver,#ffffff40,transparent)] lg:block"></div>
+                <div className="absolute -right-3 z-30 hidden h-full w-[1px] -translate-y-12 [background-image:linear-gradient(#ffffff40,silver,#ffffff40,transparent)] lg:block"></div>
+                <h2 className="font-poppins font-semibold text-[#F3B941]">
+                  What We Do
+                </h2>
+                <p className="font-roboto mx-auto mt-2 max-w-[500px] text-lg font-extralight ">
+                  We advance development and dissemination of approaches for
+                  plasmodium genomic epidemiology through creativity,
+                  collaboration, and coding.
+                </p>
+              </div>
+              <div className="relative flex flex-col border-white border-opacity-20 md:col-span-full md:col-start-2 md:row-span-2 md:row-start-1 md:my-20 lg:col-span-1 lg:col-start-auto lg:row-start-auto lg:my-0">
+                <div className="absolute -left-1 z-30 hidden h-full w-[1px] [background-image:linear-gradient(#ffffff40,white,#ffffff40,transparent)] md:block lg:hidden"></div>
+                <div className="absolute -right-3 z-30 hidden h-full w-[1px] -translate-y-20 [background-image:linear-gradient(#ffffff40,silver,#ffffff40,transparent)]  xl:block"></div>
+                <h2 className=" font-poppins font-semibold text-[#F3B941]">
+                  Our Work
+                </h2>
+                <div className="my-6 flex grow flex-col gap-4  md:flex-row md:justify-around lg:flex-col lg:justify-normal">
+                  <Link
+                    href="/OnlineCourse"
+                    className="font-poppins mx-auto h-fit w-fit py-2 text-base font-semibold uppercase text-white text-opacity-60 transition-all hover:text-opacity-100"
+                  >
+                    Online Course
+                  </Link>
+                  <Link
+                    href="/DataStandards"
+                    className="font-poppins mx-auto h-fit w-fit py-2 text-base font-semibold uppercase text-white text-opacity-60 transition-all hover:text-opacity-100"
+                  >
+                    Data Standards
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-          {/* <div className="pointer-events-none inset-0 origin-top-left scale-110 bg-black bg-opacity-20  bg-blend-overlay transition-all duration-1000 [background-image:url('/horz_dna.jpeg')] [background-size:100%] hover:origin-bottom-right hover:transition-all hover:duration-1000"></div> */}
         </div>
-      </div>
-      <div className="mx-4 max-w-4xl md:mx-auto md:mt-12">
-        <div className="grid gap-4 text-center md:gap-6">
-          {/* <h2 className="text-4xl font-extrabold text-[#F3B941]">Who We Are</h2> */}
-          {/* #ff7676 */}
-          {/* #588deb */}
-          {/* <h2 className="text-4xl font-extrabold text-[#F3B941]">Who We Are</h2> */}
-          <div className="min-h-80 grid gap-4 p-4 [grid-template-rows:auto_auto] md:grid-cols-2">
-            <div className="my-auto py-8">
-              <h2 className="py-4 text-4xl font-extrabold text-[#F3B941]">
-                Who We Are
-              </h2>
-              <p className="text-lg font-light text-black ">
-                We are a network of scientists who have come together since 2018
-                to address challenges in malaria genomic epidemiology.
-              </p>
-            </div>
-            <div className="flex flex-col text-3xl">
-              <h3 className="mb-8 font-serif">Sign up for our mailing list</h3>
-              <Link
-                href="/SignUp"
-                className="hover:transiton-colors m-auto w-fit rounded-xl border-black bg-[#FFBCBC] px-12 py-6 font-semibold text-white shadow-lg transition-colors hover:bg-[#ffa8a8] md:mt-4"
-              >
-                Sign up
-              </Link>
-            </div>
-          </div>
-          <div className="min-h-80 grid gap-8 border-t-4 py-4 pb-20 [grid-template-rows:auto_auto] md:grid-cols-2 md:grid-rows-2 md:gap-4 md:pt-8">
-            <div className=" px-2  md:col-start-2 md:py-0">
-              <h2 className="py-4 text-4xl font-extrabold text-[#F3B941] ">
-                What We Do
-              </h2>
-              <p className="text-lg font-light text-black ">
-                We advance development and dissemination of approaches for
-                plasmodium genomic epidemiology through creativity,
-                collaboration, and coding.
-              </p>
-            </div>
-            <div className="flex flex-col gap-6 text-3xl md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-3">
-              <h3 className="font-serif">Our Work So Far</h3>
-              <Link
-                href="/OnlineCourse"
-                className="mx-auto w-fit  text-2xl font-semibold text-black text-opacity-60 hover:text-opacity-100 md:mt-8"
-              >
-                Online Course
-              </Link>
-              <Link
-                href="/DataStandards"
-                className="mx-auto w-fit text-2xl font-semibold text-black text-opacity-60 hover:text-opacity-100"
-              >
-                Data Standards
-              </Link>
-            </div>
-          </div>
-        </div>
+        <Image
+          priority
+          fill
+          src="/vert_dna_hd.jpeg"
+          alt=""
+          className="object-cover [object-position:25%]"
+        />
       </div>
       <Footer />
     </div>
   );
+
+  // return (
+  //   <div className="relative min-h-screen w-full">
+  //     <div className="absolute inset-0 z-20 grid grid-cols-3 [background:radial-gradient(circle_at_50%_0%,_transparent,black)]">
+  //       {/* <h1 className="text-right">PlasmoGenEpi</h1> */}
+  //       <div className="col-span-3">
+  //         <div className=" mx-auto ml-auto max-w-[300px]">
+  //           <LogoTransparent />
+  //         </div>
+  //       </div>
+  //       <div className="mt-auto text-center text-6xl text-white">
+  //         PlasmoGenEpi
+  //       </div>
+
+  //       {/* <div className="col-span-3 [background-image:linear-gradient(to_bottom_right,black,transparent_33%,transparent_66%,_black)]"></div> */}
+  //       {/* <div className="col-start-3 bg-black"></div> */}
+  //     </div>
+
+  //     <Image
+  //       fill
+  //       src="/vert_dna_hd.jpeg"
+  //       alt=""
+  //       className="bg-black object-cover [object-position:25%_100%]"
+  //     />
+  //   </div>
+  // );
+
+  // return (
+  //   <div className="relative min-h-screen w-full">
+  //     <div className="absolute inset-0 z-20 grid grid-cols-3">
+  //       <div className="col-span-2  bg-black bg-opacity-80"></div>
+  //       {/* <h1 className="text-right">PlasmoGenEpi</h1> */}
+  //     </div>
+  //     <Image
+  //       fill
+  //       src="/blue_dna.jpeg"
+  //       alt=""
+  //       className="bg-black object-cover [object-position:75%]"
+  //     />
+  //   </div>
+  // );
 }

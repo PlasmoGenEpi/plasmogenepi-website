@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: "var(--font-poppins)",
+        roboto: "var(--font-roboto)",
+      },
       darkMode: false,
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -16,6 +20,7 @@ const config: Config = {
       },
     },
   },
+
   plugins: [require("daisyui")],
   daisyui: {
     themes: ["light"],

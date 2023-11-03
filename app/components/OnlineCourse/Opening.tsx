@@ -1,23 +1,25 @@
 export default function Opening() {
   return (
     <div className="mb-8">
-      <h1 className="mb-4 text-3xl font-bold">
+      <h1 className="font-poppins mb-4 text-3xl font-bold">
         From Data to Insight - A Practical Introduction to Interpreting Malaria
         Genetics for Surveillance
       </h1>
       <p className="mb-4">
-        <span className="font-medium">Course Goal</span>: to equip researchers,
+        <span className="font-bold">Course Goal</span>: to equip researchers,
         students, and public health officials with the knowledge and skills
         needed to effectively use malaria Genetic data in epidemiological
         research and public health decision-making.
       </p>
       <p className="mb-4">
-        <span className="font-medium">Course Format</span>: online, indepedent
+        <span className="font-bold">Course Format</span>: online, indepedent
         self-study requiring 10-12 hours to complete. Content includes a mix of
         video lectures, interactive case studies, quizzes, moderated discussion
         forums and job aids.
       </p>
-      <h3 className="mb-2 text-xl font-bold">What you will learn:</h3>
+      <h3 className="font-poppins mb-2 text-xl font-bold">
+        What you will learn:
+      </h3>
       <ol className="ml-8 list-decimal">
         <li>
           Summarize the basic concepts and main use cases of malaria Genetic

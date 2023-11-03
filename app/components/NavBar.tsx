@@ -4,6 +4,7 @@ import LogoPlay from "./LogoPlay";
 import Link from "next/link";
 import Logo from "./Logo";
 import NavPage from "./NavPage";
+import LogoTransparent from "./LogoTransparent";
 
 export default function NavBar() {
   const [navOpen, setNavOpen] = useState(false);
@@ -13,11 +14,11 @@ export default function NavBar() {
       {/* {navOpen && <NavPage setter={setNavOpen} />} */}
       <div className=" max-w-6xl md:mx-auto">
         <div className="px-2">
-          <div className="relative flex h-[100px] justify-end">
-            <div className="absolute -left-6 -top-1">
+          <div className="relative flex h-[110px] justify-end">
+            <div className="absolute left-0 top-1">
               <Link href="/">
                 {/* <LogoPlay width={120} /> */}
-                <Logo width={120} />
+                <LogoTransparent width={80} color="black" />
               </Link>
             </div>
             <div className="flex items-center pt-8">

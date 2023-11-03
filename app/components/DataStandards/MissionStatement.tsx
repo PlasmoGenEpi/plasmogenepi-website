@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function MissionStatement() {
   return (
     <div className="px-2 pb-40">
-      <h2 className="mb-4 text-2xl font-bold">
+      <h2 className="font-poppins mb-4 text-2xl font-bold">
         Proposed standards for targeted amplicon data and metadata
       </h2>
       <p className="mb-2">
@@ -29,8 +29,10 @@ export default function MissionStatement() {
       </p>
       <div className="mb-8 text-center font-medium">
         <Link
-          className="mx-auto w-fit text-lg text-blue-500"
-          href="https://seekdeep.brown.edu/Portable_Microhaplotype_Object/format/FormatOverview.html"
+          className="mx-auto w-fit text-lg font-bold text-blue-500"
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/PlasmoTarAmpResults"
         >
           Draft Schema
         </Link>
