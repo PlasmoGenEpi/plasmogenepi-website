@@ -32,7 +32,7 @@ export default function MissionStatement() {
           className="mx-auto w-fit text-lg font-bold text-blue-500"
           rel="noopener noreferrer"
           target="_blank"
-          href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/PlasmoTarAmpResults"
+          href="https://seekdeep.brown.edu/Portable_Microhaplotype_Object/format/FormatOverview.html"
         >
           Draft Schema
         </Link>
