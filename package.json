@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "jotai": "^2.6.0",
     "next": "13.5.4",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.5",
     "react": "^18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-touch-backend": "^16.0.1",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
