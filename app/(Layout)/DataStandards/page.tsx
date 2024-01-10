@@ -16,12 +16,12 @@ export default function DataStandards() {
       <div className="flex flex-col items-center font-roboto">
         <div className="mx-4 flex max-w-full justify-center overflow-hidden">
           <Image
-            priority
+            placeholder="empty"
             alt="schema"
             src="/graph2.png"
             width={1200}
             height={336}
-            className=" bg-black min-w-[600px] bg-opacity-50 bg-blend-multiply [object-position:50%]"
+            className="min-w-[600px] [object-position:50%]"
           />
         </div>
         {/* <div className="mx-auto max-w-4xl py-12">

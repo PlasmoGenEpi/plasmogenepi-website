@@ -38,13 +38,13 @@ export default function Accordion({
                   setOpenPages([...openPages, 0]);
                 }
               }}
-              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
             >
               <ExpandIcon />
             </button>
           </div>
         </div>
-        <div className={"collapse-content px-6"}>
+        <div className={"collapse-content pl-6 pr-12"}>
           <p className="mb-4">
             In this introductory module we will quickly review the basic
             epidemiology of malaria, including its transmission, health
@@ -93,7 +93,7 @@ export default function Accordion({
                   setOpenPages([...openPages, 1]);
                 }
               }}
-              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
             >
               <ExpandIcon />
             </button>
@@ -114,7 +114,7 @@ export default function Accordion({
             M1 &ndash; Malaria Epidemiology and Surveillance
           </h3> */}
         </div>
-        <div className="py- collapse-content px-6">
+        <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
             Traditional surveillance is the foundation of effective malaria
             control, but it has some limitations. In this module, you will learn
@@ -157,7 +157,7 @@ export default function Accordion({
                   setOpenPages([...openPages, 2]);
                 }
               }}
-              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
             >
               <ExpandIcon />
             </button>
@@ -178,7 +178,7 @@ export default function Accordion({
             M2 &ndash; Basics of Malaria Genetic Surveillance
           </h3> */}
         </div>
-        <div className="py- collapse-content px-6">
+        <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
             What can the DNA of malaria parasites tell you about where an
             infection came from, if you&apos;ll be able to detect it with a
@@ -245,7 +245,7 @@ export default function Accordion({
                   setOpenPages([...openPages, 3]);
                 }
               }}
-              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
             >
               <ExpandIcon />
             </button>
@@ -266,7 +266,7 @@ export default function Accordion({
             M3 &ndash; Drug and Diagnostic Resistance
           </h3> */}
         </div>
-        <div className="py- collapse-content px-6">
+        <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
             Drug and diagnostic resistance are two of the most relevant genetic
             epidemiology use cases. In this module you will explore the
@@ -311,7 +311,7 @@ export default function Accordion({
                   setOpenPages([...openPages, 4]);
                 }
               }}
-              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
             >
               <ExpandIcon />
             </button>
@@ -332,7 +332,7 @@ export default function Accordion({
             M4 &ndash; Genetic Data Generation, Interpretation, and Applications
           </h3> */}
         </div>
-        <div className="py- collapse-content px-6">
+        <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
             Different use cases require different methods. This module explores
             the strengths and weaknesses of different techniques for generating
@@ -394,7 +394,7 @@ export default function Accordion({
                   setOpenPages([...openPages, 5]);
                 }
               }}
-              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
             >
               <ExpandIcon />
             </button>
@@ -416,7 +416,7 @@ export default function Accordion({
             Transmission
           </h3> */}
         </div>
-        <div className="py- collapse-content px-6">
+        <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
             Now that you&apos;ve generated some Genetic data, you need to choose
             the right metrics. In this module, you will learn how to choose the
@@ -482,7 +482,7 @@ export default function Accordion({
                   setOpenPages([...openPages, 6]);
                 }
               }}
-              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
             >
               <ExpandIcon />
             </button>
@@ -503,7 +503,7 @@ export default function Accordion({
             M6 &ndash; Study Design for Malaria Genetic Surveillance
           </h3> */}
         </div>
-        <div className="py- collapse-content px-6">
+        <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
             Genetic data are only as good as the surveillance system or study
             that from which they were collected. But what makes a good malaria
@@ -539,7 +539,7 @@ export default function Accordion({
           </div>{" "}
           <h3 className="text-2xl font-bold">Design and Sampling</h3>
         </div>
-        <div className="collapse-content px-6 py-">
+        <div className="collapse-content pl-6 pr-12 py-">
           <p className="mb-4">
             Genetic data are only as good as the surveillance system or study
             that from which they were collected. But what makes a good malaria
@@ -573,7 +573,7 @@ export default function Accordion({
             and Sample Size
           </h3>
         </div>
-        <div className="collapse-content px-6 mr-8">
+        <div className="collapse-content pl-6 pr-12 mr-8">
           <p>
             In this module, you will continue to explore best practices for
             developing effective Genetic surveillance studies. You will learn to
@@ -603,7 +603,7 @@ export default function Accordion({
             Connectivity and Importation
           </h3>
         </div>
-        <div className="collapse-content px-6 mr-8">
+        <div className="collapse-content pl-6 pr-12 mr-8">
           <p className="mb-4">
             In this third and final module on study design, you will focus on
             critically evaluating different study designs for measuring
@@ -649,7 +649,7 @@ export default function Accordion({
                   setOpenPages([...openPages, 7]);
                 }
               }}
-              className=" -translate-y-4 translate-x-4 cursor-pointer p-4"
+              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
             >
               <ExpandIcon />
             </button>
@@ -670,7 +670,7 @@ export default function Accordion({
             M7 &ndash; Interpreting Results and Making Policy Recommendations
           </h3> */}
         </div>
-        <div className="py- collapse-content px-6">
+        <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
             The goal of malaria Genetic surveillance is to design and deliver
             more effective control programs, which will prevent illness and
@@ -697,7 +697,7 @@ export default function Accordion({
   <div class="collapse-title text-xl font-medium">
     Click to open this one and close others
   </div>
-  <div class="collapse-content px-6">
+  <div class="collapse-content pl-6 pr-12">
     <p>hello</p>
   </div>
 </div>
@@ -706,7 +706,7 @@ export default function Accordion({
   <div class="collapse-title text-xl font-medium">
     Click to open this one and close others
   </div>
-  <div class="collapse-content px-6">
+  <div class="collapse-content pl-6 pr-12">
     <p>hello</p>
   </div>
 </div>
@@ -715,7 +715,7 @@ export default function Accordion({
   <div class="collapse-title text-xl font-medium">
     Click to open this one and close others
   </div>
-  <div class="collapse-content px-6">
+  <div class="collapse-content pl-6 pr-12">
     <p>hello</p>
   </div>
 </div> */

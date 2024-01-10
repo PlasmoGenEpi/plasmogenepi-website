@@ -130,7 +130,7 @@ export default function OnlineCourse() {
           </div>
         </div>
 
-        <div className="max-w-6xl px-2 py-6 md:mx-auto md:py-12">
+        <div className="max-w-4xl px-2 py-6 md:mx-auto md:py-12">
           <div className="">
             {/* <div className=" mb-8 grid gap-4 md:grid-cols-2">
             <div className="mx-auto flex text-center">
