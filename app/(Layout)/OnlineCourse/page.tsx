@@ -11,10 +11,10 @@ export default function OnlineCourse() {
     <div>
       <NavBar2 currentNav="OnlineCourse" />
       <div className="font-roboto">
-        <div className="relative h-[max(40vh,_400px)] overflow-hidden bg-black ">
+        <div className="bg-black relative h-[max(40vh,_400px)] overflow-hidden ">
           {/* <div className="absolute inset-0 z-20 bg-black bg-opacity-50"></div> */}
           <div className="absolute inset-0 z-30 mx-auto hidden max-w-6xl gap-4 p-4 md:grid md:grid-cols-2">
-            <div className="mx-auto flex text-center text-white ">
+            <div className="text-white mx-auto flex text-center ">
               <div className="mb-8 mt-auto">
                 <h2 className=" mb-4 font-serif text-2xl md:text-5xl">
                   Get started on the course
@@ -99,7 +99,7 @@ export default function OnlineCourse() {
           />
       </div> */}
         <div className="mx-auto my-4 grid max-w-4xl gap-4 px-2 md:mt-12 md:hidden md:grid-cols-2">
-          <div className="mx-auto flex text-center text-black">
+          <div className="text-black mx-auto flex text-center">
             <div className="mt-auto">
               <h2 className="mb-4 font-serif text-4xl md:text-5xl">
                 Get started on the course
@@ -130,7 +130,7 @@ export default function OnlineCourse() {
           </div>
         </div>
 
-        <div className="max-w-4xl px-2 py-6 md:mx-auto md:py-12">
+        <div className="max-w-6xl px-2 py-6 md:mx-auto md:py-12">
           <div className="">
             {/* <div className=" mb-8 grid gap-4 md:grid-cols-2">
             <div className="mx-auto flex text-center">
@@ -167,7 +167,7 @@ export default function OnlineCourse() {
               <Opening />
             </div>
             <div className="md:mx-auto">
-              <h2 className="font-poppins mb-2 text-2xl font-bold">
+              <h2 className="mb-2 font-poppins text-2xl font-bold">
                 Overview of Modules
               </h2>
               <Accordion pages={[]} />

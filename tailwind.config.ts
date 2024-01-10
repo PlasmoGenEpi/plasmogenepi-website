@@ -8,6 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "pge-darkest-blue": "#081120",
+        "pge-dark-blue": "#0c192c",
+        "pge-blue": "#2a4b7b",
+        "pge-light-blue": "",
+        "pge-darkest-yellow": "",
+        "pge-dark-yellow": "",
+        "pge-yellow": "#F3B941",
+        "pge-light-yellow": "",
+        "pge-white": "#e2e2e2",
+        "pge-black": "",
+      },
       fontFamily: {
         poppins: "var(--font-poppins)",
         roboto: "var(--font-roboto)",
