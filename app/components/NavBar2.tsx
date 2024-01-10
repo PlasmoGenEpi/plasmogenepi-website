@@ -71,15 +71,17 @@ export default function NavBar2({ currentNav }: { currentNav: string }) {
         <div
           className={
             openMenu
-              ? "flex h-36 flex-col items-center justify-around bg-pge-blue transition-all md:hidden"
-              : "pointer-events-none flex h-4 flex-col items-center justify-around bg-pge-blue transition-all"
+              ? "flex h-36 flex-col items-center justify-around bg-pge-blue py-2 transition-all md:hidden"
+              : "pointer-events-none flex h-0 flex-col items-center justify-around bg-pge-blue py-2 transition-all"
           }
         >
           <Link
             className={
               !openMenu
                 ? "hidden"
-                : "text-white w-full py-2 text-center font-bold hover:bg-pge-dark-blue"
+                : currentNav === "OnlineCourse"
+                ? "text-white w-full py-2 text-center font-bold underline underline-offset-2"
+                : "text-white w-full py-2 text-center font-bold"
             }
             href="/OnlineCourse"
           >
@@ -89,7 +91,9 @@ export default function NavBar2({ currentNav }: { currentNav: string }) {
             className={
               !openMenu
                 ? "hidden"
-                : "text-white w-full py-2 text-center font-bold hover:bg-pge-dark-blue"
+                : currentNav === "DataStandards"
+                ? "text-white w-full py-2 text-center font-bold underline underline-offset-2"
+                : "text-white w-full py-2 text-center font-bold"
             }
             href="/DataStandards"
           >
@@ -99,7 +103,9 @@ export default function NavBar2({ currentNav }: { currentNav: string }) {
             className={
               !openMenu
                 ? "hidden"
-                : "text-white w-full py-2 text-center font-bold hover:bg-pge-dark-blue"
+                : currentNav === "Groups"
+                ? "text-white w-full py-2 text-center font-bold underline underline-offset-2"
+                : "text-white w-full py-2 text-center font-bold"
             }
             href="/Groups"
           >

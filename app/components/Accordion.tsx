@@ -19,10 +19,10 @@ export default function Accordion({
         }
       >
         <div
-          className={"collapse-title relative text-2xl font-medium text-black "}
+          className={"text-black collapse-title relative text-2xl font-medium "}
         >
           <div className="flex justify-between">
-            <h3 className=" cursor-auto text-xl text-black ">
+            <h3 className=" text-black cursor-auto text-xl ">
               {" "}
               M0 &ndash; Malaria 101 &ndash; A Prelude to Genetic Surveillance{" "}
             </h3>
@@ -73,11 +73,11 @@ export default function Accordion({
       >
         <div
           className={
-            "collapse-title relative cursor-auto text-2xl font-medium text-black "
+            "text-black collapse-title relative cursor-auto text-2xl font-medium "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" cursor-auto text-xl text-black">
+            <h3 className=" text-black cursor-auto text-xl">
               {" "}
               M1 &ndash; Malaria Epidemiology and Surveillance
             </h3>
@@ -137,11 +137,11 @@ export default function Accordion({
       >
         <div
           className={
-            "collapse-title relative cursor-auto text-2xl font-medium text-black "
+            "text-black collapse-title relative cursor-auto text-2xl font-medium "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" cursor-auto text-xl text-black">
+            <h3 className=" text-black cursor-auto text-xl">
               {" "}
               M2 &ndash; Basics of Malaria Genetic Surveillance
             </h3>
@@ -181,17 +181,17 @@ export default function Accordion({
         <div className="py- collapse-content px-6">
           <p className="mb-4">
             What can the DNA of malaria parasites tell you about where an
-            infection came from, if you’ll be able to detect it with a standard
-            rapid diagnostic test, and if it will respond to antimalarial drugs?
-            In this module you will explore the relationship between genetics
-            and the transmission and biology of malaria, and how it can be used
-            to answer these and other questions. You will also learn about
-            genetic variation and how to interpret simple phenotypes from
-            malaria parasites and vectors.
+            infection came from, if you&apos;ll be able to detect it with a
+            standard rapid diagnostic test, and if it will respond to
+            antimalarial drugs? In this module you will explore the relationship
+            between genetics and the transmission and biology of malaria, and
+            how it can be used to answer these and other questions. You will
+            also learn about genetic variation and how to interpret simple
+            phenotypes from malaria parasites and vectors.
           </p>
           <ul className="mb-4 pl-8">
             <li className="list-disc">6 lecture videos (30 minutes)</li>
-            <li className="list-disc">4 quizzes/activities (40 minutes)</li>
+            <li className="list-disc">7 quizzes/activities (40 minutes)</li>
             <li className="list-disc">2 Job Aids (10 minutes)</li>
           </ul>
           <div className="mb-8">
@@ -199,7 +199,7 @@ export default function Accordion({
               Click the link to preview an interactive activity:{" "}
             </span>
             <Link
-              className="font-medium text-blue-500"
+              className="text-blue-500 font-medium"
               href="https://rise.articulate.com/share/YNOwF89jtNTsz3q9YcC0xAJewoNCWqFy#/"
             >
               Genotype Sleuthing with SNPs and Microhaplotypes
@@ -210,7 +210,7 @@ export default function Accordion({
               Click the link to preview an interactive activity:{" "}
             </span>
             <Link
-              className="font-medium text-blue-500"
+              className="text-blue-500 font-medium"
               href="https://rise.articulate.com/share/6TCn8pd8EYNv9SYxpWmN4VSjs5JsWjJV#/"
             >
               M2 &ndash; Basics of Malaria Genetic Surveillance
@@ -225,11 +225,11 @@ export default function Accordion({
       >
         <div
           className={
-            "collapse-title relative cursor-auto text-2xl font-medium text-black "
+            "text-black collapse-title relative cursor-auto text-2xl font-medium "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" cursor-auto text-xl text-black">
+            <h3 className=" text-black cursor-auto text-xl">
               {" "}
               M3 &ndash; Drug and Diagnostic Resistance
             </h3>
@@ -272,7 +272,7 @@ export default function Accordion({
             epidemiology use cases. In this module you will explore the
             relationship between drug resistance marker genotypes and malaria
             treatment outcomes. You will also learn the genetic basis of
-            diagnostic resistance. Finally, you will discuss how you cantrack
+            diagnostic resistance. Finally, you will discuss how you can track
             drug and diagnostic resistance in the field, and what is the
             relevance of genetic surveillance.
           </p>
@@ -290,11 +290,11 @@ export default function Accordion({
       >
         <div
           className={
-            "collapse-title relative cursor-auto text-2xl font-medium text-black "
+            "text-black collapse-title relative cursor-auto text-2xl font-medium "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" cursor-auto text-xl text-black">
+            <h3 className=" text-black cursor-auto text-xl">
               {" "}
               M4 &ndash; Genetic Data Generation, Interpretation, and
               Applications
@@ -340,17 +340,17 @@ export default function Accordion({
             generation sequencing. You will learn how to choose appropriate
             techniques for common use cases, including identifying vector
             species, TES, drug resistance, diagnostic and insecticide
-            resistance. Finally, you will gain a basic insight into
-            next-generation sequencing, its capabilities, and how the tools we
-            employ to analyze Genetic data operate.
+            resistance. Finally, you will gain a basic insight into next-
+            generation sequencing, its capabilities, and how the tools we employ
+            to analyze Genetic data operate.
           </p>
           <p className="mb-4">
-            If you are in the <span className="font-bold">research</span>{" "}
-            <span className="font-bold">cohort</span>, you will also learn how
-            to interpret results from common genotyping mthods, including qPCR
-            and Sanger sequencing.. Additionally, you will be able to explain
-            how next generation sequencing works and what are common
-            bioinformatic tools to analyze sequencing data.
+            If you are in the{" "}
+            <span className="font-bold">research cohort, </span>
+            you will also learn how to interpret results from common genotyping
+            methods, including qPCR and Sanger sequencing. Additionally, you
+            will be able to explain how next generation sequencing works and
+            what are common bioinformatic tools to analyze sequencing data.
           </p>
           <div className="mb-4">
             <p>Program Cohort</p>
@@ -373,11 +373,11 @@ export default function Accordion({
       >
         <div
           className={
-            "collapse-title relative cursor-auto text-2xl font-medium text-black "
+            "text-black collapse-title relative cursor-auto text-2xl font-medium "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" cursor-auto text-xl text-black">
+            <h3 className=" text-black cursor-auto text-xl">
               {" "}
               M5 &ndash; Using Genetic Diversity and Relatedness to Evaluate
               Transmission
@@ -419,22 +419,28 @@ export default function Accordion({
         <div className="py- collapse-content px-6">
           <p className="mb-4">
             Now that you&apos;ve generated some Genetic data, you need to choose
-            the right metrics.{" "}
+            the right metrics. In this module, you will learn how to choose the
+            appropriate metrics derived from Genetic data depending on the
+            questions you are asking. You will also learn to match measures of
+            genetic diversity to different epidemiological scenarios and how to
+            assess transmission intensity and connectivity in different
+            populations
           </p>
-          <p className="mb-4">
+          <p className="mb-4">Use cases include...</p>
+          {/* <p className="mb-4">
             In this module, you will learn how to choose the appropriate metrics
             derived from Genetic data depending on the questions you are asking.
             You will also learn to match measures of genetic diversity to
             different epidemiological scenarios and how to assess transmission
             intensity and connectivity in different populations.
-          </p>
+          </p> */}
           <p className="mb-4">
-            If you are in the <span className="font-bold">research</span>{" "}
-            <span className="font-bold">cohort</span>, you will take a deeper
-            dive into assessing within-host diversity and parasite connectivity
-            using fst, Josts D, IBD and IBS
+            If you are in the{" "}
+            <span className="font-bold">research cohort, </span>
+            you will take a deeper dive into assessing within-host diversity and
+            parasite connectivity using fst, Josts D, IBD and IBS.
           </p>
-          <p className="mb-4">Use cases include ...</p>
+          {/* <p className="mb-4">Use cases include ...</p> */}
           <div className="mb-4">
             <p>Program Cohort:</p>
             <ul className="pl-8">
@@ -456,11 +462,11 @@ export default function Accordion({
       >
         <div
           className={
-            "collapse-title relative cursor-auto text-2xl font-medium text-black "
+            "text-black collapse-title relative cursor-auto text-2xl font-medium "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" cursor-auto text-xl text-black">
+            <h3 className=" text-black cursor-auto text-xl">
               {" "}
               M6 &ndash; Study Design for Malaria Genetic Surveillance
             </h3>
@@ -498,32 +504,18 @@ export default function Accordion({
           </h3> */}
         </div>
         <div className="py- collapse-content px-6">
-          <p className="m4-2">
-            Now that you&apos;ve generated some Genetic data, you need to choose
-            the right metrics.
-          </p>
           <p className="mb-4">
-            In this module, you will learn how to choose the appropriate metrics
-            derived from Genetic data depending on the questions you are asking.
-            You will also learn to match measures of genetic diversity to
-            different epidemiological scenarios and how to assess transmission
-            intensity and connectivity in different populations.
+            Genetic data are only as good as the surveillance system or study
+            that from which they were collected. But what makes a good malaria
+            Genetic surveillance study? In this module, you will start to learn
+            how to design effective Genetic surveillance studies. Topics study
+            design, sampling, stratification, power and sample size. You will
+            also learn how to critically assess the pros and cons of different
+            approaches fto study design for different use cases.
           </p>
-          <p className="mb-4">Use cases include ...</p>
-          <p className="mb-4">
-            If you are in the research cohort, you will take a deeper dive into
-            assessing within-host diversity and parasite connectivity using fst,
-            Josts D, IBD and IBS.
-          </p>
-          <p>Program Cohort:</p>
           <ul className="mb-4 pl-8">
-            <li className="list-disc">8 lecture videos (40 minutes)</li>
-            <li className="list-disc">6 activities (30 minutes)</li>
-          </ul>
-          <p>Research Cohort:</p>
-          <ul className="pl-8">
-            <li className="list-disc">10 lecture videos (50 minutes)</li>
-            <li className="list-disc">8 activities (60 minutes)</li>
+            <li className="list-disc">12 lecture videos (60 minutes)</li>
+            <li className="list-disc">2 activities (20 minutes)</li>
           </ul>
         </div>
       </div>
@@ -637,11 +629,11 @@ export default function Accordion({
       >
         <div
           className={
-            "collapse-title relative cursor-auto text-2xl font-medium text-black "
+            "text-black collapse-title relative cursor-auto text-2xl font-medium "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" cursor-auto text-xl text-black">
+            <h3 className=" text-black cursor-auto text-xl">
               {" "}
               M7 &ndash; Interpreting Results and Making Policy Recommendations
             </h3>
