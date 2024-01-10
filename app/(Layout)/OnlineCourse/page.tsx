@@ -116,12 +116,16 @@ export default function OnlineCourse() {
           </div>
           <div className="flex flex-col justify-end gap-8 text-center md:mt-8 md:gap-12">
             <Link
+              rel="noopener noreferrer"
+              target="_blank"
               href="https://rise.articulate.com/share/YNOwF89jtNTsz3q9YcC0xAJewoNCWqFy#/"
               className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-2 text-xl font-bold text-[white] shadow-sm transition-colors hover:bg-[#F9BF1C] hover:transition-colors"
             >
               Genotype Sleuthing with SNPs and Microhaplotypes
             </Link>
             <Link
+              rel="noopener noreferrer"
+              target="_blank"
               className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-2 text-xl font-bold text-[white] shadow-sm transition-colors hover:bg-[#F9BF1C] hover:transition-colors"
               href="https://rise.articulate.com/share/6TCn8pd8EYNv9SYxpWmN4VSjs5JsWjJV#/"
             >
