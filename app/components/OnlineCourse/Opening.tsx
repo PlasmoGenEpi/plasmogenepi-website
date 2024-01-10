@@ -1,9 +1,9 @@
 export default function Opening() {
   return (
     <div className="mb-8">
-      <h1 className="font-poppins mb-4 text-3xl font-bold">
-        From Data to Insight - A Practical Introduction to Interpreting Malaria
-        Genetics for Surveillance
+      <h1 className="mb-4 font-poppins text-3xl font-bold">
+        From Data to Insight &ndash; A Practical Introduction to Interpreting
+        Malaria Genetics for Surveillance
       </h1>
       <p className="mb-4">
         <span className="font-bold">Course Goal</span>: to equip researchers,
@@ -17,7 +17,7 @@ export default function Opening() {
         video lectures, interactive case studies, quizzes, moderated discussion
         forums and job aids.
       </p>
-      <h3 className="font-poppins mb-2 text-xl font-bold">
+      <h3 className="mb-2 font-poppins text-xl font-bold">
         What you will learn:
       </h3>
       <ol className="ml-8 list-decimal">

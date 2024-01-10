@@ -17,7 +17,7 @@ export default function OnlineCourse() {
             <div className="text-white mx-auto flex text-center ">
               <div className="mb-8 mt-auto">
                 <h2 className=" mb-4 font-serif text-2xl md:text-5xl">
-                  Get started on the course
+                  Preview part of the course
                 </h2>
                 <p className="mt-auto hidden md:block">
                   Follow the links to the right to get started with your
@@ -63,7 +63,7 @@ export default function OnlineCourse() {
           <div className="mx-auto flex text-center text-white ">
             <div className="mb-8 mt-auto">
             <h2 className="mb-4 font-serif text-2xl md:text-5xl">
-            Get started on the course
+            Preview part of the course
             </h2>
             <p className="mt-auto hidden md:block">
             Follow the links to the right to get started with your Sleuthing
@@ -102,7 +102,7 @@ export default function OnlineCourse() {
           <div className="text-black mx-auto flex text-center">
             <div className="mt-auto">
               <h2 className="mb-4 font-serif text-4xl md:text-5xl">
-                Get started on the course
+                Preview part of the course
               </h2>
               <p className="mt-auto hidden md:block">
                 Follow the links to the right to get started with your Sleuthing
@@ -136,7 +136,7 @@ export default function OnlineCourse() {
             <div className="mx-auto flex text-center">
               <div className="my-auto">
                 <h2 className="mb-4 font-serif text-5xl">
-                  Get started on the course
+                  Preview part of the course
                 </h2>
                 <p className="mt-auto hidden md:block">
                   Follow the links to the right to get started with your

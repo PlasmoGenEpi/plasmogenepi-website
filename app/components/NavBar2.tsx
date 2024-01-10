@@ -3,20 +3,27 @@ import Link from "next/link";
 import LogoTransparent from "./LogoTransparent";
 import ExpandIcon from "./ExpandIcon";
 import DropdownMenu from "./DropdownMenu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "./hooks/useMediaQuery";
 
 export default function NavBar2({ currentNav }: { currentNav: string }) {
   const [openMenu, setOpenMenu] = useState(false);
+  const matches = useMediaQuery("(min-width: 768px)");
+
+  useEffect(() => {
+    setOpenMenu(false);
+  }, [matches]);
+
   return (
     <div className="">
-      <div className={"border-b-[16px] border-b-pge-blue"}>
+      <div>
         <div className="mx-auto flex max-w-5xl p-2">
           <Link className=" flex items-end  md:flex-row" href="/">
             <LogoTransparent width={60} color="black" />
             <div className="ml-2 flex translate-y-1 flex-col   font-poppins text-2xl font-bold">
               <span className="">PlasmoGenEpi</span>
               <span className="text whitespace-nowrap text-xs text-pge-blue">
-                Plasomodium Genetic Epidemiology
+                Plasmodium Genetic Epidemiology
               </span>
             </div>
           </Link>
@@ -51,13 +58,13 @@ export default function NavBar2({ currentNav }: { currentNav: string }) {
             </Link>
             <Link
               className={
-                currentNav === "About"
+                currentNav === "Groups"
                   ? "place-self-end border-b-2 border-[rgba(12,25,44)] py-2 font-sans font-bold transition-all"
                   : "text-black place-self-end border-b-2 border-transparent py-2  font-sans font-bold text-opacity-60 transition-all hover:text-opacity-100 hover:transition-all"
               }
-              href="/DataStandards"
+              href="/Groups"
             >
-              About
+              Groups
             </Link>
           </div>
         </div>
@@ -65,7 +72,7 @@ export default function NavBar2({ currentNav }: { currentNav: string }) {
           className={
             openMenu
               ? "flex h-36 flex-col items-center justify-around bg-pge-blue transition-all md:hidden"
-              : "flex h-0 flex-col items-center justify-around bg-pge-blue transition-all md:hidden"
+              : "pointer-events-none flex h-4 flex-col items-center justify-around bg-pge-blue transition-all"
           }
         >
           <Link
@@ -94,9 +101,9 @@ export default function NavBar2({ currentNav }: { currentNav: string }) {
                 ? "hidden"
                 : "text-white w-full py-2 text-center font-bold hover:bg-pge-dark-blue"
             }
-            href="/About"
+            href="/Groups"
           >
-            About
+            Groups
           </Link>
         </div>
       </div>

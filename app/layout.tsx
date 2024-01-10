@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/* text-[#E1EAFA] */}
-        <main className={`${poppins.variable} ${roboto.variable}`}>
+        <main className={`${poppins.variable} ${roboto.variable} text-black`}>
           {children}
         </main>
       </body>
