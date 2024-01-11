@@ -9,9 +9,6 @@ export default function About() {
       <NavBar2 currentNav="Groups" />
       {/* <div className="py-8"></div> */}
       <div className="mx-auto mt-8 px-2 font-roboto">
-        <h1 className="mx-auto my-4 max-w-4xl font-poppins text-3xl">
-          Who we are
-        </h1>
         <div className="grid [grid-template-rows:_repeat(8,_minmax(0,_1fr))]">
           <AboutStripe
             logo={{

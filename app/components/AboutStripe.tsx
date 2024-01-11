@@ -21,7 +21,7 @@ export default function AboutStripe({
     <div
       className={stripe ? "bg-zinc-100 flex items-center" : "flex items-center"}
     >
-      <div className="m-auto mx-auto grid max-w-2xl grow grid-cols-2 gap-2 py-4">
+      <div className="m-auto mx-auto grid h-full max-w-2xl grow grid-cols-2 gap-2 py-4">
         <Link href={organization.url} className="place-self-center">
           <Image
             height={logo?.height || 100}

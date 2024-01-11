@@ -21,11 +21,11 @@ export default function OnlineCourse() {
                 </h2>
                 <p className="mt-auto hidden md:block">
                   Follow the links to the right to get started with your
-                  Sleuthing & Surveillance exercises.
+                  sleuthing & surveillance exercises.
                 </p>
                 <p className="mb-4 md:hidden">
-                  Follow the links below to get started with your Sleuthing &
-                  Surveillance exercises.
+                  Follow the links below to get started with your sleuthing &
+                  surveillance exercises.
                 </p>
               </div>
             </div>
@@ -105,12 +105,12 @@ export default function OnlineCourse() {
                 Preview part of the course
               </h2>
               <p className="mt-auto hidden md:block">
-                Follow the links to the right to get started with your Sleuthing
-                & Surveillance exercises.
+                Follow the links to the right to get started with your sleuthing
+                & surveillance exercises.
               </p>
               <p className="mb-4 md:hidden">
-                Follow the links below to get started with your Sleuthing &
-                Surveillance exercises.
+                Follow the links below to get started with your sleuthing &
+                surveillance exercises.
               </p>
             </div>
           </div>
