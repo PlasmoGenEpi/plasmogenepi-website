@@ -12,7 +12,7 @@ export default function Accordion({
   const [openPages, setOpenPages] = useState<number[]>([]);
 
   return (
-    <div className=" min-h-[600px] md:grid md:grid-cols-2">
+    <div className=" min-h-[600px] md:grid">
       <div
         className={
           openPages.includes(0) ? "collapse collapse-open" : "collapse pr-0"
