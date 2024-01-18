@@ -29,9 +29,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      {/* <body>
+        <main
+          className={`${poppins.variable} ${roboto.variable} text-black bg-zinc-50`}
+        >
+          {children}
+        </main>
+      </body> */}
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+              console.log('dark');
+              document.documentElement.classList.add('dark')
+            } else {
+              console.log('light');
+              document.documentElement.classList.remove('dark')
+            }
+          } catch (_) {}`,
+          }}
+        ></script>
+      </head>
       <body>
-        {/* text-[#E1EAFA] */}
-        <main className={`${poppins.variable} ${roboto.variable} text-black`}>
+        <main
+          className={`${poppins.variable} ${roboto.variable} text-black bg-zinc-50 dark:bg-pge-darkest-blue dark:text-[#e2e2e2]`}
+        >
           {children}
         </main>
       </body>

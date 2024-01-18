@@ -1,183 +1,103 @@
 import Accordion from "@/app/components/Accordion";
-import Logo from "@/app/components/Logo";
-import NavBar from "@/app/components/NavBar";
+import NavBar from "@/app/components/NavBar/NavBar";
 import NavBar2 from "@/app/components/NavBar2";
-import Opening from "@/app/components/OnlineCourse/Opening";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function OnlineCourse() {
   return (
-    <div>
-      <NavBar2 currentNav="OnlineCourse" />
-      <div className="font-roboto">
-        <div className="bg-black relative h-[max(40vh,_400px)] overflow-hidden ">
-          {/* <div className="absolute inset-0 z-20 bg-black bg-opacity-50"></div> */}
-          <div className="absolute inset-0 z-30 mx-auto hidden max-w-6xl gap-4 p-4 md:grid md:grid-cols-2">
-            <div className="text-white mx-auto flex text-center ">
-              <div className="mb-8 mt-auto">
-                <h2 className=" mb-4 font-serif text-2xl md:text-5xl">
-                  Preview part of the course
-                </h2>
-                <p className="mt-auto hidden md:block">
-                  Follow the links to the right to get started with your
-                  sleuthing & surveillance exercises.
-                </p>
-                <p className="mb-4 md:hidden">
-                  Follow the links below to get started with your sleuthing &
-                  surveillance exercises.
-                </p>
+    <div className="">
+      <NavBar currentNav="OnlineCourse" />
+      <div className="border-b-2 py-8 ">
+        <h1 className="mx-auto max-w-6xl px-2 font-poppins text-3xl font-bold md:px-8 lg:px-16">
+          From Data to Insight &ndash; A Practical Introduction to Interpreting
+          Malaria Genetics for Surveillance
+        </h1>
+      </div>
+      <div className="mx-auto my-8 max-w-6xl px-2 md:px-8 lg:px-16">
+        <h2 className="mb-4 font-poppins text-2xl font-bold">
+          About this course
+        </h2>
+        <p className="mb-4">
+          <span className="font-bold">Course Goal</span>: to equip researchers,
+          students, and public health officials with the knowledge and skills
+          needed to effectively use malaria Genetic data in epidemiological
+          research and public health decision-making.
+        </p>
+        <p className="mb-4">
+          <span className="font-bold">Course Format</span>: online, indepedent
+          self-study requiring 10-12 hours to complete. Content includes a mix
+          of video lectures, interactive case studies, quizzes, moderated
+          discussion forums and job aids.
+        </p>
+      </div>
+      <div className="mx-auto grid max-w-6xl gap-4 md:grid-rows-1 md:px-8 lg:grid-cols-3 lg:gap-0 lg:px-16">
+        <div className="col-start-1 flex flex-col px-2 lg:px-0">
+          <h2 className="mb-4 font-poppins text-2xl font-bold">
+            What you will learn:
+          </h2>
+          <ol className="flex list-decimal flex-col gap-3 px-4 lg:grow">
+            <li>
+              Summarize the basic concepts and main use cases of malaria genetic
+              epidemiology.
+            </li>
+            <li>
+              Choose the appropriate methods to generate genetic data for
+              different use cases and settings.
+            </li>
+            <li>
+              Choose the appropriate metrics derived from malaria genetic data
+              to answer key questions.
+            </li>
+            <li>
+              Design genetic surveillance studies to answer key questions about
+              the epidemiology of malaria.
+            </li>
+            <li>
+              Interpret results derived from genetic data to make sound public
+              health recommendations.
+            </li>
+          </ol>
+        </div>
+        <div className=" row-start-1 px-1 md:col-span-2 md:px-2 lg:col-start-2">
+          <div className="bg-black relative h-96 bg-gradient-to-l  ">
+            <Image
+              alt=""
+              src={"/desk_work.jpg"}
+              fill
+              className="object-cover dark:opacity-50"
+            />
+            <div className="absolute bottom-0 left-0 right-1/2 top-0 bg-opacity-50 backdrop-blur">
+              <h4 className="text-white py-8 text-3xl">Preview the course</h4>
+            </div>
+            {/* <div className="text-white bg-black  absolute bottom-0 right-0 w-full rounded-lg bg-opacity-50 backdrop-blur md:max-w-xs lg:translate-x-8 lg:translate-y-8">
+              <div className="">
+                <h4 className="px-4 pt-2 font-serif text-3xl font-bold">
+                  Preview the course
+                </h4>
               </div>
-            </div>
-            <div className="flex flex-col justify-end gap-12 text-center md:mt-8">
-              <Link
-                rel="noopener noreferrer"
-                target="_blank"
-                href="https://rise.articulate.com/share/YNOwF89jtNTsz3q9YcC0xAJewoNCWqFy#/"
-                className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-4 text-xl font-bold text-[white] shadow-sm transition-colors hover:bg-[#F9BF1C] hover:transition-colors"
-              >
-                Genotype Sleuthing with SNPs and Microhaplotypes
-              </Link>
-              <Link
-                rel="noopener noreferrer"
-                target="_blank"
-                className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-4 text-xl font-bold text-[white] shadow-sm transition-colors hover:bg-[#F9BF1C] hover:transition-colors"
-                href="https://rise.articulate.com/share/6TCn8pd8EYNv9SYxpWmN4VSjs5JsWjJV#/"
-              >
-                M2 - Basics of Malaria Genetic Surveillance
-              </Link>
-            </div>
-          </div>
-          <Image
-            priority
-            src="/computer_work.jpg"
-            // width={2000}
-            // height={1000}
-            fill
-            alt="man looking at computer"
-            className="object-cover bg-blend-overlay"
-          />
-        </div>
-        {/* <div className="relative flex max-h-[50vh] flex-col justify-center overflow-hidden md:max-h-[max(400px,40vh)]">
-        <div className="absolute inset-0 mx-auto hidden max-w-6xl gap-4 p-4 md:grid md:grid-cols-2">
-          <div className="mx-auto flex text-center text-white ">
-            <div className="mb-8 mt-auto">
-            <h2 className="mb-4 font-serif text-2xl md:text-5xl">
-            Preview part of the course
-            </h2>
-            <p className="mt-auto hidden md:block">
-            Follow the links to the right to get started with your Sleuthing
-                & Surveillance exercises.
+              <div className="p-4">
+                <p>
+                  Follow the links below to get started on your sleuthing &
+                  surveillance exercises!
                 </p>
-                <p className="mb-4 md:hidden">
-                Follow the links below to get started with your Sleuthing &
-                Surveillance exercises.
-                </p>
+                <div className="flex flex-col gap-2 py-4">
+                  <button className="text-white mx-auto rounded-lg bg-pge-yellow px-8 py-2 text-lg font-bold">
+                    Genetic Surveillance
+                  </button>
+                  <button className="text-white mx-auto rounded-lg bg-pge-yellow px-8 py-2 text-lg font-bold">
+                    Genetic Surveillance
+                  </button>{" "}
                 </div>
-                </div>
-                <div className="flex flex-col justify-end gap-12 text-center md:mt-8">
-            <Link
-              href="https://rise.articulate.com/share/YNOwF89jtNTsz3q9YcC0xAJewoNCWqFy#/"
-              className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-4 text-xl font-bold text-[white] shadow-sm transition-colors hover:bg-[#F9BF1C] hover:transition-colors"
-            >
-              Genotype Sleuthing with SNPs and Microhaplotypes
-            </Link>
-            <Link
-              className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-4 text-xl font-bold text-[white] shadow-sm transition-colors hover:bg-[#F9BF1C] hover:transition-colors"
-              href="https://rise.articulate.com/share/6TCn8pd8EYNv9SYxpWmN4VSjs5JsWjJV#/"
-            >
-              M2 - Basics of Malaria Genetic Surveillance
-              </Link>
-          </div>
-        </div>
-        <Image
-          src="/computer_work.jpg"
-          width={2000}
-          height={1000}
-          alt="man looking at computer"
-          className="mx-auto [object-position:50%]"
-          />
-      </div> */}
-        <div className="mx-auto my-4 grid max-w-4xl gap-4 px-2 md:mt-12 md:hidden md:grid-cols-2">
-          <div className="text-black mx-auto flex text-center">
-            <div className="mt-auto">
-              <h2 className="mb-4 font-serif text-4xl md:text-5xl">
-                Preview part of the course
-              </h2>
-              <p className="mt-auto hidden md:block">
-                Follow the links to the right to get started with your sleuthing
-                & surveillance exercises.
-              </p>
-              <p className="mb-4 md:hidden">
-                Follow the links below to get started with your sleuthing &
-                surveillance exercises.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col justify-end gap-8 text-center md:mt-8 md:gap-12">
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://rise.articulate.com/share/YNOwF89jtNTsz3q9YcC0xAJewoNCWqFy#/"
-              className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-2 text-xl font-bold text-[white] shadow-sm transition-colors hover:bg-[#F9BF1C] hover:transition-colors"
-            >
-              Genotype Sleuthing with SNPs and Microhaplotypes
-            </Link>
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-2 text-xl font-bold text-[white] shadow-sm transition-colors hover:bg-[#F9BF1C] hover:transition-colors"
-              href="https://rise.articulate.com/share/6TCn8pd8EYNv9SYxpWmN4VSjs5JsWjJV#/"
-            >
-              M2 - Basics of Malaria Genetic Surveillance
-            </Link>
-          </div>
-        </div>
-
-        <div className="max-w-4xl px-2 py-6 md:mx-auto md:py-12">
-          <div className="">
-            {/* <div className=" mb-8 grid gap-4 md:grid-cols-2">
-            <div className="mx-auto flex text-center">
-              <div className="my-auto">
-                <h2 className="mb-4 font-serif text-5xl">
-                  Preview part of the course
-                </h2>
-                <p className="mt-auto hidden md:block">
-                  Follow the links to the right to get started with your
-                  Sleuthing & Surveillance exercises.
-                </p>
-                <p className="mb-4 md:hidden">
-                  Follow the links below to get started with your Sleuthing &
-                  Surveillance exercises.
-                </p>
               </div>
-            </div>
-            <div className="flex flex-col gap-12 text-center md:mt-8">
-              <Link
-                href="https://rise.articulate.com/share/YNOwF89jtNTsz3q9YcC0xAJewoNCWqFy#/"
-                className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-4 text-xl font-bold text-[white] shadow-sm transition-colors hover:bg-[#F9BF1C] hover:transition-colors"
-              >
-                Genotype Sleuthing with SNPs and Microhaplotypes
-              </Link>
-              <Link
-                className="mx-auto w-fit rounded-lg bg-[#F3B941] px-2 py-4 text-xl font-bold text-[white] shadow-sm transition-colors hover:bg-[#F9BF1C] hover:transition-colors"
-                href="https://rise.articulate.com/share/6TCn8pd8EYNv9SYxpWmN4VSjs5JsWjJV#/"
-              >
-                M2 - Basics of Malaria Genetic Surveillance
-              </Link>
-            </div>
-          </div> */}
-            <div className="">
-              <Opening />
-            </div>
-            <div className="md:mx-auto">
-              <h2 className="mb-2 font-poppins text-2xl font-bold">
-                Overview of Modules
-              </h2>
-              <Accordion pages={[]} />
-            </div>
+            </div> */}
           </div>
         </div>
+      </div>
+      <div className="mx-auto max-w-6xl px-2 md:px-8 lg:px-16">
+        <h2 className=" my-8 font-poppins text-2xl font-bold">
+          Module Overview
+        </h2>
+        <Accordion pages={[]} />
       </div>
     </div>
   );

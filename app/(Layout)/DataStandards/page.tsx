@@ -18,10 +18,10 @@ export default function DataStandards() {
           <Image
             placeholder="empty"
             alt="schema"
-            src="/graph2.png"
+            src="/graph3.png"
             width={1200}
             height={336}
-            className="min-w-[600px] [object-position:50%]"
+            className="min-w-[600px] [object-position:50%] dark:opacity-80"
           />
         </div>
         {/* <div className="mx-auto max-w-4xl py-12">

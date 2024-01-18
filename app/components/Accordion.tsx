@@ -12,14 +12,16 @@ export default function Accordion({
   const [openPages, setOpenPages] = useState<number[]>([]);
 
   return (
-    <div className=" min-h-[600px] md:grid">
+    <div className="">
       <div
         className={
-          openPages.includes(0) ? "collapse collapse-open" : "collapse pr-0"
+          openPages.includes(0)
+            ? "  collapse collapse-open border-b shadow"
+            : "collapse border-b pr-0 shadow"
         }
       >
         <div
-          className={"text-black collapse-title relative text-2xl font-medium "}
+          className={"text-black collapse-title relative text-2xl font-medium"}
         >
           <div className="flex justify-between">
             <h3 className=" text-black cursor-auto font-poppins text-xl ">
@@ -38,9 +40,10 @@ export default function Accordion({
                   setOpenPages([...openPages, 0]);
                 }
               }}
-              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
+              className=" h-0 translate-x-12 cursor-pointer p-4"
+              aria-label="expand"
             >
-              <ExpandIcon />
+              <ExpandIcon open={openPages.includes(0)} />
             </button>
           </div>
         </div>
@@ -68,7 +71,9 @@ export default function Accordion({
       </div>
       <div
         className={
-          openPages.includes(1) ? "collapse collapse-open" : "collapse"
+          openPages.includes(1)
+            ? "  collapse collapse-open border-b shadow"
+            : "collapse border-b pr-0 shadow"
         }
       >
         <div
@@ -93,26 +98,12 @@ export default function Accordion({
                   setOpenPages([...openPages, 1]);
                 }
               }}
-              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
+              className=" h-0 translate-x-12 cursor-pointer p-4"
+              aria-label="expand"
             >
-              <ExpandIcon />
+              <ExpandIcon open={openPages.includes(1)} />
             </button>
           </div>
-          {/* <div
-            onClick={(e) => {
-              if (openPages.includes(1)) {
-                setOpenPages(null);
-              } else {
-                setOpenPages(1);
-              }
-            }}
-            className="absolute right-2 p-2 md:right-8"
-          >
-            <ExpandIcon />
-          </div>{" "}
-          <h3 className=" cursor-auto text-xl font-poppins font-bold">
-            M1 &ndash; Malaria Epidemiology and Surveillance
-          </h3> */}
         </div>
         <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
@@ -132,7 +123,9 @@ export default function Accordion({
       </div>
       <div
         className={
-          openPages.includes(2) ? "collapse collapse-open" : "collapse"
+          openPages.includes(2)
+            ? "  collapse collapse-open border-b shadow"
+            : "collapse border-b pr-0 shadow"
         }
       >
         <div
@@ -157,26 +150,12 @@ export default function Accordion({
                   setOpenPages([...openPages, 2]);
                 }
               }}
-              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
+              className=" h-0 translate-x-12 cursor-pointer p-4"
+              aria-label="expand"
             >
-              <ExpandIcon />
+              <ExpandIcon open={openPages.includes(2)} />
             </button>
           </div>
-          {/* <div
-            onClick={(e) => {
-              if (openPages.includes(2)) {
-                setOpenPages(null);
-              } else {
-                setOpenPages(2);
-              }
-            }}
-            className="absolute right-2 p-2 md:right-8"
-          >
-            <ExpandIcon />
-          </div>{" "}
-          <h3 className=" cursor-auto text-xl font-poppins font-bold">
-            M2 &ndash; Basics of Malaria Genetic Surveillance
-          </h3> */}
         </div>
         <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
@@ -224,7 +203,9 @@ export default function Accordion({
       </div>
       <div
         className={
-          openPages.includes(3) ? "collapse collapse-open" : "collapse"
+          openPages.includes(3)
+            ? "  collapse collapse-open border-b shadow"
+            : "collapse border-b pr-0 shadow"
         }
       >
         <div
@@ -249,26 +230,12 @@ export default function Accordion({
                   setOpenPages([...openPages, 3]);
                 }
               }}
-              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
+              className=" h-0 translate-x-12 cursor-pointer p-4"
+              aria-label="expand"
             >
-              <ExpandIcon />
+              <ExpandIcon open={openPages.includes(3)} />
             </button>
           </div>
-          {/* <div
-            onClick={(e) => {
-              if (openPages.includes(3)) {
-                setOpenPages(null);
-              } else {
-                setOpenPages(3);
-              }
-            }}
-            className="absolute right-2 p-2 md:right-8"
-          >
-            <ExpandIcon />
-          </div>{" "}
-          <h3 className=" cursor-auto text-xl font-poppins font-bold">
-            M3 &ndash; Drug and Diagnostic Resistance
-          </h3> */}
         </div>
         <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
@@ -289,7 +256,9 @@ export default function Accordion({
       </div>
       <div
         className={
-          openPages.includes(4) ? "collapse collapse-open" : "collapse"
+          openPages.includes(4)
+            ? "  collapse collapse-open border-b shadow"
+            : "collapse border-b pr-0 shadow"
         }
       >
         <div
@@ -315,26 +284,12 @@ export default function Accordion({
                   setOpenPages([...openPages, 4]);
                 }
               }}
-              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
+              className=" h-0 translate-x-12 cursor-pointer p-4"
+              aria-label="expand"
             >
-              <ExpandIcon />
+              <ExpandIcon open={openPages.includes(4)} />
             </button>
           </div>
-          {/* <div
-            onClick={(e) => {
-              if (openPages.includes(4)) {
-                setOpenPages(null);
-              } else {
-                setOpenPages(4);
-              }
-            }}
-            className="absolute right-2 p-2 md:right-8"
-          >
-            <ExpandIcon />
-          </div>{" "}
-          <h3 className=" cursor-auto text-xl font-poppins font-bold">
-            M4 &ndash; Genetic Data Generation, Interpretation, and Applications
-          </h3> */}
         </div>
         <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
@@ -372,7 +327,9 @@ export default function Accordion({
       </div>
       <div
         className={
-          openPages.includes(5) ? "collapse collapse-open" : "collapse"
+          openPages.includes(5)
+            ? "  collapse collapse-open border-b shadow"
+            : "collapse border-b pr-0 shadow"
         }
       >
         <div
@@ -398,27 +355,12 @@ export default function Accordion({
                   setOpenPages([...openPages, 5]);
                 }
               }}
-              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
+              className=" h-0 translate-x-12 cursor-pointer p-4"
+              aria-label="expand"
             >
-              <ExpandIcon />
+              <ExpandIcon open={openPages.includes(5)} />
             </button>
           </div>
-          {/* <div
-            onClick={(e) => {
-              if (openPages.includes(5)) {
-                setOpenPages(null);
-              } else {
-                setOpenPages(5);
-              }
-            }}
-            className="absolute right-2 p-2 md:right-8"
-          >
-            <ExpandIcon />
-          </div>{" "}
-          <h3 className=" cursor-auto text-xl font-poppins font-bold">
-            M5 &ndash; Using Genetic Diversity and Relatedness to Evaluate
-            Transmission
-          </h3> */}
         </div>
         <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
@@ -453,7 +395,9 @@ export default function Accordion({
       </div>
       <div
         className={
-          openPages.includes(6) ? "collapse collapse-open" : "collapse"
+          openPages.includes(6)
+            ? "  collapse collapse-open border-b shadow"
+            : "collapse border-b pr-0 shadow"
         }
       >
         <div
@@ -478,26 +422,12 @@ export default function Accordion({
                   setOpenPages([...openPages, 6]);
                 }
               }}
-              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
+              className=" h-0 translate-x-12 cursor-pointer p-4"
+              aria-label="expand"
             >
-              <ExpandIcon />
+              <ExpandIcon open={openPages.includes(6)} />
             </button>
           </div>
-          {/* <div
-            onClick={(e) => {
-              if (openPages.includes(6)) {
-                setOpenPages(null);
-              } else {
-                setOpenPages(6);
-              }
-            }}
-            className="absolute right-2 p-2 md:right-8"
-          >
-            <ExpandIcon />
-          </div>{" "}
-          <h3 className=" cursor-auto text-xl font-poppins font-bold">
-            M6 &ndash; Study Design for Malaria Genetic Surveillance
-          </h3> */}
         </div>
         <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
@@ -515,112 +445,11 @@ export default function Accordion({
           </ul>
         </div>
       </div>
-      {/* <div className={openPages.includes(7 )? "collapse collapse-open" : "collapse"}>
-        <div
-          className={
-            "collapse-title relative cursor-auto text-2xl font-medium text-black "
-          }
-        >
-          <div
-            onClick={(e) => {
-              if (openPages.includes(7)) {
-                setOpenPages(null);
-              } else {
-                setOpenPages(7);
-              }
-            }}
-            className="absolute right-2 md:right-8 p-2"
-          >
-            <ExpandIcon />
-          </div>{" "}
-          <h3 className="text-2xl font-bold">Design and Sampling</h3>
-        </div>
-        <div className="collapse-content pl-6 pr-12 py-">
-          <p className="mb-4">
-            Genetic data are only as good as the surveillance system or study
-            that from which they were collected. But what makes a good malaria
-            Genetic surveillance study? In this module, you will start to learn
-            how to design effective Genetic surveillance studies. Topics include
-            how to choose your target population, geographic scale, and
-            stratification for different use cases and the strengths and
-            weaknesses of different sampling approaches.
-          </p>
-          <ul className="pl-8">
-            <li className="list-disc">7 lecture videos (35 minutes)</li>
-            <li className="list-disc">2 activites (20 minutes)</li>
-          </ul>
-        </div>
-      </div> */}
-      {/* <div
-        onClick={(e) => {
-          // console.log("hi", idx);
-          setOpenPages(8);
-        }}
-        className={openPages.includes(8 )? "collapse collapse-open" : "collapse"}
-      >
-<div
-          className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
-          }
-        >
-        <div className=" right-2 md:right-8absolute">
-        <ExpandIcon /></div>          <h3 className=" text-2xl font-bold cursor-auto">
-            M4.2 - Study Design for Malaria Genetic Surveillance, Part 2 - Power
-            and Sample Size
-          </h3>
-        </div>
-        <div className="collapse-content pl-6 pr-12 mr-8">
-          <p>
-            In this module, you will continue to explore best practices for
-            developing effective Genetic surveillance studies. You will learn to
-            interpret power curves and sample size tables, choose appropriate
-            parameters for a multi- cluster power calculation, and describe the
-            negative effects of an underpowered study.
-          </p>
-          <ul className="pl-8">
-            <li className="list-disc">5 lecture videos (25 minutes)</li>
-            <li className="list-disc">4 activites (40 minutes)</li>
-          </ul>
-        </div>
-      </div>
       <div
-        onClick={(e) => {
-          // console.log("hi", idx);
-          setOpenPages(9);
-        }}
-        className={openPages.includes(9 )? "collapse collapse-open" : "collapse"}
-      >
-<div
-          className={
-            "collapse-title relative cursor-pointer text-2xl font-medium text-black "
-          }
-        >          <h3 className=" text-2xl font-bold cursor-auto">
-            M4.3 - Study Design for Malaria Genetic Surveillance, Part 3 -
-            Connectivity and Importation
-          </h3>
-        </div>
-        <div className="collapse-content pl-6 pr-12 mr-8">
-          <p className="mb-4">
-            In this third and final module on study design, you will focus on
-            critically evaluating different study designs for measuring
-            connectivity and importation. You will also learn how to perform
-            sample size & power calculation for these use-cases and choose the
-            appropriate types of information to inform decisions about
-            interventions.
-          </p>
-          <ul className="pl-8">
-            <li className="list-disc">1 lecture video (10 minutes)</li>
-            <li className="list-disc">2 activites (20 minutes)</li>
-          </ul>
-        </div>
-      </div> */}
-      <div
-        onClick={(e) => {
-          // console.log("hi", idx);
-          // setOpenPages(10);
-        }}
         className={
-          openPages.includes(7) ? "collapse collapse-open" : "collapse"
+          openPages.includes(7)
+            ? "  collapse collapse-open border-b shadow"
+            : "collapse border-b pr-0 shadow"
         }
       >
         <div
@@ -645,26 +474,12 @@ export default function Accordion({
                   setOpenPages([...openPages, 7]);
                 }
               }}
-              className=" h-0 -translate-y-4 translate-x-12 cursor-pointer p-4"
+              className=" h-0 translate-x-12 cursor-pointer p-4"
+              aria-label="expand"
             >
-              <ExpandIcon />
+              <ExpandIcon open={openPages.includes(7)} />
             </button>
           </div>
-          {/* <div
-            onClick={(e) => {
-              if (openPages.includes(10)) {
-                setOpenPages(null);
-              } else {
-                setOpenPages(10);
-              }
-            }}
-            className="absolute right-2 p-2 md:right-8"
-          >
-            <ExpandIcon />
-          </div>{" "}
-          <h3 className=" cursor-auto text-xl font-poppins font-bold">
-            M7 &ndash; Interpreting Results and Making Policy Recommendations
-          </h3> */}
         </div>
         <div className="py- collapse-content pl-6 pr-12">
           <p className="mb-4">
@@ -685,34 +500,4 @@ export default function Accordion({
       </div>
     </div>
   );
-}
-
-{
-  /* <div class="collapse bg-base-200">
-  <input type="radio" name="my-accordion-1" checked="checked" />
-  <div class="collapse-title text-xl font-medium">
-    Click to open this one and close others
-  </div>
-  <div class="collapse-content pl-6 pr-12">
-    <p>hello</p>
-  </div>
-</div>
-<div class="collapse bg-base-200">
-  <input type="radio" name="my-accordion-1" />
-  <div class="collapse-title text-xl font-medium">
-    Click to open this one and close others
-  </div>
-  <div class="collapse-content pl-6 pr-12">
-    <p>hello</p>
-  </div>
-</div>
-<div class="collapse bg-base-200">
-  <input type="radio" name="my-accordion-1" />
-  <div class="collapse-title text-xl font-medium">
-    Click to open this one and close others
-  </div>
-  <div class="collapse-content pl-6 pr-12">
-    <p>hello</p>
-  </div>
-</div> */
 }
