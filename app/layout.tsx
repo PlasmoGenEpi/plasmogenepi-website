@@ -36,7 +36,7 @@ export default function RootLayout({
           {children}
         </main>
       </body> */}
-      <head>
+      {/* <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `try {
@@ -50,10 +50,10 @@ export default function RootLayout({
           } catch (_) {}`,
           }}
         ></script>
-      </head>
+      </head> */}
       <body>
         <main
-          className={`${poppins.variable} ${roboto.variable} text-black bg-zinc-50 dark:bg-pge-darkest-blue dark:text-[#e2e2e2]`}
+          className={`${poppins.variable} ${roboto.variable} bg-zinc-50 text-black dark:bg-pge-darkest-blue dark:text-[#e2e2e2]`}
         >
           {children}
         </main>
