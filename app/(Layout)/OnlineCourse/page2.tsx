@@ -1,6 +1,5 @@
 import Accordion from "@/app/components/Accordion";
-import Logo from "@/app/components/Logo";
-import NavBar2 from "@/app/components/NavBar2";
+import NavBar from "@/app/components/NavBar/NavBar";
 import Opening from "@/app/components/OnlineCourse/Opening";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +7,7 @@ import Link from "next/link";
 export default function OnlineCourse() {
   return (
     <div>
-      <NavBar2 currentNav="OnlineCourse" />
+      <NavBar currentNav="OnlineCourse" />
       <div className="font-roboto">
         <div className="bg-black relative h-[max(40vh,_400px)] overflow-hidden ">
           {/* <div className="absolute inset-0 z-20 bg-black bg-opacity-50"></div> */}

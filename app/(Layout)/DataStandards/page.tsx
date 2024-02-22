@@ -3,7 +3,7 @@
 import AmpliconFileFormat from "@/app/components/DataStandards/Markdown/AmpliconFileFormat";
 import AmpliconFileFormatIntroduction from "@/app/components/DataStandards/Markdown/AmpliconFileFormatIntroduction";
 import MissionStatement from "@/app/components/DataStandards/MissionStatement";
-import NavBar2 from "@/app/components/NavBar2";
+import NavBar from "@/app/components/NavBar/NavBar";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -12,7 +12,7 @@ export default function DataStandards() {
   const [page, setPage] = useState(0);
   return (
     <div>
-      <NavBar2 currentNav="DataStandards" />
+      <NavBar currentNav="DataStandards" />
       <div className="flex flex-col items-center font-roboto">
         <div className="mx-4 flex max-w-full justify-center overflow-hidden">
           <Image

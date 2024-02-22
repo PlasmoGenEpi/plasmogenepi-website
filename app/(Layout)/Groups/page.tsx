@@ -1,12 +1,12 @@
 import AboutStripe from "@/app/components/AboutStripe";
-import NavBar2 from "@/app/components/NavBar2";
+import NavBar from "@/app/components/NavBar/NavBar";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function About() {
   return (
     <div>
-      <NavBar2 currentNav="Groups" />
+      <NavBar currentNav="Groups" />
       {/* <div className="py-8"></div> */}
       <div className="mx-auto mt-8 px-2 font-roboto">
         <div className="mx-auto my-16 grid max-w-6xl place-items-center gap-4 gap-y-12 md:my-24 md:grid-cols-2 md:grid-rows-3 md:gap-8 lg:grid-cols-3 lg:grid-rows-2">

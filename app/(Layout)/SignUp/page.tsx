@@ -1,9 +1,9 @@
-import NavBar2 from "@/app/components/NavBar2";
+import NavBar from "@/app/components/NavBar/NavBar";
 
 export default function SignUp() {
   return (
     <div>
-      <NavBar2 currentNav="SignUp" />
+      <NavBar currentNav="SignUp" />
       <div className="pb-20 pt-4">
         <div className="flex">
           <iframe

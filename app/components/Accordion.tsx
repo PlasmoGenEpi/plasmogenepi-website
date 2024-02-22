@@ -21,10 +21,10 @@ export default function Accordion({
         }
       >
         <div
-          className={"text-black collapse-title relative text-2xl font-medium"}
+          className={"collapse-title relative text-2xl font-medium text-black"}
         >
           <div className="flex justify-between">
-            <h3 className=" text-black cursor-auto font-poppins text-xl ">
+            <h3 className=" cursor-auto font-poppins text-xl text-black ">
               {" "}
               M0 &ndash; Malaria 101 &ndash; A Prelude to Genetic Surveillance{" "}
             </h3>
@@ -78,11 +78,11 @@ export default function Accordion({
       >
         <div
           className={
-            "text-black collapse-title relative cursor-auto text-2xl font-medium "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" text-black cursor-auto font-poppins text-xl">
+            <h3 className=" cursor-auto font-poppins text-xl text-black">
               {" "}
               M1 &ndash; Malaria Epidemiology and Surveillance
             </h3>
@@ -130,11 +130,11 @@ export default function Accordion({
       >
         <div
           className={
-            "text-black collapse-title relative cursor-auto text-2xl font-medium "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" text-black cursor-auto font-poppins text-xl">
+            <h3 className=" cursor-auto font-poppins text-xl text-black">
               {" "}
               M2 &ndash; Basics of Malaria Genetic Surveillance
             </h3>
@@ -173,14 +173,14 @@ export default function Accordion({
             <li className="list-disc">7 quizzes/activities (40 minutes)</li>
             <li className="list-disc">2 Job Aids (10 minutes)</li>
           </ul>
-          <div className="mb-8">
+          <div className="mb-4">
             <span className="">
               Click the link to preview an interactive activity:{" "}
             </span>
             <Link
               rel="noopener noreferrer"
               target="_blank"
-              className="text-blue-500 font-medium"
+              className="font-medium text-blue-500"
               href="https://rise.articulate.com/share/YNOwF89jtNTsz3q9YcC0xAJewoNCWqFy#/"
             >
               Genotype Sleuthing with SNPs and Microhaplotypes
@@ -193,7 +193,7 @@ export default function Accordion({
             <Link
               rel="noopener noreferrer"
               target="_blank"
-              className="text-blue-500 font-medium"
+              className="font-medium text-blue-500"
               href="https://rise.articulate.com/share/6TCn8pd8EYNv9SYxpWmN4VSjs5JsWjJV#/"
             >
               M2 &ndash; Basics of Malaria Genetic Surveillance
@@ -210,11 +210,11 @@ export default function Accordion({
       >
         <div
           className={
-            "text-black collapse-title relative cursor-auto text-2xl font-medium "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" text-black cursor-auto font-poppins text-xl">
+            <h3 className=" cursor-auto font-poppins text-xl text-black">
               {" "}
               M3 &ndash; Drug and Diagnostic Resistance
             </h3>
@@ -263,11 +263,11 @@ export default function Accordion({
       >
         <div
           className={
-            "text-black collapse-title relative cursor-auto text-2xl font-medium "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" text-black cursor-auto font-poppins text-xl">
+            <h3 className=" cursor-auto font-poppins text-xl text-black">
               {" "}
               M4 &ndash; Genetic Data Generation, Interpretation, and
               Applications
@@ -334,11 +334,11 @@ export default function Accordion({
       >
         <div
           className={
-            "text-black collapse-title relative cursor-auto text-2xl font-medium "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" text-black cursor-auto font-poppins text-xl">
+            <h3 className=" cursor-auto font-poppins text-xl text-black">
               {" "}
               M5 &ndash; Using Genetic Diversity and Relatedness to Evaluate
               Transmission
@@ -402,11 +402,11 @@ export default function Accordion({
       >
         <div
           className={
-            "text-black collapse-title relative cursor-auto text-2xl font-medium "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" text-black cursor-auto font-poppins text-xl">
+            <h3 className=" cursor-auto font-poppins text-xl text-black">
               {" "}
               M6 &ndash; Study Design for Malaria Genetic Surveillance
             </h3>
@@ -454,11 +454,11 @@ export default function Accordion({
       >
         <div
           className={
-            "text-black collapse-title relative cursor-auto text-2xl font-medium "
+            "collapse-title relative cursor-auto text-2xl font-medium text-black "
           }
         >
           <div className="flex justify-between">
-            <h3 className=" text-black cursor-auto font-poppins text-xl">
+            <h3 className=" cursor-auto font-poppins text-xl text-black">
               {" "}
               M7 &ndash; Interpreting Results and Making Policy Recommendations
             </h3>
