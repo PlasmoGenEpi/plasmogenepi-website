@@ -90,6 +90,20 @@ export default function About() {
               stripe={false}
             />
           </div>
+          <div className="md:translate-x-32 md:translate-y-8">
+            <AboutStripe
+              logo={{
+                path: "/GroupLogos/IDEELLogoRGB.png",
+                height: 150,
+                width: 150,
+              }}
+              organization={{
+                url: "https://www.iddynamics.jhsph.edu",
+                name: "Infectious Disease Dynamics",
+              }}
+              stripe={false}
+            />
+          </div>
         </div>
       </div>
     </div>
