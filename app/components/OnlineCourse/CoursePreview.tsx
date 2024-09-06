@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function CoursePreview() {
   return (
     <div>
-      <div className="mx-auto grid max-w-6xl gap-8 border-y-8 border-cyan-800 px-4 py-16 text-lg md:px-8 md:text-base md:[grid-template-columns:1fr_auto] lg:px-16">
-        <div className="min-w-72">
+      <div className="mx-auto grid max-w-6xl gap-8 border-y-8 border-cyan-800 px-4 py-16 text-lg md:px-8 md:text-base md:[grid-template-columns:300px_auto] lg:px-16">
+        <div>
           <h2 className="mb-4 font-poppins text-2xl font-bold">
             What you will learn:
           </h2>
