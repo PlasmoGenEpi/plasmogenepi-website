@@ -4,11 +4,11 @@ export default function CoursePreview() {
   return (
     <div>
       <div className="mx-auto grid max-w-6xl gap-8 border-y-8 border-cyan-800 px-4 py-16 text-lg md:px-8 md:text-base md:[grid-template-columns:1fr_auto] lg:px-16">
-        <div>
+        <div className="min-w-72">
           <h2 className="mb-4 font-poppins text-2xl font-bold">
             What you will learn:
           </h2>
-          <ol className="flex min-w-72 list-decimal flex-col gap-3 text-pretty px-4 font-roboto">
+          <ol className="min-w-72 text-pretty flex list-decimal flex-col gap-3 px-4 font-roboto">
             <li>
               Summarize the basic concepts and main use cases of malaria genetic
               epidemiology.
