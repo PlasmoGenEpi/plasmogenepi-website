@@ -1,37 +1,57 @@
-import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Roboto, Poppins } from "next/font/google";
+import { Poppins, Roboto, Overpass } from "next/font/google";
+import localFont from "next/font/local";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const overpass = Overpass({
+  weight: ["200", "400", "700", "900"],
+  subsets: ["latin"],
+  variable: "--font-overpass",
+});
 
 const roboto = Roboto({
-  weight: "400",
+  weight: ["300", "400", "700"],
   subsets: ["latin"],
   variable: "--font-roboto",
 });
 
-export const poppins = Poppins({
-  weight: "400",
+const poppins = Poppins({
+  weight: ["400", "500", "700", "900"],
   subsets: ["latin"],
   variable: "--font-poppins",
 });
 
-export const metadata: Metadata = {
+const helveticaNeue = localFont({
+  src: [
+    {
+      path: "../public/fonts/HelveticaNeueLTStd-Md.woff",
+      weight: "400",
+    },
+    {
+      path: "../public/fonts/HelveticaNeueLTStd-Bd.woff",
+      weight: "700",
+    },
+  ],
+  variable: "--font-helvetica",
+});
+
+const metadata: Metadata = {
   title: "PlasmoGenEpi",
   icons: "favicon.ico",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
+      <head></head>{" "}
       <body>
-        {/* text-[#E1EAFA] */}
-        <main className={`${poppins.variable} ${roboto.variable} text-black`}>
+        <main
+          className={`${poppins.variable} ${roboto.variable} ${overpass.variable} ${helveticaNeue.variable} `}
+        >
           {children}
         </main>
       </body>
