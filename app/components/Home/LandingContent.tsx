@@ -16,7 +16,7 @@ export default function LandingContent() {
           </p>
         </div>
       </div>
-      <InfiniteScrollBar />
+      {/* <InfiniteScrollBar /> */}
       <div className="px-2">
         <div className="mx-auto my-8 grid max-w-5xl gap-8 border-l-8 border-cyan-800 px-4 py-8 text-lg  md:px-8 md:text-base lg:px-16">
           <h2 className="font-poppins text-2xl font-bold md:text-left">
@@ -30,12 +30,12 @@ export default function LandingContent() {
         </div>
       </div>
       <div className="border-y-4 border-pge-dark-teal bg-pge-darkest-teal pb-8 pt-8">
-        <div className="mx-auto grid max-w-5xl gap-8  py-8 pl-8 text-lg  md:px-8 md:text-base lg:px-16">
-          {" "}
+        <div className="mx-auto grid max-w-5xl gap-8 px-2 py-8 text-lg  md:px-8 md:text-base lg:px-16">
+          <InfiniteScrollBar />{" "}
           <Link
             prefetch
             href="/SignUp"
-            className="mx-auto w-fit rounded bg-pge-dark-teal px-12 py-4 text-3xl font-light text-white"
+            className="mx-auto w-fit rounded bg-pge-dark-teal px-12 py-4 text-center text-3xl  text-white"
           >
             Get Involved
           </Link>
@@ -46,7 +46,7 @@ export default function LandingContent() {
         </div>
       </div>
       <div className="px-2">
-        <div className="mx-auto mt-16 grid max-w-5xl gap-8 px-4 py-8 pl-8 text-lg  md:px-8 md:text-base lg:px-16">
+        <div className="mx-auto mt-16 grid max-w-5xl gap-8 px-4 py-8  text-lg  md:px-8 md:text-base lg:px-16">
           <h2 className="font-poppins text-2xl font-bold md:text-left">
             Our work so far
           </h2>

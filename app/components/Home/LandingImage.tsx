@@ -3,6 +3,37 @@ import PlasmoGenEpiLogo from "../Logos/PlasmoGenEpiLogo";
 
 export default function LandingImage() {
   return (
+    <div className="landingImage relative isolate flex flex-col">
+      <div className="basis-[500px] overflow-hidden">
+        <Image
+          priority
+          fill
+          src="/assets/long_blue_dna.jpeg"
+          alt=""
+          className="object-cover mix-blend-multiply [object-position:90%]"
+        />
+      </div>
+      <div className="absolute inset-0 flex flex-col justify-end sm:px-16">
+        <div className="mx-auto w-full max-w-4xl">
+          <div className="mx-auto w-fit grow text-white sm:mx-0 sm:ml-auto">
+            <div className="mx-auto w-[min(80%,240px)] min-w-[200px]">
+              <PlasmoGenEpiLogo className="fill-current" />
+            </div>
+            <h1
+              style={{
+                fontSize: "clamp(24px, 10vw, 48px)",
+              }}
+              className="w-full text-center font-poppins font-semibold tracking-tighter"
+            >
+              PlasmoGenEpi
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
     <div className="bg-black">
       <div className="relative max-h-[80vh] min-h-[500px] overflow-hidden md:col-span-2">
         <div className="absolute  inset-0 bg-black/50 dark:bg-black">

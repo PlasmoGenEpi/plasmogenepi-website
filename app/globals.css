@@ -12,6 +12,15 @@
   cursor: auto !important;
 } */
 
+.landingImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgb(250, 91, 91);
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+
 @keyframes roll {
   from {
     transform: translate(240px,0px)

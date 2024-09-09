@@ -80,6 +80,7 @@ export const logos: {
   },
   Neafsey: {
     id: 8,
+    website: "",
     path: "/GroupLogos/NeafseyLabLogo.png",
     name: "Neafsey Lab",
     height: 100,
@@ -90,35 +91,6 @@ export const logos: {
 export default function InfiniteScrollBar() {
   return (
     <div className="mx-auto max-w-6xl">
-      <h4></h4>
-      {/* <div className="scroller flex overflow-auto">
-        <ul className="scrollInner flex w-fit items-center gap-12 px-6">
-          {Object.values(paths).map(({ path, name, height, width }, idx) => {
-            return (
-              <GroupLogoWrapper
-                alt={`${name} logo`}
-                key={idx}
-                height={height}
-                width={width}
-                path={path}
-              />
-            );
-          })}
-        </ul>
-        <ul className="scrollInner flex w-max items-center gap-12 px-6 outline outline-4 outline-[red]">
-          {Object.values(paths).map(({ path, name, height, width }, idx) => {
-            return (
-              <GroupLogoWrapper
-                alt={`${name} logo`}
-                key={idx}
-                height={height}
-                width={width}
-                path={path}
-              />
-            );
-          })}
-        </ul>
-      </div> */}
       <div className="infiniteScrollMask flex w-fit">
         <ul className="scrollInner relative mx-auto flex h-48 shrink-0 items-center gap-12 bg-transparent px-6">
           {Object.values(logos).map(
@@ -129,11 +101,73 @@ export default function InfiniteScrollBar() {
                     id === 8
                       ? {
                           image:
-                            "scale-[200%] -translate-y-6 translate-x-4 bg-transparent  object-contain mix-blend-multiply",
+                            "scale-[200%] -translate-y-6 translate-x-4 mix-blend-multiply  object-contain ",
+                          wrapper:
+                            "max-h-24 max-w-[300px]  bg-pge-darkest-teal p-4 hover:bg-white",
+                        }
+                      : {
+                          image: `object-contain mix-blend-multiply`,
+                          wrapper: " bg-pge-darkest-teal p-4 hover:bg-white",
+                        }
+                  }
+                  alt={`${name} logo`}
+                  key={idx}
+                  height={height}
+                  width={width}
+                  path={path}
+                />
+              );
+            },
+          )}
+        </ul>
+        {/* <ul
+          className={`scrollInner scrollInner2 relative flex h-48 shrink-0  items-center gap-12 bg-transparent px-6 `}
+        >
+          {Object.values(logos).map(
+            ({ path, name, height, width, id }, idx) => {
+              return (
+                <GroupLogoWrapper
+                  classNames={
+                    id === 8
+                      ? {
+                          image:
+                            "scale-[200%] -translate-y-6 translate-x-4 bg-transparent  object-contain ",
                           wrapper: "max-h-24 max-w-[300px]",
                         }
                       : {
-                          image: `bg-transparent  object-contain mix-blend-multiply`,
+                          image: `bg-transparent  object-contain `,
+                        }
+                  }
+                  alt={`${name} logo`}
+                  key={idx}
+                  height={height}
+                  width={width}
+                  path={path}
+                />
+              );
+            },
+          )}
+        </ul> */}
+      </div>
+    </div>
+  );
+  return (
+    <div className="mx-auto max-w-6xl">
+      <div className="infiniteScrollMask flex w-fit">
+        <ul className="scrollInner relative mx-auto flex h-48 shrink-0 items-center gap-12 bg-transparent px-6">
+          {Object.values(logos).map(
+            ({ path, name, height, width, id }, idx) => {
+              return (
+                <GroupLogoWrapper
+                  classNames={
+                    id === 8
+                      ? {
+                          image:
+                            "scale-[200%] -translate-y-6 translate-x-4 bg-transparent  object-contain ",
+                          wrapper: "max-h-24 max-w-[300px]",
+                        }
+                      : {
+                          image: `bg-transparent  object-contain `,
                         }
                   }
                   alt={`${name} logo`}
@@ -156,10 +190,13 @@ export default function InfiniteScrollBar() {
                   classNames={
                     id === 8
                       ? {
-                          image: "scale-[200%] -translate-y-6 translate-x-4",
+                          image:
+                            "scale-[200%] -translate-y-6 translate-x-4 bg-transparent  object-contain ",
                           wrapper: "max-h-24 max-w-[300px]",
                         }
-                      : {}
+                      : {
+                          image: `bg-transparent  object-contain `,
+                        }
                   }
                   alt={`${name} logo`}
                   key={idx}

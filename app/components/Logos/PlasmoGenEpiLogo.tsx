@@ -1,14 +1,12 @@
+import { ReactPropTypes } from "react";
+
 export default function PlasmoGenEpiLogo({
-  height,
   className,
 }: {
   className?: string;
-  height: number;
 }) {
   return (
     <svg
-      height={`${height}px`}
-      // fill={color || "black"}
       className={className}
       id="Layer_1"
       xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +20,7 @@ export default function PlasmoGenEpiLogo({
         className="cls-1"
         d="m90.37,197.288c-38.436,0-69.466-31.079-69.448-69.56.017-38.311,31.164-69.323,69.599-69.299,38.255.024,69.298,31.179,69.259,69.509-.039,38.331-31.083,69.349-69.409,69.349Zm-.058-2.968c36.609.055,66.39-29.66,66.499-66.353.109-36.641-29.663-66.473-66.413-66.545-36.616-.072-66.364,29.611-66.485,66.339-.121,36.636,29.675,66.504,66.398,66.56Z"
       />
+      {/* Text */}
       <g className="stroke-0">
         {/* Genomic */}
         <path
