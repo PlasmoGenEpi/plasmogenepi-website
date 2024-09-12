@@ -18,7 +18,9 @@ export default function GroupLogoWrapper({
 }) {
   return (
     <div
-      className={`shrink-0 origin-center overflow-hidden ${classNames?.wrapper ? classNames.wrapper : ""}`}
+      className={`shrink-0 origin-center overflow-hidden ${
+        classNames?.wrapper ? classNames.wrapper : ""
+      }`}
     >
       <Image
         priority

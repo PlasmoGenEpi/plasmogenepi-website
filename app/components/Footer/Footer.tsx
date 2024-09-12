@@ -12,7 +12,7 @@ export default function Footer() {
           Mailing List
         </Link>
         <a
-          href="mailto:information@plasmogenepi.org"
+          href="mailto:info@plasmogenepi.org"
           className="px-8 py-4 font-semibold  text-pge-white"
         >
           Contact

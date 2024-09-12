@@ -24,13 +24,13 @@ export default function BannerImage() {
         <h2 className="mb-8 font-poppins text-2xl font-bold">
           About this course
         </h2>
-        <p className="mb-4 text-pretty font-roboto">
+        <p className="text-pretty mb-4 font-roboto">
           <span className="font-bold">Course Goal</span>: to equip researchers,
           students, and public health officials with the knowledge and skills
           needed to effectively use malaria Genetic data in epidemiological
           research and public health decision-making.
         </p>
-        <p className="mb-4 text-pretty font-roboto">
+        <p className="text-pretty mb-4 font-roboto">
           <span className="font-bold">Course Format</span>: online, indepedent
           self-study requiring 10-12 hours to complete. Content includes a mix
           of video lectures, interactive case studies, quizzes, moderated

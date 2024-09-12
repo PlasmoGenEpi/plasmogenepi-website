@@ -3,6 +3,7 @@ import PrimaryNav2 from "./PrimaryNav2";
 import { usePathname } from "next/navigation";
 import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
+import { useMediaQuery, useWindowSize } from "../hooks";
 
 export const navOpenAtom = atom(false);
 
@@ -12,33 +13,18 @@ export default function NavList2() {
   useEffect(() => {
     setNavOpen(false);
   }, [currentNav, setNavOpen]);
+
   return (
     <div className="bg-transparent md:border-b-2">
       <div className="relative ">
-        <div className="mx-auto hidden h-2 md:flex xl:max-w-6xl">
-          <div
-            className={`${currentNav === "/" ? "bg-pge-dark-teal" : "bg-transparent"}  grow basis-[308px] `}
-          ></div>
-          <div
-            className={`${currentNav === "/OnlineCourse" ? "bg-pge-dark-teal" : "bg-transparent"} basis-[308px]`}
-          ></div>
-          <div
-            className={`${currentNav === "/DataStandards" ? "bg-pge-dark-teal" : "bg-transparent"} basis-[308px]`}
-          ></div>
-          <div
-            className={`${currentNav === "/Groups" ? "bg-pge-dark-teal" : "bg-transparent"} grow basis-[308px]`}
-          ></div>
-        </div>
         <div
-          // className={
-          //   open
-          //     ? "flex max-h-[200px] flex-col overflow-hidden   bg-black/90 py-2 transition-[max-height] duration-500 md:h-auto md:max-h-max md:flex-row md:gap-4 md:border-0 md:bg-transparent md:py-0 md:pr-2 md:backdrop-blur-0"
-          //     : "mx-auto flex max-h-0 flex-col overflow-hidden    bg-black/90 transition-[max-height] duration-500 md:pointer-events-auto md:h-auto md:max-h-max md:flex-row md:gap-4 md:border-0 md:bg-transparent xl:max-w-6xl"
-          // }
-          className={`grid bg-black/95 duration-500 ease-out md:block md:bg-transparent ${open ? "[grid-template-rows:1fr]" : "[grid-template-rows:0fr]"} mx-auto transition-[grid-template-rows] xl:max-w-6xl`}
+          className={`grid bg-black/95 duration-500 ease-out md:block md:bg-transparent ${
+            open ? "[grid-template-rows:1fr]" : "[grid-template-rows:0fr]"
+          } mx-auto transition-[grid-template-rows] xl:max-w-6xl`}
         >
-          <div className="overflow-hidden md:flex">
+          <div className="mx-auto flex w-fit flex-col overflow-hidden px-1 md:mx-0 md:w-full md:flex-row md:px-0">
             <PrimaryNav2
+              first
               hidden={!open}
               icon_svg={
                 <svg
@@ -122,6 +108,7 @@ export default function NavList2() {
                   </g>
                 </svg>
               }
+              last
               active={currentNav === "/Groups"}
               display="Groups"
               path="/Groups"

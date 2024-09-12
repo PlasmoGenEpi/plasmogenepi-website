@@ -15,7 +15,7 @@ export default function NavBar2() {
 
             <div className="mr-24 mt-auto hidden h-14 gap-12 p-2 md:flex md:items-center">
               <a
-                href="mailto:information@plasmogenepi.org"
+                href="mailto:info@plasmogenepi.org"
                 className="font-overpass text-sm font-light uppercase"
               >
                 Contact

@@ -6,14 +6,20 @@ export default function LandingContent() {
   return (
     <div className="">
       <div className="px-2">
-        <div className="mx-auto mt-8 grid max-w-5xl gap-8 border-l-8 border-cyan-800 px-4 py-8 text-lg  md:px-8 md:text-base lg:px-16">
+        <div className="mx-auto mt-8 grid max-w-5xl gap-8 border-l-8 border-cyan-800 px-4 py-8 text-lg  md:px-8 md:text-base lg:px-16 ">
           <h2 className="font-poppins text-2xl font-bold md:text-left">
             Who we are
           </h2>
-          <p className="text-pretty font-roboto">
+          <p className="text-pretty font-roboto ">
             We are a network of scientists who have come together since 2018 to
             address challenges in malaria genomic epidemiology.
           </p>
+          <Link
+            href="/Groups"
+            className="mx-auto w-fit rounded-full px-6  py-2 font-poppins text-base font-semibold"
+          >
+            Groups
+          </Link>
         </div>
       </div>
       <InfiniteScrollBar />
@@ -30,12 +36,12 @@ export default function LandingContent() {
         </div>
       </div>
       <div className="border-y-4 border-pge-dark-teal bg-pge-darkest-teal pb-8 pt-8">
-        <div className="mx-auto grid max-w-5xl gap-8  py-8 pl-8 text-lg  md:px-8 md:text-base lg:px-16">
+        <div className="mx-auto grid max-w-5xl gap-8  px-4 py-8 text-lg  md:px-8 md:text-base lg:px-16">
           {" "}
           <Link
             prefetch
             href="/SignUp"
-            className="mx-auto w-fit rounded bg-pge-dark-teal px-12 py-4 text-3xl font-light text-white"
+            className="mx-auto w-fit rounded bg-pge-dark-teal/80 px-12 py-4 text-3xl font-light text-white transition-colors hover:bg-pge-dark-teal focus-visible:bg-pge-dark-teal"
           >
             Get Involved
           </Link>
@@ -80,7 +86,6 @@ export default function LandingContent() {
                     className="h-[200px] w-[1000px] object-cover"
                     width={600}
                     height={300}
-                    // fill
                   />
                   <h3 className="text-center font-poppins text-xl font-semibold">
                     Data Standards

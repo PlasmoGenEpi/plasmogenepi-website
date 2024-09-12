@@ -8,6 +8,7 @@ export default function NavFooterLayout({ children }: { children: ReactNode }) {
     <div className="min-w-[376px] bg-zinc-50">
       <NavBar2 />
       <div className="min-h-screen pb-80 md:mt-0">{children}</div>
+
       <Footer />
     </div>
   );
