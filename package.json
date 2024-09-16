@@ -9,23 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "jotai": "^2.6.5",
     "next": "13.5.4",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.5",
     "react": "^18.2.0",
-    "jotai": "^2.6.5",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.8.4",
     "@types/react": "^18.2.28",
     "@types/react-dom": "^18.2.13",
-    "autoprefixer": "^10.4.16",
+    "autoprefixer": "^10.4.20",
     "daisyui": "^3.9.2",
     "eslint": "^8.51.0",
     "eslint-config-next": "13.5.4",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.3",
+    "postcss": "^8.4.45",
+    "tailwindcss": "^3.4.11",
     "typescript": "^5.2.2"
   }
 }

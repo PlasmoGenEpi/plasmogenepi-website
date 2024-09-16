@@ -84,7 +84,7 @@ export default function NavList2() {
                 </svg>
               }
               active={currentNav === "/DataStandards"}
-              display="Data Standards"
+              display="Data & Analysis Standards"
               path="/DataStandards"
             />
             <PrimaryNav2

@@ -1,4 +1,7 @@
 import Image from "next/image";
+import FullscreenImageWrapper from "../Images/FullscreenImageWrapper";
+import Carousel from "../Images/Carousel";
+import CarouselThumbnails from "../Images/CarouselThumbnails";
 
 export default function CoursePreview() {
   return (
@@ -8,7 +11,7 @@ export default function CoursePreview() {
           <h2 className="mb-8 font-poppins text-2xl font-bold">
             What you will learn:
           </h2>
-          <ol className="min-w-72 text-pretty flex list-decimal flex-col gap-3 px-4 font-roboto">
+          <ol className="flex min-w-72 list-decimal flex-col gap-3 text-pretty px-4 font-roboto">
             <li>
               Summarize the basic concepts and main use cases of malaria genetic
               epidemiology.
@@ -32,32 +35,39 @@ export default function CoursePreview() {
           </ol>
         </div>
         <div className="relative grid place-items-center bg-blend-multiply">
-          <Image
-            alt="Sleuthing exercise example"
-            src={"/assets/genotyping-example2.png"}
-            height={400}
-            width={600}
-            className="shadow-md"
+          {/* <FullscreenImageWrapper path="/assets/genotyping-example2.png">
+            <Image
+              alt="Sleuthing exercise example"
+              src={"/assets/genotyping-example2.png"}
+              height={400}
+              width={600}
+              className="shadow-md"
+            />
+          </FullscreenImageWrapper> */}
+          <Carousel
+            images={[
+              {
+                alt: "",
+                path: "/assets/OnlineCourse/Slide4.png",
+              },
+              {
+                alt: "",
+                path: "/assets/OnlineCourse/Slide3.png",
+              },
+              {
+                alt: "",
+                path: "/assets/OnlineCourse/Slide5.png",
+              },
+              {
+                alt: "",
+                path: "/assets/OnlineCourse/Slide6.png",
+              },
+              {
+                alt: "",
+                path: "/assets/OnlineCourse/Slide7.png",
+              },
+            ]}
           />
-          {/* <div className="absolute bottom-0 right-0 top-0  bg-zinc-900">
-            <h3 className=" block py-8 text-center font-serif text-3xl text-white">
-              Preview the course
-            </h3>
-            <div>
-              <button className=" bg-cyan-800 px-8 py-4 text-white">
-                <p className="max-w-[250px] font-bold">
-                  Genotype Sleuthing with SNPs and Microhaplotypes
-                </p>
-              </button>
-            </div>
-            <div className="mt-16">
-              <button className=" bg-cyan-800 px-8 py-4 text-white hover:bg-cyan-900">
-                <p className="max-w-[250px] font-bold">
-                  M2 &ndash; Genotype Sleuthing with SNPs and Microhaplotypes
-                </p>
-              </button>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

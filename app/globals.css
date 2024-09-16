@@ -12,6 +12,16 @@
   cursor: auto !important;
 } */
 
+::view-transition-old(root) {
+  animation-duration:.5s;
+
+}
+
+::view-transition-new(root) {
+  animation-duration:.5s;
+
+}
+
 @keyframes roll {
   from {
     transform: translate(240px,0px)
@@ -741,5 +751,8 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
       mask: none;
       -webkit-mask: none;
       overflow: auto;
+    }
+    .myCarousel {
+      transition: none;
     }
   }

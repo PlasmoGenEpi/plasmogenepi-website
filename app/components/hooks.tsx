@@ -49,3 +49,19 @@ export function useMediaQuery() {
     return "lg";
   }
 }
+
+export function useScreenSize() {
+  const [screenSize, setScreenSize] = useState(innerWidth);
+
+  let handleResize = () => {
+    setScreenSize(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  return screenSize;
+}

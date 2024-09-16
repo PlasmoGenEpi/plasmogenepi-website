@@ -24,7 +24,9 @@ export default function AccordionElement({
           setOpenModules([...openModules, id]);
         }
       }}
-      className={`${open ? "collapse-open" : ""} collapse border-b pr-0 shadow  duration-500 md:duration-300`}
+      className={`${
+        open ? "collapse-open" : ""
+      } collapse border-b pr-0 shadow  duration-500 md:duration-300`}
     >
       <div className="collapse-title relative flex h-min justify-between gap-8 p-4 font-poppins text-lg font-bold">
         {title}

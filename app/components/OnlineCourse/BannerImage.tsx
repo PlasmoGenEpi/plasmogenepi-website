@@ -20,17 +20,27 @@ export default function BannerImage() {
           </div>
         </div>
       </div>
+      {/* <div className="mx-auto max-w-6xl  text-lg md:px-8 md:text-base lg:px-16">
+          <Image
+            className="m-auto object-cover"
+            priority
+            height={600}
+            width={2000}
+            src="/assets/OnlineCourse/Slide4.png"
+            alt=""
+          />
+        </div> */}
       <div className="mx-auto my-16 max-w-6xl px-4 text-lg md:px-8 md:text-base lg:px-16">
         <h2 className="mb-8 font-poppins text-2xl font-bold">
           About this course
         </h2>
-        <p className="text-pretty mb-4 font-roboto">
+        <p className="mb-4 text-pretty font-roboto">
           <span className="font-bold">Course Goal</span>: to equip researchers,
           students, and public health officials with the knowledge and skills
           needed to effectively use malaria Genetic data in epidemiological
           research and public health decision-making.
         </p>
-        <p className="text-pretty mb-4 font-roboto">
+        <p className="mb-4 text-pretty font-roboto">
           <span className="font-bold">Course Format</span>: online, indepedent
           self-study requiring 10-12 hours to complete. Content includes a mix
           of video lectures, interactive case studies, quizzes, moderated

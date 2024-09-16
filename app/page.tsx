@@ -12,7 +12,7 @@ export default function Home() {
         <LandingImage />
         <LandingContent />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

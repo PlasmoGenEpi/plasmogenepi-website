@@ -13,6 +13,9 @@ const config: Config = {
     {
       pattern: /via-(cloneBlue|cloneGreen|cloneOrange|cloneRed|cloneYellow)/,
     },
+    {
+      pattern: /-translate-x-([100%]|[200%])/,
+    },
   ],
   theme: {
     extend: {

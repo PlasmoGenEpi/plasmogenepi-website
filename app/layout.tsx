@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Roboto, Overpass } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import FullscreenImage from "./components/Images/FullscreenImage";
 
 const overpass = Overpass({
   weight: ["200", "400", "700", "900"],
@@ -52,6 +53,7 @@ export default function RootLayout({
         <main
           className={`${poppins.variable} ${roboto.variable} ${overpass.variable} ${helveticaNeue.variable} `}
         >
+          {/* <FullscreenImage /> */}
           {children}
         </main>
       </body>

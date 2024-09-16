@@ -9,7 +9,7 @@ export default function NavFooterLayout({ children }: { children: ReactNode }) {
       <NavBar2 />
       <div className="min-h-screen pb-80 md:mt-0">{children}</div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

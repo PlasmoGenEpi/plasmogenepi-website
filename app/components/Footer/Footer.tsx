@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="border-t-4 border-pge-dark-teal bg-pge-darkest-teal py-32">
+    <div className="brighten bg-pge-darkest-teal py-16">
       <div className="mx-auto flex max-w-6xl justify-around gap-x-24 px-4">
         <Link
           prefetch

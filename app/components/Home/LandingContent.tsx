@@ -16,7 +16,7 @@ export default function LandingContent() {
           </p>
           <Link
             href="/Groups"
-            className="mx-auto w-fit rounded-full px-6  py-2 font-poppins text-base font-semibold"
+            className="mx-auto w-fit rounded-full px-6  py-2 font-poppins font-semibold"
           >
             Groups
           </Link>
@@ -35,13 +35,16 @@ export default function LandingContent() {
           </p>
         </div>
       </div>
-      <div className="border-y-4 border-pge-dark-teal bg-pge-darkest-teal pb-8 pt-8">
+      {/* hsl(192 49% 12% / 1) */}
+      <div className="  bg-pge-darkest-teal pb-8 pt-8">
         <div className="mx-auto grid max-w-5xl gap-8  px-4 py-8 text-lg  md:px-8 md:text-base lg:px-16">
           {" "}
           <Link
             prefetch
             href="/SignUp"
-            className="mx-auto w-fit rounded bg-pge-dark-teal/80 px-12 py-4 text-3xl font-light text-white transition-colors hover:bg-pge-dark-teal focus-visible:bg-pge-dark-teal"
+            // className="mx-auto w-fit rounded bg-rose-700 px-12 py-4 text-3xl font-light text-white transition-colors hover:bg-rose-600 focus-visible:bg-pge-dark-teal"
+            // className="mx-auto w-fit rounded bg-pge-dark-teal/80 px-12 py-4 text-3xl font-light text-white transition-colors hover:bg-pge-dark-teal focus-visible:bg-pge-dark-teal"
+            className="mx-auto w-fit rounded bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-12 py-4 text-3xl  text-white transition-all hover:scale-105 hover:brightness-[115%] focus-visible:scale-105 focus-visible:brightness-[115%]"
           >
             Get Involved
           </Link>
@@ -58,23 +61,29 @@ export default function LandingContent() {
           </h2>
           <div className="grid place-items-center gap-x-32 gap-y-16 md:grid-cols-2">
             <div>
-              <div className="rounded-lg  border-2 border-black bg-gradient-radial from-white to-[#155E75]/20 py-2">
-                <Link href="/OnlineCourse" className="mix-blend-multiply">
+              <div className="rounded-lg  border-2 border-black">
+                <Link
+                  href="/OnlineCourse"
+                  className="relative mix-blend-multiply"
+                >
                   <Image
-                    alt=""
-                    src={"/assets/Screenshot from 2024-09-06 00-09-28.png"}
-                    className=""
-                    width={400}
+                    className="m-auto object-cover"
+                    priority
                     height={300}
+                    width={600}
+                    src="/assets/OnlineCourse/Slide4.png"
+                    alt=""
                   />
-                  <h3 className="text-center font-poppins text-xl font-semibold">
-                    Online Course
-                  </h3>
+                  <div className="absolute left-0 right-0 top-full  bg-white/80 text-center text-black">
+                    <h3 className=" py-2 text-center font-poppins text-xl font-semibold">
+                      Online Course
+                    </h3>
+                  </div>
                 </Link>
               </div>
             </div>
             <div>
-              <div className="rounded-lg  border-2 border-black bg-gradient-radial from-white to-[#155E75]/20 py-2">
+              <div className="rounded-lg  border-2 border-black bg-gradient-radial from-white to-[#155E75]/20">
                 <Link
                   href="/DataStandards"
                   className="relative overflow-hidden mix-blend-multiply"
@@ -87,9 +96,11 @@ export default function LandingContent() {
                     width={600}
                     height={300}
                   />
-                  <h3 className="text-center font-poppins text-xl font-semibold">
-                    Data Standards
-                  </h3>
+                  <div className="absolute left-0 right-0 top-full  bg-white/80 text-center text-black">
+                    <h3 className=" py-2 text-center font-poppins text-xl font-semibold">
+                      Data & Analysis Standards
+                    </h3>
+                  </div>
                 </Link>
               </div>
             </div>
