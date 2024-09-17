@@ -18,6 +18,19 @@ export default function CarouselThumbnails({
         return (
           <button
             onClick={() => {
+              // if (idx === 0) {
+              //   console.log("first");
+              //   console.log(imageIndex, images.length / 2);
+              //   if (imageIndex < images.length / 2) {
+              //     console.log("start");
+              //     setImageIndex(0);
+              //   } else {
+              //     console.log("end");
+              //     setImageIndex(images.length);
+              //   }
+              // } else {
+              //   setImageIndex(idx);
+              // }
               setImageIndex(idx);
             }}
             aria-label={`carousel image ${idx + 1} ${

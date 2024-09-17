@@ -44,7 +44,7 @@ export default function LandingContent() {
             href="/SignUp"
             // className="mx-auto w-fit rounded bg-rose-700 px-12 py-4 text-3xl font-light text-white transition-colors hover:bg-rose-600 focus-visible:bg-pge-dark-teal"
             // className="mx-auto w-fit rounded bg-pge-dark-teal/80 px-12 py-4 text-3xl font-light text-white transition-colors hover:bg-pge-dark-teal focus-visible:bg-pge-dark-teal"
-            className="mx-auto w-fit rounded bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-12 py-4 text-3xl  text-white transition-all hover:scale-105 hover:brightness-[115%] focus-visible:scale-105 focus-visible:brightness-[115%]"
+            className="mx-auto w-fit rounded bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-12 py-4 text-3xl  text-white transition-all hover:scale-105 hover:brightness-[115%] focus-visible:scale-105 focus-visible:brightness-[115%] "
           >
             Get Involved
           </Link>

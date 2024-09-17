@@ -6,6 +6,7 @@ import FullscreenImageWrapper, {
 } from "./FullscreenImageWrapper";
 import { useAtom } from "jotai";
 import CarouselThumbnails from "./CarouselThumbnails";
+import { usePrevious } from "../hooks";
 
 export default function Carousel({
   images,
@@ -13,24 +14,21 @@ export default function Carousel({
   images: { path: string; alt: string }[];
 }) {
   const [imageIndex, setImageIndex] = useState(0);
+  const prevIndex = usePrevious(imageIndex, 0).current;
   const intervalTimeoutRef = useRef<null | NodeJS.Timeout>(null);
 
   useEffect(() => {
     if (intervalTimeoutRef.current === null) {
-      intervalTimeoutRef.current = setTimeout(() => {
-        // document.startViewTransition(() => {
-        // if (imageIndex === images.length - 1) {
-        //   setImageIndex(0);
-        // } else {
-        //   setImageIndex(imageIndex + 1);
-        // }
-        // });
-        if (imageIndex === images.length - 1) {
-          setImageIndex(0);
-        } else {
-          setImageIndex(imageIndex + 1);
-        }
-      }, 8000);
+      intervalTimeoutRef.current = setTimeout(
+        () => {
+          if (imageIndex === images.length) {
+            setImageIndex(0);
+          } else {
+            setImageIndex(imageIndex + 1);
+          }
+        },
+        imageIndex === 0 && prevIndex === images.length ? 0 : 5000,
+      );
     }
     return () => {
       if (intervalTimeoutRef.current !== null) {
@@ -42,21 +40,52 @@ export default function Carousel({
 
   return (
     <div className="">
-      <div className=" overflow-hidden bg-zinc-50 p-2">
+      <div className=" overflow-hidden bg-zinc-50">
         <div
-          style={{
-            // imageWidth + (imageIndex * inline padding)
-            transform: `translateX(calc(${-100 * imageIndex}% - ${
-              8 * imageIndex
-            }px))`,
-          }}
-          className={`myCarousel flex mix-blend-multiply duration-1000`}
+          // style={{
+          //   transform: `translateX(calc(${-100 * imageIndex}%)`,
+          // }}
+          className={`flex mix-blend-multiply`}
         >
           {images.map(({ path, alt }, idx) => {
             return (
-              <Image src={path} alt={alt} key={idx} width={900} height={400} />
+              <Image
+                style={{
+                  transform: `translateX(${-100 * imageIndex}%)`,
+                }}
+                className={`motion-reduce:transition-none ${
+                  imageIndex === 0 && prevIndex === images.length
+                    ? "duration-0"
+                    : "duration-1000"
+                }`}
+                src={path}
+                alt={alt}
+                key={idx}
+                width={900}
+                height={400}
+              />
             );
           })}
+          {images.length && (
+            <Image
+              style={{
+                transform: `translateX(${-100 * imageIndex}%)`,
+              }}
+              className={`${
+                imageIndex === images.length &&
+                prevIndex === images.length - 1 &&
+                imageIndex !== 1
+                  ? "duration-1000"
+                  : "duration-0"
+              } scale-50 motion-reduce:hidden`}
+              src={images[0].path}
+              alt={images[0].alt}
+              key={images.length}
+              width={900}
+              height={400}
+            />
+          )}
+
           {/* {
           <div>
             <Image
@@ -81,7 +110,7 @@ export default function Carousel({
         <div className="mx-auto mt-8 md:mt-4">
           <CarouselThumbnails
             setImageIndex={setImageIndex}
-            imageIndex={imageIndex}
+            imageIndex={imageIndex === images.length ? 0 : imageIndex}
             images={images}
           />
         </div>

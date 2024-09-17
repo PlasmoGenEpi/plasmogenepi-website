@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BannerImage() {
   return (
@@ -37,16 +38,31 @@ export default function BannerImage() {
         <p className="mb-4 text-pretty font-roboto">
           <span className="font-bold">Course Goal</span>: to equip researchers,
           students, and public health officials with the knowledge and skills
-          needed to effectively use malaria Genetic data in epidemiological
+          needed to effectively use malaria genetic data in epidemiological
           research and public health decision-making.
         </p>
         <p className="mb-4 text-pretty font-roboto">
           <span className="font-bold">Course Format</span>: online, indepedent
           self-study requiring 10-12 hours to complete. Content includes a mix
           of video lectures, interactive case studies, quizzes, moderated
-          discussion forums and job aids.
+          discussion forums and job aids. This course is free and open to the
+          public.
         </p>
-        <p></p>
+        <p>
+          <span className="font-bold">Register</span>: the course will go live
+          in November 2024. Follow the link below to register and access the
+          course materials.
+        </p>
+        <div className="mt-8 flex justify-center">
+          <div>
+            <Link
+              href="/"
+              className="pointer-events-none mx-auto block w-fit rounded bg-black/80 bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-8 py-3  text-2xl font-medium text-white opacity-50 transition-all hover:scale-105"
+            >
+              Register
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
