@@ -1,4 +1,4 @@
-import { SetStateAction } from "jotai";
+import { SetStateAction, useAtom } from "jotai";
 import Image from "next/image";
 import { Dispatch } from "react";
 import FullscreenImageWrapper from "./FullscreenImageWrapper";
@@ -7,7 +7,9 @@ export default function CarouselThumbnails({
   images,
   imageIndex,
   setImageIndex,
+  setThumbnailNav,
 }: {
+  setThumbnailNav: Dispatch<SetStateAction<boolean>>;
   setImageIndex: Dispatch<SetStateAction<number>>;
   imageIndex: number;
   images: { path: string; alt: string }[];
@@ -31,16 +33,20 @@ export default function CarouselThumbnails({
               // } else {
               //   setImageIndex(idx);
               // }
-              setImageIndex(idx);
+              if (imageIndex !== idx) {
+                setThumbnailNav(true);
+                setImageIndex(idx);
+              }
             }}
             aria-label={`carousel image ${idx + 1} ${
               idx === imageIndex ? "active" : "inactive"
             }`}
-            className={`w-full border-t-4 md:h-auto md:w-auto md:border-t-2 ${
+            className={`relative w-full border-t-4 md:h-auto md:w-auto md:border-t-2 ${
               imageIndex === idx
-                ? " border-black bg-pge-dark-teal md:bg-transparent"
+                ? // before:absolute before:-bottom-4 before:left-1/2 before:aspect-square before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-black before:content-none md:bg-transparent md:before:content-['']
+                  " border-black bg-pge-dark-teal md:bg-transparent"
                 : " border-transparent bg-black/10 hover:scale-105 focus-visible:scale-105 md:bg-transparent md:mix-blend-multiply [&>*]:opacity-50 hover:[&>*]:opacity-100  focus-visible:[&>*]:opacity-100"
-            } overflow-hidden border-2 outline-offset-4 transition-all md:rounded md:outline-offset-2`}
+            } border-2 outline-offset-4 transition-all md:rounded md:outline-offset-2`}
             key={idx}
           >
             {/* <FullscreenImageWrapper key={idx} index={idx} path={image.path}> */}

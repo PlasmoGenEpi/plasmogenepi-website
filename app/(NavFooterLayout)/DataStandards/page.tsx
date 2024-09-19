@@ -1,8 +1,33 @@
+import AlternateView from "@/app/components/Images/AlternateView";
 import FullscreenImageWrapper from "@/app/components/Images/FullscreenImageWrapper";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function DataStandards() {
+  // return (
+  //   <div>
+  //     <div className="mx-auto mt-16  max-w-6xl border-b-8 border-pge-dark-teal px-4 pb-16 text-lg md:px-8 md:text-base lg:px-16">
+  //       <h1 className="font-poppins text-2xl font-bold">
+  //         Data & Analysis Standards
+  //       </h1>
+  //       <div>
+  //         <p className="mt-8 font-roboto">
+  //           Please provide your feedback, sign up to get involved, or stay
+  //           informed{" "}
+  //           <Link
+  //             rel="noopener noreferrer"
+  //             target="_blank"
+  //             className="font-medium text-blue-600 underline"
+  //             href={`https://forms.gle/Ke2fmd7oRwixgBnw8`}
+  //           >
+  //             using our feedback form here!
+  //           </Link>
+  //         </p>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
+
   return (
     <div>
       <div className="mx-auto mt-16  max-w-6xl border-b-8 border-pge-dark-teal px-4 pb-16 text-lg md:px-8 md:text-base lg:px-16">
@@ -190,6 +215,36 @@ export default function DataStandards() {
             </li>
           </ol>
         </p>
+
+        {/* <AlternateView
+          alternate={
+            <div>
+              <div className="fixed inset-0 z-10 grid place-items-center overflow-auto bg-black/50 px-4 backdrop-blur-sm">
+                <Image
+                  className="min-w-[600px] object-cover [view-transition-name:img2]"
+                  height={800}
+                  width={1000}
+                  alt="plasmogenepi RADISH23 community photo"
+                  src={`/assets/DataStandards/conference_pic.jpg`}
+                ></Image>
+              </div>
+              <div className="my-8 h-[200px] w-fit"></div>
+            </div>
+          }
+        >
+          <div className="my-8 w-fit">
+            <div>
+              <Image
+                className="h-[200px] object-cover [view-transition-name:img2]"
+                height={300}
+                width={400}
+                alt="plasmogenepi RADISH23 community photo"
+                src={`/assets/DataStandards/conference_pic.jpg`}
+              ></Image>
+            </div>
+          </div>
+        </AlternateView> */}
+
         <FullscreenImageWrapper
           intrinsicHeight={600}
           intrinsicWidth={1600}

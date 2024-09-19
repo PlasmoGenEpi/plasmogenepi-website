@@ -91,63 +91,57 @@ export const logos: {
 
 export default function InfiniteScrollBar() {
   return (
-    <div className="mx-auto max-w-6xl">
-      <div className="infiniteScrollMask flex w-fit">
-        <ul className="scrollInner relative mx-auto flex h-48 shrink-0 items-center gap-12 bg-zinc-50 px-6">
-          {Object.values(logos).map(
-            ({ path, name, height, width, id }, idx) => {
-              return (
-                <GroupLogoWrapper
-                  classNames={
-                    id === 8
-                      ? {
-                          image:
-                            "scale-[200%] -translate-y-6 translate-x-4 mix-blend-multiply",
-                          wrapper: "max-h-24 max-w-[300px]",
-                        }
-                      : {
-                          wrapper: "mix-blend-multiply",
-                        }
-                  }
-                  alt={`${name} logo`}
-                  key={idx}
-                  height={height}
-                  width={width}
-                  path={path}
-                />
-              );
-            },
-          )}
-        </ul>
-        <ul
-          className={`scrollInner scrollInner2 relative flex h-48 shrink-0  items-center gap-12 bg-zinc-50 px-6 `}
-        >
-          {Object.values(logos).map(
-            ({ path, name, height, width, id }, idx) => {
-              return (
-                <GroupLogoWrapper
-                  classNames={
-                    id === 8
-                      ? {
-                          image:
-                            "scale-[200%] -translate-y-6 translate-x-4 mix-blend-multiply",
-                          wrapper: "max-h-24 max-w-[300px]",
-                        }
-                      : {
-                          wrapper: "mix-blend-multiply",
-                        }
-                  }
-                  alt={`${name} logo`}
-                  key={idx}
-                  height={height}
-                  width={width}
-                  path={path}
-                />
-              );
-            },
-          )}
-        </ul>
-      </div>
+    <div className="flex w-fit motion-safe:[mask:linear-gradient(90deg,_transparent,_20%,_#fafafa_80%,_transparent)] motion-reduce:overflow-auto">
+      <ul className="relative flex h-48 shrink-0 items-center gap-12 bg-zinc-50 px-6 motion-safe:[animation:scroll_80s_linear_infinite]">
+        {Object.values(logos).map(({ path, name, height, width, id }, idx) => {
+          return (
+            <GroupLogoWrapper
+              classNames={
+                id === 8
+                  ? {
+                      image:
+                        "scale-[200%] -translate-y-6 translate-x-4 mix-blend-multiply",
+                      wrapper: "max-h-24 max-w-[300px]",
+                    }
+                  : {
+                      wrapper: "mix-blend-multiply",
+                    }
+              }
+              alt={`${name} logo`}
+              key={idx}
+              height={height}
+              width={width}
+              path={path}
+            />
+          );
+        })}
+      </ul>
+      <ul
+        className={`relative flex h-48 shrink-0 items-center gap-12 bg-zinc-50 px-6 motion-safe:[animation:scroll_80s_linear_infinite] motion-reduce:hidden `}
+      >
+        {Object.values(logos).map(({ path, name, height, width, id }, idx) => {
+          return (
+            <GroupLogoWrapper
+              classNames={
+                id === 8
+                  ? {
+                      image:
+                        "scale-[200%] -translate-y-6 translate-x-4 mix-blend-multiply",
+                      wrapper: "max-h-24 max-w-[300px]",
+                    }
+                  : {
+                      wrapper: "mix-blend-multiply",
+                    }
+              }
+              alt={`${name} logo`}
+              key={idx}
+              height={height}
+              width={width}
+              path={path}
+            />
+          );
+        })}
+      </ul>
     </div>
   );
 }

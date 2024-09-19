@@ -49,17 +49,18 @@ export default function BannerImage() {
           public.
         </p>
         <p>
-          <span className="font-bold">Register</span>: the course will go live
-          in November 2024. Follow the link below to register and access the
-          course materials.
+          <span className="font-roboto font-bold">Register</span>: the course
+          will go live in November 2024. Registration will be available soon
+          &ndash; sign up for our mailing list to stay updated.
         </p>
         <div className="mt-8 flex justify-center">
           <div>
             <Link
-              href="/"
-              className="pointer-events-none mx-auto block w-fit rounded bg-black/80 bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-8 py-3  text-2xl font-medium text-white opacity-50 transition-all hover:scale-105"
+              prefetch
+              href="/SignUp"
+              className="mx-auto block w-fit rounded bg-black/80 bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-8 py-3  text-xl font-medium text-white transition-all hover:scale-105"
             >
-              Register
+              Sign Up
             </Link>
           </div>
         </div>

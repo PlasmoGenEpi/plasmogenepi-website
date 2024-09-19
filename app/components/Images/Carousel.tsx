@@ -1,10 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import FullscreenImageWrapper, {
-  fullscreenAtom,
-} from "./FullscreenImageWrapper";
-import { useAtom } from "jotai";
+import { atom, useAtom } from "jotai";
 import CarouselThumbnails from "./CarouselThumbnails";
 import { usePrevious } from "../hooks";
 
@@ -16,19 +13,19 @@ export default function Carousel({
   const [imageIndex, setImageIndex] = useState(0);
   const prevIndex = usePrevious(imageIndex, 0).current;
   const intervalTimeoutRef = useRef<null | NodeJS.Timeout>(null);
+  const [thumbnailNav, setThumbnailNav] = useState(false);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
+    if (thumbnailNav) {
+      setThumbnailNav(false);
+    }
     if (intervalTimeoutRef.current === null) {
-      intervalTimeoutRef.current = setTimeout(
-        () => {
-          if (imageIndex === images.length) {
-            setImageIndex(0);
-          } else {
-            setImageIndex(imageIndex + 1);
-          }
-        },
-        imageIndex === 0 && prevIndex === images.length ? 0 : 5000,
-      );
+      intervalTimeoutRef.current = setTimeout(() => {
+        if (imageIndex < images.length) {
+          setImageIndex(imageIndex + 1);
+        }
+      }, 8000);
     }
     return () => {
       if (intervalTimeoutRef.current !== null) {
@@ -36,12 +33,18 @@ export default function Carousel({
         intervalTimeoutRef.current = null;
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imageIndex, images.length]);
 
   return (
     <div className="">
-      <div className=" overflow-hidden bg-zinc-50">
+      <div className=" overflow-hidden bg-zinc-50 pb-8">
         <div
+          onTransitionEnd={(e) => {
+            if (imageIndex >= images.length) {
+              setImageIndex(0);
+            }
+          }}
           // style={{
           //   transform: `translateX(calc(${-100 * imageIndex}%)`,
           // }}
@@ -53,11 +56,12 @@ export default function Carousel({
                 style={{
                   transform: `translateX(${-100 * imageIndex}%)`,
                 }}
-                className={`motion-reduce:transition-none ${
-                  imageIndex === 0 && prevIndex === images.length
-                    ? "duration-0"
-                    : "duration-1000"
-                }`}
+                className={`${
+                  (imageIndex === 0 && prevIndex === images.length) ||
+                  thumbnailNav
+                    ? "transition-none"
+                    : "transition-transform duration-1000"
+                } motion-reduce:transition-none`}
                 src={path}
                 alt={alt}
                 key={idx}
@@ -107,8 +111,9 @@ export default function Carousel({
           </div>
         } */}
         </div>
-        <div className="mx-auto mt-8 md:mt-4">
+        <div className="mx-auto mt-8 px-2 md:mt-4">
           <CarouselThumbnails
+            setThumbnailNav={setThumbnailNav}
             setImageIndex={setImageIndex}
             imageIndex={imageIndex === images.length ? 0 : imageIndex}
             images={images}

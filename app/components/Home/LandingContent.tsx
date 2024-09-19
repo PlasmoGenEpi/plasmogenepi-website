@@ -22,7 +22,9 @@ export default function LandingContent() {
           </Link>
         </div>
       </div>
-      <InfiniteScrollBar />
+      <div className="mx-auto max-w-6xl">
+        <InfiniteScrollBar />
+      </div>
       <div className="px-2">
         <div className="mx-auto my-8 grid max-w-5xl gap-8 border-l-8 border-cyan-800 px-4 py-8 text-lg  md:px-8 md:text-base lg:px-16">
           <h2 className="font-poppins text-2xl font-bold md:text-left">
@@ -36,7 +38,7 @@ export default function LandingContent() {
         </div>
       </div>
       {/* hsl(192 49% 12% / 1) */}
-      <div className="  bg-pge-darkest-teal pb-8 pt-8">
+      <div className="  bg-pge-darkest-teal  pb-8 pt-8">
         <div className="mx-auto grid max-w-5xl gap-8  px-4 py-8 text-lg  md:px-8 md:text-base lg:px-16">
           {" "}
           <Link
@@ -64,7 +66,7 @@ export default function LandingContent() {
               <div className="rounded-lg  border-2 border-black">
                 <Link
                   href="/OnlineCourse"
-                  className="relative mix-blend-multiply"
+                  className="relative mix-blend-multiply outline-offset-8"
                 >
                   <Image
                     className="m-auto object-cover"
@@ -72,7 +74,7 @@ export default function LandingContent() {
                     height={300}
                     width={600}
                     src="/assets/OnlineCourse/Slide4.png"
-                    alt=""
+                    alt="Online Course"
                   />
                   <div className="absolute left-0 right-0 top-full  bg-white/80 text-center text-black">
                     <h3 className=" py-2 text-center font-poppins text-xl font-semibold">
@@ -83,13 +85,12 @@ export default function LandingContent() {
               </div>
             </div>
             <div>
-              <div className="rounded-lg  border-2 border-black bg-gradient-radial from-white to-[#155E75]/20">
+              <div className="rounded-lg  border-2 border-black bg-gradient-radial from-white to-[#155E75]/20 ">
                 <Link
                   href="/DataStandards"
-                  className="relative overflow-hidden mix-blend-multiply"
+                  className="relative overflow-hidden mix-blend-multiply outline-offset-8"
                 >
                   <Image
-                    unoptimized
                     alt=""
                     src={"/assets/graph.png"}
                     className="h-[200px] w-[1000px] object-cover"
@@ -104,6 +105,31 @@ export default function LandingContent() {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="px-2">
+        <div className="mx-auto mt-24 grid max-w-5xl gap-8 border-l-8 border-cyan-800 px-4 py-8 text-lg  md:px-8 md:text-base lg:px-16">
+          <h2 className="font-poppins text-2xl font-bold md:text-left">
+            Special thanks to our supporters
+          </h2>
+          <div className="mt-8 grid place-items-center gap-x-32 gap-y-16 md:grid-cols-2">
+            <Image
+              alt="National Institute of Allergy and Infectious Diseases Logo"
+              src={"/assets/LandingPage/NIH_logo2.png"}
+              // className="h-[200px] w-[1000px] object-cover"
+              className="mix-blend-multiply"
+              width={280}
+              height={150}
+            />{" "}
+            <Image
+              alt="Bill & Melinda Gates Foundation Logo"
+              src={"/assets/LandingPage/Gates_Foundation_logo.webp"}
+              // className="h-[200px] w-[1000px] object-cover"
+              className="h-20 object-cover mix-blend-multiply"
+              width={280}
+              height={150}
+            />{" "}
           </div>
         </div>
       </div>

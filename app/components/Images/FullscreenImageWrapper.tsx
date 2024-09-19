@@ -3,6 +3,7 @@ import { atom, useAtom, useSetAtom } from "jotai";
 import Image from "next/image";
 import {
   cloneElement,
+  CSSProperties,
   KeyboardEvent,
   ReactElement,
   useCallback,
@@ -23,9 +24,11 @@ export default function FullscreenImageWrapper({
   className,
   unsharedClassName,
   fullscreenContainerClassName,
+  unsharedStyle,
 }: {
   fullscreenContainerClassName?: string;
   unsharedClassName?: string;
+  unsharedStyle?: CSSProperties;
   className?: string;
   quality?: number;
   fullscreenClassName?: string;
@@ -81,6 +84,7 @@ export default function FullscreenImageWrapper({
       >
         <div
           onClick={() => {
+            console.log("clicked");
             // @ts-ignore
             if (!document.startViewTransition) {
               setFullscreen(false);
@@ -131,8 +135,8 @@ export default function FullscreenImageWrapper({
   } else {
     return (
       <div
+        style={unsharedStyle}
         onKeyDown={(e) => {
-          console.log(e.key);
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             // @ts-ignore
@@ -159,7 +163,7 @@ export default function FullscreenImageWrapper({
             });
           }
         }}
-        className="not:focus-visible:outline-none max-w-fit focus-visible:outline"
+        className=" max-w-fit shrink-0 focus-visible:outline"
         aria-label={"Expand image"}
       >
         <div>

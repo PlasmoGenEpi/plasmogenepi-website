@@ -34,7 +34,7 @@ export default function CoursePreview() {
             </li>
           </ol>
         </div>
-        <div className="relative grid place-items-center bg-blend-multiply">
+        <div className="grid place-items-center bg-blend-multiply">
           {/* <FullscreenImageWrapper path="/assets/genotyping-example2.png">
             <Image
               alt="Sleuthing exercise example"
