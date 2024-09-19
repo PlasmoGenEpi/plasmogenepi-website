@@ -7,10 +7,10 @@ export default function DataStandards() {
   // return (
   //   <div>
   //     <div className="mx-auto mt-16  max-w-6xl border-b-8 border-pge-dark-teal px-4 pb-16 text-lg md:px-8 md:text-base lg:px-16">
-  //       <h1 className="font-poppins text-2xl font-bold">
+  //       <h1 className="mb-8 font-poppins text-2xl font-bold">
   //         Data & Analysis Standards
   //       </h1>
-  //       <div>
+  //       <div className="grid gap-x-32 gap-y-16">
   //         <p className="mt-8 font-roboto">
   //           Please provide your feedback, sign up to get involved, or stay
   //           informed{" "}
@@ -23,6 +23,37 @@ export default function DataStandards() {
   //             using our feedback form here!
   //           </Link>
   //         </p>
+  //         <div className="">
+  // <p className=" max-w-xl text-pretty font-roboto">
+  //   Genomic data can provide an invaluable source of information to
+  //   understand pathogen evolution, identify patterns of transmission,
+  //   and characterize phenotypes such as drug resistance and immune
+  //   escape. For eukaryotic pathogens, larger genomes, sexual
+  //   recombination, and complicated transmission dynamics including
+  //   polyclonal infections have historically limited the use of genomic
+  //   data for many of these applications. However, recent laboratory
+  //   developments, including multiplexed targeted sequencing, have
+  //   rapidly increased the pace of genomic data generation for
+  //   eukaryotic pathogens.
+  // </p>
+  // <p className=" mt-4 max-w-xl text-pretty font-roboto">
+  //   Fundamental differences in the biology and transmission of
+  //   infections caused by these pathogens render many of the genomic
+  //   data and analysis tools developed for other organisms (primarily
+  //   humans, viruses, and bacteria) difficult or impossible to use. As
+  //   a result, many research efforts have needed to rely on bespoke
+  //   methods for processing and analysis, limiting the reusability of
+  //   data, the accuracy and reproducibility of results, and more
+  //   generally the productivity of scientists studying eukaryotic
+  //   pathogens. There is a need to develop software and computational
+  //   tools to{" "}
+  //   <span className="font-bold">
+  //     process, store, share and analyze
+  //   </span>{" "}
+  //   these data in a way which sets standards, encourages innovation,
+  //   and facilitates scientific discovery.
+  // </p>
+  //         </div>
   //       </div>
   //     </div>
   //   </div>
@@ -34,7 +65,7 @@ export default function DataStandards() {
         <h1 className="font-poppins text-2xl font-bold">
           Data & Analysis Standards
         </h1>
-        <p className="mt-8 font-roboto">
+        {/* <p className="mt-8 font-roboto">
           Please provide your feedback, sign up to get involved, or stay
           informed{" "}
           <Link
@@ -45,31 +76,72 @@ export default function DataStandards() {
           >
             using our feedback form here!
           </Link>
-        </p>
-
-        <p className="mt-4 font-roboto">
-          Genomic data can provide an invaluable source of information to
-          understand pathogen evolution, identify patterns of transmission, and
-          characterize phenotypes such as drug resistance and immune escape. For
-          eukaryotic pathogens, larger genomes, sexual recombination, and
-          complicated transmission dynamics including polyclonal infections have
-          historically limited the use of genomic data for many of these
-          applications. However, recent laboratory developments, including
-          multiplexed targeted sequencing, have rapidly increased the pace of
-          genomic data generation for eukaryotic pathogens. Fundamental
-          differences in the biology and transmission of infections caused by
-          these pathogens render many of the genomic data and analysis tools
-          developed for other organisms (primarily humans, viruses, and
-          bacteria) difficult or impossible to use. As a result, many research
-          efforts have needed to rely on bespoke methods for processing and
-          analysis, limiting the reusability of data, the accuracy and
-          reproducibility of results, and more generally the productivity of
-          scientists studying eukaryotic pathogens. There is a need to develop
-          software and computational tools to{" "}
-          <span className="font-bold">process, store, share and analyze</span>{" "}
-          these data in a way which sets standards, encourages innovation, and
-          facilitates scientific discovery.
-        </p>
+        </p> */}
+        <div className="mt-8 flex flex-col flex-nowrap gap-x-24 gap-y-16 md:flex-row">
+          <div className="max-w-xl basis-full">
+            <p className=" text-pretty font-roboto">
+              Genomic data can provide an invaluable source of information to
+              understand pathogen evolution, identify patterns of transmission,
+              and characterize phenotypes such as drug resistance and immune
+              escape. For eukaryotic pathogens, larger genomes, sexual
+              recombination, and complicated transmission dynamics including
+              polyclonal infections have historically limited the use of genomic
+              data for many of these applications. However, recent laboratory
+              developments, including multiplexed targeted sequencing, have
+              rapidly increased the pace of genomic data generation for
+              eukaryotic pathogens.
+            </p>
+            <p className=" mt-4 text-pretty font-roboto">
+              Fundamental differences in the biology and transmission of
+              infections caused by these pathogens render many of the genomic
+              data and analysis tools developed for other organisms (primarily
+              humans, viruses, and bacteria) difficult or impossible to use. As
+              a result, many research efforts have needed to rely on bespoke
+              methods for processing and analysis, limiting the reusability of
+              data, the accuracy and reproducibility of results, and more
+              generally the productivity of scientists studying eukaryotic
+              pathogens. There is a need to develop software and computational
+              tools to{" "}
+              <span className="font-bold">
+                process, store, share and analyze
+              </span>{" "}
+              these data in a way which sets standards, encourages innovation,
+              and facilitates scientific discovery.
+            </p>
+          </div>
+          <div className="flex shrink flex-col justify-between text-center">
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              className="block border-2  p-4 font-roboto text-sm  shadow-md transition-all hover:border-[#CC366B] hover:bg-white focus-visible:bg-white  focus-visible:outline-[#CC366B]"
+              href={`https://mrc-ide.github.io/PGEforge/`}
+            >
+              <Image
+                className="mx-auto"
+                height={400}
+                width={300}
+                alt="PGE Forge"
+                src={`/assets/DataStandards/PGEforge_hex.png`}
+              ></Image>
+              The website, including the tutorials and information mentioned
+              throughout, can be accessed here!
+            </Link>
+          </div>
+        </div>
+        <div className="text-center">
+          <p className="mt-8  font-roboto">
+            Please provide your feedback, sign up to get involved, or stay
+            informed{" "}
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              className="font-medium text-blue-600 underline"
+              href={`https://forms.gle/Ke2fmd7oRwixgBnw8`}
+            >
+              using our feedback form here!
+            </Link>
+          </p>
+        </div>
       </div>
       <div className="mx-auto mt-16  max-w-6xl border-b-8 border-pge-dark-teal px-4 pb-16 text-lg md:px-8 md:text-base lg:px-16">
         {" "}
@@ -316,16 +388,6 @@ export default function DataStandards() {
               draft paper.
             </li>
           </ol>
-          The website, including the tutorials and information mentioned above,
-          can be accessed on the{" "}
-          <Link
-            rel="noopener noreferrer"
-            target="_blank"
-            className="font-medium text-blue-600 underline"
-            href={`https://mrc-ide.github.io/PGEforge/`}
-          >
-            PGEforge website.
-          </Link>
         </p>
       </div>
     </div>
