@@ -113,7 +113,7 @@ export default function DataStandards() {
             <Link
               rel="noopener noreferrer"
               target="_blank"
-              className="block border-2  p-4 font-roboto text-sm  shadow-md transition-all hover:border-[#CC366B] hover:bg-white focus-visible:bg-white  focus-visible:outline-[#CC366B]"
+              className="m-auto block rounded-xl  border-2 p-4 font-roboto text-sm shadow-md transition-all hover:border-[#CC366B] hover:bg-white focus-visible:bg-white  focus-visible:outline-[#CC366B]"
               href={`https://mrc-ide.github.io/PGEforge/`}
             >
               <Image
@@ -129,7 +129,7 @@ export default function DataStandards() {
           </div>
         </div>
         <div className="text-center">
-          <p className="mt-8  font-roboto">
+          <p className="mt-16 font-roboto  md:mt-8">
             Please provide your feedback, sign up to get involved, or stay
             informed{" "}
             <Link

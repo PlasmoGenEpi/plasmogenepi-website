@@ -109,7 +109,7 @@ export default function LandingContent() {
         </div>
       </div>
       <div className="px-2">
-        <div className="mx-auto mt-24 grid max-w-5xl gap-8 border-l-8 border-cyan-800 px-4 py-8 text-lg  md:px-8 md:text-base lg:px-16">
+        <div className="mx-auto mt-24 grid max-w-5xl gap-8  border-cyan-800 px-4 py-8 text-lg  md:px-8 md:text-base lg:px-16">
           <h2 className="font-poppins text-2xl font-bold md:text-left">
             Special thanks to our supporters
           </h2>
