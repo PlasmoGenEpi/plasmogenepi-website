@@ -197,7 +197,7 @@ export default function DataStandards() {
               rel="noopener noreferrer"
               target="_blank"
               className="font-medium text-blue-600 underline"
-              href={`https://seekdeep.brown.edu/Portable_Microhaplotype_Object/format/FormatOverview.html`}
+              href={`https://plasmogenepi.github.io/PMO_Docs`}
             >
               here.
             </Link>{" "}
@@ -206,7 +206,7 @@ export default function DataStandards() {
               rel="noopener noreferrer"
               target="_blank"
               className="font-medium text-blue-600 underline"
-              href={`https://seekdeep.brown.edu/Portable_Microhaplotype_Object/format/FormatExample.html`}
+              href={`https://plasmogenepi.github.io/PMO_Docs/format/FormatExample.html`}
             >
               here.
             </Link>
