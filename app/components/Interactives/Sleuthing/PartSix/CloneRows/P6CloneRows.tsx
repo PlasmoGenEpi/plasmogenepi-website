@@ -1,10 +1,10 @@
-import CloneElement from "@/components/Interactives/Shared/CloneRow/CloneElement";
-import CloneRow from "@/components/Interactives/Shared/CloneRow/CloneRow";
+import CloneElement from "@/app/components/Interactives/Shared/CloneRow/CloneElement";
+import CloneRow from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   partSixCloneRowsAtom,
   partSixCompletionAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
 import { P6CloneRowButtonColors, P6CloneRowColors } from "./P6MHPCloneRows";
@@ -18,11 +18,11 @@ export default function P6CloneRows({
   label?: boolean;
 }) {
   const completion = useAtomValue(partSixCompletionAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase2 = useAtomValue(phase2Atom);
   const [cloneRows, setCloneRows] = useAtom(partSixCloneRowsAtom);
 
   return (
-    <div className="flex max-w-[500px] flex-col gap-1">
+    <div className="flex max-w-[500px] flex-col gap-1 dark:brightness-75">
       {label && (
         <div className="grid w-full [grid-template-columns:8%_auto]">
           <div></div>
@@ -34,7 +34,7 @@ export default function P6CloneRows({
           return cloneRow.id !== 4;
         })
         .map((cloneRow, idx) => {
-          if (!completion[1] && phase === 1) {
+          if (!completion[1] && phase2 === 1) {
             return (
               <button
                 className={`transition-all hover:scale-105 hover:transition-all`}
@@ -94,7 +94,7 @@ export default function P6CloneRows({
                     .map((el, idx2) => {
                       return (
                         <CloneElement
-                          animation={phase === 1 && forwards}
+                          animation={phase2 === 1 && forwards}
                           className="bg-white"
                           val={cloneRow.vals[idx2]}
                           key={idx2}
@@ -115,31 +115,31 @@ export default function P6CloneRows({
               label={idx + 1}
               classNames={{
                 wrapper: `transition-all  ${
-                  phase === 3
+                  phase2 === 3
                     ? cloneRow.id === 3
                       ? "hidden"
                       : cloneRow.id === 2
-                        ? ""
-                        : cloneRow.id === 1
-                          ? ""
-                          : ""
-                    : phase === 4
-                      ? cloneRow.id === 3
-                        ? ""
-                        : cloneRow.id === 2
-                          ? "- hidden"
-                          : cloneRow.id === 1
-                            ? ""
-                            : ""
-                      : phase === 5
-                        ? cloneRow.id === 3
-                          ? ""
-                          : cloneRow.id === 2
-                            ? ""
-                            : cloneRow.id === 1
-                              ? "hidden"
-                              : ""
-                        : ""
+                      ? ""
+                      : cloneRow.id === 1
+                      ? ""
+                      : ""
+                    : phase2 === 4
+                    ? cloneRow.id === 3
+                      ? ""
+                      : cloneRow.id === 2
+                      ? "- hidden"
+                      : cloneRow.id === 1
+                      ? ""
+                      : ""
+                    : phase2 === 5
+                    ? cloneRow.id === 3
+                      ? ""
+                      : cloneRow.id === 2
+                      ? ""
+                      : cloneRow.id === 1
+                      ? "hidden"
+                      : ""
+                    : ""
                 }
                 `,
                 // ${
@@ -178,7 +178,7 @@ export default function P6CloneRows({
                 .map((el, idx2) => {
                   return (
                     <CloneElement
-                      animation={phase === 1 && forwards}
+                      animation={phase2 === 1 && forwards}
                       className="bg-white"
                       val={cloneRow.vals[idx2]}
                       key={idx2}

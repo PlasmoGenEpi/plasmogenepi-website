@@ -49,7 +49,7 @@ export default function LocusOneLabel({
           {text}
         </label>
       </div>
-      <div className=" relative h-2 w-full border-[2px] border-primaryGreen border-b-transparent">
+      <div className=" relative h-2 w-full border-[2px] border-primaryGreen/ border-current border-b-transparent">
         {/* <div className="absolute left-0 right-0 top-1/2 h-[4px] bg-white border-white"></div> */}
       </div>
     </div>

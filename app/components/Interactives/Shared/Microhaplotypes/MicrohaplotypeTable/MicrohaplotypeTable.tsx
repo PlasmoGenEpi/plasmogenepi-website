@@ -20,23 +20,23 @@ export default function MicrohaplotypeTable({
 }) {
   return (
     <div className="fadeIn500 mx-auto flex max-w-[400px] flex-col border-2 border-black/20 md:mx-0">
-      <div className="grid grid-cols-3 bg-gradient-to-b from-[#116F77] via-[#116F77] to-[#093F43]">
+      <div className="grid grid-cols-3 bg-gradient-to-b from-[#116F77] via-[#116F77] to-[#093F43] dark:brightness-75">
         <div className="col-span-2 grid grid-cols-3 border-b-[3px] border-black/20  text-center text-white">
           <div className="col-span-full py-2 text-center text-sm">SNPs</div>
           <span className="inline-block pb-1 text-center text-xs first-letter:text-sm">
-            L{activeColumn * 3 + 1}
+            S{activeColumn * 3 + 1}
           </span>
           <span className="inline-block pb-1 text-center text-xs first-letter:text-sm">
-            L{activeColumn * 3 + 2}
+            S{activeColumn * 3 + 2}
           </span>{" "}
           <span className="inline-block pb-1 text-center text-xs first-letter:text-sm">
-            L{activeColumn * 3 + 3}
+            S{activeColumn * 3 + 3}
           </span>{" "}
         </div>
         <div className="flex flex-col justify-center border-b-[3px] border-black/20  text-white">
           <label className="py-2 text-center text-sm">Microhaplotype</label>
           <span className="inline-block pb-1 text-center text-xs first-letter:text-sm">
-            L{activeColumn + 1}
+            M{activeColumn + 1}
           </span>{" "}
         </div>
       </div>

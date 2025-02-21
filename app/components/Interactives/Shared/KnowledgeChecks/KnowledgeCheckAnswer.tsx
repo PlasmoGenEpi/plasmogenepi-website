@@ -23,7 +23,7 @@ export default function KnowledgeCheckAnswer({
   const answerRef = useRef<null | HTMLInputElement>(null);
   let id = JSON.stringify([questionIdx, answerObj.index]);
   return (
-    <li className="flex gap-2">
+    <li className="flex gap-2 ">
       <input
         onChange={(e) => {
           if (disabled || hasAnswer) {
@@ -37,10 +37,16 @@ export default function KnowledgeCheckAnswer({
         type="checkbox"
         checked={answerObj.checked}
         disabled={hasAnswer && !answerObj.correct}
-        className={`${answerObj.correct ? " accent-primaryBlue [--chkbg:#14828C]" : "accent-microRed [--chkbg:#E61048]"} h-4 w-4 md:h-[14px] md:w-[14px]`}
+        className={`${
+          answerObj.correct
+            ? " dark:accent-emerald-600 [--chkbg:#14828C]"
+            : "accent-microRed [--chkbg:#E61048]"
+        } h-4 w-4 md:h-[14px] md:w-[14px]`}
       ></input>
       <label
-        className={`${hasAnswer && !answerObj.correct ? "text-gray-500" : "text-black"}  text-sm`}
+        className={`${
+          hasAnswer && !answerObj.correct ? "text-gray-500" : ""
+        }  text-sm`}
         htmlFor={id}
       >
         {answerObj.text}

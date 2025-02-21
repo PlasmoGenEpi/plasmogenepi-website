@@ -1,11 +1,11 @@
-import StandardLayout from "@/components/Interactives/Shared/misc/StandardLayout";
+import StandardLayout from "@/app/components/Interactives/Shared/misc/StandardLayout";
 import Pentagon, { defaultPentagonComponents, Edge } from "../Pentagon";
 import {
   partEightCompletionAtom,
   partEightPentagonPairViewedAtom,
   partEightPentagonPersonPairAtom,
   partEightPentagonSelectedEdgesAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import { atom, useAtom, useAtomValue } from "jotai";
 import GenotypeComposition from "../Genotypes/GenotypeComposition";
@@ -41,7 +41,7 @@ export function checkEdges(selectedEdges) {
 }
 
 export default function PentagonComparisons() {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const [activePair, setActivePair] = useAtom(partEightPentagonPersonPairAtom);
   const [viewed, setViewed] = useAtom(partEightPentagonPairViewedAtom);
   const [completion, setCompletion] = useAtom(partEightCompletionAtom);

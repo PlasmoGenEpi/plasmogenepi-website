@@ -1,12 +1,13 @@
 "use client";
 
-import KnowledgeCheckQuestion from "@/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
+import KnowledgeCheckQuestion from "@/app/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 import {
   activePairwiseComboAtom,
   pairwiseCombosAtom,
   pairwiseCompletionAtom,
   partSixPairwiseQuestionsAtom,
+  phase2Atom,
   phaseAtom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
@@ -21,7 +22,7 @@ export default function CompareSNPSingleCloneQuestions() {
   );
   const [pairwiseCombos, setPairwiseCombos] = useAtom(pairwiseCombosAtom);
   const pairwiseCompletion = useAtomValue(pairwiseCompletionAtom);
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase2Atom);
 
   let correctCount = pairwiseCombos[activePairwiseCombo[0]][
     activePairwiseCombo[1]
@@ -50,15 +51,15 @@ export default function CompareSNPSingleCloneQuestions() {
   // }, [partSixPairwiseQuestions, activePairwiseCombo]);
 
   return (
-    <div className="md:col-start-2 md:row-span-2">
+    <div>
       <div>
         {
           //@ts-ignore
           pairwiseCompletion[activePairwiseCombo[0]][
             activePairwiseCombo[1]
           ] && (
-            <div className="fadeIn500 flex flex-col">
-              <FormHeader text={`Questions`} />
+            <div className=" flex flex-col">
+              {/* <FormHeader text={`Questions`} /> */}
               <div className="flex flex-col gap-8">
                 <KnowledgeCheckQuestion
                   callback={(questionIdx, answerIdx) => {
@@ -85,12 +86,19 @@ export default function CompareSNPSingleCloneQuestions() {
                   }
                   headerText="How many of the loci match?"
                   classNames={{
+                    container: `${
+                      partSixPairwiseQuestions[
+                        JSON.stringify(activePairwiseCombo)
+                      ][1] !== correctCount
+                        ? "fadeIn500"
+                        : ""
+                    }`,
                     headerText: "mb-4",
                     answersContainer: "grid grid-cols-5 gap-8 md:gap-4",
                     answers: "w-4 md:w-3 lg:w-4",
                   }}
                   questionIdx={1}
-                  answers={Array(12)
+                  answers={Array(13)
                     .fill(0)
                     .map((el, idx) => {
                       return {
@@ -145,7 +153,11 @@ export default function CompareSNPSingleCloneQuestions() {
                     container:
                       partSixPairwiseQuestions[
                         JSON.stringify(activePairwiseCombo)
-                      ][1] === correctCount
+                      ][2] === correctCount
+                        ? ""
+                        : partSixPairwiseQuestions[
+                            JSON.stringify(activePairwiseCombo)
+                          ][1] === correctCount
                         ? "fadeIn500"
                         : "hidden",
                     headerText: "mb-4",
@@ -153,7 +165,7 @@ export default function CompareSNPSingleCloneQuestions() {
                     answers: "w-4 md:w-3 lg:w-4",
                   }}
                   questionIdx={2}
-                  answers={Array(12)
+                  answers={Array(13)
                     .fill(0)
                     .map((el, idx) => {
                       return {
@@ -212,7 +224,11 @@ export default function CompareSNPSingleCloneQuestions() {
                     container:
                       partSixPairwiseQuestions[
                         JSON.stringify(activePairwiseCombo)
-                      ][2] === correctCount
+                      ][3] === 0
+                        ? ""
+                        : partSixPairwiseQuestions[
+                            JSON.stringify(activePairwiseCombo)
+                          ][2] === correctCount
                         ? "fadeIn500"
                         : "hidden",
                     headerText: "mb-4",
@@ -220,7 +236,7 @@ export default function CompareSNPSingleCloneQuestions() {
                     answers: "w-4 md:w-3 lg:w-4",
                   }}
                   questionIdx={3}
-                  answers={Array(12)
+                  answers={Array(13)
                     .fill(0)
                     .map((el, idx) => {
                       return {

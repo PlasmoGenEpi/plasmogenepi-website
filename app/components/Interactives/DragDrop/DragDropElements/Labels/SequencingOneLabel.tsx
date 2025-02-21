@@ -50,7 +50,11 @@ export default function SequencingOneLabel({
     >
       <div className="flex h-full items-end justify-end">
         <div
-          className={`h-full w-2 ${border ? border : "border-y-primaryGreen border-r-primaryGreen"} relative border-[2px] border-l-transparent`}
+          className={`h-full w-2 ${
+            border
+              ? border
+              : "border-y-primaryGreen/ border-current border-r-primaryGreen"
+          } relative border-[2px] border-l-transparent`}
         >
           {/* <div className="absolute left-0 right-1/2 -translate-x-[2.5px] -top-1 -bottom-1 w-1.5 bg-white"></div> */}
         </div>

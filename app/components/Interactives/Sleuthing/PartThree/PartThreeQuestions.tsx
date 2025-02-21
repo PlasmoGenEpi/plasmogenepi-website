@@ -5,37 +5,37 @@ import PartThreePositiveControlBoard from "./PositiveControlBoard/PartThreePosit
 import {
   partThreeCompletionAtom,
   partThreePositiveControlBoardsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedPositiveControlBoardAtom,
 } from "@/data/Interactives/interactiveStore";
-import { countMHPs } from "@/helpers/helpers";
 import { useEffect } from "react";
 import QuestionResponseText from "../../Shared/misc/QuestionResponseText";
+import { countMHPs } from "../../helpers";
 
 export default function PartThreeQuestions() {
   const [boards, setBoards] = useAtom(partThreePositiveControlBoardsAtom);
   const selectedBoard = useAtomValue(selectedPositiveControlBoardAtom);
   const currentBoard = boards[selectedBoard];
   const [complete, setComplete] = useAtom(partThreeCompletionAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase1Atom);
   let mhpCount = countMHPs(currentBoard.inputs);
 
-  useEffect(() => {
-    setBoards({
-      ...boards,
+  // useEffect(() => {
+  //   setBoards({
+  //     ...boards,
 
-      [6]: {
-        ...boards[6],
-        questions: {
-          1: null,
-          2: null,
-          3: null,
-        },
-        questionsValid: false,
-      },
-    });
-    setComplete({ ...complete, [phase]: false });
-  }, []);
+  //     [6]: {
+  //       ...boards[6],
+  //       questions: {
+  //         1: null,
+  //         2: null,
+  //         3: null,
+  //       },
+  //       questionsValid: false,
+  //     },
+  //   });
+  //   setComplete({ ...complete, [phase]: false });
+  // }, []);
 
   if (selectedBoard === 1) {
     return (
@@ -77,12 +77,14 @@ export default function PartThreeQuestions() {
             });
           }}
           hasAnswer={currentBoard.questions[1] === 4}
-          headerText={`How many loci in positive control 1 have a single allele?`}
+          headerText={`How many loci in positive control 1 (MOI = 1) have a single allele?`}
           questionIdx={1}
         />
         <KnowledgeCheckQuestion
           classNames={{
-            container: `${currentBoard.questions[1] !== 4 ? "invisible" : "fadeIn500"}`,
+            container: `${
+              currentBoard.questions[1] !== 4 ? "invisible" : "fadeIn500"
+            }`,
             headerText: "mb-4",
             answersContainer: "grid grid-cols-5 gap-8 md:gap-4",
             answers: "w-4 md:w-3 lg:w-4",
@@ -162,12 +164,14 @@ export default function PartThreeQuestions() {
             });
           }}
           hasAnswer={currentBoard.questions[1] === 4}
-          headerText={`How many loci in positive control 2 have a single allele?`}
+          headerText={`How many loci in positive control 2 (MOI = 1) have a single allele?`}
           questionIdx={1}
         />
         <KnowledgeCheckQuestion
           classNames={{
-            container: `${currentBoard.questions[1] !== 4 ? "invisible" : "fadeIn500"}`,
+            container: `${
+              currentBoard.questions[1] !== 4 ? "invisible" : "fadeIn500"
+            }`,
             headerText: "mb-4",
             answersContainer: "grid grid-cols-5 gap-8 md:gap-4",
             answers: "w-4 md:w-3 lg:w-4",
@@ -252,7 +256,7 @@ export default function PartThreeQuestions() {
               return locus === 1;
             }).length
           }
-          headerText={`How many loci in positive control 3 have a single allele?`}
+          headerText={`How many loci in positive control 3 (MOI = 2) have a single allele?`}
           questionIdx={1}
         />
         <KnowledgeCheckQuestion
@@ -303,7 +307,11 @@ export default function PartThreeQuestions() {
         />
         <KnowledgeCheckQuestion
           classNames={{
-            container: `${currentBoard.questions[2] !== Math.max(...Object.values(mhpCount)) ? "invisible" : "fadeIn500"}`,
+            container: `${
+              currentBoard.questions[2] !== Math.max(...Object.values(mhpCount))
+                ? "invisible"
+                : "fadeIn500"
+            }`,
             headerText: "mb-4",
             answersContainer: "grid grid-cols-5 gap-8 md:gap-4",
             answers: "w-4 md:w-3 lg:w-4",
@@ -377,7 +385,7 @@ export default function PartThreeQuestions() {
               return locus === 1;
             }).length
           }
-          headerText={`How many loci in positive control 4 have a single allele?`}
+          headerText={`How many loci in positive control 4 (MOI = 2) have a single allele?`}
           questionIdx={1}
         />
         <KnowledgeCheckQuestion
@@ -471,7 +479,7 @@ export default function PartThreeQuestions() {
               return locus === 1;
             }).length
           }
-          headerText={`How many loci in positive control 5 have a single allele?`}
+          headerText={`How many loci in positive control 5 (MOI = 4) have a single allele?`}
           questionIdx={1}
         />
         <KnowledgeCheckQuestion
@@ -571,7 +579,7 @@ export default function PartThreeQuestions() {
     );
   } else if (selectedBoard === 6) {
     return (
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col">
         <KnowledgeCheckQuestion
           classNames={{
             container: `fadeIn500`,
@@ -608,11 +616,12 @@ export default function PartThreeQuestions() {
           hasAnswer={
             currentBoard.questions[1] === Math.max(...Object.values(mhpCount))
           }
-          headerText={`What is the highest number of alleles seen at a given locus in positive control 6?`}
+          headerText={`What is the highest number of alleles seen at a given locus in positive control 6? (MOI = 4)`}
           questionIdx={1}
         />
         {/* w-[calc(100%+16px)] -translate-x-2  */}
         <QuestionResponseText
+          className="mt-4 mb-8"
           trigger={
             currentBoard.questions[1] === Math.max(...Object.values(mhpCount))
           }
@@ -634,9 +643,9 @@ export default function PartThreeQuestions() {
               : "invisible"
           }`}
         >
-          <h4 className={``}>
+          <h4 className={`[font-size:15px] text-pretty`}>
             Why don&apos;t all the loci in positive control 5 and positive
-            control 6 have 4 alleles detected, even through the MOI = 4?
+            control 6 have 4 alleles detected, even though the MOI = 4?
           </h4>
           <div className={`mt-4 flex flex-col gap-4`}>
             <div className="flex flex-col gap-2">
@@ -661,7 +670,9 @@ export default function PartThreeQuestions() {
                   type="checkbox"
                 ></input>
                 <label
-                  className={`text-sm ${currentBoard.questions[2] !== 3 ? "" : "text-gray-500"}`}
+                  className={`text-sm ${
+                    currentBoard.questions[2] !== 3 ? "" : "text-gray-500"
+                  }`}
                   htmlFor="interactive-q2-a1"
                 >
                   The genotyping is wrong.
@@ -697,7 +708,9 @@ export default function PartThreeQuestions() {
                   type="checkbox"
                 ></input>
                 <label
-                  className={`text-sm ${currentBoard.questions[2] !== 3 ? "" : "text-gray-500"}`}
+                  className={`text-sm ${
+                    currentBoard.questions[2] !== 3 ? "" : "text-gray-500"
+                  }`}
                   htmlFor="interactive-q2-a2"
                 >
                   There aren&apos;t 4 possible alleles at each locus.
@@ -726,7 +739,7 @@ export default function PartThreeQuestions() {
                     });
                   }}
                   checked={currentBoard.questions[2] === 3}
-                  className="h-4 w-4 accent-[#14828C] [--chkbg:#14828C] md:h-[14px] md:w-[14px]"
+                  className="h-4 w-4 dark:accent-emerald-400 md:h-[14px] md:w-[14px]"
                   type="checkbox"
                   id="interactive-q2-a3"
                 ></input>
@@ -735,10 +748,18 @@ export default function PartThreeQuestions() {
                   even if diversity is high
                 </label>
               </div>
-              <div className="min-h-32">
+              {/* <div className="min-h-32 dark:text-emerald-400 dark:bg-zinc-900/50 bg-interactiveBlue/10">
                 <p
                   key={currentBoard.questions[2]}
-                  className={`${currentBoard.questions[2] === 3 ? "bg-primaryBlue/10" : currentBoard.questions[2] !== null ? "bg-cloneRed/10" : "invisible"} ${currentBoard.questions[2] !== null ? "fadeIn500" : ""}  mt-6  text-pretty p-6 text-sm md:px-8 md:py-6`}
+                  className={`${
+                    currentBoard.questions[2] === 3
+                      ? "bg-primaryBlue/10"
+                      : currentBoard.questions[2] !== null
+                      ? "bg-cloneRed/10"
+                      : "invisible"
+                  } ${
+                    currentBoard.questions[2] !== null ? "fadeIn500" : ""
+                  }  mt-6  text-pretty p-6 text-sm md:px-8 md:py-6`}
                 >
                   {currentBoard.questions[2] === 3
                     ? `That is correct! Even with eight possible alleles, as in this
@@ -746,15 +767,53 @@ export default function PartThreeQuestions() {
                 match if you have 4 of them. If you pick nine of them, it is
                 certain that at least 2 will be the same!`
                     : currentBoard.questions[2] === 2
-                      ? `Not true, there are actually eight possible alleles for every
+                    ? `Not true, there are actually eight possible alleles for every
                 locus, as you identified during the genotyping process.`
-                      : currentBoard.questions[2] === 1
-                        ? `Not correct, fortunately in this exercise we are assuming
+                    : currentBoard.questions[2] === 1
+                    ? `Not correct, fortunately in this exercise we are assuming
                       genotyping is perfect. This will not always be the case in
                 reality though!`
-                        : ``}
+                    : ``}
                 </p>
-              </div>
+              </div> */}
+              <QuestionResponseText
+                key={currentBoard.questions[2]}
+                visible={!!currentBoard.questions[2]}
+                className="mt-4"
+                content={
+                  currentBoard.questions[2] === 3 ? (
+                    <div
+                      className={
+                        "text-pretty bg-interactiveBlue/10 dark:bg-zinc-900/50 dark:text-emerald-400 p-4 leading-[23px] md:p-6 md:px-8"
+                      }
+                    >
+                      <p>
+                        That is correct! Even with eight possible alleles, as in
+                        this exercise, there is a reasonable chance that some of
+                        them will match if you have 4 of them. If you pick nine
+                        of them, it is certain that at least 2 will be the same!
+                      </p>
+                    </div>
+                  ) : currentBoard.questions[2] ? (
+                    <div
+                      className={
+                        "text-pretty bg-cloneRed/20 dark:bg-zinc-900/50 dark:border-microRed dark:text-white dark:border-2 p-4 leading-[23px] md:p-6 md:px-8"
+                      }
+                    >
+                      <p>
+                        {currentBoard.questions[2] === 2
+                          ? `Not true, there are actually eight possible alleles for every
+                locus, as you identified during the genotyping process.`
+                          : currentBoard.questions[2] === 1
+                          ? `Not correct, fortunately in this exercise we are assuming
+                      genotyping is perfect. This will not always be the case in
+                reality though!`
+                          : null}
+                      </p>
+                    </div>
+                  ) : null
+                }
+              />
             </div>
           </div>
         </div>{" "}

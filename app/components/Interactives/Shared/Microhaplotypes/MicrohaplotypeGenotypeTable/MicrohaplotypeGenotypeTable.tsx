@@ -46,7 +46,7 @@ export default function MicrohaplotypeGenotypeTable({
   const containsHint = (
     microId: MicroId,
     colNum: 0 | 1 | 2 | 3,
-    missing: boolean,
+    missing: boolean
   ) => {
     if (missing === false) {
       for (let i = 0; i < MHPGenotypeHints[colNum].extra.length; i++) {
@@ -132,7 +132,9 @@ export default function MicrohaplotypeGenotypeTable({
                           childClassNames={{
                             shared: `bg-white bg-opacity-80 ${classNames?.microhaplotypes}`,
                           }}
-                          className={`border-2 ${microhaplotypeColorMap.get(JSON.stringify(microId))}`}
+                          className={`border-2 ${microhaplotypeColorMap.get(
+                            JSON.stringify(microId)
+                          )}`}
                           vals={microId}
                           possibleVals={microId.map((char, idx3) => {
                             return {
@@ -148,13 +150,16 @@ export default function MicrohaplotypeGenotypeTable({
                   );
                 } else {
                   return skeletonOnly ? (
-                    <MicrohaplotypeSkeleton microId={microId} />
+                    <MicrohaplotypeSkeleton key={idx2} microId={microId} />
                   ) : (
                     <Microhaplotype
                       childClassNames={{
                         shared: `bg-white bg-opacity-80 ${classNames?.microhaplotypes}`,
                       }}
-                      className={`border-2 ${microhaplotypeColorMap.get(JSON.stringify(microId))}`}
+                      className={`border-2 ${microhaplotypeColorMap.get(
+                        JSON.stringify(microId)
+                      )}`}
+                      key={idx2}
                       vals={microId}
                       possibleVals={microId.map((char, idx3) => {
                         return {

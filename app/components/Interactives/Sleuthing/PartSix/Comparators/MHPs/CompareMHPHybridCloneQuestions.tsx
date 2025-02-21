@@ -1,9 +1,10 @@
-import KnowledgeCheckQuestion from "@/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
+import KnowledgeCheckQuestion from "@/app/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 import {
   pairwiseCombosMHPsAtom,
   pairwiseMHPCompletionAtom,
   partSixMHPPairwiseQuestionsAtom,
+  phase2Atom,
   phaseAtom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
@@ -20,7 +21,7 @@ export default function CompareMHPHybridCloneQuestions({
 }: {
   activePairwiseCombo: [number, number];
 }) {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const [questions, setQuestions] = useAtom(partSixMHPPairwiseQuestionsAtom);
   const [pairwiseCombos, setPairwiseCombos] = useAtom(pairwiseCombosMHPsAtom);
   const pairwiseCompletion = useAtomValue(pairwiseMHPCompletionAtom);
@@ -38,8 +39,8 @@ export default function CompareMHPHybridCloneQuestions({
         {
           //@ts-ignore
           (phase === 32 || pairwiseCompletion[first][second]) && (
-            <div className="fadeIn500 flex flex-col">
-              <FormHeader text={`Questions`} />
+            <div className=" flex flex-col">
+              {/* <FormHeader text={`Questions`} /> */}
               {phase !== 32 && (
                 <div className="flex flex-col gap-8">
                   <KnowledgeCheckQuestion
@@ -64,6 +65,11 @@ export default function CompareMHPHybridCloneQuestions({
                     }
                     headerText="How many of the loci match?"
                     classNames={{
+                      container:
+                        questions[JSON.stringify(activePairwiseCombo)][1] ===
+                        correctCount
+                          ? ""
+                          : "fadeIn500",
                       headerText: "mb-4",
                       answersContainer: "grid grid-cols-5 gap-8 md:gap-4",
                       answers: "w-4 md:w-3 lg:w-4",
@@ -112,8 +118,12 @@ export default function CompareMHPHybridCloneQuestions({
                     headerText="What is the IBS for these two parasites?"
                     classNames={{
                       container:
-                        questions[JSON.stringify(activePairwiseCombo)][1] ===
+                        questions[JSON.stringify(activePairwiseCombo)][2] ===
                         correctCount
+                          ? ""
+                          : questions[
+                              JSON.stringify(activePairwiseCombo)
+                            ][1] === correctCount
                           ? "fadeIn500"
                           : "hidden",
                       headerText: "mb-4",
@@ -175,8 +185,12 @@ export default function CompareMHPHybridCloneQuestions({
                     headerText="What is the IBD for these two parasites?"
                     classNames={{
                       container:
-                        questions[JSON.stringify(activePairwiseCombo)][2] ===
-                        correctCount
+                        questions[JSON.stringify(activePairwiseCombo)][3] ===
+                        (phase === 32 ? 0 : 6)
+                          ? ""
+                          : questions[
+                              JSON.stringify(activePairwiseCombo)
+                            ][2] === correctCount
                           ? "fadeIn500"
                           : "hidden",
                       headerText: "mb-4",
@@ -198,7 +212,7 @@ export default function CompareMHPHybridCloneQuestions({
                       })}
                   />
                   {/* <div
-                    className={`fadeIn500 bg-primaryBlue/10 p-4 md:p-6 ${phase === 30 && questions["[1,4]"][3] !== 6 ? "hidden" : phase === 31 && questions["[2,4]"][3] !== 6 ? "hidden" : phase === 32 && questions["[3,4]"][3] !== 0 ? "hidden" : ""}`}
+                    className={` bg-primaryBlue/10 p-4 md:p-6 ${phase === 30 && questions["[1,4]"][3] !== 6 ? "hidden" : phase === 31 && questions["[2,4]"][3] !== 6 ? "hidden" : phase === 32 && questions["[3,4]"][3] !== 0 ? "hidden" : ""}`}
                   >
                     <p className="text-sm">
                       {phase === 30
@@ -214,7 +228,7 @@ export default function CompareMHPHybridCloneQuestions({
                   <div
                     className={
                       phase === 31 && questions["[3,4]"][3] === 0
-                        ? "fadeIn500"
+                        ? ""
                         : "hidden"
                     }
                   >
@@ -222,9 +236,9 @@ export default function CompareMHPHybridCloneQuestions({
                       alt=""
                       height={400}
                       width={600}
-                      src="/assets/M5_sluething_histogram_MHs_MOI1_IBD0.5.svg"
+                      src="/InteractiveAssets/M5_sluething_histogram_MHs_MOI1_IBD0.5.svg"
                     ></Image>
-                    <div className="fadeIn500 mt-4 bg-primaryBlue/10 p-4 text-sm md:p-6">
+                    <div className=" bg-interactiveBlue/10 mt-4 p-4 text-sm md:p-6">
                       <p>
                         Most of the time, we expect to see somewhere between 6
                         and 8 matches, but we may get 9/12 matches about 2% of
@@ -236,10 +250,11 @@ export default function CompareMHPHybridCloneQuestions({
                 </div>
               )}
               {phase === 32 && (
-                <div className="fadeIn500">
+                <div className="">
                   <KnowledgeCheckQuestion
                     questionIdx={1}
                     classNames={{
+                      container: finalHybridQ === 0 ? "" : "fadeIn500",
                       answersContainer: "grid gap-4 mt-4",
                     }}
                     answers={[

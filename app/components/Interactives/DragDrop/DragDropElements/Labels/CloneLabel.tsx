@@ -29,7 +29,7 @@ export default function CloneLabel({
         left,
         animationDelay: "1000ms",
       }}
-      className={`fadeIn500 absolute aspect-square h-12 rounded-full ${className}`}
+      className={`fadeIn500 absolute aspect-square h-10 rounded-full dark:brightness-75 ${className}`}
     ></div>
   );
 }

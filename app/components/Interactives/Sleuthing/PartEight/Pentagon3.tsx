@@ -7,7 +7,7 @@ import {
 } from "./Pentagon/PentagonViewer";
 import {
   partEightPentagonSelectedEdgesAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import PentagonTooltip from "./Pentagon/PentagonTooltip";
 import { fixedData } from "@/data/Interactives/fixedData";
@@ -306,19 +306,19 @@ export default function Pentagon3() {
   // const [pentagon, setPentagon] = useAtom(pentagonAtom);
   const [pentagonView, setPentagonView] = useAtom(pentagonViewAtom);
   const [selectedEdges, setSelectedEdges] = useAtom(
-    partEightPentagonSelectedEdgesAtom,
+    partEightPentagonSelectedEdgesAtom
   );
   const [pentagonResetAnimation, setPentagonResetAnimation] = useAtom(
-    pentagonResetAnimationAtom,
+    pentagonResetAnimationAtom
   );
   const [edgeCorrections, setEdgeCorrections] = useAtom(edgeCorrectionsAtom);
 
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const [currentCorrection, setCurrentCorrection] = useAtom(
-    currentCorrectionAtom,
+    currentCorrectionAtom
   );
   const [specialEdgeHandled, setSpecialEdgeHandled] = useAtom(
-    specialEdgeHandledAtom,
+    specialEdgeHandledAtom
   );
 
   useEffect(() => {
@@ -442,21 +442,9 @@ export default function Pentagon3() {
           <g>
             <g>
               <g>
-                <path
-                  d="M921 347.25C921 345.737 922.237 344.5 923.75 344.5L943 344.5 943 366.5 921 366.5 921 347.25ZM948.5 344.5 970.5 344.5 970.5 366.5 948.5 366.5 948.5 344.5ZM976 344.5 998 344.5 998 366.5 976 366.5 976 344.5ZM1003.5 344.5 1021.79 344.5C1024.4 344.5 1026.74 346.425 1027.15 349.037L1030.31 368.562C1030.59 370.625 1030.86 372.687 1030.86 374.75L1011.75 374.75 1003.5 366.5 1003.5 344.5ZM915.5 344.5 915.5 394C915.5 397.025 917.975 399.5 921 399.5L921.275 399.5C921.137 398.675 921 397.712 921 396.75 921 389.187 927.187 383 934.75 383 942.312 383 948.5 389.187 948.5 396.75 948.5 397.712 948.362 398.675 948.225 399.5L998.275 399.5C998.137 398.675 998 397.712 998 396.75 998 389.187 1004.19 383 1011.75 383 1019.31 383 1025.5 389.187 1025.5 396.75 1025.5 397.712 1025.36 398.675 1025.22 399.5L1031 399.5C1034.02 399.5 1036.5 397.025 1036.5 394L1036.5 376.4C1036.5 373.512 1036.22 370.487 1035.81 367.6L1032.65 347.937C1031.69 342.712 1027.15 338.862 1021.79 338.862L921 338.862C917.975 339 915.5 341.475 915.5 344.5Z"
-                  fill-rule="nonzero"
-                  fill-opacity="1"
-                />
-                <path
-                  d="M1021.37 396.75C1021.37 402.066 1017.07 406.375 1011.75 406.375 1006.43 406.375 1002.12 402.066 1002.12 396.75 1002.12 391.434 1006.43 387.125 1011.75 387.125 1017.07 387.125 1021.37 391.434 1021.37 396.75Z"
-                  fill-rule="nonzero"
-                  fill-opacity="1"
-                />
-                <path
-                  d="M944.375 396.75C944.375 402.066 940.066 406.375 934.75 406.375 929.434 406.375 925.125 402.066 925.125 396.75 925.125 391.434 929.434 387.125 934.75 387.125 940.066 387.125 944.375 391.434 944.375 396.75Z"
-                  fill-rule="nonzero"
-                  fill-opacity="1"
-                />
+                <path d="M921 347.25C921 345.737 922.237 344.5 923.75 344.5L943 344.5 943 366.5 921 366.5 921 347.25ZM948.5 344.5 970.5 344.5 970.5 366.5 948.5 366.5 948.5 344.5ZM976 344.5 998 344.5 998 366.5 976 366.5 976 344.5ZM1003.5 344.5 1021.79 344.5C1024.4 344.5 1026.74 346.425 1027.15 349.037L1030.31 368.562C1030.59 370.625 1030.86 372.687 1030.86 374.75L1011.75 374.75 1003.5 366.5 1003.5 344.5ZM915.5 344.5 915.5 394C915.5 397.025 917.975 399.5 921 399.5L921.275 399.5C921.137 398.675 921 397.712 921 396.75 921 389.187 927.187 383 934.75 383 942.312 383 948.5 389.187 948.5 396.75 948.5 397.712 948.362 398.675 948.225 399.5L998.275 399.5C998.137 398.675 998 397.712 998 396.75 998 389.187 1004.19 383 1011.75 383 1019.31 383 1025.5 389.187 1025.5 396.75 1025.5 397.712 1025.36 398.675 1025.22 399.5L1031 399.5C1034.02 399.5 1036.5 397.025 1036.5 394L1036.5 376.4C1036.5 373.512 1036.22 370.487 1035.81 367.6L1032.65 347.937C1031.69 342.712 1027.15 338.862 1021.79 338.862L921 338.862C917.975 339 915.5 341.475 915.5 344.5Z" />
+                <path d="M1021.37 396.75C1021.37 402.066 1017.07 406.375 1011.75 406.375 1006.43 406.375 1002.12 402.066 1002.12 396.75 1002.12 391.434 1006.43 387.125 1011.75 387.125 1017.07 387.125 1021.37 391.434 1021.37 396.75Z" />
+                <path d="M944.375 396.75C944.375 402.066 940.066 406.375 934.75 406.375 929.434 406.375 925.125 402.066 925.125 396.75 925.125 391.434 929.434 387.125 934.75 387.125 940.066 387.125 944.375 391.434 944.375 396.75Z" />
               </g>
             </g>
           </g>
@@ -613,13 +601,15 @@ export default function Pentagon3() {
           <circle r={5} cx={50} cy={59} fill="white" className=""></circle>
         </g>
         <symbol
-          className={
-            pentagonView === "E" ||
-            pentagonView === "EF" ||
-            pentagonView === null
-              ? "opacity-100"
-              : "opacity-20"
-          }
+          // className={
+          //   phase === 18
+          //     ? "opacity-100"
+          //     : pentagonView === "E" ||
+          //       pentagonView === "EF" ||
+          //       pentagonView === null
+          //     ? "opacity-100"
+          //     : "opacity-20"
+          // }
           id="person-MOI-E"
           viewBox={"0 0 600 600"}
         >
@@ -640,13 +630,13 @@ export default function Pentagon3() {
           ></circle>
         </symbol>
         <symbol
-          className={
-            pentagonView === "F" ||
-            pentagonView === "EF" ||
-            pentagonView === null
-              ? "opacity-100"
-              : "opacity-20"
-          }
+          // className={
+          //   pentagonView === "F" ||
+          //   pentagonView === "EF" ||
+          //   pentagonView === null
+          //     ? "opacity-100"
+          //     : "opacity-20"
+          // }
           id="person-MOI-F"
           viewBox={"0 0 600 600"}
         >
@@ -675,14 +665,14 @@ export default function Pentagon3() {
           ></circle>
         </symbol>
         <symbol
-          className={
-            pentagonView === "E" ||
-            pentagonView === "F" ||
-            pentagonView === "GHI" ||
-            pentagonView === null
-              ? "opacity-100"
-              : "opacity-20"
-          }
+          // className={
+          //   pentagonView === "E" ||
+          //   pentagonView === "F" ||
+          //   pentagonView === "GHI" ||
+          //   pentagonView === null
+          //     ? "opacity-100"
+          //     : "opacity-20"
+          // }
           id="person-MOI-G"
           viewBox={"0 0 600 600"}
         >
@@ -697,14 +687,14 @@ export default function Pentagon3() {
           ></circle>
         </symbol>
         <symbol
-          className={
-            pentagonView === "E" ||
-            pentagonView === "F" ||
-            pentagonView === "GHI" ||
-            pentagonView === null
-              ? "opacity-100"
-              : "opacity-20"
-          }
+          // className={
+          //   pentagonView === "E" ||
+          //   pentagonView === "F" ||
+          //   pentagonView === "GHI" ||
+          //   pentagonView === null
+          //     ? "opacity-100"
+          //     : "opacity-20"
+          // }
           id="person-MOI-H"
           viewBox={"0 0 600 600"}
         >
@@ -726,14 +716,14 @@ export default function Pentagon3() {
           ></circle>
         </symbol>
         <symbol
-          className={
-            pentagonView === "E" ||
-            pentagonView === "F" ||
-            pentagonView === "GHI" ||
-            pentagonView === null
-              ? "opacity-100"
-              : "opacity-20"
-          }
+          // className={
+          //   pentagonView === "E" ||
+          //   pentagonView === "F" ||
+          //   pentagonView === "GHI" ||
+          //   pentagonView === null
+          //     ? "opacity-100"
+          //     : "opacity-20"
+          // }
           id="person-MOI-I"
           viewBox={"0 0 600 600"}
         >
@@ -752,7 +742,7 @@ export default function Pentagon3() {
         <use y={"35%"} xlinkHref="#person-MOI-E"></use>
       </g>
       <g className={""} id="person-F">
-        <use y={"5%"} x={"calc(50% - 62pt)"} xlinkHref="#person-MOI-F"></use>
+        <use y={"5%"} x={"45%"} xlinkHref="#person-MOI-F"></use>
       </g>
       <g className={""} id="person-G">
         <use x={"625pt"} y={"35%"} xlinkHref="#person-MOI-G" className=""></use>
@@ -815,21 +805,21 @@ export default function Pentagon3() {
         </text> */}
       </g>
       <g
-        className={
-          pentagonView === "E" || pentagonView === "EF" || pentagonView === null
-            ? "opacity-100"
-            : "opacity-20"
-        }
+        // className={
+        //   pentagonView === "E" || pentagonView === "EF" || pentagonView === null
+        //     ? "opacity-100"
+        //     : "opacity-20"
+        // }
         overflow="visible"
       >
         <use width={"400pt"} x={-420} y={-100} xlinkHref="#bus"></use>
       </g>
       <g
-        className={
-          pentagonView === "F" || pentagonView === "EF" || pentagonView === null
-            ? "opacity-100"
-            : "opacity-20"
-        }
+        // className={
+        //   pentagonView === "F" || pentagonView === "EF" || pentagonView === null
+        //     ? "opacity-100"
+        //     : "opacity-20"
+        // }
         overflow="visible"
       >
         <use width={"400pt"} x={0} y={-400} xlinkHref="#bus"></use>
@@ -860,7 +850,7 @@ export default function Pentagon3() {
                   // })
                   // return;
                   let newSelectedEdges: typeof selectedEdges = JSON.parse(
-                    JSON.stringify(selectedEdges),
+                    JSON.stringify(selectedEdges)
                   );
                   let k: Edge;
                   for (k in newSelectedEdges) {
@@ -926,7 +916,7 @@ export default function Pentagon3() {
                   // })
                   // return;
                   let newSelectedEdges: typeof selectedEdges = JSON.parse(
-                    JSON.stringify(selectedEdges),
+                    JSON.stringify(selectedEdges)
                   );
                   let k: Edge;
                   for (k in newSelectedEdges) {
@@ -956,6 +946,15 @@ export default function Pentagon3() {
               />
             );
           })}
+          {Object.keys(selectedEdges).map((edge, idx) => {
+            return (
+              <PentagonTooltip
+                key={edge}
+                edge={edge as Edge}
+                coords={coords[edge as Edge].circle}
+              />
+            );
+          })}
         </g>
       )}
       {phase === 19 && (
@@ -980,590 +979,6 @@ export default function Pentagon3() {
           }}
         />
       )}
-      {/* <PentagonEdge
-        edge="EF"
-        lineClassName={pentagon.edges.EF.line}
-        enabled={selectedEdges.EF.enabled}
-        hidden={pentagon.edges.EF.hidden}
-        key="EF"
-        direction={selectedEdges.EF.direction}
-        endpoints={{
-          callback: (endpoint) => {
-            if (endpoint === "start") {
-              setSelectedEdges({
-                ...selectedEdges,
-                EF: { ...selectedEdges["EF"], direction: "backwards" },
-              });
-            } else {
-              setSelectedEdges({
-                ...selectedEdges,
-                EF: { ...selectedEdges["EF"], direction: "forwards" },
-              });
-            }
-          },
-          className:
-            "stroke-black stroke-2 hover:stroke-[4px] focus:stroke-[4px]",
-        }}
-        coords={{
-          startingX: 150,
-          startingY: 350,
-          endingX: 400,
-          endingY: 200,
-        }}
-        circle={{
-          callback: () => {
-            // console.log("EF");
-            setSelectedEdges({
-              ...selectedEdges,
-              EF: {
-                ...selectedEdges["EF"],
-                enabled: !selectedEdges["EF"].enabled,
-                direction: null,
-                visited: true,
-              },
-            });
-          },
-          className:
-            pentagon.edges.EF.button +
-            " " +
-            "cursor-pointer hover:stroke-[8px] focus:stroke-[8px]",
-          coords: {
-            x: 245,
-            y: -250,
-          },
-          radius: 9,
-          width: 40,
-        }}
-      />
-      <PentagonEdge
-        edge="EG"
-        lineClassName={pentagon.edges.EG.line}
-        enabled={selectedEdges.EG.enabled}
-        hidden={pentagon.edges.EG.hidden}
-        key="EG"
-        direction={selectedEdges.EG.direction}
-        endpoints={{
-          callback: (endpoint) => {
-            if (endpoint === "start") {
-              setSelectedEdges({
-                ...selectedEdges,
-                EG: { ...selectedEdges["EG"], direction: "backwards" },
-              });
-            } else {
-              setSelectedEdges({
-                ...selectedEdges,
-                EG: { ...selectedEdges["EG"], direction: "forwards" },
-              });
-            }
-          },
-          className:
-            "stroke-black stroke-2 hover:stroke-[4px] focus:stroke-[4px]",
-        }}
-        coords={{
-          startingX: 200,
-          startingY: 425,
-          endingX: 800,
-          endingY: 425,
-        }}
-        circle={{
-          callback: () => {
-            setSelectedEdges({
-              ...selectedEdges,
-              EG: {
-                ...selectedEdges["EG"],
-                enabled: !selectedEdges["EG"].enabled,
-                direction: null,
-                visited: true,
-              },
-            });
-          },
-          className:
-            pentagon.edges.EG.button +
-            " " +
-            "cursor-pointer hover:stroke-[8px] focus:stroke-[8px]",
-          coords: {
-            x: 460,
-            y: -95,
-          },
-          radius: 9,
-          width: 40,
-        }}
-      />
-      <PentagonEdge
-        edge="EH"
-        lineClassName={pentagon.edges.EH.line}
-        enabled={selectedEdges.EH.enabled}
-        hidden={pentagon.edges.EH.hidden}
-        key="EH"
-        direction={selectedEdges.EH.direction}
-        endpoints={{
-          callback: (endpoint) => {
-            if (endpoint === "start") {
-              setSelectedEdges({
-                ...selectedEdges,
-                EH: { ...selectedEdges["EH"], direction: "backwards" },
-              });
-            } else {
-              setSelectedEdges({
-                ...selectedEdges,
-                EH: { ...selectedEdges["EH"], direction: "forwards" },
-              });
-            }
-          },
-          className:
-            "stroke-black stroke-2 hover:stroke-[4px] focus:stroke-[4px]",
-        }}
-        coords={{
-          startingX: 200,
-          startingY: 500,
-          endingX: 650,
-          endingY: 780,
-        }}
-        circle={{
-          callback: () => {
-            setSelectedEdges({
-              ...selectedEdges,
-              EH: {
-                ...selectedEdges["EH"],
-                enabled: !selectedEdges["EH"].enabled,
-                direction: null,
-                visited: true,
-              },
-            });
-          },
-          className:
-            pentagon.edges.EH.button +
-            " " +
-            "cursor-pointer hover:stroke-[8px] focus:stroke-[8px]",
-          coords: {
-            x: 370,
-            y: 110,
-          },
-          radius: 9,
-          width: 40,
-        }}
-      />
-      <PentagonEdge
-        edge="EI"
-        lineClassName={pentagon.edges.EI.line}
-        enabled={selectedEdges.EI.enabled}
-        hidden={pentagon.edges.EI.hidden}
-        key="EI"
-        direction={selectedEdges.EI.direction}
-        endpoints={{
-          callback: (endpoint) => {
-            if (endpoint === "start") {
-              setSelectedEdges({
-                ...selectedEdges,
-                EI: { ...selectedEdges["EI"], direction: "backwards" },
-              });
-            } else {
-              setSelectedEdges({
-                ...selectedEdges,
-                EI: { ...selectedEdges["EI"], direction: "forwards" },
-              });
-            }
-          },
-          className:
-            "stroke-black stroke-2 hover:stroke-[4px] focus:stroke-[4px]",
-        }}
-        coords={{
-          startingX: 150,
-          startingY: 580,
-          endingX: 250,
-          endingY: 760,
-        }}
-        circle={{
-          callback: () => {
-            setSelectedEdges({
-              ...selectedEdges,
-              EI: {
-                ...selectedEdges["EI"],
-                enabled: !selectedEdges["EI"].enabled,
-                direction: null,
-                visited: true,
-              },
-            });
-          },
-          className:
-            pentagon.edges.EI.button +
-            " " +
-            "cursor-pointer hover:stroke-[8px] focus:stroke-[8px]",
-          coords: {
-            x: 160,
-            y: 150,
-          },
-          radius: 9,
-          width: 40,
-        }}
-      />
-      <PentagonEdge
-        edge="FG"
-        lineClassName={pentagon.edges.FG.line}
-        enabled={selectedEdges.FG.enabled}
-        hidden={pentagon.edges.FG.hidden}
-        key="FG"
-        direction={selectedEdges.FG.direction}
-        endpoints={{
-          callback: (endpoint) => {
-            if (endpoint === "start") {
-              setSelectedEdges({
-                ...selectedEdges,
-                FG: { ...selectedEdges["FG"], direction: "backwards" },
-              });
-            } else {
-              setSelectedEdges({
-                ...selectedEdges,
-                FG: { ...selectedEdges["FG"], direction: "forwards" },
-              });
-            }
-          },
-          className:
-            "stroke-black stroke-2 hover:stroke-[4px] focus:stroke-[4px]",
-        }}
-        coords={{
-          startingX: 600,
-          startingY: 200,
-          endingX: 850,
-          endingY: 350,
-        }}
-        circle={{
-          callback: () => {
-            setSelectedEdges({
-              ...selectedEdges,
-              FG: {
-                ...selectedEdges["FG"],
-                enabled: !selectedEdges["FG"].enabled,
-                direction: null,
-                visited: true,
-              },
-            });
-          },
-          className:
-            pentagon.edges.FG.button +
-            " " +
-            "cursor-pointer hover:stroke-[8px] focus:stroke-[8px]",
-          coords: {
-            x: 665,
-            y: -250,
-          },
-          radius: 9,
-          width: 40,
-        }}
-      />
-      <PentagonEdge
-        edge="FH"
-        lineClassName={pentagon.edges.FH.line}
-        enabled={selectedEdges.FH.enabled}
-        hidden={pentagon.edges.FH.hidden}
-        key="FH"
-        direction={selectedEdges.FH.direction}
-        endpoints={{
-          callback: (endpoint) => {
-            if (endpoint === "start") {
-              setSelectedEdges({
-                ...selectedEdges,
-                FH: { ...selectedEdges["FH"], direction: "backwards" },
-              });
-            } else {
-              setSelectedEdges({
-                ...selectedEdges,
-                FH: { ...selectedEdges["FH"], direction: "forwards" },
-              });
-            }
-          },
-          className:
-            "stroke-black stroke-2 hover:stroke-[4px] focus:stroke-[4px]",
-        }}
-        coords={{
-          startingX: 550,
-          startingY: 250,
-          endingX: 700,
-          endingY: 750,
-        }}
-        circle={{
-          callback: () => {
-            setSelectedEdges({
-              ...selectedEdges,
-              FH: {
-                ...selectedEdges["FH"],
-                enabled: !selectedEdges["FH"].enabled,
-                direction: null,
-                visited: true,
-              },
-            });
-          },
-          className:
-            pentagon.edges.FH.button +
-            " " +
-            "cursor-pointer hover:stroke-[8px] focus:stroke-[8px]",
-          coords: {
-            x: 590,
-            y: 0,
-          },
-          radius: 9,
-          width: 40,
-        }}
-      />
-      <PentagonEdge
-        edge="FI"
-        lineClassName={pentagon.edges.FI.line}
-        enabled={selectedEdges.FI.enabled}
-        hidden={pentagon.edges.FI.hidden}
-        key="FI"
-        direction={selectedEdges.FI.direction}
-        endpoints={{
-          callback: (endpoint) => {
-            if (endpoint === "start") {
-              setSelectedEdges({
-                ...selectedEdges,
-                FI: { ...selectedEdges["FI"], direction: "backwards" },
-              });
-            } else {
-              setSelectedEdges({
-                ...selectedEdges,
-                FI: { ...selectedEdges["FI"], direction: "forwards" },
-              });
-            }
-          },
-          className:
-            "stroke-black stroke-2 hover:stroke-[4px] focus:stroke-[4px]",
-        }}
-        coords={{
-          startingX: 450,
-          startingY: 250,
-          endingX: 300,
-          endingY: 750,
-        }}
-        circle={{
-          callback: () => {
-            setSelectedEdges({
-              ...selectedEdges,
-              FI: {
-                ...selectedEdges["FI"],
-                enabled: !selectedEdges["FI"].enabled,
-                direction: null,
-                visited: true,
-              },
-            });
-          },
-          className:
-            pentagon.edges.FI.button +
-            " " +
-            "cursor-pointer hover:stroke-[8px] focus:stroke-[8px]",
-          coords: {
-            x: 330,
-            y: 0,
-          },
-          radius: 9,
-          width: 40,
-        }}
-      />
-      <PentagonEdge
-        edge="GH"
-        lineClassName={pentagon.edges.GH.line}
-        enabled={selectedEdges.GH.enabled}
-        hidden={pentagon.edges.GH.hidden}
-        key="GH"
-        direction={selectedEdges.GH.direction}
-        endpoints={{
-          callback: (endpoint) => {
-            if (endpoint === "start") {
-              setSelectedEdges({
-                ...selectedEdges,
-                GH: { ...selectedEdges["GH"], direction: "backwards" },
-              });
-            } else {
-              setSelectedEdges({
-                ...selectedEdges,
-                GH: { ...selectedEdges["GH"], direction: "forwards" },
-              });
-            }
-          },
-          className:
-            "stroke-black stroke-2 hover:stroke-[4px] focus:stroke-[4px]",
-        }}
-        coords={{
-          startingX: 850,
-          startingY: 580,
-          endingX: 750,
-          endingY: 760,
-        }}
-        circle={{
-          callback: () => {
-            setSelectedEdges({
-              ...selectedEdges,
-              GH: {
-                ...selectedEdges["GH"],
-                enabled: !selectedEdges["GH"].enabled,
-                direction: null,
-                visited: true,
-              },
-            });
-          },
-          className:
-            pentagon.edges.GH.button +
-            " " +
-            "cursor-pointer hover:stroke-[8px] focus:stroke-[8px]",
-          coords: {
-            x: 760,
-            y: 150,
-          },
-          radius: 9,
-          width: 40,
-        }}
-      />
-      <PentagonEdge
-        edge="GI"
-        lineClassName={
-          pentagon.edges.GI.line +
-          (selectedEdges.GI.enabled && selectedEdges.GI.direction === null
-            ? " stroke-orange-400 "
-            : " stroke-black")
-        }
-        enabled={selectedEdges.GI.enabled}
-        hidden={pentagon.edges.GI.hidden}
-        key="GI"
-        direction={selectedEdges.GI.direction}
-        endpoints={{
-          callback: (endpoint) => {
-            if (endpoint === "start") {
-              setSelectedEdges({
-                ...selectedEdges,
-                GI: { ...selectedEdges["GI"], direction: "backwards" },
-              });
-            } else {
-              setSelectedEdges({
-                ...selectedEdges,
-                GI: { ...selectedEdges["GI"], direction: "forwards" },
-              });
-            }
-          },
-          className:
-            (selectedEdges.GI.enabled && selectedEdges.GI.direction === null
-              ? " stroke-orange-400 "
-              : " stroke-black ") +
-            "stroke-black stroke-2 hover:stroke-[4px] focus:stroke-[4px]",
-        }}
-        coords={{
-          startingX: 800,
-          startingY: 500,
-          endingX: 350,
-          endingY: 780,
-        }}
-        circle={{
-          callback: () => {
-            setSelectedEdges({
-              ...selectedEdges,
-              GI: {
-                ...selectedEdges["GI"],
-                enabled: !selectedEdges["GI"].enabled,
-                direction: null,
-                visited: true,
-              },
-            });
-          },
-          className:
-            pentagon.edges.GI.button +
-            " " +
-            "cursor-pointer hover:stroke-[8px] focus:stroke-[8px]",
-          coords: {
-            x: 550,
-            y: 110,
-          },
-          radius: 9,
-          width: 40,
-        }}
-      />
-      <PentagonEdge
-        edge="HI"
-        lineClassName={pentagon.edges.HI.line}
-        enabled={selectedEdges.HI.enabled}
-        hidden={pentagon.edges.HI.hidden}
-        key="HI"
-        direction={selectedEdges.HI.direction}
-        endpoints={{
-          callback: (endpoint) => {
-            if (endpoint === "start") {
-              setSelectedEdges({
-                ...selectedEdges,
-                HI: { ...selectedEdges["HI"], direction: "backwards" },
-              });
-            } else {
-              setSelectedEdges({
-                ...selectedEdges,
-                HI: { ...selectedEdges["HI"], direction: "forwards" },
-              });
-            }
-          },
-          className:
-            "stroke-black stroke-2 hover:stroke-[4px] focus:stroke-[4px]",
-        }}
-        coords={{
-          startingX: 600,
-          startingY: 850,
-          endingX: 400,
-          endingY: 850,
-        }}
-        circle={{
-          callback: () => {
-            setSelectedEdges({
-              ...selectedEdges,
-              HI: {
-                ...selectedEdges["HI"],
-                enabled: !selectedEdges["HI"].enabled,
-                direction: null,
-                visited: true,
-              },
-            });
-          },
-          className:
-            pentagon.edges.HI.button +
-            " " +
-            "cursor-pointer hover:stroke-[8px] focus:stroke-[8px]",
-          coords: {
-            x: 460,
-            y: 330,
-          },
-          radius: 9,
-          width: 40,
-        }}
-      /> */}
-      {/* <g>
-        <use y={200} xlinkHref="#mosquito"></use>
-        <animateMotion
-          xlinkHref="#mosquito"
-          dur="4s"
-          begin="0s"
-          fill="freeze"
-          repeatCount="indefinite"
-          rotate=""
-        >
-          <mpath xlinkHref="#test-path" />
-        </animateMotion>{" "}
-        <animateMotion
-          xlinkHref="#mosquito"
-          dur="4s"
-          begin="05s"
-          fill="freeze"
-          repeatCount="indefinite"
-          rotate=""
-        >
-          <mpath xlinkHref="#test-path2" />
-        </animateMotion>{" "}
-      </g> */}
-      {/* <g>
-        <use xlinkHref="#path-EF" className="stroke-black stroke-2" />
-        <use xlinkHref="#path-EG" className="stroke-black stroke-2" />
-        <use xlinkHref="#path-EH" className="stroke-black stroke-2" />
-        <use xlinkHref="#path-EI" className="stroke-black stroke-2" />
-        <use xlinkHref="#path-FG" className="stroke-black stroke-2" />
-        <use xlinkHref="#path-FH" className="stroke-black stroke-2" />
-        <use xlinkHref="#path-FI" className="stroke-black stroke-2" />
-        <use xlinkHref="#path-GH" className="stroke-black stroke-2" />
-        <use xlinkHref="#path-GI" className="stroke-black stroke-2" />
-        <use xlinkHref="#path-HI" className="stroke-black stroke-2" />
-      </g> */}
     </svg>
   );
 }

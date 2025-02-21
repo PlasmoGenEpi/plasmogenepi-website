@@ -1,5 +1,5 @@
-import { usePrevious } from "@/components/hooks";
-import { phaseAtom } from "@/data/Interactives/interactiveStore";
+// import { usePrevious } from "@/app/components/hooks";
+// import { phaseAtom } from "@/data/Interactives/interactiveStore";
 import { useAtomValue } from "jotai";
 import { ReactElement, useEffect, useMemo, useRef } from "react";
 
@@ -35,20 +35,26 @@ export default function QuestionResponseText({
   return (
     <div
       ref={z}
-      className={`${visible ? "fadeIn500" : "invisible"} ${className && className} [fontSize:15px]`}
+      className={`${
+        visible && complete
+          ? "visible"
+          : visible
+          ? "fadeIn500 dark:animate-none"
+          : "invisible"
+      } ${className && className} [fontSize:15px]`}
     >
       {content ? (
         content
       ) : typeof text === "string" ? (
         <div
           className={
-            "text-pretty bg-primaryBlue/10 p-4 leading-[23px] md:p-6 md:px-8"
+            "bg-interactiveBlue/10 text-pretty p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
           }
         >
           <p>{text}</p>
         </div>
       ) : (
-        <div className="text-pretty bg-primaryBlue/10 p-4 leading-[23px] md:p-6 md:px-8">
+        <div className="bg-interactiveBlue/10 text-pretty p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8">
           <p>
             {text &&
               text.map((str, idx) => {

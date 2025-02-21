@@ -4,12 +4,12 @@ import {
   partTwoAverageDeducedAtom,
   partTwoCompletionAtom,
   partTwoInfectionsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedInfectionIndexAtom,
   VERSION_CONTROL,
   versionControlAtom,
 } from "@/data/Interactives/interactiveStore";
-import { useAtom, useAtomValue, useSetAtom } from "jotai";
+import { atom, useAtom, useAtomValue, useSetAtom } from "jotai";
 import ControlPanelWrapper from "../../Shared/ControlPanel/ControlPanelWrapper";
 import PrimaryButton from "../../Shared/ControlPanel/PrimaryButton";
 import { resetConfirmOpenAtom } from "../../Shared/ControlPanel/ResetModal";
@@ -20,29 +20,40 @@ import {
 import { partFiveQuestionAtom } from "../PartFive/PartFive";
 import { atomWithStorage, RESET } from "jotai/utils";
 import { useCallback, useEffect } from "react";
+import { currentNextCallbackAtom } from "../../Shared/ControlPanel/InteractiveControlPanel";
+import { currentView1Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
+import { p2QuestionAnsweredAtom, p2TextIsShownAtom } from "./PartTwo";
 
 const P2CurrentVersionAtom = atomWithStorage("P2CurrentVersionAtom", "1.1.1");
+export const p2ResetAtom = atom<null | (() => void)>(null);
 
 export default function PartTwoControlPanel() {
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase1Atom);
   const [completion, setCompletion] = useAtom(partTwoCompletionAtom);
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
   const [activeIndex, setActiveIndex] = useAtom(selectedInfectionIndexAtom);
   const [partTwoInfections, setPartTwoInfections] = useAtom(
-    partTwoInfectionsAtom,
+    partTwoInfectionsAtom
   );
   const [attemptedInput, setAttemptedInput] = useAtom(attemptedInputAtom);
   const setIncorrectGuessCount = useSetAtom(incorrectGuessCountAtom);
   const [partTwoAverageDeduced, setPartTwoAverageDeduced] = useAtom(
-    partTwoAverageDeducedAtom,
+    partTwoAverageDeducedAtom
   );
   const [partFiveQuestion, setPartFiveQuestion] = useAtom(partFiveQuestionAtom);
   const [oartFiveCompletion, setPartFiveCompletion] = useAtom(
-    partFiveCompletionAtom,
+    partFiveCompletionAtom
   );
   const [currentVersion, setCurrentVersion] = useAtom(P2CurrentVersionAtom);
-
+  const setCurrentNextCallback = useSetAtom(currentNextCallbackAtom);
+  const [currentView, setCurrentView] = useAtom(currentView1Atom);
+  const [p2QuestionAnswered, setP2QuestionAnswered] = useAtom(
+    p2QuestionAnsweredAtom
+  );
+  const [textIsShown, setTextIsShown] = useAtom(p2TextIsShownAtom);
   const resetCallback = useCallback(() => {
+    setP2QuestionAnswered(RESET);
+    setTextIsShown(RESET);
     setPartFiveCompletion(RESET);
     setPartFiveQuestion(null);
     setIncorrectGuessCount(0);
@@ -52,15 +63,21 @@ export default function PartTwoControlPanel() {
       2: false,
     });
     setPartTwoAverageDeduced(false);
-    setPhase(1);
-    setPartTwoAverageDeduced(false);
+    // setPhase(1);
+    // setCurrentView({ ...currentView, phase: 0, section: 2 });
     setActiveIndex(0);
-    let newInfections = Array(10)
-      .fill(0)
-      .map((el, idx) => {
-        return null;
-      });
+    let newInfections = new Array(10).fill(0).map((el, idx) => {
+      return null;
+    });
     setPartTwoInfections(newInfections);
+  }, []);
+
+  const setReset = useSetAtom(p2ResetAtom);
+
+  useEffect(() => {
+    if (resetCallback) {
+      setReset(() => () => resetCallback());
+    }
   }, []);
 
   useEffect(() => {
@@ -73,6 +90,9 @@ export default function PartTwoControlPanel() {
   }, []);
 
   function isDisabled(phase: number) {
+    if (phase === 0) {
+      return false;
+    }
     if (phase === 1) {
       if (partTwoInfections[activeIndex] !== null) {
         return false;
@@ -84,11 +104,17 @@ export default function PartTwoControlPanel() {
       // }
     } else if (phase === 2 && partTwoAverageDeduced) {
       return false;
+    } else if (phase === 3) {
+      if (textIsShown) {
+        return false;
+      }
     }
     return true;
   }
 
   function handleClick(phase: number) {
+    console.log("handleClick2");
+
     const getNextIndex = function () {
       for (let i = 0; i < partTwoInfections.length; i++) {
         if (partTwoInfections[i] === null || partTwoInfections[i] === 0) {
@@ -105,12 +131,17 @@ export default function PartTwoControlPanel() {
         setActiveIndex(z);
         return;
       }
+    } else if (phase === 3) {
+      setCompletion({ ...completion, [phase]: true });
+      setCurrentView({ ...currentView, phase: 0, section: 3 });
+      return;
     }
     setCompletion({
       ...completion,
       [phase]: true,
     });
-    setPhase(phase + 1);
+    // setPhase(phase + 1);
+    setCurrentView({ ...currentView, phase: currentView.phase + 1 });
   }
 
   function getText() {
@@ -119,6 +150,33 @@ export default function PartTwoControlPanel() {
     }
     return "Next";
   }
+
+  useEffect(() => {
+    if (currentView.section === 2 && currentView.module === "2.6") {
+      setCurrentNextCallback(() =>
+        isDisabled(phase)
+          ? null
+          : () => {
+              if (!isDisabled(phase)) {
+                handleClick(phase);
+              }
+            }
+      );
+    }
+    // return () => {
+    //   setCurrentNextCallback(null);
+    // };
+  }, [
+    phase,
+    completion,
+    activeIndex,
+    partTwoInfections,
+    partTwoAverageDeduced,
+    textIsShown,
+    currentView,
+  ]);
+
+  return null;
 
   return (
     <ControlPanelWrapper resetCallback={resetCallback} fixed={true}>
@@ -151,7 +209,9 @@ export default function PartTwoControlPanel() {
                 handleClick(phase);
               }
             }}
-            className={`${getText() === "Finish" ? "bg-primaryBlue" : "bg-primaryGreen"} text-white`}
+            className={`${
+              getText() === "Finish" ? "bg-primaryBlue" : "bg-primaryGreen"
+            } text-white`}
             text={getText()}
             disabled={isDisabled(phase)}
           />

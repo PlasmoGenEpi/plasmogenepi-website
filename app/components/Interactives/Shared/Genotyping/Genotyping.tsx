@@ -18,23 +18,31 @@ export default function Genotyping({
   valObjs: { reference: boolean; alternate: boolean }[];
   callback: (idx: number, ref: boolean) => void;
 }) {
-  console.log(hints);
-
   return (
     <div className="flex flex-col gap-16">
       <div>
-        <div className={`grid grow grid-cols-12 gap-1 p-1`}>
+        <div className={`grid grow grid-cols-12 gap-1 p-1 dark:brightness-75`}>
           {valObjs.map((valObj, idx) => {
             return (
               <div key={idx} className="flex flex-col gap-1">
                 <CloneElement
-                  ariaLabel={`reference ${fixedData[1].refValues[idx]} ${hints && hints[idx]?.reference === false ? "incorrect" : ""}`}
+                  ariaLabel={`reference ${fixedData[1].refValues[idx]} ${
+                    hints && hints[idx]?.reference === false ? "incorrect" : ""
+                  }`}
                   disabled={disabled}
                   checked={valObj.reference}
                   className={
                     valObj.reference
-                      ? `bg-green-300/50 ${hints && hints[idx]?.reference === false ? "border-2 border-orange-400" : ""}`
-                      : `${hints && hints[idx]?.reference === false ? "border-2 border-orange-400" : ""}`
+                      ? `bg-[#C2F7D5]  ${
+                          hints && hints[idx]?.reference === false
+                            ? "border-2 dark:border-[3px] border-orange-400"
+                            : ""
+                        }`
+                      : `bg-white ${
+                          hints && hints[idx]?.reference === false
+                            ? "border-2 dark:border-[3px] border-orange-400"
+                            : ""
+                        }`
                   }
                   callback={() => {
                     callback(idx, true);
@@ -51,13 +59,23 @@ export default function Genotyping({
                   key={idx}
                 />
                 <CloneElement
-                  ariaLabel={`alternate ${fixedData[1].altValues[idx]} ${hints && hints[idx]?.alternate === false ? "incorrect" : ""}`}
+                  ariaLabel={`alternate ${fixedData[1].altValues[idx]} ${
+                    hints && hints[idx]?.alternate === false ? "incorrect" : ""
+                  }`}
                   checked={valObj.reference}
                   disabled={disabled}
                   className={
                     valObj.alternate
-                      ? `bg-green-300/50 ${hints && hints[idx]?.alternate === false ? "border-2 border-orange-400" : ""}`
-                      : `${hints && hints[idx]?.alternate === false ? "border-2 border-orange-400" : ""}`
+                      ? `bg-[#C2F7D5]  ${
+                          hints && hints[idx]?.alternate === false
+                            ? "border-2 dark:border-[3px] border-orange-400"
+                            : ""
+                        }`
+                      : `bg-white ${
+                          hints && hints[idx]?.alternate === false
+                            ? "border-2 dark:border-[3px] border-orange-400"
+                            : ""
+                        }`
                   }
                   callback={() => {
                     callback(idx, false);
@@ -71,7 +89,7 @@ export default function Genotyping({
                         }
                   }
                   val={1}
-                  key={idx}
+                  key={24 + idx}
                 />
               </div>
             );

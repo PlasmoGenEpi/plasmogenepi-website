@@ -6,7 +6,7 @@ export const partFivePrompts: {
     instructions: ReactElement;
   };
 } = {
-  1: {
+  0: {
     title: (
       <h5>5.1 Compare your estimates of MOI from SNPs to Microhaplotypes</h5>
     ),
@@ -14,8 +14,18 @@ export const partFivePrompts: {
       <p>
         View the table below and take note of any differences that you see
         between your estimates of MOI in SNPs vs. microhaplotypes. Select a row
-        in the table to compare your genotypes. Then press next to respond to
-        some questions about your observations.
+        in the table to compare your genotypes. Then consider some questions
+        below.
+      </p>
+    ),
+  },
+  1: {
+    title: <h5>5.2 Compare your estimates with the true MOI</h5>,
+    instructions: (
+      <p>
+        View your estimates of MOI between SNPs, microhaplotypes, and the true
+        MOI value for each infection. Select a row in the table to compare your
+        genotypes.
       </p>
     ),
   },

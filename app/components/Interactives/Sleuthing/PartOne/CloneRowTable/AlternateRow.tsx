@@ -1,5 +1,5 @@
-import CloneElement from "@/components/Interactives/Shared/CloneRow/CloneElement";
-import CloneRow from "@/components/Interactives/Shared/CloneRow/CloneRow";
+import CloneElement from "@/app/components/Interactives/Shared/CloneRow/CloneElement";
+import CloneRow from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import { fixedData } from "@/data/Interactives/fixedData";
 
 export default function AlternateRow({
@@ -23,20 +23,21 @@ export default function AlternateRow({
           }
           className={`relative aspect-square rounded-full`}
         >
-          <div className="absolute right-4 top-1/2 hidden aspect-square items-center rounded-full lg:flex lg:justify-end ">
+          <div className="@2xl/main:flex @2xl/main:justify-end absolute right-4 top-1/2 hidden aspect-square items-center rounded-full">
             <span className="absolute translate-y-[3px] font-bold">
               Alternate
             </span>
           </div>
-          <div className="absolute right-4 top-1/2 flex aspect-square items-center justify-center rounded-full lg:hidden">
+          <div className="@2xl/main:hidden absolute right-4 top-1/2 flex aspect-square items-center justify-center rounded-full">
             <span className="absolute translate-y-[3px] font-bold">Alt</span>
           </div>
         </div>
       </div>
-      <ol className={`grid grow grid-cols-12 gap-1 p-1`}>
+      <ol className={`grid grow grid-cols-12 gap-1 p-1 pt-0`}>
         {altValues.map((altVal, idx) => {
           return (
             <CloneElement
+              className="bg-white text-black dark:brightness-75"
               possibleValues={{
                 alternate: altVal,
                 reference: refValues[idx],

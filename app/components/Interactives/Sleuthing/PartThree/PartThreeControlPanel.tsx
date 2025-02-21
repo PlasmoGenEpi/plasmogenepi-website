@@ -1,5 +1,5 @@
 "use client";
-import { useAtom, useAtomValue } from "jotai";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import ControlPanelWrapper from "../../Shared/ControlPanel/ControlPanelWrapper";
 import PrimaryButton from "../../Shared/ControlPanel/PrimaryButton";
 import {
@@ -11,28 +11,39 @@ import {
   hintsEnabledAtom,
   partThreeCompletionAtom,
   partThreePositiveControlBoardsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedPositiveControlBoardAtom,
   transformMatrixAtom,
   versionControlAtom,
 } from "@/data/Interactives/interactiveStore";
 import { resetConfirmOpenAtom } from "../../Shared/ControlPanel/ResetModal";
 import { atomWithStorage, RESET } from "jotai/utils";
+// import {
+//   MicroId,
+//   compareMatrices,
+//   compareUnorderedArrays,
+//   countMHPs,
+//   getDifferenceBetweenMatrices,
+//   switchValues,
+// } from "@/helpers/helpers";
+import { useCallback, useEffect, useMemo } from "react";
+import { atom, ExtractAtomValue } from "jotai/vanilla";
 import {
-  MicroId,
-  compareMatrices,
   compareUnorderedArrays,
   countMHPs,
   getDifferenceBetweenMatrices,
+  MicroId,
   switchValues,
-} from "@/helpers/helpers";
-import { useCallback, useEffect, useMemo } from "react";
-import { ExtractAtomValue } from "jotai/vanilla";
+} from "../../helpers";
+import { currentView1Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
+import { currentNextCallbackAtom } from "../../Shared/ControlPanel/InteractiveControlPanel";
+import { P3KCQuestions2Atom } from "./Phases/PartThreeKnowledgeCheck2";
 
 const P3CurrentVersionAtom = atomWithStorage("P3CurrentVersionAtom", "1.1.1");
+export const p3ResetAtom = atom<null | (() => void)>(null);
 
 export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase1Atom);
   const cloneRows = useAtomValue(cloneRowsAtom);
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
   const [completion, setCompletion] = useAtom(partThreeCompletionAtom);
@@ -42,12 +53,17 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
   const [hintsEnabled, setHintsEnabled] = useAtom(hintsEnabledAtom);
   const [MHPGenotypeHints, setMHPGenotypeHints] = useAtom(MHPGenotypeHintsAtom);
   const [selectedBoard, setSelectedBoard] = useAtom(
-    selectedPositiveControlBoardAtom,
+    selectedPositiveControlBoardAtom
   );
   const [currentVersion, setCurrentVersion] = useAtom(P3CurrentVersionAtom);
+  const [currentView, setCurrentView] = useAtom(currentView1Atom);
+  const setCurrentNextCallback = useSetAtom(currentNextCallbackAtom);
+  const [finalQuestions, setFinalQuestions] = useAtom(P3KCQuestions2Atom);
+  const setReset = useSetAtom(p3ResetAtom);
 
   const resetCallback = useCallback(() => {
     setHintsEnabled(false);
+    setFinalQuestions(RESET);
     setTransformMatrix({
       1: [false, false, false, false],
       2: [false, false, false, false],
@@ -59,6 +75,12 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
     setCompletion(RESET);
     setBoards(RESET);
     setSelectedBoard(1);
+  }, []);
+
+  useEffect(() => {
+    if (resetCallback) {
+      setReset(() => () => resetCallback());
+    }
   }, []);
 
   useEffect(() => {
@@ -99,7 +121,7 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
       let row = cloneRows[k].vals;
       for (let i = 0; i < 4; i++) {
         cloneRowMicroIds[i].push(
-          row.slice(i * 3, i * 3 + 3) as unknown as MicroId,
+          row.slice(i * 3, i * 3 + 3) as unknown as MicroId
         );
       }
     }
@@ -114,6 +136,9 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
   }, [cloneRows]);
 
   const isDisabled = function (phase: number) {
+    if (phase === 0) {
+      return false;
+    }
     // return false;
     if (phase === 1) {
       for (let i = 1; i <= 5; i++) {
@@ -156,13 +181,13 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
         for (let i = 0; i < 4; i++) {
           cloneRowMicroIds[i].push(
             //@ts-ignore
-            cloneRows[rowId].vals.slice(i * 3, i * 3 + 3),
+            cloneRows[rowId].vals.slice(i * 3, i * 3 + 3)
           );
         }
       }
       let x = getDifferenceBetweenMatrices(
         cloneRowMicroIds,
-        currentBoard.inputs,
+        currentBoard.inputs
       );
       console.log(x);
       let flag = true;
@@ -199,6 +224,10 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
       } else if (selectedBoard === 6) {
         return currentBoard.questions[2] !== 3;
       }
+    } else if (phase === 5) {
+      if (finalQuestions[4]) {
+        return false;
+      }
     }
     return true;
   };
@@ -210,7 +239,7 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
       for (let i = 0; i < 4; i++) {
         cloneRowMicroIds[i].push(
           //@ts-ignore
-          cloneRows[rowId].vals.slice(i * 3, i * 3 + 3),
+          cloneRows[rowId].vals.slice(i * 3, i * 3 + 3)
         );
       }
     }
@@ -225,6 +254,8 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
   ]);
 
   const handleClick = function (phase: number) {
+    console.log("handleClick3");
+
     if (phase === 1) {
     } else if (phase === 2) {
       let nextBoardId = Math.min.apply(
@@ -235,7 +266,7 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
           })
           .map((invalidBoard) => {
             return invalidBoard.id;
-          }),
+          })
       );
       if (nextBoardId > 0 && nextBoardId !== Infinity) {
         if (currentBoard.valid === false) {
@@ -264,7 +295,7 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
           })
           .map((invalidBoard) => {
             return invalidBoard.id;
-          }),
+          })
       );
       if (nextBoardId > 0 && nextBoardId !== Infinity) {
         if (currentBoard.inputValid === false) {
@@ -293,7 +324,7 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
           })
           .map((invalidBoard) => {
             return invalidBoard.id;
-          }),
+          })
       );
       if (nextBoardId > 0 && nextBoardId !== Infinity) {
         if (currentBoard.questionsValid === false) {
@@ -313,9 +344,17 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
           return;
         }
       }
+    } else if (phase === 5) {
+      setCompletion({ ...completion, [phase]: true });
+      setCurrentView({ ...currentView, section: 4, phase: 0 });
+      return;
     }
     setCompletion({ ...completion, [phase]: true });
-    setPhase(phase + 1);
+    // setPhase(phase + 1);
+    setCurrentView({
+      ...currentView,
+      phase: currentView.phase + 1,
+    });
     // return;
   };
 
@@ -328,6 +367,38 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
   }, [phase, completion]);
 
   // console.log(transformMatrix);
+
+  useEffect(() => {
+    // setCurrentPhaseIsComplete(completion[phase]);
+    if (currentView.section === 3 && currentView.module === "2.6") {
+      setCurrentNextCallback(() =>
+        isDisabled(phase)
+          ? null
+          : () => {
+              if (!isDisabled(phase)) {
+                handleClick(phase);
+              }
+            }
+      );
+    }
+    // return () => {
+    //   setCurrentNextCallback(null);
+    // };
+  }, [
+    finalQuestions,
+    phase,
+    completion,
+    cloneRows,
+    boards,
+    transformMatrix,
+    activeTuple,
+    hintsEnabled,
+    MHPGenotypeHints,
+    selectedBoard,
+    currentView,
+  ]);
+
+  return null;
 
   return (
     <ControlPanelWrapper resetCallback={resetCallback} fixed={fixed}>
@@ -377,7 +448,11 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
             <PrimaryButton
               first
               callback={() => {
-                setPhase(phase - 1);
+                // setPhase(phase - 1);
+                setCurrentView({
+                  ...currentView,
+                  phase: currentView.phase - 1,
+                });
               }}
               className="bg-primaryGreen text-white"
               text="Back"
@@ -390,7 +465,9 @@ export default function PartThreeControlPanel({ fixed }: { fixed: boolean }) {
                 handleClick(phase);
               }
             }}
-            className={`${getText() === "Finish" ? "bg-primaryBlue" : "bg-primaryGreen"} text-white`}
+            className={`${
+              getText() === "Finish" ? "bg-primaryBlue" : "bg-primaryGreen"
+            } text-white`}
             text={getText()}
             disabled={isDisabled(phase)}
           />

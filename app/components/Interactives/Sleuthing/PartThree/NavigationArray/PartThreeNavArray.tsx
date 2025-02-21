@@ -1,19 +1,19 @@
-import { usePrevious } from "@/components/hooks";
-import { cloneRowColors } from "@/components/Interactives/Shared/CloneRow/CloneRow";
-import { microhaplotypeColorMap } from "@/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTableRow";
-import BloodSpotThumbnail from "@/components/Interactives/Shared/NavigationArray/BloodSpotThumbnail/BloodSpotThumbnail";
+import { usePrevious } from "@/app/components/hooks";
+import { findFirstFocusableElement } from "@/app/components/Interactives/helpers";
+import { cloneRowColors } from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
+import { microhaplotypeColorMap } from "@/app/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTableRow";
+import BloodSpotThumbnail from "@/app/components/Interactives/Shared/NavigationArray/BloodSpotThumbnail/BloodSpotThumbnail";
 import {
   cloneRowsAtom,
   partThreePositiveControlBoardsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedPositiveControlBoardAtom,
 } from "@/data/Interactives/interactiveStore";
-import { findFirstFocusableElement } from "@/helpers/helpers";
 import { useAtom, useAtomValue } from "jotai";
 import { useEffect, useMemo } from "react";
 
 export default function PartThreeNavArray() {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase1Atom);
   const cloneRows = useAtomValue(cloneRowsAtom);
   const boards = useAtomValue(partThreePositiveControlBoardsAtom);
   const [activeBoard, setActiveBoard] = useAtom(
@@ -63,25 +63,27 @@ export default function PartThreeNavArray() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, activeBoard]);
 
-  if (phase === 1) {
+  if (phase === 1 || phase >= 5) {
     return null;
   }
 
   return (
-    <div className="relative mx-auto mb-12 grid min-h-[100px] grid-cols-3 place-items-center gap-1 sm:max-w-[80%] sm:grid-cols-3 md:min-h-[82px] md:max-w-none md:grid-cols-6 md:gap-0 lg:gap-8">
+    <div className="@xl/main:max-w-[80%] @xl/main:grid-cols-3 @4xl/main:min-h-[82px] @4xl/main:max-w-none @4xl/main:grid-cols-6 @4xl/main:gap-0 relative mx-auto mb-12 grid min-h-[100px] grid-cols-3 place-items-center gap-1">
       {Array(6)
         .fill(0)
         .map((el, idx) => {
           return (
             <BloodSpotThumbnail
               tooltip={`Positive Control ${boards[idx + 1].id}`}
-              className={`${isHidden(idx, phase) && prevPhase2 === 1 ? "hidden " : ""}
+              className={`${
+                isHidden(idx, phase) && prevPhase2 === 1 ? "hidden " : ""
+              }
                 ${
                   (idx < 2
                     ? "col-start-1 md:col-start-auto"
                     : idx < 4
-                      ? "col-start-2 md:col-start-auto"
-                      : "col-start-3 md:col-start-auto") +
+                    ? "col-start-2 md:col-start-auto"
+                    : "col-start-3 md:col-start-auto") +
                   " " +
                   (idx % 2 === 0
                     ? "row-start-1 md:row-start-auto"
@@ -118,7 +120,9 @@ export default function PartThreeNavArray() {
                             return (
                               <div
                                 key={idx2}
-                                className={`${microhaplotypeColorMap.get(JSON.stringify(vals))} relative aspect-[2/1] shadow-sm shadow-black/50`}
+                                className={`${microhaplotypeColorMap.get(
+                                  JSON.stringify(vals),
+                                )} relative aspect-[2/1] shadow-sm shadow-black/50`}
                               >
                                 <div className="absolute inset-[1px] bg-white/80"></div>
                               </div>

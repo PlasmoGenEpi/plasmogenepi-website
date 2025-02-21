@@ -14,50 +14,62 @@ export default function GenotypeOutputElement({
   possibleVals: { reference: string; alternate: string };
 }) {
   return (
-    <div
-      className={
-        idx === 11
-          ? `relative flex min-h-[2.5em] flex-col items-center justify-end  font-bold  ${className ? className : "text-xl"}`
-          : `relative flex min-h-[2.5em]  flex-col items-center  justify-end  font-bold  ${className ? className : "text-xl"}`
-      }
-    >
-      {!noBorder && (
-        <div className="absolute bottom-0 left-1/2 w-7 -translate-x-1/2 border-b-2 border-black"></div>
-      )}
+    <div className="dark:brightness-75">
+      <div
+        className={
+          idx === 11
+            ? `relative dark:bg-white dark:text-black flex min-h-[2.5em] flex-col items-center justify-end  font-bold  ${
+                className ? className : "text-xl"
+              }`
+            : `relative dark:bg-white dark:text-black flex min-h-[2.5em]  flex-col items-center  justify-end  font-bold  ${
+                className ? className : "text-xl"
+              }`
+        }
+      >
+        {!noBorder && (
+          <div className="absolute bottom-0 left-1/2 w-7 -translate-x-1/2 border-b-2 border-black dark:border-zinc-200"></div>
+        )}
 
-      {/* {inputRowItem.reference && inputRowItem.alt ? <div></div> : null} */}
-      <span
-        className={
-          vals.reference && vals.alternate
-            ? `absolute mt-2 ${possibleVals.reference === "C" ? "-translate-x-1.5" : possibleVals.reference === "T" ? "-translate-x-1" : "-translate-x-2"} -translate-y-[17px] transition-all`
-            : vals.reference && !vals.alternate
-              ? "absolute transition-all"
+        {/* {inputRowItem.reference && inputRowItem.alt ? <div></div> : null} */}
+        <span
+          className={
+            vals.reference && vals.alternate
+              ? `absolute mt-2 ${
+                  possibleVals.reference === "C"
+                    ? "-translate-x-1.5"
+                    : possibleVals.reference === "T"
+                    ? "-translate-x-1"
+                    : "-translate-x-2"
+                } -translate-y-[17px] transition-all`
+              : vals.reference && !vals.alternate
+              ? "absolute transition-all -translate-y-1/4"
               : "hidden"
-        }
-      >
-        {vals.reference ? possibleVals.reference : ""}
-      </span>
-      <span
-        className={
-          vals.reference && vals.alternate
-            ? "absolute -translate-x-[1px]  -translate-y-[7px] rotate-[30deg] scale-100 font-normal transition-all"
-            : "-translate-x-[1px] -translate-y-[6px] rotate-[30deg] scale-0 font-normal transition-all"
-        }
-      >
-        /
-      </span>
-      <span
-        // className="text-white text-lg translate-x-1/2 absolute translate-y-[40%]"
-        className={
-          vals.reference && vals.alternate
-            ? "alternateAllele absolute mt-2 translate-x-1.5 translate-y-1 text-white transition-all"
-            : !vals.reference && vals.alternate
-              ? "alternateAllele absolute text-white transition-all"
+          }
+        >
+          {vals.reference ? possibleVals.reference : ""}
+        </span>
+        <span
+          className={
+            vals.reference && vals.alternate
+              ? "absolute -translate-x-[1px]  -translate-y-[7px] rotate-[30deg] scale-100 font-normal transition-all"
+              : "-translate-x-[1px] -translate-y-[6px] rotate-[30deg] scale-0 font-normal transition-all"
+          }
+        >
+          /
+        </span>
+        <span
+          // className="text-white text-lg translate-x-1/2 absolute translate-y-[40%]"
+          className={
+            vals.reference && vals.alternate
+              ? "alternateAllele absolute mt-2 translate-x-1.5 translate-y-1 text-white transition-all"
+              : !vals.reference && vals.alternate
+              ? "alternateAllele absolute text-white transition-all -translate-y-1/4"
               : "hidden"
-        }
-      >
-        {vals.alternate ? possibleVals.alternate : ""}
-      </span>
+          }
+        >
+          {vals.alternate ? possibleVals.alternate : ""}
+        </span>
+      </div>
     </div>
   );
 }

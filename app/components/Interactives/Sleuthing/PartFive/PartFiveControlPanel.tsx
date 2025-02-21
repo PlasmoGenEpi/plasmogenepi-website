@@ -1,36 +1,60 @@
 import {
-  currentVersionAtom,
   partFiveCompletionAtom,
-  phaseAtom,
+  phase1Atom,
   selectedInfectionIndexAtom,
   VERSION_CONTROL,
   versionControlAtom,
 } from "@/data/Interactives/interactiveStore";
 import ControlPanelWrapper from "../../Shared/ControlPanel/ControlPanelWrapper";
-import { useAtom, useAtomValue } from "jotai";
+import { atom, useAtom, useAtomValue, useSetAtom } from "jotai";
 import { resetConfirmOpenAtom } from "../../Shared/ControlPanel/ResetModal";
 import PrimaryButton from "../../Shared/ControlPanel/PrimaryButton";
 import { atomWithStorage, RESET } from "jotai/utils";
-import { partFiveQuestionAtom } from "./PartFive";
+import {
+  p5ButtonClicked2Atom,
+  p5ButtonClickedAtom,
+  partFiveQuestionAtom,
+} from "./PartFive";
 import { useCallback, useEffect, useState } from "react";
+import { currentView1Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
+import { currentNextCallbackAtom } from "../../Shared/ControlPanel/InteractiveControlPanel";
 
 const P5CurrentVersionAtom = atomWithStorage("P5CurrentVersionAtom", "1.1.1");
 
+export const p5ResetAtom = atom<null | (() => void)>(null);
+
 export default function PartFiveControlPanel() {
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [currentView, setCurrentView] = useAtom(currentView1Atom);
+  const [phase, setPhase] = useAtom(phase1Atom);
   const [completion, setCompletion] = useAtom(partFiveCompletionAtom);
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
   const [activeIndex, setActiveIndex] = useAtom(selectedInfectionIndexAtom);
   const [question, setQuestion] = useAtom(partFiveQuestionAtom);
   const [slidoPause, setSlidoPause] = useState(false);
   const [currentVersion, setCurrentVersion] = useAtom(P5CurrentVersionAtom);
+  const [currentNextCallback, setCurrentNextCallback] = useAtom(
+    currentNextCallbackAtom
+  );
+  const [clicked, setClicked] = useAtom(p5ButtonClickedAtom);
+  const [clicked2, setClicked2] = useAtom(p5ButtonClicked2Atom);
+  const setReset = useSetAtom(p5ResetAtom);
+
+  useEffect(() => {
+    if (resetCallback) {
+      setReset(() => () => {
+        resetCallback();
+      });
+    }
+  }, []);
 
   const resetCallback = useCallback(() => {
+    setClicked2(RESET);
     setSlidoPause(false);
+    setClicked(RESET);
     setQuestion(null);
     setActiveIndex(0);
     setCompletion(RESET);
-    setPhase(1);
+    // setCurrentView({ ...currentView, section: 5, phase: 0 });
   }, []);
 
   useEffect(() => {
@@ -43,15 +67,24 @@ export default function PartFiveControlPanel() {
   }, []);
 
   function isDisabled(phase: number) {
-    if (phase === 13) {
-      return question !== 2;
+    if (phase === 0) {
+      return !clicked;
+    } else if (phase === 1) {
+      return !clicked2;
     }
-    return slidoPause;
+    return false;
   }
 
   function handleClick(phase: number) {
+    console.log("handleClick5");
+
+    if (phase === 1) {
+      setCompletion({ ...completion, [phase]: true });
+      setCurrentView({ ...currentView, section: 6, phase: 0 });
+      return;
+    }
     setCompletion({ ...completion, [phase]: true });
-    setPhase(phase + 1);
+    setCurrentView({ ...currentView, phase: currentView.phase + 1 });
   }
 
   function getText() {
@@ -76,6 +109,36 @@ export default function PartFiveControlPanel() {
       clearTimeout(x);
     };
   }, [phase]);
+
+  useEffect(() => {
+    // setCurrentPhaseIsComplete(completion[phase]);
+    // setCurrentView({ ...currentView, section: 4, phase: 0 });
+    if (currentView.section === 5 && currentView.module === "2.6") {
+      setCurrentNextCallback(() =>
+        isDisabled(phase)
+          ? null
+          : () => {
+              if (!isDisabled(phase)) {
+                handleClick(phase);
+              }
+            }
+      );
+    }
+    // return () => {
+    //   setCurrentNextCallback(null);
+    // };
+  }, [
+    phase,
+    completion,
+    activeIndex,
+    currentView,
+    activeIndex,
+    question,
+    clicked,
+    clicked2,
+  ]);
+
+  return null;
 
   return (
     <ControlPanelWrapper fixed resetCallback={resetCallback}>
@@ -108,7 +171,9 @@ export default function PartFiveControlPanel() {
                 handleClick(phase);
               }
             }}
-            className={`${getText() === "Finish" ? "bg-primaryBlue" : "bg-primaryGreen"} text-white`}
+            className={`${
+              getText() === "Finish" ? "bg-primaryBlue" : "bg-primaryGreen"
+            } text-white`}
             text={getText()}
             disabled={isDisabled(phase)}
           />

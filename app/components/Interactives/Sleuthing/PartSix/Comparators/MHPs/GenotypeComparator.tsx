@@ -3,6 +3,7 @@ import {
   partSevenCompletionAtom,
   partSixCloneRowsMHPsAtom,
   partSixMHPPolycloncalGenotypesAtom,
+  phase2Atom,
   phaseAtom,
 } from "@/data/Interactives/interactiveStore";
 import {
@@ -10,8 +11,8 @@ import {
   P6CloneRowColors,
 } from "../../CloneRows/P6MHPCloneRows";
 import { useAtom, useAtomValue } from "jotai";
-import CloneRow from "@/components/Interactives/Shared/CloneRow/CloneRow";
-import SquareMicrohaplotype from "@/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
+import CloneRow from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
+import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
 import { useMemo } from "react";
 
 export default function GenotypeComparator({
@@ -29,7 +30,7 @@ export default function GenotypeComparator({
 }) {
   const cloneRows = useAtomValue(partSixCloneRowsMHPsAtom);
   const [genotypes, setGenotypes] = useAtom(partSixMHPPolycloncalGenotypesAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   let [genoPair, second] = activeCombo;
   const hints = useAtomValue(hintsEnabledAtom);
   const completion = useAtomValue(partSevenCompletionAtom);
@@ -64,20 +65,24 @@ export default function GenotypeComparator({
   return (
     <div className="mt-4 max-w-[500px]">
       <div
-        className={`grid gap-1 font-helvetica transition-all [grid-template-columns:8%_auto]`}
+        className={`grid gap-1 font-helvetica transition-all [grid-template-columns:8%_auto] dark:brightness-75`}
       >
         <div>
           <div
-            className={`${currentClone === 4 ? "border-red-blue-rounded" : P6CloneRowButtonColors[currentClone]} aspect-square scale-90 rounded-full bg-gradient-radial  from-[white_20%]`}
+            className={`${
+              currentClone === 4
+                ? "border-red-blue-rounded"
+                : P6CloneRowButtonColors[currentClone]
+            } aspect-square scale-90  rounded-full bg-gradient-radial  from-[white_20%]`}
           >
             <div className="flex aspect-square items-center justify-center rounded-full text-base font-bold">
-              <span className="absolute translate-y-[3px] font-bold">
+              <span className="absolute translate-y-[3px] font-bold text-black">
                 {currentClone}
               </span>
             </div>
           </div>
         </div>
-        <ol className={`grid h-full grow grid-cols-12 gap-1 p-1`}>
+        <ol className={`grid h-full grow grid-cols-12 gap-1 p-1 `}>
           {/* {children} */}
           {cloneRows[currentClone].vals.map((val, idx) => {
             return <SquareMicrohaplotype id={val as number} key={idx} />;
@@ -92,7 +97,7 @@ export default function GenotypeComparator({
           </label>
         </div>
       )}
-      <div className="grid max-w-[500px] gap-x-1 [grid-template-columns:8%_auto]">
+      <div className="grid max-w-[500px] gap-x-1 [grid-template-columns:8%_auto] dark:brightness-75">
         <div className="relative  h-full w-full">
           <div
             className={`absolute left-0 top-0 aspect-square h-5 rounded-full ${P6CloneRowColors[x]}`}
@@ -104,7 +109,7 @@ export default function GenotypeComparator({
             className={`absolute left-1/2 top-5 aspect-square h-5 -translate-x-1/2  rounded-full ${P6CloneRowColors[currentClone]}`}
           ></div>
         </div>
-        <div className="col-start-2 grid grid-cols-12 gap-x-1 p-1">
+        <div className=" col-start-2 grid grid-cols-12 gap-x-1 p-1">
           {Array(12)
             .fill(0)
             .map((el, idx) => {
@@ -127,12 +132,12 @@ export default function GenotypeComparator({
                       x === 1 && y === 2 && phase < 10
                         ? completion[4]
                         : x === 2 && y === 3 && phase < 10
-                          ? completion[6]
-                          : x === 1 && y === 2 && phase < 14
-                            ? completion[10]
-                            : x === 1 && y === 2 && phase < 18
-                              ? completion[14]
-                              : false
+                        ? completion[6]
+                        : x === 1 && y === 2 && phase < 14
+                        ? completion[10]
+                        : x === 1 && y === 2 && phase < 18
+                        ? completion[14]
+                        : false
                     }
                     onChange={
                       (x === 1 && y === 2 && completion[4] && phase <= 6) ||
@@ -141,17 +146,17 @@ export default function GenotypeComparator({
                       (phase >= 14 && completion[14])
                         ? undefined
                         : setter
-                          ? () => {
-                              setter(idx);
-                            }
-                          : () => {
-                              let newGenotypes = [...genotypes[genoPair]];
-                              newGenotypes[idx] = !newGenotypes[idx];
-                              setGenotypes({
-                                ...genotypes,
-                                [genoPair]: newGenotypes,
-                              });
-                            }
+                        ? () => {
+                            setter(idx);
+                          }
+                        : () => {
+                            let newGenotypes = [...genotypes[genoPair]];
+                            newGenotypes[idx] = !newGenotypes[idx];
+                            setGenotypes({
+                              ...genotypes,
+                              [genoPair]: newGenotypes,
+                            });
+                          }
                     }
                     type="checkbox"
                     checked={vals ? vals[idx] : genotypes[genoPair][idx]}
@@ -166,19 +171,26 @@ export default function GenotypeComparator({
                       (phase >= 14 && completion[14])
                         ? undefined
                         : setter
-                          ? () => {
-                              setter(idx);
-                            }
-                          : () => {
-                              let newGenotypes = [...genotypes[genoPair]];
-                              newGenotypes[idx] = !newGenotypes[idx];
-                              setGenotypes({
-                                ...genotypes,
-                                [genoPair]: newGenotypes,
-                              });
-                            }
+                        ? () => {
+                            setter(idx);
+                          }
+                        : () => {
+                            let newGenotypes = [...genotypes[genoPair]];
+                            newGenotypes[idx] = !newGenotypes[idx];
+                            setGenotypes({
+                              ...genotypes,
+                              [genoPair]: newGenotypes,
+                            });
+                          }
                     }
-                    className={`css-label rounded shadow-sm shadow-black outline-offset-1 peer-focus:outline peer-focus:outline-2 peer-focus:outline-black peer-[myPeer]:focus:border-black ${(hints && vals && vals[idx] !== hintsArr[idx]) || (hints && !vals && genotypes[genoPair][idx] !== hintsArr[idx]) ? "ring-2 ring-orange-400" : ""}`}
+                    className={`css-label rounded shadow-sm shadow-black outline-offset-1 peer-focus:outline peer-focus:outline-2 peer-focus:outline-black peer-[myPeer]:focus:border-black ${
+                      (hints && vals && vals[idx] !== hintsArr[idx]) ||
+                      (hints &&
+                        !vals &&
+                        genotypes[genoPair][idx] !== hintsArr[idx])
+                        ? "ring-2 ring-orange-400"
+                        : ""
+                    }`}
                   ></label>
                   {/* ${hints && ((x[idx] && !pairwiseCombos[first][second][idx]) || (!x[idx] && pairwiseCombos[first][second][idx])) ? "ring-2 ring-orange-400" : ""} */}
                 </div>

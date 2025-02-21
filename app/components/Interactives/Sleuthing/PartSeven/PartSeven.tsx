@@ -3,7 +3,7 @@ import {
   partSixCloneRowsAtom,
   partSixCloneRowsMHPsAtom,
   partSixCompletionAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import InteractivePrompt from "../../Shared/misc/InteractivePrompt";
 import Genotypes, { P6Step2QuestionsAtom } from "../PartSix/Phases/Genotypes";
@@ -31,12 +31,14 @@ import CloneRow from "../../Shared/CloneRow/CloneRow";
 import SquareMicrohaplotype from "../../Shared/Microhaplotypes/SquareMicrohaplotype";
 import { ReactElement, useEffect } from "react";
 import { atomWithStorage } from "jotai/utils";
-import {
-  findFirstFocusableElement,
-  getUniqueValuesArray,
-} from "@/helpers/helpers";
+// import {
+//   findFirstFocusableElement,
+//   getUniqueValuesArray,
+// } from "@/helpers/helpers";
 import CompletePage from "../../Shared/misc/CompletePage";
-import { usePrevious } from "@/components/hooks";
+import { usePrevious } from "@/app/components/hooks";
+import { findFirstFocusableElement, getUniqueValuesArray } from "../../helpers";
+import InteractivePrimaryLayout from "../../Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
 export const selectedClonesAtom = atomWithStorage<{
   1: null | number;
@@ -106,7 +108,7 @@ const cloneControlDivMap: { [key: number]: ReactElement } = {
 };
 
 export default function PartSeven() {
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase2Atom);
   const [questions, setQuestions] = useAtom(P6Step2QuestionsAtom);
   const completion = useAtomValue(partSevenCompletionAtom);
   const cloneRows = useAtomValue(partSixCloneRowsMHPsAtom);
@@ -124,24 +126,23 @@ export default function PartSeven() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
-  if (phase === 18) {
-    return (
-      <div>
-        <CompletePage part={2} />;
-        <PartSevenControlBoard />
-      </div>
-    );
-  }
+  // if (phase === 18) {
+  //   return (
+  //     <div>
+  //       <CompletePage part={2} />;
+  //       <PartSevenControlBoard />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div>
-      {/* {phase} */}
       <InteractivePrompt
         complete={completion[phase]}
-        title={partSevenPrompts[phase].title}
-        instructions={partSevenPrompts[phase].instructions}
+        title={partSevenPrompts[phase]?.title}
+        instructions={partSevenPrompts[phase]?.instructions}
       />
-      {phase <= 3 && <PositiveControls />}
+      {phase <= 3 && phase > 0 && <PositiveControls />}
       {phase >= 4 && phase < 6 && (
         <Genotypes currentClone={3} first={1} second={2} />
       )}
@@ -149,22 +150,19 @@ export default function PartSeven() {
         <Genotypes currentClone={1} first={2} second={3} />
       )}
       {phase > 7 && phase <= 8 && (
-        <MultiRowLayout
-          topLeft={
-            <div>
-              <FormHeader text="IBS Probability" />
-
-              <ImageContainer
-                className="fadeIn500"
-                id="moi-1-2"
-                label="IBS Distribution - MOI 1 vs MOI 2"
-                path="/assets/M5_sluething_histogram_MHs_MOI1.1_vs1.2_IBD_0 (1).svg"
-              />
-            </div>
+        <InteractivePrimaryLayout
+          leftHeader={"IBS Probability"}
+          rightHeader={"Questions"}
+          leftContent={
+            <ImageContainer
+              className="fadeIn500"
+              id="moi-1-2"
+              label="IBS for unrelated infections"
+              path="/InteractiveAssets/M5_sluething_histogram_MHs_MOI1.1_vs1.2_IBD_0.svg"
+            />
           }
-          topRight={
+          rightContent={
             <div>
-              <FormHeader text="Questions" />
               <KnowledgeCheckQuestion
                 questionIdx={1}
                 classNames={{
@@ -209,25 +207,83 @@ export default function PartSeven() {
               />
             </div>
           }
-        ></MultiRowLayout>
+        />
+        // <MultiRowLayout
+        //   topLeft={
+        //     <div>
+        //       <FormHeader text="IBS Probability" />
+
+        // <ImageContainer
+        //   className="fadeIn500"
+        //   id="moi-1-2"
+        //   label="IBS Distribution - MOI 1 vs MOI 2"
+        //   path="/assets/M5_sluething_histogram_MHs_MOI1.1_vs1.2_IBD_0 (1).svg"
+        // />
+        // </div>
+        //   }
+        //   topRight={
+        //     <div>
+        //       <FormHeader text="Questions" />
+        //   <KnowledgeCheckQuestion
+        //     questionIdx={1}
+        //     classNames={{
+        //       answersContainer: "grid gap-4 mt-4",
+        //     }}
+        //     hasAnswer={questions[7] === 2}
+        //     callback={(questionIdx, answerIdx) => {
+        //       if (questions[7] === answerIdx) {
+        //         setQuestions({ ...questions, 7: null });
+        //       } else {
+        //         setQuestions({ ...questions, 7: answerIdx });
+        //       }
+        //     }}
+        //     answers={[
+        //       {
+        //         checked: questions[7] === 0,
+        //         correct: false,
+        //         index: 0,
+        //         text: "IBS would be lower.",
+        //       },
+        //       {
+        //         checked: questions[7] === 1,
+        //         correct: false,
+        //         index: 1,
+        //         text: "IBS would be the same.",
+        //       },
+        //       {
+        //         checked: questions[7] === 2,
+        //         correct: true,
+        //         index: 2,
+        //         text: "IBS would be higher.",
+        //       },
+        //     ]}
+        //     headerText="What do you think you might see if MOI in one or both samples was even higher, but still contained no related parasites between the two samples?"
+        //   />
+        //   <QuestionResponseText
+        //     className="mt-8"
+        //     complete={completion[phase] || false}
+        //     trigger={questions[7] === 2}
+        //     visible={questions[7] === 2}
+        //     text="Correct, IBS would be higher. This is for the same reason that IBS is likely to be higher in polyclonal versus monoclonal samples – there may be more alleles present to potentially match by chance. This histogram shows the number of loci you would expect to see with matching alleles (IBS) if there are no related parasites between the two samples."
+        //   />
+        // </div>
+        //   }
+        // ></MultiRowLayout>
       )}
       {phase > 8 && phase <= 9 && (
-        <MultiRowLayout
-          topLeft={
-            <div>
-              <FormHeader text="IBS Probability" />
-
-              <ImageContainer
-                className="fadeIn500"
-                id="moi-varies"
-                label="IBS Distribution - MOI 1 vs MOI 2"
-                path="/assets/M5_sluething_histogram_MHs_MOIvaries_IBD_0.svg"
-              />
-            </div>
+        <InteractivePrimaryLayout
+          leftHeader={"IBS Probability"}
+          leftContent={
+            <ImageContainer
+              className="fadeIn500"
+              id="moi-varies"
+              label="IBS Distribution for Different MOIs"
+              path="/InteractiveAssets/M5_sluething_histogram_MHs_MOIvaries_IBD_0.svg"
+            />
           }
-          topRight={
+          rightHeader="Questions"
+          rightContent={
             <div>
-              <FormHeader text="Questions" />
               <KnowledgeCheckQuestion
                 questionIdx={1}
                 classNames={{
@@ -274,7 +330,7 @@ export default function PartSeven() {
                     text: "Use more powerful statistical methods that directly estimate IBD instead of using IBS.",
                   },
                 ]}
-                headerText="What do you think you could do to better distinguish related from unrelated infections in this situation? (choose all that apply)"
+                headerText="What do you think you could do to better distinguish related from unrelated infections as MOI increases? (choose all that apply)"
               />
               <QuestionResponseText
                 className="mt-8"
@@ -295,337 +351,745 @@ export default function PartSeven() {
               />
             </div>
           }
-        ></MultiRowLayout>
+        />
+        // <MultiRowLayout
+        //   topLeft={
+        //     <div>
+        //       <FormHeader text="IBS Probability" />
+
+        // <ImageContainer
+        //   className="fadeIn500"
+        //   id="moi-varies"
+        //   label="IBS Distribution - MOI 1 vs MOI 2"
+        //   path="/assets/M5_sluething_histogram_MHs_MOIvaries_IBD_0.svg"
+        // />
+        //     </div>
+        //   }
+        //   topRight={
+        //     <div>
+        //       <FormHeader text="Questions" />
+        //   <KnowledgeCheckQuestion
+        //     questionIdx={1}
+        //     classNames={{
+        //       answersContainer: "grid gap-4 mt-4",
+        //     }}
+        //     hasAnswer={
+        //       !questions[8][0] &&
+        //       questions[8][1] &&
+        //       questions[8][2] &&
+        //       questions[8][3]
+        //     }
+        //     callback={(questionIdx, answerIdx) => {
+        //       setQuestions({
+        //         ...questions,
+        //         8: {
+        //           ...questions[8],
+        //           [answerIdx]: !questions[8][answerIdx],
+        //         },
+        //       });
+        //     }}
+        //     answers={[
+        //       {
+        //         checked: questions[8][0] ?? false,
+        //         correct: false,
+        //         index: 0,
+        //         text: " Give up – it will be impossible to tell.",
+        //       },
+        //       {
+        //         checked: questions[8][1] ?? false,
+        //         correct: true,
+        //         index: 1,
+        //         text: "Increase the number of loci you genotype.",
+        //       },
+        //       {
+        //         checked: questions[8][2] ?? false,
+        //         correct: true,
+        //         index: 2,
+        //         text: "Increase the diversity of loci you genotype.",
+        //       },
+        //       {
+        //         checked: questions[8][3] ?? false,
+        //         correct: true,
+        //         index: 3,
+        //         text: "Use more powerful statistical methods that directly estimate IBD instead of using IBS.",
+        //       },
+        //     ]}
+        //     headerText="What do you think you could do to better distinguish related from unrelated infections in this situation? (choose all that apply)"
+        //   />
+        //   <QuestionResponseText
+        //     className="mt-8"
+        //     complete={completion[phase] || false}
+        //     trigger={
+        //       !questions[8][0] &&
+        //       questions[8][1] &&
+        //       questions[8][2] &&
+        //       questions[8][3]
+        //     }
+        //     visible={
+        //       !questions[8][0] &&
+        //       questions[8][1] &&
+        //       questions[8][2] &&
+        //       questions[8][3]
+        //     }
+        //     text="In situations where MOI is higher, a larger, more diverse genotyping panel can help provide increased resolution. In addition, statistical methods specifically designed to estimate IBD from polyclonal infections are available and provide accurate estimates as well as statistical significance.  Fortunately, for the cases you are investigating this exercise, transmission is relatively low and you should be able to figure out what is going on by calculating IBS using your panel of 12 microhaplotypes."
+        //   />
+        // </div>
+        //   }
+        // ></MultiRowLayout>
       )}
       {phase >= 10 && phase < 12 && (
         <Genotypes currentClone={1} first={1} second={2} />
       )}
+
       {phase === 12 && (
-        <StandardLayout>
-          <div className="">
-            <FormHeader
-              text={
-                phase === 12 ? "Polyclonal Genotype Comparisons" : "Questions"
-              }
+        <InteractivePrimaryLayout
+          leftHeader={
+            phase === 12 ? "Polyclonal Genotype Comparisons" : "Questions"
+          }
+          rightHeader={"Transmissions"}
+          rightContent={
+            <ImageContainer
+              className="fadeIn500"
+              label=""
+              id="a"
+              path="/InteractiveAssets/Slide7.png"
             />
-            <RedBlueGenotype />
-            <div className="mt-4 max-w-[500px]">
-              <div
-                className={`grid gap-1 font-helvetica transition-all [grid-template-columns:8%_auto]`}
-              >
-                <div>
-                  <div
-                    className={`aspect-square rounded-full bg-gradient-radial from-[white_20%] ${P6CloneRowButtonColors[1]} scale-90`}
-                  >
-                    <div className="flex aspect-square items-center justify-center rounded-full">
-                      <span className="absolute translate-y-[3px] font-bold">
-                        1
-                      </span>
+          }
+          leftContent={
+            <div>
+              <RedBlueGenotype />
+              <div className="mt-4 max-w-[500px] dark:brightness-75">
+                <div
+                  className={`grid gap-1 font-helvetica transition-all [grid-template-columns:8%_auto]`}
+                >
+                  <div>
+                    <div
+                      className={`aspect-square rounded-full bg-gradient-radial from-[white_20%] ${P6CloneRowButtonColors[1]} scale-90`}
+                    >
+                      <div className="flex aspect-square items-center justify-center rounded-full">
+                        <span className="absolute translate-y-[3px] font-bold">
+                          1
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <ol className={`grid h-full grow grid-cols-12 gap-1 p-1`}>
-                  {/* {children} */}
-                  {cloneRows[1].vals.map((val, idx) => {
-                    return (
-                      <SquareMicrohaplotype id={val as number} key={idx} />
-                    );
-                  })}
-                </ol>
-              </div>
-            </div>{" "}
-          </div>
-          <div>
-            <FormHeader text="Transmissions" />
-            {phase === 12 && (
-              <ImageContainer
-                className="fadeIn500"
-                label=""
-                id="a"
-                path="/assets/2.3.2.svg"
-              />
-            )}
-          </div>
-        </StandardLayout>
-      )}
-      {phase === 13 && (
-        <MultiRowLayout
-          style={{
-            rowGap: 0,
-          }}
-          topLeft={
-            <div>
-              <FormHeader text="Transmissions" />
-              {/* <div className="relative grid aspect-square h-16 place-items-center rounded-full bg-cloneRed">
-                <div className="grid aspect-square h-8 place-items-center rounded-full bg-white">
-                  <span className="block translate-y-[3px]">1</span>
-                </div>
-              </div> */}
-              <ImageContainer
-                className="fadeIn500"
-                label=""
-                id="a"
-                path="/assets/2.3.3.1.svg"
-              />
-            </div>
-          }
-          topRight={
-            <div className="md:row-span-2">
-              <FormHeader text="Questions" />
-              <div
-                tabIndex={0}
-                role="radiogroup"
-                aria-roledescription="radiogroup"
-                className={`focus-within:outline-offset-8`}
-                aria-label={`What do you think IBS would be in this situation? Fortunately,
-              you have just the controls to test out your hypothesis! Which
-              two controls should you compare?`}
-              >
-                <h6 className="mb-8 [fontSize:15px]">
-                  What do you think IBS would be in this situation? Fortunately,
-                  you have just the controls to test out your hypothesis! Which
-                  two controls should you compare?
-                </h6>
-                <ol className="grid grid-cols-2 gap-4 ">
-                  {Array(7)
-                    .fill(0)
-                    .map((el, idx) => {
+                  <ol className={`grid h-full grow grid-cols-12 gap-1 p-1`}>
+                    {/* {children} */}
+                    {cloneRows[1].vals.map((val, idx) => {
                       return (
-                        <li key={idx} className="flex w-fit items-center gap-8">
-                          <input
-                            onChange={
-                              (selectedClones[1] === 1 ||
-                                selectedClones[2] === 1) &&
-                              (selectedClones[1] === 6 ||
-                                selectedClones[2] === 6)
-                                ? undefined
-                                : () => {
-                                    if (completion[phase] || true) {
-                                    }
-                                    if (
-                                      selectedClones[1] === null &&
-                                      selectedClones[2] !== idx
-                                    ) {
-                                      setSelectedClones({
-                                        ...selectedClones,
-                                        1: idx,
-                                      });
-                                    } else if (
-                                      selectedClones[2] === null &&
-                                      selectedClones[1] !== idx
-                                    ) {
-                                      setSelectedClones({
-                                        ...selectedClones,
-                                        2: idx,
-                                      });
-                                    } else if (selectedClones[1] === idx) {
-                                      setSelectedClones({
-                                        ...selectedClones,
-                                        1: null,
-                                      });
-                                    } else if (selectedClones[2] === idx) {
-                                      setSelectedClones({
-                                        ...selectedClones,
-                                        2: null,
-                                      });
-                                    } else {
-                                    }
-                                  }
-                            }
-                            tabIndex={0}
-                            id={`kc-id-${idx}`}
-                            type="checkbox"
-                            checked={
-                              selectedClones[1] === idx ||
-                              selectedClones[2] === idx
-                            }
-                            disabled={
-                              selectedClones[1] !== null &&
-                              selectedClones[2] !== null &&
-                              selectedClones[1] !== idx &&
-                              selectedClones[2] !== idx
-                            }
-                            className={`${idx === 1 || idx === 6 ? "accent-primaryBlue [--chkbg:#14828C]" : "accent-microRed [--chkbg:#E61048]"} h-4 w-4  disabled:opacity-50 md:h-[14px] md:w-[14px]`}
-                          ></input>
-                          <div
-                            className={`${
-                              selectedClones[1] !== null &&
-                              selectedClones[2] !== null &&
-                              selectedClones[1] !== idx &&
-                              selectedClones[2] !== idx
-                                ? "opacity-50"
-                                : ""
-                            }`}
-                          >
-                            {cloneControlDivMap[idx]}
-                          </div>
-                        </li>
+                        <SquareMicrohaplotype id={val as number} key={idx} />
                       );
                     })}
-                </ol>
-              </div>
+                  </ol>
+                </div>
+              </div>{" "}
             </div>
           }
-          bottomLeft={
-            <QuestionResponseText
-              className="mt-8"
-              visible={
-                (selectedClones[1] === 1 || selectedClones[2] === 1) &&
-                (selectedClones[1] === 6 || selectedClones[2] === 6)
-              }
-              text={`That’s right – clone four is a hybrid of clones one and two, so this would be analogous to a situation in which a person is infected with clones one and two, both clones infected the mosquito, and then recombination produced a hybrid of the two clones which infected a second person.`}
+        />
+        // <StandardLayout>
+        //   <div className="">
+        //     <FormHeader
+        //       text={
+        //         phase === 12 ? "Polyclonal Genotype Comparisons" : "Questions"
+        //       }
+        //     />
+        //     <RedBlueGenotype />
+        //     <div className="mt-4 max-w-[500px] dark:brightness-75">
+        //       <div
+        //         className={`grid gap-1 font-helvetica transition-all [grid-template-columns:8%_auto]`}
+        //       >
+        //         <div>
+        //           <div
+        //             className={`aspect-square rounded-full bg-gradient-radial from-[white_20%] ${P6CloneRowButtonColors[1]} scale-90`}
+        //           >
+        //             <div className="flex aspect-square items-center justify-center rounded-full">
+        //               <span className="absolute translate-y-[3px] font-bold">
+        //                 1
+        //               </span>
+        //             </div>
+        //           </div>
+        //         </div>
+        //         <ol className={`grid h-full grow grid-cols-12 gap-1 p-1`}>
+        //           {/* {children} */}
+        //           {cloneRows[1].vals.map((val, idx) => {
+        //             return (
+        //               <SquareMicrohaplotype id={val as number} key={idx} />
+        //             );
+        //           })}
+        //         </ol>
+        //       </div>
+        //     </div>{" "}
+        //   </div>
+        //   <div>
+        //     <FormHeader text="Transmissions" />
+        //     {phase === 12 && (
+        // <ImageContainer
+        //   className="fadeIn500"
+        //   label=""
+        //   id="a"
+        //   path="/assets/2.3.2.svg"
+        // />
+        //     )}
+        //   </div>
+        // </StandardLayout>
+      )}
+      {phase === 13 && (
+        <InteractivePrimaryLayout
+          leftHeader={"Contransmission with Recombination"}
+          rightHeader="Questions"
+          leftContent={
+            <ImageContainer
+              className="fadeIn500"
+              label=""
+              id="a"
+              path="/InteractiveAssets/Slide8.png"
             />
           }
-        ></MultiRowLayout>
+          rightContent={
+            <div
+              tabIndex={0}
+              role="radiogroup"
+              aria-roledescription="radiogroup"
+              className={`focus-within:outline-offset-8`}
+              aria-label={`What do you think IBS would be in this situation? Fortunately,
+              you have just the controls to test out your hypothesis! Which
+              two controls should you compare?`}
+            >
+              <h6 className="mb-8 [fontSize:15px]">
+                What do you think IBS would be in this situation? Fortunately,
+                you have just the controls to test out your hypothesis! Which
+                two controls should you compare?
+              </h6>
+              <ol className="grid grid-cols-2 gap-4 text-black dark:brightness-75">
+                {Array(7)
+                  .fill(0)
+                  .map((el, idx) => {
+                    return (
+                      <li key={idx} className="flex w-fit items-center gap-8">
+                        <input
+                          onChange={
+                            (selectedClones[1] === 1 ||
+                              selectedClones[2] === 1) &&
+                            (selectedClones[1] === 6 || selectedClones[2] === 6)
+                              ? undefined
+                              : () => {
+                                  if (completion[phase] || true) {
+                                  }
+                                  if (
+                                    selectedClones[1] === null &&
+                                    selectedClones[2] !== idx
+                                  ) {
+                                    setSelectedClones({
+                                      ...selectedClones,
+                                      1: idx,
+                                    });
+                                  } else if (
+                                    selectedClones[2] === null &&
+                                    selectedClones[1] !== idx
+                                  ) {
+                                    setSelectedClones({
+                                      ...selectedClones,
+                                      2: idx,
+                                    });
+                                  } else if (selectedClones[1] === idx) {
+                                    setSelectedClones({
+                                      ...selectedClones,
+                                      1: null,
+                                    });
+                                  } else if (selectedClones[2] === idx) {
+                                    setSelectedClones({
+                                      ...selectedClones,
+                                      2: null,
+                                    });
+                                  } else {
+                                  }
+                                }
+                          }
+                          tabIndex={0}
+                          id={`kc-id-${idx}`}
+                          type="checkbox"
+                          checked={
+                            selectedClones[1] === idx ||
+                            selectedClones[2] === idx
+                          }
+                          disabled={
+                            selectedClones[1] !== null &&
+                            selectedClones[2] !== null &&
+                            selectedClones[1] !== idx &&
+                            selectedClones[2] !== idx
+                          }
+                          className={`${
+                            idx === 1 || idx === 6
+                              ? "accent-primaryBlue [--chkbg:#14828C]"
+                              : "accent-microRed [--chkbg:#E61048]"
+                          } h-4 w-4  disabled:opacity-50 md:h-[14px] md:w-[14px]`}
+                        ></input>
+                        <div
+                          className={`${
+                            selectedClones[1] !== null &&
+                            selectedClones[2] !== null &&
+                            selectedClones[1] !== idx &&
+                            selectedClones[2] !== idx
+                              ? "opacity-50"
+                              : ""
+                          }`}
+                        >
+                          {cloneControlDivMap[idx]}
+                        </div>
+                      </li>
+                    );
+                  })}
+              </ol>
+            </div>
+          }
+        />
+        // <MultiRowLayout
+        //   style={{
+        //     rowGap: 0,
+        //   }}
+        //   topLeft={
+        //     <div>
+        //       <FormHeader text="Transmissions" />
+        //       {/* <div className="relative grid aspect-square h-16 place-items-center rounded-full bg-cloneRed">
+        //         <div className="grid aspect-square h-8 place-items-center rounded-full bg-white">
+        //           <span className="block translate-y-[3px]">1</span>
+        //         </div>
+        //       </div> */}
+        //       <ImageContainer
+        //         className="fadeIn500"
+        //         label=""
+        //         id="a"
+        //         path="/assets/2.3.3.1.svg"
+        //       />
+        //     </div>
+        //   }
+        //   topRight={
+        //     <div className="md:row-span-2">
+        //       <FormHeader text="Questions" />
+        //       <div
+        //         tabIndex={0}
+        //         role="radiogroup"
+        //         aria-roledescription="radiogroup"
+        //         className={`focus-within:outline-offset-8`}
+        //         aria-label={`What do you think IBS would be in this situation? Fortunately,
+        //       you have just the controls to test out your hypothesis! Which
+        //       two controls should you compare?`}
+        //       >
+        //         <h6 className="mb-8 [fontSize:15px]">
+        //           What do you think IBS would be in this situation? Fortunately,
+        //           you have just the controls to test out your hypothesis! Which
+        //           two controls should you compare?
+        //         </h6>
+        //         <ol className="grid grid-cols-2 gap-4 ">
+        //           {Array(7)
+        //             .fill(0)
+        //             .map((el, idx) => {
+        //               return (
+        //                 <li key={idx} className="flex w-fit items-center gap-8">
+        //                   <input
+        //                     onChange={
+        //                       (selectedClones[1] === 1 ||
+        //                         selectedClones[2] === 1) &&
+        //                       (selectedClones[1] === 6 ||
+        //                         selectedClones[2] === 6)
+        //                         ? undefined
+        //                         : () => {
+        //                             if (completion[phase] || true) {
+        //                             }
+        //                             if (
+        //                               selectedClones[1] === null &&
+        //                               selectedClones[2] !== idx
+        //                             ) {
+        //                               setSelectedClones({
+        //                                 ...selectedClones,
+        //                                 1: idx,
+        //                               });
+        //                             } else if (
+        //                               selectedClones[2] === null &&
+        //                               selectedClones[1] !== idx
+        //                             ) {
+        //                               setSelectedClones({
+        //                                 ...selectedClones,
+        //                                 2: idx,
+        //                               });
+        //                             } else if (selectedClones[1] === idx) {
+        //                               setSelectedClones({
+        //                                 ...selectedClones,
+        //                                 1: null,
+        //                               });
+        //                             } else if (selectedClones[2] === idx) {
+        //                               setSelectedClones({
+        //                                 ...selectedClones,
+        //                                 2: null,
+        //                               });
+        //                             } else {
+        //                             }
+        //                           }
+        //                     }
+        //                     tabIndex={0}
+        //                     id={`kc-id-${idx}`}
+        //                     type="checkbox"
+        //                     checked={
+        //                       selectedClones[1] === idx ||
+        //                       selectedClones[2] === idx
+        //                     }
+        //                     disabled={
+        //                       selectedClones[1] !== null &&
+        //                       selectedClones[2] !== null &&
+        //                       selectedClones[1] !== idx &&
+        //                       selectedClones[2] !== idx
+        //                     }
+        //                     className={`${
+        //                       idx === 1 || idx === 6
+        //                         ? "accent-primaryBlue [--chkbg:#14828C]"
+        //                         : "accent-microRed [--chkbg:#E61048]"
+        //                     } h-4 w-4  disabled:opacity-50 md:h-[14px] md:w-[14px]`}
+        //                   ></input>
+        //                   <div
+        //                     className={`${
+        //                       selectedClones[1] !== null &&
+        //                       selectedClones[2] !== null &&
+        //                       selectedClones[1] !== idx &&
+        //                       selectedClones[2] !== idx
+        //                         ? "opacity-50"
+        //                         : ""
+        //                     }`}
+        //                   >
+        //                     {cloneControlDivMap[idx]}
+        //                   </div>
+        //                 </li>
+        //               );
+        //             })}
+        //         </ol>
+        //       </div>
+        //     </div>
+        //   }
+        //   bottomLeft={
+        //     <QuestionResponseText
+        //       className="mt-8"
+        //       visible={
+        //         (selectedClones[1] === 1 || selectedClones[2] === 1) &&
+        //         (selectedClones[1] === 6 || selectedClones[2] === 6)
+        //       }
+        //       text={`That’s right – clone four is a hybrid of clones one and two, so this would be analogous to a situation in which a person is infected with clones one and two, both clones infected the mosquito, and then recombination produced a hybrid of the two clones which infected a second person.`}
+        //     />
+        //   }
+        // ></MultiRowLayout>
       )}
       {(phase === 14 || phase === 15) && (
         <Genotypes currentClone={4} first={1} second={2} />
       )}
       {phase === 16 && (
-        <StandardLayout>
-          <div>
-            <FormHeader text="Polyclonal Genotype Comparison" />
-            <div
-              className={`grid max-w-[500px] gap-1 [grid-template-columns:8%_auto]`}
-            >
-              <div className="my-auto flex min-h-10 w-full flex-col">
-                <div
-                  className={`mr-auto aspect-square h-7 translate-y-0.5 rounded-full ${P6CloneRowColors[1]}`}
-                ></div>
-                <div
-                  className={`ml-auto aspect-square h-7 -translate-y-0.5 rounded-full ${P6CloneRowColors[2]}`}
-                ></div>
-              </div>{" "}
-              <div>
-                <div className="grid grow grid-cols-12 gap-1 self-center p-1">
-                  {cloneRows[1].vals
-                    .map((el, idx) => {
-                      //@ts-ignore
-                      return [el + 1, cloneRows[2].vals[idx] + 1];
-                    })
-                    .map((microIdArr, idx) => {
-                      return (
-                        <div
-                          style={{
-                            gap: "4px",
-                          }}
-                          key={idx}
-                          className={`flex flex-col justify-end gap-0.5`}
-                        >
-                          {getUniqueValuesArray(microIdArr).map(
-                            (microId, idx2) => {
-                              return (
-                                <SquareMicrohaplotype
-                                  className={
-                                    (idx < 6 &&
-                                      idx2 === 0 &&
-                                      (getUniqueValuesArray(microIdArr)
-                                        .length === 1 ||
-                                        idx2 === 0)) ||
-                                    (idx >= 6 &&
-                                      (idx2 === 1 ||
-                                        getUniqueValuesArray(microIdArr)
-                                          .length === 1))
-                                      ? "opacity-100"
-                                      : "opacity-20"
-                                    // (microIdArr.includes(microId) &&
-                                    //   idx < 6 &&
-                                    //   idx2 === 0) ||
-                                    // (microIdArr.includes(microId) &&
-                                    //   idx >= 6 &&
-                                    //   idx2 === 1)
-                                    //   ? ""
-                                    //   : "opacity-20"
-                                  }
-                                  id={microId - 1}
-                                  key={idx2}
-                                />
-                              );
-                            },
-                          )}
-                        </div>
-                      );
-                    })}
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 max-w-[500px]">
+        <InteractivePrimaryLayout
+          leftHeader="Polyclonal Genotype Comparison"
+          rightHeader="Transmissions"
+          leftContent={
+            <div>
               <div
-                className={` grid gap-1 font-helvetica [grid-template-columns:8%_auto]`}
+                className={`grid max-w-[500px] gap-1 [grid-template-columns:8%_auto] dark:brightness-75`}
               >
-                <div>
+                <div className="my-auto flex min-h-10 w-full flex-col">
                   <div
-                    className={`border-red-blue-rounded aspect-square rounded-full bg-gradient-radial from-[white_20%]`}
-                  >
-                    <div className="flex aspect-square items-center justify-center rounded-full">
-                      <span className="absolute translate-y-[3px] font-bold">
-                        4
-                      </span>
-                    </div>
+                    className={`mr-auto aspect-square h-7 translate-y-0.5 rounded-full ${P6CloneRowColors[1]}`}
+                  ></div>
+                  <div
+                    className={`ml-auto aspect-square h-7 -translate-y-0.5 rounded-full ${P6CloneRowColors[2]}`}
+                  ></div>
+                </div>{" "}
+                <div>
+                  <div className="grid grow grid-cols-12 gap-1 self-center p-1">
+                    {cloneRows[1].vals
+                      .map((el, idx) => {
+                        //@ts-ignore
+                        return [el + 1, cloneRows[2].vals[idx] + 1];
+                      })
+                      .map((microIdArr, idx) => {
+                        return (
+                          <div
+                            style={{
+                              gap: "4px",
+                            }}
+                            key={idx}
+                            className={`flex flex-col justify-center gap-0.5`}
+                          >
+                            {getUniqueValuesArray(microIdArr).map(
+                              (microId, idx2) => {
+                                return (
+                                  <SquareMicrohaplotype
+                                    className={
+                                      (idx < 6 &&
+                                        idx2 === 0 &&
+                                        (getUniqueValuesArray(microIdArr)
+                                          .length === 1 ||
+                                          idx2 === 0)) ||
+                                      (idx >= 6 &&
+                                        (idx2 === 1 ||
+                                          getUniqueValuesArray(microIdArr)
+                                            .length === 1))
+                                        ? "opacity-100"
+                                        : "opacity-20"
+                                      // (microIdArr.includes(microId) &&
+                                      //   idx < 6 &&
+                                      //   idx2 === 0) ||
+                                      // (microIdArr.includes(microId) &&
+                                      //   idx >= 6 &&
+                                      //   idx2 === 1)
+                                      //   ? ""
+                                      //   : "opacity-20"
+                                    }
+                                    id={microId - 1}
+                                    key={idx2}
+                                  />
+                                );
+                              },
+                            )}
+                          </div>
+                        );
+                      })}
                   </div>
                 </div>
-                <ol className={`grid h-full grow grid-cols-12 gap-1 p-1`}>
-                  {cloneRows[4].vals.map((el, idx) => {
-                    return (
-                      <SquareMicrohaplotype
-                        id={el}
-                        key={idx}
-                        // className={
-                        //   idx < 6
-                        //     ? "-translate-y-[calc(50%+2px)]"
-                        //     : "translate-y-[calc(50%+2px)]"
-                        // }
-                        // className="opacity-50"
-                      />
-                    );
-                  })}{" "}
-                </ol>
               </div>
-              {/* <CloneRow
-                label={4}
-                classNames={{
-                  button: "border-red-blue-rounded",
-                  row: "shadow-none",
-                }}
-              >
-                {cloneRows[4].vals.map((el, idx) => {
-                  return <SquareMicrohaplotype id={el} key={idx} />;
-                })}
-              </CloneRow> */}
-            </div>
-            <QuestionResponseText
-              className="mt-8"
-              visible
-              text={
-                "The important take home point is that if one person transmits parasites directly to another person through a mosquito, every locus should have a match between those two people - IBS should be 1.0. This is true regardless of whether one or more parasites are transmitted, and whether recombination occurs in the mosquito or not."
-              }
-            />
-          </div>
-          <div>
-            <FormHeader text="Transmissions" />
-            <div
-              style={{
-                maxWidth: "400px",
-              }}
-              className="mx-auto"
-            >
-              <ImageContainer
-                className="fadeIn500"
-                noPadding
-                label=""
-                id="a"
-                path="/assets/2.3.2.svg"
-              />{" "}
-              <ImageContainer
-                className="fadeIn500 mt-8"
-                noPadding
-                label=""
-                id="a"
-                path="/assets/2.3.3.1.svg"
+              <div className="mt-8 max-w-[500px] dark:brightness-75">
+                <div
+                  className={` grid gap-1 font-helvetica [grid-template-columns:8%_auto]`}
+                >
+                  <div>
+                    <div
+                      className={`border-red-blue-rounded aspect-square rounded-full bg-gradient-radial from-[white_20%]`}
+                    >
+                      <div className="flex aspect-square items-center justify-center rounded-full">
+                        <span className="absolute translate-y-[3px] font-bold text-black">
+                          4
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <ol className={`grid h-full grow grid-cols-12 gap-1 p-1`}>
+                    {cloneRows[4].vals.map((el, idx) => {
+                      return (
+                        <SquareMicrohaplotype
+                          id={el}
+                          key={idx}
+                          // className={
+                          //   idx < 6
+                          //     ? "-translate-y-[calc(50%+2px)]"
+                          //     : "translate-y-[calc(50%+2px)]"
+                          // }
+                          // className="opacity-50"
+                        />
+                      );
+                    })}{" "}
+                  </ol>
+                </div>
+                {/* <CloneRow
+            label={4}
+            classNames={{
+              button: "border-red-blue-rounded",
+              row: "shadow-none",
+            }}
+          >
+            {cloneRows[4].vals.map((el, idx) => {
+              return <SquareMicrohaplotype id={el} key={idx} />;
+            })}
+          </CloneRow> */}
+              </div>
+              <QuestionResponseText
+                className="mt-8"
+                visible
+                content={
+                  <div
+                    className={
+                      "bg-interactiveBlue/10 text-pretty p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
+                    }
+                  >
+                    <p>
+                      <span className="font-bold">
+                        The important take home point is that if one person
+                        transmits parasites directly to another person through a
+                        mosquito, every locus should have a match between those
+                        two people - IBS should be 1.0.
+                      </span>
+                    </p>
+                    <p className="mt-4">
+                      This is true regardless of whether one or more parasites
+                      are transmitted, and whether recombination occurs in the
+                      mosquito or not.
+                    </p>
+                  </div>
+                }
               />
             </div>
-          </div>
-        </StandardLayout>
+          }
+          rightContent={
+            <div>
+              <div
+                style={{
+                  maxWidth: "400px",
+                }}
+                className="mx-auto"
+              >
+                <ImageContainer
+                  className="fadeIn500"
+                  noPadding
+                  label=""
+                  id="a"
+                  path="/InteractiveAssets/Slide7.png"
+                />{" "}
+                <ImageContainer
+                  className="fadeIn500 mt-8"
+                  noPadding
+                  label=""
+                  id="a"
+                  path="/InteractiveAssets/Slide8.png"
+                />
+              </div>
+            </div>
+          }
+        />
+        // <StandardLayout>
+        //   <div>
+        //     <FormHeader text="Polyclonal Genotype Comparison" />
+        //     <div
+        //       className={`grid max-w-[500px] gap-1 [grid-template-columns:8%_auto]`}
+        //     >
+        //       <div className="my-auto flex min-h-10 w-full flex-col">
+        //         <div
+        //           className={`mr-auto aspect-square h-7 translate-y-0.5 rounded-full ${P6CloneRowColors[1]}`}
+        //         ></div>
+        //         <div
+        //           className={`ml-auto aspect-square h-7 -translate-y-0.5 rounded-full ${P6CloneRowColors[2]}`}
+        //         ></div>
+        //       </div>{" "}
+        //       <div>
+        //         <div className="grid grow grid-cols-12 gap-1 self-center p-1">
+        //           {cloneRows[1].vals
+        //             .map((el, idx) => {
+        //               //@ts-ignore
+        //               return [el + 1, cloneRows[2].vals[idx] + 1];
+        //             })
+        //             .map((microIdArr, idx) => {
+        //               return (
+        //                 <div
+        //                   style={{
+        //                     gap: "4px",
+        //                   }}
+        //                   key={idx}
+        //                   className={`flex flex-col justify-end gap-0.5`}
+        //                 >
+        //                   {getUniqueValuesArray(microIdArr).map(
+        //                     (microId, idx2) => {
+        //                       return (
+        //                         <SquareMicrohaplotype
+        //                           className={
+        //                             (idx < 6 &&
+        //                               idx2 === 0 &&
+        //                               (getUniqueValuesArray(microIdArr)
+        //                                 .length === 1 ||
+        //                                 idx2 === 0)) ||
+        //                             (idx >= 6 &&
+        //                               (idx2 === 1 ||
+        //                                 getUniqueValuesArray(microIdArr)
+        //                                   .length === 1))
+        //                               ? "opacity-100"
+        //                               : "opacity-20"
+        //                             // (microIdArr.includes(microId) &&
+        //                             //   idx < 6 &&
+        //                             //   idx2 === 0) ||
+        //                             // (microIdArr.includes(microId) &&
+        //                             //   idx >= 6 &&
+        //                             //   idx2 === 1)
+        //                             //   ? ""
+        //                             //   : "opacity-20"
+        //                           }
+        //                           id={microId - 1}
+        //                           key={idx2}
+        //                         />
+        //                       );
+        //                     }
+        //                   )}
+        //                 </div>
+        //               );
+        //             })}
+        //         </div>
+        //       </div>
+        //     </div>
+        //     <div className="mt-8 max-w-[500px]">
+        //       <div
+        //         className={` grid gap-1 font-helvetica [grid-template-columns:8%_auto]`}
+        //       >
+        //         <div>
+        //           <div
+        //             className={`border-red-blue-rounded aspect-square rounded-full bg-gradient-radial from-[white_20%]`}
+        //           >
+        //             <div className="flex aspect-square items-center justify-center rounded-full">
+        //               <span className="absolute translate-y-[3px] font-bold">
+        //                 4
+        //               </span>
+        //             </div>
+        //           </div>
+        //         </div>
+        //         <ol className={`grid h-full grow grid-cols-12 gap-1 p-1`}>
+        //           {cloneRows[4].vals.map((el, idx) => {
+        //             return (
+        //               <SquareMicrohaplotype
+        //                 id={el}
+        //                 key={idx}
+        //                 // className={
+        //                 //   idx < 6
+        //                 //     ? "-translate-y-[calc(50%+2px)]"
+        //                 //     : "translate-y-[calc(50%+2px)]"
+        //                 // }
+        //                 // className="opacity-50"
+        //               />
+        //             );
+        //           })}{" "}
+        //         </ol>
+        //       </div>
+        //       {/* <CloneRow
+        //         label={4}
+        //         classNames={{
+        //           button: "border-red-blue-rounded",
+        //           row: "shadow-none",
+        //         }}
+        //       >
+        //         {cloneRows[4].vals.map((el, idx) => {
+        //           return <SquareMicrohaplotype id={el} key={idx} />;
+        //         })}
+        //       </CloneRow> */}
+        //     </div>
+        //     <QuestionResponseText
+        //       className="mt-8"
+        //       visible
+        //       text={
+        //         "The important take home point is that if one person transmits parasites directly to another person through a mosquito, every locus should have a match between those two people - IBS should be 1.0. This is true regardless of whether one or more parasites are transmitted, and whether recombination occurs in the mosquito or not."
+        //       }
+        //     />
+        //   </div>
+        // <div>
+        //   <FormHeader text="Transmissions" />
+        //   <div
+        //     style={{
+        //       maxWidth: "400px",
+        //     }}
+        //     className="mx-auto"
+        //   >
+        //     <ImageContainer
+        //       className="fadeIn500"
+        //       noPadding
+        //       label=""
+        //       id="a"
+        //       path="/assets/2.3.2.svg"
+        //     />{" "}
+        //     <ImageContainer
+        //       className="fadeIn500 mt-8"
+        //       noPadding
+        //       label=""
+        //       id="a"
+        //       path="/assets/2.3.3.1.svg"
+        //     />
+        //   </div>
+        // </div>
+        // </StandardLayout>
       )}
       {phase === 17 && (
         <div className="grid place-items-center">
@@ -633,7 +1097,7 @@ export default function PartSeven() {
             <ImageContainer
               label={` Microhaplotype Match Probability (0%, 50%, 100% IBD)`}
               id="a"
-              path="/assets/M5_sluething_histogram_MHs_MOI1_IBD_0_0.5_1_together.svg"
+              path="/InteractiveAssets/M5_sluething_histogram_MHs_MOI1_IBD_0_0.5_1_together.svg"
             />
           </div>
         </div>

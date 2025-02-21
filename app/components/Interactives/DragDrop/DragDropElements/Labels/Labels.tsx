@@ -2,7 +2,7 @@ import {
   dragDropCompletionAtom,
   dragDropQuestionsAtom,
   globalDragAtom,
-  phaseAtom,
+  phase3Atom,
 } from "@/data/Interactives/interactiveStore";
 import {
   charSize,
@@ -18,38 +18,85 @@ import SequencingOneLabel from "./SequencingOneLabel";
 import SNPLabel from "./SNPLabel";
 import MicrohaplotypeLabel from "./MicrohaplotypeLabel";
 import CloneLabel from "./CloneLabel";
+import { currentView3Atom } from "../../../Shared/InteractiveViewer/InteractiveViewer";
+// import { currentView3Atom } from "@/app/components/Interactives/Shared/InteractiveViewer/InteractiveViewer";
 
 export default function Labels() {
-  const phase = useAtomValue(phaseAtom);
+  // const phase = useAtomValue(phase3Atom);
+  const currentView = useAtomValue(currentView3Atom);
   const globalDrag = useAtomValue(globalDragAtom);
   const dragDropQuestions = useAtomValue(dragDropQuestionsAtom);
   const completion = useAtomValue(dragDropCompletionAtom);
+
+  const { phase, section } = currentView;
+
   return (
     <div
-      className={`${globalDrag || phase === 9 ? "pointer-events-none" : [4].includes(phase) ? "pointer-events-auto" : "pointer-events-none"} absolute inset-0 text-lg`}
+      className={`${
+        globalDrag
+          ? "pointer-events-none"
+          : [4].includes(phase)
+          ? "pointer-events-auto"
+          : "pointer-events-none"
+      } text-interactiveBlue absolute inset-0 text-lg dark:text-emerald-500`}
     >
-      <LocusOneLabel
+      {/* <LocusOneLabel
         style={{
           animationDelay: "500ms",
         }}
-        labelClassName="text-primaryGreen [fontSize:15px] translate-y-1 block fadeIn500"
+        labelClassName="text-primaryGreen [fontSize:15px] translate-y-1 block fadeIn500 text-right"
         left={3 * charSize + paddingLeft}
         size={charSize}
         // top={-72 + topDistanceIncludingBorder}
         top={paddingFromBorder - rowDistance * 1.5}
         text={"Locus 1"}
-        active={dragDropQuestions[1] === 0 && phase === 4}
+        active={dragDropQuestions[1] === 0 && section === 1 && phase === 1}
       />
       <LocusTwoLabel
         style={{
           animationDelay: "500ms",
         }}
-        labelClassName="text-primaryGreen [fontSize:15px] translate-y-1 block fadeIn500"
+        labelClassName="text-primaryGreen [fontSize:15px] translate-y-1 block fadeIn500 text-left"
         left={32 * charSize + paddingLeft}
         size={charSize}
         top={paddingFromBorder - rowDistance * 1.5}
         text={"Locus 2"}
-        active={dragDropQuestions[1] === 0 && phase === 4}
+        active={dragDropQuestions[1] === 0 && section === 1 && phase === 1}
+      /> */}
+      <LocusOneLabel
+        style={{
+          animationDelay: "500ms",
+        }}
+        labelClassName={`${
+          section === 1 ? "" : "invisible"
+        } text-primaryGreen [fontSize:15px] translate-y-1 block fadeIn500`}
+        left={3 * charSize + paddingLeft}
+        size={charSize}
+        // top={-72 + topDistanceIncludingBorder}
+        top={paddingFromBorder - rowDistance * 1.5}
+        text={"Locus 1"}
+        active={
+          dragDropQuestions[1] === 0 &&
+          (section === 1 ||
+            (section === 2 && phase === 0 && !completion?.[2]?.[0]))
+        }
+      />
+      <LocusTwoLabel
+        style={{
+          animationDelay: "500ms",
+        }}
+        labelClassName={`${
+          section === 1 ? "" : "invisible"
+        } text-primaryGreen [fontSize:15px] translate-y-1 block fadeIn500`}
+        left={32 * charSize + paddingLeft}
+        size={charSize}
+        top={paddingFromBorder - rowDistance * 1.5}
+        text={"Locus 2"}
+        active={
+          dragDropQuestions[1] === 0 &&
+          (section === 1 ||
+            (section === 2 && phase === 0 && !completion?.[2]?.[0]))
+        }
       />
       <SequencingOneLabel
         labelStyle={{
@@ -62,7 +109,7 @@ export default function Labels() {
         left={18 * charSize + paddingLeft}
         size={charSize}
         top={topDistanceIncludingBorder - 4}
-        active={phase === 4 && dragDropQuestions[2] === 1}
+        active={section === 1 && phase === 1 && dragDropQuestions[2] === 1}
       />
       <SequencingOneLabel
         labelStyle={{
@@ -75,26 +122,41 @@ export default function Labels() {
         left={47 * charSize + paddingLeft}
         size={charSize}
         top={topDistanceIncludingBorder - 4}
-        active={phase === 4 && dragDropQuestions[2] === 1}
+        active={section === 1 && phase === 1 && dragDropQuestions[2] === 1}
       />
-      {phase >= 10.5 && dragDropQuestions[5] === 1 && (
+      {section === 3 && phase >= 1 && dragDropQuestions[5] === 1 && (
         <div>
           <SNPLabel
-            top={50}
+            top={topDistanceIncludingBorder - rowDistance * 1.2}
             left={charSize * 4 + paddingLeft}
-            trigger={!completion[phase]}
+            trigger={!completion?.[3]?.[1]}
           />
-          <SNPLabel top={50} left={charSize * 11 + paddingLeft} />
-          <SNPLabel top={50} left={charSize * 16 + paddingLeft} />
-          <SNPLabel top={50} left={charSize * 35 + paddingLeft} />
-          <SNPLabel top={50} left={charSize * 38 + paddingLeft} />
-          <SNPLabel top={50} left={charSize * 43 + paddingLeft} />
+          <SNPLabel
+            top={topDistanceIncludingBorder - rowDistance * 1.2}
+            left={charSize * 11 + paddingLeft}
+          />
+          <SNPLabel
+            top={topDistanceIncludingBorder - rowDistance * 1.2}
+            left={charSize * 16 + paddingLeft}
+          />
+          <SNPLabel
+            top={topDistanceIncludingBorder - rowDistance * 1.2}
+            left={charSize * 35 + paddingLeft}
+          />
+          <SNPLabel
+            top={topDistanceIncludingBorder - rowDistance * 1.2}
+            left={charSize * 38 + paddingLeft}
+          />
+          <SNPLabel
+            top={topDistanceIncludingBorder - rowDistance * 1.2}
+            left={charSize * 43 + paddingLeft}
+          />
         </div>
       )}
-      {phase >= 10.5 && dragDropQuestions[6] === 2 && (
+      {section === 3 && phase >= 1 && dragDropQuestions[6] === 2 && (
         <div>
           <MicrohaplotypeLabel
-            trigger={phase === 10.5 && !completion[phase]}
+            trigger={phase === 10.5 && !completion?.[phase]}
             top={paddingFromBorder + rowDistance * 2}
             left={400}
             vals={[0, 0, 0]}
@@ -196,38 +258,38 @@ export default function Labels() {
           />
         </div>
       )}
-      {phase >= 11 && dragDropQuestions[7] === 2 && (
+      {section === 3 && phase === 2 && dragDropQuestions[7] === 2 && (
         <div>
           <CloneLabel
             trigger={dragDropQuestions[7] === 2}
             className="bg-cloneYellow"
             top={paddingFromBorder + rowDistance * 2}
-            left={1 * charSize}
+            left={2 * charSize}
           />
           <CloneLabel
             className="bg-cloneGreen"
             top={paddingFromBorder + rowDistance * 6}
-            left={1 * charSize}
+            left={2 * charSize}
           />
           <CloneLabel
             className="bg-cloneBlue"
             top={paddingFromBorder + rowDistance * 9.5}
-            left={1 * charSize}
-          />
-          <CloneLabel
-            className="bg-cloneBlue"
-            top={paddingFromBorder + rowDistance * 2}
-            left={30 * charSize}
+            left={2 * charSize}
           />
           <CloneLabel
             className="bg-cloneYellow"
+            top={paddingFromBorder + rowDistance * 2}
+            left={31 * charSize}
+          />
+          <CloneLabel
+            className="bg-cloneBlue"
             top={paddingFromBorder + rowDistance * 6}
-            left={30 * charSize}
+            left={31 * charSize}
           />
           <CloneLabel
             className="bg-cloneGreen"
             top={paddingFromBorder + rowDistance * 8}
-            left={30 * charSize}
+            left={31 * charSize}
           />
         </div>
       )}

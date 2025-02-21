@@ -1,12 +1,13 @@
 "use client";
 
-import KnowledgeCheckQuestion from "@/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
+import KnowledgeCheckQuestion from "@/app/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 import {
   activePairwiseMHPsComboAtom,
   pairwiseCombosMHPsAtom,
   pairwiseMHPCompletionAtom,
   partSixMHPPairwiseQuestionsAtom,
+  phase2Atom,
   phaseAtom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
@@ -26,7 +27,7 @@ export default function CompareMHPSingleCloneQuestions() {
   const [pairwiseMHPCompletion, setPairwiseMHPCompletion] = useAtom(
     pairwiseMHPCompletionAtom,
   );
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase2Atom);
 
   let correctCount = pairwiseCombosMHPs[activePairwiseMHPsCombo[0]][
     activePairwiseMHPsCombo[1]
@@ -57,8 +58,8 @@ export default function CompareMHPSingleCloneQuestions() {
         pairwiseMHPCompletion[activePairwiseMHPsCombo[0]][
           activePairwiseMHPsCombo[1]
         ] && (
-          <div className="fadeIn500">
-            <FormHeader text={`Questions`} />
+          <div className="">
+            {/* <FormHeader text={`Questions`} /> */}
 
             <div className="flex flex-col gap-8">
               <KnowledgeCheckQuestion
@@ -86,12 +87,18 @@ export default function CompareMHPSingleCloneQuestions() {
                 }
                 headerText="How many of the loci match?"
                 classNames={{
+                  container:
+                    partSixMHPPairwiseQuestions[
+                      JSON.stringify(activePairwiseMHPsCombo)
+                    ][1] === correctCount
+                      ? ""
+                      : `fadeIn500`,
                   headerText: "mb-4",
                   answersContainer: "grid grid-cols-5 gap-8 md:gap-4",
                   answers: "w-4 md:w-3 lg:w-4",
                 }}
                 questionIdx={1}
-                answers={Array(12)
+                answers={Array(13)
                   .fill(0)
                   .map((el, idx) => {
                     return {
@@ -146,7 +153,11 @@ export default function CompareMHPSingleCloneQuestions() {
                   container:
                     partSixMHPPairwiseQuestions[
                       JSON.stringify(activePairwiseMHPsCombo)
-                    ][1] === correctCount
+                    ][2] === correctCount
+                      ? ""
+                      : partSixMHPPairwiseQuestions[
+                          JSON.stringify(activePairwiseMHPsCombo)
+                        ][1] === correctCount
                       ? "fadeIn500"
                       : "hidden",
                   headerText: "mb-4",
@@ -154,7 +165,7 @@ export default function CompareMHPSingleCloneQuestions() {
                   answers: "w-4 md:w-3 lg:w-4",
                 }}
                 questionIdx={2}
-                answers={Array(12)
+                answers={Array(13)
                   .fill(0)
                   .map((el, idx) => {
                     return {
@@ -209,7 +220,11 @@ export default function CompareMHPSingleCloneQuestions() {
                   container:
                     partSixMHPPairwiseQuestions[
                       JSON.stringify(activePairwiseMHPsCombo)
-                    ][2] === correctCount
+                    ][3] === 0
+                      ? ""
+                      : partSixMHPPairwiseQuestions[
+                          JSON.stringify(activePairwiseMHPsCombo)
+                        ][2] === correctCount
                       ? "fadeIn500"
                       : "hidden",
                   headerText: "mb-4",
@@ -217,7 +232,7 @@ export default function CompareMHPSingleCloneQuestions() {
                   answers: "w-4 md:w-3 lg:w-4",
                 }}
                 questionIdx={3}
-                answers={Array(12)
+                answers={Array(13)
                   .fill(0)
                   .map((el, idx) => {
                     return {
@@ -237,7 +252,7 @@ export default function CompareMHPSingleCloneQuestions() {
                   partSixMHPPairwiseQuestions[
                     JSON.stringify(activePairwiseMHPsCombo)
                   ][3] === 0
-                    ? "fadeIn500 bg-primaryBlue/10 p-4 text-sm md:p-6"
+                    ? " bg-primaryBlue/10 p-4 text-sm md:p-6"
                     : "invisible bg-primaryBlue/10 p-4 text-sm md:p-6"
                 }
               >

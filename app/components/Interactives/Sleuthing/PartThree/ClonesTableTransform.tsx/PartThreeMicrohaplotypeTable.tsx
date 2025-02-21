@@ -1,6 +1,10 @@
 "use client";
 
-import MicrohaplotypeTable from "@/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTable";
+import {
+  findNextRowColumnTupleInMatrix,
+  MicroId,
+} from "@/app/components/Interactives/helpers";
+import MicrohaplotypeTable from "@/app/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTable";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   activeRowColumnTransformAtom,
@@ -10,7 +14,6 @@ import {
   partThreeCompletionAtom,
   transformMatrixAtom,
 } from "@/data/Interactives/interactiveStore";
-import { MicroId, findNextRowColumnTupleInMatrix } from "@/helpers/helpers";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import { useMemo } from "react";
 

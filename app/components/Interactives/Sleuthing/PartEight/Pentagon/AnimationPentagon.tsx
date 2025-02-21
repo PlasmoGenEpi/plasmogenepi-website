@@ -1,7 +1,7 @@
-import { usePrevious } from "@/components/hooks";
+import { usePrevious } from "@/app/components/hooks";
 import {
   partEightPentagonSelectedEdgesAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtomValue } from "jotai";
 import PentagonEdge from "./PentagonEdge";
@@ -20,7 +20,7 @@ import { Edge } from "../Pentagon";
 import PentagonTooltipDefinition from "./PentagonTooltipDefinition";
 
 export default function AnimationPentagon() {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const selectedEdges = useAtomValue(partEightPentagonSelectedEdgesAtom);
   const prevPhase = usePrevious(phase, 0);
   return (
@@ -213,14 +213,18 @@ export default function AnimationPentagon() {
             r={9}
             cx={40}
             cy={75}
-            className="fill-microRed stroke-black stroke-2"
+            className={`${
+              phase > 23 ? "fill-microRed" : "fill-current"
+            } stroke-black `}
           ></circle>
           <circle
             r={9}
             cx={60}
             cy={75}
             fill="white"
-            className="fill-microBlue stroke-black stroke-2"
+            className={`${
+              phase > 23 ? "fill-microBlue" : "fill-current"
+            } stroke-black `}
           ></circle>
         </symbol>
         <symbol
@@ -235,19 +239,33 @@ export default function AnimationPentagon() {
             r={9}
             cx={50}
             cy={65}
-            className={`${phase >= 30 ? "fill-microPurple" : "fill-white"} stroke-black stroke-1`}
+            className={`${
+              phase >= 30 ? "fill-microPurple" : "fill-white"
+            } stroke-black stroke-1`}
           ></circle>
+          {/* <circle
+            r={9}
+            cx={60}
+            cy={65}
+            className={`${
+              phase >= 30 ? "fill-microPurple" : "fill-white"
+            } stroke-black stroke-1`}
+          ></circle> */}
           <circle
             r={9}
             cx={40}
             cy={82}
-            className={`${phase >= 30 ? "fill-microOrange" : "fill-white"} stroke-black stroke-1`}
+            className={`${
+              phase >= 30 ? "fill-microOrange" : "fill-white"
+            } stroke-black stroke-1`}
           ></circle>
           <circle
             r={9}
             cx={60}
             cy={82}
-            className={`${phase >= 30 ? "fill-microTeal" : "fill-white"} stroke-black stroke-1`}
+            className={`${
+              phase >= 30 ? "fill-microTeal" : "fill-white"
+            } stroke-black stroke-1`}
           ></circle>
         </symbol>
         <symbol
@@ -410,7 +428,11 @@ export default function AnimationPentagon() {
                 cx={25}
                 cy={20}
                 fill="white"
-                className={`${phase === 26 ? "recombination" : phase > 26 ? "hidden" : ""} transition-all ${phase < 25 ? "hidden" : ""} fadeIn300 fill-microBlue stroke-black stroke-1 `}
+                className={`${
+                  phase === 26 ? "recombination" : phase > 26 ? "hidden" : ""
+                } transition-all ${
+                  phase < 25 ? "hidden" : ""
+                } fadeIn300 fill-microBlue stroke-black stroke-1 `}
               ></circle>
               <circle
                 style={{
@@ -420,7 +442,11 @@ export default function AnimationPentagon() {
                 cx={25}
                 cy={40}
                 // fill="white"
-                className={` ${phase === 26 ? "recombination2" : phase > 26 ? "hidden" : ""} transition-all  ${phase < 25 ? "hidden" : ""} fadeIn300 fill-microRed stroke-black stroke-1`}
+                className={` ${
+                  phase === 26 ? "recombination2" : phase > 26 ? "hidden" : ""
+                } transition-all  ${
+                  phase < 25 ? "hidden" : ""
+                } fadeIn300 fill-microRed stroke-black stroke-1`}
                 // fill="url('#red-ball-gradient')"
               ></circle>
               {phase >= 26 && (
@@ -432,7 +458,9 @@ export default function AnimationPentagon() {
                   style={{
                     animationDelay: phase === 26 ? "2000ms" : "0ms",
                   }}
-                  className={`${phase === 26 ? "fadeIn1000" : ""} stroke-black stroke-1`}
+                  className={`${
+                    phase === 26 ? "fadeIn1000" : ""
+                  } stroke-black stroke-1`}
                 ></circle>
               )}
             </g>
@@ -467,7 +495,9 @@ export default function AnimationPentagon() {
                 r={9}
                 cx={25}
                 cy={20}
-                className="recombination fadeIn1000 fill-microBlue stroke-black stroke-1"
+                className={`${
+                  phase === 28 ? "recombination" : "hidden"
+                } fadeIn1000 fill-microBlue stroke-black stroke-1`}
               ></circle>
               <circle
                 style={{
@@ -476,7 +506,9 @@ export default function AnimationPentagon() {
                 r={9}
                 cx={25}
                 cy={40}
-                className="recombination2 fadeIn1000 fill-microRed stroke-black stroke-1"
+                className={`${
+                  phase === 28 ? "recombination2" : "hidden"
+                }  fadeIn1000 fill-microRed stroke-black stroke-1`}
 
                 // fill="url('#red-ball-gradient')"
               ></circle>
@@ -489,7 +521,9 @@ export default function AnimationPentagon() {
                   style={{
                     animationDelay: phase === 28 ? "3000ms" : "0ms",
                   }}
-                  className={`${phase >= 28 ? "fadeIn1000" : ""} stroke-black stroke-1`}
+                  className={`${
+                    phase >= 28 ? "fadeIn1000" : ""
+                  } stroke-black stroke-1`}
                 ></circle>
               )}
             </g>
@@ -525,7 +559,11 @@ export default function AnimationPentagon() {
                 r={7}
                 cy={25}
                 cx={12}
-                className={`${phase > 32 ? "hidden" : ""} ${phase >= 32 ? "recombination" : ""} transition-all duration-500 ${phase >= 30 ? "fill-microPurple" : "fill-white"} fadeIn300 stroke-black stroke-1`}
+                className={`${phase > 32 ? "hidden" : ""} ${
+                  phase >= 32 ? "recombination" : ""
+                } transition-all duration-500 ${
+                  phase >= 30 ? "fill-microPurple" : "fill-white"
+                } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
                 style={{
@@ -535,7 +573,11 @@ export default function AnimationPentagon() {
                 r={7}
                 cy={25}
                 cx={30}
-                className={`${phase > 32 ? "hidden" : ""} ${phase >= 32 ? "recombination" : ""} transition-all duration-500 ${phase >= 30 ? "fill-microPurple" : "fill-white"} fadeIn300 stroke-black stroke-1`}
+                className={`${phase > 32 ? "hidden" : ""} ${
+                  phase >= 32 ? "recombination" : ""
+                } transition-all duration-500 ${
+                  phase >= 30 ? "fill-microPurple" : "fill-white"
+                } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
                 r={7}
@@ -544,7 +586,11 @@ export default function AnimationPentagon() {
                 }}
                 cx={12}
                 cy={40}
-                className={`${phase > 32 ? "hidden" : ""} ${phase >= 32 ? "recombination2" : ""} transition-all ${phase >= 30 ? "fill-microOrange" : "fill-white"} fadeIn300 stroke-black stroke-1`}
+                className={`${phase > 32 ? "hidden" : ""} ${
+                  phase >= 32 ? "recombination2" : ""
+                } transition-all ${
+                  phase >= 30 ? "fill-microOrange" : "fill-white"
+                } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
                 r={7}
@@ -553,7 +599,11 @@ export default function AnimationPentagon() {
                 }}
                 cx={30}
                 cy={40}
-                className={`${phase > 32 ? "hidden" : ""} ${phase >= 32 ? "recombination2" : ""} transition-all ${phase >= 30 ? "fill-microTeal" : "fill-white"} fadeIn300 stroke-black stroke-1`}
+                className={`${phase > 32 ? "hidden" : ""} ${
+                  phase >= 32 ? "recombination2" : ""
+                } transition-all ${
+                  phase >= 30 ? "fill-microTeal" : "fill-white"
+                } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
                 r={10}
@@ -563,7 +613,9 @@ export default function AnimationPentagon() {
                 cx={20}
                 cy={15}
                 fill="url('#purple-orange-gradient')"
-                className={`${phase < 32 ? "hidden" : ""} ${phase === 32 ? "fadeIn1000" : ""} stroke-black stroke-1`}
+                className={`${phase < 32 ? "hidden" : ""} ${
+                  phase === 32 ? "fadeIn1000" : ""
+                } stroke-black stroke-1`}
               ></circle>
               <circle
                 r={10}
@@ -573,7 +625,9 @@ export default function AnimationPentagon() {
                 cx={20}
                 cy={40}
                 fill="url('#purple-teal-gradient')"
-                className={`${phase < 32 ? "hidden" : ""} ${phase === 32 ? "fadeIn1000" : ""} stroke-black stroke-1`}
+                className={`${phase < 32 ? "hidden" : ""} ${
+                  phase === 32 ? "fadeIn1000" : ""
+                } stroke-black stroke-1`}
               ></circle>
             </g>
           }
@@ -669,7 +723,7 @@ export default function AnimationPentagon() {
           I
         </text> */}
       </g>
-      <g className={phase === 34 || phase === 35 ? "fadeOut500" : ""}>
+      <g className={phase >= 34 ? "fadeOut500" : ""}>
         <EGMosquito />
         <EIMosquito />
         <FHMosquito />

@@ -1,5 +1,5 @@
-import CloneElement from "@/components/Interactives/Shared/CloneRow/CloneElement";
-import CloneRow from "@/components/Interactives/Shared/CloneRow/CloneRow";
+import CloneElement from "@/app/components/Interactives/Shared/CloneRow/CloneElement";
+import CloneRow from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import { fixedData } from "@/data/Interactives/fixedData";
 
 export default function RefRow({
@@ -23,12 +23,12 @@ export default function RefRow({
           }
           className={`relative aspect-square rounded-full`}
         >
-          <div className="absolute right-4 top-1/2 hidden aspect-square items-center rounded-full lg:flex lg:justify-end ">
+          <div className="@2xl/main:flex @2xl/main:justify-end absolute right-4 top-1/2 hidden aspect-square items-center rounded-full">
             <span className="absolute translate-y-[3px] font-bold">
               Reference
             </span>
           </div>
-          <div className="absolute right-4 top-1/2 flex aspect-square items-center justify-center rounded-full lg:hidden">
+          <div className="@2xl/main:hidden absolute right-4 top-1/2 flex aspect-square items-center justify-center rounded-full">
             <span className="absolute translate-y-[3px] font-bold">Ref</span>
           </div>
         </div>
@@ -37,6 +37,7 @@ export default function RefRow({
         {refValues.map((refVal, idx) => {
           return (
             <CloneElement
+              className="bg-white text-black dark:brightness-75"
               possibleValues={{
                 alternate: altValues[idx],
                 reference: refVal,

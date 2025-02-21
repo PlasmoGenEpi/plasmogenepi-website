@@ -1,27 +1,27 @@
+import {
+  compareUnorderedArrays,
+  switchValues,
+} from "@/app/components/Interactives/helpers";
 import CloneRow, {
   cloneRowButtonColors,
   cloneRowColors,
-} from "@/components/Interactives/Shared/CloneRow/CloneRow";
-import Microhaplotype from "@/components/Interactives/Shared/Microhaplotypes/Microhaplotype";
-import { microhaplotypeColorMap } from "@/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTableRow";
-import PositiveControlBoard from "@/components/Interactives/Shared/PositiveControlBoard/PositiveControlBoard";
+} from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
+import Microhaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/Microhaplotype";
+import { microhaplotypeColorMap } from "@/app/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTableRow";
+import PositiveControlBoard from "@/app/components/Interactives/Shared/PositiveControlBoard/PositiveControlBoard";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   cloneRowsAtom,
   hintsEnabledAtom,
   partThreeCompletionAtom,
   partThreePositiveControlBoardsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedPositiveControlBoardAtom,
 } from "@/data/Interactives/interactiveStore";
-import {
-  compareUnorderedArrays,
-  MicroId,
-  switchValues,
-} from "@/helpers/helpers";
 import { useAtom, useAtomValue } from "jotai";
 import { RESET } from "jotai/utils";
 import { useEffect } from "react";
+import LabelRow from "../../PartOne/CloneRowTable/LabelRow";
 
 export default function PartThreePositiveControlBoard() {
   const [selectedBoard, setSelectedBoard] = useAtom(
@@ -31,7 +31,7 @@ export default function PartThreePositiveControlBoard() {
   const [boards, setBoards] = useAtom(partThreePositiveControlBoardsAtom);
   const cloneRows = useAtomValue(cloneRowsAtom);
   const currentBoard = boards[selectedBoard];
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase1Atom);
   const hintsEnabled = useAtomValue(hintsEnabledAtom);
 
   // useEffect(() => {
@@ -50,7 +50,7 @@ export default function PartThreePositiveControlBoard() {
         ((selectedBoard === 1 || selectedBoard === 2) &&
           currentBoard.rows.length !== 1)
       ) {
-        return "Hint: make sure you are using the right number of clones according to the MOI.";
+        return "Make sure you are using the right number of clones according to the MOI.";
       }
     }
     let otherBoard = boards[switchValues(selectedBoard)];
@@ -58,7 +58,7 @@ export default function PartThreePositiveControlBoard() {
       currentBoard.rows.length &&
       compareUnorderedArrays(currentBoard.rows, otherBoard.rows)
     ) {
-      return "Hint: positive controls must be unique.";
+      return "Positive controls must be unique.";
     }
   }
 
@@ -98,8 +98,24 @@ export default function PartThreePositiveControlBoard() {
 
   return (
     <PositiveControlBoard>
-      <div className="min-h-[236px] w-full">
-        <div className="flex min-h-full w-full max-w-[500px] scale-90 flex-col gap-2 lg:scale-75">
+      <div className="min-h-[236px] w-full dark:brightness-75">
+        <div className="flex min-h-full w-full max-w-[500px] scale-90 flex-col gap-2 place-self-center lg:scale-75">
+          {/* <div className="grid gap-1 [grid-template-columns:8%_auto]">
+            <div className="col-start-2 grid grid-cols-4 text-center">
+              {Array(4)
+                .fill(0)
+                .map((el, idx) => {
+                  return (
+                    <span
+                      className="inline-block text-center text-xs first-letter:text-sm dark:text-white font-bold -translate-y-12"
+                      key={idx + 1}
+                    >
+                      L{idx + 1}
+                    </span>
+                  );
+                })}
+            </div>
+          </div>{" "} */}
           {currentBoard.rows.map((rowNum, idx1) => {
             if (currentBoard.valid || completion[phase]) {
               return (
@@ -136,7 +152,9 @@ export default function PartThreePositiveControlBoard() {
                             },
                           ]}
                           vals={vals}
-                          className={`col-span-3 border-2 ${microhaplotypeColorMap.get(JSON.stringify(vals))}`}
+                          className={`col-span-3 border-2 ${microhaplotypeColorMap.get(
+                            JSON.stringify(vals),
+                          )}`}
                         />
                       );
                     })}
@@ -186,7 +204,9 @@ export default function PartThreePositiveControlBoard() {
                             },
                           ]}
                           vals={vals}
-                          className={`col-span-3 border-2 ${microhaplotypeColorMap.get(JSON.stringify(vals))}`}
+                          className={`col-span-3 border-2 ${microhaplotypeColorMap.get(
+                            JSON.stringify(vals),
+                          )}`}
                         />
                       );
                     })}

@@ -1,5 +1,5 @@
-import PlasmoGenEpiLogo from "@/components/Logos/PlasmoGenEpiLogo";
-import LogoLink from "@/components/NavBar/LogoLink";
+import PlasmoGenEpiLogo from "@/app/components/Logo/PlasmoGenEpiLogo";
+import LogoLink from "@/app/components/NavBar/LogoLink";
 import {
   cloneRowsAtom,
   positiveControlBoardsAtom,
@@ -17,7 +17,9 @@ export default function PositiveControlLabel({
   const boards = useAtomValue(positiveControlBoardsAtom);
   return (
     <div
-      className={`${className ? className : ""}  border-black font-mono md:col-start-2`}
+      className={`${
+        className ? className : ""
+      }  border-black font-mono md:col-start-2`}
     >
       <div className="ml-auto mr-8 flex flex-col gap-4">
         <h3 className="  font-bold">Positive Control {selectedBoard}</h3>

@@ -9,7 +9,9 @@ export default function P1PositiveControlHeader({
   const selectedBoard = useAtomValue(selectedPositiveControlBoardAtom);
   return (
     <div
-      className={`${className ? className : ""} flex flex-col gap-2 text-center md:text-left`}
+      className={`${
+        className ? className : ""
+      } flex flex-col gap-2 text-center md:text-left`}
     >
       <h2 className="text-xl font-bold">Positive Control {selectedBoard}</h2>
       <span className="text-base tracking-wide text-black">

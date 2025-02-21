@@ -1,15 +1,16 @@
-import CloneElement from "@/components/Interactives/Shared/CloneRow/CloneElement";
-import CloneRow from "@/components/Interactives/Shared/CloneRow/CloneRow";
+import CloneElement from "@/app/components/Interactives/Shared/CloneRow/CloneElement";
+import CloneRow from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import {
   getRowConfiguration,
   microhaplotypeColorMap,
-} from "@/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTableRow";
-import SquareMicrohaplotype from "@/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
+} from "@/app/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTableRow";
+import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   partSixCloneRowsAtom,
   partSixCloneRowsMHPsAtom,
   partSixCompletionAtom,
+  phase2Atom,
   phaseAtom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
@@ -41,10 +42,10 @@ export default function P6MHPCloneRows({
 }) {
   const [cloneRowsMHPs, setCloneRowsMHPs] = useAtom(partSixCloneRowsMHPsAtom);
   const [completion, setCompletion] = useAtom(partSixCompletionAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
 
   return (
-    <div className="flex max-w-[500px] flex-col gap-1">
+    <div className="flex max-w-[500px] flex-col gap-1 dark:brightness-75">
       <div className="grid gap-1 [grid-template-columns:8%_auto]">
         <div className="col-start-2 grid grid-cols-12 px-1">
           {Array(12)
@@ -142,11 +143,7 @@ export default function P6MHPCloneRows({
                       );
                     }
                     return (
-                      <SquareMicrohaplotype
-                        className="fadeIn300"
-                        id={val}
-                        key={idx2}
-                      />
+                      <SquareMicrohaplotype className="" id={val} key={idx2} />
                     );
                   })}
                 </CloneRow>
@@ -163,27 +160,27 @@ export default function P6MHPCloneRows({
                     ? cloneRow.id === 3
                       ? " hidden"
                       : cloneRow.id === 2
-                        ? ""
-                        : cloneRow.id === 1
-                          ? ""
-                          : ""
+                      ? ""
+                      : cloneRow.id === 1
+                      ? ""
+                      : ""
                     : phase === 24
-                      ? cloneRow.id === 3
-                        ? ""
-                        : cloneRow.id === 2
-                          ? " hidden"
-                          : cloneRow.id === 1
-                            ? ""
-                            : ""
-                      : phase === 25
-                        ? cloneRow.id === 3
-                          ? ""
-                          : cloneRow.id === 2
-                            ? ""
-                            : cloneRow.id === 1
-                              ? "hidden"
-                              : ""
-                        : ""
+                    ? cloneRow.id === 3
+                      ? ""
+                      : cloneRow.id === 2
+                      ? " hidden"
+                      : cloneRow.id === 1
+                      ? ""
+                      : ""
+                    : phase === 25
+                    ? cloneRow.id === 3
+                      ? ""
+                      : cloneRow.id === 2
+                      ? ""
+                      : cloneRow.id === 1
+                      ? "hidden"
+                      : ""
+                    : ""
                 }`,
                 button: P6CloneRowButtonColors[cloneRow.id],
                 row: P6CloneRowColors[cloneRow.id],

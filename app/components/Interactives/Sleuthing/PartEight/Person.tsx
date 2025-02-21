@@ -2,19 +2,21 @@ export default function Person({
   color,
   id,
   circles,
+  viewBox,
 }: {
+  viewBox?: string;
   circles?: string[];
   color?: string;
   id?: string | null;
 }) {
   return (
-    <svg className="" overflow={"visible"} viewBox={"0 0 100 100"}>
+    <svg overflow={"visible"} viewBox={viewBox || "0 0 100 100"}>
       <text
         y={12}
         x={5}
         fontFamily="Arial"
         fontSize={"20px"}
-        className="font-bold text-black"
+        className="font-bold"
       >
         {id}
       </text>

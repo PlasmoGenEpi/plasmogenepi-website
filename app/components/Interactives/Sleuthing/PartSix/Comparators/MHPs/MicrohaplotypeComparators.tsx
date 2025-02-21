@@ -1,5 +1,5 @@
 "use client";
-import { cloneRowColors } from "@/components/Interactives/Shared/CloneRow/CloneRow";
+import { cloneRowColors } from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import {
   activePairwiseMHPsComboAtom,
   hintsEnabledAtom,
@@ -32,11 +32,9 @@ export default function MicrohaplotypeComparator({
     return val === cloneRowsMHPs[second].vals[idx];
   });
 
-  console.log(activeCombo);
-
   if (first === second) {
     return (
-      <div className="max-w-[500px]">
+      <div className="max-w-[500px] dark:brightness-75">
         {label && (
           <div className="mb-2 mt-4  text-center">
             <label className="text-sm">
@@ -83,7 +81,7 @@ export default function MicrohaplotypeComparator({
   }
 
   return (
-    <div className="max-w-[500px]">
+    <div className="max-w-[500px] dark:brightness-75">
       {label && (
         <div className="mb-2 mt-4  text-center">
           <label className="text-sm">
@@ -158,7 +156,13 @@ export default function MicrohaplotypeComparator({
                         },
                       });
                     }}
-                    className={`css-label rounded shadow-sm shadow-black outline-offset-1 peer-focus:outline peer-focus:outline-2 peer-focus:outline-black peer-[myPeer]:focus:border-black ${hints && ((x[idx] && !pairwiseCombos[first][second][idx]) || (!x[idx] && pairwiseCombos[first][second][idx])) ? "ring-2 ring-orange-400" : ""}`}
+                    className={`css-label rounded shadow-sm shadow-black outline-offset-1 peer-focus:outline peer-focus:outline-2 peer-focus:outline-black peer-[myPeer]:focus:border-black ${
+                      hints &&
+                      ((x[idx] && !pairwiseCombos[first][second][idx]) ||
+                        (!x[idx] && pairwiseCombos[first][second][idx]))
+                        ? "ring-2 ring-orange-400"
+                        : ""
+                    }`}
                   ></label>
                 </div>
               );

@@ -11,9 +11,11 @@ export default function RedGreenGenotype({
   const cloneRows = useAtomValue(partSixCloneRowsMHPsAtom);
   return (
     <div
-      className={`grid max-w-[500px] gap-1 [grid-template-columns:8%_auto] ${className ? className : ""}`}
+      className={`grid max-w-[500px] gap-1 [grid-template-columns:8%_auto] ${
+        className ? className : ""
+      }`}
     >
-      <div className="my-auto flex min-h-10 w-full flex-col">
+      <div className="my-auto flex min-h-10 w-full flex-col dark:brightness-75">
         <div
           className={`mr-auto aspect-square h-7 translate-y-0.5 rounded-full ${P6CloneRowColors[1]}`}
         ></div>

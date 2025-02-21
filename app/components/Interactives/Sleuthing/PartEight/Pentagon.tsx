@@ -3,7 +3,7 @@ import {
   partEightPentagonPairViewedAtom,
   partEightPentagonPersonPairAtom,
   partEightPentagonSelectedEdgesAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom } from "jotai";
 import { queuedChangeAtom } from "./Phases/PentagonComparisons";
@@ -116,9 +116,9 @@ export default function Pentagon({
 }) {
   const [activePair, setActivePair] = useAtom(partEightPentagonPersonPairAtom);
   const [viewed, setViewed] = useAtom(partEightPentagonPairViewedAtom);
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase2Atom);
   const [selectedEdges, setSelectedEdges] = useAtom(
-    partEightPentagonSelectedEdgesAtom,
+    partEightPentagonSelectedEdgesAtom
   );
   const [queuedChange, setQueuedChange] = useAtom(queuedChangeAtom);
 
@@ -226,7 +226,13 @@ export default function Pentagon({
           fill="white"
           // stroke="black"
           // strokeWidth="2px"
-          className={`${components.edges["FG"].text} ${!viewed["FG"] ? "hidden" : ""} stroke-black hover:stroke-black ${activeButtons["FG"] ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]" : "pointer-events-none"} `}
+          className={`${components.edges["FG"].text} ${
+            !viewed["FG"] ? "hidden" : ""
+          } stroke-black hover:stroke-black ${
+            activeButtons["FG"]
+              ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]"
+              : "pointer-events-none"
+          } `}
         ></rect>{" "}
         <text
           style={{
@@ -293,7 +299,13 @@ export default function Pentagon({
           fill="white"
           // stroke="black"
           // strokeWidth="2px"
-          className={`${components.edges["EG"].text} ${!viewed["EG"] ? "hidden" : ""} stroke-black hover:stroke-black ${activeButtons["EG"] ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]" : "pointer-events-none"} `}
+          className={`${components.edges["EG"].text} ${
+            !viewed["EG"] ? "hidden" : ""
+          } stroke-black hover:stroke-black ${
+            activeButtons["EG"]
+              ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]"
+              : "pointer-events-none"
+          } `}
         ></rect>{" "}
         <text
           style={{
@@ -358,7 +370,13 @@ export default function Pentagon({
           fill="white"
           // stroke="black"
           // strokeWidth="2px"
-          className={`${components.edges["FI"].text} ${!viewed["FI"] ? "hidden" : ""} stroke-black hover:stroke-black ${activeButtons["FI"] ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]" : "pointer-events-none"} `}
+          className={`${components.edges["FI"].text} ${
+            !viewed["FI"] ? "hidden" : ""
+          } stroke-black hover:stroke-black ${
+            activeButtons["FI"]
+              ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]"
+              : "pointer-events-none"
+          } `}
         ></rect>{" "}
         <text
           style={{
@@ -423,7 +441,13 @@ export default function Pentagon({
           fill="white"
           // stroke="black"
           // strokeWidth="2px"
-          className={`${components.edges["FH"].text} ${!viewed["FH"] ? "hidden" : ""} stroke-black hover:stroke-black ${activeButtons["FH"] ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]" : "pointer-events-none"} `}
+          className={`${components.edges["FH"].text} ${
+            !viewed["FH"] ? "hidden" : ""
+          } stroke-black hover:stroke-black ${
+            activeButtons["FH"]
+              ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]"
+              : "pointer-events-none"
+          } `}
         ></rect>{" "}
         <text
           style={{
@@ -488,7 +512,13 @@ export default function Pentagon({
           fill="white"
           // stroke="black"
           // strokeWidth="2px"
-          className={`${components.edges["GI"].text} ${!viewed["GI"] ? "hidden" : ""} stroke-black hover:stroke-black ${activeButtons["GI"] ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]" : "pointer-events-none"} `}
+          className={`${components.edges["GI"].text} ${
+            !viewed["GI"] ? "hidden" : ""
+          } stroke-black hover:stroke-black ${
+            activeButtons["GI"]
+              ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]"
+              : "pointer-events-none"
+          } `}
         ></rect>{" "}
         <text
           style={{
@@ -555,7 +585,13 @@ export default function Pentagon({
           fill="white"
           // stroke="black"
           // strokeWidth="2px"
-          className={`${components.edges["EH"].text} ${!viewed["EH"] ? "hidden" : ""} stroke-black hover:stroke-black ${activeButtons["EH"] ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]" : "pointer-events-none"} `}
+          className={`${components.edges["EH"].text} ${
+            !viewed["EH"] ? "hidden" : ""
+          } stroke-black hover:stroke-black ${
+            activeButtons["EH"]
+              ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]"
+              : "pointer-events-none"
+          } `}
         ></rect>{" "}
         <text
           style={{
@@ -622,7 +658,13 @@ export default function Pentagon({
           fill="white"
           // stroke="black"
           // strokeWidth="2px"
-          className={`${components.edges["EI"].text} ${!viewed["EI"] ? "hidden" : ""} stroke-black hover:stroke-black ${activeButtons["EI"] ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]" : "pointer-events-none"} `}
+          className={`${components.edges["EI"].text} ${
+            !viewed["EI"] ? "hidden" : ""
+          } stroke-black hover:stroke-black ${
+            activeButtons["EI"]
+              ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]"
+              : "pointer-events-none"
+          } `}
         ></rect>{" "}
         <text
           style={{
@@ -687,7 +729,13 @@ export default function Pentagon({
           fill="white"
           // stroke="black"
           // strokeWidth="2px"
-          className={`${components.edges["GH"].text} ${!viewed["GH"] ? "hidden" : ""} stroke-black hover:stroke-black ${activeButtons["GH"] ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]" : "pointer-events-none"} `}
+          className={`${components.edges["GH"].text} ${
+            !viewed["GH"] ? "hidden" : ""
+          } stroke-black hover:stroke-black ${
+            activeButtons["GH"]
+              ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]"
+              : "pointer-events-none"
+          } `}
         ></rect>{" "}
         <text
           style={{
@@ -752,7 +800,13 @@ export default function Pentagon({
           fill="white"
           // stroke="black"
           // strokeWidth="2px"
-          className={`${components.edges["HI"].text} ${!viewed["HI"] ? "hidden" : ""} stroke-black hover:stroke-black ${activeButtons["HI"] ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]" : "pointer-events-none"} `}
+          className={`${components.edges["HI"].text} ${
+            !viewed["HI"] ? "hidden" : ""
+          } stroke-black hover:stroke-black ${
+            activeButtons["HI"]
+              ? "pointer-events-auto cursor-pointer hover:stroke-[4px] focus:stroke-[4px]"
+              : "pointer-events-none"
+          } `}
         ></rect>{" "}
         <text
           style={{
@@ -1242,7 +1296,11 @@ export default function Pentagon({
               ></circle>
               <g
                 className={
-                  `${activePair[1] === "E" && activePair[2] === "F" ? "stroke-black stroke-[4px]" : ""} peer-hover/EF:stroke-black peer-hover/EF:stroke-black peer-hover/EF:stroke-[4px] peer-hover/EF:stroke-[4px] peer-focus/EF:stroke-black peer-focus/EF:stroke-[4px] ` +
+                  `${
+                    activePair[1] === "E" && activePair[2] === "F"
+                      ? "stroke-black stroke-[4px]"
+                      : ""
+                  } peer-hover/EF:stroke-black peer-hover/EF:stroke-black peer-hover/EF:stroke-[4px] peer-hover/EF:stroke-[4px] peer-focus/EF:stroke-black peer-focus/EF:stroke-[4px] ` +
                   (components.edges["EF"]?.circle ?? "")
                 }
               >
@@ -1312,7 +1370,11 @@ export default function Pentagon({
               ></circle>
               <g
                 className={
-                  `${activePair[1] === "F" && activePair[2] === "G" ? "stroke-black stroke-[4px]" : ""} peer-hover/FG:stroke-black peer-hover/FG:stroke-[4px] peer-focus/EF:stroke-black peer-focus/EF:stroke-[4px] ` +
+                  `${
+                    activePair[1] === "F" && activePair[2] === "G"
+                      ? "stroke-black stroke-[4px]"
+                      : ""
+                  } peer-hover/FG:stroke-black peer-hover/FG:stroke-[4px] peer-focus/EF:stroke-black peer-focus/EF:stroke-[4px] ` +
                   (components.edges["FG"]?.circle ?? "")
                 }
               >
@@ -1373,7 +1435,11 @@ export default function Pentagon({
               ></circle>
               <g
                 className={
-                  `${activePair[1] === "H" && activePair[2] === "I" ? "stroke-black stroke-[4px]" : ""} peer-hover/HI:stroke-black peer-hover/HI:stroke-[4px] peer-focus/HI:stroke-black peer-focus/HI:stroke-[4px] ` +
+                  `${
+                    activePair[1] === "H" && activePair[2] === "I"
+                      ? "stroke-black stroke-[4px]"
+                      : ""
+                  } peer-hover/HI:stroke-black peer-hover/HI:stroke-[4px] peer-focus/HI:stroke-black peer-focus/HI:stroke-[4px] ` +
                   (components.edges["HI"]?.circle ?? "")
                 }
               >
@@ -1443,7 +1509,11 @@ export default function Pentagon({
               ></circle>
               <g
                 className={
-                  `${activePair[1] === "G" && activePair[2] === "H" ? "stroke-black stroke-[4px]" : ""} peer-hover/GH:stroke-black peer-hover/GH:stroke-[4px] peer-focus/GH:stroke-black peer-focus/GH:stroke-[4px] ` +
+                  `${
+                    activePair[1] === "G" && activePair[2] === "H"
+                      ? "stroke-black stroke-[4px]"
+                      : ""
+                  } peer-hover/GH:stroke-black peer-hover/GH:stroke-[4px] peer-focus/GH:stroke-black peer-focus/GH:stroke-[4px] ` +
                   (components.edges["GH"]?.circle ?? "")
                 }
               >
@@ -1494,11 +1564,17 @@ export default function Pentagon({
                 tabIndex={0}
                 cx="502"
                 cy="1486"
-                className={`${![14].includes(phase) ? "hidden" : ""} ${components.edges["EI"].circle} peer/EI pointer-events-auto cursor-pointer fill-transparent focus:outline-none`}
+                className={`${![14].includes(phase) ? "hidden" : ""} ${
+                  components.edges["EI"].circle
+                } peer/EI pointer-events-auto cursor-pointer fill-transparent focus:outline-none`}
               ></circle>
               <g
                 className={
-                  `${activePair[1] === "E" && activePair[2] === "I" ? "stroke-black stroke-[4px]" : ""} peer-hover/EI:stroke-black peer-hover/EI:stroke-[4px] peer-focus/EI:stroke-black peer-focus/EI:stroke-[4px] ` +
+                  `${
+                    activePair[1] === "E" && activePair[2] === "I"
+                      ? "stroke-black stroke-[4px]"
+                      : ""
+                  } peer-hover/EI:stroke-black peer-hover/EI:stroke-[4px] peer-focus/EI:stroke-black peer-focus/EI:stroke-[4px] ` +
                   (components.edges["EI"]?.circle ?? "")
                 }
               >
@@ -1566,11 +1642,17 @@ export default function Pentagon({
                 tabIndex={0}
                 cx="1068"
                 cy="1118"
-                className={`${![14].includes(phase) ? "hidden" : ""} ${components.edges["EG"].circle} peer/EG pointer-events-auto cursor-pointer fill-transparent focus:outline-none`}
+                className={`${![14].includes(phase) ? "hidden" : ""} ${
+                  components.edges["EG"].circle
+                } peer/EG pointer-events-auto cursor-pointer fill-transparent focus:outline-none`}
               ></circle>
               <g
                 className={
-                  `${activePair[1] === "E" && activePair[2] === "G" ? "stroke-black stroke-[4px]" : ""} peer-hover/EG:stroke-black peer-hover/EG:stroke-[4px] peer-focus/EG:stroke-black peer-focus/EG:stroke-[4px] ` +
+                  `${
+                    activePair[1] === "E" && activePair[2] === "G"
+                      ? "stroke-black stroke-[4px]"
+                      : ""
+                  } peer-hover/EG:stroke-black peer-hover/EG:stroke-[4px] peer-focus/EG:stroke-black peer-focus/EG:stroke-[4px] ` +
                   (components.edges["EG"]?.circle ?? "")
                 }
               >
@@ -1623,7 +1705,11 @@ export default function Pentagon({
               ></circle>
               <g
                 className={
-                  `${activePair[1] === "F" && activePair[2] === "I" ? "stroke-black stroke-[4px]" : ""} peer-hover/FI:stroke-black peer-hover/FI:stroke-[4px] peer-focus/FI:stroke-black peer-focus/FI:stroke-[4px] ` +
+                  `${
+                    activePair[1] === "F" && activePair[2] === "I"
+                      ? "stroke-black stroke-[4px]"
+                      : ""
+                  } peer-hover/FI:stroke-black peer-hover/FI:stroke-[4px] peer-focus/FI:stroke-black peer-focus/FI:stroke-[4px] ` +
                   (components.edges["FI"]?.circle ?? "")
                 }
               >
@@ -1693,7 +1779,11 @@ export default function Pentagon({
               ></circle>
               <g
                 className={
-                  `${activePair[1] === "G" && activePair[2] === "I" ? "stroke-black stroke-[4px]" : ""} peer-hover/GI:stroke-black peer-hover/GI:stroke-[4px] peer-focus/GI:stroke-black peer-focus/GI:stroke-[4px] ` +
+                  `${
+                    activePair[1] === "G" && activePair[2] === "I"
+                      ? "stroke-black stroke-[4px]"
+                      : ""
+                  } peer-hover/GI:stroke-black peer-hover/GI:stroke-[4px] peer-focus/GI:stroke-black peer-focus/GI:stroke-[4px] ` +
                   (components.edges["GI"]?.circle ?? "")
                 }
               >
@@ -1744,11 +1834,17 @@ export default function Pentagon({
                 tabIndex={0}
                 cx="945"
                 cy="1465"
-                className={`${![14].includes(phase) ? "hidden" : ""} ${components.edges["EH"].circle} peer/EH pointer-events-auto cursor-pointer fill-transparent focus:outline-none`}
+                className={`${![14].includes(phase) ? "hidden" : ""} ${
+                  components.edges["EH"].circle
+                } peer/EH pointer-events-auto cursor-pointer fill-transparent focus:outline-none`}
               ></circle>
               <g
                 className={
-                  `${activePair[1] === "E" && activePair[2] === "H" ? "stroke-black stroke-[4px]" : ""} peer-hover/EH:stroke-black peer-hover/EH:stroke-[4px] peer-focus/EH:stroke-black peer-focus/EH:stroke-[4px] ` +
+                  `${
+                    activePair[1] === "E" && activePair[2] === "H"
+                      ? "stroke-black stroke-[4px]"
+                      : ""
+                  } peer-hover/EH:stroke-black peer-hover/EH:stroke-[4px] peer-focus/EH:stroke-black peer-focus/EH:stroke-[4px] ` +
                   (components.edges["EH"]?.circle ?? "")
                 }
               >
@@ -1809,7 +1905,11 @@ export default function Pentagon({
               ></circle>
               <g
                 className={
-                  `${activePair[1] === "F" && activePair[2] === "H" ? "stroke-black stroke-[4px]" : ""} peer-hover/FH:stroke-black peer-hover/FH:stroke-[4px] peer-focus/FH:stroke-black peer-focus/FH:stroke-[4px] ` +
+                  `${
+                    activePair[1] === "F" && activePair[2] === "H"
+                      ? "stroke-black stroke-[4px]"
+                      : ""
+                  } peer-hover/FH:stroke-black peer-hover/FH:stroke-[4px] peer-focus/FH:stroke-black peer-focus/FH:stroke-[4px] ` +
                   (components.edges["FH"]?.circle ?? "")
                 }
               >

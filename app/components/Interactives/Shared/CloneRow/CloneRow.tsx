@@ -43,11 +43,15 @@ export default function CloneRow({
 }) {
   return (
     <div
-      className={` ${classNames?.wrapper ? classNames.wrapper : ""} grid gap-1 font-helvetica [grid-template-columns:8%_auto]`}
+      className={` ${
+        classNames?.wrapper ? classNames.wrapper : ""
+      } grid gap-1 font-helvetica [grid-template-columns:8%_auto]`}
     >
       <div>
         <div
-          className={`aspect-square rounded-full bg-gradient-radial from-[white_20%] ${classNames?.button ? classNames?.button : ""}`}
+          className={`aspect-square rounded-full bg-gradient-radial from-[white_20%] text-black ${
+            classNames?.button ? classNames?.button : ""
+          }`}
         >
           <div className="flex aspect-square items-center justify-center rounded-full">
             <span className="absolute translate-y-[3px] font-bold">
@@ -57,7 +61,9 @@ export default function CloneRow({
         </div>
       </div>
       <ol
-        className={`grid h-full grow grid-cols-12 gap-1 p-1 shadow-sm shadow-black  ${classNames?.row ? classNames.row : ""}`}
+        className={`grid h-full grow grid-cols-12 gap-1 p-1 shadow-sm shadow-black  ${
+          classNames?.row ? classNames.row : ""
+        }`}
       >
         {children}
       </ol>
@@ -73,11 +79,15 @@ export default function CloneRow({
           }
         }}
         aria-label={`lab clone ${id}`}
-        className={`grid gap-1 font-helvetica transition-all [grid-template-columns:8%_auto] ${classNames?.wrapper ? classNames?.wrapper : ""}`}
+        className={`grid gap-1 font-helvetica transition-all [grid-template-columns:8%_auto] ${
+          classNames?.wrapper ? classNames?.wrapper : ""
+        }`}
       >
         <div>
           <div
-            className={`aspect-square rounded-full bg-gradient-radial from-[white_20%] ${classNames?.button ? classNames?.button : ""}`}
+            className={`aspect-square rounded-full bg-gradient-radial from-[white_20%] ${
+              classNames?.button ? classNames?.button : ""
+            }`}
           >
             <div className="flex aspect-square items-center justify-center rounded-full">
               <span className="absolute translate-y-[3px] font-bold">
@@ -87,7 +97,9 @@ export default function CloneRow({
           </div>
         </div>
         <div
-          className={`grid h-full grow grid-cols-12 gap-1 shadow-sm shadow-black  ${classNames?.row ? classNames?.row : ""}`}
+          className={`grid h-full grow grid-cols-12 gap-1 shadow-sm shadow-black  ${
+            classNames?.row ? classNames?.row : ""
+          }`}
         >
           {children}
         </div>
@@ -104,11 +116,15 @@ export default function CloneRow({
         }
       }}
       aria-label={`lab clone ${id}`}
-      className={`grid max-w-[500px] gap-1 font-helvetica transition-all [grid-template-columns:8%_auto] hover:scale-105 hover:transition-all disabled:scale-100 ${classNames?.wrapper ? classNames?.wrapper : ""}`}
+      className={`grid max-w-[500px] gap-1 font-helvetica transition-all [grid-template-columns:8%_auto] hover:scale-105 hover:transition-all disabled:scale-100 ${
+        classNames?.wrapper ? classNames?.wrapper : ""
+      }`}
     >
       <div>
         <div
-          className={`aspect-square rounded-full bg-gradient-radial from-[white_20%] ${classNames?.button ? classNames?.button : ""}`}
+          className={`aspect-square rounded-full bg-gradient-radial from-[white_20%] ${
+            classNames?.button ? classNames?.button : ""
+          }`}
         >
           <div className="flex aspect-square items-center justify-center rounded-full">
             <span className="absolute translate-y-[3px] font-bold">
@@ -118,7 +134,9 @@ export default function CloneRow({
         </div>
       </div>
       <div
-        className={`grid h-full grow grid-cols-12 gap-1 p-1 shadow-sm shadow-black  ${classNames?.row ? classNames?.row : ""}`}
+        className={`grid h-full grow grid-cols-12 gap-1 p-1 shadow-sm shadow-black  ${
+          classNames?.row ? classNames?.row : ""
+        }`}
       >
         {children}
       </div>

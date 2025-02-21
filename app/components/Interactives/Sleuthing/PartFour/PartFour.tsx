@@ -1,12 +1,12 @@
 "use client";
-import { usePrevious } from "@/components/hooks";
+import { usePrevious } from "@/app/components/hooks";
 import {
   partFourAverageDeducedAtom,
   partFourCompletionAtom,
   partFourInfectionsAtom,
   partTwoAverageDeducedAtom,
   partTwoInfectionsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedInfectionIndexAtom,
 } from "@/data/Interactives/interactiveStore";
 import { atom, useAtom, useAtomValue } from "jotai";
@@ -19,13 +19,15 @@ import KnowledgeCheck from "../../Shared/KnowledgeChecks/KnowledgeCheck";
 import KnowledgeCheckQuestion from "../../Shared/KnowledgeChecks/KnowledgeCheckQuestion";
 import GenotypeOutputElement from "../../Shared/Genotyping/GenotypeOutputElement";
 import { useEffect, useRef, useState } from "react";
-import { findFirstFocusableElement, MicroId } from "@/helpers/helpers";
+// import { findFirstFocusableElement, MicroId } from "@/helpers/helpers";
 import CompletePage from "../../Shared/misc/CompletePage";
 import { partFourPrompts } from "./partFourPrompts";
 import PartFourInfectionTable from "./PartFourInfectionTable";
 import PartFourControlPanel from "./PartFourControlPanel";
 import MicrohaplotypeGenotypeTable from "../../Shared/Microhaplotypes/MicrohaplotypeGenotypeTable/MicrohaplotypeGenotypeTable";
 import FormHeader from "../../Shared/misc/FormHeader";
+import { MicroId } from "../../helpers";
+import InteractivePrimaryLayout from "../../Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
 const possibleVals = {
   reference: fixedData[2].infectionAlleleReferences.map((el, idx) => {
@@ -36,8 +38,8 @@ const possibleVals = {
   }),
 };
 
-export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
-  const [phase, setPhase] = useAtom(phaseAtom);
+export default function PartFour({ fixedPanel }: { fixedPanel: boolean }) {
+  const [phase, setPhase] = useAtom(phase1Atom);
   const [completion, setCompletion] = useAtom(partFourCompletionAtom);
 
   const container = useRef(null);
@@ -89,6 +91,9 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
     if (phase === 1) {
       setActiveIndex(0);
     }
+    return () => {
+      setActiveIndex(0);
+    };
   }, [phase, setActiveIndex]);
 
   let infectionAverage =
@@ -100,29 +105,39 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
         return a + b;
       }) / 10;
 
-  if (phase === 3) {
-    return (
-      <div>
-        <div className="pb-12 pt-12 text-center text-xl">
-          <div className="h-8 text-left">
-            <button
-              id="interactive-top"
-              className="sr-only focus:not-sr-only focus:absolute focus:px-1 focus:py-0.5"
-            >
-              Top of Interactive
-            </button>
-          </div>
-          <div>
-            <span className="text-xl font-semibold">Interactive Complete!</span>
-          </div>
-          <div className="mb-8 mt-4 text-lg">
-            <span>Scroll to continue.</span>
-          </div>
-        </div>{" "}
-        <PartFourControlPanel />
-      </div>
-    );
-  }
+  // if (phase === 3) {
+  //   return (
+  //     <div>
+  //       <div className="pb-12 pt-12 text-center text-xl">
+  //         <div className="h-8 text-left">
+  //           <button
+  //             id="interactive-top"
+  //             className="sr-only focus:not-sr-only focus:absolute focus:px-1 focus:py-0.5"
+  //           >
+  //             Top of Interactive
+  //           </button>
+  //         </div>
+  //         <div>
+  //           <span className="text-xl font-semibold">Interactive Complete!</span>
+  //         </div>
+  //         <div className="mb-8 mt-4 text-lg">
+  //           <span>Scroll to continue.</span>
+  //         </div>
+  //       </div>{" "}
+  //       <PartFourControlPanel />
+  //     </div>
+  //   );
+  // }
+
+  // return null;
+  // return (
+  //   <InteractivePrimaryLayout
+  //     leftHeader={phase === 1 ? `Genotype with Microhaplotypes` : ""}
+  //     leftContent={}
+  //     // rightHeader={}
+  //     // rightContent={}
+  //   />
+  // );
 
   return (
     <div>
@@ -131,10 +146,116 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
         instructions={partFourPrompts[phase].instructions}
         title={partFourPrompts[phase].title}
       />
-      <StandardLayout>
+      {phase >= 1 && (
+        <InteractivePrimaryLayout
+          leftHeader={
+            phase === 1
+              ? `Genotype with Microhaplotypes`
+              : "MOI Estimates (Graph)"
+          }
+          leftContent={
+            <div className="flex flex-col transition-all duration-1000">
+              {phase === 1 && (
+                <div className="dark:brightness-75">
+                  <MicrohaplotypeGenotypeTable
+                    className="mb-8"
+                    microIdsMatrix={
+                      fixedData[4].infections[activeIndex]
+                        .microIds as unknown as MicroId[][]
+                    }
+                    possibleVals={possibleVals}
+                  />
+                </div>
+              )}
+              {phase === 1 && (
+                <KnowledgeCheckQuestion
+                  callback={(activeIndex: number, answerIndex: number) => {
+                    if (averageDeduced || completion[phase]) {
+                      return;
+                    }
+                    let newInfections = [...infections];
+                    if (newInfections[activeIndex] === answerIndex) {
+                      newInfections[activeIndex] = null;
+                    } else {
+                      newInfections[activeIndex] = answerIndex;
+                    }
+                    setInfections(newInfections);
+                  }}
+                  // callback={(activeIndex: number, answerIndex: number) => {
+                  //   if (averageDeduced || completion[phase]) {
+                  //     return;
+                  //   }
+                  //   if (attemptedMOIInput === answerIndex) {
+                  //     setAttemptedMOIInput(null);
+                  //   } else {
+                  //     setAttemptedMOIInput(answerIndex);
+                  //   }
+                  // }}
+                  hasAnswer={phase >= 2 || completion[phase]}
+                  disabled={averageDeduced}
+                  headerText="MOI: "
+                  questionIdx={activeIndex}
+                  classNames={{
+                    container:
+                      "flex flex-col md:flex-row md:gap-4 lg:gap-8 gap-4 text-center md:text-left mt-8",
+                    headerText: "text-base  mb-0 ",
+                    answersContainer:
+                      "grid grid-cols-5 place-items-center  grow",
+                  }}
+                  answers={Array(5)
+                    .fill(0)
+                    .map((el, idx) => {
+                      return {
+                        text: (idx + 1).toString(),
+                        // checked:
+                        //   infections[activeIndex] === idx ||
+                        //   idx === attemptedMOIInput,
+                        checked: infections[activeIndex] === idx + 1,
+                        correct:
+                          infections[activeIndex] === idx + 1
+                            ? true
+                            : !completion[1],
+                        index: idx + 1,
+                      };
+                    })}
+                />
+              )}
+              {phase === 2 && (
+                <div className="aspect-[2/1]">
+                  <Histogram
+                    color={`bg-[rgba(20_130_140_/_0.6)]`}
+                    label={"Microhaplotype Estimates"}
+                    datasets={[
+                      {
+                        correctAverage: averageDeduced,
+                        label: "Microhaplotype Estimates",
+                        data: infectionsCount,
+                        backgroundColor: " rgb(20 130 140 / 0.6)",
+                        borderColor: " rgb(20 130 140 / 0.6)",
+                        borderWidth: 2,
+                      },
+                    ]}
+                  />
+                </div>
+              )}
+            </div>
+          }
+          rightHeader={`Estimates`}
+          rightContent={
+            <div className="grid place-items-center">
+              <PartFourInfectionTable average={infectionAverage} />
+            </div>
+          }
+        />
+      )}
+      {/* <StandardLayout>
         <div>
           <FormHeader
-            text={`${phase === 1 ? `Genotype with Microhaplotypes` : `Estimate Distribution`}`}
+            text={`${
+              phase === 1
+                ? `Genotype with Microhaplotypes`
+                : `Estimate Distribution`
+            }`}
           />
 
           <div className="flex flex-col transition-all duration-1000">
@@ -227,8 +348,8 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
             <PartFourInfectionTable average={infectionAverage} />
           </div>
         </div>
-      </StandardLayout>
-      <PartFourControlPanel />
+      </StandardLayout> */}
+      {/* <PartFourControlPanel /> */}
     </div>
   );
 
@@ -252,7 +373,9 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
               <div className="mb-8 flex flex-col gap-2">
                 <h2 className="w-full text-center text-xl font-bold md:text-left">
                   {phase === 1
-                    ? `Genotype of Infection ${activeIndex + 1} (microhaplotypes)`
+                    ? `Genotype of Infection ${
+                        activeIndex + 1
+                      } (microhaplotypes)`
                     : `Calculate Average MOI`}
                 </h2>
                 <KnowledgeCheckQuestion

@@ -2,7 +2,7 @@
 import CloneRow, {
   cloneRowButtonColors,
   cloneRowColors,
-} from "@/components/Interactives/Shared/CloneRow/CloneRow";
+} from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   cloneRowsAtom,
@@ -14,8 +14,9 @@ import { useAtom, useAtomValue } from "jotai";
 import { RESET } from "jotai/utils";
 import { useCallback, useEffect } from "react";
 import LabelRow from "./LabelRow";
-import CloneElement from "@/components/Interactives/Shared/CloneRow/CloneElement";
-import { findFirstFocusableElement } from "@/helpers/helpers";
+import CloneElement from "@/app/components/Interactives/Shared/CloneRow/CloneElement";
+import { findFirstFocusableElement } from "@/app/components/Interactives/helpers";
+// import { findFirstFocusableElement } from "@/helpers/helpers";
 
 const refValues = fixedData[1].refValues;
 const altValues = fixedData[1].altValues;
@@ -77,7 +78,6 @@ export default function CloneRowTable({
 
   useEffect(() => {
     if (activeBoard === 1 && !currentBoard.valid && phase === 2) {
-      console.log("called");
       let x: HTMLElement | undefined = findFirstFocusableElement(
         document.getElementById("form-interactive"),
       );
@@ -87,7 +87,9 @@ export default function CloneRowTable({
   }, [phase]);
 
   return (
-    <div className={`flex max-w-[500px] grow flex-col gap-1`}>
+    <div
+      className={`flex max-w-[500px] grow flex-col gap-1 dark:brightness-75`}
+    >
       <div className="grid gap-1 [grid-template-columns:8%_auto]">
         <div className="col-start-2">
           <LabelRow />
@@ -106,8 +108,8 @@ export default function CloneRowTable({
                       ? "hidden"
                       : "visible"
                     : currentBoard.rows.includes(cloneRow.id) && phase === 2
-                      ? "hidden invisible delay-300"
-                      : "fadeIn500 visible",
+                    ? "hidden invisible delay-300"
+                    : "fadeIn500 visible",
                 button: cloneRowButtonColors[cloneRow.id],
                 row: cloneRowColors[cloneRow.id],
               }}
@@ -116,7 +118,7 @@ export default function CloneRowTable({
                 return (
                   <CloneElement
                     animation={phase === 1 && forwards}
-                    className={"bg-white"}
+                    className={"bg-white text-black dark:bg-white/50"}
                     possibleValues={{
                       reference: refValues[idx2],
                       alternate: altValues[idx2],
@@ -133,13 +135,11 @@ export default function CloneRowTable({
             <button
               disabled={currentBoard.rows.includes(cloneRow.id)}
               type="button"
-              className={`transition-all focus-within:outline-offset-2 hover:scale-105 hover:transition-all
-                ${
-                  phase === 2 && currentBoard.rows.includes(cloneRow.id)
-                    ? "hidden"
-                    : "fadeIn500 visible"
-                }
-              `}
+              className={`transition-all focus-within:outline-offset-2 hover:scale-105 hover:transition-all ${
+                phase === 2 && currentBoard.rows.includes(cloneRow.id)
+                  ? "hidden"
+                  : "fadeIn500 visible"
+              } `}
               onClick={() => {
                 handleClick(cloneRow.id);
               }}
@@ -158,7 +158,7 @@ export default function CloneRowTable({
                   return (
                     <CloneElement
                       animation={phase === 1 && forwards}
-                      className={"bg-white"}
+                      className={"bg-white text-black dark:bg-white/50"}
                       possibleValues={{
                         reference: refValues[idx2],
                         alternate: altValues[idx2],

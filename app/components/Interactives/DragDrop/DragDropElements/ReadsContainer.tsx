@@ -1,8 +1,10 @@
 import {
   dragDropCompletionAtom,
   dragDropQuestionsAtom,
+  dragLocationAtom,
   globalDragAtom,
-  phaseAtom,
+  hintsEnabledAtom,
+  phase3Atom,
   reads2Atom,
   readsAtom,
   ReadType,
@@ -17,24 +19,41 @@ import {
   useMemo,
 } from "react";
 import {
-  charSize,
+  // charSize,
   clearRefTimeout,
-  dropContainerWidth,
-  paddingFromBorder,
-  paddingLeft,
-  paddingRight,
-  readStartOffset,
-  rowDistance,
-  topDistanceIncludingBorder,
+  // dropContainerWidth,
+  // paddingFromBorder,
+  // paddingLeft,
+  // paddingRight,
+  // readStartOffset,
+  // rowDistance,
+  // topDistanceIncludingBorder,
 } from "./Container";
 import { useDrop } from "react-dnd";
-import { placeHighest } from "../helpers";
+import { placeHighest, readsValid } from "../helpers";
 import { atomWithStorage, RESET } from "jotai/utils";
-import { useMediaQuery, usePrevious, useWindowSize } from "@/components/hooks";
+import {
+  useMediaQuery,
+  usePrevious,
+  useWindowSize,
+} from "@/app/components/hooks";
 import Trash from "./Trash";
 import ChimaeraRead from "./ChimaeraRead";
 import ChimaeraLength from "./ChimaeraLength";
 import { isOverReadsContainerAtom } from "./ReferenceGenome";
+import { sideBarIsOpenAtom } from "../../Shared/InteractiveViewer/InteractiveSideBar/InteractiveSideBar";
+import { currentView3Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
+
+const topDistanceIncludingBorder = 172;
+const borderWidth = 24;
+const paddingFromBorder = topDistanceIncludingBorder - borderWidth;
+const paddingLeft = 32;
+const paddingRight = 64;
+const rowHeight = 32;
+const rowDistance = 32;
+const charSize = 18;
+const readStartOffset = 18;
+const dropContainerWidth = 1148;
 
 const readRows: { [key: number]: number } = {
   1: 6,
@@ -81,7 +100,9 @@ export default function ReadsContainer({
   // const screenSize = useMediaQuery();
   const windowSize = useWindowSize();
   const screenSize = windowSize < 768 ? "sm" : windowSize < 1152 ? "md" : "lg";
-  const phase = useAtomValue(phaseAtom);
+  // const phase = useAtomValue(phase3Atom);
+  const currentView = useAtomValue(currentView3Atom);
+  const { phase, section } = currentView;
   const [chimaeraRead, setChimaeraRead] = useAtom(chimaeraReadAtom);
   const prevPhase = usePrevious(phase, 0).current;
   const completion = useAtomValue(dragDropCompletionAtom);
@@ -89,8 +110,11 @@ export default function ReadsContainer({
     isOverReadsContainerAtom,
   );
   const dragDropQuestions = useAtomValue(dragDropQuestionsAtom);
+  const sideBarIsOpen = useAtomValue(sideBarIsOpenAtom);
+  const [hintsEnabled, setHintsEnabled] = useAtom(hintsEnabledAtom);
+  // const dragLocation = useAtomValue(dragLocationAtom);
 
-  const currentReads = phase < 5 ? reads : reads2;
+  const currentReads = section === 1 ? reads : reads2;
   const currentSetter = phase < 5 ? setReads : setReads2;
 
   const changeCharStart = useCallback(
@@ -252,40 +276,58 @@ export default function ReadsContainer({
         setGlobalDrag(false);
         clearRefTimeout(scrollIntervalTimeoutRef);
         let coords = monitor.getSourceClientOffset();
-        let mx = Math.max(0, (innerWidth - dropContainerWidth) / 2);
-        if (coords?.x && scrollRef?.current?.scrollLeft !== undefined) {
+        let x = coords?.x ? (sideBarIsOpen ? coords.x - 384 : coords.x) : null;
+        if (x && scrollRef?.current) {
+          let newMx =
+            ((scrollRef?.current?.parentElement?.clientWidth ?? innerWidth) -
+              1152) /
+            2;
           let z: number;
-          if (screenSize !== "lg") {
-            z = Math.round(
-              (coords.x - paddingLeft - mx + scrollRef.current.scrollLeft) /
-                charSize,
-            );
-          } else {
-            z = Math.ceil(
-              (coords.x - paddingLeft - mx + scrollRef.current.scrollLeft) /
-                charSize,
-            );
+          x =
+            scrollRef?.current?.scrollLeft + x - Math.max(0, Math.floor(newMx));
+          if (screenSize === "sm") {
+            x = x + 2;
           }
+          z = Math.round((x - paddingLeft) / charSize);
           z = Math.max(0, Math.min(z, 36));
-          if (phase === 8) {
-            changeChimaeraStart({
-              read: item,
-              newPosition: z,
-            });
-          } else if (phase < 5) {
+          if (section === 1) {
             changeCharStart({ read: item, newPosition: z });
-          } else {
-            changeCharStart2({ read: item, newPosition: z });
+          } else if (section === 2) {
+            if (false) {
+            } else {
+              changeCharStart2({ read: item, newPosition: z });
+            }
           }
+          // if (phase === 8) {
+          //   changeChimaeraStart({
+          //     read: item,
+          //     newPosition: z,
+          //   });
+          // } else if (phase < 5) {
+          //   changeCharStart({ read: item, newPosition: z });
+          // } else {
+          //   changeCharStart2({ read: item, newPosition: z });
+          // }
         }
 
         return undefined;
       },
     }),
-    [changeCharStart, screenSize, changeCharStart2, phase, reads, reads2],
+    [
+      changeCharStart,
+      screenSize,
+      changeCharStart2,
+      currentView,
+      reads,
+      reads2,
+      sideBarIsOpen,
+      // dragLocation,
+    ],
   );
 
   let minHeight = useMemo(() => {
+    let bottomPadding = 0;
+    let currentReads = section === 1 ? reads : reads2;
     let x = Math.max(
       8 * rowDistance,
       (Math.max.apply(
@@ -294,13 +336,34 @@ export default function ReadsContainer({
           return read.rowStart ?? 0;
         }),
       ) +
-        4) *
-        rowDistance,
+        3) *
+        rowDistance +
+        bottomPadding,
     );
     return x;
-  }, [currentReads]);
+  }, [currentReads, currentView]);
 
-  let readsComplete = phase >= 8;
+  // let minHeight = useMemo(() => {
+  //   let bottomPadding = 0;
+  //   let x = Math.max(
+  //     8 * rowDistance,
+  //     (phase >= 10.5
+  //       ? 12
+  //       : Math.max.apply(
+  //           null,
+  //           currentReads.map((read, idx) => {
+  //             return read.rowStart ?? 0;
+  //           })
+  //         ) + 2) *
+  //       rowDistance +
+  //       bottomPadding
+  //   );
+  //   console.log("MIN HEIGHT", x);
+  //   return x;
+  // }, [currentReads, phase]);
+
+  let readsComplete =
+    (section === 2 && phase === 3) || (section && section > 2);
 
   const orderedReads = useMemo(() => {
     if (readsComplete) {
@@ -332,10 +395,23 @@ export default function ReadsContainer({
   }, [readsComplete]);
 
   return (
-    <div>
+    <div
+    // style={{
+    //   backgroundAttachment: "scroll",
+    //   backgroundPosition: "0px -8px",
+    //   backgroundSize: "18px 32px",
+    //   backgroundImage: `linear-gradient(to right, #00000040, transparent 1px),
+    //   linear-gradient(to bottom, #00000040, transparent 1px)`,
+    //   // backgroundImage: ""
+    //   // backgroundImage: `linear-gradient(180deg, transparent 100px, #afafaf40 100px, #afafaf40)`,
+    // }}
+    >
       <div
         style={{
-          minHeight: phase === 8 ? 140 : minHeight,
+          minHeight:
+            section === 3 && phase > 0 && dragDropQuestions[6] === 2
+              ? 420
+              : minHeight,
         }}
         className={
           phase === 8 || prevPhase === 8 || completion[phase] || phase === 1
@@ -355,7 +431,7 @@ export default function ReadsContainer({
         }}
         // className="h-full w-full"
       >
-        {phase >= 3 && phase < 5
+        {section === 1
           ? reads.map((read, idx) => {
               return (
                 <DraggableRead
@@ -367,14 +443,102 @@ export default function ReadsContainer({
                     idx === 0
                       ? false
                       : read.charStart !== null
-                        ? false
-                        : read.trash !== null
-                          ? false
-                          : !(
-                              reads.slice(0, idx).filter((read) => {
-                                return read.readStart;
-                              }).length === 0
-                            )
+                      ? false
+                      : read.trash !== null
+                      ? false
+                      : !(
+                          reads.slice(0, idx).filter((read) => {
+                            return read.readStart;
+                          }).length === 0
+                        )
+                  }
+                />
+              );
+            })
+          : section === 2 && phase < 3
+          ? reads2.map((read, idx) => {
+              return (
+                <DraggableRead
+                  scrollRef={scrollRef}
+                  changeCharStart={changeCharStart2}
+                  key={read.id}
+                  read={{
+                    ...read,
+                    charStart: read.charStart,
+                    rowStart:
+                      phase === 11 ? readRows?.[read.id] : read.rowStart,
+                    rowChange: phase >= 8 ? true : read.rowChange,
+                  }}
+                  hidden={
+                    !(
+                      reads2.slice(0, idx).filter((read) => {
+                        return read.readStart;
+                      }).length === 0
+                    )
+                  }
+                  // hidden={
+                  //   phase === 8
+                  //     ? true
+                  //     : phase === 9 && read.text[0] === "A"
+                  //     ? true
+                  //     : phase > 8 && read.trash !== null
+                  //     ? true
+                  //     : idx === 0
+                  //     ? false
+                  //     : phase === 6 && idx >= 10
+                  //     ? true
+                  //     : read.charStart !== null
+                  //     ? false
+                  //     : read.trash !== null
+                  //     ? false
+                  //     : !(
+                  //         reads2.slice(0, idx).filter((read) => {
+                  //           return read.readStart;
+                  //         }).length === 0
+                  //       )
+                  // }
+                />
+              );
+            })
+          : orderedReads.map((read, idx) => {
+              return (
+                <DraggableRead
+                  scrollRef={scrollRef}
+                  changeCharStart={changeCharStart2}
+                  key={read.id}
+                  read={{
+                    ...read,
+                    charStart: read.charStart,
+                    rowStart:
+                      section === 3 && phase > 0 && dragDropQuestions[6] === 2
+                        ? readRows?.[read.id]
+                        : read.rowStart,
+                    rowChange: section === 3 ? true : read.rowChange,
+                  }}
+                  hidden={read.trash !== null}
+                />
+              );
+            })}
+        {/* {phase >= 0 && phase < 5
+          ? reads.map((read, idx) => {
+              return (
+                <DraggableRead
+                  scrollRef={scrollRef}
+                  changeCharStart={changeCharStart}
+                  key={read.id}
+                  read={read}
+                  hidden={
+                    idx === 0
+                      ? false
+                      : read.charStart !== null
+                      ? false
+                      : read.trash !== null
+                      ? false
+                      : !(
+                          reads.slice(0, idx).filter((read) => {
+                            return read.readStart;
+                          }).length === 0
+                        )
                   }
                 />
               );
@@ -398,22 +562,22 @@ export default function ReadsContainer({
                     phase === 8
                       ? true
                       : phase === 9 && read.text[0] === "A"
-                        ? true
-                        : phase > 8 && read.trash !== null
-                          ? true
-                          : idx === 0
-                            ? false
-                            : phase === 6 && idx >= 10
-                              ? true
-                              : read.charStart !== null
-                                ? false
-                                : read.trash !== null
-                                  ? false
-                                  : !(
-                                      reads2.slice(0, idx).filter((read) => {
-                                        return read.readStart;
-                                      }).length === 0
-                                    )
+                      ? true
+                      : phase > 8 && read.trash !== null
+                      ? true
+                      : idx === 0
+                      ? false
+                      : phase === 6 && idx >= 10
+                      ? true
+                      : read.charStart !== null
+                      ? false
+                      : read.trash !== null
+                      ? false
+                      : !(
+                          reads2.slice(0, idx).filter((read) => {
+                            return read.readStart;
+                          }).length === 0
+                        )
                   }
                 />
               );
@@ -448,12 +612,36 @@ export default function ReadsContainer({
                 />
               );
             })
-          : null}
+          : null} */}
+        {section === 2 &&
+          !hintsEnabled &&
+          !readsValid(reads2, 2) &&
+          reads2.filter((read) => {
+            return read.readStart;
+          }).length === 0 && (
+            <span
+              style={{
+                animationDelay: "5000ms",
+              }}
+              className="fadeIn500 absolute left-8 top-12 max-w-xs select-none"
+            >
+              If you are having trouble placing all the reads correctly, try
+              enabling hints{" "}
+              <button
+                onClick={() => {
+                  setHintsEnabled(true);
+                }}
+                className="text-interactiveBlue font-bold italic underline"
+              >
+                here!
+              </button>
+            </span>
+          )}
       </div>
       <Trash
         scrollIntervalTimeoutRef={scrollIntervalTimeoutRef}
-        reads={phase === 3 ? reads : reads2}
-        changeCharStart={phase === 3 ? changeCharStart : changeCharStart2}
+        reads={reads2}
+        changeCharStart={changeCharStart2}
       />
     </div>
   );

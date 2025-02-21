@@ -1,5 +1,5 @@
 "use client";
-import { cloneRowColors } from "@/components/Interactives/Shared/CloneRow/CloneRow";
+import { cloneRowColors } from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import {
   activePairwiseComboAtom,
   hintsEnabledAtom,
@@ -8,16 +8,21 @@ import {
   pairwiseMHPCompletionAtom,
   partSixCloneRowsAtom,
   partSixCompletionAtom,
+  phase2Atom,
   phaseAtom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
 import { P6CloneRowColors } from "../../CloneRows/P6MHPCloneRows";
 import { useEffect } from "react";
 import {
-  compareOrderedArrays,
   compareUnorderedArrays,
   findFirstFocusableElement,
-} from "@/helpers/helpers";
+} from "@/app/components/Interactives/helpers";
+// import {
+//   compareOrderedArrays,
+//   compareUnorderedArrays,
+//   findFirstFocusableElement,
+// } from "@/helpers/helpers";
 
 export default function SNPComparator({
   activeCombo,
@@ -31,7 +36,7 @@ export default function SNPComparator({
   // );
   const [pairwiseCombos, setPairwiseCombos] = useAtom(pairwiseCombosAtom);
   const pairwiseCompletion = useAtomValue(pairwiseCompletionAtom);
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase2Atom);
   const completion = useAtomValue(partSixCompletionAtom);
   const hintsEnabled = useAtomValue(hintsEnabledAtom);
   const cloneRows = useAtomValue(partSixCloneRowsAtom);
@@ -79,7 +84,7 @@ export default function SNPComparator({
 
   if (first === second) {
     return (
-      <div className="max-w-[500px]">
+      <div className="max-w-[500px] dark:brightness-75">
         {label && (
           <div className="mb-2 mt-4  text-center">
             <label className="text-sm">
@@ -127,7 +132,7 @@ export default function SNPComparator({
   }
 
   return (
-    <div className="max-w-[500px]">
+    <div className="max-w-[500px] dark:brightness-75">
       {label && (
         <div className="mb-2 mt-4  text-center">
           <label className="text-sm">
@@ -209,7 +214,13 @@ export default function SNPComparator({
                         },
                       });
                     }}
-                    className={`css-label rounded shadow-sm shadow-black/50 outline-offset-1 peer-focus:outline peer-focus:outline-2 peer-focus:outline-black peer-[myPeer]:focus:border-black ${hintsEnabled && ((x[idx] && !pairwiseCombos[first][second][idx]) || (!x[idx] && pairwiseCombos[first][second][idx])) ? "ring-2 ring-orange-400" : ""}`}
+                    className={`css-label rounded shadow-sm shadow-black/50 outline-offset-1 peer-focus:outline peer-focus:outline-2 peer-focus:outline-black peer-[myPeer]:focus:border-black ${
+                      hintsEnabled &&
+                      ((x[idx] && !pairwiseCombos[first][second][idx]) ||
+                        (!x[idx] && pairwiseCombos[first][second][idx]))
+                        ? "ring-2 ring-orange-400"
+                        : ""
+                    }`}
                   ></label>
                 </div>
               );

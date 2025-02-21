@@ -1,8 +1,8 @@
-import KnowledgeCheckQuestion from "@/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
+import KnowledgeCheckQuestion from "@/app/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
 import {
   partEightCompletionAtom,
   partEightPentagonQuestionsAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
 import EGComparison from "./AnimationComponents/AnimationSideBySideComponents/EGComparison";
@@ -10,12 +10,12 @@ import EIComparison from "./AnimationComponents/AnimationSideBySideComponents/EI
 import GIComparison from "./AnimationComponents/AnimationSideBySideComponents/GIComparison";
 import FHComparison from "./AnimationComponents/AnimationSideBySideComponents/FHComparison";
 import PentagonTable from "./PentagonTable/PentagonTable";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
-import QuestionResponseText from "@/components/Interactives/Shared/misc/QuestionResponseText";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
+import QuestionResponseText from "@/app/components/Interactives/Shared/misc/QuestionResponseText";
 
 export default function AnimationPentagonSideBySide() {
   const [questions, setQuestions] = useAtom(partEightPentagonQuestionsAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const completion = useAtomValue(partEightCompletionAtom);
 
   console.log(questions);
@@ -27,7 +27,7 @@ export default function AnimationPentagonSideBySide() {
       {phase === 29 && <GIComparison />}
       {phase === 29.5 && (
         <div>
-          <FormHeader text="Reassessing" />
+          {/* <FormHeader text="Reassessing" /> */}
           <KnowledgeCheckQuestion
             questionIdx={4}
             classNames={{
@@ -95,7 +95,6 @@ export default function AnimationPentagonSideBySide() {
       {(phase === 34 || phase === 35) && <PentagonTable />}
       {phase >= 36 && (
         <div>
-          <FormHeader text="Questions" />
           {phase === 36 && (
             <div>
               <KnowledgeCheckQuestion
@@ -318,7 +317,7 @@ export default function AnimationPentagonSideBySide() {
                 }}
                 hasAnswer={questions[8] === 1}
                 questionIdx={8}
-                headerText="Here’s a thought exercise for you. If the MOI of both imported cases (E and F) was one and both infections unique, and the same transmission between people occurred as in this scenario, how many different parasite genotypes would you expect to see in this village?"
+                headerText="Here’s a challenging thought exercise for you. If the MOI of both imported cases (E and F) was one and both infections unique, and the same transmission between people occurred as in this scenario, how many different parasite genotypes would you expect to see in this village?"
               />
               <QuestionResponseText
                 complete={completion[phase] ?? false}

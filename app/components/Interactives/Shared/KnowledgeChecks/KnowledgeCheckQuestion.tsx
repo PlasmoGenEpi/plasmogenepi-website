@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from "react";
+import { CSSProperties, ReactNode, useEffect, useRef } from "react";
 import KnowledgeCheckAnswer from "./KnowledgeCheckAnswer";
 
 export default function KnowledgeCheckQuestion({
@@ -12,7 +12,9 @@ export default function KnowledgeCheckQuestion({
   children,
   trigger,
   triggerEnd,
+  style,
 }: {
+  style?: CSSProperties;
   triggerEnd?: boolean;
   trigger?: boolean;
   children?: ReactNode;
@@ -36,32 +38,38 @@ export default function KnowledgeCheckQuestion({
 }) {
   const questionRef = useRef<null | HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (
-      (trigger === undefined || trigger) &&
-      !hasAnswer &&
-      questionRef.current !== null &&
-      !questionRef.current.contains(document.activeElement)
-    ) {
-      questionRef.current.focus();
-      questionRef.current.scrollIntoView({
-        block: triggerEnd ? "end" : "center",
-        behavior: "smooth",
-      });
-    }
-  }, [hasAnswer, trigger, triggerEnd]);
+  // useEffect(() => {
+  //   if (
+  //     (trigger === undefined || trigger) &&
+  //     !hasAnswer &&
+  //     questionRef.current !== null &&
+  //     !questionRef.current.contains(document.activeElement)
+  //   ) {
+  //     questionRef.current.focus();
+  //     questionRef.current.scrollIntoView({
+  //       block: triggerEnd ? "end" : "start",
+  //       // block: "start",
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }, [hasAnswer, trigger, triggerEnd]);
 
   return (
     <div
+      style={!hasAnswer && style ? style : undefined}
       ref={questionRef}
       tabIndex={0}
       role="radiogroup"
       aria-roledescription="radiogroup"
-      className={classNames?.container + ` focus-within:outline-offset-8`}
+      className={
+        classNames?.container + ` focus-within:outline-offset-8 scroll-my-48`
+      }
       aria-label={headerText}
     >
       <h6
-        className={`${classNames?.headerText ? classNames?.headerText : ""} text-pretty leading-[23px] [fontSize:15px]`}
+        className={`${
+          classNames?.headerText ? classNames?.headerText : ""
+        } text-pretty leading-[23px] [fontSize:15px]`}
       >
         {headerText}
       </h6>

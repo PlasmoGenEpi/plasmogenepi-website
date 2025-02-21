@@ -1,10 +1,10 @@
 "use client";
-import { usePrevious } from "@/components/hooks";
+import { usePrevious } from "@/app/components/hooks";
 import {
   partTwoAverageDeducedAtom,
   partTwoCompletionAtom,
   partTwoInfectionsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedInfectionIndexAtom,
 } from "@/data/Interactives/interactiveStore";
 import { atom, useAtom, useAtomValue } from "jotai";
@@ -20,20 +20,29 @@ import GenotypeOutputElement from "../../Shared/Genotyping/GenotypeOutputElement
 import InfectionTable from "./InfectionTable";
 import PartTwoControlPanel from "./PartTwoControlPanel";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { findFirstFocusableElement } from "@/helpers/helpers";
+// import { findFirstFocusableElement } from "@/helpers/helpers";
 import { partTwoPrompts } from "./partTwoPrompts";
 import CompletePage from "../../Shared/misc/CompletePage";
 import PartTwoInfectionTable from "./PartTwoInfectionTable";
 import FormHeader from "../../Shared/misc/FormHeader";
+import InteractivePrimaryLayout from "../../Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
+import { atomWithStorage } from "jotai/utils";
+import QuestionResponseText from "../../Shared/misc/QuestionResponseText";
 
 const possibleVals = fixedData[2].infectionAlleleReferences.map((obj) => {
   return { reference: obj.ref, alternate: obj.alt };
 });
 
 export const attemptedMOIInputAtom = atom<null | number>(null);
+export const p2QuestionAnsweredAtom = atomWithStorage<null | number>(
+  "p2QuestionAnsweredAtom",
+  null,
+);
+export const p2TextIsShownAtom = atomWithStorage("p2TextIsShownAtom", false);
 
 export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [textIsShown, setTextIsShown] = useAtom(p2TextIsShownAtom);
+  const [phase, setPhase] = useAtom(phase1Atom);
   const [completion, setCompletion] = useAtom(partTwoCompletionAtom);
   const [attemptedMOIInput, setAttemptedMOIInput] = useAtom(
     attemptedMOIInputAtom,
@@ -48,6 +57,9 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
 
   const [averageDeduced, setAverageDeduced] = useAtom(
     partTwoAverageDeducedAtom,
+  );
+  const [questionAnswered, setQuestionAnswered] = useAtom(
+    p2QuestionAnsweredAtom,
   );
 
   let infectionsCount = Array(5).fill(0);
@@ -81,6 +93,13 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [infections]);
 
+  useEffect(() => {
+    setActiveIndex(0);
+    return () => {
+      setActiveIndex(0);
+    };
+  }, []);
+
   const vals = useMemo(() => {
     if (activeIndex === 10) {
       return [];
@@ -108,29 +127,29 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
         return a + b;
       }) / 10;
 
-  if (phase === 3) {
-    return (
-      <div>
-        <div className="pb-12 pt-12 text-center text-xl">
-          <div className="h-8 text-left">
-            <button
-              id="interactive-top"
-              className="sr-only focus:not-sr-only focus:absolute focus:px-1 focus:py-0.5"
-            >
-              Top of Interactive
-            </button>
-          </div>
-          <div>
-            <span className="text-xl font-semibold">Interactive Complete!</span>
-          </div>
-          <div className="mb-8 mt-4 text-lg">
-            <span>Scroll to continue.</span>
-          </div>
-        </div>{" "}
-        <PartTwoControlPanel />
-      </div>
-    );
-  }
+  // if (phase === 3) {
+  //   return (
+  //     <div>
+  //       <div className="pb-12 pt-12 text-center text-xl">
+  //         <div className="h-8 text-left">
+  //           <button
+  //             id="interactive-top"
+  //             className="sr-only focus:not-sr-only focus:absolute focus:px-1 focus:py-0.5"
+  //           >
+  //             Top of Interactive
+  //           </button>
+  //         </div>
+  //         <div>
+  //           <span className="text-xl font-semibold">Interactive Complete!</span>
+  //         </div>
+  //         <div className="mb-8 mt-4 text-lg">
+  //           <span>Scroll to continue.</span>
+  //         </div>
+  //       </div>{" "}
+  //       <PartTwoControlPanel />
+  //     </div>
+  //   );
+  // }
 
   // return (
   //   <div>
@@ -173,10 +192,179 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
         instructions={partTwoPrompts[phase].instructions}
         title={partTwoPrompts[phase].title}
       />
-      <StandardLayout>
+      {phase >= 1 && (
+        <InteractivePrimaryLayout
+          leftHeader={
+            phase === 1 ? (
+              <div className=" @4xl/main:text-left @4xl/main:mt-0 mt-8 text-center">
+                <h4 className="@2xl/main:text-wrap @2xl/main:text-left text-balance  text-center text-lg font-semibold">
+                  Genotype with SNPs
+                  <label className="text-sm">
+                    <br></br>
+                    Infection {activeIndex + 1}
+                  </label>
+                </h4>
+              </div>
+            ) : phase === 2 ? (
+              `MOI Estimates (Graph)`
+            ) : (
+              `MOI Estimates`
+            )
+          }
+          leftContent={
+            phase === 1 ? (
+              <div className="max-w-[500px]">
+                <GenotypeResult
+                  id={1}
+                  vals={vals}
+                  possibleValues={possibleVals}
+                />
+                <KnowledgeCheckQuestion
+                  callback={(activeIndex: number, answerIndex: number) => {
+                    if (averageDeduced || completion[phase]) {
+                      return;
+                    }
+                    let newInfections = [...infections];
+                    if (newInfections[activeIndex] === answerIndex) {
+                      newInfections[activeIndex] = null;
+                    } else {
+                      newInfections[activeIndex] = answerIndex;
+                    }
+                    setInfections(newInfections);
+                  }}
+                  // callback={(activeIndex: number, answerIndex: number) => {
+                  //   if (averageDeduced || completion[phase]) {
+                  //     return;
+                  //   }
+                  //   if (attemptedMOIInput === answerIndex) {
+                  //     setAttemptedMOIInput(null);
+                  //   } else {
+                  //     setAttemptedMOIInput(answerIndex);
+                  //   }
+                  // }}
+                  hasAnswer={phase >= 2 || completion[phase]}
+                  disabled={averageDeduced}
+                  headerText="MOI: "
+                  questionIdx={activeIndex}
+                  classNames={{
+                    container:
+                      "flex flex-col md:flex-row md:gap-4 lg:gap-8 gap-4 text-center md:text-left mt-8",
+                    headerText: "text-base mb-0",
+                    answersContainer:
+                      "grid grid-cols-5 place-items-center  grow",
+                  }}
+                  answers={Array(5)
+                    .fill(0)
+                    .map((el, idx) => {
+                      return {
+                        text: (idx + 1).toString(),
+                        // checked:
+                        //   infections[activeIndex] === idx ||
+                        //   idx === attemptedMOIInput,
+                        checked: infections[activeIndex] === idx + 1,
+                        correct:
+                          infections[activeIndex] === idx + 1
+                            ? true
+                            : !completion[1],
+                        index: idx + 1,
+                      };
+                    })}
+                />
+              </div>
+            ) : phase === 2 ? (
+              <div className="mx-auto max-w-[500px]">
+                <Histogram
+                  color={`bg-[rgba(20_130_140_/_0.6)]`}
+                  label={"SNP Estimates"}
+                  datasets={[
+                    {
+                      correctAverage: averageDeduced,
+                      label: "SNP Estimates",
+                      data: infectionsCount,
+                      backgroundColor: "rgb(20 130 140 / 0.6)",
+                      borderColor: "rgb(20 130 140 / 0.6)",
+                      borderWidth: 2,
+                    },
+                  ]}
+                />
+              </div>
+            ) : (
+              <div className="grid place-items-center">
+                <PartTwoInfectionTable average={infectionAverage} />
+              </div>
+            )
+          }
+          rightHeader={phase !== 3 ? `MOI Estimates` : "Questions"}
+          rightContent={
+            phase < 3 ? (
+              <div className="grid place-items-center">
+                <PartTwoInfectionTable average={infectionAverage} />
+              </div>
+            ) : (
+              <div>
+                <KnowledgeCheckQuestion
+                  answers={[
+                    {
+                      checked: questionAnswered === 1,
+                      correct: true,
+                      index: 1,
+                      text: "Yes",
+                    },
+                    {
+                      checked: questionAnswered === 2,
+                      correct: true,
+                      index: 2,
+                      text: "No",
+                    },
+                  ]}
+                  classNames={{
+                    headerText: "text-base mb-0 ",
+                    answersContainer: "grid gap-2 mt-4",
+                  }}
+                  questionIdx={1}
+                  callback={(questionIdx, answerIdx) => {
+                    if (questionAnswered === answerIdx) {
+                      setQuestionAnswered(null);
+                    } else {
+                      setQuestionAnswered(answerIdx);
+                    }
+                  }}
+                  hasAnswer={textIsShown}
+                  headerText="Based on your results, do you think the vector control intervention worked?"
+                />
+                {questionAnswered && (
+                  <div className="mt-4 flex">
+                    {textIsShown ? (
+                      <QuestionResponseText
+                        visible={true}
+                        className="mt-4"
+                        text={
+                          "If the intervention worked, MOI should be significantly less than baseline, which was 2.5. Depending on your estimates,  you may determine that the mean MOI is now indeed lower (in which case it worked!), about the same, or even higher. We are not going to tell you the answer now, but don’t worry – you will soon do another activity with some additional analysis on the same samples and we’ll discuss the results in more detail."
+                        }
+                      />
+                    ) : (
+                      <button
+                        onClick={() => {
+                          setTextIsShown(true);
+                        }}
+                        className="bg-interactiveGreen fadeIn500 mx-auto rounded px-4 py-2 text-white shadow-sm shadow-black/50"
+                      >
+                        <span className="block translate-y-0.5">Feedback</span>
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            )
+          }
+        />
+      )}
+      {/* <StandardLayout>
         <div>
           <FormHeader
-            text={`${phase === 1 ? `Genotype with SNPs` : `Estimate Distribution`}`}
+            text={`${
+              phase === 1 ? `Genotype with SNPs` : `Estimate Distribution`
+            }`}
           />
           <div>
             {phase === 1 && (
@@ -219,7 +407,7 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
                 classNames={{
                   container:
                     "flex flex-col md:flex-row md:gap-4 lg:gap-8 gap-4 text-center md:text-left mt-8",
-                  headerText: "text-base text-black mb-0 text-black",
+                  headerText: "text-base mb-0 text-black",
                   answersContainer: "grid grid-cols-5 place-items-center  grow",
                 }}
                 answers={Array(5)
@@ -265,8 +453,8 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
             <PartTwoInfectionTable average={infectionAverage} />
           </div>
         </div>
-      </StandardLayout>
-      <PartTwoControlPanel />
+      </StandardLayout> */}
+      {/* <PartTwoControlPanel /> */}
     </div>
   );
 

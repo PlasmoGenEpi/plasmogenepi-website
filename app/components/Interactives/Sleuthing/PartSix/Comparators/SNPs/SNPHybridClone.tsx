@@ -9,7 +9,7 @@ export default function SNPHybridClone() {
     .slice(0, 6)
     .concat(cloneRows[2].vals.slice(6, 12));
   return (
-    <div className="grid gap-1 font-helvetica [grid-template-columns:8%_auto]">
+    <div className="grid gap-1 font-helvetica [grid-template-columns:8%_auto] text-black">
       <div
         //   style={{
         //     backgroundImage: `
@@ -32,13 +32,15 @@ export default function SNPHybridClone() {
                 key={idx}
               >
                 <span
-                  className={`${vals[idx] === 1 ? "alternateAllele" : ""} translate-y-[3px] text-lg font-bold leading-6 sm:text-xl`}
+                  className={`${
+                    vals[idx] === 1 ? "alternateAllele" : ""
+                  } translate-y-[3px] text-lg font-bold leading-6 sm:text-xl`}
                 >
                   {vals[idx] === 0
                     ? fixedData[6].refValues[idx]
                     : vals[idx] === 1
-                      ? fixedData[6].altValues[idx]
-                      : ""}
+                    ? fixedData[6].altValues[idx]
+                    : ""}
                 </span>
               </li>
             );

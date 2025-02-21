@@ -4,24 +4,25 @@ import ReferenceGenome from "./ReferenceGenome";
 import { MutableRefObject, Ref, TouchEvent, useEffect, useRef } from "react";
 import {
   globalDragAtom,
-  phaseAtom,
+  phase3Atom,
   readsAtom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import ReadsContainer from "./ReadsContainer";
 import { scrollStartAtom } from "./CustomDragLayer";
 import Labels from "./Labels/Labels";
+import { sideBarIsOpenAtom } from "../../Shared/InteractiveViewer/InteractiveSideBar/InteractiveSideBar";
 
-export const topDistanceIncludingBorder = 90;
-export const borderWidth = 24;
-export const paddingFromBorder = topDistanceIncludingBorder - borderWidth;
-export const paddingLeft = 32;
-export const paddingRight = 64;
-export const rowHeight = 32;
-export const rowDistance = 32;
-export const charSize = 18;
-export const readStartOffset = 18;
-export const dropContainerWidth = 1148;
+const topDistanceIncludingBorder = 172;
+const borderWidth = 24;
+const paddingFromBorder = topDistanceIncludingBorder - borderWidth;
+const paddingLeft = 32;
+const paddingRight = 64;
+const rowHeight = 32;
+const rowDistance = 32;
+const charSize = 18;
+const readStartOffset = 18;
+const dropContainerWidth = 1148;
 
 // const eventIsTouchEvent = function (
 //   e:
@@ -87,7 +88,8 @@ export default function Container({
 }) {
   const globalDrag = useAtomValue(globalDragAtom);
   const setScrollStart = useSetAtom(scrollStartAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase3Atom);
+  const dropZoneRef = useRef<HTMLDivElement | null>(null);
   // const scrollIntervalTimeoutRef = useRef<null | NodeJS.Timeout>(null);
 
   // useEffect(() => {
@@ -121,6 +123,8 @@ export default function Container({
     });
   }, [phase, setScrollStart, scrollRef]);
 
+  console.log(scrollRef?.current?.scrollLeft);
+
   return (
     <div
       // onTouchMove={(e) => {
@@ -138,10 +142,19 @@ export default function Container({
         }
       }}
       ref={scrollRef}
-      className={`${globalDrag ? "cursor-grabbing " : ""} scroll-mx-24 overflow-auto border-y-[24px] border-primaryBlue`}
+      // style={{
+      //   backgroundImage: `linear-gradient(to top, #00000040, transparent 16px, transparent 95%, #00000040)`,
+      // }}
+      className={`${
+        globalDrag ? "cursor-grabbing " : ""
+      } border-y-[24px]/ dark:bg-interactiveBlue/5 dark:bg-zinc-900/50/ scroll-mx-24 overflow-auto border-y-2 border-black bg-white/50 italic dark:border-transparent dark:font-normal dark:text-gray-300`}
+      // className={`${
+      //   globalDrag ? "cursor-grabbing " : ""
+      // } scroll-mx-24 overflow-auto border-y-[24px] border-transparent bg-white dark:brightness-75 dark:text-black outline-interactiveBlue outline-4 outline`}
     >
       <div className={phase >= 9 ? "" : ""}>
         <div
+          ref={dropZoneRef}
           style={{
             paddingLeft: paddingLeft,
             paddingTop: paddingFromBorder,

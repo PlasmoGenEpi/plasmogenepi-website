@@ -1,9 +1,10 @@
-import CloneElement from "@/components/Interactives/Shared/CloneRow/CloneElement";
-import CloneRow from "@/components/Interactives/Shared/CloneRow/CloneRow";
+import CloneElement from "@/app/components/Interactives/Shared/CloneRow/CloneElement";
+import CloneRow from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   partSixCloneRowsAtom,
   partSixCompletionAtom,
+  phase2Atom,
   phaseAtom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
@@ -19,11 +20,11 @@ export default function P6CloneRowsWithHybrid({
   label?: boolean;
 }) {
   const completion = useAtomValue(partSixCompletionAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const [cloneRows, setCloneRows] = useAtom(partSixCloneRowsAtom);
 
   return (
-    <div className="flex max-w-[500px] flex-col gap-1">
+    <div className="flex max-w-[500px] flex-col gap-1 dark:brightness-75">
       {label && (
         <div className="grid w-full [grid-template-columns:8%_auto]">
           <div></div>
@@ -46,27 +47,27 @@ export default function P6CloneRowsWithHybrid({
                     ? cloneRow.id === 3
                       ? " hidden"
                       : cloneRow.id === 2
-                        ? "hidden"
-                        : cloneRow.id === 1
-                          ? ""
-                          : ""
+                      ? "hidden"
+                      : cloneRow.id === 1
+                      ? ""
+                      : ""
                     : phase === 13 || phase === 13.5
-                      ? cloneRow.id === 3
-                        ? " hidden"
-                        : cloneRow.id === 2
-                          ? ""
-                          : cloneRow.id === 1
-                            ? "hidden"
-                            : ""
-                      : phase === 14
-                        ? cloneRow.id === 3
-                          ? ""
-                          : cloneRow.id === 2
-                            ? "hidden"
-                            : cloneRow.id === 1
-                              ? "hidden"
-                              : ""
-                        : ""
+                    ? cloneRow.id === 3
+                      ? " hidden"
+                      : cloneRow.id === 2
+                      ? ""
+                      : cloneRow.id === 1
+                      ? "hidden"
+                      : ""
+                    : phase === 14
+                    ? cloneRow.id === 3
+                      ? ""
+                      : cloneRow.id === 2
+                      ? "hidden"
+                      : cloneRow.id === 1
+                      ? "hidden"
+                      : ""
+                    : ""
                 }`,
                 button: P6CloneRowButtonColors[cloneRow.id],
                 row: P6CloneRowColors[cloneRow.id],

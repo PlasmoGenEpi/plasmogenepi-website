@@ -4,7 +4,7 @@ const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/**.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: [
     {
@@ -36,8 +36,8 @@ const config: Config = {
         "pge-teal": "hsl(191.65deg_63.98%_61.57%)",
         "pge-light-teal": "#",
         "pge-lightest-teal": "#",
-        primaryGreen: "#0E5258",
-        primaryBlue: "#14828C",
+        interactiveGreen: "#0E5258",
+        interactiveBlue: "#14828C",
         cloneRed: "#FFB0B0",
         cloneOrange: "#FECC94",
         cloneYellow: "#FEEC96",
@@ -68,7 +68,7 @@ const config: Config = {
   },
   darkMode: ["class"],
 
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("@tailwindcss/container-queries")],
   daisyui: {
     themes: ["light"],
   },

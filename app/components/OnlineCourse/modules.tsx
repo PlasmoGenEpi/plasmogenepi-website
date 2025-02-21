@@ -107,25 +107,25 @@ export const orderedModules = [
       </div>
     ),
   },
-  {
-    title: <h3> M6 &ndash; Study Design for Malaria Genetic Surveillance</h3>,
-    content: (
-      <div className="py-4">
-        <p>
-          Genetic data are only as good as the surveillance system or study that
-          from which they were collected. But what makes a good malaria genetic
-          surveillance study? In this module, you will start to learn how to
-          design effective genetic surveillance studies. Topics include study
-          design, sampling, stratification, power and sample size. You will also
-          learn how to critically assess the pros and cons of different
-          approaches to study design for different use cases.
-        </p>
-      </div>
-    ),
-  },
+  // {
+  //   title: <h3> M6 &ndash; Study Design for Malaria Genetic Surveillance</h3>,
+  //   content: (
+  //     <div className="py-4">
+  //       <p>
+  //         Genetic data are only as good as the surveillance system or study that
+  //         from which they were collected. But what makes a good malaria genetic
+  //         surveillance study? In this module, you will start to learn how to
+  //         design effective genetic surveillance studies. Topics include study
+  //         design, sampling, stratification, power and sample size. You will also
+  //         learn how to critically assess the pros and cons of different
+  //         approaches to study design for different use cases.
+  //       </p>
+  //     </div>
+  //   ),
+  // },
   {
     title: (
-      <h3>M7 &ndash; Interpreting Results and Making Policy Recommendations</h3>
+      <h3>M6 &ndash; Interpreting Results and Making Policy Recommendations</h3>
     ),
     content: (
       <div className="py-4">

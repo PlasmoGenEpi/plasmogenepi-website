@@ -1,9 +1,9 @@
 import CloneRow, {
   cloneRowButtonColors,
   cloneRowColors,
-} from "@/components/Interactives/Shared/CloneRow/CloneRow";
-import Microhaplotype from "@/components/Interactives/Shared/Microhaplotypes/Microhaplotype";
-import { microhaplotypeColorMap } from "@/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTableRow";
+} from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
+import Microhaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/Microhaplotype";
+import { microhaplotypeColorMap } from "@/app/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTableRow";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   cloneRowsAtom,
@@ -27,7 +27,7 @@ export default function P3CloneRows() {
       style={{
         maxWidth: "500px",
       }}
-      className="fadeIn500 mx-auto flex w-full flex-col gap-1 md:mx-0 [&>*]:mx-auto [&>*]:w-full md:[&>*]:mx-0 md:[&>*]:w-auto"
+      className="fadeIn500 mx-auto flex w-full flex-col gap-1 text-black dark:brightness-75 md:mx-0 [&>*]:mx-auto [&>*]:w-full md:[&>*]:mx-0 md:[&>*]:w-auto"
     >
       <div className="grid gap-1 [grid-template-columns:8%_auto]">
         <div className="col-start-2 grid grid-cols-4 text-center">
@@ -36,10 +36,10 @@ export default function P3CloneRows() {
             .map((el, idx) => {
               return (
                 <span
-                  className="inline-block text-center text-xs first-letter:text-sm"
+                  className="inline-block text-center text-xs first-letter:text-sm dark:text-white"
                   key={idx + 1}
                 >
-                  L{idx + 1}
+                  M{idx + 1}
                 </span>
               );
             })}
@@ -59,8 +59,8 @@ export default function P3CloneRows() {
                       ? "hidden"
                       : "visible"
                     : currentBoard.rows.includes(rowNum)
-                      ? "hidden"
-                      : "fadeIn500 visible",
+                    ? "hidden"
+                    : "fadeIn500 visible",
                   button: cloneRowButtonColors[rowNum],
                   row: cloneRowColors[rowNum],
                 }}
@@ -94,7 +94,9 @@ export default function P3CloneRows() {
                         childClassNames={{
                           shared: "bg-white bg-opacity-80",
                         }}
-                        className={`col-span-3 border-2 ${microhaplotypeColorMap.get(JSON.stringify(vals))}`}
+                        className={`col-span-3 border-2 ${microhaplotypeColorMap.get(
+                          JSON.stringify(vals),
+                        )}`}
                       />
                     );
                   })}
@@ -161,7 +163,9 @@ export default function P3CloneRows() {
                         childClassNames={{
                           shared: "bg-white bg-opacity-80",
                         }}
-                        className={`col-span-3 border-2 ${microhaplotypeColorMap.get(JSON.stringify(vals))}`}
+                        className={`col-span-3 border-2 ${microhaplotypeColorMap.get(
+                          JSON.stringify(vals),
+                        )}`}
                       />
                     );
                   })}

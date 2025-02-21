@@ -4,13 +4,16 @@ import {
   partSixCloneRowsMHPsAtom,
   partSixCompletionAtom,
   partSixMHPPolycloncalGenotypesAtom,
-  phaseAtom,
+  phase2Atom,
   VERSION_CONTROL,
 } from "@/data/Interactives/interactiveStore";
 import ControlPanelWrapper from "../../Shared/ControlPanel/ControlPanelWrapper";
 import PrimaryButton from "../../Shared/ControlPanel/PrimaryButton";
-import { useAtom, useAtomValue } from "jotai";
-import { resetConfirmOpenAtom } from "../../Shared/ControlPanel/ResetModal";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
+import {
+  resetConfirmOpenAtom,
+  s2Reset2Atom,
+} from "../../Shared/ControlPanel/ResetModal";
 import { useCallback, useEffect, useState } from "react";
 import { atomWithStorage, RESET } from "jotai/utils";
 import {
@@ -19,10 +22,11 @@ import {
   P6Step2QuestionsAtom,
 } from "../PartSix/Phases/Genotypes";
 import { selectedClonesAtom } from "./PartSeven";
+import { currentView2Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
 
 const sharedBoolArray = function (
   polyclonalArrays: number[][],
-  currentRow: number[],
+  currentRow: number[]
 ) {
   return polyclonalArrays.map((polyclonalArr, idx) => {
     return polyclonalArr.includes(currentRow[idx]);
@@ -32,22 +36,30 @@ const sharedBoolArray = function (
 const P7CurrentVersionAtom = atomWithStorage("P7CurrentVersionAtom", "1.1.1");
 
 export default function PartSevenControlBoard() {
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase2Atom);
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
   const [completion, setCompletion] = useAtom(partSevenCompletionAtom);
   const [genotypes, setGenotypes] = useAtom(partSixMHPPolycloncalGenotypesAtom);
   const cloneRows = useAtomValue(partSixCloneRowsMHPsAtom);
   const [questions, setQuestions] = useAtom(P6Step2QuestionsAtom);
   const [identicalGenotype, setIdenticalGenotype] = useAtom(
-    identicalGenotypeAtom,
+    identicalGenotypeAtom
   );
   const [identicalGenotype2, setIdenticalGenotype2] = useAtom(
-    identicalGenotype2Atom,
+    identicalGenotype2Atom
   );
   const [selectedClones, setSelectedClones] = useAtom(selectedClonesAtom);
   const [slidoPause, setSlidoPause] = useState(false);
   const [hintsEnabled, setHintsEnabled] = useAtom(hintsEnabledAtom);
   const [currentVersion, setCurrentVersion] = useAtom(P7CurrentVersionAtom);
+  const [currentView2, setCurrentView2] = useAtom(currentView2Atom);
+  const setS2Reset2 = useSetAtom(s2Reset2Atom);
+
+  useEffect(() => {
+    setS2Reset2(() => () => {
+      resetCallback();
+    });
+  }, []);
 
   useEffect(() => {
     let x = localStorage.getItem("P7CurrentVersionAtom");
@@ -205,8 +217,15 @@ export default function PartSevenControlBoard() {
     setQuestions(RESET);
     setCompletion(RESET);
     setGenotypes(RESET);
-    setPhase(1);
+    // setPhase(1);
+    setCurrentView2({
+      ...currentView2,
+      section: 2,
+      phase: 0,
+    });
   }, []);
+
+  return null;
 
   return (
     <ControlPanelWrapper fixed resetCallback={resetCallback}>
@@ -303,7 +322,9 @@ export default function PartSevenControlBoard() {
               callback={() => {
                 handleClick();
               }}
-              className={`text-white ${phase === 17 ? "bg-primaryBlue" : "bg-primaryGreen"}`}
+              className={`text-white ${
+                phase === 17 ? "bg-primaryBlue" : "bg-primaryGreen"
+              }`}
               text={phase === 17 ? "Finish" : "Next"}
               disabled={isDisabled()}
             />

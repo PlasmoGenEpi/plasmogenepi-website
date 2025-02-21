@@ -1,5 +1,8 @@
 import { ReactElement, ReactNode } from "react";
 import InlineCircle from "../../Shared/misc/InlineCircle";
+import KnowledgeCheckQuestion from "../../Shared/KnowledgeChecks/KnowledgeCheckQuestion";
+import QuestionResponseText from "../../Shared/misc/QuestionResponseText";
+import P6MHPCloneRows from "../PartSix/CloneRows/P6MHPCloneRows";
 
 export const partSevenPrompts: {
   [key: number]: {
@@ -40,21 +43,60 @@ export const partSevenPrompts: {
   //     </div>
   //   ),
   // },
-  1: {
-    title: <h5>2.1.1 &ndash; View four laboratory clones from Step 1</h5>,
+  0: {
+    title: <h5>2.1.1 Case Study Recap</h5>,
     instructions: (
-      <div>
-        <p className="mt-2">
-          At the end of step 1, you have 4 laboratory clones made from
-          microhaplotypes. Take a moment to recall their composition.
+      <div className="flex flex-col gap-4 font-helvetica [font-size:15px]">
+        <p>
+          So far, you have been comparing genotypes of individual parasites to
+          each other. However, you remember that to evaluate data from real
+          cases in your potential outbreaks you will need to compare infections
+          which are often polyclonal, containing more than one genetically
+          distinct parasite.
         </p>
+        <p>
+          Your lab director suggests a solution: make positive controls using
+          combinations of the laboratory clones, so you can see what IBS looks
+          like in the setting of polyclonal infections when you know the truth.
+          You agree this is the best next step and ask your lab to make the
+          polyclonal controls right away.
+        </p>
+        <p>
+          While the controls are being prepared, you think about how you will
+          evaluate IBS when there are multiple alleles present in each sample.
+          In reality, there are several ways this could be calculated, but for
+          the purposes of this exercise we will consider a locus to be IBS if
+          there are any matching alleles between samples.
+        </p>
+        <p>
+          With this in mind, do you expect IBS to be higher or lower with
+          unrelated polyclonal vs. monoclonal samples?
+        </p>
+        <div className="mt-12">
+          <p>
+            At the end of step 1, you have 3 laboratory clones made from
+            microhaplotypes. Take a moment to recall their composition.
+          </p>
+          <div className="grid place-items-center mt-8">
+            <div className="w-full mx-auto max-w-[500px]">
+              <h5 className="mb-4 font-bold">
+                Lab Clones with Microhaplotypes
+              </h5>
+              <P6MHPCloneRows />
+            </div>
+          </div>
+        </div>
       </div>
     ),
   },
-  2: {
-    title: <h5>2.1.2 &ndash; View your positive controls</h5>,
+  1: {
+    title: <h5>2.1.2 View your positive controls</h5>,
     instructions: (
       <div>
+        {/* <p className="mt-2">
+          At the end of step 1, you have 4 laboratory clones made from
+          microhaplotypes. Take a moment to recall their composition.
+        </p> */}
         <p className="mt-2">
           Following the advice of your lab manager (see intro to Step 2), you
           make 3 polyclonal positive controls. These positive controls consist
@@ -66,17 +108,58 @@ export const partSevenPrompts: {
       </div>
     ),
   },
-  3: {
-    title: (
-      <h5>
-        2.1.3 &ndash; View the genotypes of your polyclonal positive controls{" "}
-      </h5>
-    ),
+  2: {
+    title: <h5>2.1.3 View the genotype of your positive controls</h5>,
     instructions: (
       <div>
+        <div className="flex flex-col gap-4">
+          <p>
+            Then, you prepare a genotype for each of the polyclonal positive
+            controls . . .
+          </p>
+          <p>
+            For the genotypes, note that the 12 columns represent your 12
+            microhaplotype loci just like in lab clones, and the number of
+            unique alleles detected at each locus are shown by colored boxes at
+            that locus. If the two clones share an allele at a locus, only one
+            allele will be detected . When you genotype polyclonal infections,
+            remember the data are usually unphased - in other words you don’t
+            know which allele corresponds to which parasite(s). This is
+            represented here by randomly placing alleles on top or bottom
+            regardless of what parasite they came from.
+          </p>
+        </div>
+        {/* <p className="mt-2">
+          Following the advice of your lab manager (see intro to Step 2), you
+          make 3 polyclonal positive controls. These positive controls consist
+          of different combinations of the monoclonal laboratory clones 1{" "}
+          <InlineCircle className="bg-cloneRed" />, 2{" "}
+          <InlineCircle className="bg-cloneBlue" />, and 3{" "}
+          <InlineCircle className="bg-cloneGreen" /> from step 1, including:
+        </p> */}
+      </div>
+    ),
+  },
+  3: {
+    title: (
+      <h5>2.1.3 View the genotypes of your polyclonal positive controls </h5>
+    ),
+    instructions: (
+      <div className="flex flex-col gap-4">
         <p>
           Then, you prepare a genotype for each of the polyclonal positive
           controls . . .
+        </p>
+        <p>
+          For the genotypes, note that the 12 columns represent your 12
+          microhaplotype loci just like in lab clones, and the number of unique
+          alleles detected at each locus are shown by colored boxes at that
+          locus. If the two clones share an allele at a locus, only one allele
+          will be detected . When you genotype polyclonal infections, remember
+          the data are usually unphased - in other words you don’t know which
+          allele corresponds to which parasite(s). This is represented here by
+          randomly placing alleles on top or bottom regardless of what parasite
+          they came from.
         </p>
       </div>
     ),
@@ -102,8 +185,8 @@ export const partSevenPrompts: {
     title: (
       <h5>
         {" "}
-        2.2.1 &ndash; Check matching alleles at each locus between polyclonal
-        control <InlineCircle polyclonal={1} /> and lab clone 3{" "}
+        2.2.1 Check matching alleles at each locus between polyclonal control{" "}
+        <InlineCircle polyclonal={1} /> and lab clone 3{" "}
         <InlineCircle className="bg-cloneGreen" /> (unrelated)
       </h5>
     ),
@@ -125,7 +208,7 @@ export const partSevenPrompts: {
     title: (
       <h5>
         {" "}
-        2.2.2 &ndash; Check matching alleles at each locus between polyclonal
+        2.2.1 &ndash; Check matching alleles at each locus between polyclonal
         control <InlineCircle polyclonal={1} /> and lab clone 3{" "}
         <InlineCircle className="bg-cloneGreen" /> (unrelated)
       </h5>
@@ -148,8 +231,8 @@ export const partSevenPrompts: {
     title: (
       <h5>
         {" "}
-        2.2.3 &ndash; Check matching alleles at each locus between polyclonal
-        control <InlineCircle polyclonal={2} /> and lab clone 1{" "}
+        2.2.2 Check matching alleles at each locus between polyclonal control{" "}
+        <InlineCircle polyclonal={2} /> and lab clone 1{" "}
         <InlineCircle className="bg-cloneRed" /> (unrelated){" "}
       </h5>
     ),
@@ -171,8 +254,8 @@ export const partSevenPrompts: {
     title: (
       <h5>
         {" "}
-        2.2.4 &ndash; Check matching alleles at each locus between polyclonal
-        control <InlineCircle polyclonal={2} /> and lab clone 1{" "}
+        2.2.2 Check matching alleles at each locus between polyclonal control{" "}
+        <InlineCircle polyclonal={2} /> and lab clone 1{" "}
         <InlineCircle className="bg-cloneRed" /> (unrelated){" "}
       </h5>
     ),
@@ -191,7 +274,7 @@ export const partSevenPrompts: {
     ),
   },
   8: {
-    title: <h5> 2.2.5 &ndash; Knowledge Check </h5>,
+    title: <h5> 2.2.3 Knowledge Check </h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -209,14 +292,14 @@ export const partSevenPrompts: {
     ),
   },
   9: {
-    title: <h5> 2.2.5 &ndash; Knowledge Check </h5>,
+    title: <h5> 2.2.3 Knowledge Check </h5>,
 
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
-          Notice that when MOI is three in both samples, you see IBS as high as
-          1 even when IBD is 0 using the genotyping panel in this exercise: 12
-          microhaplotypes with 8 alleles each. As MOI gets higher, it gets
+          Notice that when MOI is three in both samples, you may see IBS as high
+          as 1 even when IBD is 0 using the genotyping panel in this exercise:
+          12 microhaplotypes with 8 alleles each. As MOI gets higher, it gets
           harder to distinguish infections containing related parasites from
           those containing unrelated parasites!
         </p>{" "}
@@ -228,8 +311,8 @@ export const partSevenPrompts: {
     title: (
       <h5>
         {" "}
-        2.2.4 &ndash; Check matching alleles at each locus between polyclonal
-        control <InlineCircle polyclonal={1} /> and lab clone 1{" "}
+        2.3.1 Check matching alleles at each locus between polyclonal control{" "}
+        <InlineCircle polyclonal={1} /> and lab clone 1{" "}
         <InlineCircle className="bg-cloneRed" /> (related){" "}
       </h5>
     ),
@@ -241,9 +324,11 @@ export const partSevenPrompts: {
         </p>
         <p>
           Compare the polyclonal control <InlineCircle polyclonal={1} /> to lab
-          clone 1 <InlineCircle className="bg-cloneRed" />. Check yes or no for
-          each of the 12 loci as to whether there is any match in alleles
-          between the two samples.
+          clone 1 <InlineCircle className="bg-cloneRed" />. Note that lab clone
+          1 <InlineCircle className="bg-cloneRed" /> is contained within the
+          plyclonal control (so it is perfectly related to one of the clones in
+          that control). Check yes or no for each of the 12 loci as to whether
+          there is any match in alleles between the two samples.
         </p>{" "}
       </div>
     ),
@@ -252,8 +337,8 @@ export const partSevenPrompts: {
     title: (
       <h5>
         {" "}
-        2.2.4 &ndash; Check matching alleles at each locus between polyclonal
-        control <InlineCircle polyclonal={1} /> and lab clone 1{" "}
+        2.3.1 Check matching alleles at each locus between polyclonal control{" "}
+        <InlineCircle polyclonal={1} /> and lab clone 1{" "}
         <InlineCircle className="bg-cloneRed" /> (related){" "}
       </h5>
     ),
@@ -265,15 +350,17 @@ export const partSevenPrompts: {
         </p>
         <p>
           Compare the polyclonal control <InlineCircle polyclonal={1} /> to lab
-          clone 1 <InlineCircle className="bg-cloneRed" />. Check yes or no for
-          each of the 12 loci as to whether there is any match in alleles
-          between the two samples.
+          clone 1 <InlineCircle className="bg-cloneRed" />. Note that lab clone
+          1 <InlineCircle className="bg-cloneRed" /> is contained within the
+          plyclonal control (so it is perfectly related to one of the clones in
+          that control). Check yes or no for each of the 12 loci as to whether
+          there is any match in alleles between the two samples.
         </p>{" "}
       </div>
     ),
   },
   12: {
-    title: <h5> 2.2.5 &ndash; Making the connection</h5>,
+    title: <h5> 2.3.2 Making the connection</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -288,19 +375,17 @@ export const partSevenPrompts: {
     ),
   },
   13: {
-    title: <h5> 2.2.5 &ndash; Making the connection</h5>,
-
+    title: <h5> 2.3.2 Making the connection</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
-        {/* <p className="text-gray-500">
+        <p>
           Note that this comparison of lab clones would be similar to a
           situation in which a person was infected with 2 parasite clones (MOI
           of 2) and a mosquito passed one of those two clones on to another
           person, without any recombination occurring. IBD and IBS would both be
           1 just like with the lab clones, since one parasite is being passed on
           from one person to another.
-        </p>{" "} */}
-        <p>What if we had a similar situation, but recombination did occur?</p>{" "}
+        </p>{" "}
       </div>
     ),
   },
@@ -308,9 +393,9 @@ export const partSevenPrompts: {
     title: (
       <h5>
         {" "}
-        2.2.6 &ndash; Check matching alleles at each locus between polyclonal
-        control <InlineCircle polyclonal={1} /> and lab clone 4{" "}
-        <InlineCircle hybrid /> (related){" "}
+        2.3.3 Check matching alleles at each locus between polyclonal control{" "}
+        <InlineCircle polyclonal={1} /> and lab clone 4 <InlineCircle hybrid />{" "}
+        (related){" "}
       </h5>
     ),
 
@@ -329,9 +414,9 @@ export const partSevenPrompts: {
     title: (
       <h5>
         {" "}
-        2.2.6 &ndash; Check matching alleles at each locus between polyclonal
-        control <InlineCircle polyclonal={1} /> and lab clone 4{" "}
-        <InlineCircle hybrid /> (related){" "}
+        2.3.3 Check matching alleles at each locus between polyclonal control{" "}
+        <InlineCircle polyclonal={1} /> and lab clone 4 <InlineCircle hybrid />{" "}
+        (related){" "}
       </h5>
     ),
 
@@ -347,7 +432,7 @@ export const partSevenPrompts: {
     ),
   },
   16: {
-    title: <h5> 2.2.7 &ndash; Conclusions</h5>,
+    title: <h5> 2.3.4 Conclusions</h5>,
 
     instructions: (
       <div className="flex flex-col gap-2">
@@ -363,7 +448,7 @@ export const partSevenPrompts: {
     ),
   },
   17: {
-    title: <h5> 2.2.7 &ndash; Conclusions</h5>,
+    title: <h5>Summary</h5>,
 
     instructions: (
       <div className="flex flex-col gap-2">

@@ -4,7 +4,7 @@ import { edgeIsActive, involves, pentagonViewAtom } from "./PentagonViewer";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   partEightPentagonSelectedEdgesAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import { visibleTooltipsAtom } from "./PentagonTable/PentagonTable";
 
@@ -25,14 +25,14 @@ export default function PentagonEdge({
   className,
   style,
   diamond,
-  // direction,
-  // coords,
-  // endpoints,
-  // circle,
-  // hidden,
-  // lineClassName,
-  // enabled,
-}: {
+}: // direction,
+// coords,
+// endpoints,
+// circle,
+// hidden,
+// lineClassName,
+// enabled,
+{
   diamond?: boolean;
   style?: {
     [key: string]: string;
@@ -84,9 +84,9 @@ export default function PentagonEdge({
 }) {
   const [view, setView] = useAtom(pentagonViewAtom);
   const [selectedEdges, setSelectedEdges] = useAtom(
-    partEightPentagonSelectedEdgesAtom,
+    partEightPentagonSelectedEdgesAtom
   );
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const tooltip = useAtomValue(visibleTooltipsAtom);
   // const pentagonView = useAtomValue(pentagonViewAtom);
   // if (hidden) {
@@ -113,10 +113,10 @@ export default function PentagonEdge({
                 phase === 33
                   ? "1000ms"
                   : phase === 28
-                    ? "4000ms"
-                    : phase === 27
-                      ? "0ms"
-                      : "",
+                  ? "4000ms"
+                  : phase === 27
+                  ? "0ms"
+                  : "",
             }}
             id={`triangle-${edge}`}
             viewBox="0 0 10 10"
@@ -130,10 +130,10 @@ export default function PentagonEdge({
               phase === 33
                 ? "fadeIn1000"
                 : phase === 27
-                  ? "fadeIn1000"
-                  : phase === 28
-                    ? "fadeIn1000"
-                    : ""
+                ? "fadeIn1000"
+                : phase === 28
+                ? "fadeIn1000"
+                : ""
             }
           >
             <path
@@ -142,10 +142,10 @@ export default function PentagonEdge({
                 (phase === 34 || phase === 35) && tooltip[0] === edge
                   ? "fill-microBlue"
                   : phase === 29.5
-                    ? "fill-microPurple"
-                    : edgeStatus.selected
-                      ? "fill-primaryBlue"
-                      : "fill-black"
+                  ? "fill-microPurple"
+                  : edgeStatus.selected && phase !== 19
+                  ? "fill-interactiveBlue"
+                  : "fill-black dark:fill-white/75"
               }
             />
           </marker>
@@ -160,11 +160,19 @@ export default function PentagonEdge({
               ? ["EF", "EH", "FG", "FI", "GH", "HI"].includes(edge)
                 ? "edgeDashAppearance stroke-microRed stroke-[4px] opacity-100"
                 : ["GI"].includes(edge)
-                  ? "edgeDashAppearance stroke-microPurple stroke-[4px] opacity-100"
-                  : "edgeDashAppearance stroke-microBlue stroke-[4px] opacity-100"
+                ? "edgeDashAppearance stroke-microPurple stroke-[4px] opacity-100"
+                : "edgeDashAppearance stroke-microBlue stroke-[4px] opacity-100"
               : phase === 29.5
-                ? "edgeDashAppearance stroke-microPurple stroke-[4px]"
-                : `${className ? className : ""} ${edgeStatus.selected ? "stroke-primaryBlue" : "stroke-black"} ${active || (newView === null && selectedEdges.EF.visited) ? "opacity-100" : "opacity-20"} stroke-[4px]`
+              ? "edgeDashAppearance stroke-microPurple stroke-[4px]"
+              : `${className ? className : ""} ${
+                  edgeStatus.selected && phase !== 19
+                    ? "stroke-interactiveBlue"
+                    : "stroke-black dark:stroke-white/75"
+                } ${
+                  active || (newView === null && selectedEdges.EF.visited)
+                    ? "opacity-100"
+                    : "opacity-20"
+                } stroke-[4px]`
           }
           points={`${coords.line.start.x},${coords.line.start.y} ${coords.line.end.x},${coords.line.end.y}`}
           markerStart={
@@ -209,7 +217,13 @@ export default function PentagonEdge({
             className={
               phase === 6
                 ? "hidden"
-                : `cursor-pointer ${edgeStatus.selected ? " stroke-primaryBlue stroke-[8px]" : edgeStatus.visited ? "stroke-black" : "stroke-orange-400 stroke-[4px]"}`
+                : `cursor-pointer ${
+                    edgeStatus.selected && phase !== 19
+                      ? " stroke-interactiveBlue stroke-[8px]"
+                      : edgeStatus.visited
+                      ? "stroke-black"
+                      : "stroke-orange-400 stroke-[4px]"
+                  }`
             }
             width={40}
             x={coords.circle.x}
@@ -218,8 +232,8 @@ export default function PentagonEdge({
               !edgeStatus.enabled
                 ? "#circle-plus"
                 : phase === 5
-                  ? "#circle-plus"
-                  : "#circle-minus"
+                ? "#circle-plus"
+                : "#circle-minus"
             }
           ></use>
           {/* {edgeStatus.selected && (
@@ -227,7 +241,7 @@ export default function PentagonEdge({
               r={10}
               cx={coords.circle.x + 40}
               cy={coords.circle.y + 460}
-              className="fill-primaryBlue"
+              className="fill-interactiveBlue"
             ></circle>
           )} */}
         </g>
@@ -249,7 +263,11 @@ export default function PentagonEdge({
               role="button"
               tabIndex={0}
               aria-label={`${edge[1]} to ${edge[0]}`}
-              className={`${edgeStatus.selected ? "stroke-primaryBlue" : "stroke-black"} stroke-2 hover:stroke-[4px] focus:stroke-[4px]`}
+              className={`${
+                edgeStatus.selected && phase !== 19
+                  ? "stroke-interactiveBlue"
+                  : "stroke-black dark:stroke-white/75"
+              } stroke-2 hover:stroke-[4px] focus:stroke-[4px]`}
               r={9}
               fill="white"
               cx={coords.line.start.x}
@@ -273,7 +291,11 @@ export default function PentagonEdge({
               type="button"
               tabIndex={0}
               aria-label={`${edge[0]} to ${edge[1]}`}
-              className={`${edgeStatus.selected ? "stroke-primaryBlue" : "stroke-black"} stroke-2 hover:stroke-[4px] focus:stroke-[4px]`}
+              className={`${
+                edgeStatus.selected
+                  ? "stroke-interactiveBlue"
+                  : "stroke-black dark:stroke-white/75"
+              } stroke-2 hover:stroke-[4px] focus:stroke-[4px]`}
               r={9}
               fill="white"
               cx={coords.line.end.x}

@@ -1,8 +1,8 @@
-import { cloneRowColors } from "@/components/Interactives/Shared/CloneRow/CloneRow";
-import BloodSpotThumbnail from "@/components/Interactives/Shared/NavigationArray/BloodSpotThumbnail/BloodSpotThumbnail";
+import { cloneRowColors } from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
+import BloodSpotThumbnail from "@/app/components/Interactives/Shared/NavigationArray/BloodSpotThumbnail/BloodSpotThumbnail";
 import {
   partOneCompletionAtom,
-  phaseAtom,
+  phase1Atom,
   positiveControlBoardsAtom,
   selectedPositiveControlBoardAtom,
 } from "@/data/Interactives/interactiveStore";
@@ -11,12 +11,13 @@ import LabelRow from "../CloneRowTable/LabelRow";
 import RefRow from "../CloneRowTable/RefRow";
 import AlternateRow from "../CloneRowTable/AlternateRow";
 import { useEffect, useMemo } from "react";
-import { findFirstFocusableElement } from "@/helpers/helpers";
+// import { findFirstFocusableElement } from "@/helpers/helpers";
 import { fixedData } from "@/data/Interactives/fixedData";
-import { usePrevious } from "@/components/hooks";
+import { usePrevious } from "@/app/components/hooks";
+import { findFirstFocusableElement } from "@/app/components/Interactives/helpers";
 
 export default function PartOneNavArray({ forwards }: { forwards?: boolean }) {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase1Atom);
   const boards = useAtomValue(positiveControlBoardsAtom);
   const [activeBoard, setActiveBoard] = useAtom(
     selectedPositiveControlBoardAtom,
@@ -63,16 +64,17 @@ export default function PartOneNavArray({ forwards }: { forwards?: boolean }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, activeBoard]);
 
-  console.log(prevPhase);
-
   return (
-    <div className="relative mx-auto mb-12 grid min-h-[100px] grid-cols-3 place-items-center gap-1 sm:max-w-[80%] sm:grid-cols-3 md:min-h-[82px] md:max-w-none md:grid-cols-6 md:gap-0 lg:gap-8">
+    <div className="@xl/main:max-w-[80%] @xl/main:grid-cols-3 @4xl/main:min-h-[82px] @4xl/main:max-w-none @4xl/main:grid-cols-6 @4xl/main:gap-0 @4xl/main:gap-8 relative mx-auto mb-12 grid min-h-[100px] grid-cols-3 place-items-center gap-1">
       {phase < 3 && (
         <div
           style={{
             animationDelay: phase === 1 ? "500ms" : "",
           }}
-          className={`${phase === 1 ? "fadeIn500" : "invisible"} absolute top-0 flex w-full flex-col  sm:max-w-[80%] md:left-[calc(50%-16px)] md:w-[calc(50%-16px)] md:max-w-none md:-translate-x-1/2 lg:w-[calc(50%-32px)] lg:-translate-x-[calc(50%+16px)]`}
+          className={`${
+            phase === 1 ? "fadeIn500" : "invisible"
+          } @xl/main:w-[32rem] @3xl/main:left-[calc(50%-16px)] @3xl/main:max-w-none @3xl/main:-translate-x-1/2 @4xl/main:w-[calc(50%-32px)] @4xl/main:-translate-x-[calc(50%+16px)] absolute  top-0 flex w-full flex-col 
+          `}
         >
           <div
             className={`grid gap-1 font-helvetica [grid-template-columns:8%_auto]`}

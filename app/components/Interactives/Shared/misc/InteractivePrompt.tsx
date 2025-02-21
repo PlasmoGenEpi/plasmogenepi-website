@@ -1,4 +1,6 @@
 import { ReactElement } from "react";
+import { InteractiveSideBarOpenAtom } from "../Layout/InteractiveSideBar/InteractiveSideBar";
+import { useAtomValue } from "jotai";
 
 export default function InteractivePrompt({
   title,
@@ -8,11 +10,12 @@ export default function InteractivePrompt({
 }: {
   skippable?: boolean;
   complete: boolean;
-  title: ReactElement;
-  instructions: ReactElement;
+  title: ReactElement | null;
+  instructions: ReactElement | null;
 }) {
+  const sideBarOpen = useAtomValue(InteractiveSideBarOpenAtom);
   return (
-    <div className="mb-8  text-pretty sm:px-2 md:px-0">
+    <div className="mb-8 text-pretty">
       <div className="flex justify-between py-2">
         <button
           id="interactive-top"
@@ -21,7 +24,9 @@ export default function InteractivePrompt({
           Top of Interactive
         </button>
         <div
-          className={`${complete ? "" : "invisible"} ml-auto flex items-center gap-2`}
+          className={`${
+            complete ? "" : "invisible"
+          } ml-auto flex items-center gap-2`}
         >
           <span className="ml-auto text-lg font-normal">(Complete)</span>
           <svg
@@ -40,10 +45,14 @@ export default function InteractivePrompt({
         </div>
       </div>
       <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
-        <div className="flex flex-col-reverse justify-between gap-2 text-xl font-bold md:flex-row md:gap-8">
+        <div
+          className={`flex flex-col-reverse justify-between gap-2 text-xl font-bold md:flex-row md:gap-8`}
+        >
           {title}
         </div>
-        <div className="leading-[23px]">{instructions}</div>
+        <div className="leading-[23px] min-h-[calc(2lh+8px)]">
+          {instructions}
+        </div>
       </div>
       {skippable && (
         <button

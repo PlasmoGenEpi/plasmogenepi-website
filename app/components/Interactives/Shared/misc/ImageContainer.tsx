@@ -19,9 +19,9 @@ export default function ImageContainer({
 }) {
   if (noPadding) {
     return (
-      <div className={className}>
+      <div className={`${className} dark:brightness-75 dark:text-white`}>
         <Image
-          className="mix-blend-multiply"
+          className="mix-blend-multiply dark:opacity-80 dark:invert dark:hue-rotate-180 dark:mix-blend-screen"
           aria-description={description}
           id={id}
           src={path}
@@ -35,16 +35,18 @@ export default function ImageContainer({
 
   return (
     <div
-      className={`py-4 pb-8 text-center md:block md:p-4 ${className ? className : ""}`}
+      className={`py-4 pb-8 text-center md:block md:p-4 dark:text-white  ${
+        className ? className : ""
+      }`}
     >
       <div className="mb-4 text-balance">
         <label className="font-bold [fontSize:15px]" htmlFor={id}>
           {label}
         </label>
       </div>
-      <div>
+      <div className="">
         <Image
-          className="mix-blend-multiply"
+          className="mix-blend-multiply dark:opacity-80 dark:invert dark:hue-rotate-180 dark:mix-blend-screen"
           aria-description={description}
           id={id}
           src={path}

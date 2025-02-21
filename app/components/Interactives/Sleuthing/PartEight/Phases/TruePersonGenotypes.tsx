@@ -1,14 +1,15 @@
-import StandardLayout from "@/components/Interactives/Shared/misc/StandardLayout";
+import StandardLayout from "@/app/components/Interactives/Shared/misc/StandardLayout";
 import Person from "../Person";
 import GenotypeComposition from "../Genotypes/GenotypeComposition";
 import { fixedData } from "@/data/Interactives/fixedData";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
-import SquareMicrohaplotype from "@/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
-import CloneRow from "@/components/Interactives/Shared/CloneRow/CloneRow";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
+import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
+import CloneRow from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import {
   P6CloneRowButtonColors,
   P6CloneRowColors,
 } from "../../PartSix/CloneRows/P6MHPCloneRows";
+import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
 const P8CloneRowColors = {
   1: "bg-microRed/50",
@@ -33,6 +34,226 @@ const P8CloneRowButtonColors = {
 
 export default function TruePersonGenotypes() {
   return (
+    <InteractivePrimaryLayout
+      leftHeader={"Student Infections"}
+      // rightHeader={}
+      leftContent={
+        <div className="grid gap-4 gap-y-0">
+          <div className="grid gap-1 gap-x-16 gap-y-4">
+            <div className="flex">
+              <div className="w-16">
+                <Person id="A" circles={["#AA6012", "#E61048"]} />
+              </div>
+              <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+                <CloneRow
+                  label={1}
+                  classNames={{
+                    button: P8CloneRowButtonColors[1] + " text-sm md:text-base",
+                    row: P8CloneRowColors[1],
+                  }}
+                >
+                  {fixedData[8].persons.A.cases.map((el, idx) => {
+                    return <SquareMicrohaplotype id={el[0] - 1} key={idx} />;
+                  })}
+                </CloneRow>
+                <CloneRow
+                  label={2}
+                  classNames={{
+                    button: P8CloneRowButtonColors[2] + " text-sm md:text-base",
+                    row: P8CloneRowColors[2],
+                  }}
+                >
+                  {fixedData[8].persons.A.cases.map((el, idx) => {
+                    return <SquareMicrohaplotype id={el[1] - 1} key={idx} />;
+                  })}
+                </CloneRow>
+              </div>
+            </div>
+            {/* <div className="flex">
+        <div className="w-20 md:hidden"></div>
+        <div className="grid grow @md/main:scale-75 origin-top-left [grid-template-columns:8%_auto]">
+          <div className="flex h-full min-h-10 w-full flex-col justify-center">
+            <div
+              className={`mr-auto aspect-square h-1/3  translate-y-0.5 rounded-full ${P8CloneRowColors[1]}`}
+            ></div>
+            <div
+              className={`ml-auto aspect-square h-1/3  -translate-y-0.5 rounded-full ${P8CloneRowColors[2]}`}
+            ></div>
+          </div>
+          <div className="my-auto h-fit max-w-[500px] grow">
+            <GenotypeComposition
+              genotypeComposition={fixedData[8].persons["A"].cases}
+            />{" "}
+          </div>
+        </div>
+      </div> */}
+          </div>
+          <div className="mt-4 grid gap-1 gap-x-16 gap-y-4">
+            <div>
+              <div className="flex">
+                <div className="w-16">
+                  <Person id="B" circles={["#AA6012", "#E61048"]} />
+                </div>
+                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+                  <CloneRow
+                    label={3}
+                    classNames={{
+                      button:
+                        P8CloneRowButtonColors[3] + " text-sm md:text-base",
+                      row: P8CloneRowColors[3],
+                    }}
+                  >
+                    {fixedData[8].persons.B.cases.map((el, idx) => {
+                      return <SquareMicrohaplotype id={el[0] - 1} key={idx} />;
+                    })}
+                  </CloneRow>
+                </div>
+              </div>
+            </div>
+            {/* <div className="flex">
+        <div className="w-20 md:hidden"></div>
+        <div className="grid grow @md/main:scale-75 origin-top-left [grid-template-columns:8%_auto]">
+          <div className="flex h-full min-h-10 w-full flex-col justify-center">
+            <div
+              className={`mr-auto aspect-square h-1/3  translate-y-0.5 rounded-full ${P8CloneRowColors[3]}`}
+            ></div>
+          </div>
+          <div className="my-auto h-fit max-w-[500px] grow">
+            <GenotypeComposition
+              genotypeComposition={fixedData[8].persons["B"].cases}
+            />{" "}
+          </div>
+        </div>
+      </div> */}
+          </div>
+          <div className="mt-4 grid gap-1 gap-x-16 gap-y-4">
+            <div>
+              <div className="flex">
+                <div className="w-16">
+                  <Person id="C" circles={["#AA6012", "#E61048"]} />
+                </div>
+                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+                  <CloneRow
+                    label={4}
+                    classNames={{
+                      button:
+                        P8CloneRowButtonColors[4] + " text-sm md:text-base",
+                      row: P8CloneRowColors[4],
+                    }}
+                  >
+                    {fixedData[8].persons.C.cases.map((el, idx) => {
+                      return <SquareMicrohaplotype id={el[0] - 1} key={idx} />;
+                    })}
+                  </CloneRow>
+                  <CloneRow
+                    label={5}
+                    classNames={{
+                      button:
+                        P8CloneRowButtonColors[5] + " text-sm md:text-base",
+                      row: P8CloneRowColors[5],
+                    }}
+                  >
+                    {fixedData[8].persons.C.cases.map((el, idx) => {
+                      return <SquareMicrohaplotype id={el[1] - 1} key={idx} />;
+                    })}
+                  </CloneRow>
+                </div>
+              </div>
+            </div>
+            {/* <div className="flex">
+        <div className="w-20 md:hidden"></div>
+        <div className="grid grow @md/main:scale-75 origin-top-left [grid-template-columns:8%_auto]">
+          <div className="flex h-full min-h-10 w-full flex-col justify-center">
+            <div
+              className={`mr-auto aspect-square h-1/3  translate-y-0.5 rounded-full ${P8CloneRowColors[4]}`}
+            ></div>
+            <div
+              className={`ml-auto aspect-square h-1/3  -translate-y-0.5 rounded-full ${P8CloneRowColors[5]}`}
+            ></div>
+          </div>
+          <div className="my-auto h-fit max-w-[500px] grow">
+            <GenotypeComposition
+              genotypeComposition={fixedData[8].persons["C"].cases}
+            />{" "}
+          </div>
+        </div>
+      </div> */}
+          </div>
+          <div className="mt-4 grid gap-1 gap-x-16 gap-y-4">
+            <div>
+              <div className="flex">
+                <div className="w-16">
+                  <Person id="D" circles={["#AA6012", "#E61048"]} />
+                </div>
+                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+                  <CloneRow
+                    label={6}
+                    classNames={{
+                      button:
+                        P8CloneRowButtonColors[6] + " text-sm md:text-base",
+                      row: P8CloneRowColors[6],
+                    }}
+                  >
+                    {fixedData[8].persons.D.cases.map((el, idx) => {
+                      return <SquareMicrohaplotype id={el[0] - 1} key={idx} />;
+                    })}
+                  </CloneRow>
+                  <CloneRow
+                    label={7}
+                    classNames={{
+                      button:
+                        P8CloneRowButtonColors[7] + " text-sm md:text-base",
+                      row: P8CloneRowColors[7],
+                    }}
+                  >
+                    {fixedData[8].persons.D.cases.map((el, idx) => {
+                      return <SquareMicrohaplotype id={el[1] - 1} key={idx} />;
+                    })}
+                  </CloneRow>
+                  <CloneRow
+                    label={8}
+                    classNames={{
+                      button:
+                        P8CloneRowButtonColors[8] + " text-sm md:text-base",
+                      row: P8CloneRowColors[8],
+                    }}
+                  >
+                    {fixedData[8].persons.D.cases.map((el, idx) => {
+                      return <SquareMicrohaplotype id={el[2] - 1} key={idx} />;
+                    })}
+                  </CloneRow>
+                </div>
+              </div>
+            </div>
+            {/* <div className="flex">
+        <div className="w-20 md:hidden"></div>
+        <div className="grid grow @md/main:scale-75 origin-top-left [grid-template-columns:8%_auto]">
+          <div className="flex h-full min-h-10 w-full flex-col justify-center">
+            <div
+              className={`absolute mr-auto aspect-square h-1/3 max-h-4 -translate-y-2  rounded-full  md:max-h-5 lg:max-h-7 lg:-translate-y-4 ${P8CloneRowColors[6]}`}
+            ></div>
+            <div
+              className={`absolute ml-auto aspect-square h-1/3 max-h-4 -translate-x-2 translate-y-2 rounded-full md:max-h-5   lg:max-h-7 lg:-translate-x-4 lg:translate-y-4 ${P8CloneRowColors[7]}`}
+            ></div>
+            <div
+              className={`absolute ml-auto aspect-square h-1/3 max-h-4 translate-x-2   translate-y-2 rounded-full md:max-h-5 lg:max-h-7 lg:translate-x-4 lg:translate-y-4 ${P8CloneRowColors[8]}`}
+            ></div>
+          </div>
+          <div className="my-auto h-fit max-w-[500px] grow">
+            <GenotypeComposition
+              genotypeComposition={fixedData[8].persons["D"].cases}
+            />{" "}
+          </div>
+        </div>
+      </div> */}
+          </div>
+        </div>
+      }
+      // rightContent={}
+    />
+  );
+
+  return (
     <StandardLayout>
       <div>
         <FormHeader text="Student Infections" />
@@ -46,7 +267,7 @@ export default function TruePersonGenotypes() {
               <div className="my-auto w-20">
                 <Person id="A" circles={["#AA6012", "#E61048"]} />
               </div>
-              <div className="my-auto flex max-w-[500px] grow origin-top scale-90 flex-col gap-2">
+              <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
                 <CloneRow
                   label={1}
                   classNames={{
@@ -73,7 +294,7 @@ export default function TruePersonGenotypes() {
             </div>
             {/* <div className="flex">
               <div className="w-20 md:hidden"></div>
-              <div className="grid grow origin-top scale-90 [grid-template-columns:8%_auto]">
+              <div className="grid grow @md/main:scale-75 origin-top-left [grid-template-columns:8%_auto]">
                 <div className="flex h-full min-h-10 w-full flex-col justify-center">
                   <div
                     className={`mr-auto aspect-square h-1/3  translate-y-0.5 rounded-full ${P8CloneRowColors[1]}`}
@@ -96,7 +317,7 @@ export default function TruePersonGenotypes() {
                 <div className="my-auto w-20">
                   <Person id="B" circles={["#AA6012", "#E61048"]} />
                 </div>
-                <div className="my-auto flex max-w-[500px] grow origin-top scale-90 flex-col gap-2">
+                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
                   <CloneRow
                     label={3}
                     classNames={{
@@ -114,7 +335,7 @@ export default function TruePersonGenotypes() {
             </div>
             {/* <div className="flex">
               <div className="w-20 md:hidden"></div>
-              <div className="grid grow origin-top scale-90 [grid-template-columns:8%_auto]">
+              <div className="grid grow @md/main:scale-75 origin-top-left [grid-template-columns:8%_auto]">
                 <div className="flex h-full min-h-10 w-full flex-col justify-center">
                   <div
                     className={`mr-auto aspect-square h-1/3  translate-y-0.5 rounded-full ${P8CloneRowColors[3]}`}
@@ -134,7 +355,7 @@ export default function TruePersonGenotypes() {
                 <div className="my-auto w-20">
                   <Person id="C" circles={["#AA6012", "#E61048"]} />
                 </div>
-                <div className="my-auto flex max-w-[500px] grow origin-top scale-90 flex-col gap-2">
+                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
                   <CloneRow
                     label={4}
                     classNames={{
@@ -164,7 +385,7 @@ export default function TruePersonGenotypes() {
             </div>
             {/* <div className="flex">
               <div className="w-20 md:hidden"></div>
-              <div className="grid grow origin-top scale-90 [grid-template-columns:8%_auto]">
+              <div className="grid grow @md/main:scale-75 origin-top-left [grid-template-columns:8%_auto]">
                 <div className="flex h-full min-h-10 w-full flex-col justify-center">
                   <div
                     className={`mr-auto aspect-square h-1/3  translate-y-0.5 rounded-full ${P8CloneRowColors[4]}`}
@@ -187,7 +408,7 @@ export default function TruePersonGenotypes() {
                 <div className="my-auto w-20">
                   <Person id="D" circles={["#AA6012", "#E61048"]} />
                 </div>
-                <div className="my-auto flex max-w-[500px] grow origin-top scale-90 flex-col gap-2">
+                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
                   <CloneRow
                     label={6}
                     classNames={{
@@ -229,7 +450,7 @@ export default function TruePersonGenotypes() {
             </div>
             {/* <div className="flex">
               <div className="w-20 md:hidden"></div>
-              <div className="grid grow origin-top scale-90 [grid-template-columns:8%_auto]">
+              <div className="grid grow @md/main:scale-75 origin-top-left [grid-template-columns:8%_auto]">
                 <div className="flex h-full min-h-10 w-full flex-col justify-center">
                   <div
                     className={`absolute mr-auto aspect-square h-1/3 max-h-4 -translate-y-2  rounded-full  md:max-h-5 lg:max-h-7 lg:-translate-y-4 ${P8CloneRowColors[6]}`}

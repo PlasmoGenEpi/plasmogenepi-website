@@ -1,11 +1,11 @@
-import { phaseAtom } from "@/data/Interactives/interactiveStore";
+import { phase2Atom } from "@/data/Interactives/interactiveStore";
 import { coords } from "../../Pentagon3";
 import PentagonEdge from "../PentagonEdge";
 import { useAtomValue } from "jotai";
-import { usePrevious } from "@/components/hooks";
+import { usePrevious } from "@/app/components/hooks";
 
 export default function GIEdge() {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const prevPhase = usePrevious(phase, 0);
 
   const direction = phase > prevPhase.current ? "forwards" : "backwards";

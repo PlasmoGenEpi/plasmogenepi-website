@@ -23,7 +23,9 @@ export default function SquareMicrohaplotype({
       }
     >
       <div
-        className={`aspect-square border-2 shadow ${className} ${microhaplotypeColorMap.get(JSON.stringify(getRowConfiguration(id)))}`}
+        className={`aspect-square border-2 shadow ${className} ${microhaplotypeColorMap.get(
+          JSON.stringify(getRowConfiguration(id))
+        )}`}
       >
         <div className="h-full w-full bg-white/80"></div>
       </div>

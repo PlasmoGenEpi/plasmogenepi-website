@@ -9,7 +9,7 @@ export default function LabelRow() {
               className="inline-block text-center text-xs font-normal first-letter:text-sm"
               key={idx + 1}
             >
-              L{idx + 1}
+              S{idx + 1}
             </span>
           );
         })}

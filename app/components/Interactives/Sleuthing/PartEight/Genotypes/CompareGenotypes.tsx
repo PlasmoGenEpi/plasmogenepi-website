@@ -1,7 +1,8 @@
 import { fixedData } from "@/data/Interactives/fixedData";
 import GenotypeComposition from "./GenotypeComposition";
 import Person from "../Person";
-import { findLociWithSharedMicrohaplotypes } from "@/helpers/helpers";
+import { findLociWithSharedMicrohaplotypes } from "../../../helpers";
+// import { findLociWithSharedMicrohaplotypes } from "@/app/components/Interactives/helpers";
 
 function convertColumns(highlightColumns: number[]) {
   let copyArrs = [...highlightColumns];
@@ -27,8 +28,8 @@ function convertColumns(highlightColumns: number[]) {
 export default function CompareGenotypes({
   firstPersonId,
   secondPersonId,
-  // highlightColumns,
-}: {
+}: // highlightColumns,
+{
   firstPersonId: "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | null;
   secondPersonId: "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | null;
   // highlightColumns: number[];
@@ -44,6 +45,15 @@ export default function CompareGenotypes({
           fixedData[8].persons[secondPersonId].cases,
         )
       : [];
+
+  console.log(
+    "first person id",
+    firstPersonId,
+    firstPersonId !== null ? fixedData[8].persons[firstPersonId].cases : [],
+    "second person",
+    secondPersonId,
+    secondPersonId !== null ? fixedData[8].persons[secondPersonId].cases : [],
+  );
 
   return (
     <div
@@ -83,7 +93,7 @@ export default function CompareGenotypes({
                       highlightColumnArr[highlightColumnArr.length - 1] + 2,
                   }}
                   key={idx}
-                  className={`z-10 h-full outline outline-2 outline-offset-[1px] outline-black`}
+                  className={`z-10 h-full outline outline-2 outline-offset-[1px] outline-black dark:outline-white/50`}
                 ></div>
               );
             })}
@@ -91,7 +101,7 @@ export default function CompareGenotypes({
         </div>
         <div className="flex">
           <div className="w-[20%]">
-            <Person id={firstPersonId} />
+            <Person id={firstPersonId} viewBox="0 0 150 150" />
           </div>
           <GenotypeComposition
             highlightColumns={highlightColumns}
@@ -104,7 +114,7 @@ export default function CompareGenotypes({
         </div>
         <div className="mt-2 flex">
           <div className="w-[20%]">
-            <Person id={secondPersonId} />
+            <Person id={secondPersonId} viewBox="0 0 150 150" />
           </div>
           <GenotypeComposition
             highlightColumns={highlightColumns}

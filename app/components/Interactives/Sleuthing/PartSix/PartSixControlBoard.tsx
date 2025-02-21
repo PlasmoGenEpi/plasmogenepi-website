@@ -17,15 +17,19 @@ import {
   partSixSNPHistogramQuestionsAtom,
   partSixSNPHybridCreatedAtom,
   partSixSNPKnowledgeCheckQuestionsAtom,
-  phaseAtom,
+  phase2Atom,
   VERSION_CONTROL,
 } from "@/data/Interactives/interactiveStore";
-import { useAtom, useAtomValue, useSetAtom } from "jotai";
+import { atom, useAtom, useAtomValue, useSetAtom } from "jotai";
 import ControlPanelWrapper from "../../Shared/ControlPanel/ControlPanelWrapper";
 import PrimaryButton from "../../Shared/ControlPanel/PrimaryButton";
-import { resetConfirmOpenAtom } from "../../Shared/ControlPanel/ResetModal";
+import {
+  resetConfirmOpenAtom,
+  s2Reset1Atom,
+  s2Reset3Atom,
+} from "../../Shared/ControlPanel/ResetModal";
 import { atomWithStorage, RESET } from "jotai/utils";
-import { compareOrderedArrays } from "@/helpers/helpers";
+// import { compareOrderedArrays } from "@/helpers/helpers";
 import { useCallback, useEffect, useState } from "react";
 import {
   identicalGenotype2Atom,
@@ -38,8 +42,13 @@ import { SNPvsMHPquestionAtom } from "./Phases/IBSWithMicro";
 import { SNPMHPInitialQuestionAtom } from "./Phases/GenerateMHPCloneRows";
 import { hybridMHPCloneQuestionAtom } from "./PartSix";
 import { selectedClonesAtom } from "../PartSeven/PartSeven";
+// import { currentViewAtom } from "../../Shared/InteractiveViewer/InteractiveViewer";
+import { compareOrderedArrays } from "../../helpers";
+import { currentView2Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
 
 const P6CurrentVersionAtom = atomWithStorage("P6CurrentVersionAtom", "1.1.1");
+
+export const P6ResetAtom = atom(null);
 
 export default function PartSixControlBoard({
   direction,
@@ -47,39 +56,39 @@ export default function PartSixControlBoard({
   direction: "forwards" | "backwards" | null;
 }) {
   const [partSixSNPHybridCreated, setPartSixSNPHybridCreated] = useAtom(
-    partSixSNPHybridCreatedAtom,
+    partSixSNPHybridCreatedAtom
   );
   const [knowledgeCheckSNPQuestions, setKnowledgeCheckSNPQuestions] = useAtom(
-    partSixSNPKnowledgeCheckQuestionsAtom,
+    partSixSNPKnowledgeCheckQuestionsAtom
   );
   const [firstQuestion, setFirstQuestion] = useAtom(partSixFirstQuestionAtom);
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
   const [hintsEnabled, setHintsEnabled] = useAtom(hintsEnabledAtom);
   const [completion, setCompletion] = useAtom(partSixCompletionAtom);
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase2, setPhase2] = useAtom(phase2Atom);
   const [cloneRows, setCloneRows] = useAtom(partSixCloneRowsAtom);
   const [cloneRowsMHPs, setCloneRowsMHPs] = useAtom(partSixCloneRowsMHPsAtom);
   const [activePairwiseCombo, setActivePairwiseCombo] = useAtom(
-    activePairwiseComboAtom,
+    activePairwiseComboAtom
   );
   const [activePairwiseMHPsCombo, setActivePairwiseMHPsCombo] = useAtom(
-    activePairwiseMHPsComboAtom,
+    activePairwiseMHPsComboAtom
   );
   const [pairwiseCombos, setPairwiseCombos] = useAtom(pairwiseCombosAtom);
   const [pairwiseCombosMHPs, setPairwiseCombosMHPs] = useAtom(
-    pairwiseCombosMHPsAtom,
+    pairwiseCombosMHPsAtom
   );
   const [pairwiseCompletion, setPairwiseCompletion] = useAtom(
-    pairwiseCompletionAtom,
+    pairwiseCompletionAtom
   );
   const [pairwiseMHPCompletion, setPairwiseMHPCompletion] = useAtom(
-    pairwiseMHPCompletionAtom,
+    pairwiseMHPCompletionAtom
   );
   const [partSixPairwiseQuestions, setPartSixPairwiseQuestions] = useAtom(
-    partSixPairwiseQuestionsAtom,
+    partSixPairwiseQuestionsAtom
   );
   const [partSixMHPPairwiseQuestions, setPartSixMHPPairwiseQuestions] = useAtom(
-    partSixMHPPairwiseQuestionsAtom,
+    partSixMHPPairwiseQuestionsAtom
   );
   const [partSixSNPHistogramQuestions, setPartSixSNPHistogramQuestions] =
     useAtom(partSixSNPHistogramQuestionsAtom);
@@ -87,16 +96,16 @@ export default function PartSixControlBoard({
   const [questions2, setQuestions2] = useAtom(P6Step2QuestionsAtom);
   const [slidoPause, setSlidoPause] = useState(false);
   const [partSixMHPHybridCreated, setPartSixMHPHybridCreated] = useAtom(
-    partSixMHPHybridCreatedAtom,
+    partSixMHPHybridCreatedAtom
   );
   const [finalHybridQ, setFinalHybridQ] = useAtom(finalHybridQAtom);
   const [someQ, setSomeQ] = useAtom(SNPvsMHPquestionAtom);
   const [currentVersion, setCurrentVersion] = useAtom(P6CurrentVersionAtom);
   const [initialQuestion, setInitialQuestion] = useAtom(
-    SNPMHPInitialQuestionAtom,
+    SNPMHPInitialQuestionAtom
   );
   const [hybridMHPQuestion, setHybridMHPQuestion] = useAtom(
-    hybridMHPCloneQuestionAtom,
+    hybridMHPCloneQuestionAtom
   );
   const setP7Completion = useSetAtom(partSevenCompletionAtom);
   const setP7Genotypes = useSetAtom(partSixMHPPolycloncalGenotypesAtom);
@@ -104,6 +113,8 @@ export default function PartSixControlBoard({
   const setP7IdenticalGenotype = useSetAtom(identicalGenotypeAtom);
   const setP7IdenticalGenotype2 = useSetAtom(identicalGenotype2Atom);
   const setP7SelectedClones = useSetAtom(selectedClonesAtom);
+  const [currentView2, setCurrentView2] = useAtom(currentView2Atom);
+  const setS2Reset1 = useSetAtom(s2Reset1Atom);
 
   const resetCallback = useCallback(() => {
     setP7Completion(RESET);
@@ -137,6 +148,12 @@ export default function PartSixControlBoard({
   }, []);
 
   useEffect(() => {
+    if (resetCallback) {
+      setS2Reset1(() => () => resetCallback());
+    }
+  }, []);
+
+  useEffect(() => {
     let x = localStorage.getItem("P6CurrentVersionAtom");
     if (JSON.parse(x) !== VERSION_CONTROL) {
       setCurrentVersion(VERSION_CONTROL);
@@ -160,8 +177,8 @@ export default function PartSixControlBoard({
   useEffect(() => {
     let x: NodeJS.Timeout;
     if (
-      ([6, 7, 17, 26, 27, 28, 20].includes(phase) && !completion[phase]) ||
-      phase === 33.5
+      ([6, 7, 17, 26, 27, 28, 20].includes(phase2) && !completion[phase2]) ||
+      phase2 === 33.5
     ) {
       setSlidoPause(true);
       x = setTimeout(() => {
@@ -173,37 +190,37 @@ export default function PartSixControlBoard({
     return () => {
       clearTimeout(x);
     };
-  }, [phase]);
+  }, [phase2]);
 
   const [first, second] = activePairwiseCombo;
 
   function isDisabled() {
-    if (phase === 61) {
+    if (phase2 === 61) {
       return true;
     }
-    if (phase === 33.5) {
+    if (phase2 === 33.5) {
       return slidoPause;
     }
-    if (phase === 32) {
+    if (phase2 === 32) {
       return finalHybridQ !== 0;
     }
 
-    if (phase === 22.5) {
+    if (phase2 === 22.5) {
       return initialQuestion !== 0;
     }
 
-    if (phase === 1) {
+    if (phase2 === 1) {
       for (let k in cloneRows) {
         if (cloneRows[k].vals.includes(null) && cloneRows[k].id !== 4) {
           return true;
         }
       }
       return false;
-    } else if (phase === 2) {
+    } else if (phase2 === 2) {
       if (firstQuestion === 2) {
         return false;
       }
-    } else if (phase === 3) {
+    } else if (phase2 === 3) {
       if (pairwiseCompletion[1][2] === false) {
         let x = cloneRows[first].vals.map((val, idx) => {
           return val === cloneRows[second].vals[idx];
@@ -216,7 +233,7 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 4) {
+    } else if (phase2 === 4) {
       if (pairwiseCompletion[1][3] === false) {
         let x = cloneRows[first].vals.map((val, idx) => {
           return val === cloneRows[second].vals[idx];
@@ -229,7 +246,7 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 5) {
+    } else if (phase2 === 5) {
       if (pairwiseCompletion[2][3] === false) {
         let x = cloneRows[first].vals.map((val, idx) => {
           return val === cloneRows[second].vals[idx];
@@ -242,25 +259,25 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 6 || phase === 7) {
+    } else if (phase2 === 6 || phase2 === 7) {
       return slidoPause;
-    } else if (phase === 8) {
+    } else if (phase2 === 8) {
       if (partSixSNPHistogramQuestions[1] === 1) {
         return false;
       }
-    } else if (phase === 9) {
+    } else if (phase2 === 9) {
       if (partSixSNPHistogramQuestions[2] === 0) {
         return false;
       }
-    } else if (phase === 10) {
+    } else if (phase2 === 10) {
       if (partSixSNPHistogramQuestions[3] === 0) {
         return false;
       }
-    } else if (phase === 11) {
+    } else if (phase2 === 11) {
       if (partSixSNPHybridCreated === true) {
         return false;
       }
-    } else if (phase === 12) {
+    } else if (phase2 === 12) {
       if (!compareOrderedArrays([1, 4], activePairwiseCombo)) {
         return true;
       }
@@ -277,7 +294,7 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 13) {
+    } else if (phase2 === 13) {
       if (!compareOrderedArrays([2, 4], activePairwiseCombo)) {
         return true;
       }
@@ -296,13 +313,13 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 13.5) {
+    } else if (phase2 === 13.5) {
       if (partSixPairwiseQuestions["[2,4]"][4] === 3) {
         return false;
       } else {
         return true;
       }
-    } else if (phase === 14) {
+    } else if (phase2 === 14) {
       if (!compareOrderedArrays([3, 4], activePairwiseCombo)) {
         return true;
       }
@@ -317,45 +334,45 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 14.5) {
+    } else if (phase2 === 14.5) {
       if (partSixPairwiseQuestions["[3,4]"][4] === 12) {
         return false;
       } else {
         return true;
       }
-    } else if (phase === 18) {
+    } else if (phase2 === 18) {
       return false;
-    } else if (phase === 19) {
+    } else if (phase2 === 19) {
       return !(
         knowledgeCheckSNPQuestions[1] === true &&
         knowledgeCheckSNPQuestions[2] === true &&
         (knowledgeCheckSNPQuestions[3] === false ||
           knowledgeCheckSNPQuestions[3] === null)
       );
-    } else if (phase <= 20) {
+    } else if (phase2 <= 20) {
       return slidoPause;
-    } else if (phase === 21) {
+    } else if (phase2 === 21) {
       return false;
-    } else if (phase === 22) {
+    } else if (phase2 === 22) {
       for (let k in cloneRowsMHPs) {
         if (cloneRowsMHPs[k].vals.includes(null)) {
           return true;
         }
       }
       return false;
-    } else if (phase === 23) {
+    } else if (phase2 === 23) {
       if (pairwiseMHPCompletion[1][2] === false) {
         let x = cloneRowsMHPs[activePairwiseMHPsCombo[0]].vals.map(
           (val, idx) => {
             return val === cloneRowsMHPs[activePairwiseMHPsCombo[1]].vals[idx];
-          },
+          }
         );
         if (
           compareOrderedArrays(
             x,
             pairwiseCombosMHPs[activePairwiseMHPsCombo[0]][
               activePairwiseMHPsCombo[1]
-            ],
+            ]
           )
         ) {
           return false;
@@ -365,19 +382,19 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 24) {
+    } else if (phase2 === 24) {
       if (pairwiseMHPCompletion[1][3] === false) {
         let x = cloneRowsMHPs[activePairwiseMHPsCombo[0]].vals.map(
           (val, idx) => {
             return val === cloneRowsMHPs[activePairwiseMHPsCombo[1]].vals[idx];
-          },
+          }
         );
         if (
           compareOrderedArrays(
             x,
             pairwiseCombosMHPs[activePairwiseMHPsCombo[0]][
               activePairwiseMHPsCombo[1]
-            ],
+            ]
           )
         ) {
           return false;
@@ -387,19 +404,19 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 25) {
+    } else if (phase2 === 25) {
       if (pairwiseMHPCompletion[2][3] === false) {
         let x = cloneRowsMHPs[activePairwiseMHPsCombo[0]].vals.map(
           (val, idx) => {
             return val === cloneRowsMHPs[activePairwiseMHPsCombo[1]].vals[idx];
-          },
+          }
         );
         if (
           compareOrderedArrays(
             x,
             pairwiseCombosMHPs[activePairwiseMHPsCombo[0]][
               activePairwiseMHPsCombo[1]
-            ],
+            ]
           )
         ) {
           return false;
@@ -409,15 +426,15 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 26) {
+    } else if (phase2 === 26) {
       return slidoPause;
-    } else if (phase === 27) {
+    } else if (phase2 === 27) {
       return slidoPause;
-    } else if (phase === 28) {
+    } else if (phase2 === 28) {
       return slidoPause;
-    } else if (phase === 29) {
+    } else if (phase2 === 29) {
       return !partSixMHPHybridCreated;
-    } else if (phase === 30) {
+    } else if (phase2 === 30) {
       if (pairwiseMHPCompletion[1][4] === false) {
         let x = cloneRowsMHPs[1].vals.map((val, idx) => {
           return val === cloneRowsMHPs[4].vals[idx];
@@ -430,7 +447,7 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 31) {
+    } else if (phase2 === 31) {
       if (pairwiseMHPCompletion[2][4] === false) {
         let x = cloneRowsMHPs[2].vals.map((val, idx) => {
           return val === cloneRowsMHPs[4].vals[idx];
@@ -443,9 +460,9 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 31.5) {
+    } else if (phase2 === 31.5) {
       return hybridMHPQuestion !== 1;
-    } else if (phase === 32) {
+    } else if (phase2 === 32) {
       if (pairwiseMHPCompletion[3][4] === false) {
         let x = cloneRowsMHPs[3].vals.map((val, idx) => {
           return val === cloneRowsMHPs[4].vals[idx];
@@ -458,25 +475,25 @@ export default function PartSixControlBoard({
           return false;
         }
       }
-    } else if (phase === 33) {
+    } else if (phase2 === 33) {
       return someQ !== 0;
-    } else if (phase === 33.5) {
+    } else if (phase2 === 33.5) {
       return false;
-    } else if (phase >= 50) {
+    } else if (phase2 >= 50) {
       return false;
     }
     return true;
   }
 
   function handleClick() {
-    // if (phase === 21) {
-    //   setPhase(50);
+    // if (phase2 === 21) {
+    //   setPhase2(50);
     //   return;
     // }
-    // if (phase === 8) {
+    // if (phase2 === 8) {
     //   setActivePairwiseMHPsCombo([1, 2]);
     // }
-    if (phase === 3) {
+    if (phase2 === 3) {
       if (pairwiseCompletion[1][2]) {
         setActivePairwiseCombo([1, 3]);
       } else {
@@ -491,7 +508,7 @@ export default function PartSixControlBoard({
       }
     }
 
-    if (phase === 4) {
+    if (phase2 === 4) {
       if (pairwiseCompletion[1][3]) {
         setActivePairwiseCombo([2, 3]);
       } else {
@@ -506,7 +523,7 @@ export default function PartSixControlBoard({
       }
     }
 
-    if (phase === 5) {
+    if (phase2 === 5) {
       if (pairwiseCompletion[2][3]) {
         // setActivePairwiseCombo([2, 3]);
       } else {
@@ -521,7 +538,7 @@ export default function PartSixControlBoard({
       }
     }
 
-    if (phase === 12) {
+    if (phase2 === 12) {
       if (pairwiseCompletion[1][4]) {
         setActivePairwiseCombo([2, 4]);
       } else {
@@ -536,11 +553,11 @@ export default function PartSixControlBoard({
       }
     }
 
-    if (phase === 13) {
+    if (phase2 === 13) {
       if (pairwiseCompletion[2][4]) {
         // setActivePairwiseCombo([3, 4]);
-        setCompletion({ ...completion, [phase]: true });
-        setPhase(13.5);
+        setCompletion({ ...completion, [phase2]: true });
+        setCurrentView2({ ...currentView2, phase: 13.5 });
         return;
       } else {
         if (compareOrderedArrays([2, 4], activePairwiseCombo)) {
@@ -554,18 +571,18 @@ export default function PartSixControlBoard({
       }
     }
 
-    if (phase === 13.5) {
+    if (phase2 === 13.5) {
       setActivePairwiseCombo([3, 4]);
-      setPhase(14);
-      setCompletion({ ...completion, [phase]: true });
+      setCurrentView2({ ...currentView2, phase: 14 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
     }
 
-    if (phase === 14) {
+    if (phase2 === 14) {
       if (pairwiseCompletion[3][4]) {
         // setActivePairwiseCombo([2, 4]);
-        setCompletion({ ...completion, [phase]: true });
-        setPhase(14.5);
+        setCompletion({ ...completion, [phase2]: true });
+        setCurrentView2({ ...currentView2, phase: 14.5 });
         return;
       } else {
         if (compareOrderedArrays([3, 4], activePairwiseCombo)) {
@@ -579,46 +596,46 @@ export default function PartSixControlBoard({
       }
     }
 
-    if (phase === 14.5) {
+    if (phase2 === 14.5) {
       setActivePairwiseCombo([3, 4]);
-      setPhase(15);
-      setCompletion({ ...completion, [phase]: true });
+      setCurrentView2({ ...currentView2, phase: 15 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
     }
 
-    if (phase === 18) {
-      setPhase(19);
-      setCompletion({ ...completion, [phase]: true });
+    if (phase2 === 18) {
+      setCurrentView2({ ...currentView2, phase: 19 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
     }
 
-    if (phase === 19) {
-      setPhase(20);
-      setCompletion({ ...completion, [phase]: true });
+    if (phase2 === 19) {
+      setCurrentView2({ ...currentView2, phase: 20 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
     }
 
-    if (phase === 20) {
-      setPhase(21);
-      setCompletion({ ...completion, [phase]: true });
+    if (phase2 === 20) {
+      setCurrentView2({ ...currentView2, phase: 21 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
     }
 
-    if (phase === 22) {
-      setPhase(22.5);
-      setCompletion({ ...completion, [phase]: true });
+    if (phase2 === 22) {
+      setCurrentView2({ ...currentView2, phase: 22.5 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
     }
-    if (phase === 22.5) {
-      setPhase(23);
-      setCompletion({ ...completion, [phase]: true });
+    if (phase2 === 22.5) {
+      setCurrentView2({ ...currentView2, phase: 23 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
     }
 
-    if (phase === 23) {
+    if (phase2 === 23) {
       console.log(pairwiseMHPCompletion);
       if (pairwiseMHPCompletion[1][2]) {
-        setPhase(24);
+        setCurrentView2({ ...currentView2, phase: 24 });
         setActivePairwiseMHPsCombo([1, 3]);
         setCompletion({ ...completion, 23: true });
         return;
@@ -632,10 +649,10 @@ export default function PartSixControlBoard({
       }
     }
 
-    if (phase === 24) {
+    if (phase2 === 24) {
       console.log(pairwiseMHPCompletion);
       if (pairwiseMHPCompletion[1][3]) {
-        setPhase(25);
+        setCurrentView2({ ...currentView2, phase: 25 });
         setActivePairwiseMHPsCombo([2, 3]);
         setCompletion({ ...completion, 24: true });
         return;
@@ -649,9 +666,9 @@ export default function PartSixControlBoard({
       }
     }
 
-    if (phase === 25) {
+    if (phase2 === 25) {
       if (pairwiseMHPCompletion[2][3]) {
-        setPhase(26);
+        setCurrentView2({ ...currentView2, phase: 26 });
         setCompletion({ ...completion, 25: true });
         return;
       } else {
@@ -664,15 +681,15 @@ export default function PartSixControlBoard({
       }
     }
 
-    if (phase === 27) {
-      setPhase(29);
-      setCompletion({ ...completion, [phase]: true });
+    if (phase2 === 27) {
+      setCurrentView2({ ...currentView2, phase: 29 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
     }
 
-    if (phase === 30) {
+    if (phase2 === 30) {
       if (pairwiseMHPCompletion[1][4]) {
-        setPhase(31);
+        setCurrentView2({ ...currentView2, phase: 31 });
         setCompletion({ ...completion, 30: true });
         return;
       } else {
@@ -683,9 +700,9 @@ export default function PartSixControlBoard({
         });
         return;
       }
-    } else if (phase === 31) {
+    } else if (phase2 === 31) {
       if (pairwiseMHPCompletion[2][4]) {
-        setPhase(31.5);
+        setCurrentView2({ ...currentView2, phase: 31.5 });
         setCompletion({ ...completion, 31: true });
         return;
       } else {
@@ -696,13 +713,13 @@ export default function PartSixControlBoard({
         });
         return;
       }
-    } else if (phase === 31.5) {
-      setPhase(32);
-      setCompletion({ ...completion, [phase]: true });
+    } else if (phase2 === 31.5) {
+      setCurrentView2({ ...currentView2, phase: 32 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
-    } else if (phase === 32) {
+    } else if (phase2 === 32) {
       if (pairwiseMHPCompletion[3][4]) {
-        setPhase(33);
+        setCurrentView2({ ...currentView2, phase: 33 });
         setCompletion({ ...completion, 32: true });
         return;
       } else {
@@ -713,24 +730,26 @@ export default function PartSixControlBoard({
         });
         return;
       }
-    } else if (phase === 33) {
-      setPhase(33.5);
-      setCompletion({ ...completion, [phase]: true });
+    } else if (phase2 === 33) {
+      setCurrentView2({ ...currentView2, phase: 33.5 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
-    } else if (phase === 33.5) {
-      setPhase(34);
-      setCompletion({ ...completion, [phase]: true });
+    } else if (phase2 === 33.5) {
+      setCurrentView2({ ...currentView2, phase: 34 });
+      setCompletion({ ...completion, [phase2]: true });
       return;
     }
 
-    setPhase(phase + 1);
-    setCompletion({ ...completion, [phase]: true });
+    setCurrentView2({ ...currentView2, phase: phase2 + 1 });
+    setCompletion({ ...completion, [phase2]: true });
   }
+
+  return null;
 
   return (
     <ControlPanelWrapper fixed resetCallback={resetCallback}>
       <div className="mx-auto max-w-6xl">
-        {phase !== 34 && (
+        {phase2 !== 34 && (
           <div className="mx-auto flex max-w-6xl justify-end">
             <div className="-translate-y-2">
               <label htmlFor="hints" className="mr-4 text-white">
@@ -749,7 +768,7 @@ export default function PartSixControlBoard({
           </div>
         )}
         <div className="flex justify-between">
-          {phase === 1 ? (
+          {phase2 === 1 ? (
             <PrimaryButton
               type="button"
               first
@@ -765,69 +784,69 @@ export default function PartSixControlBoard({
               type="button"
               first
               callback={() => {
-                if (phase === 34) {
-                  setPhase(33.5);
-                } else if (phase === 33.5) {
-                  setPhase(33);
-                } else if (phase === 32) {
-                  setPhase(31.5);
-                } else if (phase === 31.5) {
-                  setPhase(31);
-                } else if (phase === 29) {
-                  setPhase(27);
-                } else if (phase === 23) {
-                  setPhase(22.5);
-                } else if (phase === 22.5) {
-                  setPhase(22);
-                } else if (phase === 21) {
-                  setPhase(20);
-                } else if (phase === 20) {
-                  setPhase(19);
-                } else if (phase === 15) {
-                  setPhase(14.5);
-                } else if (phase === 14.5) {
-                  setPhase(14);
-                } else if (phase === 14) {
-                  setPhase(13.5);
-                } else if (phase === 13.5) {
-                  setPhase(13);
-                } else if (phase === 6) {
-                  setPhase(5);
+                if (phase2 === 34) {
+                  setCurrentView2({ ...currentView2, phase: 33.5 });
+                } else if (phase2 === 33.5) {
+                  setCurrentView2({ ...currentView2, phase: 33 });
+                } else if (phase2 === 32) {
+                  setCurrentView2({ ...currentView2, phase: 31.5 });
+                } else if (phase2 === 31.5) {
+                  setCurrentView2({ ...currentView2, phase: 31 });
+                } else if (phase2 === 29) {
+                  setCurrentView2({ ...currentView2, phase: 27 });
+                } else if (phase2 === 23) {
+                  setCurrentView2({ ...currentView2, phase: 22.5 });
+                } else if (phase2 === 22.5) {
+                  setCurrentView2({ ...currentView2, phase: 22 });
+                } else if (phase2 === 21) {
+                  setCurrentView2({ ...currentView2, phase: 20 });
+                } else if (phase2 === 20) {
+                  setCurrentView2({ ...currentView2, phase: 19 });
+                } else if (phase2 === 15) {
+                  setCurrentView2({ ...currentView2, phase: 14.5 });
+                } else if (phase2 === 14.5) {
+                  setCurrentView2({ ...currentView2, phase: 14 });
+                } else if (phase2 === 14) {
+                  setCurrentView2({ ...currentView2, phase: 13.5 });
+                } else if (phase2 === 13.5) {
+                  setCurrentView2({ ...currentView2, phase: 13 });
+                } else if (phase2 === 6) {
+                  setCurrentView2({ ...currentView2, phase: 5 });
                   setActivePairwiseCombo([2, 3]);
                   return;
-                } else if (phase === 5) {
+                } else if (phase2 === 5) {
                   setActivePairwiseCombo([1, 3]);
-                  // console.log(phase);
-                  setPhase(4);
+                  // console.log(phase2);
+                  setCurrentView2({ ...currentView2, phase: 4 });
                   return;
-                } else if (phase === 4) {
-                  setPhase(phase - 1);
+                } else if (phase2 === 4) {
+                  setCurrentView2({ ...currentView2, phase: phase2 - 1 });
                   setActivePairwiseCombo([1, 2]);
                   return;
                 } else {
-                  setPhase(phase - 1);
+                  setCurrentView2({ ...currentView2, phase: phase2 - 1 });
                 }
-                // if (phase === 5) {
+                // if (phase2 === 5) {
                 //   setActivePairwiseCombo([1, 3]);
-                // } else if (phase === 4) {
+                // } else if (phase2 === 4) {
                 //   setActivePairwiseCombo([1, 2]);
-                // } else if (phase === 11) {
+                // } else if (phase2 === 11) {
                 //   setActivePairwiseMHPsCombo([1, 3]);
-                // } else if (phase === 10) {
+                // } else if (phase2 === 10) {
                 //   setActivePairwiseMHPsCombo([1, 2]);
                 // }
-                // if (phase >= 9 && phase <= 11) {
-                //   setPhase(8);
+                // if (phase2 >= 9 && phase2 <= 11) {
+                //   setPhase2(8);
                 // } else {
-                //   setPhase(phase - 1);
+                //   setPhase2(phase2 - 1);
                 // }
               }}
               className="bg-primaryGreen text-white"
               text="Back"
-              disabled={phase === 1}
+              disabled={phase2 === 1}
             />
           )}{" "}
-          {phase < 34 && (
+          {phase2 < 34 && (
             <PrimaryButton
               type="button"
               first
@@ -835,11 +854,11 @@ export default function PartSixControlBoard({
                 handleClick();
               }}
               className={
-                phase === 33.5
+                phase2 === 33.5
                   ? "bg-primaryBlue text-white"
                   : "bg-primaryGreen text-white"
               }
-              text={phase === 33.5 ? "Finish" : "Next"}
+              text={phase2 === 33.5 ? "Finish" : "Next"}
               disabled={isDisabled()}
             />
           )}

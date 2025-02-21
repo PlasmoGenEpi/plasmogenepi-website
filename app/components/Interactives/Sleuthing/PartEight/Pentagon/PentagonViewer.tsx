@@ -8,14 +8,14 @@ import { useEffect } from "react";
 import { Edge } from "../Pentagon";
 import {
   partEightPentagonSelectedEdgesAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import { RESET } from "jotai/utils";
-import { usePrevious } from "@/components/hooks";
+import { usePrevious } from "@/app/components/hooks";
 import PentagonResetButton from "./PentagonResetButton";
 import PentagonProgressButton from "./PentagonProgressButton";
 import { currentCorrectionAtom } from "./PentagonEdgeCorrection";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 
 // export type PentagonView = {
 //   EF: {
@@ -185,7 +185,7 @@ export default function PentagonViewer() {
     partEightPentagonSelectedEdgesAtom,
   );
   const [edgeCorrections, setEdgeCorrections] = useAtom(edgeCorrectionsAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const [specialEdgeHandled, setSpecialEdgeHandled] = useAtom(
     specialEdgeHandledAtom,
   );
@@ -225,7 +225,6 @@ export default function PentagonViewer() {
 
   return (
     <div>
-      <FormHeader text="Village Transmission Network" />
       <div className="p-1">
         <Pentagon3 />
       </div>

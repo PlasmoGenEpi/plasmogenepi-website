@@ -7,7 +7,9 @@ export default function FormHeader({
 }) {
   return (
     <h5
-      className={`mb-8 text-balance text-center text-lg  font-semibold md:text-wrap md:text-left ${className ? className : ""}`}
+      className={`mb-8 text-balance text-center text-lg  font-semibold @2xl/main:text-wrap @2xl/main:text-left ${
+        className ? className : ""
+      }`}
     >
       {text}
     </h5>

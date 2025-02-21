@@ -1,22 +1,24 @@
-import StandardLayout from "@/components/Interactives/Shared/misc/StandardLayout";
+import StandardLayout from "@/app/components/Interactives/Shared/misc/StandardLayout";
 import P6MHPCloneRows from "../CloneRows/P6MHPCloneRows";
 import MicrohaplotypeComparator from "../Comparators/MHPs/MicrohaplotypeComparators";
-import KnowledgeCheckQuestion from "@/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
+import KnowledgeCheckQuestion from "@/app/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
 import {
   activePairwiseMHPsComboAtom,
   pairwiseCombosMHPsAtom,
   pairwiseMHPCompletionAtom,
   partSixCompletionAtom,
   partSixMHPPairwiseQuestionsAtom,
+  phase2Atom,
   phaseAtom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import CompareMHPSingleCloneQuestions from "../Comparators/MHPs/CompareMHPSingleCloneQuestions";
 import { useEffect } from "react";
 import { RESET } from "jotai/utils";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
-import MultiRowLayout from "@/components/Interactives/Shared/misc/MultiRowLayout";
-import QuestionResponseText from "@/components/Interactives/Shared/misc/QuestionResponseText";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
+import MultiRowLayout from "@/app/components/Interactives/Shared/misc/MultiRowLayout";
+import QuestionResponseText from "@/app/components/Interactives/Shared/misc/QuestionResponseText";
+import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
 export default function CompareMHPClones() {
   const [activePairwiseMHPsCombo, setActivePairwiseMHPsCombo] = useAtom(
@@ -25,7 +27,7 @@ export default function CompareMHPClones() {
   const setPairwiseCompletion = useSetAtom(pairwiseMHPCompletionAtom);
   const [completion, setCompletion] = useAtom(partSixCompletionAtom);
   const questions = useAtomValue(partSixMHPPairwiseQuestionsAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
 
   // useEffect(() => {
   //   setActivePairwiseMHPsCombo([1, 2]);
@@ -34,6 +36,36 @@ export default function CompareMHPClones() {
 
   //   // setPairwiseCompletion;
   // }, []);
+
+  return (
+    <InteractivePrimaryLayout
+      leftHeader={`Lab Clones with Microhaplotypes`}
+      leftContent={
+        <div>
+          <P6MHPCloneRows />
+          <div className="mt-2">
+            <MicrohaplotypeComparator
+              label
+              activeCombo={activePairwiseMHPsCombo}
+            />
+          </div>
+        </div>
+      }
+      rightHeader={`Questions`}
+      moreContent={
+        <QuestionResponseText
+          complete={completion[phase] || false}
+          trigger={questions[JSON.stringify(activePairwiseMHPsCombo)][3] === 0}
+          visible={questions[JSON.stringify(activePairwiseMHPsCombo)][3] === 0}
+          text={`That’s right - unrelated parasites still mean IBD is zero, whether or not any loci match.`}
+        />
+      }
+      rightContentStyle={{
+        gridRow: "span 2",
+      }}
+      rightContent={<CompareMHPSingleCloneQuestions />}
+    />
+  );
 
   return (
     <MultiRowLayout
@@ -71,7 +103,7 @@ export default function CompareMHPClones() {
   <div
     className={
       questions[JSON.stringify(activePairwiseMHPsCombo)][3] === 0
-        ? "fadeIn500 bg-primaryBlue/10 p-4 text-sm md:p-6"
+        ? " bg-primaryBlue/10 p-4 text-sm md:p-6"
         : "invisible bg-primaryBlue/10 p-4 text-sm md:p-6"
     }
   >

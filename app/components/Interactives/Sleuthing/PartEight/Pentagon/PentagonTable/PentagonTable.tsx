@@ -2,7 +2,7 @@ import { partEightPentagonSelectedEdgesAtom } from "@/data/Interactives/interact
 import { atom, useAtom, useAtomValue } from "jotai";
 import PentagonTableRow from "./PentagonTableRow";
 import { Edge } from "../../Pentagon";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 
 export const visibleTooltipsAtom = atom<Edge[]>([]);
 
@@ -10,7 +10,6 @@ export default function PentagonTable() {
   const selectedEdges = useAtomValue(partEightPentagonSelectedEdgesAtom);
   return (
     <div>
-      <FormHeader text="Transmissions" />
       <table className="table text-center">
         <thead>
           <tr>

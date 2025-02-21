@@ -5,7 +5,7 @@ import {
   partFiveCompletionAtom,
   partFourInfectionsAtom,
   partTwoInfectionsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedInfectionIndexAtom,
 } from "@/data/Interactives/interactiveStore";
 import { partFivePrompts } from "./partFivePrompts";
@@ -23,6 +23,8 @@ import KnowledgeCheckQuestion from "../../Shared/KnowledgeChecks/KnowledgeCheckQ
 import { atomWithStorage } from "jotai/utils";
 import CompletePage from "../../Shared/misc/CompletePage";
 import FormHeader from "../../Shared/misc/FormHeader";
+import InteractivePrimaryLayout from "../../Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
+import QuestionResponseText from "../../Shared/misc/QuestionResponseText";
 
 const possibleVals = fixedData[2].infectionAlleleReferences.map((obj) => {
   return { reference: obj.ref, alternate: obj.alt };
@@ -39,16 +41,27 @@ const possibleVals2 = {
 
 export const partFiveQuestionAtom = atomWithStorage<null | number>(
   "partFiveQuestionAtom",
-  null,
+  null
+);
+
+export const p5ButtonClickedAtom = atomWithStorage(
+  "p5ButtonClickedAtom",
+  false
+);
+export const p5ButtonClicked2Atom = atomWithStorage(
+  "p5ButtonClicked2Atom",
+  false
 );
 
 export default function PartFive({ fixedPanel }: { fixedPanel: boolean }) {
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase1Atom);
   const [completion, setCompletion] = useAtom(partFiveCompletionAtom);
   const SNPInfections = useAtomValue(partTwoInfectionsAtom);
   const MHPInfections = useAtomValue(partFourInfectionsAtom);
   const [activeIndex, setActiveIndex] = useAtom(selectedInfectionIndexAtom);
   const [question, setQuestion] = useAtom(partFiveQuestionAtom);
+  const [clicked, setClicked] = useAtom(p5ButtonClickedAtom);
+  const [clicked2, setClicked2] = useAtom(p5ButtonClicked2Atom);
 
   let SNPInfectionsCount = Array(5).fill(0);
   SNPInfections.forEach((inf) => {
@@ -165,24 +178,24 @@ export default function PartFive({ fixedPanel }: { fixedPanel: boolean }) {
     activeIndex !== null
       ? Math.abs(
           (MHPInfections[activeIndex] as number) -
-            fixedData[2].infections[activeIndex].trueMOI,
+            fixedData[2].infections[activeIndex].trueMOI
         )
       : null;
   let SNPDifference =
     activeIndex !== null
       ? Math.abs(
           (SNPInfections[activeIndex] as number) -
-            fixedData[2].infections[activeIndex].trueMOI,
+            fixedData[2].infections[activeIndex].trueMOI
         )
       : null;
 
-  const activeRow = phase === 1 || phase === 10 ? activeIndex : null;
+  const activeRow = phase <= 1 || phase === 10 ? activeIndex : null;
 
-  useEffect(() => {
-    if (phase >= 2 && !completion[phase - 1]) {
-      setPhase(0);
-    }
-  }, [completion]);
+  // useEffect(() => {
+  //   if (phase >= 2 && !completion[phase - 1]) {
+  //     setPhase(0);
+  //   }
+  // }, [completion]);
 
   if (phase === 14) {
     return (
@@ -223,271 +236,197 @@ export default function PartFive({ fixedPanel }: { fixedPanel: boolean }) {
             : partFivePrompts[phase].title
         }
       />
-      <StandardLayout>
-        <div>
-          <div>
-            <FormHeader
-              text={`${
-                phase === 1 || phase === 10
-                  ? "Genotypes"
-                  : phase === 2 || phase === 11
-                    ? "Estimate Distribution"
-                    : "Questions"
-              }`}
-            />
-            {(phase === 1 || phase === 10) && (
-              <div className="flex flex-col gap-4">
-                <div
-                  className={
-                    phase >= 10
-                      ? `${SNPDifference === 0 ? "border-primaryBlue/50 bg-primaryBlue/10" : SNPDifference === 1 ? "border-[orange]/50 bg-[orange]/10" : SNPDifference && SNPDifference > 1 ? "border-microRed/50 bg-microRed/10" : "border-transparent"} w-full border-2  p-4`
-                      : "border-2 border-transparent p-4"
-                  }
+      <InteractivePrimaryLayout
+        moreContent={
+          phase !== 0 ? (
+            <div className="col-span-full grid mt-4">
+              {clicked2 ? (
+                <QuestionResponseText
+                  visible
+                  text={`Now that you know the truth, were your estimates for each of the 10 infections more accurate using SNPs or microhaplotypes? How about the overall distribution and your estimate of mean MOI? Depending on how well you were able to estimate from the genotyping data, you may find that you were able to more accurately estimate the MOI for each infection using microhaplotypes than SNPs. However, the overall distribution and average MOI may still be fairly close to the truth for both methods. Any errors in estimation may average out - for example you may overestimate the MOI of one infection but underestimate the MOI of another. This is why having a good method of estimation and a large enough sample size can provide accurate  estimates for the population even if estimates for individual infections are incorrect.`}
+                />
+              ) : (
+                <button
+                  onClick={() => {
+                    setClicked2(true);
+                  }}
+                  className="mx-auto px-4 py-2 text-white rounded bg-interactiveGreen shadow-sm shadow-black/50 fadeIn500"
                 >
-                  <div className="mb-2">
-                    <label className="text-sm">SNPs</label>
-                  </div>
-                  <GenotypeResult
-                    className="origin-top-center mx-auto max-w-[440px] scale-90 lg:scale-[85%]"
-                    id={1}
-                    vals={vals}
-                    possibleValues={possibleVals}
-                  />
-                </div>
-                {/* border-[3px] border-primaryBlue/50 bg-primaryBlue/10 */}
-                <div
-                  className={
-                    phase >= 10
-                      ? `${MHPDifference === 0 ? "border-primaryBlue/50 bg-primaryBlue/10" : MHPDifference === 1 ? "border-[orange]/50 bg-[orange]/10" : MHPDifference && MHPDifference > 1 ? "border-microRed/50 bg-microRed/10" : "border-transparent"} w-full border-2  p-4`
-                      : "border-2 border-transparent p-4"
-                  }
+                  <span className="block translate-y-0.5">Feedback</span>
+                </button>
+              )}
+            </div>
+          ) : (
+            <div className="flex flex-col gap-4 font-helvetica [font-size:15px] col-span-full mt-8">
+              <h4 className="text-balance text-center text-lg  font-semibold @2xl/main:text-wrap @2xl/main:text-left">
+                Questions
+              </h4>
+              <p>
+                Look at your data and think about the following two questions.
+              </p>
+              <p>
+                Did you get an MOI with microhaplotypes that was higher, lower,
+                or the same as MOI with SNPs?
+              </p>
+              <p>
+                Which do you think is a more accurate reflection of the true MOI
+                for each sample, and, by extension, in your population?
+              </p>
+              {clicked ? (
+                <QuestionResponseText
+                  visible={true}
+                  text="Different people might have had different strategies for estimating MOI, but in general it might have been easier to detect MOI more accurately in the field samples using microhaplotypes. This is because with SNPs, the maximum number of alleles that you can detect is 2 and it is hard to precisely estimate MOI from the proportion of loci that are heterozygous unless you have a lot of loci. On the other hand, using higher diversity markers such as microhaplotypes allows you to more directly observe MOI, with the caveats discussed above. Namely, sometimes you can have genotyping errors creating positive alleles, inflating MOI. On the other hand, sometimes alleles will match by chance even when loci are diverse. For these reasons, statistical methods have been developed to take these and other factors into account for more accurate estimates of MOI even when you are using microhaplotype markers. Let’s take a look at the true MOI now and see how accurate your estimates were!"
+                />
+              ) : (
+                <button
+                  onClick={() => {
+                    setClicked(true);
+                  }}
+                  className="mx-auto px-4 py-2 text-white rounded bg-interactiveGreen shadow-sm shadow-black/50 fadeIn500"
                 >
-                  <div className="mb-4">
-                    <label className="text-sm">Microhaplotypes</label>
-                  </div>
-                  <MicrohaplotypeGenotypeTable
-                    className="origin-top scale-90 lg:scale-[85%]"
-                    microIdsMatrix={
-                      fixedData[4].infections[activeIndex]
-                        .microIds as unknown as MicroId[][]
-                    }
-                    possibleVals={possibleVals2}
-                  />
-                </div>
+                  <span className="block translate-y-0.5">Feedback</span>
+                </button>
+              )}
+            </div>
+          )
+        }
+        leftHeader={
+          <h4 className="text-balance text-center text-lg  font-semibold @2xl/main:text-wrap @2xl/main:text-left">
+            {phase <= 1 ? "Genotypes" : "MOI Estimates"}
+            {phase <= 1 && (
+              <div className="flex gap-4">
+                <label className="text-sm">
+                  <br></br>
+                  Infection {activeIndex + 1}
+                </label>
               </div>
             )}
-            {(phase === 2 || phase === 11) && (
-              <div className="">
-                <div className="aspect-[2/1]">
-                  <Histogram
-                    datasets={[
-                      {
-                        // given: "#16A0AC"
-                        // adjusted: "hsl(184.8deg 37.32% 58.04%)"
-                        correctAverage: true,
-                        label: "MOI Estimates from SNPs",
-                        data: SNPInfectionsCount,
-                        backgroundColor: "hsl(184.8deg 37.32% 58.04%)",
-                        borderColor: "hsl(184.8deg 37.32% 58.04%)",
-                        borderWidth: 2,
-                      },
-                      // {
-                      //   // given: #B4E2E8
-                      //   // adjusted: hsl(187.14deg 20% 76.47%)
-                      //   correctAverage: true,
-                      //   label: "Infection Estimates from Microhaplotypes",
-                      //   data: MHPInfectionsCount,
-                      //   backgroundColor: "hsl(187.14deg 20% 76.47%)",
-                      //   borderColor: "hsl(187.14deg 20% 76.47%)",
-                      //   borderWidth: 2,
-                      // },
-                      // {
-                      //   correctAverage: true,
-                      //   label: "True Infection Count",
-                      //   data: trueCount,
-                      //   backgroundColor: "#0E5258",
-                      //   borderColor: "#0E5258",
-                      //   borderWidth: 2,
-                      // },
-                    ]}
-                  />
-                </div>
-                <div className="aspect-[2/1]">
-                  <Histogram
-                    datasets={[
-                      // {
-                      //   // given: "#16A0AC"
-                      //   // adjusted: "hsl(184.8deg 37.32% 58.04%)"
-                      //   correctAverage: true,
-                      //   label: "Infection Estimates from SNPs",
-                      //   data: SNPInfectionsCount,
-                      //   backgroundColor: "hsl(184.8deg 37.32% 58.04%)",
-                      //   borderColor: "hsl(184.8deg 37.32% 58.04%)",
-                      //   borderWidth: 2,
-                      // },
-                      {
-                        // given: #B4E2E8
-                        // adjusted: hsl(187.14deg 20% 76.47%)
-                        correctAverage: true,
-                        label: "MOI Estimates from Microhaplotypes",
-                        data: MHPInfectionsCount,
-                        backgroundColor: "hsl(187.14deg 20% 76.47%)",
-                        borderColor: "hsl(187.14deg 20% 76.47%)",
-                        borderWidth: 2,
-                      },
-                      // {
-                      //   correctAverage: true,
-                      //   label: "True Infection Count",
-                      //   data: trueCount,
-                      //   backgroundColor: "#0E5258",
-                      //   borderColor: "#0E5258",
-                      //   borderWidth: 2,
-                      // },
-                    ]}
-                  />
-                </div>
-                {phase === 11 && (
-                  <div className="aspect-[2/1]">
-                    <Histogram
-                      datasets={[
-                        {
-                          correctAverage: true,
-                          label: "True MOI Infection Count",
-                          data: trueCount,
-                          backgroundColor: "#0E5258",
-                          borderColor: "#0E5258",
-                          borderWidth: 2,
-                        },
-                      ]}
+          </h4>
+        }
+        leftContent={
+          phase < 2 ? (
+            <div>
+              <div
+                className={`${
+                  phase < 1 ? "hidden" : ""
+                } @4xl/main:text-end @xl/main:text-start mb-4`}
+              >
+                {/* <label className="[font-variant:all-small-caps]/ text-interactiveBlue">
+                  True MOI:
+                  <span className="text-2xl">
+                    {" "}
+                    {fixedData[2].infections[activeIndex].trueMOI}
+                  </span>
+                </label> */}
+              </div>
+              <div className="grid border-b-8 border-interactiveGreen/40 dark:border-interactiveGreen pb-4">
+                <div className="flex flex-col gap-4">
+                  <div>
+                    <div className="mb-2">
+                      <label className="text-sm">SNPs</label>
+                    </div>
+                    <GenotypeResult
+                      className="origin-top-left  max-w-[440px] scale-90 lg:scale-[85%]"
+                      id={1}
+                      vals={vals}
+                      possibleValues={possibleVals}
                     />
                   </div>
-                )}
+                </div>
+                <div className="@4xl/main:text-end @xl/main:text-start">
+                  {/* <label
+                    className={`[font-variant:all-small-caps]/
+                     ${
+                       phase < 1
+                         ? ""
+                         : SNPDifference === 0
+                         ? "text-interactiveBlue"
+                         : SNPDifference === 1
+                         ? " text-orange-500/80"
+                         : SNPDifference && SNPDifference > 1
+                         ? "text-microRed"
+                         : "border-transparent"
+                     }
+                    `}
+                  >
+                    MOI Estimate:
+                    <span className={`text-2xl`}>
+                      {" "}
+                      {SNPInfections[activeIndex]}
+                    </span>
+                  </label> */}
+                </div>
               </div>
-            )}
-            <div className={`${phase === 3 ? "fadeIn500" : "hidden"}`}>
-              <iframe
-                src="https://app.sli.do/event/xxfJH6NaqhmwsTuaaaHfVk/embed/polls/2de5bb5d-cfdd-4cbf-8a84-9af46f3c61c8"
-                id="slido-iframe"
-                className="h-[400px] w-full [&>*]:overflow-hidden"
-              ></iframe>
-            </div>
-            <div className={`${phase === 4 ? "fadeIn500" : "hidden"}`}>
-              <iframe
-                src="https://app.sli.do/event/xxfJH6NaqhmwsTuaaaHfVk/embed/polls/4355deba-cebc-4ecd-9a61-e230cc6ed9a5"
-                id="slido-iframe"
-                className="h-[400px] w-full [&>*]:overflow-hidden"
-              ></iframe>
-            </div>
-            <div className={phase === 5 ? "fadeIn500" : "hidden"}>
-              <iframe
-                src="https://app.sli.do/event/xxfJH6NaqhmwsTuaaaHfVk/embed/polls/1709f673-bbdb-47ad-9579-0e4d30c5f9c2"
-                id="slido-iframe"
-                className="h-[400px] w-full [&>*]:overflow-hidden"
-              ></iframe>{" "}
-            </div>
-            <div className={phase === 6 ? "fadeIn500" : "hidden"}>
-              <iframe
-                src="https://app.sli.do/event/gcdTQ54Qo2FifXoPg7iWid/embed/polls/25807c67-37fa-4bc2-ad7b-8e65ac6ffa2b"
-                id="slido-iframe"
-                className="h-[400px] w-full [&>*]:overflow-hidden"
-              ></iframe>{" "}
-            </div>
-            <div
-              className={phase === 7 || phase === 8 ? "fadeIn500" : "hidden"}
-            >
-              <iframe
-                src="https://app.sli.do/event/gcdTQ54Qo2FifXoPg7iWid/embed/polls/e7fa3b48-0117-44ff-a84c-9ff5dc21f90c"
-                id="slido-iframe"
-                className="h-[400px] w-full [&>*]:overflow-hidden"
-              ></iframe>{" "}
-              <div
-                className={
-                  phase === 8
-                    ? "fadeIn500 mt-4 bg-primaryBlue/10 p-4 md:p-6"
-                    : "hidden"
-                }
-              >
-                <p className="text-sm">
-                  Different people might have had different strategies for
-                  estimating MOI, but in general it might have been easier to
-                  detect higher MOI in the field samples using microhaplotypes
-                  and therefore estimate MOI more accurately. This is because
-                  with SNPs, the maximum number of alleles that you can detect
-                  is 2 and it is hard to precisely estimate MOI from the
-                  proportion of loci that are heterozygous unless you have a lot
-                  of loci. On the other hand, using higher diversity markers
-                  such as microhaplotypes allows you to more directly observe
-                  MOI, with the caveats discussed above. Namely, sometimes you
-                  can have genotyping errors creating positive alleles,
-                  inflating MOI. On the other hand, sometimes alleles will match
-                  by chance even when loci are diverse. For these reasons,
-                  statistical methods have been developed to take these and
-                  other factors into account for more accurate estimates of MOI
-                  even when you are using microhaplotype markers.
-                </p>
+              <div className="grid py-4">
+                <div className="flex flex-col gap-4">
+                  <div
+                    className={
+                      phase >= 10
+                        ? `${
+                            SNPDifference === 0
+                              ? "border-primaryBlue/50 bg-primaryBlue/10"
+                              : SNPDifference === 1
+                              ? "border-[orange]/50 bg-[orange]/10"
+                              : SNPDifference && SNPDifference > 1
+                              ? "border-microRed/50 bg-microRed/10"
+                              : "border-transparent"
+                          } w-full border-2  p-4`
+                        : "border-2 border-transparent px-4/"
+                    }
+                  >
+                    <div className="mb-2">
+                      <label className="text-sm">Microhaplotypes</label>
+                    </div>
+                    <MicrohaplotypeGenotypeTable
+                      className="origin-top-left scale-90 justify-self-start max-w-[440px] w-full dark:brightness-75 lg:scale-[85%]"
+                      microIdsMatrix={
+                        fixedData[4].infections[activeIndex]
+                          .microIds as unknown as MicroId[][]
+                      }
+                      possibleVals={possibleVals2}
+                    />
+                  </div>
+                </div>
+                <div className="@4xl/main:text-end @xl/main:text-start h-0">
+                  {/* <label
+                    className={`[font-variant:all-small-caps]/
+                     ${
+                       phase < 1
+                         ? ""
+                         : MHPDifference === 0
+                         ? "text-interactiveBlue"
+                         : MHPDifference === 1
+                         ? "text-orange-500/80"
+                         : MHPDifference && MHPDifference > 1
+                         ? "text-microRed"
+                         : "border-transparent"
+                     }
+                    `}
+                  >
+                    {" "}
+                    MOI Estimate:
+                    <span className="text-2xl">
+                      {" "}
+                      {MHPInfections[activeIndex]}
+                    </span>
+                  </label> */}
+                </div>
               </div>
             </div>
-            <div className={`${phase === 9 ? "fadeIn500" : "hidden"}`}>
-              <iframe
-                src="https://app.sli.do/event/gcdTQ54Qo2FifXoPg7iWid/embed/polls/a9233f79-0f5d-4bb2-af86-d395b1951880"
-                id="slido-iframe"
-                className="h-[400px] w-full [&>*]:overflow-hidden"
-              ></iframe>{" "}
-              {/* <p>"https://app.sli.do/event/gcdTQ54Qo2FifXoPg7iWid/embed/polls/a9233f79-0f5d-4bb2-af86-d395b1951880"</p> */}
-            </div>
-            <div className={`${phase === 12 ? "fadeIn500" : "hidden"}`}>
-              <iframe
-                src="https://app.sli.do/event/gcdTQ54Qo2FifXoPg7iWid/embed/polls/a9233f79-0f5d-4bb2-af86-d395b1951880"
-                id="slido-iframe"
-                className="h-[400px] w-full [&>*]:overflow-hidden"
-              ></iframe>{" "}
-              {/* <p>"https://app.sli.do/event/gcdTQ54Qo2FifXoPg7iWid/embed/polls/a9233f79-0f5d-4bb2-af86-d395b1951880"</p> */}
-            </div>
-            <div className={`${phase === 13 ? "fadeIn500" : "hidden"}`}>
-              <KnowledgeCheckQuestion
-                answers={[
-                  {
-                    checked: question === 0,
-                    correct: false,
-                    index: 0,
-                    text: "Hide your molecular data  – they don’t agree with what you hoped to see so best to pretend they don’t exist",
-                  },
-                  {
-                    checked: question === 1,
-                    correct: false,
-                    index: 1,
-                    text: "Take your molecular data as irrefutable proof that transmission increased and immediately make sweeping and expensive programmatic changes",
-                  },
-                  {
-                    checked: question === 2,
-                    correct: true,
-                    index: 2,
-                    text: "Use your molecular data as a potential cause for concern, and think about additional sources of data that you can use or generate to confirm transmission is getting worse and if so why (correct)",
-                  },
-                ]}
-                callback={(questionIdx, answerIdx) => {
-                  setQuestion(answerIdx);
-                }}
-                hasAnswer={question === 2}
-                headerText="Which of the following might be reasonable next steps to take?"
-                questionIdx={1}
-                classNames={{
-                  answersContainer: "grid gap-4 mt-4",
-                }}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="row-start-1 md:col-start-2">
-          <FormHeader text={`MOI Estimates`} />
-          <div className="grid place-items-center">
-            <table className="table max-w-[350px] border-2 border-primaryBlue/50 text-center ">
-              <thead className="border-b-2 border-primaryGreen/50 bg-gradient-to-b from-[#116F77] via-[#116F77] to-[#093F43] font-light text-white ">
-                <tr className="[&>*]:w-1/4 ">
-                  <th className="py-4">Infection</th>
-                  <th className="py-4">SNPs</th>
-                  <th className="py-4">Microhaplotypes</th>
-                  {phase >= 10 && <th>True</th>}
+          ) : (
+            <table className="table max-w-[400px] text-center dark:bg-zinc-700 bg-zinc-50 overflow-hidden">
+              <thead className=" text-current bg-interactiveBlue/40">
+                <tr>
+                  <th className="translate-y-0.5 text-nowrap  py-4 ">
+                    Infection
+                  </th>
+                  <th className="translate-y-0.5 text-nowrap  py-4 ">SNPs</th>
+                  <th className="translate-y-0.5 text-nowrap  py-4 ">
+                    Microhaplotypes
+                  </th>
+                  {phase < 1 ? null : (
+                    <th className="translate-y-0.5 text-nowrap  py-4 ">True</th>
+                  )}
                 </tr>
               </thead>
               <tbody>
@@ -497,36 +436,294 @@ export default function PartFive({ fixedPanel }: { fixedPanel: boolean }) {
                     return (
                       <tr
                         onClick={
-                          phase === 1 || phase === 10
+                          phase <= 1 || phase === 10
                             ? () => {
                                 setActiveIndex(idx);
                               }
                             : undefined
                         }
-                        tabIndex={phase === 1 || phase === 10 ? 0 : undefined}
+                        tabIndex={phase <= 1 || phase === 10 ? 0 : undefined}
                         key={idx}
-                        className={`${idx === activeRow ? "bg-primaryBlue/10 font-bold text-black" : "text-black/50"} ${phase === 1 || phase === 10 ? "cursor-pointer hover:bg-primaryBlue/10" : ""}`}
+                        className={`${
+                          idx === activeRow
+                            ? "dark:bg-zinc-900  bg-black/10 "
+                            : ""
+                        } ${
+                          phase <= 1 || phase === 10
+                            ? "cursor-pointer  dark:hover:bg-zinc-900 hover:bg-black/10"
+                            : ""
+                        }`}
                       >
-                        <td>{idx + 1}</td>
-                        <td>{SNPInfections[idx]}</td>
-                        <td>{MHPInfections[idx]}</td>
-                        {phase >= 10 && (
-                          <td>{fixedData[2].infections[idx].trueMOI}</td>
+                        <td className="py-2">{idx + 1}</td>
+                        <td className="py-2">{SNPInfections[idx]}</td>
+                        <td className="py-2">{MHPInfections[idx]}</td>
+
+                        {phase < 1 ? null : (
+                          <td className="py-2">
+                            {fixedData[2].infections[idx].trueMOI}
+                          </td>
                         )}
                       </tr>
                     );
                   })}
-                <tr className="border-t-2 border-primaryGreen/50 bg-gradient-to-t from-[#116F77] via-[#116F77] to-[#093F43]  font-bold text-white">
-                  <td className="py-6">Avg.</td>
-                  <td className="py-6">{SNPInfectionAverage}</td>
-                  <td className="py-6">{MHPInfectionAverage}</td>
-                  {phase >= 10 && <td className="py-6">{trueAverage}</td>}
+                <tr className=" dark:brightness-125">
+                  <td className="py-6">Average</td>
+                  <td
+                    className={`py-6 text-xl
+                    ${
+                      phase < 1
+                        ? ""
+                        : Math.abs(SNPInfectionAverage - trueAverage) > 0.5
+                        ? "text-microRed"
+                        : Math.abs(SNPInfectionAverage - trueAverage) > 0.2
+                        ? "text-orange-500/80"
+                        : "text-interactiveBlue"
+                    }
+                    `}
+                  >
+                    {SNPInfectionAverage}
+                  </td>
+                  <td
+                    className={`py-6 text-xl
+                    ${
+                      phase < 1
+                        ? ""
+                        : Math.abs(MHPInfectionAverage - trueAverage) > 0.5
+                        ? "text-microRed"
+                        : Math.abs(MHPInfectionAverage - trueAverage) > 0.2
+                        ? "text-orange-500/80"
+                        : "text-interactiveBlue"
+                    }
+                    `}
+                  >
+                    {MHPInfectionAverage}
+                  </td>
+                  {phase >= 1 && (
+                    <td className={`py-6 text-xl text-interactiveBlue`}>
+                      {trueAverage}
+                    </td>
+                  )}
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-      </StandardLayout>
+          )
+        }
+        rightContent={
+          phase === 1 ? (
+            <div className="grid place-items-center">
+              <table className="table max-w-[400px] text-center dark:bg-zinc-700 bg-zinc-50 overflow-hidden">
+                <thead className=" text-current bg-interactiveBlue/40">
+                  <tr>
+                    <th className="translate-y-0.5 text-nowrap  py-4 ">
+                      Infection
+                    </th>
+                    <th className="translate-y-0.5 text-nowrap  py-4 ">SNPs</th>
+                    <th className="translate-y-0.5 text-nowrap  py-4 ">
+                      Microhaplotypes
+                    </th>
+                    {phase < 1 ? null : (
+                      <th className="translate-y-0.5 text-nowrap  py-4 ">
+                        True
+                      </th>
+                    )}
+                  </tr>
+                </thead>
+                <tbody>
+                  {Array(10)
+                    .fill(0)
+                    .map((el, idx) => {
+                      return (
+                        <tr
+                          onClick={
+                            phase <= 1 || phase === 10
+                              ? () => {
+                                  setActiveIndex(idx);
+                                }
+                              : undefined
+                          }
+                          tabIndex={phase <= 1 || phase === 10 ? 0 : undefined}
+                          key={idx}
+                          className={`${
+                            idx === activeRow
+                              ? "dark:bg-zinc-900  bg-black/10 "
+                              : ""
+                          } ${
+                            phase <= 1 || phase === 10
+                              ? "cursor-pointer  dark:hover:bg-zinc-900 hover:bg-black/10"
+                              : ""
+                          }`}
+                        >
+                          <td className="py-2">{idx + 1}</td>
+                          <td className="py-2">{SNPInfections[idx]}</td>
+                          <td className="py-2">{MHPInfections[idx]}</td>
+
+                          {phase < 1 ? null : (
+                            <td className="py-2">
+                              {fixedData[2].infections[idx].trueMOI}
+                            </td>
+                          )}
+                        </tr>
+                      );
+                    })}
+                  <tr className=" dark:brightness-125">
+                    <td className="py-6">Average</td>
+                    <td
+                      className={`py-6 text-xl
+                          ${
+                            phase < 1
+                              ? ""
+                              : Math.abs(SNPInfectionAverage - trueAverage) >
+                                0.5
+                              ? "text-microRed"
+                              : Math.abs(SNPInfectionAverage - trueAverage) >
+                                0.2
+                              ? "text-orange-500/80"
+                              : "text-interactiveBlue"
+                          }
+                          `}
+                    >
+                      {SNPInfectionAverage}
+                    </td>
+                    <td
+                      className={`py-6 text-xl
+                          ${
+                            phase < 1
+                              ? ""
+                              : Math.abs(MHPInfectionAverage - trueAverage) >
+                                0.5
+                              ? "text-microRed"
+                              : Math.abs(MHPInfectionAverage - trueAverage) >
+                                0.2
+                              ? "text-orange-500/80"
+                              : "text-interactiveBlue"
+                          }
+                          `}
+                    >
+                      {MHPInfectionAverage}
+                    </td>
+                    {phase >= 1 && (
+                      <td className={`py-6 text-xl text-interactiveBlue`}>
+                        {trueAverage}
+                      </td>
+                    )}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div>
+              {phase === 2 ? null : (
+                <div className="grid place-items-center">
+                  <table className="table max-w-[400px] text-center dark:bg-zinc-700 bg-zinc-50 overflow-hidden">
+                    <thead className=" text-current bg-interactiveBlue/40">
+                      <tr>
+                        <th className="translate-y-0.5 text-nowrap  py-4 ">
+                          Infection
+                        </th>
+                        <th className="translate-y-0.5 text-nowrap  py-4 ">
+                          SNPs
+                        </th>
+                        <th className="translate-y-0.5 text-nowrap  py-4 ">
+                          Microhaplotypes
+                        </th>
+                        {phase < 1 ? null : (
+                          <th className="translate-y-0.5 text-nowrap  py-4 ">
+                            True
+                          </th>
+                        )}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {Array(10)
+                        .fill(0)
+                        .map((el, idx) => {
+                          return (
+                            <tr
+                              onClick={
+                                phase === 0 || phase === 10
+                                  ? () => {
+                                      setActiveIndex(idx);
+                                    }
+                                  : undefined
+                              }
+                              tabIndex={
+                                phase === 0 || phase === 10 ? 0 : undefined
+                              }
+                              key={idx}
+                              className={`${
+                                idx === activeRow
+                                  ? "dark:bg-zinc-900  bg-black/10 "
+                                  : ""
+                              } ${
+                                phase === 0 || phase === 10
+                                  ? "cursor-pointer  dark:hover:bg-zinc-900 hover:bg-black/10"
+                                  : ""
+                              }`}
+                            >
+                              <td className="py-2">{idx + 1}</td>
+                              <td className="py-2">{SNPInfections[idx]}</td>
+                              <td className="py-2">{MHPInfections[idx]}</td>
+
+                              {phase < 1 ? null : (
+                                <td className="py-2">
+                                  {fixedData[2].infections[idx].trueMOI}
+                                </td>
+                              )}
+                            </tr>
+                          );
+                        })}
+                      <tr className=" dark:brightness-125">
+                        <td className="py-6">Average</td>
+                        <td
+                          className={`py-6 text-xl
+                          ${
+                            phase < 1
+                              ? ""
+                              : Math.abs(SNPInfectionAverage - trueAverage) >
+                                0.5
+                              ? "text-microRed"
+                              : Math.abs(SNPInfectionAverage - trueAverage) >
+                                0.2
+                              ? "text-orange-500/80"
+                              : "text-interactiveBlue"
+                          }
+                          `}
+                        >
+                          {SNPInfectionAverage}
+                        </td>
+                        <td
+                          className={`py-6 text-xl
+                          ${
+                            phase < 1
+                              ? ""
+                              : Math.abs(MHPInfectionAverage - trueAverage) >
+                                0.5
+                              ? "text-microRed"
+                              : Math.abs(MHPInfectionAverage - trueAverage) >
+                                0.2
+                              ? "text-orange-500/80"
+                              : "text-interactiveBlue"
+                          }
+                          `}
+                        >
+                          {MHPInfectionAverage}
+                        </td>
+                        {phase >= 1 && (
+                          <td className={`py-6 text-xl text-interactiveBlue`}>
+                            {trueAverage}
+                          </td>
+                        )}
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          )
+        }
+        rightHeader={phase <= 1 ? "MOI Estimates" : "Feedback"}
+      />
+
       <PartFiveControlPanel />
     </div>
   );

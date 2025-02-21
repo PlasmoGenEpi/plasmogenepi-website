@@ -1,8 +1,8 @@
 "use client";
 
-import CloneElement from "@/components/Interactives/Shared/CloneRow/CloneElement";
-import CloneRow from "@/components/Interactives/Shared/CloneRow/CloneRow";
-import KnowledgeCheckQuestion from "@/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
+import CloneElement from "@/app/components/Interactives/Shared/CloneRow/CloneElement";
+import CloneRow from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
+import KnowledgeCheckQuestion from "@/app/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   activePairwiseComboAtom,
@@ -11,6 +11,7 @@ import {
   partSixCloneRowsAtom,
   partSixCompletionAtom,
   partSixPairwiseQuestionsAtom,
+  phase2Atom,
   phaseAtom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
@@ -21,7 +22,7 @@ import {
   P6CloneRowButtonColors,
   P6CloneRowColors,
 } from "../../CloneRows/P6MHPCloneRows";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 
 let randomArr = Array(12)
   .fill(0)
@@ -42,7 +43,7 @@ export default function CompareSNPHybridCloneQuestions({
   );
   const [pairwiseCombos, setPairwiseCombos] = useAtom(pairwiseCombosAtom);
   const pairwiseCompletion = useAtomValue(pairwiseCompletionAtom);
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase2Atom);
   const [completion, setCompletion] = useAtom(partSixCompletionAtom);
   const cloneRows = useAtomValue(partSixCloneRowsAtom);
 
@@ -78,8 +79,8 @@ export default function CompareSNPHybridCloneQuestions({
         {
           //@ts-ignore
           pairwiseCompletion[first][second] && (
-            <div className="fadeIn500 flex flex-col">
-              <FormHeader text={`Questions`} />
+            <div className=" flex flex-col">
+              {/* <FormHeader text={`Questions`} /> */}
 
               <div className="flex flex-col gap-8">
                 <KnowledgeCheckQuestion
@@ -107,6 +108,12 @@ export default function CompareSNPHybridCloneQuestions({
                   }
                   headerText="How many of the loci match?"
                   classNames={{
+                    container:
+                      partSixPairwiseQuestions[
+                        JSON.stringify(activePairwiseCombo)
+                      ][1] === correctCount
+                        ? ""
+                        : "fadeIn500",
                     headerText: "mb-4",
                     answersContainer: "grid grid-cols-5 gap-8 md:gap-4",
                     answers: "w-4 md:w-3 lg:w-4",
@@ -161,7 +168,11 @@ export default function CompareSNPHybridCloneQuestions({
                     container:
                       partSixPairwiseQuestions[
                         JSON.stringify(activePairwiseCombo)
-                      ][1] === correctCount
+                      ][2] === correctCount
+                        ? ""
+                        : partSixPairwiseQuestions[
+                            JSON.stringify(activePairwiseCombo)
+                          ][1] === correctCount
                         ? "fadeIn500"
                         : "hidden",
                     headerText: "mb-4",
@@ -229,7 +240,11 @@ export default function CompareSNPHybridCloneQuestions({
                     container:
                       partSixPairwiseQuestions[
                         JSON.stringify(activePairwiseCombo)
-                      ][2] === correctCount
+                      ][3] === (phase === 14 ? 0 : 6)
+                        ? ""
+                        : partSixPairwiseQuestions[
+                            JSON.stringify(activePairwiseCombo)
+                          ][2] === correctCount
                         ? "fadeIn500"
                         : "hidden",
                     headerText: "mb-4",
@@ -262,7 +277,7 @@ export default function CompareSNPHybridCloneQuestions({
         className={
           partSixPairwiseQuestions[JSON.stringify(activePairwiseCombo)][3] ===
           (phase === 14 ? 0 : 6)
-            ? "fadeIn500 mt-8 bg-primaryBlue/10 p-8"
+            ? " mt-8 bg-primaryBlue/10 p-8"
             : "invisible  mt-8 bg-primaryBlue/10 p-8"
         }
       >
@@ -298,7 +313,7 @@ export default function CompareSNPHybridCloneQuestions({
               ? partSixPairwiseQuestions[
                   JSON.stringify(activePairwiseCombo)
                 ][3] === 6
-                ? "fadeIn500 mt-8"
+                ? " mt-8"
                 : "hidden"
               : "hidden"
           }
@@ -342,7 +357,7 @@ export default function CompareSNPHybridCloneQuestions({
                 partSixPairwiseQuestions[
                   JSON.stringify(activePairwiseCombo)
                 ][2] === correctCount
-                  ? "fadeIn500"
+                  ? ""
                   : "hidden",
               headerText: "mb-4",
               answersContainer: "grid grid-cols-2 gap-8 md:gap-4",
@@ -403,7 +418,7 @@ export default function CompareSNPHybridCloneQuestions({
               partSixPairwiseQuestions[
                 JSON.stringify(activePairwiseCombo)
               ][4] === 3
-                ? "fadeIn500"
+                ? ""
                 : "invisible"
             } mt-8 bg-primaryBlue/10 p-8 text-sm`}
           >
@@ -458,13 +473,13 @@ export default function CompareSNPHybridCloneQuestions({
       {/* {phase === 14 &&
         partSixPairwiseQuestions[JSON.stringify(activePairwiseCombo)][3] ===
           0 && (
-          <div ref={responseRef3} className="fadeIn500 mt-8">
+          <div ref={responseRef3} className=" mt-8">
             <p>
               At the other extreme, what if we compare two parasites which are
               completely related to each other, in other words they are
               genetically identical?
             </p>
-            <div className="fadeIn1000 mt-8  flex max-w-[500px] origin-top scale-90 flex-col gap-1 p-2 md:scale-75">
+            <div className=" mt-8  flex max-w-[500px] origin-top scale-90 flex-col gap-1 p-2 md:scale-75">
               <CloneRow
                 label={"X"}
                 classNames={{
@@ -573,7 +588,7 @@ export default function CompareSNPHybridCloneQuestions({
                   answers: "w-4 md:w-3 lg:w-4",
                   container:
                     partSixPairwiseQuestions[JSON.stringify([3, 4])][4] === 12
-                      ? "fadeIn500"
+                      ? ""
                       : "hidden",
                 }}
                 answers={Array(13)
@@ -630,7 +645,7 @@ export default function CompareSNPHybridCloneQuestions({
       {phase === 14 &&
         partSixPairwiseQuestions[JSON.stringify([3, 4])][5] === 12 && (
           <div className="mt-8">
-            <div className="fadeIn500 mt-8 p-4 outline outline-2 outline-primaryBlue md:hidden">
+            <div className=" mt-8 p-4 outline outline-2 outline-primaryBlue md:hidden">
               <Image
                 src="/assets/M5_sluething_histogram_SNPs_MOI1_IBD1.svg"
                 alt="SNP IBD 100% match distribution diagram"

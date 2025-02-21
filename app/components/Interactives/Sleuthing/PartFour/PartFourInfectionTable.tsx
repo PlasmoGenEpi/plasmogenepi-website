@@ -7,7 +7,7 @@ import {
   partFourInfectionsAtom,
   partTwoAverageDeducedAtom,
   partTwoInfectionsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedInfectionIndexAtom,
 } from "@/data/Interactives/interactiveStore";
 
@@ -22,14 +22,14 @@ export default function PartFourInfectionTable({
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [attemptedInput, setAttemptedInput] = useAtom(attemptedInputAtom);
   const [incorrectGuessCount, setIncorrectGuessCount] = useAtom(
-    incorrectGuessCountAtom,
+    incorrectGuessCountAtom
   );
   const [averageDeduced, setAverageDeduced] = useAtom(
-    partFourAverageDeducedAtom,
+    partFourAverageDeducedAtom
   );
   const [activeIndex, setActiveIndex] = useAtom(selectedInfectionIndexAtom);
   const [infections, setInfections] = useAtom(partFourInfectionsAtom);
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase1Atom);
 
   // useEffect(() => {
   //   if (phase === 2) {
@@ -40,52 +40,32 @@ export default function PartFourInfectionTable({
   //   }
   // }, [phase, setActiveIndex]);
 
+  useEffect(() => {
+    if (phase === 2) {
+      setAverageDeduced(true);
+    }
+  }, [phase]);
+
   return (
     <InfectionTable
       activeRow={phase === 1 ? activeIndex : null}
       averageInputRow={
-        <tr
-          className={`border-t-2 border-primaryGreen/50 bg-gradient-to-t from-[#116F77] via-[#116F77] to-[#093F43] text-center text-sm font-medium  text-white transition-all`}
-        >
+        <tr className={` text-center text-sm text-current transition-all`}>
           <td className="w-1/2">
             <label
               htmlFor="average-input"
-              className={`block translate-y-0.5 ${phase === 2 || averageDeduced ? "font-bold text-white" : ""}`}
+              className={`block translate-y-0.5 ${
+                phase === 2 || averageDeduced ? " text-current" : ""
+              }`}
             >
               Average
             </label>
           </td>
-          <td
-          // className={`${averageVisible ? "fadeIn300 visible" : "invisible"}`}
-          >
-            <input
-              id="average-input"
-              placeholder="Average"
-              ref={inputRef}
-              value={averageDeduced ? average.toString() : attemptedInput}
-              onChange={(e) => {
-                if (
-                  e.target.value !== "" &&
-                  Number.isNaN(parseFloat(e.target.value))
-                ) {
-                  return;
-                }
-                setIncorrectGuessCount(incorrectGuessCount + 1);
-                if (incorrectGuessCount > 15) {
-                  setAverageDeduced(true);
-                  return;
-                }
-                let val = e.currentTarget.value.slice(0, 3);
-                let x = parseFloat(val);
-                if (x === average) {
-                  setAverageDeduced(true);
-                }
-                setAttemptedInput(val);
-              }}
-              disabled={phase === 1 || averageDeduced}
-              className={`${phase === 2 || averageDeduced ? "" : "invisible"} h-10 w-full rounded border-2 border-orange-400 bg-transparent bg-white p-2 pt-3 text-center  font-bold text-black transition-colors focus:border-black placeholder:focus:text-white  disabled:border-none disabled:border-black disabled:bg-transparent disabled:text-white disabled:outline-none`}
-            ></input>
-            {/* {averageInputElement} */}
+          <td className="py-4 underline underline-offset-2">
+            <span className="font-bold text-xl">
+              {/* 1/4 */}
+              {averageDeduced ? average : ""}
+            </span>
           </td>
         </tr>
       }

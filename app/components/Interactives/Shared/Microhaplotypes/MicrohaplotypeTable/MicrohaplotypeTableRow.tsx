@@ -67,7 +67,11 @@ export default function MicrohaplotypeTableRow({
           return (
             <div
               key={idx}
-              className={`${el === 1 ? "bg-zinc-100" : ""} ${idx === 0 ? "border-x" : "border-r"} ${rowNum === 0 ? "border-y" : "border-b"} py-2`}
+              className={`${
+                el === 1 ? "bg-zinc-100 dark:bg-zinc-800" : "dark:bg-zinc-900"
+              } ${idx === 0 ? "border-x" : "border-r"} ${
+                rowNum === 0 ? "border-y" : "border-b"
+              } dark:border-black py-2 `}
             >
               <span className="block translate-y-[3px]">
                 {el === 0 ? "Ref" : "Alt"}
@@ -87,7 +91,15 @@ export default function MicrohaplotypeTableRow({
         className="flex flex-col"
       >
         <Microhaplotype
-          className={`my-0.5 grow border-2 ${hint && hint.join("") === getRowConfiguration(rowNum).join("") ? "outline outline-[4px] -outline-offset-4 outline-black" : ""} ${microhaplotypeColorMap.get(JSON.stringify(getRowConfiguration(rowNum)))}`}
+          className={`my-0.5 grow border-2 dark:brightness-75 text-black ${
+            hint
+              ? hint.join("") === getRowConfiguration(rowNum).join("")
+                ? "outline outline-2  outline-offset-4 z-10 outline-black"
+                : "opacity-50"
+              : ""
+          } ${microhaplotypeColorMap.get(
+            JSON.stringify(getRowConfiguration(rowNum))
+          )}`}
           vals={getRowConfiguration(rowNum)}
           //@ts-ignore
           possibleVals={possibleVals}

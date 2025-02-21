@@ -1,10 +1,10 @@
-import { usePrevious } from "@/components/hooks";
-import { phaseAtom } from "@/data/Interactives/interactiveStore";
+import { usePrevious } from "@/app/components/hooks";
+import { phase2Atom } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
 import { EIAnimationCompleteAtom } from "./AnimationSideBySideComponents/EIComparison";
 
 export default function EIMosquito() {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const prevPhase = usePrevious(phase, 0);
   const [EIAnimationComplete, setEIAnimationComplete] = useAtom(
     EIAnimationCompleteAtom,
@@ -12,7 +12,7 @@ export default function EIMosquito() {
 
   const direction = phase > prevPhase.current ? "forwards" : "backwards";
 
-  if (phase < 28) {
+  if (phase < 28 || phase >= 29.5) {
     return null;
   }
 
@@ -65,7 +65,9 @@ export default function EIMosquito() {
                 style={{
                   animationDelay: phase === 28 ? "3000ms" : "0ms",
                 }}
-                className={`${phase >= 28 ? "fadeIn1000" : ""} stroke-black stroke-1`}
+                className={`${
+                  phase >= 28 ? "fadeIn1000" : ""
+                } stroke-black stroke-1`}
               ></circle>
             )}
           </g>
@@ -86,8 +88,8 @@ export default function EIMosquito() {
             phase === 28 && direction === "forwards"
               ? "mosquito2"
               : direction === "backwards" && phase === 28
-                ? "translate-x-[80px] translate-y-[490px]"
-                : ""
+              ? "translate-x-[80px] translate-y-[490px]"
+              : ""
           }
         ></use>
       </g>

@@ -18,13 +18,13 @@ export default function InlineEdge({ arrow }: { arrow?: boolean }) {
           markerHeight="4"
           orient="auto-start-reverse"
         >
-          <path d="M 0 0 L 10 5 L 0 10 z" className={"fill-black"} />
+          <path d="M 0 0 L 10 5 L 0 10 z" className={"fill-current"} />
         </marker>
       </defs>
       <polyline
         markerStart={arrow ? "url(#triangle)" : undefined}
         markerEnd={arrow ? "url(#triangle)" : undefined}
-        className="stroke-black stroke-[.75px]"
+        className="stroke-current stroke-[.75px]"
         points={arrow ? `2,6 8,6` : `2,5 8.5,8`}
       />
       {!arrow && (
@@ -33,13 +33,13 @@ export default function InlineEdge({ arrow }: { arrow?: boolean }) {
             cx={2}
             cy={5}
             r={1}
-            className="fill-black stroke-black "
+            className="fill-black stroke-current "
           ></circle>
           <circle
             cx={8.5}
             cy={8}
             r={1}
-            className="fill-black stroke-black "
+            className="fill-black stroke-current "
           ></circle>
         </g>
       )}
@@ -71,7 +71,7 @@ export default function InlineEdge({ arrow }: { arrow?: boolean }) {
       <polyline
         markerStart={"url(#triangle)"}
         markerEnd="url(#triangle)"
-        className="stroke-black stroke-[.75px]"
+        className="stroke-current stroke-[.75px]"
         points={`2,5 8.5,8`}
       />
     </svg>

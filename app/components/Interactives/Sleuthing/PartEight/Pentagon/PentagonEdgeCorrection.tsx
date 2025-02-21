@@ -2,7 +2,7 @@ import { atom, useAtom, useAtomValue } from "jotai";
 import { Edge } from "../Pentagon";
 import {
   partEightPentagonSelectedEdgesAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import { edgeAnswers, pentagonViewAtom } from "./PentagonViewer";
 import { useMemo } from "react";
@@ -24,21 +24,21 @@ export default function PentagonEdgeCorrection({
   active,
   edgeCorrections,
   idx,
-  // direction,
-  // coords,
-  // endpoints,
-  // circle,
-  // hidden,
-  // lineClassName,
-  // enabled,
-}: {
+}: // direction,
+// coords,
+// endpoints,
+// circle,
+// hidden,
+// lineClassName,
+// enabled,
+{
   edgeCorrections: [
     Edge,
     {
       correct: boolean;
       direction?: null | "forwards" | "backwards";
       enabled?: boolean;
-    },
+    }
   ][];
   idx: number;
   edgeCorrection: [
@@ -47,7 +47,7 @@ export default function PentagonEdgeCorrection({
       correct: boolean;
       direction?: null | "forwards" | "backwards";
       enabled?: boolean;
-    },
+    }
   ];
   handleDirection: (direction: Direction) => void;
   handleSelection: (edge: Edge) => void;
@@ -94,9 +94,9 @@ export default function PentagonEdgeCorrection({
 }) {
   const [view, setView] = useAtom(pentagonViewAtom);
   const [selectedEdges, setSelectedEdges] = useAtom(
-    partEightPentagonSelectedEdgesAtom,
+    partEightPentagonSelectedEdgesAtom
   );
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const GIView = useAtomValue(GIViewAtom);
 
   const isCurrent = useMemo(() => {
@@ -129,7 +129,9 @@ export default function PentagonEdgeCorrection({
         >
           <path
             d="M 0 0 L 10 5 L 0 10 z"
-            className={edgeStatus.selected ? "fill-primaryBlue" : "fill-black"}
+            className={
+              edgeStatus.selected ? "fill-interactiveBlue" : "fill-black"
+            }
           />
         </marker>
         <marker
@@ -142,7 +144,7 @@ export default function PentagonEdgeCorrection({
           markerHeight="5"
           orient="auto-start-reverse"
         >
-          <path d="M 0 0 L 10 5 L 0 10 z" className={`fill-microGreen`} />
+          <path d="M 0 0 L 10 5 L 0 10 z" className={`fill-emerald-400`} />
         </marker>
         <marker
           id={`triangle-${edgeCorrection[0]}-incorrect`}
@@ -156,17 +158,44 @@ export default function PentagonEdgeCorrection({
         >
           <path
             d="M 0 0 L 10 5 L 0 10 z"
-            className={`${edgeCorrection[0] === "GI" ? "stroke-[blue]" : "stroke-[red]"}`}
+            className={`${
+              edgeCorrection[0] === "GI"
+                ? "stroke-[blue] fill-[blue]"
+                : "stroke-[red] fill-[red]"
+            }`}
           />
         </marker>
       </defs>
       <polyline
         strokeDasharray={"600px"}
         // className={`${idx > 0 ? (edgeCorrections[idx - 1][1].correct ? "edgeDashAppearance" : "hidden") : !edgeCorrection[1].correct ? "edgeDashAppearance stroke-[red]" : "edgeAppearance stroke-black"} ${!edgeCorrection[1].correct ? (edgeCorrection[1].enabled === false ? "stroke-[red]" : "stroke-black") : ""} stroke-[4px]`}
+        // style={{
+        //   animationDelay: `${idx * 1000}ms`,
+        // }}
         className={
           phase === 19
             ? "stroke-[blue] stroke-[4px]"
-            : `${edgeCorrection[0] === "GI" ? "stroke-[blue]" : "stroke-[red]"} ${edgeCorrection[1].correct ? `edgeDashAppearance stroke-microGreen ${isCurrent === null ? "opacity-100" : "opacity-40"}` : isCurrent === idx && edgeCorrection[1].enabled ? "hidden" : isCurrent === idx ? `${edgeCorrection[1].enabled === false ? "" : "edgeDashAppearance "}` : edgeCorrection[1].enabled === true ? "hidden" : "opacity-40"} stroke-[4px] ${edgeCorrection[0] === "GI" ? "stroke-[blue]" : "stroke-[red]"}`
+            : `${
+                edgeCorrection[0] === "GI" ? "stroke-[blue]" : "stroke-[red]"
+              } ${
+                edgeCorrection[1].correct
+                  ? `edgeDashAppearance/ stroke-emerald-400 ${
+                      isCurrent === null ? "opacity-100" : "opacity-100"
+                    }`
+                  : isCurrent === idx && edgeCorrection[1].enabled
+                  ? "hidden"
+                  : isCurrent === idx
+                  ? `${
+                      edgeCorrection[1].enabled === false
+                        ? ""
+                        : "edgeDashAppearance/ "
+                    }`
+                  : edgeCorrection[1].enabled === true
+                  ? "hidden"
+                  : "opacity-10"
+              } stroke-[4px] ${
+                edgeCorrection[0] === "GI" ? "stroke-[blue]" : "stroke-[red]"
+              }`
         }
         points={`${coords.line.start.x},${coords.line.start.y} ${coords.line.end.x},${coords.line.end.y}`}
         markerStart={
@@ -213,12 +242,14 @@ export default function PentagonEdgeCorrection({
             isCurrent === idx
               ? ""
               : !GIView && edgeCorrection[0] === "GI"
-                ? "hidden"
-                : `edgeMouseEventCircle-${edgeCorrection[0]} fadeIn500 hover:[&>*]:stroke-[8px] focus:[&>*]:stroke-[8px]`
+              ? "hidden"
+              : `edgeMouseEventCircle-${edgeCorrection[0]} fadeIn500 hover:[&>*]:stroke-[8px] focus:[&>*]:stroke-[8px]`
           }
         >
           <use
-            className={`cursor-pointer ${edgeCorrection[0] === "GI" ? "stroke-[blue]" : "stroke-[red]"}`}
+            className={`cursor-pointer ${
+              edgeCorrection[0] === "GI" ? "stroke-[blue]" : "stroke-[red]"
+            }`}
             width={40}
             x={coords.circle.x}
             y={coords.circle.y}
@@ -229,7 +260,7 @@ export default function PentagonEdgeCorrection({
           r={10}
           cx={coords.circle.x + 40}
           cy={coords.circle.y + 460}
-          className="fill-primaryBlue"
+          className="fill-interactiveBlue"
         ></circle>
       )} */}
         </g>
@@ -251,7 +282,13 @@ export default function PentagonEdgeCorrection({
               role="button"
               tabIndex={0}
               aria-label={`${edgeCorrection[0][1]} to ${edgeCorrection[0][0]}`}
-              className={`${!edgeCorrection[1].correct ? (edgeCorrection[0] === "GI" ? "stroke-[blue]" : "stroke-[red]") : "stroke-black"} stroke-2 hover:stroke-[4px] focus:stroke-[4px]`}
+              className={`${
+                !edgeCorrection[1].correct
+                  ? edgeCorrection[0] === "GI"
+                    ? "stroke-[blue]"
+                    : "stroke-[red]"
+                  : "stroke-black"
+              } stroke-2 hover:stroke-[4px] focus:stroke-[4px]`}
               r={9}
               fill="white"
               cx={coords.line.start.x}
@@ -275,7 +312,13 @@ export default function PentagonEdgeCorrection({
               type="button"
               tabIndex={0}
               aria-label={`${edgeCorrection[0][0]} to ${edgeCorrection[0][1]}`}
-              className={`${!edgeCorrection[1].correct ? (edgeCorrection[0] === "GI" ? "stroke-[blue]" : "stroke-[red]") : "stroke-black"} stroke-2 hover:stroke-[4px] focus:stroke-[4px]`}
+              className={`${
+                !edgeCorrection[1].correct
+                  ? edgeCorrection[0] === "GI"
+                    ? "stroke-[blue]"
+                    : "stroke-[red]"
+                  : "stroke-black"
+              } stroke-2 hover:stroke-[4px] focus:stroke-[4px]`}
               r={9}
               fill="white"
               cx={coords.line.end.x}

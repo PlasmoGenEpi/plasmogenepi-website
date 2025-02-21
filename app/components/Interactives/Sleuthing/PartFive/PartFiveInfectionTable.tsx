@@ -145,7 +145,13 @@ export default function PartFiveInfectionTable() {
               }}
               aria-roledescription={`select infection ${idx + 1}`}
               tabIndex={0}
-              className={`cursor-pointer text-center hover:bg-primaryGreen/30 ${idx % 2 === 0 ? "" : "bg-gray-100"} ${activeIndex === idx ? "outline outline-2 -outline-offset-1 outline-black" : "text-black/50"}`}
+              className={`cursor-pointer text-center hover:bg-primaryGreen/30 ${
+                idx % 2 === 0 ? "" : "bg-gray-100"
+              } ${
+                activeIndex === idx
+                  ? "outline outline-2 -outline-offset-1 outline-black"
+                  : "text-black/50"
+              }`}
               key={idx}
             >
               <td>

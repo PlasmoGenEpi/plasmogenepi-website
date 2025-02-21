@@ -1,5 +1,5 @@
-import { usePrevious } from "@/components/hooks";
-import { phaseAtom } from "@/data/Interactives/interactiveStore";
+import { usePrevious } from "@/app/components/hooks";
+import { phase2Atom } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
 import {
   EGAnimationCompleteAtom,
@@ -7,7 +7,7 @@ import {
 } from "./AnimationSideBySideComponents/EGComparison";
 
 export default function EGMosquito() {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const prevPhase = usePrevious(phase, 0);
   const [EGAnimationComplete, setEGAnimationComplete] = useAtom(
     EGAnimationCompleteAtom,
@@ -17,7 +17,7 @@ export default function EGMosquito() {
   );
 
   const direction = phase > prevPhase.current ? "forwards" : "backwards";
-  if (phase < 24) {
+  if (phase < 24 || phase >= 29.5) {
     return null;
   }
 
@@ -48,7 +48,11 @@ export default function EGMosquito() {
                 cx={25}
                 cy={20}
                 fill="white"
-                className={`${phase === 26 ? "recombination" : phase > 26 ? "hidden" : ""} transition-all ${phase < 25 ? "hidden" : ""} fadeIn300 fill-microBlue stroke-black stroke-1 `}
+                className={`${
+                  phase === 26 ? "recombination" : phase > 26 ? "hidden" : ""
+                } transition-all ${
+                  phase < 25 ? "hidden" : ""
+                } fadeIn300 fill-microBlue stroke-black stroke-1 `}
               ></circle>
               <circle
                 style={{
@@ -58,7 +62,11 @@ export default function EGMosquito() {
                 cx={25}
                 cy={40}
                 // fill="white"
-                className={` ${phase === 26 ? "recombination2" : phase > 26 ? "hidden" : ""} transition-all  ${phase < 25 ? "hidden" : ""} fadeIn300 fill-microRed stroke-black stroke-1`}
+                className={` ${
+                  phase === 26 ? "recombination2" : phase > 26 ? "hidden" : ""
+                } transition-all  ${
+                  phase < 25 ? "hidden" : ""
+                } fadeIn300 fill-microRed stroke-black stroke-1`}
                 // fill="url('#red-ball-gradient')"
               ></circle>
               {phase >= 26 && (
@@ -70,7 +78,9 @@ export default function EGMosquito() {
                   style={{
                     animationDelay: phase === 26 ? "2000ms" : "0ms",
                   }}
-                  className={`${phase === 26 ? "fadeIn1000" : ""} stroke-black stroke-1`}
+                  className={`${
+                    phase === 26 ? "fadeIn1000" : ""
+                  } stroke-black stroke-1`}
                 ></circle>
               )}
             </g>
@@ -100,10 +110,10 @@ export default function EGMosquito() {
               phase >= 27
                 ? "translate(640px,30px)"
                 : phase === 26
-                  ? "translate(260px, 220px)"
-                  : phase === 25
-                    ? "translate(-70px, 50px)"
-                    : "translate(0, 0)",
+                ? "translate(260px, 220px)"
+                : phase === 25
+                ? "translate(-70px, 50px)"
+                : "translate(0, 0)",
           }}
           x={200}
           y={200}

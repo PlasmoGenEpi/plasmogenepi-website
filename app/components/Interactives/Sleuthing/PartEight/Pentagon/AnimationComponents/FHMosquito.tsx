@@ -1,5 +1,5 @@
-import { usePrevious } from "@/components/hooks";
-import { phaseAtom } from "@/data/Interactives/interactiveStore";
+import { usePrevious } from "@/app/components/hooks";
+import { phase2Atom } from "@/data/Interactives/interactiveStore";
 import { useAtomValue, useSetAtom } from "jotai";
 import {
   FHAnimationCompleteAtom,
@@ -7,7 +7,7 @@ import {
 } from "./AnimationSideBySideComponents/FHComparison";
 
 export default function FHMosquito() {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const prevPhase = usePrevious(phase, 0);
   const setFHAnimationComplete = useSetAtom(FHAnimationCompleteAtom);
   const setFHRecombinationComplete = useSetAtom(FHRecombinationCompleteAtom);
@@ -43,7 +43,11 @@ export default function FHMosquito() {
                 r={7}
                 cy={25}
                 cx={12}
-                className={`${phase > 32 ? "hidden" : ""} ${phase >= 32 ? "recombination" : ""} transition-all duration-500 ${phase >= 30 ? "fill-microPurple" : "fill-white"} fadeIn300 stroke-black stroke-1`}
+                className={`${phase > 32 ? "hidden" : ""} ${
+                  phase >= 32 ? "recombination" : ""
+                } transition-all duration-500 ${
+                  phase >= 30 ? "fill-microPurple" : "fill-white"
+                } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
                 style={{
@@ -53,7 +57,11 @@ export default function FHMosquito() {
                 r={7}
                 cy={25}
                 cx={30}
-                className={`${phase > 32 ? "hidden" : ""} ${phase >= 32 ? "recombination" : ""} transition-all duration-500 ${phase >= 30 ? "fill-microPurple" : "fill-white"} fadeIn300 stroke-black stroke-1`}
+                className={`${phase > 32 ? "hidden" : ""} ${
+                  phase >= 32 ? "recombination" : ""
+                } transition-all duration-500 ${
+                  phase >= 30 ? "fill-microPurple" : "fill-white"
+                } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
                 r={7}
@@ -62,7 +70,11 @@ export default function FHMosquito() {
                 }}
                 cx={12}
                 cy={40}
-                className={`${phase > 32 ? "hidden" : ""} ${phase >= 32 ? "recombination2" : ""} transition-all ${phase >= 30 ? "fill-microOrange" : "fill-white"} fadeIn300 stroke-black stroke-1`}
+                className={`${phase > 32 ? "hidden" : ""} ${
+                  phase >= 32 ? "recombination2" : ""
+                } transition-all ${
+                  phase >= 30 ? "fill-microOrange" : "fill-white"
+                } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
                 r={7}
@@ -71,7 +83,11 @@ export default function FHMosquito() {
                 }}
                 cx={30}
                 cy={40}
-                className={`${phase > 32 ? "hidden" : ""} ${phase >= 32 ? "recombination2" : ""} transition-all ${phase >= 30 ? "fill-microTeal" : "fill-white"} fadeIn300 stroke-black stroke-1`}
+                className={`${phase > 32 ? "hidden" : ""} ${
+                  phase >= 32 ? "recombination2" : ""
+                } transition-all ${
+                  phase >= 30 ? "fill-microTeal" : "fill-white"
+                } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
                 r={10}
@@ -81,7 +97,9 @@ export default function FHMosquito() {
                 cx={20}
                 cy={15}
                 fill="url('#purple-orange-gradient')"
-                className={`${phase < 32 ? "hidden" : ""} ${phase === 32 ? "fadeIn1000" : ""} stroke-black stroke-1`}
+                className={`${phase < 32 ? "hidden" : ""} ${
+                  phase === 32 ? "fadeIn1000" : ""
+                } stroke-black stroke-1`}
               ></circle>
               <circle
                 r={10}
@@ -91,7 +109,9 @@ export default function FHMosquito() {
                 cx={20}
                 cy={40}
                 fill="url('#purple-teal-gradient')"
-                className={`${phase < 32 ? "hidden" : ""} ${phase === 32 ? "fadeIn1000" : ""} stroke-black stroke-1`}
+                className={`${phase < 32 ? "hidden" : ""} ${
+                  phase === 32 ? "fadeIn1000" : ""
+                } stroke-black stroke-1`}
               ></circle>
             </g>
           }
@@ -119,8 +139,8 @@ export default function FHMosquito() {
               phase >= 33
                 ? "translate(130px, 580px)"
                 : phase >= 32
-                  ? "translate(-100px, 400px)"
-                  : "translate(-20px, 0px)",
+                ? "translate(-100px, 400px)"
+                : "translate(-20px, 0px)",
           }}
           x={600}
           y={100}

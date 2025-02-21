@@ -1,18 +1,18 @@
-import StandardLayout from "@/components/Interactives/Shared/misc/StandardLayout";
+import StandardLayout from "@/app/components/Interactives/Shared/misc/StandardLayout";
 import {
   P6CloneRowButtonColors,
   P6CloneRowColors,
 } from "../CloneRows/P6MHPCloneRows";
-import CloneRow from "@/components/Interactives/Shared/CloneRow/CloneRow";
+import CloneRow from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import {
   activePairwiseComboAtom,
   partSixCloneRowsMHPsAtom,
   phaseAtom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
-import SquareMicrohaplotype from "@/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
+import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
 import P6MHPCloneRowsWithHybrid from "../CloneRows/P6MHPCloneRowsWithHybrid";
-import PositiveControlBoard from "@/components/Interactives/Shared/PositiveControlBoard/PositiveControlBoard";
+import PositiveControlBoard from "@/app/components/Interactives/Shared/PositiveControlBoard/PositiveControlBoard";
 import P6CloneRows from "../CloneRows/P6CloneRows";
 import MHPHybridClone from "../Comparators/MHPs/MHPHybridClone";
 
@@ -73,11 +73,11 @@ export default function PositiveControls() {
       <div className="grid gap-16 md:grid-cols-2">
         <div className="mx-auto w-full max-w-[400px]">
           <PositiveControlBoard>
-            <div className="fadeIn500 mb-auto mt-4 flex max-w-[500px] grow scale-75 flex-col gap-1">
+            <div className="''500 mb-auto mt-4 flex max-w-[500px] grow scale-75 flex-col gap-1">
               <CloneRow
                 label={1}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[1],
                   row: P6CloneRowColors[1],
                 }}
@@ -98,7 +98,7 @@ export default function PositiveControls() {
               <CloneRow
                 label={2}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[2],
                   row: P6CloneRowColors[2],
                 }}
@@ -192,11 +192,11 @@ export default function PositiveControls() {
       <div className="grid gap-16 md:grid-cols-2">
         <div className="mx-auto w-full max-w-[400px]">
           <PositiveControlBoard>
-            <div className="fadeIn500 mb-auto mt-4 flex max-w-[500px] grow scale-75 flex-col gap-1">
+            <div className="''500 mb-auto mt-4 flex max-w-[500px] grow scale-75 flex-col gap-1">
               <CloneRow
                 label={1}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[1],
                   row: P6CloneRowColors[1],
                 }}
@@ -217,7 +217,7 @@ export default function PositiveControls() {
               <CloneRow
                 label={3}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[3],
                   row: P6CloneRowColors[3],
                 }}
@@ -311,11 +311,11 @@ export default function PositiveControls() {
       <div className="grid gap-16 md:grid-cols-2">
         <div className="mx-auto w-full max-w-[400px]">
           <PositiveControlBoard>
-            <div className="fadeIn500 mb-auto mt-4 flex max-w-[500px] grow scale-75 flex-col gap-1">
+            <div className="''500 mb-auto mt-4 flex max-w-[500px] grow scale-75 flex-col gap-1">
               <CloneRow
                 label={2}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[1],
                   row: P6CloneRowColors[1],
                 }}
@@ -336,7 +336,7 @@ export default function PositiveControls() {
               <CloneRow
                 label={3}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[3],
                   row: P6CloneRowColors[3],
                 }}
@@ -438,11 +438,11 @@ export default function PositiveControls() {
       <div>
         <PositiveControlBoard>
           {phase === 51 && (
-            <div className="fadeIn500 mb-auto mt-4 flex max-w-[500px] grow scale-75 flex-col gap-1">
+            <div className="''500 mb-auto mt-4 flex max-w-[500px] grow scale-75 flex-col gap-1">
               <CloneRow
                 label={1}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[1],
                   row: P6CloneRowColors[1],
                 }}
@@ -463,7 +463,7 @@ export default function PositiveControls() {
               <CloneRow
                 label={2}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[2],
                   row: P6CloneRowColors[2],
                 }}
@@ -488,7 +488,7 @@ export default function PositiveControls() {
               <CloneRow
                 label={1}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[1],
                   row: P6CloneRowColors[1],
                 }}
@@ -509,7 +509,7 @@ export default function PositiveControls() {
               <CloneRow
                 label={3}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[3],
                   row: P6CloneRowColors[3],
                 }}
@@ -534,7 +534,7 @@ export default function PositiveControls() {
               <CloneRow
                 label={2}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[2],
                   row: P6CloneRowColors[2],
                 }}
@@ -555,7 +555,7 @@ export default function PositiveControls() {
               <CloneRow
                 label={3}
                 classNames={{
-                  wrapper: `transition-all duration-500 fadeIn500`,
+                  wrapper: `transition-all duration-500 ''500`,
                   button: P6CloneRowButtonColors[3],
                   row: P6CloneRowColors[3],
                 }}

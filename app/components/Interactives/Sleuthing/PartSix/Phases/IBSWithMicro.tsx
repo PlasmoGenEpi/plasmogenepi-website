@@ -1,13 +1,15 @@
-import KnowledgeCheckQuestion from "@/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
+import KnowledgeCheckQuestion from "@/app/components/Interactives/Shared/KnowledgeChecks/KnowledgeCheckQuestion";
 import Image from "next/image";
 import MicrohaplotypeComparator from "../Comparators/MHPs/MicrohaplotypeComparators";
-import StandardLayout from "@/components/Interactives/Shared/misc/StandardLayout";
+import StandardLayout from "@/app/components/Interactives/Shared/misc/StandardLayout";
 import { pairwiseCombosMHPsAtom } from "@/data/Interactives/interactiveStore";
 import { P6Step2QuestionsAtom } from "./Genotypes";
 import { useAtom, useAtomValue } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 import { useEffect } from "react";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
+import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
+import QuestionResponseText from "@/app/components/Interactives/Shared/misc/QuestionResponseText";
 
 export const SNPvsMHPquestionAtom = atomWithStorage<number | null>(
   "SNPvsMHPquestionAtom",
@@ -43,6 +45,137 @@ export default function IBSWithMicro() {
     pairwiseCombos[2][4].filter((bool) => {
       return bool;
     }).length / 12;
+
+  return (
+    <InteractivePrimaryLayout
+      leftHeader={`IBS Results`}
+      leftContent={
+        <div>
+          <div className="mx-auto max-w-[600px] origin-top lg:scale-90">
+            <div className="">
+              <table className="table w-full  text-center">
+                <thead>
+                  <tr className=" text-sm">
+                    <th>Comparisons where IBD = 0%</th>
+                    <th>IBS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-none">
+                    <td className="w-[500px] px-0 py-2">
+                      <MicrohaplotypeComparator activeCombo={[1, 2]} />
+                    </td>
+                    <td>{(x * 100).toFixed(1)}%</td>
+                  </tr>
+                  <tr className="border-none">
+                    <td className="w-[500px] px-0 py-2">
+                      <MicrohaplotypeComparator activeCombo={[1, 3]} />
+                    </td>
+                    <td>{(y * 100).toFixed(1)}%</td>
+                  </tr>
+                  <tr className="border-none">
+                    <td className="w-[500px] px-0 py-2">
+                      <MicrohaplotypeComparator activeCombo={[2, 3]} />
+                    </td>
+                    <td>{(z * 100).toFixed(1)}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="">
+              <table className="table w-full  text-center">
+                <thead>
+                  <tr className=" text-sm">
+                    <th>Comparisons where IBD = 50%</th>
+                    <th>IBS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-none">
+                    <td className="w-[500px] px-0 py-2">
+                      <MicrohaplotypeComparator activeCombo={[1, 4]} />
+                    </td>
+                    <td>{(xy * 100).toFixed(1)}%</td>
+                  </tr>
+                  <tr className="border-none">
+                    <td className="w-[500px] px-0 py-2">
+                      <MicrohaplotypeComparator activeCombo={[2, 4]} />
+                    </td>
+                    <td>{(yz * 100).toFixed(1)}%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table className="table w-full  text-center">
+                <thead>
+                  <tr className=" text-sm">
+                    <th>Comparisons where IBD = 100%</th>
+                    <th>IBS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-none">
+                    <td className="w-[500px] px-0 py-2">
+                      <MicrohaplotypeComparator activeCombo={[3, 3]} />
+                    </td>
+                    <td>100.0%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p className="text-pretty text-center">
+            You have now completed genotyping with higher resolution
+            microhaplotypes.
+          </p>
+        </div>
+      }
+      rightHeader={"Questions"}
+      rightContent={
+        <div>
+          <KnowledgeCheckQuestion
+            answers={[
+              {
+                checked: SNPvsMHPquestion === 0,
+                correct: true,
+                index: 0,
+                text: "It is easier to distinguish related from unrelated parasites with microhaplotypes than it is with SNPs.",
+              },
+              {
+                checked: SNPvsMHPquestion === 1,
+                correct: false,
+                index: 1,
+                text: "It is harder to distinguish related from unrelated parasites with microhaplotypes than it is with SNPs.",
+              },
+              {
+                checked: SNPvsMHPquestion === 2,
+                correct: false,
+                index: 2,
+                text: "It is equally difficult to distinguish related from unrelated parasites whether using microhaplotypes or SNPs.",
+              },
+            ]}
+            callback={(questionIdx, answerIdx) => {
+              if (SNPvsMHPquestion === answerIdx) {
+                setSNPvsMHPquestion(null);
+              } else {
+                setSNPvsMHPquestion(answerIdx);
+              }
+            }}
+            hasAnswer={SNPvsMHPquestion === 0}
+            headerText="How are your results with microhaplotypes different from when you compared laboratory clones with SNPs?"
+            questionIdx={1}
+            classNames={{
+              answersContainer: "grid gap-4 mt-4",
+            }}
+          />
+          <QuestionResponseText
+            className="mt-4"
+            visible={SNPvsMHPquestion === 0}
+            text={`Your investment has paid off – with 12 SNPs it was difficult for you to distinguish siblings from unrelated parasites, and sometimes even from perfectly related parasites, based on the number of matches. `}
+          />
+        </div>
+      }
+    />
+  );
 
   return (
     <StandardLayout>

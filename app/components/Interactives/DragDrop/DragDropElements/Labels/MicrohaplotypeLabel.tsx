@@ -1,4 +1,4 @@
-import Microhaplotype from "@/components/Interactives/Shared/Microhaplotypes/Microhaplotype";
+import Microhaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/Microhaplotype";
 import { MicroId } from "@/helpers/helpers";
 import { useEffect, useRef } from "react";
 
@@ -38,7 +38,7 @@ export default function MicrohaplotypeLabel({
         left,
         animationDelay: "1000ms",
       }}
-      className="fadeIn500 absolute w-fit scroll-mx-36"
+      className="fadeIn500 absolute w-fit scroll-mx-36 not-italic text-black dark:brightness-75"
     >
       <div
         className={`${className} flex w-full items-center text-xl font-bold shadow-sm shadow-current`}
@@ -52,8 +52,8 @@ export default function MicrohaplotypeLabel({
                   idx === 0
                     ? "pl-3 pr-0.5"
                     : idx === vals.length - 1
-                      ? "pl-0.5 pr-3"
-                      : "px-0.5"
+                    ? "pl-0.5 pr-3"
+                    : "px-0.5"
                 } ${val === 1 ? "alternateAllele" : ""} bg-white bg-opacity-80`}
             >
               <span className="block translate-y-[3px]">

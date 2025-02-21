@@ -2,28 +2,41 @@ import {
   dragDropCompletionAtom,
   dragLocationAtom,
   globalDragAtom,
-  phaseAtom,
+  phase3Atom,
   reads2Atom,
   ReadType,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
 import { useDrop } from "react-dnd";
 import {
-  charSize,
+  // charSize,
   clearRefTimeout,
-  dropContainerWidth,
-  paddingLeft,
-  rowDistance,
+  // dropContainerWidth,
+  // paddingLeft,
+  // rowDistance,
 } from "./Container";
 import Read from "./Read";
 import { mouseLocationAtom } from "./CustomDragLayer";
 import { MutableRefObject, useMemo } from "react";
 import { isDraggable, trashScaleFactor } from "./DraggableRead";
+import { currentView3Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
+
+const topDistanceIncludingBorder = 172;
+const borderWidth = 24;
+const paddingFromBorder = topDistanceIncludingBorder - borderWidth;
+const paddingLeft = 32;
+const paddingRight = 64;
+const rowHeight = 32;
+const rowDistance = 32;
+const charSize = 18;
+const readStartOffset = 18;
+const dropContainerWidth = 1148;
 
 export const trashWidth = 300;
-export const trashEndFromLeft = 1300;
+export const trashEndFromLeft = 30 + 18 * 54;
+// export const trashEndFromLeft = 1300;
 const trashHeight = 80;
-export const trashTop = 20;
+export const trashTop = 10;
 
 export default function Trash({
   changeCharStart,
@@ -41,26 +54,28 @@ export default function Trash({
   }) => void;
 }) {
   const [globalDrag, setGlobalDrag] = useAtom(globalDragAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase3Atom);
+  const currentView = useAtomValue(currentView3Atom);
   const mouseLocation = useAtomValue(mouseLocationAtom);
   const completion = useAtomValue(dragDropCompletionAtom);
 
-  const trashHeight = useMemo(() => {
-    return (
-      Math.max(
-        3,
-        reads.filter((read) => {
-          return typeof read.trash === "number";
-        }).length,
-      ) *
-        (32 * trashScaleFactor) +
-      8
-    );
-  }, [reads]);
+  // const trashHeight = useMemo(() => {
+  //   return (
+  //     Math.max(
+  //       3,
+  //       reads.filter((read) => {
+  //         return typeof read.trash === "number";
+  //       }).length
+  //     ) *
+  //       (32 * trashScaleFactor) +
+  //     8
+  //   );
+  // }, [reads]);
 
   const readIsOverTrash = useMemo(() => {
     if (mouseLocation.x && mouseLocation.y) {
       let { x, y } = mouseLocation;
+      // y = y + 50;
       if (
         x >= trashEndFromLeft - trashWidth &&
         y >= trashTop &&
@@ -72,6 +87,8 @@ export default function Trash({
     }
     return false;
   }, [mouseLocation, trashHeight]);
+
+  console.log(mouseLocation);
 
   const [, drop] = useDrop(
     () => ({
@@ -92,7 +109,11 @@ export default function Trash({
     [phase, changeCharStart, readIsOverTrash],
   );
 
-  if (phase >= 8 || phase < 5) {
+  // if (phase >= 8 || phase < 5) {
+  //   return null;
+  // }
+
+  if (currentView.section === 1) {
     return null;
   }
 
@@ -108,11 +129,31 @@ export default function Trash({
         outlineWidth: readIsOverTrash ? 4 : 2,
         outlineStyle: "solid",
         transformOrigin: "right",
+        opacity: globalDrag && !readIsOverTrash ? ".5" : "1",
         scale: readIsOverTrash ? 1.05 : 1,
       }}
-      className={`absolute translate-x-1 border-4 border-primaryGreen/20 transition-all ${readIsOverTrash ? " outline-black" : "outline-black"}`}
+      className={`absolute translate-x-1 border-2 transition-all duration-150 dark:border-gray-400  ${
+        readIsOverTrash
+          ? " outline-black dark:outline-orange-400"
+          : "outline-black"
+      }`}
     >
-      <button
+      <svg
+        className="stroke-interactiveGreen pointer-events-auto z-30 translate-y-1 fill-current dark:fill-gray-400"
+        width="48pt"
+        height="48pt"
+        version="1.1"
+        viewBox="0 0 1200 1200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path d="m1e3 187.5h-115.38l-40.5-87c-14.375-30.625-45.5-50.5-79.375-50.5h-329.5c-33.75 0-65 19.75-79.375 50.5l-40.5 87h-115.38c-34.5 0-62.5 28-62.5 62.5v75c0 6.875 5.625 12.5 12.5 12.5h50v737.5c0 41.375 33.625 75 75 75h650c41.375 0 75-33.625 75-75v-737.5h50c6.875 0 12.5-5.625 12.5-12.5v-75c0-34.5-28-62.5-62.5-62.5zm-621.38-76.5c10.25-21.875 32.5-36 56.75-36h329.5c24.125 0 46.375 14.125 56.625 36l35.625 76.5h-27.625l-27.25-58.625c-8.125-17.5-26-28.875-45.375-28.875h-313.5c-19.375 0-37.125 11.375-45.375 28.875l-27.25 58.625h-27.625l35.625-76.5zm423.25 76.5h-403.62l22.375-48.125c4.125-8.75 13-14.375 22.625-14.375h313.5c9.625 0 18.625 5.625 22.625 14.375l22.375 48.125zm173.25 887.5c0 27.625-22.375 50-50 50h-650.12c-27.625 0-50-22.375-50-50v-737.5h750v737.5zm62.5-762.5h-875.12v-62.5c0-20.625 16.875-37.5 37.5-37.5h800c20.625 0 37.5 16.875 37.5 37.5v62.5z" />
+          <path d="m600 1062.5c27.625 0 50-22.375 50-50v-562.5c0-27.625-22.375-50-50-50s-50 22.375-50 50v562.5c0 27.625 22.375 50 50 50zm-25-612.5c0-13.75 11.25-25 25-25s25 11.25 25 25v562.5c0 13.75-11.25 25-25 25s-25-11.25-25-25z" />
+          <path d="m800 1062.5c27.625 0 50-22.375 50-50v-562.5c0-27.625-22.375-50-50-50s-50 22.375-50 50v562.5c0 27.625 22.375 50 50 50zm-25-612.5c0-13.75 11.25-25 25-25s25 11.25 25 25v562.5c0 13.75-11.25 25-25 25s-25-11.25-25-25z" />
+          <path d="m400 1062.5c27.625 0 50-22.375 50-50v-562.5c0-27.625-22.375-50-50-50s-50 22.375-50 50v562.5c0 27.625 22.375 50 50 50zm-25-612.5c0-13.75 11.25-25 25-25s25 11.25 25 25v562.5c0 13.75-11.25 25-25 25s-25-11.25-25-25z" />
+        </g>
+      </svg>
+      {/* <button
         disabled={
           globalDrag ||
           completion[phase] ||
@@ -135,7 +176,13 @@ export default function Trash({
           }
         }}
         data-tip="Empty trash"
-        className={`${phase !== 3 && phase !== 7 && phase !== 6 && !completion[phase] ? "pointer-events-none" : !globalDrag ? "tooltip tooltip-left pointer-events-auto  transition-all focus-visible:tooltip-open before:text-white before:[lineHeight:36px] hover:scale-105 *:hover:stroke-[12px] focus-visible:scale-105" : "pointer-events-none"}`}
+        className={`${
+          phase !== 3 && phase !== 7 && phase !== 6 && !completion[phase]
+            ? "pointer-events-none"
+            : !globalDrag
+            ? "tooltip tooltip-left pointer-events-auto  transition-all focus-visible:tooltip-open before:text-white before:[lineHeight:36px] hover:scale-105 *:hover:stroke-[12px] focus-visible:scale-105"
+            : "pointer-events-none"
+        }`}
       >
         <svg
           className="pointer-events-auto z-30 translate-y-1 stroke-primaryGreen"
@@ -152,7 +199,7 @@ export default function Trash({
             <path d="m400 1062.5c27.625 0 50-22.375 50-50v-562.5c0-27.625-22.375-50-50-50s-50 22.375-50 50v562.5c0 27.625 22.375 50 50 50zm-25-612.5c0-13.75 11.25-25 25-25s25 11.25 25 25v562.5c0 13.75-11.25 25-25 25s-25-11.25-25-25z" />
           </g>
         </svg>
-      </button>
+      </button> */}
       <div ref={drop} className="absolute -inset-4"></div>
     </div>
   );

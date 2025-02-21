@@ -2,7 +2,7 @@ import {
   partEightPentagonPairViewedAtom,
   partEightPentagonPersonPairAtom,
   partEightPentagonSelectedEdgesAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtom, useAtomValue } from "jotai";
 import {
@@ -31,11 +31,11 @@ export default function PentagonQuestions({
 }: {
   wrongEdges: string[];
 }) {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const [queuedChange, setQueuedChange] = useAtom(queuedChangeAtom);
   const [successQueue, setSuccessQueue] = useAtom(successQueueAtom);
   const [selectedEdges, setSelectedEdges] = useAtom(
-    partEightPentagonSelectedEdgesAtom,
+    partEightPentagonSelectedEdgesAtom
   );
   const [activePair, setActivePair] = useAtom(partEightPentagonPersonPairAtom);
 
@@ -87,11 +87,10 @@ export default function PentagonQuestions({
             {getTypeOfError(queuedChange, selectedEdges, successQueue) === 1
               ? "Recall that we expect IBS to be 1 (all 12 loci matching) if there is direct transmission. Here, IBS is less than 1, so that is evidence against direct transmission between these two cases"
               : getTypeOfError(queuedChange, selectedEdges, successQueue) === 2
-                ? "IBS in this case is quite high, 1, which is consistent with direct transmission and greater than we would expect to see by chance."
-                : getTypeOfError(queuedChange, selectedEdges, successQueue) ===
-                    3
-                  ? "You are correct that there seems to be evidence of direct transmission between these two cases, since IBS is 1. Remember that Case (E or F, depending on the edge) reported a history of travel and occurred several weeks before Case (G, H, or I, depending on the edge), making it more likely that transmission occurred in the other direction."
-                  : ""}
+              ? "IBS in this case is quite high, 1, which is consistent with direct transmission and greater than we would expect to see by chance."
+              : getTypeOfError(queuedChange, selectedEdges, successQueue) === 3
+              ? "You are correct that there seems to be evidence of direct transmission between these two cases, since IBS is 1. Remember that Case (E or F, depending on the edge) reported a history of travel and occurred several weeks before Case (G, H, or I, depending on the edge), making it more likely that transmission occurred in the other direction."
+              : ""}
           </p>
         </div>
       )}

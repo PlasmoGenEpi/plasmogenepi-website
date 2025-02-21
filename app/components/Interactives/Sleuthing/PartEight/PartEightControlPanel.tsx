@@ -10,13 +10,16 @@ import {
   partEightPentagonQuestionsAtom,
   partEightPentagonSelectedEdgesAtom,
   partEightQuestionsAtom,
-  phaseAtom,
+  phase2Atom,
   VERSION_CONTROL,
   versionControlAtom,
 } from "@/data/Interactives/interactiveStore";
 import ControlPanelWrapper from "../../Shared/ControlPanel/ControlPanelWrapper";
-import { atom, useAtom, useAtomValue } from "jotai";
-import { resetConfirmOpenAtom } from "../../Shared/ControlPanel/ResetModal";
+import { atom, useAtom, useAtomValue, useSetAtom } from "jotai";
+import {
+  resetConfirmOpenAtom,
+  s2Reset3Atom,
+} from "../../Shared/ControlPanel/ResetModal";
 import PrimaryButton from "../../Shared/ControlPanel/PrimaryButton";
 import {
   attemptedMOIInputAtom1,
@@ -45,17 +48,30 @@ import { Edge } from "./Pentagon";
 import { specialEdgeHandledAtom } from "./Pentagon3";
 import { GIViewAtom } from "./Pentagon/PentagonCorrections";
 import { useCallback, useEffect } from "react";
+import { currentView2Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
+import { p8addedQuestionAtom } from "./Phases/VillagePersons";
+import {
+  additionalInfoClickedAtom,
+  p8addedQuestion2Atom,
+} from "./Pentagon/PentagonSideBySide";
 
 export const slidoPauseAtom = atom(false);
 
 const P8CurrentVersionAtom = atomWithStorage("P8CurrentVersionAtom", "1.1.1");
+export const compareGenotypesCompleteAtom = atomWithStorage(
+  "compareGenotypesCompleteAtom",
+  false
+);
 
 export default function PartEightControlPanelWrapper({
   fixed,
 }: {
   fixed: boolean;
 }) {
-  const [phase, setPhase] = useAtom(phaseAtom);
+  // const [phase, setPhase] = useAtom(phase2Atom);
+  const [compareGenotypesComplete, setCompareGenotypesComplete] = useAtom(
+    compareGenotypesCompleteAtom
+  );
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
   const [completion, setCompletion] = useAtom(partEightCompletionAtom);
   const [MOIInputs, setMOIInputs] = useAtom(partEightMOIInputsAtom);
@@ -66,35 +82,49 @@ export default function PartEightControlPanelWrapper({
   const [attemptedInput5, setAttemptedInput5] = useAtom(attemptedMOIInputAtom5);
   const [diamondEdge, setDiamondEdge] = useAtom(partEightDiamondPersonPairAtom);
   const [personPairTwo, setPersonPairTwo] = useAtom(
-    partEightPentagonPersonPairAtom,
+    partEightPentagonPersonPairAtom
   );
   const [specialEdgeHandled, setSpecialEdgeHandled] = useAtom(
-    specialEdgeHandledAtom,
+    specialEdgeHandledAtom
   );
   const [corrections, setEdgeCorrections] = useAtom(edgeCorrectionsAtom);
 
   const [questions, setQuestions] = useAtom(partEightQuestionsAtom);
   const [viewedDiamond, setViewedDiamond] = useAtom(
-    partEightDiamondPairViewedAtom,
+    partEightDiamondPairViewedAtom
   );
-  // const [viewedPentagon, setViewedPentagon] = useAtom(
-  //   partEightPentagonPairViewedAtom,
-  // );
   const [selectedEdges, setSelectedEdges] = useAtom(
-    partEightPentagonSelectedEdgesAtom,
+    partEightPentagonSelectedEdgesAtom
   );
   const [queuedChange, setQueuedChange] = useAtom(queuedChangeAtom);
   const [successQueue, setSuccessQueue] = useAtom(successQueueAtom);
   const [pentagonView, setPentagonView] = useAtom(pentagonViewAtom);
   const [pentagonQuestions, setPentagonQuestions] = useAtom(
-    partEightPentagonQuestionsAtom,
+    partEightPentagonQuestionsAtom
   );
   const [GIView, setGIView] = useAtom(GIViewAtom);
   const [currentVersion, setCurrentVersion] = useAtom(P8CurrentVersionAtom);
   const [slidoPause, setSlidoPause] = useAtom(slidoPauseAtom);
+  const [currentView, setCurrentView] = useAtom(currentView2Atom);
+  const [p8AddedQuestion, setP8AddedQuestion] = useAtom(p8addedQuestionAtom);
+  const setS3Reset = useSetAtom(s2Reset3Atom);
+  const [buttonClicked, setButtonClicked] = useAtom(additionalInfoClickedAtom);
+  const [p8addedQuestion2, setP8AddedQuestion2] = useAtom(p8addedQuestion2Atom);
+
+  const { phase, section } = currentView;
+
+  useEffect(() => {
+    if (section === 3 && phase >= 20) {
+      setCompareGenotypesComplete(true);
+    }
+  }, [phase]);
 
   const resetCallback = useCallback(() => {
-    setSelectedEdges(RESET);
+    setCompareGenotypesComplete(RESET);
+    setButtonClicked(RESET);
+    setP8AddedQuestion2(RESET);
+    setP8AddedQuestion(RESET);
+    // setSelectedEdges(RESET);
     setPentagonQuestions(RESET);
     setGIView(false);
     setPentagonQuestions(RESET);
@@ -103,11 +133,72 @@ export default function PartEightControlPanelWrapper({
     setPentagonView(null);
     setQueuedChange(null);
     setSuccessQueue(null);
-    setSelectedEdges(RESET);
+    setSelectedEdges({
+      EF: {
+        selected: false,
+        visited: false,
+        enabled: false,
+        direction: null,
+      },
+      EG: {
+        selected: false,
+        visited: false,
+        enabled: false,
+        direction: null,
+      },
+      EH: {
+        selected: false,
+        visited: false,
+        enabled: false,
+        direction: null,
+      },
+      EI: {
+        selected: false,
+        visited: false,
+        enabled: false,
+        direction: null,
+      },
+      FG: {
+        selected: false,
+        visited: false,
+        enabled: false,
+        direction: null,
+      },
+      FH: {
+        selected: false,
+        visited: false,
+        enabled: false,
+        direction: null,
+      },
+      FI: {
+        selected: false,
+        visited: false,
+        enabled: false,
+        direction: null,
+      },
+      GH: {
+        selected: false,
+        visited: false,
+        enabled: false,
+        direction: null,
+      },
+      GI: {
+        selected: false,
+        visited: false,
+        enabled: false,
+        direction: null,
+      },
+      HI: {
+        selected: false,
+        visited: false,
+        enabled: false,
+        direction: null,
+      },
+    });
     setViewedDiamond(RESET);
     // setViewedPentagon(RESET);
     setCompletion(RESET);
-    setPhase(1);
+    // setPhase(1);
     setMOIInputs(RESET);
     setAttemptedInput1("");
     setAttemptedInput2("");
@@ -118,6 +209,12 @@ export default function PartEightControlPanelWrapper({
     setPersonPairTwo({
       1: null,
       2: null,
+    });
+  }, []);
+
+  useEffect(() => {
+    setS3Reset(() => () => {
+      resetCallback();
     });
   }, []);
 
@@ -162,6 +259,10 @@ export default function PartEightControlPanelWrapper({
 
   // const [pentagon, setPentagon] = useAtom(pentagonAtom);
 
+  // useEffect(() => {
+  //   setCurrentView({ ...currentView, phase: 1, section: 3 });
+  // }, []);
+
   function isDisabled(phase: number) {
     if (phase === 4) {
       if (
@@ -191,7 +292,7 @@ export default function PartEightControlPanelWrapper({
         return true;
       }
     } else if (phase === 10) {
-      return Object.values(MOIInputs).includes(false);
+      // return Object.values(MOIInputs).includes(false);
     } else if (phase >= 11) {
       if (phase === 11) {
         return slidoPause;
@@ -305,7 +406,8 @@ export default function PartEightControlPanelWrapper({
 
   function handleClick(phase: number) {
     if (phase === 1) {
-      setPhase(4);
+      // setPhase(4);
+      setCurrentView({ ...currentView, phase: 4 });
       setCompletion({ ...completion, 1: true });
       return;
     }
@@ -365,92 +467,103 @@ export default function PartEightControlPanelWrapper({
     return "Next";
   }
 
-  return (
-    <ControlPanelWrapper resetCallback={resetCallback} fixed={fixed}>
-      <div>
-        {/* <div className="mx-auto flex max-w-6xl justify-end">
-      <div className="-translate-y-2">
-        <label htmlFor="hints" className="mr-4 text-white">
-          Enable Hints
-        </label>
-        <input
-          onChange={(e) => {
-            setHintsEnabled(!hintsEnabled);
-          }}
-          checked={hintsEnabled}
-          id="hints"
-          className="mb-1"
-          type="checkbox"
-        />
-      </div>
-    </div> */}
-        <div className="relative mx-auto flex max-w-6xl justify-between">
-          {phase === 1 ? (
-            <PrimaryButton
-              type="button"
-              first
-              callback={() => {
-                setResetConfirmOpen(true);
-              }}
-              // disabled={resetConfirmOpen || !completion[1]}
-              className="bg-orange-500 text-white"
-              text="Reset"
-            />
-          ) : (
-            <PrimaryButton
-              type="button"
-              first
-              callback={() => {
-                if (phase === 4) {
-                  setPhase(1);
-                  return;
-                }
-                if (phase === 12) {
-                  setPentagonView(null);
-                } else if (phase === 13) {
-                } else if (phase === 14) {
-                  setPhase(12);
-                  return;
-                } else if (phase === 15) {
-                  setPentagonView(null);
-                } else if (phase === 16) {
-                  setPentagonView("E");
-                } else if (phase === 17) {
-                  setPentagonView("F");
-                } else if (phase === 18) {
-                  setPentagonView("GHI");
-                } else if (phase === 20) {
-                  setPhase(18);
-                  return;
-                } else if (phase === 29.5) {
-                  setPhase(29);
-                  return;
-                } else if (phase === 30) {
-                  setPhase(29.5);
-                  return;
-                }
-                setPhase(phase - 1);
-              }}
-              className="bg-primaryGreen text-white"
-              text="Back"
-              disabled={phase === 1}
-            />
-          )}
-          {phase <= 40 && (
-            <PrimaryButton
-              type="submit"
-              callback={() => {
-                if (!isDisabled(phase)) {
-                  handleClick(phase);
-                }
-              }}
-              className={`${getText() === "Finish" ? "bg-primaryBlue" : "bg-primaryGreen"} text-white`}
-              text={getText()}
-              disabled={isDisabled(phase)}
-            />
-          )}
-        </div>
-      </div>
-    </ControlPanelWrapper>
-  );
+  useEffect(() => {
+    if (section !== 3) {
+      return;
+    }
+    if (phase < 15) {
+      setPentagonView(null);
+    }
+  }, [phase]);
+
+  // return (
+  //   <ControlPanelWrapper resetCallback={resetCallback} fixed={fixed}>
+  //     <div>
+  //       {/* <div className="mx-auto flex max-w-6xl justify-end">
+  //     <div className="-translate-y-2">
+  //       <label htmlFor="hints" className="mr-4 text-white">
+  //         Enable Hints
+  //       </label>
+  //       <input
+  //         onChange={(e) => {
+  //           setHintsEnabled(!hintsEnabled);
+  //         }}
+  //         checked={hintsEnabled}
+  //         id="hints"
+  //         className="mb-1"
+  //         type="checkbox"
+  //       />
+  //     </div>
+  //   </div> */}
+  //       <div className="relative mx-auto flex max-w-6xl justify-between">
+  //         {phase === 1 ? (
+  //           <PrimaryButton
+  //             type="button"
+  //             first
+  //             callback={() => {
+  //               setResetConfirmOpen(true);
+  //             }}
+  //             // disabled={resetConfirmOpen || !completion[1]}
+  //             className="bg-orange-500 text-white"
+  //             text="Reset"
+  //           />
+  //         ) : (
+  //           <PrimaryButton
+  //             type="button"
+  //             first
+  //             callback={() => {
+  //               if (phase === 4) {
+  //                 setPhase(1);
+  //                 return;
+  //               }
+  //               if (phase === 12) {
+  //                 setPentagonView(null);
+  //               } else if (phase === 13) {
+  //               } else if (phase === 14) {
+  //                 setPhase(12);
+  //                 return;
+  //               } else if (phase === 15) {
+  //                 setPentagonView(null);
+  //               } else if (phase === 16) {
+  //                 setPentagonView("E");
+  //               } else if (phase === 17) {
+  //                 setPentagonView("F");
+  //               } else if (phase === 18) {
+  //                 setPentagonView("GHI");
+  //               } else if (phase === 20) {
+  //                 setPhase(18);
+  //                 return;
+  //               } else if (phase === 29.5) {
+  //                 setPhase(29);
+  //                 return;
+  //               } else if (phase === 30) {
+  //                 setPhase(29.5);
+  //                 return;
+  //               }
+  //               setPhase(phase - 1);
+  //             }}
+  //             className="bg-primaryGreen text-white"
+  //             text="Back"
+  //             disabled={phase === 1}
+  //           />
+  //         )}
+  //         {phase <= 40 && (
+  //           <PrimaryButton
+  //             type="submit"
+  //             callback={() => {
+  //               if (!isDisabled(phase)) {
+  //                 handleClick(phase);
+  //               }
+  //             }}
+  //             className={`${
+  //               getText() === "Finish" ? "bg-primaryBlue" : "bg-primaryGreen"
+  //             } text-white`}
+  //             text={getText()}
+  //             disabled={isDisabled(phase)}
+  //           />
+  //         )}
+  //       </div>
+  //     </div>
+  //   </ControlPanelWrapper>
+  // );
 }

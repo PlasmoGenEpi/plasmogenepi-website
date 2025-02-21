@@ -6,6 +6,21 @@ export const partFourPrompts: {
     instructions: ReactElement;
   };
 } = {
+  0: {
+    title: (
+      <h5>
+        Step 4
+        {/* Analyze Results From Your Field Samples Using Microhaplotypes to
+        Estimate the Unknown MOI */}
+      </h5>
+    ),
+    instructions: (
+      <p>
+        Now it's time to analyze results from your field samples using
+        microhaplotypes to estimate the unknown MOI in your population.
+      </p>
+    ),
+  },
   1: {
     title: <h5>4.1 Estimate MOI for each of the 10 field samples</h5>,
     instructions: (
@@ -22,7 +37,9 @@ export const partFourPrompts: {
     instructions: (
       <div>
         <p>
-          <p>Calculate the average MOI from your estimates.</p>
+          {" "}
+          Calculate the average MOI from your estimates (add up your 10
+          estimates of MOI and divide by 10). This has been done for you.
         </p>
       </div>
     ),

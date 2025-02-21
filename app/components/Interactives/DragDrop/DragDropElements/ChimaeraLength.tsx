@@ -20,7 +20,11 @@ export default function ChimaeraLength() {
         }}
         // w-[680px]
         // w-[792px]
-        className={`${chimaeraPlaced && !completion[8] ? "chimaeraLong w-[270px] " : "w-[794px]"} absolute flex justify-between px-0.5 py-[3px] outline outline-[2px] -outline-offset-[1.5px] outline-black`}
+        className={`${
+          chimaeraPlaced && !completion[8]
+            ? "chimaeraLong w-[270px] "
+            : "w-[794px]"
+        } absolute flex justify-between px-0.5 py-[3px] outline/ outline-[2px] -outline-offset-[1.5px] outline-black dark:outline-none`}
       >
         <div
           style={{
@@ -36,7 +40,7 @@ export default function ChimaeraLength() {
               return (
                 <span
                   key={idx}
-                  className="block translate-y-[3px] font-bold"
+                  className="block translate-y-[3px] font-bold/"
                   style={{
                     width: charSize,
                   }}
@@ -60,7 +64,7 @@ export default function ChimaeraLength() {
               return (
                 <span
                   key={idx}
-                  className="block translate-y-[3px] font-bold"
+                  className="block translate-y-[3px] font-bold/"
                   style={{
                     width: charSize,
                   }}

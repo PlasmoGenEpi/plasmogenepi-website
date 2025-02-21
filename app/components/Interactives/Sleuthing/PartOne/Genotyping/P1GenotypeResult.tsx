@@ -1,4 +1,4 @@
-import Genotyping from "@/components/Interactives/Shared/Genotyping/Genotyping";
+import Genotyping from "@/app/components/Interactives/Shared/Genotyping/Genotyping";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   positiveControlBoardsAtom,
@@ -16,7 +16,7 @@ export default function P1GenotypeResult() {
   const genotypeHints = useAtomValue(genotypeHintsAtom);
 
   return (
-    <div className="fadeIn500 max-w-[500px]">
+    <div className="fadeIn500 max-w-[500px] font-helvetica ">
       <Genotyping
         hints={hintsEnabled ? genotypeHints : []}
         disabled={currentBoard.inputValid}

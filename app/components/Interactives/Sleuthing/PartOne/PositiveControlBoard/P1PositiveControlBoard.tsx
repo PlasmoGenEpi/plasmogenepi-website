@@ -1,19 +1,23 @@
-import CloneElement from "@/components/Interactives/Shared/CloneRow/CloneElement";
+import {
+  compareUnorderedArrays,
+  switchValues,
+} from "@/app/components/Interactives/helpers";
+import CloneElement from "@/app/components/Interactives/Shared/CloneRow/CloneElement";
 import CloneRow, {
   cloneRowButtonColors,
   cloneRowColors,
-} from "@/components/Interactives/Shared/CloneRow/CloneRow";
-import PositiveControlBoard from "@/components/Interactives/Shared/PositiveControlBoard/PositiveControlBoard";
+} from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
+import PositiveControlBoard from "@/app/components/Interactives/Shared/PositiveControlBoard/PositiveControlBoard";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   cloneRowsAtom,
   hintsEnabledAtom,
   partOneCompletionAtom,
-  phaseAtom,
+  phase1Atom,
   positiveControlBoardsAtom,
   selectedPositiveControlBoardAtom,
 } from "@/data/Interactives/interactiveStore";
-import { compareUnorderedArrays, switchValues } from "@/helpers/helpers";
+// import { compareUnorderedArrays, switchValues } from "@/helpers/helpers";
 import { useAtom, useAtomValue } from "jotai";
 
 const refValues = fixedData[1].refValues;
@@ -25,7 +29,7 @@ export default function P1PositiveControlBoard() {
   const currentBoard = boards[activeBoard];
   const completion = useAtomValue(partOneCompletionAtom);
   const cloneRows = useAtomValue(cloneRowsAtom);
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase1Atom);
   const hintsEnabled = useAtomValue(hintsEnabledAtom);
 
   function getHint() {
@@ -40,7 +44,7 @@ export default function P1PositiveControlBoard() {
         ((activeBoard === 1 || activeBoard === 2) &&
           currentBoard.rows.length !== 1)
       ) {
-        return "Hint: make sure you are using the right number of clones according to the MOI.";
+        return "Make sure you are using the right number of clones according to the MOI.";
       }
     }
     let otherBoard = boards[switchValues(activeBoard)];
@@ -48,7 +52,7 @@ export default function P1PositiveControlBoard() {
       currentBoard.rows.length &&
       compareUnorderedArrays(currentBoard.rows, otherBoard.rows)
     ) {
-      return "Hint: positive controls must be unique.";
+      return "Positive controls must be unique.";
     }
   }
 
@@ -81,8 +85,8 @@ export default function P1PositiveControlBoard() {
   };
   return (
     <PositiveControlBoard>
-      <div className="min-h-full w-full">
-        <div className="flex min-h-full w-full flex-col gap-2 lg:scale-75">
+      <div className="mx-auto min-h-full w-full max-w-[500px]">
+        <div className="flex min-h-full w-full scale-75 flex-col gap-2 [backface-visibility:hidden] dark:brightness-75">
           {currentBoard.rows.map((rowId, idx) => {
             if (completion[phase] || currentBoard.valid) {
               return (
@@ -98,7 +102,7 @@ export default function P1PositiveControlBoard() {
                     return (
                       <CloneElement
                         animation={false}
-                        className={"bg-white"}
+                        className={"bg-white text-black dark:bg-white/50"}
                         possibleValues={{
                           reference: refValues[idx],
                           alternate: altValues[idx],
@@ -113,7 +117,7 @@ export default function P1PositiveControlBoard() {
             } else {
               return (
                 <button
-                  className="transition-all focus-within:outline-offset-2 hover:scale-105 focus:scale-105"
+                  className="transition-all focus-within:outline-offset-2 focus:scale-105 md:hover:scale-105"
                   type="button"
                   onClick={() => {
                     handleClick(rowId);
@@ -132,7 +136,7 @@ export default function P1PositiveControlBoard() {
                       return (
                         <CloneElement
                           animation={false}
-                          className={"bg-white"}
+                          className={"bg-white text-black dark:bg-white/50"}
                           possibleValues={{
                             reference: refValues[idx2],
                             alternate: altValues[idx2],
@@ -154,7 +158,8 @@ export default function P1PositiveControlBoard() {
               }}
               key={getHint()}
               data-tip={getHint()}
-              className="fadeIn500 tooltip tooltip-bottom tooltip-open absolute top-[85%] ml-4 w-1/2 border-black  [--tooltip-color:#ffffff] [--tooltip-font-size:12px] [--tooltip-tail:1rem] [--tooltip-text-color:black] before:max-w-full before:px-2 before:pb-2 before:pt-4 before:text-base before:ring-1   before:ring-black after:top-[-.65rem] after:z-10 after:translate-x-full after:ring-white md:top-full md:scale-125 "
+              className="fadeIn500 tooltip tooltip-bottom tooltip-open top-full [--tooltip-color:#ffffff] [--tooltip-tail:.75rem] [--tooltip-text-color:black] before:p-4 before:text-xl before:ring-2  before:ring-orange-400 after:border-b-orange-400 after:[color:blue]"
+              // className="fadeIn500 tooltip tooltip-bottom tooltip-open absolute top-[85%] ml-4 w-1/2 border-black [--tooltip-color:#ffffff] [--tooltip-font-size:12px] [--tooltip-tail:1rem] [--tooltip-text-color:black] before:max-w-full before:px-2 before:pb-2 before:pt-4 before:text-base before:ring-1 before:ring-orange-400 after:top-[-.65rem] after:z-10 after:translate-x-full after:ring-white @4xl/main:top-full @4xl/main:scale-125"
             ></div>
           )}
         </div>

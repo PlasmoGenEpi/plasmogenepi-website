@@ -1,11 +1,15 @@
-import Microhaplotype from "@/components/Interactives/Shared/Microhaplotypes/Microhaplotype";
-import MicrohaplotypeGenotypeColumn from "@/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeGenotypeTable/MicrohaplotypeGenotypeColumn";
-import MicrohaplotypeGenotypeTable from "@/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeGenotypeTable/MicrohaplotypeGenotypeTable";
-import MicrohaplotypeSkeleton from "@/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeSkeleton";
-import MicrohaplotypeTable from "@/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTable";
+import {
+  getIndexArrayOfPrimitives,
+  MicroId,
+} from "@/app/components/Interactives/helpers";
+import Microhaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/Microhaplotype";
+import MicrohaplotypeGenotypeColumn from "@/app/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeGenotypeTable/MicrohaplotypeGenotypeColumn";
+import MicrohaplotypeGenotypeTable from "@/app/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeGenotypeTable/MicrohaplotypeGenotypeTable";
+import MicrohaplotypeSkeleton from "@/app/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeSkeleton";
+import MicrohaplotypeTable from "@/app/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTable";
 import MicrohaplotypeTableRow, {
   microhaplotypeColorMap,
-} from "@/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTableRow";
+} from "@/app/components/Interactives/Shared/Microhaplotypes/MicrohaplotypeTable/MicrohaplotypeTableRow";
 import { fixedData } from "@/data/Interactives/fixedData";
 import {
   MHPGenotypeHintsAtom,
@@ -13,15 +17,9 @@ import {
   hintsEnabledAtom,
   partThreeCompletionAtom,
   partThreePositiveControlBoardsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedPositiveControlBoardAtom,
 } from "@/data/Interactives/interactiveStore";
-import {
-  MicroId,
-  compareMatrices,
-  compareOrderedArrays,
-  getIndexArrayOfPrimitives,
-} from "@/helpers/helpers";
 import { useAtom, useAtomValue } from "jotai";
 import { RESET } from "jotai/utils";
 import { useEffect } from "react";
@@ -41,7 +39,7 @@ export default function PartThreeMicrohaplotypeGenotyping() {
   const [selectedBoard, setSelectedBoard] = useAtom(
     selectedPositiveControlBoardAtom,
   );
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase1Atom);
   const completion = useAtomValue(partThreeCompletionAtom);
   const [boards, setBoards] = useAtom(partThreePositiveControlBoardsAtom);
   const currentBoard = boards[selectedBoard];
@@ -81,7 +79,7 @@ export default function PartThreeMicrohaplotypeGenotyping() {
   };
 
   return (
-    <div className="fadeIn500">
+    <div className="fadeIn500 mx-auto max-w-[500px] dark:brightness-75">
       <div className="grid origin-top-left grid-cols-4 gap-2 lg:scale-90">
         {Array(4)
           .fill(0)
@@ -98,7 +96,14 @@ export default function PartThreeMicrohaplotypeGenotyping() {
                   {mhpBlock.map((microId, idx) => {
                     return (
                       <button
-                        className={`${getIndexArrayOfPrimitives(currentBoard.inputs[colNum], microId) !== false ? "opacity-20" : ""} transition-all`}
+                        className={`${
+                          getIndexArrayOfPrimitives(
+                            currentBoard.inputs[colNum],
+                            microId,
+                          ) !== false
+                            ? "opacity-20"
+                            : ""
+                        } transition-all`}
                         disabled={completion[phase] || currentBoard.inputValid}
                         aria-label={`add microhaplotype ${microId.join("")}`}
                         onClick={(e) => {
@@ -129,11 +134,27 @@ export default function PartThreeMicrohaplotypeGenotyping() {
 
                         key={idx}
                       >
+                        {/* hint ? hint.join("") ===
+                        getRowConfiguration(rowNum).join("") ? "outline
+                        outline-2 outline-offset-4 z-10 outline-black" :
+                        "opacity-50" : "" */}
                         <Microhaplotype
                           childClassNames={{
                             shared: "bg-white bg-opacity-80",
                           }}
-                          className={`my-0.5 grow border-2 ${microhaplotypeColorMap.get(JSON.stringify(microId))} ${hintsEnabled && containsHint(microId, colNum as 0 | 1 | 2 | 3, true) ? " outline outline-[4px] -outline-offset-4  outline-black" : ""}`}
+                          className={`my-0.5 grow border-2 ${microhaplotypeColorMap.get(
+                            JSON.stringify(microId),
+                          )} ${
+                            hintsEnabled
+                              ? containsHint(
+                                  microId,
+                                  colNum as 0 | 1 | 2 | 3,
+                                  true,
+                                )
+                                ? "z-10 outline  outline-2 outline-offset-4 outline-black"
+                                : "opacity-50"
+                              : ""
+                          }`}
                           vals={microId}
                           possibleVals={Array(3)
                             .fill(0)
@@ -174,7 +195,7 @@ export default function PartThreeMicrohaplotypeGenotyping() {
                                 colNum as 0 | 1 | 2 | 3,
                                 false,
                               )
-                                ? " outline outline-[4px] -outline-offset-4  outline-black"
+                                ? " z-10 outline outline-[4px]  outline-offset-4 outline-black  dark:outline-amber-500"
                                 : ""
                             }
                             key={idx2}
@@ -223,7 +244,9 @@ export default function PartThreeMicrohaplotypeGenotyping() {
                               childClassNames={{
                                 shared: `bg-white bg-opacity-80`,
                               }}
-                              className={`border-2 ${microhaplotypeColorMap.get(JSON.stringify(microId))}`}
+                              className={`border-2 ${microhaplotypeColorMap.get(
+                                JSON.stringify(microId),
+                              )}`}
                               vals={microId}
                               possibleVals={microId.map((char, idx3) => {
                                 return {
@@ -243,7 +266,9 @@ export default function PartThreeMicrohaplotypeGenotyping() {
                           childClassNames={{
                             shared: `bg-white bg-opacity-80`,
                           }}
-                          className={`border-2 ${microhaplotypeColorMap.get(JSON.stringify(microId))}`}
+                          className={`border-2 ${microhaplotypeColorMap.get(
+                            JSON.stringify(microId),
+                          )}`}
                           vals={microId}
                           possibleVals={microId.map((char, idx3) => {
                             return {
@@ -351,7 +376,14 @@ export default function PartThreeMicrohaplotypeGenotyping() {
           {mhpBlock.map((microId, idx) => {
             return (
               <button
-                className={`${getIndexArrayOfPrimitives(currentBoard.inputs[col], microId) !== false ? "fadeOut300 invisible delay-500" : ""} transition-all`}
+                className={`${
+                  getIndexArrayOfPrimitives(
+                    currentBoard.inputs[col],
+                    microId,
+                  ) !== false
+                    ? "fadeOut300 invisible delay-500"
+                    : ""
+                } transition-all`}
                 disabled={completion[phase] || currentBoard.inputValid}
                 aria-label={`add microhaplotype ${microId.join("")}`}
                 onClick={(e) => {
@@ -386,7 +418,13 @@ export default function PartThreeMicrohaplotypeGenotyping() {
                   childClassNames={{
                     shared: "bg-white bg-opacity-80",
                   }}
-                  className={`my-0.5 grow border-2 ${microhaplotypeColorMap.get(JSON.stringify(microId))} ${hintsEnabled && containsHint(microId, col, true) ? " outline outline-[4px] -outline-offset-4  outline-black" : ""}`}
+                  className={`my-0.5 grow border-2 ${microhaplotypeColorMap.get(
+                    JSON.stringify(microId),
+                  )} ${
+                    hintsEnabled && containsHint(microId, col, true)
+                      ? " outline outline-[4px] -outline-offset-4  outline-black dark:outline-amber-500"
+                      : ""
+                  }`}
                   vals={microId}
                   possibleVals={Array(3)
                     .fill(0)

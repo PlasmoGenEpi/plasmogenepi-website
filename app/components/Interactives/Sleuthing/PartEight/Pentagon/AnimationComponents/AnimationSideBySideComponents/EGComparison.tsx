@@ -1,13 +1,15 @@
-import CloneRow, {
-  cloneRowButtonColors,
-} from "@/components/Interactives/Shared/CloneRow/CloneRow";
+// import CloneRow, {
+//   cloneRowButtonColors,
+// } from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
 import Person from "../../../Person";
-import SquareMicrohaplotype from "@/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
+// import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
 import { fixedData } from "@/data/Interactives/fixedData";
 import { atom, useAtom, useAtomValue } from "jotai";
 import Image from "next/image";
-import { phaseAtom } from "@/data/Interactives/interactiveStore";
+import { phase2Atom } from "@/data/Interactives/interactiveStore";
 import { useEffect } from "react";
+import SquareMicrohaplotype from "@/Interactives2/Shared/Microhaplotypes/SquareMicrohaplotype";
+// import SquareMicrohaplotype from "@/app/components/Interactives2/Shared/Microhaplotypes/SquareMicrohaplotype";
 
 export const partEightCloneRowColors: { [key: number]: string } = {
   1: "to-microRed/80 via-microRed/80",
@@ -21,7 +23,7 @@ export const EGAnimationCompleteAtom = atom(false);
 export const EGRecombinationCompleteAtom = atom(false);
 
 export default function EGComparison() {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const [EGAnimationComplete, setEGAnimationComplete] = useAtom(
     EGAnimationCompleteAtom,
   );
@@ -39,17 +41,7 @@ export default function EGComparison() {
   }, [phase]);
 
   return (
-    <div className="fadeIn1000">
-      <div>
-        <h2 className="text-center text-xl font-bold md:text-left">
-          <span className="">E</span>
-          <span className=" inline-block -translate-y-0.5 text-3xl">
-            &rarr;
-          </span>
-
-          <span className=" ">G</span>
-        </h2>{" "}
-      </div>
+    <div className="fadeIn500">
       <div className="mt-8">
         <div className="flex flex-col gap-4  py-4 pr-4">
           <div className="flex">
@@ -129,7 +121,9 @@ export default function EGComparison() {
                 <div className="my-auto w-[max(50px,15%)]"></div>
                 <div className="relative grid grow gap-1 [grid-template-columns:8%_auto]">
                   <div
-                    className={`absolute bottom-0 col-start-2 grid h-6 w-full grid-cols-2 ${EGAnimationComplete ? "fadeIn500" : "hidden"}`}
+                    className={`absolute bottom-0 col-start-2 grid h-6 w-full grid-cols-2 ${
+                      EGAnimationComplete ? "fadeIn500" : "hidden"
+                    }`}
                   >
                     <div className="w-full border-l-4 border-t-4 border-microRed/80"></div>
                     <div className="w-full border-r-4 border-t-4 border-microBlue/80"></div>
@@ -139,7 +133,7 @@ export default function EGComparison() {
                   >
                     <Image
                       alt="mosquito"
-                      src="/assets/mosquito.svg"
+                      src="/InteractiveAssets/mosquito.svg"
                       height={80}
                       width={80}
                     ></Image>
@@ -150,7 +144,9 @@ export default function EGComparison() {
                 <div className="my-auto w-[max(50px,15%)]"></div>
                 <div className="relative grid grow gap-1 [grid-template-columns:8%_auto]">
                   <div
-                    className={`absolute bottom-0 col-start-2 grid h-6 w-full grid-cols-2 ${EGAnimationComplete ? "fadeIn500" : "hidden"}`}
+                    className={`absolute bottom-0 col-start-2 grid h-6 w-full grid-cols-2 ${
+                      EGAnimationComplete ? "fadeIn500" : "hidden"
+                    }`}
                   >
                     <div className="w-full border-l-4 border-t-4 border-microRed/80"></div>
                     <div className="w-full border-r-4 border-t-4 border-microBlue/80"></div>
@@ -159,11 +155,13 @@ export default function EGComparison() {
                     style={{
                       transitionDelay: phase === 26 ? "2000ms" : "0ms",
                     }}
-                    className={`col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-to-r from-microRed/80 via-[#E61048e0_25%,#4896E8e0_75%] to-microBlue/80 bg-blend-overlay transition-all hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100 ${EGRecombinationComplete ? "opacity-100" : "opacity-0"} z-50 transition-all duration-1000`}
+                    className={`col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-to-r from-microRed/80 via-[#E61048e0_25%,#4896E8e0_75%] to-microBlue/80 bg-blend-overlay transition-all hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100 ${
+                      EGRecombinationComplete ? "opacity-100" : "opacity-0"
+                    } z-50 transition-all duration-1000`}
                   >
                     <Image
                       alt="mosquito"
-                      src="/assets/mosquito.svg"
+                      src="/InteractiveAssets/mosquito.svg"
                       height={80}
                       width={80}
                     ></Image>
@@ -235,7 +233,7 @@ export default function EGComparison() {
           >
             <Image
               alt="mosquito"
-              src="/assets/mosquito.svg"
+              src="/InteractiveAssets/mosquito.svg"
               height={100}
               width={100}
             ></Image>

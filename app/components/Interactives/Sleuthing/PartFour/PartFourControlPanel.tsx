@@ -7,11 +7,11 @@ import {
   partTwoAverageDeducedAtom,
   partTwoCompletionAtom,
   partTwoInfectionsAtom,
-  phaseAtom,
+  phase1Atom,
   selectedInfectionIndexAtom,
   VERSION_CONTROL,
 } from "@/data/Interactives/interactiveStore";
-import { useAtom, useAtomValue, useSetAtom } from "jotai";
+import { atom, useAtom, useAtomValue, useSetAtom } from "jotai";
 import ControlPanelWrapper from "../../Shared/ControlPanel/ControlPanelWrapper";
 import PrimaryButton from "../../Shared/ControlPanel/PrimaryButton";
 import { resetConfirmOpenAtom } from "../../Shared/ControlPanel/ResetModal";
@@ -22,27 +22,42 @@ import {
 import { useCallback, useEffect } from "react";
 import { partFiveQuestionAtom } from "../PartFive/PartFive";
 import { atomWithStorage, RESET } from "jotai/utils";
+import { currentView1Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
+import { currentNextCallbackAtom } from "../../Shared/ControlPanel/InteractiveControlPanel";
 
 const P4CurrentVersionAtom = atomWithStorage("P4CurrentVersionAtom", "1.1.1");
-
+export const p4ResetAtom = atom<null | (() => void)>(null);
 export default function PartFourControlPanel() {
-  const [phase, setPhase] = useAtom(phaseAtom);
+  const [phase, setPhase] = useAtom(phase1Atom);
   const [completion, setCompletion] = useAtom(partFourCompletionAtom);
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
   const [activeIndex, setActiveIndex] = useAtom(selectedInfectionIndexAtom);
   const [partFourInfections, setPartFourInfections] = useAtom(
-    partFourInfectionsAtom,
+    partFourInfectionsAtom
   );
   const [attemptedInput, setAttemptedInput] = useAtom(attemptedInputAtom);
   const setIncorrectGuessCount = useSetAtom(incorrectGuessCountAtom);
   const [partFourAverageDeduced, setPartFourAverageDeduced] = useAtom(
-    partFourAverageDeducedAtom,
+    partFourAverageDeducedAtom
   );
   const [partFiveQuestion, setPartFiveQuestion] = useAtom(partFiveQuestionAtom);
   const [oartFiveCompletion, setPartFiveCompletion] = useAtom(
-    partFiveCompletionAtom,
+    partFiveCompletionAtom
   );
   const [currentVersion, setCurrentVersion] = useAtom(P4CurrentVersionAtom);
+  const [currentView, setCurrentView] = useAtom(currentView1Atom);
+  const [currentNextCallback, setCurrentNextCallback] = useAtom(
+    currentNextCallbackAtom
+  );
+  const setReset = useSetAtom(p4ResetAtom);
+
+  useEffect(() => {
+    if (resetCallback) {
+      setReset(() => () => {
+        resetCallback();
+      });
+    }
+  }, []);
 
   const resetCallback = useCallback(() => {
     setPartFiveQuestion(null);
@@ -54,7 +69,8 @@ export default function PartFourControlPanel() {
       2: false,
     });
     setPartFourAverageDeduced(false);
-    setPhase(1);
+    // setCurrentView({ ...currentView, section: 4, phase: 0 });
+    // setPhase(1);
     setActiveIndex(0);
     let newInfections = Array(10)
       .fill(0)
@@ -74,6 +90,9 @@ export default function PartFourControlPanel() {
   }, []);
 
   function isDisabled(phase: number) {
+    if (phase === 0) {
+      return false;
+    }
     if (phase === 1) {
       return partFourInfections[activeIndex] === null;
       // if (partFourInfections.includes(null)) {
@@ -88,6 +107,8 @@ export default function PartFourControlPanel() {
   }
 
   function handleClick(phase: number) {
+    console.log("handleClick4");
+
     const getNextIndex = function () {
       for (let i = 0; i < partFourInfections.length; i++) {
         if (partFourInfections[i] === null || partFourInfections[i] === 0) {
@@ -104,12 +125,21 @@ export default function PartFourControlPanel() {
         setActiveIndex(z);
         return;
       }
+    } else if (phase === 2) {
+      setCompletion({ ...completion, [phase]: true });
+      setCurrentView({ ...currentView, section: 5, phase: 0 });
+      return;
     }
     setCompletion({
       ...completion,
       [phase]: true,
     });
-    setPhase(phase + 1);
+    // setPhase(phase + 1);
+    setCurrentView({
+      ...currentView,
+      section: 4,
+      phase: currentView.phase + 1,
+    });
   }
 
   function getText() {
@@ -128,6 +158,36 @@ export default function PartFourControlPanel() {
   //   setPartFourInfections(newInfections);
   //   setPartFourAverageDeduced(false);
   // }, []);
+
+  useEffect(() => {
+    // setCurrentPhaseIsComplete(completion[phase]);
+    // setCurrentView({ ...currentView, section: 4, phase: 0 });
+    if (currentView.section === 4 && currentView.module === "2.6") {
+      setCurrentNextCallback(() =>
+        isDisabled(phase)
+          ? null
+          : () => {
+              if (!isDisabled(phase)) {
+                handleClick(phase);
+              }
+            }
+      );
+    }
+    // return () => {
+    //   setCurrentNextCallback(null);
+    // };
+  }, [
+    phase,
+    completion,
+    activeIndex,
+    partFourInfections,
+    partFourAverageDeduced,
+    partFiveQuestion,
+    oartFiveCompletion,
+    currentView,
+  ]);
+
+  return null;
 
   return (
     <ControlPanelWrapper resetCallback={resetCallback} fixed={true}>
@@ -160,7 +220,9 @@ export default function PartFourControlPanel() {
                 handleClick(phase);
               }
             }}
-            className={`${getText() === "Finish" ? "bg-primaryBlue" : "bg-primaryGreen"} text-white`}
+            className={`${
+              getText() === "Finish" ? "bg-primaryBlue" : "bg-primaryGreen"
+            } text-white`}
             text={getText()}
             disabled={isDisabled(phase)}
           />

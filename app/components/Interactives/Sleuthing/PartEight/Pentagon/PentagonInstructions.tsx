@@ -1,13 +1,13 @@
 import {
   partEightPentagonSelectedEdgesAtom,
-  phaseAtom,
+  phase2Atom,
 } from "@/data/Interactives/interactiveStore";
 import { useAtomValue } from "jotai";
 import { pentagonViewAtom } from "./PentagonViewer";
-import InteractivePrompt from "@/components/Interactives/Shared/misc/InteractivePrompt";
+import InteractivePrompt from "@/app/components/Interactives/Shared/misc/InteractivePrompt";
 
 export default function PentagonInstructions() {
-  const phase = useAtomValue(phaseAtom);
+  const phase = useAtomValue(phase2Atom);
   const view = useAtomValue(pentagonViewAtom);
   const selectedEdges = useAtomValue(partEightPentagonSelectedEdgesAtom);
   if (phase === 11) {

@@ -1,8 +1,9 @@
-import CloneRow, {
-  cloneRowButtonColors,
-} from "@/components/Interactives/Shared/CloneRow/CloneRow";
+// import CloneRow, {
+//   cloneRowButtonColors,
+// } from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
+import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
 import Person from "../../../Person";
-import SquareMicrohaplotype from "@/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
+// import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
 import { fixedData } from "@/data/Interactives/fixedData";
 import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
@@ -30,17 +31,7 @@ export default function GIComparison() {
   }, []);
 
   return (
-    <div className="fadeIn1000">
-      <div>
-        <h2 className="text-center text-xl font-bold md:text-left">
-          <span className="">G</span>
-          <span className=" inline-block -translate-y-0.5 text-3xl">
-            &harr;
-          </span>
-
-          <span className=" ">I</span>
-        </h2>{" "}
-      </div>
+    <div className="fadeIn500">
       <div className="mt-8">
         <div className="flex flex-col gap-4  py-4 pr-4">
           <div className="flex">
@@ -76,10 +67,10 @@ export default function GIComparison() {
                                 ? "fadeIn500"
                                 : "fadeOut500"
                               : showIBS
-                                ? [0, 1, 2, 6, 7, 8, 11, 5].includes(idx)
-                                  ? "fadeIn500"
-                                  : "fadeOut500"
-                                : "fadeIn500"
+                              ? [0, 1, 2, 6, 7, 8, 11, 5].includes(idx)
+                                ? "fadeIn500"
+                                : "fadeOut500"
+                              : "fadeIn500"
                           }
                           id={fixedData[8].persons.G.cases[idx][0]}
                           key={idx}
@@ -159,10 +150,10 @@ export default function GIComparison() {
                                 ? "fadeIn500"
                                 : "fadeOut500"
                               : showIBS
-                                ? [0, 1, 2, 6, 7, 8, 11, 5].includes(idx)
-                                  ? "fadeIn500"
-                                  : "fadeOut500"
-                                : "fadeIn500"
+                              ? [0, 1, 2, 6, 7, 8, 11, 5].includes(idx)
+                                ? "fadeIn500"
+                                : "fadeOut500"
+                              : "fadeIn500"
                           }
                           id={fixedData[8].persons.I.cases[idx][0]}
                           key={idx}

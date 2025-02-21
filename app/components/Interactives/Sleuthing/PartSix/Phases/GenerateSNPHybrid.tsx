@@ -1,6 +1,6 @@
-import CloneElement from "@/components/Interactives/Shared/CloneRow/CloneElement";
-import CloneRow from "@/components/Interactives/Shared/CloneRow/CloneRow";
-import StandardLayout from "@/components/Interactives/Shared/misc/StandardLayout";
+import CloneElement from "@/app/components/Interactives/Shared/CloneRow/CloneElement";
+import CloneRow from "@/app/components/Interactives/Shared/CloneRow/CloneRow";
+import StandardLayout from "@/app/components/Interactives/Shared/misc/StandardLayout";
 import {
   P6CloneRowButtonColors,
   P6CloneRowColors,
@@ -15,7 +15,8 @@ import {
 import { useAtom, useAtomValue } from "jotai";
 import { useEffect } from "react";
 import { fixedData } from "@/data/Interactives/fixedData";
-import FormHeader from "@/components/Interactives/Shared/misc/FormHeader";
+import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
+import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
 export default function GenerateSNPHybrid() {
   const cloneRows = useAtomValue(partSixCloneRowsAtom);
@@ -28,11 +29,10 @@ export default function GenerateSNPHybrid() {
   // }, [setHybridCreated]);
 
   return (
-    <StandardLayout>
-      <div>
-        <FormHeader text={`Create Hybrid`} />
-
-        <div className="flex max-w-[500px] flex-col gap-1">
+    <InteractivePrimaryLayout
+      leftHeader={`Create Hybrid`}
+      leftContent={
+        <div className="flex max-w-[500px] flex-col gap-1 text-black dark:brightness-75">
           <div className="w-full">
             <CloneRow
               label={1}
@@ -44,17 +44,21 @@ export default function GenerateSNPHybrid() {
               {cloneRows[1].vals.map((el, idx) => {
                 return (
                   <li
-                    className={`${hybridCreated && idx >= 6 ? "fadeOut300" : ""} flex aspect-square items-center justify-center bg-white shadow-sm shadow-black`}
+                    className={`${
+                      hybridCreated && idx >= 6 ? "fadeOut300" : ""
+                    } flex aspect-square items-center justify-center bg-white shadow-sm shadow-black`}
                     key={idx}
                   >
                     <span
-                      className={`translate-y-[3px] text-xl font-bold ${el === 1 ? "alternateAllele" : ""}`}
+                      className={`translate-y-[3px] text-xl font-bold ${
+                        el === 1 ? "alternateAllele" : ""
+                      }`}
                     >
                       {el === 0
                         ? fixedData[6].refValues[idx]
                         : el === 1
-                          ? fixedData[6].altValues[idx]
-                          : ""}
+                        ? fixedData[6].altValues[idx]
+                        : ""}
                     </span>
                   </li>
                 );
@@ -72,17 +76,21 @@ export default function GenerateSNPHybrid() {
               {cloneRows[2].vals.map((el, idx) => {
                 return (
                   <li
-                    className={`${hybridCreated && idx < 6 ? "fadeOut300" : ""} flex aspect-square items-center justify-center bg-white shadow-sm shadow-black`}
+                    className={`${
+                      hybridCreated && idx < 6 ? "fadeOut300" : ""
+                    } flex aspect-square items-center justify-center bg-white shadow-sm shadow-black`}
                     key={idx}
                   >
                     <span
-                      className={`translate-y-[3px] text-xl font-bold ${el === 1 ? "alternateAllele" : ""}`}
+                      className={`translate-y-[3px] text-xl font-bold ${
+                        el === 1 ? "alternateAllele" : ""
+                      }`}
                     >
                       {el === 0
                         ? fixedData[6].refValues[idx]
                         : el === 1
-                          ? fixedData[6].altValues[idx]
-                          : ""}
+                        ? fixedData[6].altValues[idx]
+                        : ""}
                     </span>
                   </li>
                 );
@@ -91,7 +99,9 @@ export default function GenerateSNPHybrid() {
           </div>{" "}
           <div className="relative grid gap-1 [grid-template-columns:8%_auto]">
             <div
-              className={`absolute bottom-0 col-start-2 grid h-6 w-full grid-cols-2 ${hybridCreated ? "fadeIn500" : "hidden"}`}
+              className={`absolute bottom-0 col-start-2 grid h-6 w-full grid-cols-2 ${
+                hybridCreated ? "" : "hidden"
+              }`}
             >
               <div className="w-full border-l-4 border-t-4 border-cloneRed"></div>
               <div className="w-full border-r-4 border-t-4 border-cloneBlue"></div>
@@ -103,17 +113,125 @@ export default function GenerateSNPHybrid() {
               }}
               data-tip={"Create Hybrid"}
               aria-label={"Create hybrid clone"}
-              className={` ${!hybridCreated ? "tooltip tooltip-bottom" : "translate-x-0"}  col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-to-r from-cloneRed via-[#FFB0B0_25%,#B8E6FA_75%] to-cloneBlue bg-blend-overlay transition-all hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100`}
+              className={` ${
+                !hybridCreated ? "tooltip tooltip-bottom" : "translate-x-0"
+              }   col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-to-r from-cloneRed via-[#FFB0B0_25%,#B8E6FA_75%] to-cloneBlue bg-blend-overlay transition-all hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100`}
             >
               <Image
                 alt="mosquito"
-                src="/assets/mosquito.svg"
+                src="/InteractiveAssets/mosquito.svg"
                 height={100}
                 width={100}
               ></Image>
             </button>
           </div>
           <div className={`w-full ${hybridCreated ? "fadeIn500" : "hidden"}`}>
+            <SNPHybridClone />
+          </div>
+        </div>
+      }
+    />
+  );
+
+  return (
+    <StandardLayout>
+      <div>
+        <FormHeader text={`Create Hybrid`} />
+
+        <div className="flex max-w-[500px] flex-col gap-1 text-black dark:brightness-75">
+          <div className="w-full">
+            <CloneRow
+              label={1}
+              classNames={{
+                button: P6CloneRowButtonColors[1],
+                row: P6CloneRowColors[1],
+              }}
+            >
+              {cloneRows[1].vals.map((el, idx) => {
+                return (
+                  <li
+                    className={`${
+                      hybridCreated && idx >= 6 ? "fadeOut300" : ""
+                    } flex aspect-square items-center justify-center bg-white shadow-sm shadow-black`}
+                    key={idx}
+                  >
+                    <span
+                      className={`translate-y-[3px] text-xl font-bold ${
+                        el === 1 ? "alternateAllele" : ""
+                      }`}
+                    >
+                      {el === 0
+                        ? fixedData[6].refValues[idx]
+                        : el === 1
+                        ? fixedData[6].altValues[idx]
+                        : ""}
+                    </span>
+                  </li>
+                );
+              })}
+            </CloneRow>
+          </div>
+          <div className="w-full">
+            <CloneRow
+              label={2}
+              classNames={{
+                button: P6CloneRowButtonColors[2],
+                row: P6CloneRowColors[2],
+              }}
+            >
+              {cloneRows[2].vals.map((el, idx) => {
+                return (
+                  <li
+                    className={`${
+                      hybridCreated && idx < 6 ? "fadeOut300" : ""
+                    } flex aspect-square items-center justify-center bg-white shadow-sm shadow-black`}
+                    key={idx}
+                  >
+                    <span
+                      className={`translate-y-[3px] text-xl font-bold ${
+                        el === 1 ? "alternateAllele" : ""
+                      }`}
+                    >
+                      {el === 0
+                        ? fixedData[6].refValues[idx]
+                        : el === 1
+                        ? fixedData[6].altValues[idx]
+                        : ""}
+                    </span>
+                  </li>
+                );
+              })}
+            </CloneRow>
+          </div>{" "}
+          <div className="relative grid gap-1 [grid-template-columns:8%_auto]">
+            <div
+              className={`absolute bottom-0 col-start-2 grid h-6 w-full grid-cols-2 ${
+                hybridCreated ? "" : "hidden"
+              }`}
+            >
+              <div className="w-full border-l-4 border-t-4 border-cloneRed"></div>
+              <div className="w-full border-r-4 border-t-4 border-cloneBlue"></div>
+            </div>
+            <button
+              disabled={hybridCreated}
+              onClick={() => {
+                setHybridCreated(true);
+              }}
+              data-tip={"Create Hybrid"}
+              aria-label={"Create hybrid clone"}
+              className={` ${
+                !hybridCreated ? "tooltip tooltip-bottom" : "translate-x-0"
+              }  col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-to-r from-cloneRed via-[#FFB0B0_25%,#B8E6FA_75%] to-cloneBlue bg-blend-overlay transition-all hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100`}
+            >
+              <Image
+                alt="mosquito"
+                src="/InteractiveAssets/mosquito.svg"
+                height={100}
+                width={100}
+              ></Image>
+            </button>
+          </div>
+          <div className={`w-full ${hybridCreated ? "" : "hidden"}`}>
             <SNPHybridClone />
           </div>
         </div>
