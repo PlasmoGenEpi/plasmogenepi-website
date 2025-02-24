@@ -9,6 +9,7 @@ import { resetConfirmOpenAtom } from "../../ControlPanel/ResetModal";
 import InteractiveSideBarSection from "./InteractiveSideBarSection/InteractiveSideBarSection";
 import InteractiveSideBarSection2 from "./InteractiveSideBarSection/InteractiveSideBarSection2";
 import {
+  partEightCompletionAtom,
   partSevenCompletionAtom,
   partSixCompletionAtom,
 } from "@/data/Interactives/interactiveStore";
@@ -20,7 +21,9 @@ export default function InteractiveSideBar2({
   module,
   currentView,
   setCurrentView,
+  dev,
 }: {
+  dev?: boolean;
   currentView: InteractiveViewSettings;
   // SetAtom<[SetStateActionWithReset<{ module: string; section: number; phase: number; }>]
   setCurrentView: any;
@@ -30,6 +33,7 @@ export default function InteractiveSideBar2({
   const p0Completion = useAtomValue(s2p0CompletionAtom);
   const completion6 = useAtomValue(partSixCompletionAtom);
   const completion7 = useAtomValue(partSevenCompletionAtom);
+  const completion8 = useAtomValue(partEightCompletionAtom);
   // const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
 
   const handleFunctionality = function (id: number) {};
@@ -485,7 +489,7 @@ export default function InteractiveSideBar2({
             isOpen ? "md:delay-500" : "text-nowrap text-transparent"
           } duration-300`}
         >
-          <div className="bg-interactiveGreen/60 max-w-full overflow-hidden px-12 pb-4 pt-8 text-center font-bold text-white md:w-[384px]">
+          <div className="max-w-full overflow-hidden bg-interactiveGreen/60 px-12 pb-4 pt-8 text-center font-bold text-white md:w-[384px]">
             <h3 className=" text-lg ">
               Genotype Sleuthing to Estimate Relatedness from Genetic Data
             </h3>
@@ -539,7 +543,7 @@ export default function InteractiveSideBar2({
                   title: section.title,
                   active: isActive,
                   // active: currentView.section === section.sectionId,
-                  locked: isLocked,
+                  locked: dev === true ? false : isLocked,
                   // locked: section.requiresAtom
                   //   ? Object.values(
                   //       useAtomValue(section.requiresAtom)
@@ -594,6 +598,39 @@ export default function InteractiveSideBar2({
               />
             );
           })}
+          {/* <div
+          onClick={() => {
+            if (dev === true || completion8[39]) {
+
+            }
+          }}
+            tabIndex={0}
+            // inert={
+            //   (node.title === sections2?.[1]?.title && !s2p0Completion?.[3]) ||
+            //   (node.title === sections2?.[2]?.title && !p6Completion?.[33.5]) ||
+            //   (node.title === sections2?.[3]?.title && !p7Completion?.[17])
+            // }
+            // data-tip={node.title}
+            className={`block w-full cursor-pointer border-b border-white/20 text-sm md:max-w-sm`}
+          >
+            <div
+              className={`pl-[5%]/ grid grid-cols-[40px_auto_40px] place-items-center gap-4 
+          `}
+            >
+              <div className="mb-auto flex h-full w-10 items-center justify-center hover:text-white"></div>
+              <div
+                className={`col-start-2 flex w-full items-center overflow-hidden pb-3 pr-2 pt-4 text-start`}
+              >
+                <h4
+                  className={`translate-y-0.5 overflow-hidden overflow-ellipsis ${
+                    isOpen ? "" : "text-nowrap"
+                  }`}
+                >
+                  {"Summary"}
+                </h4>
+              </div>
+            </div>
+          </div> */}
           {/* {module === "2.6"
             ? sections.map((section, idx) => {
                 return (

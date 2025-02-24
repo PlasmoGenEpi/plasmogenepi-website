@@ -379,18 +379,33 @@ const dragDropSections: {
     3: {
       title: <h5>Summary</h5>,
       instructions: (
-        <p>
-          Great work! You identified the loci and read depth by aligning reads
-          to the reference genome. You then identified a chimeric read and two
-          off-target reads that were not useful and corrected two PCR or
-          sequencing errors that showed up as false alleles. Finally, you used
-          the microhaplotypes to identify the MOI of the samples and rule out
-          antimalarial resistance. While the example in this exercise is a
-          simplification of the much larger datasets that are produced by
-          sequencing and that would be very challenging to analyze manually,
-          bioinformatic pipelines take very similar steps to call alleles and
-          produce final sequence data.
-        </p>
+        <div>
+          <p>
+            Great work! You identified the loci and read depth by aligning reads
+            to the reference genome. You then identified a chimeric read and two
+            off-target reads that were not useful and corrected two PCR or
+            sequencing errors that showed up as false alleles. Finally, you used
+            the microhaplotypes to identify the MOI of the samples and rule out
+            antimalarial resistance. While the example in this exercise is a
+            simplification of the much larger datasets that are produced by
+            sequencing and that would be very challenging to analyze manually,
+            bioinformatic pipelines take very similar steps to call alleles and
+            produce final sequence data.
+          </p>
+          <div className="py-8">
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText("HildaHudson1881");
+              }}
+              className="copy-tooltip ml-auto p-2 pb-1 underline"
+            >
+              Copy Code
+            </button>
+            <p className="text-center text-2xl text-interactiveBlue">
+              HildaHudson1881
+            </p>
+          </div>{" "}
+        </div>
       ),
     },
   },

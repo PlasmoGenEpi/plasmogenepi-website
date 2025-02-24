@@ -157,7 +157,7 @@ import ResetPrompt from "../../ControlPanel/ResetModal";
 //   );
 // }
 
-export default function InteractiveViewer2() {
+export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
   const [isOpen, setIsOpen] = useAtom(sideBarIsOpenAtom);
   const [currentView, setCurrentView] = useAtom(currentView2Atom);
 
@@ -179,7 +179,7 @@ export default function InteractiveViewer2() {
       >
         Open Menu
       </button>
-      <div className="flex w-full grow overflow-clip max-w-full">
+      <div className="flex w-full max-w-full grow overflow-clip">
         <ResetPrompt currentModule="5.6" />
         {/* <InteractiveSideBar
             module={module}
@@ -194,7 +194,7 @@ export default function InteractiveViewer2() {
         <div
           className={`${
             isOpen ? "hidden md:flex" : ""
-          } flex grow @container/margins relative`}
+          } relative flex grow @container/margins`}
         >
           {sideBarDisablesMainContent && (
             <div
@@ -208,7 +208,7 @@ export default function InteractiveViewer2() {
           )}
           <div
             className={`${
-              isOpen ? "grow basis-0 min-w-4" : "min-w-2 grow basis-0"
+              isOpen ? "min-w-4 grow basis-0" : "min-w-2 grow basis-0"
             } duration-1000`}
           ></div>
           {/* <span className="absolute left-1/2 top-4">
@@ -220,7 +220,7 @@ export default function InteractiveViewer2() {
           />
           <div
             className={`${
-              isOpen ? "grow basis-0 min-w-4" : "min-w-2 grow basis-0"
+              isOpen ? "min-w-4 grow basis-0" : "min-w-2 grow basis-0"
             } duration-1000`}
           ></div>
         </div>

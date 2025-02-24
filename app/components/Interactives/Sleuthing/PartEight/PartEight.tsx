@@ -73,7 +73,6 @@ export default function PartEight({ fixed }: { fixed: boolean }) {
 
   return (
     <div className="dark:fill-white/50">
-      {JSON.stringify(currentView)}
       <InteractivePrompt
         skippable={partEightCompletion[1]}
         complete={partEightCompletion[phase]}
@@ -93,7 +92,7 @@ export default function PartEight({ fixed }: { fixed: boolean }) {
       )}
       {phase === 41 && (
         <Image
-          src={`/InteractiveAssets/slide9.png`}
+          src={`/InteractiveAssets/Slide9.png`}
           width={1200}
           height={900}
           alt=""

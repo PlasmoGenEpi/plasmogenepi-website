@@ -17,7 +17,9 @@ export default function InteractiveSideBar({
   module,
   currentView,
   setCurrentView,
+  dev,
 }: {
+  dev?: boolean;
   currentView: InteractiveViewSettings;
   // SetAtom<[SetStateActionWithReset<{ module: string; section: number; phase: number; }>]
   setCurrentView: any;
@@ -121,11 +123,14 @@ export default function InteractiveSideBar({
                       title: section.title,
                       active: currentView.section === section.sectionId,
                       sectionId: section.sectionId,
-                      locked: section.requiresAtom
-                        ? Object.values(
-                            useAtomValue(section.requiresAtom),
-                          ).includes(false)
-                        : false,
+                      locked:
+                        dev === true
+                          ? false
+                          : section.requiresAtom
+                          ? Object.values(
+                              useAtomValue(section.requiresAtom),
+                            ).includes(false)
+                          : false,
                       // locked: useAtomValue(section.requiresAtom)[section.requiresKey]
                       subcomponents: section.subcomponents.map(
                         (subComponent, idx) => {

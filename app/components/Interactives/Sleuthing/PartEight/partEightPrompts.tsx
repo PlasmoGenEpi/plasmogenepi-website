@@ -666,6 +666,19 @@ export const partEightPrompts: {
           are rumors that additional resources are being mobilized to support
           your work along with promotions for you and your team.
         </p>
+        <div className="py-8">
+          <button
+            onClick={() => {
+              navigator.clipboard.writeText("TuYouyou1930");
+            }}
+            className="copy-tooltip ml-auto p-2 pb-1 underline"
+          >
+            Copy Code
+          </button>
+          <p className="text-center text-2xl text-interactiveBlue">
+            TuYouyou1930
+          </p>
+        </div>{" "}
       </div>
     ),
   },

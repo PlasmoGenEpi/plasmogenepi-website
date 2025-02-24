@@ -28,7 +28,7 @@ export const currentView1Atom = atomWithStorage<InteractiveViewSettings>(
     module: "2.6",
     section: null,
     phase: 0,
-  }
+  },
 );
 
 export const currentView2Atom = atomWithStorage<InteractiveViewSettings>(
@@ -37,7 +37,7 @@ export const currentView2Atom = atomWithStorage<InteractiveViewSettings>(
     module: "5.6",
     section: 0,
     phase: 0,
-  }
+  },
 );
 
 export const currentView3Atom = atomWithStorage<InteractiveViewSettings>(
@@ -46,7 +46,7 @@ export const currentView3Atom = atomWithStorage<InteractiveViewSettings>(
     module: "4.4",
     section: 0,
     phase: 0,
-  }
+  },
 );
 
 export const allViewsAtom = atomWithStorage(
@@ -71,7 +71,7 @@ export const allViewsAtom = atomWithStorage(
   undefined,
   {
     getOnInit: true,
-  }
+  },
 );
 
 export const viewAtom = atomWithStorage("viewAtom", {
@@ -84,7 +84,9 @@ export const sideBarDisablesMainContent = false;
 
 export default function InteractiveViewer({
   module,
+  dev,
 }: {
+  dev?: boolean;
   module: "2.6" | "4.4" | "5.6";
 }) {
   const [isOpen, setIsOpen] = useAtom(sideBarIsOpenAtom);
@@ -131,9 +133,10 @@ export default function InteractiveViewer({
       >
         Open Menu
       </button>
-      <div className="flex w-full grow overflow-clip max-w-full">
+      <div className="flex w-full max-w-full grow overflow-clip">
         <ResetPrompt currentModule="2.6" />
         <InteractiveSideBar
+          dev={dev}
           module={module}
           currentView={currentView}
           setCurrentView={setCurrentView}
@@ -141,7 +144,7 @@ export default function InteractiveViewer({
         <div
           className={`${
             isOpen ? "hidden md:flex" : ""
-          } flex grow @container/margins relative`}
+          } relative flex grow @container/margins`}
         >
           {sideBarDisablesMainContent && (
             <div
@@ -155,7 +158,7 @@ export default function InteractiveViewer({
           )}
           <div
             className={`${
-              isOpen ? "grow basis-0 min-w-4" : "min-w-2 grow basis-0"
+              isOpen ? "min-w-4 grow basis-0" : "min-w-2 grow basis-0"
             } duration-1000`}
           ></div>
           {/* <span className="absolute left-1/2 top-4">
@@ -167,7 +170,7 @@ export default function InteractiveViewer({
           />
           <div
             className={`${
-              isOpen ? "grow basis-0 min-w-4" : "min-w-2 grow basis-0"
+              isOpen ? "min-w-4 grow basis-0" : "min-w-2 grow basis-0"
             } duration-1000`}
           ></div>
         </div>

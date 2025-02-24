@@ -91,6 +91,19 @@ export default function PageView({
                 transmission, along with other epidemiological and genetic data.
               </li>
             </ul>
+            <div className="py-8">
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText("HildrusPoindexter1901");
+                }}
+                className="copy-tooltip ml-auto p-2 pb-1 underline"
+              >
+                Copy Code
+              </button>
+              <p className="text-center text-2xl text-interactiveBlue">
+                HildrusPoindexter1901
+              </p>
+            </div>
           </div>
         </div>
       );
