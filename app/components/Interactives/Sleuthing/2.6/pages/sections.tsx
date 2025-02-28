@@ -72,7 +72,7 @@ export const sections = [
         phase: 3,
       },
       {
-        title: "1.4 Knowledge Check",
+        title: "1.4. Knowledge Check",
         completionKey: 4,
         requiresKey: 3,
         phase: 4,
