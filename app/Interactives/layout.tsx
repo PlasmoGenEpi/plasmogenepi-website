@@ -5,5 +5,5 @@ export default function InteractiveLayout({
 }: {
   children: ReactNode;
 }) {
-  return <div className="font-helvetica">{children}</div>;
+  return <div className="font-helvetica dark:text-zinc-300">{children}</div>;
 }

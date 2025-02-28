@@ -13,6 +13,7 @@ import { currentView3Atom } from "../Shared/InteractiveViewer/InteractiveViewer"
 import KnowledgeCheckQuestion from "../Shared/KnowledgeChecks/KnowledgeCheckQuestion";
 import QuestionResponseText from "../Shared/misc/QuestionResponseText";
 import { usePrevious } from "../../hooks";
+import { ModuleCopyCode } from "../Shared/Buttons/ModuleCopyCode";
 
 let sampleRef = [
   "A",
@@ -393,17 +394,7 @@ const dragDropSections: {
             produce final sequence data.
           </p>
           <div className="py-8">
-            <button
-              onClick={() => {
-                navigator.clipboard.writeText("HildaHudson1881");
-              }}
-              className="copy-tooltip ml-auto p-2 pb-1 underline"
-            >
-              Copy Code
-            </button>
-            <p className="text-center text-2xl text-interactiveBlue">
-              HildaHudson1881
-            </p>
+            <ModuleCopyCode code="HildaHudson1881" />
           </div>{" "}
         </div>
       ),

@@ -322,8 +322,10 @@ export default function InteractiveSideBar3({
       //     : "min-w-0 -translate-x-full grid-cols-[0fr]"
       // } md:duration-1000  md:min-w-fit overflow-auto relative transition-none md:transition-all h-[calc(100vh-80px)] md:h-[calc(100vh-48px)] bg-zinc-950`}
       className={`sticky top-0 grid text-zinc-400 ${
-        isOpen ? "min-w-full grid-cols-[1fr]" : "min-w-0 grid-cols-[0fr]"
-      } relative  h-[calc(100vh-80px)] overflow-auto bg-zinc-950 transition-none md:h-[calc(100vh-48px)] md:min-w-fit md:transition-[grid-template-columns] md:duration-1000`}
+        isOpen
+          ? "min-w-full grid-cols-[1fr] md:w-[384px]"
+          : "min-w-0 grid-cols-[0fr] md:w-0"
+      } bg-zinc-950/  md:w-[384px]/ relative h-[calc(100vh-80px)] overflow-auto bg-zinc-950 transition-none md:h-[calc(100vh-48px)] md:min-w-0 md:transition-[grid-template-columns] md:duration-1000`}
     >
       <button
         autoFocus={isOpen}
@@ -353,7 +355,7 @@ export default function InteractiveSideBar3({
             isOpen ? "md:delay-500" : "text-transparent"
           } duration-300`}
         >
-          <div className="bg-interactiveGreen/60 w-full min-w-[384px] px-12 pb-4 pt-8 text-center  font-bold text-white md:max-w-sm">
+          <div className="w-full bg-interactiveGreen/60 px-12 pb-4 pt-8 text-center  font-bold text-white md:max-w-sm">
             <h3 className="text-nowrap text-lg ">
               {/* {module === "2.6"
                 ? "Genetic Sleuthing & Surveillance"
@@ -405,28 +407,22 @@ export default function InteractiveSideBar3({
                     : " "
                 } ${
                   node?.pad ? "pl-16" : "pl-10"
-                } relative flex w-full justify-between gap-8 overflow-hidden border-b border-white/20 py-3 pl-10 pr-16 text-left text-sm md:w-[384px]`}
+                } relative flex w-full justify-between gap-8 overflow-hidden border-b border-white/20 py-3 pl-10 pr-16 text-left text-sm`}
                 key={idx}
               >
                 <h5 className={`translate-y-0.5`}>{node.title}</h5>
                 <div className="absolute right-0 w-16 shrink-0 place-self-center">
-                  {node.available || node.complete ? (
-                    <div
-                      className={`mx-auto aspect-square h-2 w-2 overflow-hidden rounded-full border ${
-                        node.complete
-                          ? "border-transparent bg-white/50"
-                          : " border-white/50"
-                      } transition-colors`}
-                    ></div>
-                  ) : !node.available ? //   viewBox="0 0 1200 1200" //   version="1.1" //   height="16pt" //   width="16pt" //   className=" fill-current m-auto mt-2" // <svg
-                  //   xmlns="http://www.w3.org/2000/svg"
-                  // >
-                  //   <g>
-                  //     <path d="m880 400c0-154.64-125.36-280-280-280s-280 125.36-280 280v240h80v-240c0-110.46 89.543-200 200-200s200 89.543 200 200v240h80z" />
-                  //     <path d="m200 600.23v399.53c0 44.312 35.93 80.234 79.633 80.234h640.73c43.98 0 79.633-35.883 79.633-80.234v-399.53c0-44.312-35.93-80.234-79.633-80.234h-640.73c-43.98 0-79.633 35.883-79.633 80.234z" />
-                  //   </g>
-                  // </svg>
-                  null : null}
+                  {
+                    node.available || node.complete ? (
+                      <div
+                        className={`mx-auto aspect-square h-2 w-2 overflow-hidden rounded-full border ${
+                          node.complete
+                            ? "border-transparent bg-white/50"
+                            : " border-white/50"
+                        } transition-colors`}
+                      ></div>
+                    ) : !node.available ? null : null // </svg> //   </g> //     <path d="m200 600.23v399.53c0 44.312 35.93 80.234 79.633 80.234h640.73c43.98 0 79.633-35.883 79.633-80.234v-399.53c0-44.312-35.93-80.234-79.633-80.234h-640.73c-43.98 0-79.633 35.883-79.633 80.234z" /> //     <path d="m880 400c0-154.64-125.36-280-280-280s-280 125.36-280 280v240h80v-240c0-110.46 89.543-200 200-200s200 89.543 200 200v240h80z" /> //   <g> // > //   xmlns="http://www.w3.org/2000/svg" //   viewBox="0 0 1200 1200" //   version="1.1" //   height="16pt" //   width="16pt" //   className=" fill-current m-auto mt-2" // <svg
+                  }
                 </div>
                 {/* <div className="bg-red-500 w-16 h-full ml-auto flex h-full min-h-4"></div> */}
                 {/* <div className="w-16 h-full flex justify-center ml-auto shrink-0 bg-red-500">

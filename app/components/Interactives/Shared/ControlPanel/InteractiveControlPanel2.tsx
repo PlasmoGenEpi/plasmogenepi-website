@@ -75,7 +75,7 @@ import { Edge } from "../../Sleuthing/PartEight/Pentagon";
 
 const sharedBoolArray = function (
   polyclonalArrays: number[][],
-  currentRow: number[]
+  currentRow: number[],
 ) {
   return polyclonalArrays.map((polyclonalArr, idx) => {
     return polyclonalArr.includes(currentRow[idx]);
@@ -95,10 +95,10 @@ export default function InteractiveControlPanel2() {
   const [currentView, setCurrentView] = useAtom(currentView2Atom);
   const [hintsEnabled, setHintsEnabled] = useAtom(hintsEnabledAtom);
   const [partSixSNPHybridCreated, setPartSixSNPHybridCreated] = useAtom(
-    partSixSNPHybridCreatedAtom
+    partSixSNPHybridCreatedAtom,
   );
   const [knowledgeCheckSNPQuestions, setKnowledgeCheckSNPQuestions] = useAtom(
-    partSixSNPKnowledgeCheckQuestionsAtom
+    partSixSNPKnowledgeCheckQuestionsAtom,
   );
   const [firstQuestion, setFirstQuestion] = useAtom(partSixFirstQuestionAtom);
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
@@ -107,26 +107,26 @@ export default function InteractiveControlPanel2() {
   const [cloneRows, setCloneRows] = useAtom(partSixCloneRowsAtom);
   const [cloneRowsMHPs, setCloneRowsMHPs] = useAtom(partSixCloneRowsMHPsAtom);
   const [activePairwiseCombo, setActivePairwiseCombo] = useAtom(
-    activePairwiseComboAtom
+    activePairwiseComboAtom,
   );
   const [activePairwiseMHPsCombo, setActivePairwiseMHPsCombo] = useAtom(
-    activePairwiseMHPsComboAtom
+    activePairwiseMHPsComboAtom,
   );
   const [pairwiseCombos, setPairwiseCombos] = useAtom(pairwiseCombosAtom);
   const [pairwiseCombosMHPs, setPairwiseCombosMHPs] = useAtom(
-    pairwiseCombosMHPsAtom
+    pairwiseCombosMHPsAtom,
   );
   const [pairwiseCompletion, setPairwiseCompletion] = useAtom(
-    pairwiseCompletionAtom
+    pairwiseCompletionAtom,
   );
   const [pairwiseMHPCompletion, setPairwiseMHPCompletion] = useAtom(
-    pairwiseMHPCompletionAtom
+    pairwiseMHPCompletionAtom,
   );
   const [partSixPairwiseQuestions, setPartSixPairwiseQuestions] = useAtom(
-    partSixPairwiseQuestionsAtom
+    partSixPairwiseQuestionsAtom,
   );
   const [partSixMHPPairwiseQuestions, setPartSixMHPPairwiseQuestions] = useAtom(
-    partSixMHPPairwiseQuestionsAtom
+    partSixMHPPairwiseQuestionsAtom,
   );
   const [partSixSNPHistogramQuestions, setPartSixSNPHistogramQuestions] =
     useAtom(partSixSNPHistogramQuestionsAtom);
@@ -134,16 +134,16 @@ export default function InteractiveControlPanel2() {
   const [questions2, setQuestions2] = useAtom(P6Step2QuestionsAtom);
   // const [true, settrue] = useState(false);
   const [partSixMHPHybridCreated, setPartSixMHPHybridCreated] = useAtom(
-    partSixMHPHybridCreatedAtom
+    partSixMHPHybridCreatedAtom,
   );
   const [finalHybridQ, setFinalHybridQ] = useAtom(finalHybridQAtom);
   const [someQ, setSomeQ] = useAtom(SNPvsMHPquestionAtom);
   // const [currentVersion, setCurrentVersion] = useAtom(P6CurrentVersionAtom);
   const [initialQuestion, setInitialQuestion] = useAtom(
-    SNPMHPInitialQuestionAtom
+    SNPMHPInitialQuestionAtom,
   );
   const [hybridMHPQuestion, setHybridMHPQuestion] = useAtom(
-    hybridMHPCloneQuestionAtom
+    hybridMHPCloneQuestionAtom,
   );
   // const setP7Completion = useSetAtom(partSevenCompletionAtom);
   const setP7Genotypes = useSetAtom(partSixMHPPolycloncalGenotypesAtom);
@@ -159,10 +159,10 @@ export default function InteractiveControlPanel2() {
   const [genotypes, setGenotypes] = useAtom(partSixMHPPolycloncalGenotypesAtom);
   // const cloneRows = useAtomValue(partSixCloneRowsMHPsAtom);
   const [identicalGenotype, setIdenticalGenotype] = useAtom(
-    identicalGenotypeAtom
+    identicalGenotypeAtom,
   );
   const [identicalGenotype2, setIdenticalGenotype2] = useAtom(
-    identicalGenotype2Atom
+    identicalGenotype2Atom,
   );
   const [selectedClones, setSelectedClones] = useAtom(selectedClonesAtom);
   const [p8completion, setP8Completion] = useAtom(partEightCompletionAtom);
@@ -174,25 +174,25 @@ export default function InteractiveControlPanel2() {
   const [attemptedInput5, setAttemptedInput5] = useAtom(attemptedMOIInputAtom5);
   const [diamondEdge, setDiamondEdge] = useAtom(partEightDiamondPersonPairAtom);
   const [personPairTwo, setPersonPairTwo] = useAtom(
-    partEightPentagonPersonPairAtom
+    partEightPentagonPersonPairAtom,
   );
   const [specialEdgeHandled, setSpecialEdgeHandled] = useAtom(
-    specialEdgeHandledAtom
+    specialEdgeHandledAtom,
   );
   const [corrections, setEdgeCorrections] = useAtom(edgeCorrectionsAtom);
 
   const [questions, setQuestions] = useAtom(partEightQuestionsAtom);
   const [viewedDiamond, setViewedDiamond] = useAtom(
-    partEightDiamondPairViewedAtom
+    partEightDiamondPairViewedAtom,
   );
   const [selectedEdges, setSelectedEdges] = useAtom(
-    partEightPentagonSelectedEdgesAtom
+    partEightPentagonSelectedEdgesAtom,
   );
   const [queuedChange, setQueuedChange] = useAtom(queuedChangeAtom);
   const [successQueue, setSuccessQueue] = useAtom(successQueueAtom);
   const [pentagonView, setPentagonView] = useAtom(pentagonViewAtom);
   const [pentagonQuestions, setPentagonQuestions] = useAtom(
-    partEightPentagonQuestionsAtom
+    partEightPentagonQuestionsAtom,
   );
   const [GIView, setGIView] = useAtom(GIViewAtom);
   const [p8AddedQuestion, setP8AddedQuestion] = useAtom(p8addedQuestionAtom);
@@ -212,7 +212,7 @@ export default function InteractiveControlPanel2() {
 
   useEffect(() => {
     setHintsEnabled(false);
-  }, [phase])
+  }, [phase]);
 
   const completion =
     currentView.section === 0
@@ -646,14 +646,14 @@ export default function InteractiveControlPanel2() {
               return (
                 val === cloneRowsMHPs[activePairwiseMHPsCombo[1]].vals[idx]
               );
-            }
+            },
           );
           if (
             compareOrderedArrays(
               x,
               pairwiseCombosMHPs[activePairwiseMHPsCombo[0]][
                 activePairwiseMHPsCombo[1]
-              ]
+              ],
             )
           ) {
             return false;
@@ -670,14 +670,14 @@ export default function InteractiveControlPanel2() {
               return (
                 val === cloneRowsMHPs[activePairwiseMHPsCombo[1]].vals[idx]
               );
-            }
+            },
           );
           if (
             compareOrderedArrays(
               x,
               pairwiseCombosMHPs[activePairwiseMHPsCombo[0]][
                 activePairwiseMHPsCombo[1]
-              ]
+              ],
             )
           ) {
             return false;
@@ -694,14 +694,14 @@ export default function InteractiveControlPanel2() {
               return (
                 val === cloneRowsMHPs[activePairwiseMHPsCombo[1]].vals[idx]
               );
-            }
+            },
           );
           if (
             compareOrderedArrays(
               x,
               pairwiseCombosMHPs[activePairwiseMHPsCombo[0]][
                 activePairwiseMHPsCombo[1]
-              ]
+              ],
             )
           ) {
             return false;
@@ -1582,9 +1582,9 @@ export default function InteractiveControlPanel2() {
       style={{
         paddingLeft: "calc(100vw - 100%)",
       }}
-      className="fixed bottom-0 w-full z-[999] bg-black"
+      className="fixed bottom-0 z-[999] w-full bg-black"
     >
-      <div className="max-w-6xl text-white mx-auto w-full grid [grid-template-columns:min-content_auto_min-content_136px] min-h-20 md:min-h-0">
+      <div className="mx-auto grid min-h-20 w-full max-w-6xl text-white [grid-template-columns:min-content_auto_min-content_136px] md:min-h-0">
         <button
           className="mx-6 md:mx-12"
           onClick={() => {
@@ -1597,7 +1597,7 @@ export default function InteractiveControlPanel2() {
             version="1.1"
             viewBox="0 0 1200 1200"
             xmlns="http://www.w3.org/2000/svg"
-            className="fill-current my-auto"
+            className="my-auto fill-current"
           >
             <path d="m869.52 355.32c-185.28 4.6797-370.44 9.3594-555.72 13.918-46.199 1.1992-46.441 73.199 0 72 185.28-4.6797 370.44-9.2383 555.72-13.922 46.199-1.0781 46.441-73.078 0-71.996z" />
             <path d="m871.44 550.8c-179.64 7.8008-359.4 13.559-539.16 17.16-46.32 0.96094-46.441 72.961 0 72 179.76-3.6016 359.52-9.3594 539.16-17.16 46.078-2.0391 46.438-74.039 0-72z" />
@@ -1605,12 +1605,12 @@ export default function InteractiveControlPanel2() {
           </svg>
         </button>
         <div
-          className="flex flex-col md:flex-row  overflow-hidden
-            py-1 translate-y-0.5 gap-x-8 lg:gap-x-16
+          className="flex translate-y-0.5 flex-col  gap-x-8
+            overflow-hidden py-1 md:flex-row lg:gap-x-16
             "
         >
           <button
-            className=" gap-2  my-auto hidden md:inline-flex"
+            className=" my-auto  hidden gap-2 md:inline-flex"
             onClick={() => {
               // P6ResetCallback();
               // setCurrentView({ ...currentView, section: 0, phase: 0 });
@@ -1630,7 +1630,7 @@ export default function InteractiveControlPanel2() {
                 fillRule="evenodd"
               />
             </svg>
-            <span className="mt-1 ml-2">Reset</span>
+            <span className="ml-2 mt-1">Reset</span>
           </button>
           <div className="my-auto hidden md:inline-flex">
             <input
@@ -1642,17 +1642,17 @@ export default function InteractiveControlPanel2() {
               className=" dark:accent-emerald-400"
               type="checkbox"
             />
-            <label htmlFor="hints" className="mt-1 ml-4  ">
+            <label htmlFor="hints" className="ml-4 mt-1  ">
               Enable Hints
             </label>
           </div>
-          <span className="overflow-hidden text-ellipsis my-auto md:translate-y-0.5 self-center">
+          <span className="my-auto self-center overflow-hidden text-ellipsis md:translate-y-0.5">
             {getProgressionText().primaryText}
           </span>
           <span
             className={`${
               !getProgressionText().secondaryText ? "hidden" : "visible"
-            } m-auto text-nowrap lg:-translate-x-8 md:-translate-x-4 md:translate-y-0.5`}
+            } m-auto text-nowrap md:-translate-x-4 md:translate-y-0.5 lg:-translate-x-8`}
           >
             {getProgressionText().secondaryText
               ? getProgressionText().secondaryText
@@ -1664,10 +1664,10 @@ export default function InteractiveControlPanel2() {
             backCallback();
           }}
           disabled={currentView.section === 0 && currentView.phase === 0}
-          className="col-start-3  pl-6 pr-4 md:px-6 disabled:invisible mx-auto md:mr-0"
+          className="col-start-3  mx-auto pl-6 pr-4 disabled:invisible md:mr-0 md:px-6"
         >
           <svg
-            className={` rotate-90 fill-white aspect-square h-12 md:h-8 mx-auto`}
+            className={` mx-auto aspect-square h-12 rotate-90 fill-white md:h-8`}
             version="1.1"
             viewBox="0 0 1200 1200"
             xmlns="http://www.w3.org/2000/svg"
@@ -1689,7 +1689,7 @@ export default function InteractiveControlPanel2() {
             !completion?.[phase] && isDisabled() === false
               ? "nextButtonBlink"
               : ""
-          } col-start-4 pr-2 disabled:invisible mx-auto md:ml-0`}
+          } col-start-4 mx-auto pr-2 disabled:invisible md:ml-0`}
           //   disabled={
           //     currentView.section === 7 ||
           //     (currentView.section === 6
@@ -1714,10 +1714,10 @@ export default function InteractiveControlPanel2() {
           //   }
         >
           <div
-            className={`flex items-center pr-4 w-[136px] md:pl-4/ pl-2 rounded-xl py-1 text-yellow-400 disabled:hidden`}
+            className={`md:pl-4/ flex w-[136px] items-center rounded-xl py-1 pl-2 pr-4 text-yellow-400 disabled:hidden`}
           >
             <svg
-              className={` -rotate-90 aspect-square h-12 md:h-8 mx-auto fill-current`}
+              className={` mx-auto aspect-square h-12 -rotate-90 fill-current md:h-8`}
               version="1.1"
               viewBox="0 0 1200 1200"
               xmlns="http://www.w3.org/2000/svg"
@@ -1732,7 +1732,7 @@ export default function InteractiveControlPanel2() {
               //       ? "invisible w-0"
               //       : "visible w-auto"
               //   }
-              className={` block translate-y-1 ml-2 text-current text-nowrap underline underline-offset-2
+              className={` ml-2 block translate-y-1 text-nowrap text-current underline underline-offset-2
                  ${
                    (currentView.section === 0 && currentView.phase === 3) ||
                    (currentView.section === 1 && currentView.phase === 33.5)

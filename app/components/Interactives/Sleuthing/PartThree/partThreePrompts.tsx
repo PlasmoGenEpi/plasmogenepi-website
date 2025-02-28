@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { sections } from "../2.6/pages/sections";
 
 export const partThreePrompts: {
   [key: number]: {
@@ -7,7 +8,7 @@ export const partThreePrompts: {
   };
 } = {
   0: {
-    title: <h5>Background</h5>,
+    title: <h5>{sections[3].title}</h5>,
     instructions: (
       <div className="flex flex-col gap-4">
         <p>
@@ -18,17 +19,17 @@ export const partThreePrompts: {
           distinct parts of the genome - each containing 3 SNPs right next to
           each other (i.e. 4 microhaplotypes).
         </p>
-        <div className="relative h-48 my-8 dark:brightness-75">
-          <div className="absolute flex font-mono overflow-hidden max-w-full top-1/2 -translate-y-1/2 h-8 border border-black w-full">
-            <div className="bg-zinc-200 dark:bg-zinc-700 w-[8%]"></div>
-            <div className="bg-microBrown w-[4%]"></div>
-            <div className="bg-zinc-200 dark:bg-zinc-700 w-[24%]"></div>
-            <div className="bg-microRed w-[4%]"></div>
-            <div className="bg-zinc-200 dark:bg-zinc-700 w-[11%]"></div>
-            <div className="bg-microPurple w-[4%]"></div>
-            <div className="bg-zinc-200 dark:bg-zinc-700 grow"></div>
-            <div className="bg-microGreen w-[4%]"></div>
-            <div className="bg-zinc-200 dark:bg-zinc-700 w-[20%]"></div>
+        <div className="relative my-8 h-48 dark:brightness-75">
+          <div className="absolute top-1/2 flex h-8 w-full max-w-full -translate-y-1/2 overflow-hidden border border-black font-mono">
+            <div className="w-[8%] bg-zinc-200 dark:bg-zinc-700"></div>
+            <div className="w-[4%] bg-microBrown"></div>
+            <div className="w-[24%] bg-zinc-200 dark:bg-zinc-700"></div>
+            <div className="w-[4%] bg-microRed"></div>
+            <div className="w-[11%] bg-zinc-200 dark:bg-zinc-700"></div>
+            <div className="w-[4%] bg-microPurple"></div>
+            <div className="grow bg-zinc-200 dark:bg-zinc-700"></div>
+            <div className="w-[4%] bg-microGreen"></div>
+            <div className="w-[20%] bg-zinc-200 dark:bg-zinc-700"></div>
 
             {/* {Array(150)
                 .fill(0)
@@ -46,60 +47,60 @@ export const partThreePrompts: {
                   );
                 })} */}
           </div>
-          <div className="absolute text-black  bottom-0 bg-microBrown grid grid-cols-3 p-1 gap-0.5 w-[20cqi] @xl/main:w-[15cqi] @3xl/main:w-[10cqi] text-center text-lg left-[5%] ">
-            <label className="absolute -top-6 w-full dark:text-white text-xs first-letter:text-sm">
+          <div className="absolute bottom-0  left-[5%] grid w-[20cqi] grid-cols-3 gap-0.5 bg-microBrown p-1 text-center text-lg text-black @xl/main:w-[15cqi] @3xl/main:w-[10cqi] ">
+            <label className="absolute -top-6 w-full text-xs first-letter:text-sm dark:text-white">
               L1
             </label>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
               <span className="block translate-y-0.5">A</span>
             </div>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
               <span className="block translate-y-0.5">T</span>
             </div>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
               <span className="block translate-y-0.5">T</span>
             </div>
           </div>
-          <div className="absolute text-black  top-6 bg-microRed grid grid-cols-3 p-1 gap-0.5 w-[20cqi] @xl/main:w-[15cqi] @3xl/main:w-[10cqi] text-center text-lg left-[25%]">
-            <label className="absolute -top-6 w-full dark:text-white text-xs first-letter:text-sm">
+          <div className="absolute left-[25%]  top-6 grid w-[20cqi] grid-cols-3 gap-0.5 bg-microRed p-1 text-center text-lg text-black @xl/main:w-[15cqi] @3xl/main:w-[10cqi]">
+            <label className="absolute -top-6 w-full text-xs first-letter:text-sm dark:text-white">
               L2
             </label>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
-              <span className="block translate-y-0.5 alternateAllele">C</span>
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
+              <span className="alternateAllele block translate-y-0.5">C</span>
             </div>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
               <span className="block translate-y-0.5">G</span>
             </div>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
-              <span className="block translate-y-0.5 alternateAllele">G</span>
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
+              <span className="alternateAllele block translate-y-0.5">G</span>
             </div>
           </div>
-          <div className="absolute text-black  bottom-0 bg-microPurple grid grid-cols-3 p-1 gap-0.5 w-[20cqi] @xl/main:w-[15cqi] @3xl/main:w-[10cqi] text-center text-lg left-[50%] -translate-x-1/2">
-            <label className="absolute -top-6 w-full dark:text-white text-xs first-letter:text-sm">
+          <div className="absolute bottom-0  left-[50%] grid w-[20cqi] -translate-x-1/2 grid-cols-3 gap-0.5 bg-microPurple p-1 text-center text-lg text-black @xl/main:w-[15cqi] @3xl/main:w-[10cqi]">
+            <label className="absolute -top-6 w-full text-xs first-letter:text-sm dark:text-white">
               L3
             </label>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
-              <span className="block translate-y-0.5 alternateAllele">T</span>
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
+              <span className="alternateAllele block translate-y-0.5">T</span>
             </div>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
               <span className="block translate-y-0.5">C</span>
             </div>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
               <span className="block translate-y-0.5">T</span>
             </div>
           </div>
-          <div className="absolute text-black  top-6 bg-microGreen grid grid-cols-3 p-1 gap-0.5 w-[20cqi] @xl/main:w-[15cqi] @3xl/main:w-[10cqi] text-center text-lg right-[15%]">
-            <label className="absolute -top-6 w-full dark:text-white text-xs first-letter:text-sm">
+          <div className="absolute right-[15%]  top-6 grid w-[20cqi] grid-cols-3 gap-0.5 bg-microGreen p-1 text-center text-lg text-black @xl/main:w-[15cqi] @3xl/main:w-[10cqi]">
+            <label className="absolute -top-6 w-full text-xs first-letter:text-sm dark:text-white">
               L4
             </label>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
               <span className="block translate-y-0.5">G</span>
             </div>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
-              <span className="block translate-y-0.5 alternateAllele">A</span>
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
+              <span className="alternateAllele block translate-y-0.5">A</span>
             </div>
-            <div className="aspect-square font-bold bg-white flex items-center justify-center shadow-sm shadow-black">
-              <span className="block translate-y-0.5 alternateAllele">C</span>
+            <div className="flex aspect-square items-center justify-center bg-white font-bold shadow-sm shadow-black">
+              <span className="alternateAllele block translate-y-0.5">C</span>
             </div>
           </div>
         </div>
@@ -145,7 +146,7 @@ export const partThreePrompts: {
     ),
   },
   1: {
-    title: <h5> 3.1 Analyze your laboratory clones using microhaplotypes</h5>,
+    title: <h5>{sections[3].subcomponents[1].title}</h5>,
     instructions: (
       <div>
         <p>
@@ -162,7 +163,7 @@ export const partThreePrompts: {
     ),
   },
   2: {
-    title: <h5>3.2 Make positive controls with your labatory clones</h5>,
+    title: <h5>{sections[3].subcomponents[2].title}</h5>,
     instructions: (
       <div>
         <p>
@@ -179,7 +180,7 @@ export const partThreePrompts: {
     ),
   },
   3: {
-    title: <h5>3.3 Genotype your labatory clones using microhaplotypes</h5>,
+    title: <h5>{sections[3].subcomponents[3].title}</h5>,
     instructions: (
       <div>
         <p>
@@ -192,7 +193,7 @@ export const partThreePrompts: {
     ),
   },
   4: {
-    title: <h5> 3.4 Counting Alleles</h5>,
+    title: <h5>{sections[3].subcomponents[4].title}</h5>,
     instructions: (
       <div>
         <p>Answer the following questions.</p>
@@ -200,7 +201,7 @@ export const partThreePrompts: {
     ),
   },
   5: {
-    title: <h5> 3.5 Knowledge Check: Step 3</h5>,
+    title: <h5>{sections[3].subcomponents[5].title}</h5>,
     instructions: (
       <div>
         <p>

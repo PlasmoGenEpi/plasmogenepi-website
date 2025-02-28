@@ -1,4 +1,5 @@
 import { ReactElement, ReactNode } from "react";
+import { sections } from "../2.6/pages/sections";
 
 export const partFivePrompts: {
   [key: number]: {
@@ -7,9 +8,8 @@ export const partFivePrompts: {
   };
 } = {
   0: {
-    title: (
-      <h5>5.1 Compare your estimates of MOI from SNPs to Microhaplotypes</h5>
-    ),
+    title: <h5>{sections[5].subcomponents[0].title}</h5>,
+
     instructions: (
       <p>
         View the table below and take note of any differences that you see
@@ -20,7 +20,7 @@ export const partFivePrompts: {
     ),
   },
   1: {
-    title: <h5>5.2 Compare your estimates with the true MOI</h5>,
+    title: <h5>{sections[5].subcomponents[1].title}</h5>,
     instructions: (
       <p>
         View your estimates of MOI between SNPs, microhaplotypes, and the true
@@ -30,9 +30,8 @@ export const partFivePrompts: {
     ),
   },
   2: {
-    title: (
-      <h5>5.1 Compare your estimates of MOI from SNPs to Microhaplotypes</h5>
-    ),
+    title: <h5>{sections[5].subcomponents[1].title}</h5>,
+
     instructions: <p></p>,
   },
   3: {

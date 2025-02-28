@@ -4,13 +4,6 @@ import {
   globalDragAtom,
   phase3Atom,
 } from "@/data/Interactives/interactiveStore";
-import {
-  charSize,
-  paddingFromBorder,
-  paddingLeft,
-  rowDistance,
-  topDistanceIncludingBorder,
-} from "../Container";
 import LocusOneLabel from "./LocusOneLabel";
 import { useAtomValue } from "jotai";
 import LocusTwoLabel from "./LocusTwoLabel";
@@ -20,6 +13,17 @@ import MicrohaplotypeLabel from "./MicrohaplotypeLabel";
 import CloneLabel from "./CloneLabel";
 import { currentView3Atom } from "../../../Shared/InteractiveViewer/InteractiveViewer";
 // import { currentView3Atom } from "@/app/components/Interactives/Shared/InteractiveViewer/InteractiveViewer";
+
+const topDistanceIncludingBorder = 172;
+const borderWidth = 24;
+const paddingFromBorder = topDistanceIncludingBorder - borderWidth;
+const paddingLeft = 32;
+const paddingRight = 64;
+const rowHeight = 32;
+const rowDistance = 32;
+const charSize = 18;
+const readStartOffset = 18;
+const dropContainerWidth = 1148;
 
 export default function Labels() {
   // const phase = useAtomValue(phase3Atom);
@@ -38,7 +42,7 @@ export default function Labels() {
           : [4].includes(phase)
           ? "pointer-events-auto"
           : "pointer-events-none"
-      } text-interactiveBlue absolute inset-0 text-lg dark:text-emerald-500`}
+      } absolute inset-0 text-lg text-interactiveBlue dark:text-emerald-500`}
     >
       {/* <LocusOneLabel
         style={{

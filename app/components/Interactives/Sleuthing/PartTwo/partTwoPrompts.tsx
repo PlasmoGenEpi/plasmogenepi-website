@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { sections } from "../2.6/pages/sections";
 
 export const partTwoPrompts: {
   [key: number]: {
@@ -7,7 +8,7 @@ export const partTwoPrompts: {
   };
 } = {
   0: {
-    title: <h5>Step 2</h5>,
+    title: <h5>{sections[2].title}</h5>,
     instructions: (
       <div className="flex flex-col gap-4">
         <p>
@@ -33,7 +34,7 @@ export const partTwoPrompts: {
     ),
   },
   1: {
-    title: <h5>2.1 Estimate MOI for each of the 10 field samples</h5>,
+    title: <h5>{sections[2].subcomponents[1].title}</h5>,
     instructions: (
       <div>
         <p>
@@ -46,7 +47,7 @@ export const partTwoPrompts: {
     ),
   },
   2: {
-    title: <h5> 2.2 Calculate average MOI</h5>,
+    title: <h5>{sections[2].subcomponents[2].title}</h5>,
     instructions: (
       <div>
         <p>
@@ -57,7 +58,7 @@ export const partTwoPrompts: {
     ),
   },
   3: {
-    title: <h5> 2.3 Knowledge Check</h5>,
+    title: <h5>{sections[2].subcomponents[3].title}</h5>,
     instructions: (
       <div className="flex flex-col gap-4">
         <p>

@@ -899,7 +899,7 @@ export default function PartSeven() {
                 content={
                   <div
                     className={
-                      "bg-interactiveBlue/10 text-pretty p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
+                      "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
                     }
                   >
                     <p>

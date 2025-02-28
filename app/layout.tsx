@@ -51,7 +51,7 @@ export default function RootLayout({
       <head></head>{" "}
       <body>
         <main
-          className={`${poppins.variable} ${roboto.variable} ${overpass.variable} ${helveticaNeue.variable} `}
+          className={`${poppins.variable} ${roboto.variable} ${overpass.variable} ${helveticaNeue.variable} dark:text-black`}
         >
           {/* <FullscreenImage /> */}
           {children}

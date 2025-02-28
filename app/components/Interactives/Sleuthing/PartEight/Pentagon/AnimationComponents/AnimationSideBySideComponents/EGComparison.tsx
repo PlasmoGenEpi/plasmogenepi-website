@@ -8,8 +8,7 @@ import { atom, useAtom, useAtomValue } from "jotai";
 import Image from "next/image";
 import { phase2Atom } from "@/data/Interactives/interactiveStore";
 import { useEffect } from "react";
-import SquareMicrohaplotype from "@/Interactives2/Shared/Microhaplotypes/SquareMicrohaplotype";
-// import SquareMicrohaplotype from "@/app/components/Interactives2/Shared/Microhaplotypes/SquareMicrohaplotype";
+import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
 
 export const partEightCloneRowColors: { [key: number]: string } = {
   1: "to-microRed/80 via-microRed/80",

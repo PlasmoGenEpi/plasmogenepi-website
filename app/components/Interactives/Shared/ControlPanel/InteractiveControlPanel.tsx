@@ -19,6 +19,7 @@ import {
   stepSixCompletionAtom,
   stepSixQuestionsAtom,
 } from "../../Sleuthing/StepSix/StepSix";
+import HamburgerIcon from "@/app/components/NavBar/HamburgerIcon";
 
 export const currentBackCallbackAtom = atom(null);
 export const currentNextCallbackAtom = atom<null | (() => void)>(null);
@@ -31,19 +32,19 @@ export default function InteractiveControlPanel() {
   // const setHintsEnabled = useSetAtom(hintsEnabledAtom);
   const [currentView, setCurrentView] = useAtom(currentView1Atom);
   const [partZeroCompletion, setPartZeroCompletion] = useAtom(
-    partZeroCompletionAtom
+    partZeroCompletionAtom,
   );
   const [partOneCompletion, setPartOneCompletion] = useAtom(
-    partOneCompletionAtom
+    partOneCompletionAtom,
   );
   const [partTwoCompletion, setPartTwoCompletion] = useAtom(
-    partTwoCompletionAtom
+    partTwoCompletionAtom,
   );
   const [partThreeCompletion, setPartThreeCompletion] = useAtom(
-    partThreeCompletionAtom
+    partThreeCompletionAtom,
   );
   const [partFourCompletion, setPartFourCompletion] = useAtom(
-    partFourCompletionAtom
+    partFourCompletionAtom,
   );
   const partFiveCompletion = useAtomValue(partFiveCompletionAtom);
   const [step6Completion, setStep6Completion] = useAtom(stepSixCompletionAtom);
@@ -305,35 +306,12 @@ export default function InteractiveControlPanel() {
       style={{
         paddingLeft: "calc(100vw - 100%)",
       }}
-      className="fixed bottom-0 w-full z-[999] bg-black"
+      className="fixed bottom-0 z-[999] w-full bg-black"
     >
-      <div className="max-w-6xl text-white mx-auto w-full grid [grid-template-columns:min-content_auto_min-content_136px] min-h-20 md:min-h-0">
-        <button
-          className="mx-6 md:mx-12"
-          onClick={() => {
-            setMenuOpen(!menuOpen);
-          }}
-        >
-          <svg
-            width="36pt"
-            height="36pt"
-            version="1.1"
-            viewBox="0 0 1200 1200"
-            xmlns="http://www.w3.org/2000/svg"
-            className="fill-current my-auto"
-          >
-            <path d="m869.52 355.32c-185.28 4.6797-370.44 9.3594-555.72 13.918-46.199 1.1992-46.441 73.199 0 72 185.28-4.6797 370.44-9.2383 555.72-13.922 46.199-1.0781 46.441-73.078 0-71.996z" />
-            <path d="m871.44 550.8c-179.64 7.8008-359.4 13.559-539.16 17.16-46.32 0.96094-46.441 72.961 0 72 179.76-3.6016 359.52-9.3594 539.16-17.16 46.078-2.0391 46.438-74.039 0-72z" />
-            <path d="m332.28 771.48c-46.32-0.48047-46.441 71.52 0 72 184.68 1.6797 369.24 1.3203 553.92-1.1992 46.32-0.60156 46.441-72.602 0-72-184.68 2.5195-369.24 3-553.92 1.1992z" />
-          </svg>
-        </button>
-        <div
-          className="flex flex-col md:flex-row  overflow-hidden
-        py-1 translate-y-0.5 gap-x-8 lg:gap-x-16
-        "
-        >
+      <div className="mx-auto grid min-h-20 w-full max-w-6xl text-white md:min-h-0">
+        <div className="mt-auto flex h-fit justify-around gap-x-8 pb-1 pt-3 md:hidden">
           <button
-            className=" gap-2  my-auto hidden md:inline-flex"
+            className=" my-auto inline-flex gap-2 text-lg"
             onClick={() => {
               setResetConfirmOpen(true);
             }}
@@ -351,120 +329,183 @@ export default function InteractiveControlPanel() {
                 fillRule="evenodd"
               />
             </svg>
-            <span className="mt-1 ml-2">Reset</span>
+            <span className="ml-2 mt-1">Reset</span>
           </button>
-          <div className="my-auto hidden md:inline-flex">
+          <div className="my-auto inline-flex ">
             <input
               onChange={(e) => {
                 setHintsEnabled(!hintsEnabled);
               }}
               checked={hintsEnabled}
               id="hints"
-              className=" dark:accent-emerald-400"
+              className=" w-4 dark:accent-emerald-400"
               type="checkbox"
             />
-            <label htmlFor="hints" className="mt-1 ml-4  ">
+            <label htmlFor="hints" className="ml-4 mt-1 text-lg">
               Enable Hints
             </label>
           </div>
-          <span className="overflow-hidden text-ellipsis my-auto md:translate-y-0.5 self-center">
-            {getProgressionText().primaryText}
-          </span>
-          <span
-            className={`${
-              !getProgressionText().secondaryText ? "hidden" : "visible"
-            } m-auto text-nowrap lg:-translate-x-8 md:-translate-x-4 md:translate-y-0.5`}
-          >
-            {getProgressionText().secondaryText
-              ? getProgressionText().secondaryText
-              : "1"}
-          </span>
         </div>
-        <button
-          onClick={() => {
-            backCallback();
-          }}
-          disabled={currentView.section === 0 && currentView.phase === 0}
-          className="col-start-3  pl-6 pr-4 md:px-6 disabled:invisible mx-auto md:mr-0"
-        >
-          <svg
-            className={` rotate-90 fill-white aspect-square h-12 md:h-8 mx-auto`}
-            version="1.1"
-            viewBox="0 0 1200 1200"
-            xmlns="http://www.w3.org/2000/svg"
+        <div className="mb-2 grid [grid-template-columns:min-content_auto_min-content_136px]">
+          <button
+            className="mx-6 md:mx-12"
+            onClick={() => {
+              setMenuOpen(!menuOpen);
+            }}
           >
-            <path d="m562.88 812.12-300-300c-20.5-20.504-20.5-53.746 0-74.25 20.504-20.5 53.746-20.5 74.25 0l262.88 262.88 262.88-262.88c20.504-20.5 53.746-20.5 74.25 0 20.5 20.504 20.5 53.746 0 74.25l-300 300c-20.504 20.5-53.746 20.5-74.25 0z" />
-          </svg>
-        </button>
-        <button
-          // disabled={nextIsDisabled}
-          // className={`col-start-4  px-6 disabled:invisible mx-auto md:ml-0 ${
-          //   !nextIsDisabled && phaseIsComplete
-          //     ? "fill-yellow-400"
-          //     : "fill-current"
-          // }`}
-          className={`col-start-4 pr-2 disabled:invisible mx-auto md:ml-0 ${
-            !currentPhaseIsComplete && currentNextCallback
-              ? "text-yellow-400"
-              : "text-current"
-          }`}
-          disabled={
-            currentView.section === 7 ||
-            (currentView.section === 6
-              ? partSixIsDisabled()
-              : currentView.section >= 1 && !currentNextCallback)
-          }
-          onClick={
-            () => {
-              if (currentView.section === 0) {
-                partZeroNextHandler();
-              } else if (currentView.section === 6) {
-                setCurrentView({ ...currentView, section: 7, phase: 0 });
-                setStep6Completion({
-                  0: true,
-                });
-              } else {
-                if (currentNextCallback) {
-                  currentNextCallback();
-                }
-              }
-            }
-            // currentView.section === 0
-            //   ? () => {
-            //       partZeroNextHandler();
-            //     }
-            //   : () => {
-            //       if (currentNextCallback) {
-            //         currentNextCallback();
-            //       }
-            //     }
-          }
-        >
+            <HamburgerIcon open={menuOpen} className="fill-current" />
+            {/* <svg
+              width="36pt"
+              height="36pt"
+              version="1.1"
+              viewBox="0 0 1200 1200"
+              xmlns="http://www.w3.org/2000/svg"
+              className="my-auto fill-current"
+            >
+              <path d="m869.52 355.32c-185.28 4.6797-370.44 9.3594-555.72 13.918-46.199 1.1992-46.441 73.199 0 72 185.28-4.6797 370.44-9.2383 555.72-13.922 46.199-1.0781 46.441-73.078 0-71.996z" />
+              <path d="m871.44 550.8c-179.64 7.8008-359.4 13.559-539.16 17.16-46.32 0.96094-46.441 72.961 0 72 179.76-3.6016 359.52-9.3594 539.16-17.16 46.078-2.0391 46.438-74.039 0-72z" />
+              <path d="m332.28 771.48c-46.32-0.48047-46.441 71.52 0 72 184.68 1.6797 369.24 1.3203 553.92-1.1992 46.32-0.60156 46.441-72.602 0-72-184.68 2.5195-369.24 3-553.92 1.1992z" />
+            </svg> */}
+          </button>
           <div
-            className={`flex items-center pr-4 w-[136px] md:pl-4/ pl-2 rounded-xl py-1 text-yellow-400 disabled:hidden`}
+            className="flex translate-y-0.5 flex-col  gap-x-8
+        overflow-hidden py-1 md:flex-row lg:gap-x-16
+        "
+          >
+            <button
+              className=" my-auto  hidden gap-2 md:inline-flex"
+              onClick={() => {
+                setResetConfirmOpen(true);
+              }}
+            >
+              <svg
+                height="20pt"
+                width="20pt"
+                version="1.1"
+                viewBox="0 0 1200 1200"
+                xmlns="http://www.w3.org/2000/svg"
+                className="fill-current"
+              >
+                <path
+                  d="m287.73 350c72.848-90.875 184.54-149.27 309.9-149.99 1.7227-0.011718 3.4375-0.011718 5.1562 0 106.71 0.73047 203.5 43.242 274.8 111.99 4.1406 3.9883 8.1914 8.0664 12.156 12.234 67.055 70.43 108.7 165.28 110.21 269.84 0.066406 4.1406 0.0625 8.2812-0.003906 12.426-1.6523 103.7-42.77 197.81-108.98 267.98-5.2891 5.6055-10.742 11.059-16.359 16.363-70.281 66.383-164.61 107.57-268.54 109.11-3.8359 0.0625-7.6797 0.0625-11.523 0.011719-201.55-2.6953-367.12-154.46-391.46-350.07-3.4102-27.398-25.469-49.898-53.082-49.898s-50.258 22.441-47.504 49.914c1.6914 16.859 4.2344 33.574 7.6055 50.086 17.723 86.824 58.344 168.01 118.48 234.73 82.77 91.844 196.63 149.77 319.6 162.57 122.97 12.816 246.32-20.383 346.25-93.191 99.93-72.805 169.34-180.05 194.83-301.03 25.488-120.98 5.25-247.11-56.809-354.05-62.055-106.93-161.53-187.09-279.21-224.98-117.68-37.895-245.24-30.84-358.03 19.801-77.801 34.93-144.77 88.891-195.21 156.14v-100c0-27.613-22.387-50-50-50s-50 22.387-50 50v250h250c27.613 0 50-22.387 50-50s-22.387-50-50-50z"
+                  fillRule="evenodd"
+                />
+              </svg>
+              <span className="ml-2 mt-1">Reset</span>
+            </button>
+            <div className="my-auto hidden md:inline-flex">
+              <input
+                onChange={(e) => {
+                  setHintsEnabled(!hintsEnabled);
+                }}
+                checked={hintsEnabled}
+                id="hints"
+                className=" dark:accent-emerald-400"
+                type="checkbox"
+              />
+              <label htmlFor="hints" className="ml-4 mt-1  ">
+                Enable Hints
+              </label>
+            </div>
+            <span className="my-auto self-center overflow-hidden text-ellipsis md:translate-y-0.5">
+              {getProgressionText().primaryText}
+            </span>
+            <span
+              className={`${
+                !getProgressionText().secondaryText ? "hidden" : "visible"
+              } m-auto text-nowrap md:-translate-x-4 md:translate-y-0.5 lg:-translate-x-8`}
+            >
+              {getProgressionText().secondaryText
+                ? getProgressionText().secondaryText
+                : "1"}
+            </span>
+          </div>
+          <button
+            onClick={() => {
+              backCallback();
+            }}
+            disabled={currentView.section === 0 && currentView.phase === 0}
+            className="col-start-3  mx-auto pl-6 pr-4 disabled:invisible md:mr-0 md:px-6"
           >
             <svg
-              className={` -rotate-90 aspect-square h-12 md:h-8 mx-auto fill-current`}
+              className={` mx-auto aspect-square h-12 rotate-90 fill-white md:h-8`}
               version="1.1"
               viewBox="0 0 1200 1200"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path d="m562.88 812.12-300-300c-20.5-20.504-20.5-53.746 0-74.25 20.504-20.5 53.746-20.5 74.25 0l262.88 262.88 262.88-262.88c20.504-20.5 53.746-20.5 74.25 0 20.5 20.504 20.5 53.746 0 74.25l-300 300c-20.504 20.5-53.746 20.5-74.25 0z" />
             </svg>
-            <span
-              className={`${
-                currentView.section === 0 && currentView.phase === 2
-                  ? "visible w-auto"
-                  : !currentNextCallback || !getNextStep()
-                  ? "invisible w-0"
-                  : "visible w-auto"
-              } block translate-y-1 ml-2 text-current text-nowrap underline underline-offset-2`}
+          </button>
+          <button
+            // disabled={nextIsDisabled}
+            // className={`col-start-4  px-6 disabled:invisible mx-auto md:ml-0 ${
+            //   !nextIsDisabled && phaseIsComplete
+            //     ? "fill-yellow-400"
+            //     : "fill-current"
+            // }`}
+            className={`col-start-4 mx-auto pr-2 disabled:invisible md:ml-0 ${
+              !currentPhaseIsComplete && currentNextCallback
+                ? "text-yellow-400"
+                : "text-current"
+            }`}
+            disabled={
+              currentView.section === 7 ||
+              (currentView.section === 6
+                ? partSixIsDisabled()
+                : currentView.section >= 1 && !currentNextCallback)
+            }
+            onClick={
+              () => {
+                if (currentView.section === 0) {
+                  partZeroNextHandler();
+                } else if (currentView.section === 6) {
+                  setCurrentView({ ...currentView, section: 7, phase: 0 });
+                  setStep6Completion({
+                    0: true,
+                  });
+                } else {
+                  if (currentNextCallback) {
+                    currentNextCallback();
+                  }
+                }
+              }
+              // currentView.section === 0
+              //   ? () => {
+              //       partZeroNextHandler();
+              //     }
+              //   : () => {
+              //       if (currentNextCallback) {
+              //         currentNextCallback();
+              //       }
+              //     }
+            }
+          >
+            <div
+              className={`md:pl-4/ flex w-[136px] items-center rounded-xl py-1 pl-2 pr-4 text-yellow-400 disabled:hidden`}
             >
-              {/* Next */}
-              Step {getNextStep()}
-            </span>
-          </div>
-        </button>
+              <svg
+                className={` mx-auto aspect-square h-12 -rotate-90 fill-current md:h-8`}
+                version="1.1"
+                viewBox="0 0 1200 1200"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="m562.88 812.12-300-300c-20.5-20.504-20.5-53.746 0-74.25 20.504-20.5 53.746-20.5 74.25 0l262.88 262.88 262.88-262.88c20.504-20.5 53.746-20.5 74.25 0 20.5 20.504 20.5 53.746 0 74.25l-300 300c-20.504 20.5-53.746 20.5-74.25 0z" />
+              </svg>
+              <span
+                className={`${
+                  currentView.section === 0 && currentView.phase === 2
+                    ? "visible w-auto"
+                    : !currentNextCallback || !getNextStep()
+                    ? "invisible w-0"
+                    : "visible w-auto"
+                } ml-2 block translate-y-1 text-nowrap text-current underline underline-offset-2`}
+              >
+                {/* Next */}
+                Step {getNextStep()}
+              </span>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   );

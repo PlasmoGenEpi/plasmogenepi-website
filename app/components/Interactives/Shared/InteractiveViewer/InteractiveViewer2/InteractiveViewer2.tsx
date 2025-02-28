@@ -22,9 +22,16 @@ import {
   currentView2Atom,
   sideBarDisablesMainContent,
 } from "../InteractiveViewer";
-import { sideBarIsOpenAtom } from "../InteractiveSideBar/InteractiveSideBar";
+import InteractiveSideBar, {
+  sideBarIsOpenAtom,
+} from "../InteractiveSideBar/InteractiveSideBar";
 import InteractiveControlPanel2 from "../../ControlPanel/InteractiveControlPanel2";
 import ResetPrompt from "../../ControlPanel/ResetModal";
+import Part2Intro from "../../../Sleuthing/Part2Intro/Part2Intro";
+import PartSix from "../../../Sleuthing/PartSix/PartSix";
+import PartSeven from "../../../Sleuthing/PartSeven/PartSeven";
+import PartEight from "../../../Sleuthing/PartEight/PartEight";
+import InteractiveSideBar4 from "../InteractiveSideBar/InteractiveSideBar4/InteractiveSideBar4";
 
 // export const currentViewAtom = atomWithStorage("currentViewAtom", {
 //   module: "2.6",
@@ -163,9 +170,6 @@ export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
 
   return (
     <div className="">
-      {/* <span className="absolute top-0 left-1/2">
-        {JSON.stringify(currentView)}
-      </span> */}
       <button
         onClick={() => {
           setIsOpen(true);
@@ -180,17 +184,23 @@ export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
         Open Menu
       </button>
       <div className="flex w-full max-w-full grow overflow-clip">
-        <ResetPrompt currentModule="5.6" />
+        {/* <ResetPrompt currentModule="5.6" /> */}
         {/* <InteractiveSideBar
             module={module}
             currentView={currentView}
             setCurrentView={setCurrentView}
           /> */}
-        <InteractiveSideBar2
+        {/* <InteractiveSideBar2
           module={"5.6"}
           currentView={currentView}
           setCurrentView={setCurrentView}
-        />
+        /> */}
+        <InteractiveSideBar4 />
+        {/* <InteractiveSideBar
+          setCurrentView={setCurrentView}
+          currentView={currentView}
+          module={"5.6"}
+        /> */}
         <div
           className={`${
             isOpen ? "hidden md:flex" : ""
@@ -214,10 +224,40 @@ export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
           {/* <span className="absolute left-1/2 top-4">
             {JSON.stringify(currentView)}
           </span> */}
-          <InteractivePrimaryView
+          {/* <InteractivePrimaryView
             currentView={currentView}
             setCurrentView={setCurrentView}
-          />
+          /> */}
+          <div
+            onFocus={
+              sideBarDisablesMainContent
+                ? () => {
+                    setIsOpen(false);
+                  }
+                : undefined
+            }
+            tabIndex={isOpen && sideBarDisablesMainContent ? 0 : undefined}
+            className={`overflow-clip/ relative min-h-screen w-full max-w-6xl grow basis-full border-black ${
+              isOpen
+                ? "hidden sm:block"
+                : "fadeFromHidden opacity-100 sm:animate-none"
+            }`}
+          >
+            <div
+              // inert={isOpen}
+              className="relative pb-80 @container/main"
+            >
+              {currentView.section === 0 ? (
+                <Part2Intro />
+              ) : currentView.section === 1 ? (
+                <PartSix />
+              ) : currentView.section === 2 ? (
+                <PartSeven />
+              ) : currentView.section === 3 ? (
+                <PartEight fixed={false} />
+              ) : null}{" "}
+            </div>
+          </div>
           <div
             className={`${
               isOpen ? "min-w-4 grow basis-0" : "min-w-2 grow basis-0"

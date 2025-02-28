@@ -126,7 +126,7 @@ export default function ResetPrompt({
         })
         .includes(true);
     },
-    [resetCallbackSelected]
+    [resetCallbackSelected],
   );
 
   function handleConfirmReset() {
@@ -275,17 +275,19 @@ export default function ResetPrompt({
     return null;
   }
 
+  return <div></div>;
+
   return (
     <dialog
-      className={`modal font-helvetica z-[9999] ${
+      className={`modal z-[9999] font-helvetica ${
         resetConfirmOpen ? "modal-open" : "hidden"
       }`}
     >
-      <div className="modal-box h-fit max-w-sm md:max-w-lg dark:text-gray-200 dark:font-normal dark:bg-zinc-800 overflow-hidden">
-        <h3 className="text-xl text-center pb-4 border-b border-b-black/50 dark:border-b-white/50">
+      <div className="modal-box h-fit max-w-sm overflow-hidden dark:bg-zinc-800 dark:font-normal dark:text-gray-200 md:max-w-lg">
+        <h3 className="border-b border-b-black/50 pb-4 text-center text-xl dark:border-b-white/50">
           Are you sure?
         </h3>
-        <p className="py-8 text-base text-center text-pretty">
+        <p className="text-pretty py-8 text-center text-base">
           Resetting will clear data for your current activity and any others
           that depend on it.
         </p>
@@ -301,7 +303,7 @@ export default function ResetPrompt({
                         idx === 0
                           ? false
                           : Object.values(completionObjects[idx]).includes(
-                              false
+                              false,
                             )
                       }
                       completion={completionObjects[idx + 1]}
@@ -316,7 +318,7 @@ export default function ResetPrompt({
                           ? false
                           : prevStepIsResetting(idx + 1) ||
                             Object.values(completionObjects[idx]).includes(
-                              false
+                              false,
                             )
                       }
                       callback={() => {
@@ -478,16 +480,16 @@ export default function ResetPrompt({
             className=" px-4 py-1 "
           >
             {" "}
-            <span className="translate-y-0.5 block">Cancel</span>
+            <span className="block translate-y-0.5">Cancel</span>
           </button>
           <button
             disabled={currentModule === "4.4" ? false : !prevStepIsResetting(7)}
             onClick={() => {
               handleConfirmReset();
             }}
-            className={`bg-orange-500/70 text-white px-6 py-2 disabled:opacity-20`}
+            className={`bg-orange-500/70 px-6 py-2 text-white disabled:opacity-20`}
           >
-            <span className="translate-y-0.5 block">Reset</span>
+            <span className="block translate-y-0.5">Reset</span>
           </button>
         </div>
       </div>
@@ -497,7 +499,7 @@ export default function ResetPrompt({
           onClick={() => {
             setResetConfirmOpen(false);
           }}
-          className="outline-none focus-within:outline-none focus-within:ring-0 ring-0"
+          className="outline-none ring-0 focus-within:outline-none focus-within:ring-0"
         >
           close
         </button>

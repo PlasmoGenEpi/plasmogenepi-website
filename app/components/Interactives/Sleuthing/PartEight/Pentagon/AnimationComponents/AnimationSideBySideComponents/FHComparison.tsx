@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { phase2Atom } from "@/data/Interactives/interactiveStore";
 import { usePrevious } from "@/app/components/hooks";
-import SquareMicrohaplotype from "@/Interactives2/Shared/Microhaplotypes/SquareMicrohaplotype";
+import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhaplotypes/SquareMicrohaplotype";
 // import { usePrevious } from "@/app/components/hooks";
 
 export const partEightCloneRowColors: { [key: number]: string } = {

@@ -37,7 +37,7 @@ export default function InteractivePrimaryView({
     >
       <div
         // inert={isOpen}
-        className="@container/main relative pb-80"
+        className="relative pb-80 @container/main"
       >
         <PageView currentView={currentView} />
       </div>

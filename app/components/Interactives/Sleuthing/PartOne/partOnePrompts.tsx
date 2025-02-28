@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { sections } from "../2.6/pages/sections";
 
 export const partOnePrompts: {
   [key: number]: {
@@ -7,7 +8,7 @@ export const partOnePrompts: {
   };
 } = {
   0: {
-    title: <h5>Step 1</h5>,
+    title: <h5>{sections[1].title}</h5>,
     instructions: (
       <div className="flex flex-col gap-4">
         <p>
@@ -20,7 +21,7 @@ export const partOnePrompts: {
     ),
   },
   1: {
-    title: <h5>1.1 Create laboratory clones</h5>,
+    title: <h5>{sections[1].subcomponents[1].title}</h5>,
     instructions: (
       <div>
         <p>
@@ -34,7 +35,7 @@ export const partOnePrompts: {
     ),
   },
   2: {
-    title: <h5> 1.2 Make positive controls</h5>,
+    title: <h5>{sections[1].subcomponents[2].title}</h5>,
     instructions: (
       <div>
         <p>
@@ -47,7 +48,7 @@ export const partOnePrompts: {
     ),
   },
   3: {
-    title: <h5> 1.3 Genotype your positive controls</h5>,
+    title: <h5>{sections[1].subcomponents[3].title}</h5>,
     instructions: (
       <div>
         <p>
@@ -60,7 +61,7 @@ export const partOnePrompts: {
     ),
   },
   4: {
-    title: <h5>1.4 Counting Alleles</h5>,
+    title: <h5>{sections[1].subcomponents[4].title}</h5>,
     instructions: (
       <div>
         <p>Answer the following questions.</p>
@@ -68,7 +69,7 @@ export const partOnePrompts: {
     ),
   },
   5: {
-    title: <h5>1.5 Knowledge Check</h5>,
+    title: <h5>{sections[1].subcomponents[5].title}</h5>,
     instructions: (
       <div>
         <p>

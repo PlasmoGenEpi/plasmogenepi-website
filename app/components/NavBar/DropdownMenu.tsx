@@ -9,7 +9,7 @@ export default function DropdownMenu() {
 
   return (
     <button
-      className="absolute right-4 top-[68px] fill-pge-darkest-blue dark:fill-[#ececec] md:hidden"
+      className="absolute right-4 top-[68px] fill-pge-darkest-blue  md:hidden"
       onClick={(e) => {
         setOpen(!open);
       }}

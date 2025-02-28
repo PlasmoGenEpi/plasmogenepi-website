@@ -494,29 +494,6 @@ export default function InteractiveSideBar2({
               Genotype Sleuthing to Estimate Relatedness from Genetic Data
             </h3>
           </div>
-          <div className="flex w-full px-8 py-4 md:hidden">
-            <button
-              className="inline-flex gap-2 text-orange-400"
-              onClick={() => {
-                // setResetConfirmOpen(true);
-              }}
-            >
-              <svg
-                height="20pt"
-                width="20pt"
-                version="1.1"
-                viewBox="0 0 1200 1200"
-                xmlns="http://www.w3.org/2000/svg"
-                className="fill-current"
-              >
-                <path
-                  d="m287.73 350c72.848-90.875 184.54-149.27 309.9-149.99 1.7227-0.011718 3.4375-0.011718 5.1562 0 106.71 0.73047 203.5 43.242 274.8 111.99 4.1406 3.9883 8.1914 8.0664 12.156 12.234 67.055 70.43 108.7 165.28 110.21 269.84 0.066406 4.1406 0.0625 8.2812-0.003906 12.426-1.6523 103.7-42.77 197.81-108.98 267.98-5.2891 5.6055-10.742 11.059-16.359 16.363-70.281 66.383-164.61 107.57-268.54 109.11-3.8359 0.0625-7.6797 0.0625-11.523 0.011719-201.55-2.6953-367.12-154.46-391.46-350.07-3.4102-27.398-25.469-49.898-53.082-49.898s-50.258 22.441-47.504 49.914c1.6914 16.859 4.2344 33.574 7.6055 50.086 17.723 86.824 58.344 168.01 118.48 234.73 82.77 91.844 196.63 149.77 319.6 162.57 122.97 12.816 246.32-20.383 346.25-93.191 99.93-72.805 169.34-180.05 194.83-301.03 25.488-120.98 5.25-247.11-56.809-354.05-62.055-106.93-161.53-187.09-279.21-224.98-117.68-37.895-245.24-30.84-358.03 19.801-77.801 34.93-144.77 88.891-195.21 156.14v-100c0-27.613-22.387-50-50-50s-50 22.387-50 50v250h250c27.613 0 50-22.387 50-50s-22.387-50-50-50z"
-                  fillRule="evenodd"
-                />
-              </svg>
-              <span className="mt-1 text-lg">Reset</span>
-            </button>
-          </div>
           {/* <InteractiveSideBarSection2 title={"Introduction"} />
           <InteractiveSideBarSection2 title={"Introduction"} /> */}
 
@@ -598,6 +575,45 @@ export default function InteractiveSideBar2({
               />
             );
           })}
+          <div
+            className={`
+      w-full border-gray-200/20 md:max-w-sm`}
+          >
+            <button
+              disabled={!completion8[40]}
+              aria-expanded={isOpen}
+              onClick={() => {
+                setCurrentView({ ...currentView, section: 4 });
+                // setIsOpen(!isOpen);
+              }}
+              className={`h-fit w-full border-b border-white/20 py-2 text-left text-lg md:[&:has(div>h3:hover)]:tooltip`}
+            >
+              <div className="grid w-full max-w-full grid-cols-[40px,auto,40px] gap-[5%] pl-[5%]">
+                <h3
+                  className={`col-start-2 translate-y-0.5
+            
+            overflow-hidden text-ellipsis text-nowrap py-2 text-left text-sm duration-300`}
+                >
+                  Summary
+                </h3>
+                {!completion8[40] && (
+                  <svg
+                    className=" m-auto mt-2 fill-current"
+                    width="16pt"
+                    height="16pt"
+                    version="1.1"
+                    viewBox="0 0 1200 1200"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g>
+                      <path d="m880 400c0-154.64-125.36-280-280-280s-280 125.36-280 280v240h80v-240c0-110.46 89.543-200 200-200s200 89.543 200 200v240h80z" />
+                      <path d="m200 600.23v399.53c0 44.312 35.93 80.234 79.633 80.234h640.73c43.98 0 79.633-35.883 79.633-80.234v-399.53c0-44.312-35.93-80.234-79.633-80.234h-640.73c-43.98 0-79.633 35.883-79.633 80.234z" />
+                    </g>
+                  </svg>
+                )}
+              </div>
+            </button>
+          </div>
           {/* <div
           onClick={() => {
             if (dev === true || completion8[39]) {

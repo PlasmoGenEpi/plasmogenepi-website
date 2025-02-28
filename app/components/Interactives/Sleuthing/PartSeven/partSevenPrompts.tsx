@@ -77,8 +77,8 @@ export const partSevenPrompts: {
             At the end of step 1, you have 3 laboratory clones made from
             microhaplotypes. Take a moment to recall their composition.
           </p>
-          <div className="grid place-items-center mt-8">
-            <div className="w-full mx-auto max-w-[500px]">
+          <div className="mt-8 grid place-items-center">
+            <div className="mx-auto w-full max-w-[500px]">
               <h5 className="mb-4 font-bold">
                 Lab Clones with Microhaplotypes
               </h5>
@@ -326,7 +326,7 @@ export const partSevenPrompts: {
           Compare the polyclonal control <InlineCircle polyclonal={1} /> to lab
           clone 1 <InlineCircle className="bg-cloneRed" />. Note that lab clone
           1 <InlineCircle className="bg-cloneRed" /> is contained within the
-          plyclonal control (so it is perfectly related to one of the clones in
+          polyclonal control (so it is perfectly related to one of the clones in
           that control). Check yes or no for each of the 12 loci as to whether
           there is any match in alleles between the two samples.
         </p>{" "}
@@ -352,7 +352,7 @@ export const partSevenPrompts: {
           Compare the polyclonal control <InlineCircle polyclonal={1} /> to lab
           clone 1 <InlineCircle className="bg-cloneRed" />. Note that lab clone
           1 <InlineCircle className="bg-cloneRed" /> is contained within the
-          plyclonal control (so it is perfectly related to one of the clones in
+          polyclonal control (so it is perfectly related to one of the clones in
           that control). Check yes or no for each of the 12 loci as to whether
           there is any match in alleles between the two samples.
         </p>{" "}

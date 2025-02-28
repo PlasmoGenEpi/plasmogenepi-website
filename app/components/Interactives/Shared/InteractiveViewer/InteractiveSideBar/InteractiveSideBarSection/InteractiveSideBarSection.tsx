@@ -99,7 +99,7 @@ export default function InteractiveSideBarSection({
         className={`
       border-gray-200/20 ${
         first ? "border-y" : !inner ? "border-b" : ""
-      } relative ${node.active ? "bg-zinc-900/40" : ""} md:max-w-sm w-full`}
+      } relative ${node.active ? "bg-zinc-900/40" : ""} w-full md:max-w-sm`}
       >
         <button
           aria-expanded={isOpen}
@@ -113,11 +113,11 @@ export default function InteractiveSideBarSection({
             });
             // setIsOpen(!isOpen);
           }}
-          className={`md:[&:has(div>h3:hover)]:tooltip h-fit w-full py-2 text-left text-lg`}
+          className={`h-fit w-full py-2 text-left text-lg md:[&:has(div>h3:hover)]:tooltip`}
         >
-          <div className="pl-[5%] grid w-full grid-cols-[40px,auto,40px] gap-[5%] max-w-full">
+          <div className="grid w-full max-w-full grid-cols-[40px,auto,40px] gap-[5%] pl-[5%]">
             <h3
-              className={`py-2 col-start-2
+              className={`col-start-2 py-2
             ${node.active ? "" : ""}
             ${
               sideBarIsOpen && isOpen ? "" : "text-nowrap"
@@ -127,7 +127,7 @@ export default function InteractiveSideBarSection({
             </h3>
             {node.locked && (
               <svg
-                className=" fill-current m-auto mt-2"
+                className=" m-auto mt-2 fill-current"
                 width="16pt"
                 height="16pt"
                 version="1.1"
@@ -146,7 +146,7 @@ export default function InteractiveSideBarSection({
               width="20pt"
               height="20pt"
               version="1.1"
-              className={` absolute right-2 top-3 stroke-[2.25rem] stroke-interactiveBlue/ ${
+              className={` stroke-interactiveBlue/ absolute right-2 top-3 stroke-[2.25rem] ${
                 !node.subcomponents
                   .map((subNode) => {
                     return subNode.complete;
@@ -170,8 +170,8 @@ export default function InteractiveSideBarSection({
     <div
       className={`
         border-gray-200/20 ${first ? "border-y" : "border-b"} relative ${
-        node.active && !isOpen ? "bg-white/5" : ""
-      } md:max-w-sm w-full`}
+          node.active && !isOpen ? "bg-white/5" : ""
+        } w-full md:max-w-sm`}
     >
       <button
         aria-expanded={isOpen}
@@ -189,7 +189,7 @@ export default function InteractiveSideBarSection({
           //     ? `calc(5% + ${additionalPadding}px)`
           //     : `5%`,
           // }}
-          className="grid w-full grid-cols-[40px,auto,40px] gap-[5%] max-w-full"
+          className="grid w-full max-w-full grid-cols-[40px,auto,40px] gap-[5%]"
         >
           <svg
             width="16pt"
@@ -214,7 +214,7 @@ export default function InteractiveSideBarSection({
           </h3>
           {node.locked && (
             <svg
-              className=" fill-current m-auto mt-2"
+              className=" m-auto mt-2 fill-current"
               width="16pt"
               height="16pt"
               version="1.1"
@@ -279,7 +279,7 @@ export default function InteractiveSideBarSection({
                       active: currentView.section === subNode.sectionId,
                       locked: subNode.requiresAtom
                         ? Object.values(
-                            useAtomValue(subNode.requiresAtom)
+                            useAtomValue(subNode.requiresAtom),
                           ).includes(false)
                         : false,
                       // locked: useAtomValue(subNode.requiresAtom)[subNode.requiresKey]
@@ -319,7 +319,7 @@ export default function InteractiveSideBarSection({
                               // setInteractiveView
                             },
                           };
-                        }
+                        },
                       ),
                     }}
                     inner={true}
@@ -339,8 +339,8 @@ export default function InteractiveSideBarSection({
                 }}
                 key={idx}
                 disabled={node.locked}
-                className={`pl-[10%]
-                  relative  py-3 pr-12/ text-left disabled:pointer-events-none grid grid-cols-[40px_auto_40px] gap-[5%]
+                className={`pr-12/
+                  relative  grid grid-cols-[40px_auto_40px] gap-[5%] py-3 pl-[10%] text-left disabled:pointer-events-none
                 ${subNode.active ? "bg-white/5" : ""} 
                 ${
                   subNode?.requires === false

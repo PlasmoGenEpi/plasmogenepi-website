@@ -66,7 +66,7 @@ const config: Config = {
       },
     },
   },
-  darkMode: ["class"],
+  // darkMode: ["class"],
 
   plugins: [require("daisyui"), require("@tailwindcss/container-queries")],
   daisyui: {

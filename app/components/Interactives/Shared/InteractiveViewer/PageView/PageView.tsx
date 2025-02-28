@@ -12,6 +12,7 @@ import Part2Intro from "../../../Sleuthing/Part2Intro/Part2Intro";
 import PartSix from "../../../Sleuthing/PartSix/PartSix";
 import PartSeven from "../../../Sleuthing/PartSeven/PartSeven";
 import PartEight from "../../../Sleuthing/PartEight/PartEight";
+import { ModuleCopyCode } from "../../Buttons/ModuleCopyCode";
 // import PartOne from "@/app/components/Interactives/Sleuthing/PartOne/PartOne";
 // import PartZero from "@/app/components/Interactives/Sleuthing/PartZero/PartZero";
 // import PartTwo from "@/app/components/Interactives/Sleuthing/PartTwo/PartTwo";
@@ -91,19 +92,23 @@ export default function PageView({
                 transmission, along with other epidemiological and genetic data.
               </li>
             </ul>
-            <div className="py-8">
+            <div className="mt-8">
+              <ModuleCopyCode code="HildrusPoindexter1901" />
+            </div>
+            {/* <div className="flex w-full flex-col py-8">
+              <h6 className="text-xl font-bold">Module Code</h6>
               <button
                 onClick={() => {
                   navigator.clipboard.writeText("HildrusPoindexter1901");
                 }}
-                className="copy-tooltip ml-auto p-2 pb-1 underline"
+                className="tooltip [--tooltip-color:#ffffff] [--tooltip-tail:.5rem] [--tooltip-text-color:black] focus:tooltip-open before:p-4 before:pb-3 before:text-xl before:ring-2  before:ring-interactiveBlue after:border-t-interactiveBlue after:[color:blue]"
+                data-tip={`Copy HildrusPoindexter1901`}
+                // className="copy-tooltip clicked:text-red-500 ml-auto p-2 pb-1 underline "
               >
-                Copy Code
+                C
               </button>
-              <p className="text-center text-2xl text-interactiveBlue">
-                HildrusPoindexter1901
-              </p>
-            </div>
+              <p className="text-center text-2xl ">HildrusPoindexter1901</p>
+            </div> */}
           </div>
         </div>
       );

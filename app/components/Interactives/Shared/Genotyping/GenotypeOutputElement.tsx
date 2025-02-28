@@ -18,10 +18,10 @@ export default function GenotypeOutputElement({
       <div
         className={
           idx === 11
-            ? `relative dark:bg-white dark:text-black flex min-h-[2.5em] flex-col items-center justify-end  font-bold  ${
+            ? `relative flex min-h-[2.5em] flex-col items-center justify-end font-bold dark:bg-white  dark:text-black  ${
                 className ? className : "text-xl"
               }`
-            : `relative dark:bg-white dark:text-black flex min-h-[2.5em]  flex-col items-center  justify-end  font-bold  ${
+            : `relative flex min-h-[2.5em] flex-col items-center  justify-end font-bold  dark:bg-white  dark:text-black  ${
                 className ? className : "text-xl"
               }`
         }
@@ -42,7 +42,7 @@ export default function GenotypeOutputElement({
                     : "-translate-x-2"
                 } -translate-y-[17px] transition-all`
               : vals.reference && !vals.alternate
-              ? "absolute transition-all -translate-y-1/4"
+              ? "absolute -translate-y-1/4 transition-all"
               : "hidden"
           }
         >
@@ -63,7 +63,7 @@ export default function GenotypeOutputElement({
             vals.reference && vals.alternate
               ? "alternateAllele absolute mt-2 translate-x-1.5 translate-y-1 text-white transition-all"
               : !vals.reference && vals.alternate
-              ? "alternateAllele absolute text-white transition-all -translate-y-1/4"
+              ? "alternateAllele absolute -translate-y-1/4 text-white transition-all"
               : "hidden"
           }
         >

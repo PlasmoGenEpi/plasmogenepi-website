@@ -41,6 +41,7 @@ export default function Part2Intro() {
                 Surveillance for the National Malaria Control Program.
               </p>
               <Image
+                className="dark:brightness-50"
                 alt=""
                 src={`/InteractiveAssets/Slide1.png`}
                 width={1200}
@@ -68,6 +69,7 @@ export default function Part2Intro() {
                 Officer in the Eliminati Region.
               </p>
               <Image
+                className="dark:brightness-50"
                 alt=""
                 src={`/InteractiveAssets/Slide2.png`}
                 width={1200}
@@ -83,6 +85,7 @@ export default function Part2Intro() {
                 yourself) and call Tarsis immediately.
               </p>
               <Image
+                className="dark:brightness-50"
                 alt=""
                 src={`/InteractiveAssets/Slide3.png`}
                 width={1200}
@@ -121,6 +124,7 @@ export default function Part2Intro() {
               </p>
               <p>So what will you do next?</p>
               <Image
+                className="dark:brightness-50"
                 alt=""
                 src={`/InteractiveAssets/Slide4.png`}
                 width={1200}
@@ -187,7 +191,7 @@ export default function Part2Intro() {
                 and school, and decide on next steps.
               </p>
               <p>Speficially you will:</p>
-              <ol className="flex list-decimal px-4 flex-col gap-2 mt-4">
+              <ol className="mt-4 flex list-decimal flex-col gap-2 px-4">
                 <li>
                   <p>
                     Genotype laboratory clones, estimate their relatedness by

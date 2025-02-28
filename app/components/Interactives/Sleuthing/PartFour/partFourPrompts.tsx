@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { sections } from "../2.6/pages/sections";
 
 export const partFourPrompts: {
   [key: number]: {
@@ -7,13 +8,7 @@ export const partFourPrompts: {
   };
 } = {
   0: {
-    title: (
-      <h5>
-        Step 4
-        {/* Analyze Results From Your Field Samples Using Microhaplotypes to
-        Estimate the Unknown MOI */}
-      </h5>
-    ),
+    title: <h5>{sections[4].title}</h5>,
     instructions: (
       <p>
         Now it's time to analyze results from your field samples using
@@ -22,7 +17,7 @@ export const partFourPrompts: {
     ),
   },
   1: {
-    title: <h5>4.1 Estimate MOI for each of the 10 field samples</h5>,
+    title: <h5>{sections[4].subcomponents[1].title}</h5>,
     instructions: (
       <p>
         View the genotype for each field samples from microhaplotypes. Estimate
@@ -33,7 +28,7 @@ export const partFourPrompts: {
     ),
   },
   2: {
-    title: <h5> 4.2 Calculate average MOI</h5>,
+    title: <h5>{sections[4].subcomponents[2].title}</h5>,
     instructions: (
       <div>
         <p>

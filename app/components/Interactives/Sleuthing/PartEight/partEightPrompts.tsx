@@ -1,6 +1,8 @@
 import { ReactElement } from "react";
 import InlinePlus from "../../Shared/misc/InlinePlus";
 import InlineEdge from "../../Shared/misc/InlineEdge";
+import { ModuleCopyCode } from "../../Shared/Buttons/ModuleCopyCode";
+import Image from "next/image";
 
 const sections = {
   // 0: {
@@ -76,7 +78,7 @@ export const partEightPrompts: {
     title: <h5>Estimating MOI</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
-        <p>
+        {/* <p>
           Let&apos;s start with the cases in the boarding school. These were all
           students who were diagnosed with malaria soon after returning from
           holiday visits to families. Some of these students travel far for
@@ -84,7 +86,7 @@ export const partEightPrompts: {
           lab has successfully genotyped infections from all four cases using
           the same amplicon sequencing panel with 12 microhaplotypes you just
           evaluated on controls.
-        </p>
+        </p> */}
         <p>
           First let&apos;s estimate the MOI of each infection. Recall from
           Module 2, and from the controls you just evaluated, that with diverse
@@ -640,7 +642,7 @@ export const partEightPrompts: {
     ),
   },
   40: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>Summary</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -666,19 +668,16 @@ export const partEightPrompts: {
           are rumors that additional resources are being mobilized to support
           your work along with promotions for you and your team.
         </p>
-        <div className="py-8">
-          <button
-            onClick={() => {
-              navigator.clipboard.writeText("TuYouyou1930");
-            }}
-            className="copy-tooltip ml-auto p-2 pb-1 underline"
-          >
-            Copy Code
-          </button>
-          <p className="text-center text-2xl text-interactiveBlue">
-            TuYouyou1930
-          </p>
-        </div>{" "}
+        <div className="mt-8">
+          <ModuleCopyCode code="TuYouyou1930" />
+        </div>
+        <Image
+          width={1200}
+          height={800}
+          alt="Finished"
+          className="dark:brightness-50"
+          src="/InteractiveAssets/Slide9.png"
+        />
       </div>
     ),
   },

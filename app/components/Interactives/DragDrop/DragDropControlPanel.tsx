@@ -754,7 +754,7 @@ export default function DragDropControlPanel({
               className={`${
                 currentView.section === 0 && currentView.phase === 2
                   ? "visible w-auto"
-                  : false || !getNextStep()
+                  : isDisabled() || !getNextStep()
                   ? "invisible w-0"
                   : "visible w-auto"
               } ml-2 block translate-y-1 text-nowrap text-current underline underline-offset-2`}
