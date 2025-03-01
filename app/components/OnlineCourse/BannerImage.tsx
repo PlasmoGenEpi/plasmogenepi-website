@@ -57,7 +57,7 @@ export default function BannerImage() {
           <div>
             <Link
               prefetch
-              href="/SignUp"
+              href="https://cppr.ucsfmoodle.org/course/view.php?id=99"
               className="mx-auto block w-fit rounded bg-black/80 bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-8 py-3  text-xl font-medium text-white transition-all hover:scale-105"
             >
               Sign Up
