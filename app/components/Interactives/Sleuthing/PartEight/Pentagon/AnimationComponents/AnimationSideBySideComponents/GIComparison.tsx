@@ -9,8 +9,8 @@ import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
 
 export const partEightCloneRowColors: { [key: number]: string } = {
-  1: "to-microRed/80 via-microRed/80",
-  2: "to-microBlue via-microBlue",
+  1: "to-cloneRed/80 via-cloneRed/80",
+  2: "to-cloneBlue via-cloneBlue",
   3: "to-microOrange via-microOrange",
   4: "to-microPurple via-microPurple",
   5: "to-microTeal via-microTeal",
@@ -51,10 +51,10 @@ export default function GIComparison() {
                   }}
                   className="relative my-auto flex aspect-square items-center justify-center overflow-hidden rounded-full"
                 >
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-microRed/80 via-[#e61048_50%,#4896e8_50%] to-microBlue"></div>
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-cloneRed/80 via-[#ffb0b0_50%,#b8e6fa_50%] to-cloneBlue"></div>
                 </div>
                 <ol
-                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-microRed/80 via-[#e61048_50%,#4896e8_50%] to-microBlue p-1 shadow-sm shadow-black `}
+                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-cloneRed/80 via-[#ffb0b0_50%,#b8e6fa_50%] to-cloneBlue p-1 shadow-sm shadow-black `}
                 >
                   {Array(12)
                     .fill(0)
@@ -134,10 +134,10 @@ export default function GIComparison() {
                   }}
                   className="relative my-auto flex aspect-square items-center justify-center overflow-hidden rounded-full"
                 >
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-b from-microRed/80 via-[#e61048_50%,#4896e8_50%] to-microBlue"></div>
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cloneRed/80 via-[#ffb0b0_50%,#b8e6fa_50%] to-cloneBlue"></div>
                 </div>
                 <ol
-                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-microRed/80 via-[#e61048_25.5%,#4896e8_25.5%,#4896e8_74.5%,#e61048_74.5%] to-microRed/80 p-1 shadow-sm shadow-black lg:p-1`}
+                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-cloneRed/80 via-[#ffb0b0_25.5%,#b8e6fa_25.5%,#b8e6fa_74.5%,#ffb0b0_74.5%] to-cloneRed/80 p-1 shadow-sm shadow-black lg:p-1`}
                 >
                   {Array(12)
                     .fill(0)

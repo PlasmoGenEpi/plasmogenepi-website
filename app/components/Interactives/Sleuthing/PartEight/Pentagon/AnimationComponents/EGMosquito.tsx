@@ -52,7 +52,7 @@ export default function EGMosquito() {
                   phase === 26 ? "recombination" : phase > 26 ? "hidden" : ""
                 } transition-all ${
                   phase < 25 ? "hidden" : ""
-                } fadeIn300 fill-microBlue stroke-black stroke-1 `}
+                } fadeIn300 fill-cloneBlue stroke-black stroke-1 `}
               ></circle>
               <circle
                 style={{
@@ -66,7 +66,7 @@ export default function EGMosquito() {
                   phase === 26 ? "recombination2" : phase > 26 ? "hidden" : ""
                 } transition-all  ${
                   phase < 25 ? "hidden" : ""
-                } fadeIn300 fill-microRed stroke-black stroke-1`}
+                } fadeIn300 fill-cloneRed stroke-black stroke-1`}
                 // fill="url('#red-ball-gradient')"
               ></circle>
               {phase >= 26 && (

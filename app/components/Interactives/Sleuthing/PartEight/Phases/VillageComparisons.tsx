@@ -22,8 +22,10 @@ export default function VillageComparisons() {
           ? `Genotype Matches`
           : phase === 13
           ? "Questions"
+          : phase >= 20
+          ? "Questions"
           : phase >= 18
-          ? "Interpretation of Results and Communication of Findings"
+          ? "Results"
           : ""
       }
       rightContent={<PentagonSideBySide />}

@@ -46,7 +46,7 @@ export default function FHMosquito() {
                 className={`${phase > 32 ? "hidden" : ""} ${
                   phase >= 32 ? "recombination" : ""
                 } transition-all duration-500 ${
-                  phase >= 30 ? "fill-microPurple" : "fill-white"
+                  phase >= 30 ? "fill-microYellow" : "fill-white"
                 } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
@@ -60,7 +60,7 @@ export default function FHMosquito() {
                 className={`${phase > 32 ? "hidden" : ""} ${
                   phase >= 32 ? "recombination" : ""
                 } transition-all duration-500 ${
-                  phase >= 30 ? "fill-microPurple" : "fill-white"
+                  phase >= 30 ? "fill-microYellow" : "fill-white"
                 } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
@@ -73,7 +73,7 @@ export default function FHMosquito() {
                 className={`${phase > 32 ? "hidden" : ""} ${
                   phase >= 32 ? "recombination2" : ""
                 } transition-all ${
-                  phase >= 30 ? "fill-microOrange" : "fill-white"
+                  phase >= 30 ? "fill-cloneOrange" : "fill-white"
                 } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
@@ -86,7 +86,7 @@ export default function FHMosquito() {
                 className={`${phase > 32 ? "hidden" : ""} ${
                   phase >= 32 ? "recombination2" : ""
                 } transition-all ${
-                  phase >= 30 ? "fill-microTeal" : "fill-white"
+                  phase >= 30 ? "fill-cloneGreen" : "fill-white"
                 } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle

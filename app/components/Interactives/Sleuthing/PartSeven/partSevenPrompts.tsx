@@ -90,7 +90,7 @@ export const partSevenPrompts: {
     ),
   },
   1: {
-    title: <h5>2.1.2 View your positive controls</h5>,
+    title: <h5>2.1.2. View Your Positive Controls</h5>,
     instructions: (
       <div>
         {/* <p className="mt-2">
@@ -109,7 +109,9 @@ export const partSevenPrompts: {
     ),
   },
   2: {
-    title: <h5>2.1.3 View the genotype of your positive controls</h5>,
+    title: (
+      <h5>2.1.3. View the Genotypes of Your Polyclonal Positive Controls</h5>
+    ),
     instructions: (
       <div>
         <div className="flex flex-col gap-4">
@@ -142,7 +144,7 @@ export const partSevenPrompts: {
   },
   3: {
     title: (
-      <h5>2.1.3 View the genotypes of your polyclonal positive controls </h5>
+      <h5>2.1.3. View the Genotypes of Your Polyclonal Positive Controls</h5>
     ),
     instructions: (
       <div className="flex flex-col gap-4">
@@ -184,10 +186,12 @@ export const partSevenPrompts: {
   4: {
     title: (
       <h5>
-        {" "}
-        2.2.1 Check matching alleles at each locus between polyclonal control{" "}
+        2.2.1. Check Matching Alleles at Each Locus between Polyclonal Control
+        1:2 <InlineCircle polyclonal={1} /> and Lab Clone 3{" "}
+        <InlineCircle className="bg-cloneGreen" /> (Unrelated){" "}
+        {/* 2.2.1 Check matching alleles at each locus between polyclonal control{" "}
         <InlineCircle polyclonal={1} /> and lab clone 3{" "}
-        <InlineCircle className="bg-cloneGreen" /> (unrelated)
+        <InlineCircle className="bg-cloneGreen" /> (unrelated) */}
       </h5>
     ),
     instructions: (
@@ -207,10 +211,9 @@ export const partSevenPrompts: {
   5: {
     title: (
       <h5>
-        {" "}
-        2.2.1 &ndash; Check matching alleles at each locus between polyclonal
-        control <InlineCircle polyclonal={1} /> and lab clone 3{" "}
-        <InlineCircle className="bg-cloneGreen" /> (unrelated)
+        2.2.1. Check Matching Alleles at Each Locus between Polyclonal Control
+        1:2 <InlineCircle polyclonal={1} /> and Lab Clone 3{" "}
+        <InlineCircle className="bg-cloneGreen" /> (Unrelated){" "}
       </h5>
     ),
     instructions: (
@@ -230,10 +233,9 @@ export const partSevenPrompts: {
   6: {
     title: (
       <h5>
-        {" "}
-        2.2.2 Check matching alleles at each locus between polyclonal control{" "}
-        <InlineCircle polyclonal={2} /> and lab clone 1{" "}
-        <InlineCircle className="bg-cloneRed" /> (unrelated){" "}
+        2.2.2. Check Matching Alleles at Each Locus between Polyclonal Control
+        2:3 <InlineCircle polyclonal={2} /> and Lab Clone 1{" "}
+        <InlineCircle className="bg-cloneRed" /> (Unrelated){" "}
       </h5>
     ),
     instructions: (
@@ -253,10 +255,9 @@ export const partSevenPrompts: {
   7: {
     title: (
       <h5>
-        {" "}
-        2.2.2 Check matching alleles at each locus between polyclonal control{" "}
-        <InlineCircle polyclonal={2} /> and lab clone 1{" "}
-        <InlineCircle className="bg-cloneRed" /> (unrelated){" "}
+        2.2.2. Check Matching Alleles at Each Locus between Polyclonal Control
+        2:3 <InlineCircle polyclonal={2} /> and Lab Clone 1{" "}
+        <InlineCircle className="bg-cloneRed" /> (Unrelated){" "}
       </h5>
     ),
     instructions: (
@@ -274,7 +275,7 @@ export const partSevenPrompts: {
     ),
   },
   8: {
-    title: <h5> 2.2.3 Knowledge Check </h5>,
+    title: <h5>2.2.3. Knowledge Check Questions When IBD is 0</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -292,7 +293,7 @@ export const partSevenPrompts: {
     ),
   },
   9: {
-    title: <h5> 2.2.3 Knowledge Check </h5>,
+    title: <h5>2.2.3. Knowledge Check Questions When IBD is 0</h5>,
 
     instructions: (
       <div className="flex flex-col gap-2">
@@ -310,10 +311,12 @@ export const partSevenPrompts: {
   10: {
     title: (
       <h5>
-        {" "}
-        2.3.1 Check matching alleles at each locus between polyclonal control{" "}
+        2.3.1. Check Matching Alleles at Each Locus between Polyclonal Control
+        1:2 <InlineCircle polyclonal={1} /> and Lab Clone 1{" "}
+        <InlineCircle className="bg-cloneRed" /> (Related){" "}
+        {/* 2.3.1 Check matching alleles at each locus between polyclonal control{" "}
         <InlineCircle polyclonal={1} /> and lab clone 1{" "}
-        <InlineCircle className="bg-cloneRed" /> (related){" "}
+        <InlineCircle className="bg-cloneRed" /> (related){" "} */}
       </h5>
     ),
     instructions: (
@@ -336,10 +339,9 @@ export const partSevenPrompts: {
   11: {
     title: (
       <h5>
-        {" "}
-        2.3.1 Check matching alleles at each locus between polyclonal control{" "}
-        <InlineCircle polyclonal={1} /> and lab clone 1{" "}
-        <InlineCircle className="bg-cloneRed" /> (related){" "}
+        2.3.1. Check Matching Alleles at Each Locus between Polyclonal Control
+        1:2 <InlineCircle polyclonal={1} /> and Lab Clone 1{" "}
+        <InlineCircle className="bg-cloneRed" /> (Related){" "}
       </h5>
     ),
     instructions: (
@@ -360,7 +362,7 @@ export const partSevenPrompts: {
     ),
   },
   12: {
-    title: <h5> 2.3.2 Making the connection</h5>,
+    title: <h5> 2.3.2. Making the Connection</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -375,7 +377,7 @@ export const partSevenPrompts: {
     ),
   },
   13: {
-    title: <h5> 2.3.2 Making the connection</h5>,
+    title: <h5> 2.3.2. Making the Connection</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -392,10 +394,12 @@ export const partSevenPrompts: {
   14: {
     title: (
       <h5>
-        {" "}
-        2.3.3 Check matching alleles at each locus between polyclonal control{" "}
+        2.3.3. Check Matching Alleles at Each Locus between the Polyclonal
+        Control <InlineCircle polyclonal={1} /> and Lab Clone 4{" "}
+        <InlineCircle hybrid /> (Related){" "}
+        {/* 2.3.3 Check matching alleles at each locus between polyclonal control{" "}
         <InlineCircle polyclonal={1} /> and lab clone 4 <InlineCircle hybrid />{" "}
-        (related){" "}
+        (related){" "} */}
       </h5>
     ),
 
@@ -413,10 +417,9 @@ export const partSevenPrompts: {
   15: {
     title: (
       <h5>
-        {" "}
-        2.3.3 Check matching alleles at each locus between polyclonal control{" "}
-        <InlineCircle polyclonal={1} /> and lab clone 4 <InlineCircle hybrid />{" "}
-        (related){" "}
+        2.3.3. Check Matching Alleles at Each Locus between the Polyclonal
+        Control <InlineCircle polyclonal={1} /> and Lab Clone 4{" "}
+        <InlineCircle hybrid /> (Related){" "}
       </h5>
     ),
 
@@ -432,7 +435,7 @@ export const partSevenPrompts: {
     ),
   },
   16: {
-    title: <h5> 2.3.4 Conclusions</h5>,
+    title: <h5> 2.3.4. Step 2 Summary</h5>,
 
     instructions: (
       <div className="flex flex-col gap-2">
@@ -448,7 +451,7 @@ export const partSevenPrompts: {
     ),
   },
   17: {
-    title: <h5>Summary</h5>,
+    title: <h5> 2.3.4. Step 2 Summary</h5>,
 
     instructions: (
       <div className="flex flex-col gap-2">

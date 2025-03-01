@@ -21,7 +21,7 @@ export const partEightPrompts: {
   };
 } = {
   1: {
-    title: <h5>Potential Outbreak at the School</h5>,
+    title: <h5>3.1. Potential Outbreak at the Boarding School</h5>,
     instructions: (
       <div>
         <p className="mb-4">
@@ -44,7 +44,7 @@ export const partEightPrompts: {
     ),
   },
   2: {
-    title: <h5>Potential Outbreak at the School</h5>,
+    title: <h5>3.1. Potential Outbreak at the Boarding School</h5>,
     instructions: (
       <div>
         <p>
@@ -57,7 +57,7 @@ export const partEightPrompts: {
     ),
   },
   3: {
-    title: <h5>Potential Outbreak at the School</h5>,
+    title: <h5>3.1. Potential Outbreak at the Boarding School</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         {/* <p>
@@ -75,7 +75,7 @@ export const partEightPrompts: {
     ),
   },
   4: {
-    title: <h5>Estimating MOI</h5>,
+    title: <h5>3.1.1. Estimating MOI</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         {/* <p>
@@ -100,7 +100,7 @@ export const partEightPrompts: {
     ),
   },
   5: {
-    title: <h5>Estimating MOI</h5>,
+    title: <h5>3.1.2. Comparing Genotypes</h5>,
     instructions: (
       <div>
         <p>
@@ -114,7 +114,7 @@ export const partEightPrompts: {
     ),
   },
   6: {
-    title: <h5>Estimating MOI</h5>,
+    title: <h5>3.1.2. Comparing Genotypes</h5>,
     instructions: (
       <div>
         <p>Answer the following questions.</p>
@@ -122,7 +122,7 @@ export const partEightPrompts: {
     ),
   },
   7: {
-    title: <h5>Estimating MOI</h5>,
+    title: <h5>3.1.2. Comparing Genotypes</h5>,
     instructions: (
       <div>
         <p>Answer the following questions.</p>
@@ -130,7 +130,7 @@ export const partEightPrompts: {
     ),
   },
   8: {
-    title: <h5>Estimating MOI</h5>,
+    title: <h5>3.1.3. Actual Infections</h5>,
     instructions: (
       <div>
         <p>
@@ -152,7 +152,7 @@ export const partEightPrompts: {
     ),
   },
   9: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2. Outbreak at the Boarding School</h5>,
     instructions: (
       <div>
         <p>
@@ -176,7 +176,7 @@ export const partEightPrompts: {
     ),
   },
   10: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.1. Estimating MOI</h5>,
     instructions: (
       <div>
         <p>
@@ -190,7 +190,7 @@ export const partEightPrompts: {
     ),
   },
   11: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.2. Comparing Genotypes</h5>,
     instructions: (
       <div>
         <p>
@@ -202,7 +202,7 @@ export const partEightPrompts: {
     ),
   },
   12: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.2. Comparing Genotypes</h5>,
     instructions: (
       <div>
         <p>
@@ -216,7 +216,7 @@ export const partEightPrompts: {
     ),
   },
   13: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.2. Comparing Genotypes</h5>,
     instructions: (
       <div>
         <p>
@@ -235,7 +235,7 @@ export const partEightPrompts: {
     ),
   },
   14: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.2. Comparing Genotypes</h5>,
     instructions: (
       <div>
         <p>
@@ -248,7 +248,7 @@ export const partEightPrompts: {
     ),
   },
   15: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.2. Comparing Genotypes</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -271,7 +271,7 @@ export const partEightPrompts: {
     ),
   },
   16: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.2. Comparing Genotypes</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -293,7 +293,7 @@ export const partEightPrompts: {
     ),
   },
   17: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.2. Comparing Genotypes</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -314,7 +314,9 @@ export const partEightPrompts: {
     ),
   },
   18: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: (
+      <h5>3.2.3. Interpretation of Results and Communcation of Findings</h5>
+    ),
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -326,7 +328,9 @@ export const partEightPrompts: {
     ),
   },
   19: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: (
+      <h5>3.2.3. Interpretation of Results and Communcation of Findings</h5>
+    ),
     instructions: (
       <div>
         <p>
@@ -337,7 +341,9 @@ export const partEightPrompts: {
     ),
   },
   20: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: (
+      <h5>3.2.3. Interpretation of Results and Communcation of Findings</h5>
+    ),
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -353,7 +359,9 @@ export const partEightPrompts: {
     ),
   },
   21: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: (
+      <h5>3.2.3. Interpretation of Results and Communcation of Findings</h5>
+    ),
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -369,7 +377,9 @@ export const partEightPrompts: {
     ),
   },
   22: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: (
+      <h5>3.2.3. Interpretation of Results and Communcation of Findings</h5>
+    ),
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -385,7 +395,7 @@ export const partEightPrompts: {
     ),
   },
   23: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -401,7 +411,7 @@ export const partEightPrompts: {
   },
 
   24: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -419,7 +429,7 @@ export const partEightPrompts: {
   },
 
   25: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>Next, a mosquito bit case E, and was infected with both clones.</p>
@@ -428,7 +438,7 @@ export const partEightPrompts: {
   },
 
   26: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -440,7 +450,7 @@ export const partEightPrompts: {
   },
 
   27: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -456,7 +466,7 @@ export const partEightPrompts: {
   },
 
   28: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -469,7 +479,7 @@ export const partEightPrompts: {
   },
 
   29: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -484,7 +494,7 @@ export const partEightPrompts: {
   },
 
   29.5: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -499,7 +509,7 @@ export const partEightPrompts: {
   },
 
   30: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -512,7 +522,7 @@ export const partEightPrompts: {
   },
 
   31: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -524,7 +534,7 @@ export const partEightPrompts: {
   },
 
   32: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -535,7 +545,7 @@ export const partEightPrompts: {
     ),
   },
   33: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.4. Actual Infections</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -548,7 +558,7 @@ export const partEightPrompts: {
     ),
   },
   34: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.5. IBD & IBS Comparisons</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -572,7 +582,7 @@ export const partEightPrompts: {
     ),
   },
   35: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.5. IBD & IBS Comparisons</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -594,7 +604,7 @@ export const partEightPrompts: {
     ),
   },
   36: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.6. Knowledge Check</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -606,7 +616,7 @@ export const partEightPrompts: {
     ),
   },
   37: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.6. Knowledge Check</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -618,7 +628,7 @@ export const partEightPrompts: {
     ),
   },
   38: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.6. Knowledge Check</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -630,7 +640,7 @@ export const partEightPrompts: {
     ),
   },
   39: {
-    title: <h5>Scenario 2: Village outbreak</h5>,
+    title: <h5>3.2.6. Knowledge Check</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>

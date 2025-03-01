@@ -15,9 +15,9 @@ import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhapl
 export const partEightCloneRowColors: { [key: number]: string } = {
   1: "to-microRed/80 via-microRed/80",
   2: "to-microBlue via-microBlue",
-  3: "to-microOrange via-microOrange",
-  4: "to-microPurple via-microPurple",
-  5: "to-microTeal via-microTeal",
+  3: "to-cloneOrange via-cloneOrange",
+  4: "to-cloneYellow via-cloneYellow",
+  5: "to-cloneGreen via-cloneGreen",
 };
 
 export const FHAnimationCompleteAtom = atom(false);
@@ -72,7 +72,7 @@ export default function FHComparison() {
                   </div>
                 </div>
                 <ol
-                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-microPurple p-1 shadow-sm shadow-black`}
+                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-cloneYellow p-1 shadow-sm shadow-black`}
                 >
                   {Array(12)
                     .fill(0)
@@ -99,7 +99,7 @@ export default function FHComparison() {
                   </div>
                 </div>
                 <ol
-                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-microOrange p-1 shadow-sm shadow-black`}
+                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-cloneOrange p-1 shadow-sm shadow-black`}
                 >
                   {Array(12)
                     .fill(0)
@@ -126,7 +126,7 @@ export default function FHComparison() {
                   </div>
                 </div>
                 <ol
-                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-microTeal p-1 shadow-sm shadow-black`}
+                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-cloneGreen p-1 shadow-sm shadow-black`}
                 >
                   {Array(12)
                     .fill(0)
@@ -175,24 +175,24 @@ export default function FHComparison() {
                       FHAnimationComplete ? "fadeIn500" : "hidden"
                     }`}
                   >
-                    <div className="w-full border-l-4 border-t-4 border-microPurple"></div>
-                    <div className="w-full border-r-4 border-t-4 border-microOrange"></div>
+                    <div className="w-full border-l-4 border-t-4 border-cloneYellow"></div>
+                    <div className="w-full border-r-4 border-t-4 border-cloneOrange"></div>
                   </div>
                   <div
                     className={`absolute -bottom-2 -right-2 left-2 col-start-2 grid h-6 w-full grid-cols-2 ${
                       FHAnimationComplete ? "fadeIn500" : "hidden"
                     }`}
                   >
-                    <div className="w-full border-l-4 border-t-4 border-microTeal"></div>
-                    <div className="w-full border-r-4 border-t-4 border-microPurple"></div>
+                    <div className="w-full border-l-4 border-t-4 border-cloneGreen"></div>
+                    <div className="w-full border-r-4 border-t-4 border-cloneYellow"></div>
                   </div>
                   <div
                     style={{
                       backgroundImage:
-                        "conic-gradient(#C45ED8, #C45ED8 50%, #FE8638 50%, #FE8638 75%, #16A0AC 75%, #16A0AC 100%)",
+                        "conic-gradient(#FEEC96, #FEEC96 50%, #fecc94 50%, #fecc94 75%, #c8ebc3 75%, #c8ebc3 100%)",
                       transitionDelay: phase === 32 ? "1000ms" : "0ms",
                     }}
-                    className={`col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-radial from-microPurple via-[#C45ED8_33%,#000000_33%_#000000_66%,#16A0AC_66%] to-microTeal bg-blend-overlay transition-all hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100 ${
+                    className={`col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-radial from-cloneYellow via-[#FEEC96_33%,#000000_33%_#000000_66%,#c8ebc3_66%] to-cloneGreen bg-blend-overlay transition-all hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100 ${
                       FHRecombinationComplete ? "opacity-100" : "opacity-0"
                     } z-10 transition-all duration-1000`}
                   >
@@ -225,10 +225,10 @@ export default function FHComparison() {
                     }}
                     className="relative my-auto flex aspect-square items-center justify-center overflow-hidden rounded-full"
                   >
-                    <div className="absolute inset-0 -z-10 bg-gradient-to-r from-microPurple via-[#C45ED8_50%,#FE8638_50%] to-microOrange"></div>
+                    <div className="absolute inset-0 -z-10 bg-gradient-to-r from-cloneYellow via-[#FEEC96_50%,#fecc94_50%] to-cloneOrange"></div>
                   </div>
                   <ol
-                    className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-microPurple via-[#C45ED8_50%,#FE8638_50%] to-microOrange p-1 shadow-sm shadow-black lg:p-1`}
+                    className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-cloneYellow via-[#FEEC96_50%,#fecc94_50%] to-cloneOrange p-1 shadow-sm shadow-black lg:p-1`}
                   >
                     {Array(12)
                       .fill(0)
@@ -254,10 +254,10 @@ export default function FHComparison() {
                     }}
                     className="relative my-auto flex aspect-square items-center justify-center overflow-hidden rounded-full"
                   >
-                    <div className="absolute inset-0 -z-10 bg-gradient-to-r from-microTeal via-[#16a0ac_50%,#C45ED8_50%] to-microPurple"></div>
+                    <div className="absolute inset-0 -z-10 bg-gradient-to-r from-cloneGreen via-[#c8ebc3_50%,#FEEC96_50%] to-cloneYellow"></div>
                   </div>
                   <ol
-                    className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-microTeal via-[#16a0ac_50%,#C45ED8_50%] to-microPurple p-1 shadow-sm shadow-black lg:p-1`}
+                    className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-cloneGreen via-[#c8ebc3_50%,#FEEC96_50%] to-cloneYellow p-1 shadow-sm shadow-black lg:p-1`}
                   >
                     {Array(12)
                       .fill(0)

@@ -275,8 +275,6 @@ export default function ResetPrompt({
     return null;
   }
 
-  return <div></div>;
-
   return (
     <dialog
       className={`modal z-[9999] font-helvetica ${

@@ -38,7 +38,7 @@ export default function InteractiveSideBar4() {
       sectionTitle: "Introduction",
       sectionId: 0,
       sectionLocked: false,
-      sectionComplete: false,
+      sectionComplete: completion0[3],
       subcomponents: [
         {
           title: "Background",
@@ -57,7 +57,7 @@ export default function InteractiveSideBar4() {
           },
         },
         {
-          title: "Your Goal",
+          title: "Case Study",
           isActive: (currentView: InteractiveViewSettings) => {
             let { section, phase } = currentView;
             return section === 0 && phase === 1;
@@ -73,7 +73,7 @@ export default function InteractiveSideBar4() {
           },
         },
         {
-          title: "Instructions",
+          title: "Your Goal",
           isActive: (currentView: InteractiveViewSettings) => {
             let { section, phase } = currentView;
             return section === 0 && phase === 2;
@@ -88,13 +88,29 @@ export default function InteractiveSideBar4() {
             });
           },
         },
+        {
+          title: "Instructions",
+          isActive: (currentView: InteractiveViewSettings) => {
+            let { section, phase } = currentView;
+            return section === 0 && phase === 3;
+          },
+          complete: completion0[3],
+          available: completion0[2],
+          callback: (setCurrentView: any) => {
+            setCurrentView({
+              module: "5.6",
+              section: 0,
+              phase: 3,
+            });
+          },
+        },
       ],
     },
     {
       sectionTitle:
         "Step 1. Genotype Laboratory Clones, Estimate Their Relatedness by Calculating IBS, and Compare This to What You Know about IBD",
       sectionId: 1,
-      sectionLocked: !completion0[2],
+      sectionLocked: !completion0[3],
       sectionComplete: completion6[33.5],
       subcomponents: [
         {
@@ -104,7 +120,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 0;
           },
           complete: completion6[0],
-          available: true,
+          available: completion0[3],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -121,7 +137,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 1;
           },
           complete: completion6[1],
-          available: true,
+          available: completion6[0],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -139,7 +155,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 2;
           },
           complete: completion6[2],
-          available: true,
+          available: completion6[1],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -156,7 +172,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase >= 3 && phase <= 5;
           },
           complete: completion6[5],
-          available: true,
+          available: completion6[2],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -173,7 +189,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 6;
           },
           complete: completion6[6],
-          available: true,
+          available: completion6[5],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -191,7 +207,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase >= 8 && phase <= 10;
           },
           complete: completion6[10],
-          available: true,
+          available: completion6[6],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -208,7 +224,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 11;
           },
           complete: completion6[11],
-          available: true,
+          available: completion6[10],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -226,7 +242,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase >= 12 && phase <= 14.5;
           },
           complete: completion6[14.5],
-          available: true,
+          available: completion6[11],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -244,7 +260,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 15;
           },
           complete: completion6[15],
-          available: true,
+          available: completion6[14.5],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -260,7 +276,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 21;
           },
           complete: completion6[21],
-          available: true,
+          available: completion6[15],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -278,7 +294,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 22;
           },
           complete: completion6[22],
-          available: true,
+          available: completion6[21],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -296,7 +312,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 22.5;
           },
           complete: completion6[22.5],
-          available: true,
+          available: completion6[22],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -307,13 +323,13 @@ export default function InteractiveSideBar4() {
         },
         {
           pad: true,
-          title: "1.2.3. Genotype and Compare Pairs of Related Clones",
+          title: "1.2.3. Genotype and Compare Pairs of Unrelated Clones",
           isActive: (currentView: InteractiveViewSettings) => {
             let { section, phase } = currentView;
             return section === 1 && phase >= 23 && phase <= 25;
           },
           complete: completion6[25],
-          available: true,
+          available: completion6[22.5],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -330,7 +346,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 26;
           },
           complete: completion6[26],
-          available: true,
+          available: completion6[25],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -347,7 +363,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase === 29;
           },
           complete: completion6[29],
-          available: true,
+          available: completion6[26],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -365,7 +381,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase >= 30 && phase <= 32;
           },
           complete: completion6[32],
-          available: true,
+          available: completion6[29],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -383,7 +399,7 @@ export default function InteractiveSideBar4() {
             return section === 1 && phase >= 33 && phase <= 33.5;
           },
           complete: completion6[33.5],
-          available: true,
+          available: completion6[32],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -470,7 +486,7 @@ export default function InteractiveSideBar4() {
             return section === 2 && phase === 0;
           },
           complete: completion7[0],
-          available: true,
+          available: completion6[33.5],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -487,7 +503,7 @@ export default function InteractiveSideBar4() {
             return section === 2 && phase === 1;
           },
           complete: completion7[1],
-          available: true,
+          available: completion7[0],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -505,7 +521,7 @@ export default function InteractiveSideBar4() {
             return section === 2 && phase === 2;
           },
           complete: completion7[2],
-          available: true,
+          available: completion7[1],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -534,7 +550,7 @@ export default function InteractiveSideBar4() {
             return section === 2 && phase >= 4 && phase <= 5;
           },
           complete: completion7[5],
-          available: true,
+          available: completion7[2],
           callback: (setCurrentView: any) => {
             if (completion7[4]) {
               setCurrentView({
@@ -560,7 +576,7 @@ export default function InteractiveSideBar4() {
             return section === 2 && phase >= 6 && phase <= 7;
           },
           complete: completion7[7],
-          available: true,
+          available: completion7[5],
           callback: (setCurrentView: any) => {
             if (completion7[6]) {
               setCurrentView({
@@ -585,7 +601,7 @@ export default function InteractiveSideBar4() {
             return section === 2 && phase >= 8 && phase < 10;
           },
           complete: completion7[9],
-          available: true,
+          available: completion7[7],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -614,7 +630,7 @@ export default function InteractiveSideBar4() {
             return section === 2 && phase >= 10 && phase <= 11;
           },
           complete: completion7[11],
-          available: true,
+          available: completion7[9],
           callback: (setCurrentView: any) => {
             if (completion7[10]) {
               setCurrentView({
@@ -639,7 +655,7 @@ export default function InteractiveSideBar4() {
             return section === 2 && phase >= 12 && phase <= 13;
           },
           complete: completion7[13],
-          available: true,
+          available: completion7[11],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -657,7 +673,7 @@ export default function InteractiveSideBar4() {
             return section === 2 && phase >= 14 && phase <= 15;
           },
           complete: completion7[15],
-          available: true,
+          available: completion7[13],
           callback: (setCurrentView: any) => {
             if (completion7[14]) {
               setCurrentView({
@@ -681,7 +697,7 @@ export default function InteractiveSideBar4() {
             return section === 2 && phase >= 16;
           },
           complete: completion7[17],
-          available: true,
+          available: completion7[15],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -697,7 +713,7 @@ export default function InteractiveSideBar4() {
         "Step 3. Genotype Your Cases From the Village And School, Assess Their Genetic Relatedness, and Lead Your Program to the Correct Interventions",
       sectionId: 3,
       sectionLocked: !completion7[17],
-      sectionComplete: completion8[40],
+      sectionComplete: completion8[39],
       subcomponents: [
         {
           title: "3.1. Potential Outbreak at the Boarding School",
@@ -718,7 +734,7 @@ export default function InteractiveSideBar4() {
         {
           pad: true,
           title: "3.1.1. Estimating MOI",
-          available: completion7[17],
+          available: completion8[1],
           isActive: (currentView: InteractiveViewSettings) => {
             const { section, phase } = currentView;
             return section === 3 && phase === 4;
@@ -735,12 +751,12 @@ export default function InteractiveSideBar4() {
         {
           pad: true,
           title: "3.1.2. Comparing Genotypes",
-          available: completion7[17],
+          available: completion8[4],
           isActive: (currentView: InteractiveViewSettings) => {
             const { section, phase } = currentView;
             return section === 3 && phase >= 5 && phase < 8;
           },
-          complete: completion8[1],
+          complete: completion8[7],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -752,12 +768,12 @@ export default function InteractiveSideBar4() {
         {
           pad: true,
           title: "3.1.3. Actual Infections",
-          available: completion7[17],
+          available: completion8[7],
           isActive: (currentView: InteractiveViewSettings) => {
             const { section, phase } = currentView;
             return section === 3 && phase === 8;
           },
-          complete: completion8[1],
+          complete: completion8[8],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -769,18 +785,18 @@ export default function InteractiveSideBar4() {
         {
           // pad: true,
           title: "3.2. Outbreak at the Boarding School",
-          available: false,
+          available: completion8[8],
           isActive: (currentView: InteractiveViewSettings) => {
             const { section, phase } = currentView;
-            return false;
-            return section === 3 && phase === 10;
+            // return false;
+            return section === 3 && phase === 9;
           },
-          complete: false,
+          complete: completion8[9],
           callback: (setCurrentView: any) => {
-            return;
+            // return;
             setCurrentView({
               module: "5.6",
-              phase: 10,
+              phase: 9,
               section: 3,
             });
           },
@@ -788,7 +804,7 @@ export default function InteractiveSideBar4() {
         {
           pad: true,
           title: "3.2.1. Estimating MOI",
-          available: completion7[17],
+          available: completion8[9],
           isActive: (currentView: InteractiveViewSettings) => {
             const { section, phase } = currentView;
             return section === 3 && phase === 10;
@@ -805,12 +821,12 @@ export default function InteractiveSideBar4() {
         {
           pad: true,
           title: "3.2.2. Comparing Genotypes",
-          available: completion7[17],
+          available: completion8[10],
           isActive: (currentView: InteractiveViewSettings) => {
             const { section, phase } = currentView;
-            return section === 3 && phase >= 12 && phase <= 19;
+            return section === 3 && phase >= 12 && phase <= 17;
           },
-          complete: completion8[19],
+          complete: completion8[17],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
@@ -823,16 +839,16 @@ export default function InteractiveSideBar4() {
           pad: true,
           title:
             "3.2.3. Interpretation of Results and Communcations of Findings",
-          available: completion7[17],
+          available: completion8[17],
           isActive: (currentView: InteractiveViewSettings) => {
             const { section, phase } = currentView;
-            return section === 3 && phase >= 20 && phase < 23;
+            return section === 3 && phase >= 18 && phase < 23;
           },
           complete: completion8[22],
           callback: (setCurrentView: any) => {
             setCurrentView({
               module: "5.6",
-              phase: 20,
+              phase: 18,
               section: 3,
             });
           },
@@ -840,10 +856,10 @@ export default function InteractiveSideBar4() {
         {
           pad: true,
           title: "3.2.4. Actual Infections",
-          available: completion7[17],
+          available: completion8[22],
           isActive: (currentView: InteractiveViewSettings) => {
             const { section, phase } = currentView;
-            return section === 3 && phase >= 23 && phase < 33;
+            return section === 3 && phase >= 23 && phase <= 33;
           },
           complete: completion8[33],
           callback: (setCurrentView: any) => {
@@ -857,10 +873,10 @@ export default function InteractiveSideBar4() {
         {
           pad: true,
           title: "3.2.5. IBD & IBS Comparisons",
-          available: completion7[17],
+          available: completion8[33],
           isActive: (currentView: InteractiveViewSettings) => {
             const { section, phase } = currentView;
-            return section === 3 && phase >= 33 && phase < 35;
+            return section === 3 && phase >= 34 && phase <= 35;
           },
           complete: completion8[34],
           callback: (setCurrentView: any) => {
@@ -874,7 +890,7 @@ export default function InteractiveSideBar4() {
         {
           pad: true,
           title: "3.2.6. Knowledge Check",
-          available: completion7[17],
+          available: completion8[35],
           isActive: (currentView: InteractiveViewSettings) => {
             const { section, phase } = currentView;
             return section === 3 && phase >= 36 && phase < 40;
@@ -946,7 +962,72 @@ export default function InteractiveSideBar4() {
             isOpen ? "md:delay-500" : "text-transparent"
           } duration-300`}
         >
-          <div className="inline-flex w-[384px] shrink text-balance bg-interactiveGreen/60 px-12 pb-4 pt-8 text-center text-lg font-bold">
+          <div className="bg-interactiveGreen/60 px-12 pb-4 pt-8 text-center font-bold text-white md:max-w-[384px]">
+            <h3 className="text-lg">
+              {/* {module === "2.6"
+                  ? "Genetic Sleuthing & Surveillance"
+                  : module === "5.6"
+                  ? "5.6"
+                  : "4.4"} */}
+              Genotype Sleuthing to Estimate Relatedness from Genetic Data
+            </h3>
+          </div>
+          {sections.map((section, idx) => {
+            return <SideBar4SubComponent section={section} />;
+          })}
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div
+      inert={!isOpen}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") {
+          setIsOpen(false);
+        }
+      }}
+      // className={`grid sticky basis-0 top-0 shadow-lg shadow-black text-zinc-400 ${
+      //   isOpen
+      //     ? "min-w-full grid-cols-[1fr]"
+      //     : "min-w-0 -translate-x-full grid-cols-[0fr]"
+      // } md:duration-1000  md:min-w-fit overflow-auto relative transition-none md:transition-all h-[calc(100vh-80px)] md:h-[calc(100vh-48px)] bg-zinc-950`}
+      className={`sticky top-0 grid text-zinc-400 shadow-lg shadow-black ${
+        isOpen
+          ? "min-w-full translate-x-0 grid-cols-[1fr]"
+          : "min-w-0 -translate-x-full grid-cols-[0fr]"
+      } md:transition-[grid-template-columns]/  relative h-[calc(100vh-80px)] overflow-auto bg-zinc-950 transition-none md:h-[calc(100vh-48px)] md:min-w-fit md:transition-all md:duration-1000`}
+    >
+      <button
+        autoFocus={isOpen}
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+        className="absolute right-2 top-2 border-b border-transparent text-sm hover:border-gray-200 hover:text-white focus-visible:text-white"
+      >
+        <svg
+          width="16pt"
+          height="16pt"
+          version="1.1"
+          viewBox="0 0 1200 1200"
+          xmlns="http://www.w3.org/2000/svg"
+          className="shrink-0 rotate-45 transform fill-current transition"
+        >
+          <path d="m226.8 651.6v-90c0-15.602 10.801-26.398 26.398-26.398h278.4l0.003906-278.4c0-13.199 10.801-27.602 27.602-27.602h88.801c16.801 0 27.602 14.398 27.602 27.602v278.4h278.4c15.602 0 26.398 10.801 26.398 26.398v90c0 15.602-10.801 27.602-26.398 27.602h-278.4v276c0 18-9.6016 27.602-27.602 27.602h-88.801c-18 0-27.602-9.6016-27.602-27.602v-276h-278.4c-16.801 0-26.398-12-26.398-27.598z"></path>
+        </svg>
+      </button>
+      <div
+        className={`col-span-2  ${
+          isOpen ? "overflow-x-hidden" : "overflow-hidden"
+        } overscroll-contain`}
+      >
+        <div
+          className={` pb-32 md:pb-28  ${
+            isOpen ? "md:delay-500" : "text-transparent"
+          } duration-300`}
+        >
+          <div className="inline-flex w-full shrink text-balance bg-interactiveGreen/60 px-12 pb-4 pt-8 text-center text-lg font-bold md:w-[384px]">
             <h3
               className={`${
                 isOpen ? "text-white" : "text-transparent"

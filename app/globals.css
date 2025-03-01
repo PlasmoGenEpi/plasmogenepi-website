@@ -500,20 +500,20 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 .border-red-to-blue-gradient {
   border-left: 4px solid;
   border-top: 4px solid;
-  border-image-source: linear-gradient(90deg, #e61048 50%, #4896e8 50%);
+  border-image-source: linear-gradient(90deg, 50%, #b8e6fa 50%);
   border-image-slice: 1;
 }
 
 .border-blue-to-red-gradient {
   border-top: 4px solid;
   border-right: 4px solid;
-  border-image-source: linear-gradient(90deg, #4896e8 50%, #e61048 50%);
+  border-image-source: linear-gradient(90deg, #b8e6fa 50%, #ffb0b0 50%);
   border-image-slice: 1;
 }
 
 .border-red-blue {
   border: 1px solid;
-  border-image-source: linear-gradient(90deg, #e61048 50%, #4896e8 50%);
+  border-image-source: linear-gradient(90deg, #ffb0b0 50%, #b8e6fa 50%);
 
   /* border-image-source: linear-gradient(90deg, #FFB0B0, #FFB0B0 50%, #B8E6FA 50%,  #B8E6FA); */
   border-image-slice: 1;
@@ -550,7 +550,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 .border-red-blue-rounded-sm:before {
   content: "";
   background-color: transparent;
-  border: 1px solid #e61048;
+  border: 1px solid #ffb0b0;
   border-top-left-radius: 9999px;
   border-bottom-left-radius: 9999px;
   border-right: transparent;
@@ -563,7 +563,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 .border-red-blue-rounded-thumbnail:before {
   content: "";
   background-color: transparent;
-  border: 1px solid #e61048a0;
+  border: 1px solid #ffb0b0a0;
   border-top-left-radius: 9999px;
   border-bottom-left-radius: 9999px;
   border-right: transparent;
@@ -1316,20 +1316,20 @@ body {
 .border-red-to-blue-gradient {
   border-left: 4px solid;
   border-top: 4px solid;
-  border-image-source: linear-gradient(90deg, #e61048 50%, #4896e8 50%);
+  border-image-source: linear-gradient(90deg, #ffb0b0 50%, #b8e6fa 50%);
   border-image-slice: 1;
 }
 
 .border-blue-to-red-gradient {
   border-top: 4px solid;
   border-right: 4px solid;
-  border-image-source: linear-gradient(90deg, #4896e8 50%, #e61048 50%);
+  border-image-source: linear-gradient(90deg, #b8e6fa 50%, #ffb0b0 50%);
   border-image-slice: 1;
 }
 
 .border-red-blue {
   border: 1px solid;
-  border-image-source: linear-gradient(90deg, #e61048 50%, #4896e8 50%);
+  border-image-source: linear-gradient(90deg, #ffb0b0 50%, #4896e8 50%);
 
   /* border-image-source: linear-gradient(90deg, #FFB0B0, #FFB0B0 50%, #B8E6FA 50%,  #B8E6FA); */
   border-image-slice: 1;
@@ -1366,7 +1366,7 @@ body {
 .border-red-blue-rounded-sm:before {
   content: "";
   background-color: transparent;
-  border: 1px solid #e61048;
+  border: 1px solid #ffb0b0;
   border-top-left-radius: 9999px;
   border-bottom-left-radius: 9999px;
   border-right: transparent;
@@ -1379,7 +1379,7 @@ body {
 .border-red-blue-rounded-thumbnail:before {
   content: "";
   background-color: transparent;
-  border: 1px solid #e61048a0;
+  border: 1px solid #ffb0b0a0;
   border-top-left-radius: 9999px;
   border-bottom-left-radius: 9999px;
   border-right: transparent;
@@ -1662,42 +1662,4 @@ body {
   .myCarousel {
     transition: none;
   }
-}
-
-.copy-tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.copy-tooltip .copy-tooltiptext {
-  visibility: hidden;
-  width: 140px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -75px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.copy-tooltip .copy-tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.copy-tooltip:hover .copy-tooltip {
-  visibility: visible;
-  opacity: 1;
 }

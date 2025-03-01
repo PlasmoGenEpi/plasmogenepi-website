@@ -45,6 +45,8 @@ import { selectedClonesAtom } from "../PartSeven/PartSeven";
 // import { currentViewAtom } from "../../Shared/InteractiveViewer/InteractiveViewer";
 import { compareOrderedArrays } from "../../helpers";
 import { currentView2Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
+import { slidoReplacementQuestionAtom } from "./Phases/MHPSlidoPolls";
+import { p6addedQuestionsAtom } from "./Phases/SNPKnowledgeCheck";
 
 const P6CurrentVersionAtom = atomWithStorage("P6CurrentVersionAtom", "1.1.1");
 
@@ -56,10 +58,10 @@ export default function PartSixControlBoard({
   direction: "forwards" | "backwards" | null;
 }) {
   const [partSixSNPHybridCreated, setPartSixSNPHybridCreated] = useAtom(
-    partSixSNPHybridCreatedAtom
+    partSixSNPHybridCreatedAtom,
   );
   const [knowledgeCheckSNPQuestions, setKnowledgeCheckSNPQuestions] = useAtom(
-    partSixSNPKnowledgeCheckQuestionsAtom
+    partSixSNPKnowledgeCheckQuestionsAtom,
   );
   const [firstQuestion, setFirstQuestion] = useAtom(partSixFirstQuestionAtom);
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
@@ -69,26 +71,26 @@ export default function PartSixControlBoard({
   const [cloneRows, setCloneRows] = useAtom(partSixCloneRowsAtom);
   const [cloneRowsMHPs, setCloneRowsMHPs] = useAtom(partSixCloneRowsMHPsAtom);
   const [activePairwiseCombo, setActivePairwiseCombo] = useAtom(
-    activePairwiseComboAtom
+    activePairwiseComboAtom,
   );
   const [activePairwiseMHPsCombo, setActivePairwiseMHPsCombo] = useAtom(
-    activePairwiseMHPsComboAtom
+    activePairwiseMHPsComboAtom,
   );
   const [pairwiseCombos, setPairwiseCombos] = useAtom(pairwiseCombosAtom);
   const [pairwiseCombosMHPs, setPairwiseCombosMHPs] = useAtom(
-    pairwiseCombosMHPsAtom
+    pairwiseCombosMHPsAtom,
   );
   const [pairwiseCompletion, setPairwiseCompletion] = useAtom(
-    pairwiseCompletionAtom
+    pairwiseCompletionAtom,
   );
   const [pairwiseMHPCompletion, setPairwiseMHPCompletion] = useAtom(
-    pairwiseMHPCompletionAtom
+    pairwiseMHPCompletionAtom,
   );
   const [partSixPairwiseQuestions, setPartSixPairwiseQuestions] = useAtom(
-    partSixPairwiseQuestionsAtom
+    partSixPairwiseQuestionsAtom,
   );
   const [partSixMHPPairwiseQuestions, setPartSixMHPPairwiseQuestions] = useAtom(
-    partSixMHPPairwiseQuestionsAtom
+    partSixMHPPairwiseQuestionsAtom,
   );
   const [partSixSNPHistogramQuestions, setPartSixSNPHistogramQuestions] =
     useAtom(partSixSNPHistogramQuestionsAtom);
@@ -96,17 +98,18 @@ export default function PartSixControlBoard({
   const [questions2, setQuestions2] = useAtom(P6Step2QuestionsAtom);
   const [slidoPause, setSlidoPause] = useState(false);
   const [partSixMHPHybridCreated, setPartSixMHPHybridCreated] = useAtom(
-    partSixMHPHybridCreatedAtom
+    partSixMHPHybridCreatedAtom,
   );
   const [finalHybridQ, setFinalHybridQ] = useAtom(finalHybridQAtom);
   const [someQ, setSomeQ] = useAtom(SNPvsMHPquestionAtom);
   const [currentVersion, setCurrentVersion] = useAtom(P6CurrentVersionAtom);
   const [initialQuestion, setInitialQuestion] = useAtom(
-    SNPMHPInitialQuestionAtom
+    SNPMHPInitialQuestionAtom,
   );
   const [hybridMHPQuestion, setHybridMHPQuestion] = useAtom(
-    hybridMHPCloneQuestionAtom
+    hybridMHPCloneQuestionAtom,
   );
+  const setSlidoReplacementQuestions = useSetAtom(slidoReplacementQuestionAtom);
   const setP7Completion = useSetAtom(partSevenCompletionAtom);
   const setP7Genotypes = useSetAtom(partSixMHPPolycloncalGenotypesAtom);
   const setP7Questions = useSetAtom(P6Step2QuestionsAtom);
@@ -115,8 +118,12 @@ export default function PartSixControlBoard({
   const setP7SelectedClones = useSetAtom(selectedClonesAtom);
   const [currentView2, setCurrentView2] = useAtom(currentView2Atom);
   const setS2Reset1 = useSetAtom(s2Reset1Atom);
+  const setP6AddedQuestions = useSetAtom(p6addedQuestionsAtom);
 
   const resetCallback = useCallback(() => {
+    setP6AddedQuestions(RESET);
+
+    setSlidoReplacementQuestions(RESET);
     setP7Completion(RESET);
     setP7Genotypes(RESET);
     setP7Questions(RESET);
@@ -365,14 +372,14 @@ export default function PartSixControlBoard({
         let x = cloneRowsMHPs[activePairwiseMHPsCombo[0]].vals.map(
           (val, idx) => {
             return val === cloneRowsMHPs[activePairwiseMHPsCombo[1]].vals[idx];
-          }
+          },
         );
         if (
           compareOrderedArrays(
             x,
             pairwiseCombosMHPs[activePairwiseMHPsCombo[0]][
               activePairwiseMHPsCombo[1]
-            ]
+            ],
           )
         ) {
           return false;
@@ -387,14 +394,14 @@ export default function PartSixControlBoard({
         let x = cloneRowsMHPs[activePairwiseMHPsCombo[0]].vals.map(
           (val, idx) => {
             return val === cloneRowsMHPs[activePairwiseMHPsCombo[1]].vals[idx];
-          }
+          },
         );
         if (
           compareOrderedArrays(
             x,
             pairwiseCombosMHPs[activePairwiseMHPsCombo[0]][
               activePairwiseMHPsCombo[1]
-            ]
+            ],
           )
         ) {
           return false;
@@ -409,14 +416,14 @@ export default function PartSixControlBoard({
         let x = cloneRowsMHPs[activePairwiseMHPsCombo[0]].vals.map(
           (val, idx) => {
             return val === cloneRowsMHPs[activePairwiseMHPsCombo[1]].vals[idx];
-          }
+          },
         );
         if (
           compareOrderedArrays(
             x,
             pairwiseCombosMHPs[activePairwiseMHPsCombo[0]][
               activePairwiseMHPsCombo[1]
-            ]
+            ],
           )
         ) {
           return false;

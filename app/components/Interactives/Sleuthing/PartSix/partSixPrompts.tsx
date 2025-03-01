@@ -14,7 +14,7 @@ export const partSixPrompts: {
   0: {
     title: (
       <h5>
-        Step 1
+        1.1. Genotyping with SNPs
         {/* Genotype laboratory clones, estimate their relatedness by
         calculating IBS, and compare this to what you know about IBD. */}
       </h5>
@@ -59,7 +59,7 @@ export const partSixPrompts: {
   //   ),
   // },
   1: {
-    title: <h5>1.1.1 Genotype 3 unrelated laboratory clones with SNPs</h5>,
+    title: <h5>1.1.1. Genotype 3 Unrelated Laboratory Clones with SNPs</h5>,
     instructions: (
       <div>
         <p>
@@ -79,9 +79,8 @@ export const partSixPrompts: {
   2: {
     title: (
       <h5>
-        {" "}
-        1.1.2 Predict what you will observe about IBS/IBD in pairwise
-        comparisons
+        1.1.2. Predict What You Will Observe about IBS/IBD in Pairwise
+        Comparisons
       </h5>
     ),
     instructions: (
@@ -96,7 +95,7 @@ export const partSixPrompts: {
     ),
   },
   3: {
-    title: <h5>1.1.3 Genotype and compare pairs of unrelated clones</h5>,
+    title: <h5>1.1.3. Genotype and Compare Pairs of Unrelated Clones</h5>,
     instructions: (
       <div>
         <p>
@@ -109,7 +108,7 @@ export const partSixPrompts: {
     ),
   },
   4: {
-    title: <h5>1.1.3 Genotype and compare pairs of related clones</h5>,
+    title: <h5>1.1.3. Genotype and Compare Pairs of Unrelated Clones</h5>,
     instructions: (
       <div>
         <p>
@@ -122,7 +121,7 @@ export const partSixPrompts: {
     ),
   },
   5: {
-    title: <h5>1.1.3 Genotype and compare pairs of related clones</h5>,
+    title: <h5>1.1.3. Genotype and Compare Pairs of Unrelated Clones</h5>,
     instructions: (
       <div>
         <p>
@@ -135,7 +134,7 @@ export const partSixPrompts: {
     ),
   },
   6: {
-    title: <h5>1.1.4 Observe all three IBS estimates together.</h5>,
+    title: <h5>1.1.4. Observe All Three IBS Estimates Together</h5>,
     instructions: (
       <div>
         <p>
@@ -146,7 +145,7 @@ export const partSixPrompts: {
     ),
   },
   7: {
-    title: <h5>1.1.4 Observe all three IBS estimates together.</h5>,
+    title: <h5>1.1.4. Observe All Three IBS Estimates Together</h5>,
     instructions: (
       <div>
         <p>Answer the following questions.</p>
@@ -156,8 +155,8 @@ export const partSixPrompts: {
   8: {
     title: (
       <h5>
-        1.1.5 Knowledge Check: distinguishing related parasites from unrelated
-        parasites using IBS
+        1.1.5. Knowledge Check: Distinguishing Related Parasites from Unrelated
+        Parasites Using IBS
       </h5>
     ),
     instructions: (
@@ -173,8 +172,8 @@ export const partSixPrompts: {
   9: {
     title: (
       <h5>
-        1.1.5 Knowledge Check: distinguishing related parasites from unrelated
-        parasites using IBS
+        1.1.5. Knowledge Check: Distinguishing Related Parasites from Unrelated
+        Parasites Using IBS
       </h5>
     ),
     instructions: (
@@ -190,8 +189,8 @@ export const partSixPrompts: {
   10: {
     title: (
       <h5>
-        1.1.5 Knowledge Check: distinguishing related parasites from unrelated
-        parasites using IBS
+        1.1.5. Knowledge Check: Distinguishing Related Parasites from Unrelated
+        Parasites Using IBS
       </h5>
     ),
     instructions: (
@@ -205,7 +204,7 @@ export const partSixPrompts: {
     ),
   },
   11: {
-    title: <h5>1.1.6 Generate laboratory clone for 1 hybrid strain</h5>,
+    title: <h5>1.1.6. Generate a Laboratory Clone for 1 Hybrid Strain</h5>,
     instructions: (
       <div className="flex flex-col gap-4">
         <p>
@@ -237,7 +236,9 @@ export const partSixPrompts: {
   },
   12: {
     title: (
-      <h5>1.1.7 Genotype and compare hybrid clone to first three clones</h5>
+      <h5>
+        1.1.7. Genotype and Compare the Hybrid Clone to the First Three Clones
+      </h5>
     ),
     instructions: (
       <div>
@@ -252,7 +253,9 @@ export const partSixPrompts: {
   },
   13: {
     title: (
-      <h5>1.1.7 Genotype and compare hybrid clone to first three clones</h5>
+      <h5>
+        1.1.7. Genotype and Compare the Hybrid Clone to the First Three Clones
+      </h5>
     ),
     instructions: (
       <div>
@@ -267,7 +270,9 @@ export const partSixPrompts: {
   },
   13.5: {
     title: (
-      <h5>1.1.7 Genotype and compare hybrid clone to first three clones</h5>
+      <h5>
+        1.1.7. Genotype and Compare the Hybrid Clone to the First Three Clones
+      </h5>
     ),
     instructions: (
       <div>
@@ -283,7 +288,9 @@ export const partSixPrompts: {
   },
   14: {
     title: (
-      <h5>1.1.7 Genotype and compare hybrid clone to first three clones</h5>
+      <h5>
+        1.1.7. Genotype and Compare the Hybrid Clone to the First Three Clones
+      </h5>
     ),
     instructions: (
       <div>
@@ -297,7 +304,9 @@ export const partSixPrompts: {
   },
   14.5: {
     title: (
-      <h5>1.1.7 Genotype and compare hybrid clone to first three clones</h5>
+      <h5>
+        1.1.7. Genotype and Compare the Hybrid Clone to the First Three Clones
+      </h5>
     ),
     instructions: (
       <div>
@@ -312,8 +321,8 @@ export const partSixPrompts: {
   15: {
     title: (
       <h5>
-        1.1.8 Knowledge Check: Distinguishing related parasites from unrelated
-        parasites using IBS
+        1.1.8. Knowledge Check: Distinguishing Related Parasites from Unrelated
+        Parasites Using IBS
       </h5>
     ),
     instructions: (
@@ -453,7 +462,7 @@ export const partSixPrompts: {
   //   instructions: <></>,
   // },
   21: {
-    title: <h5>1.2 Genotyping with Microhaplotypes</h5>,
+    title: <h5>1.2. Genotyping with Microhaplotypes</h5>,
     instructions: (
       <div className="flex flex-col gap-2">
         <p>
@@ -499,20 +508,21 @@ export const partSixPrompts: {
                 right: "pr-2",
               }}
               className={`col-span-3 border-2 ${microhaplotypeColorMap.get(
-                JSON.stringify([0, 0, 0])
+                JSON.stringify([0, 0, 0]),
               )}`}
             />
           </span>
           showing the component SNPs but moving forward the microhaplotype
           allele be shown just as a different color without the individual SNPs
-          visible. Just know that these represent the same thing.{" "}
+          visible{" "}
           <span className="inline-block">
             <SquareMicrohaplotype
               className="absolute h-4 w-4 -translate-y-3"
               id={0}
             />
-            <span className="inline-block w-6"></span>
+            <span className="inline-block w-5"></span>
           </span>
+          . Just know that these represent the same thing.{" "}
         </p>
       </div>
     ),
@@ -521,8 +531,8 @@ export const partSixPrompts: {
   22: {
     title: (
       <h5>
-        1.2.1 Generate laboratory clones for 3 <i>unrelated strains</i> with
-        microhaplotypes
+        1.2.1. Generate Laboratory Clones for 3 Unrelated Strains with
+        Microhaplotypes
       </h5>
     ),
     instructions: (
@@ -546,8 +556,8 @@ export const partSixPrompts: {
   22.5: {
     title: (
       <h5>
-        1.2.2 Predict what you will observe about IBS/IBD in pairwise
-        comparisons
+        1.2.2. Predict What You Will Observe about IBS/IBD in Pairwise
+        Comparisons
       </h5>
     ),
     instructions: (
@@ -561,7 +571,7 @@ export const partSixPrompts: {
     ),
   },
   23: {
-    title: <h5>1.2.3 Genotype and compare pairs of related clones </h5>,
+    title: <h5>1.2.3. Genotype and Compare Pairs of Unrelated Clones</h5>,
     instructions: (
       <div>
         <p>
@@ -574,7 +584,7 @@ export const partSixPrompts: {
     ),
   },
   24: {
-    title: <h5>1.2.3 Genotype and compare pairs of related clones </h5>,
+    title: <h5>1.2.3. Genotype and Compare Pairs of Unrelated Clones </h5>,
     instructions: (
       <div>
         <p>
@@ -587,7 +597,7 @@ export const partSixPrompts: {
     ),
   },
   25: {
-    title: <h5>1.2.3 Genotype and compare pairs of related clones </h5>,
+    title: <h5>1.2.3. Genotype and Compare Pairs of Unrelated Clones </h5>,
     instructions: (
       <div>
         <p>
@@ -600,7 +610,7 @@ export const partSixPrompts: {
     ),
   },
   26: {
-    title: <h5>1.2.4 Observe all three IBS estimates together</h5>,
+    title: <h5>1.2.4. Observe All Three IBS Estimates Together</h5>,
     instructions: (
       <div>
         <p>Answer the questions below.</p>
@@ -636,7 +646,7 @@ export const partSixPrompts: {
   //   ),
   // },
   29: {
-    title: <h5>1.2.5 Generate laboratory clone for 1 hybrid strain</h5>,
+    title: <h5>1.2.5. Generate a Laboratory Clone for 1 Hybrid Strain</h5>,
     instructions: (
       <div>
         <p>
@@ -663,7 +673,9 @@ export const partSixPrompts: {
   },
   30: {
     title: (
-      <h5>1.2.6 Genotype and compare hybrid clone to first three clones</h5>
+      <h5>
+        1.2.6. Genotype and Compare the Hybrid Clone to First Three Clones
+      </h5>
     ),
     instructions: (
       <div>
@@ -678,7 +690,9 @@ export const partSixPrompts: {
   },
   31: {
     title: (
-      <h5>1.2.6 Genotype and compare hybrid clone to first three clones</h5>
+      <h5>
+        1.2.6. Genotype and Compare the Hybrid Clone to First Three Clones
+      </h5>
     ),
     instructions: (
       <div>
@@ -693,7 +707,9 @@ export const partSixPrompts: {
   },
   31.5: {
     title: (
-      <h5>1.2.6 Genotype and compare hybrid clone to first three clones</h5>
+      <h5>
+        1.2.6. Genotype and Compare the Hybrid Clone to First Three Clones
+      </h5>
     ),
     instructions: (
       <div>
@@ -711,7 +727,9 @@ export const partSixPrompts: {
   },
   32: {
     title: (
-      <h5>1.2.6 Genotype and compare hybrid clone to first three clones</h5>
+      <h5>
+        1.2.6. Genotype and Compare the Hybrid Clone to First Three Clones
+      </h5>
     ),
     instructions: (
       <div>
@@ -730,8 +748,8 @@ export const partSixPrompts: {
   33: {
     title: (
       <h5>
-        1.2.7 Knowledge Check: Distinguishing related parasites from unrelated
-        parasites using IBS
+        1.2.7. Knowledge Check: Distinguishing Related Parasites from Unrelated
+        Parasites Using IBS
       </h5>
     ),
     instructions: (
@@ -751,9 +769,8 @@ export const partSixPrompts: {
   33.5: {
     title: (
       <h5>
-        {" "}
-        1.2.7 Knowledge Check: Distinguishing related parasites from unrelated
-        parasites using IBS{" "}
+        1.2.7. Knowledge Check: Distinguishing Related Parasites from Unrelated
+        Parasites Using IBS
       </h5>
     ),
     instructions: (

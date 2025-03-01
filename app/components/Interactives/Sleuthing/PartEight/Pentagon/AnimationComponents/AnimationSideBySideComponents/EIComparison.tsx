@@ -13,8 +13,8 @@ import SquareMicrohaplotype from "@/app/components/Interactives/Shared/Microhapl
 // import { usePrevious } from "@/app/components/hooks";
 
 export const partEightCloneRowColors: { [key: number]: string } = {
-  1: "to-microRed/80 via-microRed/80",
-  2: "to-microBlue via-microBlue",
+  1: "to-cloneRed/80 via-cloneRed/80",
+  2: "to-cloneBlue via-cloneBlue",
   3: "to-microOrange via-microOrange",
   4: "to-microPurple via-microPurple",
   5: "to-microTeal via-microTeal",
@@ -66,7 +66,7 @@ export default function EIComparison() {
                   </div>
                 </div>
                 <ol
-                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-microRed/60 p-1 shadow-sm shadow-black`}
+                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-cloneRed/60 p-1 shadow-sm shadow-black`}
                 >
                   {Array(12)
                     .fill(0)
@@ -98,7 +98,7 @@ export default function EIComparison() {
                   </div>
                 </div>
                 <ol
-                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-microBlue  p-1 shadow-sm shadow-black`}
+                  className={`grid h-full grow grid-cols-12 gap-0.5 bg-cloneBlue  p-1 shadow-sm shadow-black`}
                 >
                   {Array(12)
                     .fill(0)
@@ -139,7 +139,7 @@ export default function EIComparison() {
                     style={{
                       transitionDelay: phase === 26 ? "2000ms" : "0ms",
                     }}
-                    className={`col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-to-b from-microRed/80 via-[#E61048e0_25%,#4896E8e0_75%] to-microBlue/80 bg-blend-overlay transition-all hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100 ${
+                    className={`to-cloneBlue/80bg-blend-overlay col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-to-b from-cloneRed/80 via-[#ffb0b0_25%,#b8e6fa_75%] to-cloneBlue/80 transition-all hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100 ${
                       EIAnimationComplete ? "opacity-100" : "opacity-0"
                     } z-50 transition-all duration-1000`}
                   >
@@ -176,11 +176,11 @@ export default function EIComparison() {
                       className="relative my-auto flex aspect-square items-center justify-center overflow-hidden rounded-full"
                     >
                       <span className="-translate-x-0.5 translate-y-0.5 font-bold"></span>
-                      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-microRed/80 via-[#e61048_50%,#4896e8_50%] to-microBlue"></div>
-                      {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-microRed/80 via-[#e61048_33%,#4896e8_33%_#4896e8_66%] to-microRed"></div> */}
+                      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cloneRed/80 via-[#e61048_50%,#4896e8_50%] to-cloneBlue"></div>
+                      {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cloneRed/80 via-[#e61048_33%,#4896e8_33%_#4896e8_66%] to-cloneRed"></div> */}
                     </div>
                     <ol
-                      className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-microRed/80 via-[#e61048_25.5%,#4896e8_25.5%,#4896e8_74.5%,#e61048_74.5%] to-microRed/80  p-1 shadow-sm shadow-black`}
+                      className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-cloneRed/80 via-[#e61048_25.5%,#4896e8_25.5%,#4896e8_74.5%,#e61048_74.5%] to-cloneRed/80  p-1 shadow-sm shadow-black`}
                     >
                       {Array(12)
                         .fill(0)

@@ -184,7 +184,7 @@ export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
         Open Menu
       </button>
       <div className="flex w-full max-w-full grow overflow-clip">
-        {/* <ResetPrompt currentModule="5.6" /> */}
+        <ResetPrompt currentModule="5.6" />
         {/* <InteractiveSideBar
             module={module}
             currentView={currentView}

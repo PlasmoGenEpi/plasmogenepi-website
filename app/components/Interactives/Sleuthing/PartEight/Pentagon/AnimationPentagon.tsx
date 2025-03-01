@@ -214,7 +214,7 @@ export default function AnimationPentagon() {
             cx={40}
             cy={75}
             className={`${
-              phase > 23 ? "fill-microRed" : "fill-current"
+              phase > 23 ? "fill-cloneRed" : "fill-current"
             } stroke-black `}
           ></circle>
           <circle
@@ -223,7 +223,7 @@ export default function AnimationPentagon() {
             cy={75}
             fill="white"
             className={`${
-              phase > 23 ? "fill-microBlue" : "fill-current"
+              phase > 23 ? "fill-cloneBlue" : "fill-current"
             } stroke-black `}
           ></circle>
         </symbol>
@@ -240,7 +240,7 @@ export default function AnimationPentagon() {
             cx={50}
             cy={65}
             className={`${
-              phase >= 30 ? "fill-microPurple" : "fill-white"
+              phase >= 30 ? "fill-cloneYellow" : "fill-white"
             } stroke-black stroke-1`}
           ></circle>
           {/* <circle
@@ -248,7 +248,7 @@ export default function AnimationPentagon() {
             cx={60}
             cy={65}
             className={`${
-              phase >= 30 ? "fill-microPurple" : "fill-white"
+              phase >= 30 ? "fill-cloneYellow" : "fill-white"
             } stroke-black stroke-1`}
           ></circle> */}
           <circle
@@ -256,7 +256,7 @@ export default function AnimationPentagon() {
             cx={40}
             cy={82}
             className={`${
-              phase >= 30 ? "fill-microOrange" : "fill-white"
+              phase >= 30 ? "fill-cloneOrange" : "fill-white"
             } stroke-black stroke-1`}
           ></circle>
           <circle
@@ -264,7 +264,7 @@ export default function AnimationPentagon() {
             cx={60}
             cy={82}
             className={`${
-              phase >= 30 ? "fill-microTeal" : "fill-white"
+              phase >= 30 ? "fill-cloneGreen" : "fill-white"
             } stroke-black stroke-1`}
           ></circle>
         </symbol>
@@ -357,34 +357,56 @@ export default function AnimationPentagon() {
           )}
         </symbol>
         <linearGradient id="red-blue-gradient">
-          <stop stopColor="#E61048" offset={"0%"}></stop>
-          <stop stopColor="#E61048" offset={"50%"}></stop>
-          <stop stopColor="#4896E8" offset={"50%"}></stop>
-          <stop stopColor="#4896E8" offset={"100%"}></stop>
+          <stop stopColor="#ffb0b0" offset={"0%"}></stop>
+          <stop stopColor="#ffb0b0" offset={"50%"}></stop>
+          <stop stopColor="#b8e6fa" offset={"50%"}></stop>
+          <stop stopColor="#b8e6fa" offset={"100%"}></stop>
         </linearGradient>
         <linearGradient id="red-blue-gradient2" gradientTransform="rotate(90)">
-          <stop stopColor="#E61048" offset={"0%"}></stop>
-          <stop stopColor="#E61048" offset={"50%"}></stop>
-          <stop stopColor="#4896E8" offset={"50%"}></stop>
-          <stop stopColor="#4896E8" offset={"100%"}></stop>
+          <stop
+            stopColor="#ffb0b0"
+            // className="bg-cloneBlue"
+            offset={"0%"}
+          ></stop>
+          <stop stopColor="#ffb0b0" offset={"50%"}></stop>
+          <stop stopColor="#b8e6fa" offset={"50%"}></stop>
+          <stop stopColor="#b8e6fa" offset={"100%"}></stop>
           {/* <stop stopColor="#4896E8" offset={"0%"}></stop>
           <stop stopColor="#4896E8" offset={"50%"}></stop>
           <stop stopColor="#E61048" offset={"50%"}></stop>
           <stop stopColor="#E61048" offset={"100%"}></stop> */}
         </linearGradient>
-        <linearGradient id="purple-orange-gradient">
+        {/* <linearGradient id="purple-orange-gradient">
           <stop stopColor="#C45ED8" offset={"0%"}></stop>
           <stop stopColor="#C45ED8" offset={"50%"}></stop>
           <stop stopColor="#FE8638" offset={"50%"}></stop>
           <stop stopColor="#FE8638" offset={"100%"}></stop>
+        </linearGradient> */}
+        <linearGradient id="purple-orange-gradient">
+          <stop
+            className="bg-cloneGreen bg-cloneOrange bg-cloneYellow"
+            stopColor="#feec96"
+            offset={"0%"}
+          ></stop>
+          <stop stopColor="#feec96" offset={"50%"}></stop>
+          <stop stopColor="#fecc94" offset={"50%"}></stop>
+          <stop stopColor="#fecc94" offset={"100%"}></stop>
         </linearGradient>
-        <linearGradient id="purple-teal-gradient">
+        {/* <linearGradient id="purple-teal-gradient">
           <stop stopColor="#16A0AC" offset={"0%"}></stop>
 
           <stop stopColor="#16A0AC" offset={"50%"}></stop>
 
           <stop stopColor="#C45ED8" offset={"50%"}></stop>
           <stop stopColor="#C45ED8" offset={"100%"}></stop>
+        </linearGradient> */}
+        <linearGradient id="purple-teal-gradient">
+          <stop stopColor="#c8ebc3" offset={"0%"}></stop>
+
+          <stop stopColor="#c8ebc3" offset={"50%"}></stop>
+
+          <stop stopColor="#feec96" offset={"50%"}></stop>
+          <stop stopColor="#feec96" offset={"100%"}></stop>
         </linearGradient>
         <g>
           <path
@@ -446,7 +468,7 @@ export default function AnimationPentagon() {
                   phase === 26 ? "recombination2" : phase > 26 ? "hidden" : ""
                 } transition-all  ${
                   phase < 25 ? "hidden" : ""
-                } fadeIn300 fill-microRed stroke-black stroke-1`}
+                } fadeIn300 fill-cloneRed stroke-black stroke-1`}
                 // fill="url('#red-ball-gradient')"
               ></circle>
               {phase >= 26 && (
@@ -508,7 +530,7 @@ export default function AnimationPentagon() {
                 cy={40}
                 className={`${
                   phase === 28 ? "recombination2" : "hidden"
-                }  fadeIn1000 fill-microRed stroke-black stroke-1`}
+                }  fadeIn1000 fill-cloneRed stroke-black stroke-1`}
 
                 // fill="url('#red-ball-gradient')"
               ></circle>
@@ -562,7 +584,7 @@ export default function AnimationPentagon() {
                 className={`${phase > 32 ? "hidden" : ""} ${
                   phase >= 32 ? "recombination" : ""
                 } transition-all duration-500 ${
-                  phase >= 30 ? "fill-microPurple" : "fill-white"
+                  phase >= 30 ? "fill-cloneYellow" : "fill-white"
                 } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
@@ -576,7 +598,7 @@ export default function AnimationPentagon() {
                 className={`${phase > 32 ? "hidden" : ""} ${
                   phase >= 32 ? "recombination" : ""
                 } transition-all duration-500 ${
-                  phase >= 30 ? "fill-microPurple" : "fill-white"
+                  phase >= 30 ? "fill-cloneYellow" : "fill-white"
                 } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
@@ -589,7 +611,7 @@ export default function AnimationPentagon() {
                 className={`${phase > 32 ? "hidden" : ""} ${
                   phase >= 32 ? "recombination2" : ""
                 } transition-all ${
-                  phase >= 30 ? "fill-microOrange" : "fill-white"
+                  phase >= 30 ? "fill-cloneOrange" : "fill-white"
                 } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
@@ -602,7 +624,7 @@ export default function AnimationPentagon() {
                 className={`${phase > 32 ? "hidden" : ""} ${
                   phase >= 32 ? "recombination2" : ""
                 } transition-all ${
-                  phase >= 30 ? "fill-microTeal" : "fill-white"
+                  phase >= 30 ? "fill-cloneGreen" : "fill-white"
                 } fadeIn300 stroke-black stroke-1`}
               ></circle>
               <circle
