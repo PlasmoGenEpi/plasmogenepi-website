@@ -558,14 +558,17 @@ export default function DragDropControlPanel({
     let { module, section, phase } = currentView;
     if (
       (section === 0 && phase === 2) ||
-      (section === 1 && phase === 1) ||
-      (section === 2 && phase === 3) ||
-      (section === 3 && phase === 5) ||
-      (section === 4 && phase === 2) ||
-      (section === 5 && phase === 2) ||
-      (section === 6 && phase === 2)
+      (section === 1 && phase === 1)
+      // (section === 2 && phase === 3) ||
+      // (section === 3 && phase === 5) ||
+      // (section === 4 && phase === 2) ||
+      // (section === 5 && phase === 2) ||
+      // (section === 6 && phase === 2)
     ) {
       return section + 1;
+    }
+    if (section === 2 && phase === 3) {
+      return 4;
     }
   }
 
@@ -687,15 +690,15 @@ export default function DragDropControlPanel({
             <span className="my-auto self-center overflow-hidden text-ellipsis md:translate-y-0.5">
               {getProgressionText().primaryText}
             </span>
-            <span
+            {/* <span
               className={`${
                 !getProgressionText().secondaryText ? "hidden" : "visible"
               } m-auto text-nowrap md:-translate-x-4 md:translate-y-0.5 lg:-translate-x-8`}
             >
-              {/* {getProgressionText().secondaryText
+              {getProgressionText().secondaryText
                 ? getProgressionText().secondaryText
-                : "1"} */}
-            </span>
+                : "1"}
+            </span> */}
           </div>
           <button
             onClick={() => {
