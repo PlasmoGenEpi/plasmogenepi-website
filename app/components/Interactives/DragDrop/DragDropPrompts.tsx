@@ -131,7 +131,9 @@ const dragDropSections: {
   },
   1: {
     0: {
-      title: <h5>Align sequencer generated reads to the reference genome</h5>,
+      title: (
+        <h5>Step 1. Align Sequencer Generated Reads to the Reference Genome</h5>
+      ),
       instructions: (
         <div className="flex flex-col gap-4">
           <p>
@@ -152,7 +154,9 @@ const dragDropSections: {
       ),
     },
     1: {
-      title: <h5>Match sequencer generated reads to the reference genome</h5>,
+      title: (
+        <h5>Step 1. Align Sequencer Generated Reads to the Reference Genome</h5>
+      ),
       instructions: (
         <div className="flex flex-col gap-4">
           <p>
@@ -219,8 +223,8 @@ const dragDropSections: {
     0: {
       title: (
         <h5>
-          Match sequencer generated reads to the reference genome &ndash; this
-          time with mutations and errors
+          Match Sequencer Generated Reads with Mutations and Errors to the
+          Reference Genome
         </h5>
       ),
       instructions: (
@@ -248,8 +252,8 @@ const dragDropSections: {
     1: {
       title: (
         <h5>
-          Match sequencer generated reads to the reference genome &ndash; this
-          time with mutations and errors
+          Match Sequencer Generated Reads with Mutations and Errors to the
+          Reference Genome
         </h5>
       ),
       instructions: (
@@ -262,9 +266,10 @@ const dragDropSections: {
             amplification or sequencing errors that will appear like SNP
             mutations but be "false mutations" (these tend to be seen in few
             reads, making them easier to detect), off target sequences (reads
-            that will not align anywhere) errors, and chimera errors (reads
-            where part of the sequence aligns in one place and another part
-            aligns in another place). You will place these reads in the trash.
+            that will not align anywhere), and chimera errors (reads where part
+            of the sequence aligns in one place and another part aligns in
+            another place). You will place these reads in the trash. You can
+            click on reads in the trash to remove them from the trash.
           </p>
           <p>
             Once all the reads are placed correctly, continue the activity to
@@ -274,7 +279,7 @@ const dragDropSections: {
       ),
     },
     2: {
-      title: <h5>Identify genotyping errors</h5>,
+      title: <h5>Identify Genotyping Errors</h5>,
       instructions: (
         <div className="flex flex-col gap-4">
           <p>
@@ -285,14 +290,14 @@ const dragDropSections: {
           </p>
           <p>
             Identify and select any false mutations present in the reads below.
-            Once you have identified all false mutations, answer the question
+            Once you have identified all false mutations, answer the questions
             below.
           </p>
         </div>
       ),
     },
     3: {
-      title: <h5>Identify genotyping errors</h5>,
+      title: <h5>Identify Genotyping Errors</h5>,
       instructions: (
         <div className="flex flex-col gap-4">
           <p>
@@ -325,7 +330,7 @@ const dragDropSections: {
   },
   3: {
     0: {
-      title: <h5>Identify mutations</h5>,
+      title: <h5>Identify Mutations</h5>,
       instructions: (
         <div className="flex flex-col gap-4">
           <p>
@@ -347,7 +352,7 @@ const dragDropSections: {
       ),
     },
     1: {
-      title: <h5>Identify mutations</h5>,
+      title: <h5>Identify Mutations</h5>,
       instructions: (
         <div className="flex flex-col gap-4">
           <p>

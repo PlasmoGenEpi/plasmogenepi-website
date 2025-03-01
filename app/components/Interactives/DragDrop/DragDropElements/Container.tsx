@@ -12,6 +12,7 @@ import ReadsContainer from "./ReadsContainer";
 import { scrollStartAtom } from "./CustomDragLayer";
 import Labels from "./Labels/Labels";
 import { sideBarIsOpenAtom } from "../../Shared/InteractiveViewer/InteractiveSideBar/InteractiveSideBar";
+import { currentView3Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
 
 const topDistanceIncludingBorder = 172;
 const borderWidth = 24;
@@ -90,6 +91,7 @@ export default function Container({
   const setScrollStart = useSetAtom(scrollStartAtom);
   const phase = useAtomValue(phase3Atom);
   const dropZoneRef = useRef<HTMLDivElement | null>(null);
+  const currentView = useAtomValue(currentView3Atom);
   // const scrollIntervalTimeoutRef = useRef<null | NodeJS.Timeout>(null);
 
   // useEffect(() => {
@@ -123,7 +125,9 @@ export default function Container({
     });
   }, [phase, setScrollStart, scrollRef]);
 
-  console.log(scrollRef?.current?.scrollLeft);
+  if (currentView.section === 3 && currentView.phase >= 3) {
+    return null;
+  }
 
   return (
     <div
@@ -147,7 +151,7 @@ export default function Container({
       // }}
       className={`${
         globalDrag ? "cursor-grabbing " : ""
-      } border-y-[24px]/ dark:bg-interactiveBlue/5 dark:bg-zinc-900/50/ scroll-mx-24 overflow-auto border-y-2 border-black bg-white/50 italic dark:border-transparent dark:font-normal dark:text-gray-300`}
+      } border-y-[24px]/ dark:bg-zinc-900/50/ scroll-mx-24 overflow-auto border-y-2 border-black bg-white/50 italic dark:border-transparent dark:bg-interactiveBlue/5 dark:font-normal dark:text-gray-300`}
       // className={`${
       //   globalDrag ? "cursor-grabbing " : ""
       // } scroll-mx-24 overflow-auto border-y-[24px] border-transparent bg-white dark:brightness-75 dark:text-black outline-interactiveBlue outline-4 outline`}

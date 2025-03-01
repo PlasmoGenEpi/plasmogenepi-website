@@ -15,6 +15,16 @@ import { currentView3Atom } from "../../Shared/InteractiveViewer/InteractiveView
 import Trash from "./Trash";
 import DraggableRead from "./DraggableRead";
 import Read from "./Read";
+const topDistanceIncludingBorder = 172;
+const borderWidth = 24;
+const paddingFromBorder = topDistanceIncludingBorder - borderWidth;
+const paddingLeft = 32;
+const paddingRight = 64;
+const rowHeight = 32;
+const rowDistance = 32;
+const charSize = 18;
+const readStartOffset = 18;
+const dropContainerWidth = 1148;
 
 export default function QuestionContent() {
   // const phase = useAtomValue(phase3Atom);
@@ -34,7 +44,7 @@ export default function QuestionContent() {
         setQuestions({ ...questions, [questionIdx]: answerIdx });
       }
     },
-    [questions, setQuestions]
+    [questions, setQuestions],
   );
 
   // useEffect(() => {
@@ -258,7 +268,7 @@ export default function QuestionContent() {
     return (
       <div
         ref={containerRef}
-        className={`max-w-6xl mx-auto px-4 my-8 ${
+        className={`mx-auto my-8 max-w-6xl px-4 ${
           phase === 1
             ? `${questions[1] !== 0 ? "fadeIn500" : "visible"}`
             : "invisible"
@@ -316,7 +326,7 @@ export default function QuestionContent() {
                 content={
                   <div
                     className={
-                      "text-pretty bg-interactiveBlue/10 dark:bg-zinc-900/50 dark:text-emerald-400 p-4 leading-[23px] md:p-6 md:px-8"
+                      "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
                     }
                   >
                     <p>
@@ -382,12 +392,12 @@ export default function QuestionContent() {
                 content={
                   <div
                     className={
-                      "text-pretty bg-interactiveBlue/10 dark:bg-zinc-900/50 dark:text-emerald-400 p-4 leading-[23px] md:p-6 md:px-8"
+                      "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
                     }
                   >
                     <p>
                       This is what we call{" "}
-                      <span className="italic font-bold">
+                      <span className="font-bold italic">
                         sequencing depth:
                       </span>{" "}
                       we have a depth of 6 reads in locus 1 and 4 reads in locus
@@ -407,13 +417,13 @@ export default function QuestionContent() {
   if (section === 2) {
     return (
       <div
-        className={`max-w-6xl mx-auto px-4 my-8 overflow-visible ${
+        className={`mx-auto my-8 max-w-6xl overflow-visible px-4 ${
           phase === 1 || phase === 3
             ? `${questions[1] !== 0 ? "fadeIn500" : "visible"}`
             : "invisible"
         }`}
       >
-        <h6 ref={containerRef} className="font-bold text-lg mb-8">
+        <h6 ref={containerRef} className="mb-8 text-lg font-bold">
           Questions
         </h6>
         {phase < 2 && (
@@ -507,7 +517,7 @@ export default function QuestionContent() {
         )}
         {phase < 2 && (
           <div
-            className={`flex flex-col gap-4 mt-8  ${
+            className={`mt-8 flex flex-col gap-4  ${
               Array.isArray(questions[0]) &&
               questions[0].includes(0) &&
               questions[0].includes(1) &&
@@ -548,22 +558,22 @@ export default function QuestionContent() {
               headerText="Which of these three discarded reads is the chimera?"
               hasAnswer={questions[10] === 1}
             >
-              <div className="italic mt-4 grid">
+              <div className="mt-4 grid italic">
                 <div className="flex gap-4">
                   <label>A:</label>
-                  <div className="scale-75 origin-top-left">
+                  <div className="origin-top-left scale-75">
                     <Read id={1} text="TCTGTAATACAAAAT" />
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <label>B:</label>
-                  <div className="scale-75 origin-top-left">
+                  <div className="origin-top-left scale-75">
                     <Read id={1} text="AGTGAGTTTCGCGCG" />
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <label>C:</label>
-                  <div className="scale-75 origin-top-left">
+                  <div className="origin-top-left scale-75">
                     <Read id={1} text="ATATATAGGGGGGGG" />
                   </div>
                 </div>
@@ -576,7 +586,7 @@ export default function QuestionContent() {
               content={
                 <div
                   className={
-                    "text-pretty bg-interactiveBlue/10 dark:bg-zinc-900/50 dark:text-emerald-400 p-4 leading-[23px] md:p-6 md:px-8 flex flex-col gap-4"
+                    "flex flex-col gap-4 text-pretty bg-interactiveBlue/10 p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
                   }
                 >
                   {" "}
@@ -610,7 +620,7 @@ export default function QuestionContent() {
           </div>
         )}
         {phase === 3 && (
-          <div className="@4xl/main:grid-cols-2 grid gap-x-16 gap-y-8 font-helvetica grid-flow-row-dense  pb-24 ">
+          <div className="grid grid-flow-row-dense gap-x-16 gap-y-8 pb-24 font-helvetica  @4xl/main:grid-cols-2 ">
             <div>
               <KnowledgeCheckQuestion
                 trigger={questions[3] !== 0}
@@ -761,7 +771,7 @@ export default function QuestionContent() {
   if (section === 3 && phase !== 2) {
     return (
       <div
-        className={`max-w-6xl mx-auto px-4 my-8 ${
+        className={`mx-auto my-8 max-w-6xl px-4 ${
           phase === 1
             ? `${questions[1] !== 0 ? "fadeIn500" : "visible"}`
             : "invisible"
@@ -966,8 +976,8 @@ export default function QuestionContent() {
 
   if (section === 3 && phase === 2) {
     return (
-      <div className="max-w-6xl mx-auto px-4 my-12">
-        <h6 className="font-bold text-lg">Questions</h6>
+      <div className="mx-auto my-12 max-w-6xl px-4">
+        <h6 className="text-lg font-bold">Questions</h6>
         {section === 3 && phase === 2 && (
           <div className="mt-8 flex flex-col gap-4">
             <KnowledgeCheckQuestion
@@ -1061,7 +1071,7 @@ export default function QuestionContent() {
                   headerText="If you were told that resistance to an antimalarial drug required a microhaplotype sequence from locus 1 represented by the 3 SNPs GAC,  would this infection contain a drug resistant parasite?"
                 />
                 <QuestionResponseText
-                  className="col-span-full row-start-2 w-0 min-w-full md:row-start-auto"
+                  className="col-span-full row-start-2 mt-4 w-0 min-w-full md:row-start-auto"
                   visible={questions[8] === 1}
                   text={`That’s right - there are only 3 microhaplotypes present in this sample at locus 1, and none of them match the drug resistant sequence.`}
                 />
@@ -1283,7 +1293,7 @@ export default function QuestionContent() {
         <QuestionResponseText
           visible={chimaeraPlaced}
           content={
-            <div className="flex flex-col gap-4 text-pretty bg-primaryBlue/10 p-4 leading-[23px] md:p-6 md:px-8">
+            <div className="bg-primaryBlue/10 flex flex-col gap-4 text-pretty p-4 leading-[23px] md:p-6 md:px-8">
               <p>
                 A common type of error that occurs during amplicon sequencing is
                 a chimera formed from a combination of two different amplicons
@@ -1366,16 +1376,16 @@ export default function QuestionContent() {
                 content={
                   <div
                     className={
-                      "text-pretty bg-interactiveBlue/10 dark:bg-zinc-900/50 dark:text-emerald-400 p-4 leading-[23px] md:p-6 md:px-8"
+                      "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
                     }
                   >
                     <p>
                       Correct! The false mutation has been corrected and now
                       matches the base allele in the reference genome.
                     </p>
-                    <div className="flex justify-center text-xl mt-2 text-orange-500 italic">
+                    <div className="mt-2 flex justify-center text-xl italic text-orange-500">
                       <span className="inline-block translate-y-1.5">T</span>
-                      <span className="text-2xl scale-y-150">&rarr;</span>
+                      <span className="scale-y-150 text-2xl">&rarr;</span>
                       <span className="inline-block translate-y-1.5">A</span>
                     </div>
                   </div>
@@ -1432,16 +1442,16 @@ export default function QuestionContent() {
                 content={
                   <div
                     className={
-                      "text-pretty bg-interactiveBlue/10 dark:bg-zinc-900/50 dark:text-emerald-400 p-4 leading-[23px] md:p-6 md:px-8"
+                      "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
                     }
                   >
                     <p>
                       Correct! The false mutation has been corrected and now
                       matches the base allele in the reference genome.
                     </p>
-                    <div className="flex justify-center text-xl mt-2 text-orange-500 italic">
+                    <div className="mt-2 flex justify-center text-xl italic text-orange-500">
                       <span className="inline-block translate-y-1.5">C</span>
-                      <span className="text-2xl scale-y-150">&rarr;</span>
+                      <span className="scale-y-150 text-2xl">&rarr;</span>
                       <span className="inline-block translate-y-1.5">A</span>
                     </div>
                   </div>
