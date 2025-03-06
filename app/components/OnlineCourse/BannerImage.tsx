@@ -48,11 +48,6 @@ export default function BannerImage() {
           discussion forums and job aids. This course is free and open to the
           public.
         </p>
-        <p>
-          <span className="font-roboto font-bold">Register</span>: the course
-          will go live in November 2024. Registration will be available soon
-          &ndash; sign up for our mailing list to stay updated.
-        </p>
         <div className="mt-8 flex justify-center">
           <div>
             <Link
