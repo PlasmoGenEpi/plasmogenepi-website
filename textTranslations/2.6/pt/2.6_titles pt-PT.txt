@@ -1,0 +1,162 @@
+Investigação 2.6
+
+0: Introdução
+  1. Antecedentes
+    > A estimativa da multiplicidade de infeção (MOI) num conjunto de amostras de pacientes pode ser um instrumento valioso para avaliar a eficácia das intervenções de controlo do paludismo, tais como mosquiteiros, pulverização residual em recintos fechados ou tratamentos antipalúdicos. Um MOI elevado indica geralmente uma maior intensidade de transmissão na comunidade, porque se as pessoas forem infectadas com mais frequência, há uma maior probabilidade de superinfeção. Por conseguinte, as intervenções eficazes de controlo da malária devem reduzir a transmissão do parasita, conduzindo a uma diminuição do MOI ao longo do tempo.
+
+    > Nesta atividade, regressa ao seu papel de Chefe de Vigilância do Programa Nacional de Controlo do Paludismo de Kambawe.
+
+    > O Programa Nacional de Controlo da Malária de Kambawe tem vindo a implementar uma nova e dispendiosa intervenção de controlo de vectores. Os dados de vigilância de rotina sugerem que pode estar a funcionar. Mas não está convencido da qualidade dos dados.
+
+    > Tem amostras de manchas de sangue seco (DBS) armazenadas de um inquérito recente sobre indicadores da malária e um laboratório molecular a funcionar. Também tem dados históricos que mostram que o MOI médio nesta zona de alta transmissão era de 2,5 antes do início da intervenção de controlo dos vectores.
+
+  2. Objetivo
+    > O objetivo desta atividade é interpretar os genótipos de um conjunto de amostras em que o verdadeiro MOI na sua população é desconhecido. Depois, interpretará os resultados para avaliar se as intervenções do Programa Nacional de Controlo do Paludismo foram ou não eficazes.
+
+  3. Instruções
+    > Esta atividade inclui seis passos, que pretendem refletir o processo de utilização de dados genéticos para estimar o MOI num laboratório molecular:
+
+    > Passo 1: Faça amostras de controlo positivo a partir de clones de laboratório para os quais conhece o MOI. Em seguida, faça o genótipo das suas amostras de controlo positivo para se certificar de que o ensaio está a funcionar corretamente.
+
+    > Passo 2: Analisar os resultados das suas amostras de campo utilizando SNPs para estimar o MOI na sua população.
+
+    > Passo 3: Genotipar os mesmos controlos positivos nos mesmos loci, desta vez analisando grupos de SNPs em conjunto como microhaplótipos.
+
+    > Passo 4: Analisar os resultados das suas amostras de campo utilizando os microhaplótipos para estimar o MOI desconhecido na sua população.
+
+    > Passo 5: Compare as suas estimativas de MOI a partir de SNPs com as suas estimativas de MOI a partir de microhaplótipos.
+
+    > Passo 6: Interpretar os resultados e dar feedback ao seu programa sobre a intervenção.
+
+
+
+
+1: Passo 1. Criar Controlos Positivos a partir de SNPs quando se conhece o MOI
+  0. Contexto
+    > Em primeiro lugar, terá de fazer amostras de controlo positivo a partir de SNPs quando souber o MOI. Em seguida, faça o genótipo das suas amostras de controlo positivo para se certificar de que o seu ensaio está a funcionar corretamente.
+
+    Boa sorte!
+
+  1. 1.1. Fazer Clones de Laboratório com SNPs
+    > Clique em cada ícone de parasita 1-5 para criar 5 clones de laboratório. A cada clone de laboratório serão atribuídos alelos SNP em 12 loci no genoma, escolhendo aleatoriamente o alelo de referência ou o alelo alternativo em cada posição. Os alelos de referência e alternativos para os loci 1-12 são mostrados abaixo.
+
+
+  2. 1.2. Fazer Controlos Positivos com SNPs
+    > Faça seis controlos positivos diferentes utilizando combinações diferentes dos seus clones de laboratório. Clique nos seus clones de laboratório para os mover para dentro ou para fora dos cartões de amostra à direita. O número de clones que utilizar para cada controlo positivo dependerá do MOI.
+
+
+  3. 1.3. Genotipagem dos controlos positivos
+    > Clique no alelo de referência, no alelo alternativo ou em ambos os alelos para introduzir dados no formulário de genótipo em cada um dos 12 loci. Faça isto para cada um dos seus controlos positivos. Os alelos introduzidos dependem de quais estão presentes em cada loci - um, o outro ou ambos.
+
+  4. 1.4. Verificação de conhecimentos
+    > Responder às seguintes perguntas.
+
+  5. 1.5 Mais verificações de conhecimento
+    > Antes de prosseguir para o Passo 2, vamos parar um momento para pensar na relação entre genótipos e heterozigotia. Complete o questionário de oito perguntas abaixo.
+
+
+
+
+2: Passo 2. Analisar os resultados das suas amostras de campo utilizando SNPs para estimar o MOI desconhecido na sua população
+  0. Contexto
+    > Agora que validou os dados de genotipagem do seu laboratório, está pronto para testar as amostras do seu inquérito de indicadores da malária!
+
+    > Estas amostras são recolhidas em todo o país e, por conseguinte, devem ser amplamente representativas do que se está a passar. Nesta etapa da atividade, irá analisar 10 infecções genotipadas para que possa terminar esta atividade num período de tempo razoável, mas vamos assumir que são representativas da sua amostra completa, que é muito maior.
+
+    > Terá de estimar o MOI para cada um deles, com base na sua experiência de análise de dados de controlos. Em seguida, calculará o MOI médio e interpretará os seus resultados para determinar se as suas intervenções de controlo de vectores estão a funcionar.
+
+    > Boa sorte!
+  
+  1. 2.1. Estimar o MOI para cada uma das 10 amostras de campo
+    > Ver o genótipo de cada amostra de campo a partir de SNPs. Estime o MOI para cada infeção e introduza-o na tabela. Quando introduzir a sua estimativa do MOI para cada infeção, os resultados serão apresentados num histograma abaixo.
+
+
+  
+  2. 2.2. Calcular o MOI médio
+    > O MOI médio das suas estimativas (somando as 10 estimativas de MOI e dividindo por 10) é apresentado abaixo.
+
+
+  
+  3. 2.3. Verificação de conhecimentos
+    > Antes de prosseguir para a Etapa 3, vamos parar um momento para pensar na relação entre o MOI e o impacto das suas intervenções de controlo de vectores.
+
+    > Relembrar, desde o início da atividade, que temos o DBS armazenado de um inquérito recente sobre indicadores da malária e dados históricos que mostram que o MOI médio era de 2,5 antes da intervenção.
+  
+
+3: Passo 3. Criar controlos positivos a partir de microhaplótipos quando se conhece o MOI
+
+  0. Contexto
+  > Tem agora dados de um novo inquérito de indicadores da malária, com milhares de amostras recolhidas em todo o seu país, e fez a genotipagem de um conjunto representativo das amostras que foram positivas. O diretor do seu laboratório chega e diz-lhe que os 12 SNP provêm, na realidade, de 4 partes distintas do genoma - cada uma contendo 3 SNP mesmo ao lado uma da outra (ou seja, 4 microhaplótipos).
+  > O diretor pergunta se a análise dos mesmos dados como microhaplótipos pode fornecer resultados mais precisos e facilmente interpretáveis. Concorda em tentar.
+  > Nesta etapa da atividade, irá repetir o processo, utilizando os mesmos resultados de genotipagem. Mas, em vez de utilizar os SNPs individuais, desta vez irá analisar combinações de SNPs como microhaplótipos.
+  > Será que os microhaplótipos lhe darão um resultado diferente?
+  > Vamos descobrir!
+
+
+  1. 3.1. Criar clones de laboratório com microhaplótipos
+  > Agora você vai analisar os mesmos 5 clones de laboratório usando microhaplótipos. Note que os SNPs individuais são os mesmos de antes, mas agora está a analisar cada combinação de 3 SNPs juntos como um único microhaplótipo (4 microhaplótipos no total). Por conseguinte, tem 4 loci em vez de 12, cada um com mais diversidade do que os SNP individuais. Clique nos microhaplótipos na tabela de consulta à esquerda para os colocar nos loci à direita. A seleção de uma coluna diferente altera os loci apresentados na tabela.
+
+
+  2. 3.2. Fazer controlos positivos com microhaplótipos
+  > Faça seis controlos positivos utilizando diferentes combinações dos seus clones de laboratório. Clique nos clones do seu laboratório para os colocar ou retirar dos cartões de amostra à direita. O número de clones que utiliza para cada controlo positivo depende do MOI e cada controlo deve ser diferente dos outros.
+
+
+  3. 3.3. Genotipar os seus controlos positivos
+  > Introduza os dados no formulário de genótipo clicando em cada microhaplótipo presente nos locus 1, 2, 3 e 4. O número de microhaplótipos que introduzir dependerá do número de microhaplótipos diferentes presentes em cada locus.
+
+
+  4. 3.4. Verificação de conhecimentos
+  > Responder às seguintes perguntas.
+
+
+  5. 3.5. Mais verificações de conhecimentos
+  > Antes de prosseguir para o Passo 4, vamos parar um momento para pensar sobre a relação entre MOI e o número de alelos observados nos microhaplótipos. Complete o questionário de três perguntas abaixo.
+
+
+  
+    
+
+
+4: Passo 4. Analisar os resultados das suas amostras de campo utilizando microhaplótipos para estimar o MOI desconhecido na sua população
+  0. Contexto
+    > Agora é altura de analisar os resultados das suas amostras de campo utilizando microhaplótipos para estimar o MOI desconhecido na sua população.
+  
+  1. 4.1. Estimar o MOI para cada uma das 10 amostras de campo
+    > Ver o genótipo de cada amostra de campo a partir dos microhaplótipos. Estimar o MOI para cada infeção e introduzi-lo na tabela. Quando introduzir a sua estimativa do MOI para cada infeção, os resultados serão apresentados num histograma abaixo.
+
+
+  
+  2. 4.2. Calcular o MOI médio
+    > Calcule o MOI médio a partir das suas estimativas (some as suas 10 estimativas de MOI e divida por 10). Isto já foi feito para si.
+
+
+5: Passo 5. Comparar as estimativas de MOI dos SNP com as estimativas de MOI dos microhaplótipos
+  0. 5.1. Compare as suas estimativas de MOI a partir de SNPs e microhaplótipos
+    > Veja a tabela abaixo e tome nota de quaisquer diferenças que veja entre as suas estimativas de MOI em SNPs vs. microhaplótipos. Selecione uma linha na tabela para comparar os seus genótipos. Em seguida, considere algumas questões abaixo.
+
+
+
+  1. 5.2. Compare as suas estimativas com o MOI verdadeiro
+    > Veja as suas estimativas de MOI entre SNPs, microhaplótipos e o verdadeiro valor de MOI para cada infeção. Selecione uma linha na tabela para comparar os seus genótipos.
+
+
+6: Passo 6. Faça as suas recomendações
+  Interpretação dos resultados
+  > Agora o momento para o qual nos temos vindo a preparar. Chegou o momento de interpretar os resultados e dar feedback ao seu programa sobre a eficácia da sua intervenção.
+
+
+7: Resumo
+  > Trabalho fantástico! Interpretou com sucesso os genótipos de um conjunto de amostras em que o verdadeiro MOI na sua população era desconhecido! Usando essa informação, conseguiu demonstrar que o Programa Nacional de Controlo do Paludismo está, de facto, a controlar o paludismo com as suas novas intervenções de controlo de vectores.
+  
+  Principais conclusões
+    > Esta atividade foi muito abrangente! Aqui estão algumas das principais conclusões:
+
+    > Tanto os SNPs como os microhaplótipos podem ser utilizados para estimar o MOI.
+
+    > Os microhaplótipos têm mais diversidade do que os SNP e reflectem com maior exatidão o MOI, sobretudo quando este é elevado.
+
+    > Embora os microhaplótipos sejam mais fáceis de interpretar, não são perfeitos.
+
+    > Obter um MOI exato, mesmo a partir de um número relativamente pequeno de amostras da sua população, pode fornecer informações sobre alterações na transmissão, juntamente com outros dados epidemiológicos e genéticos.
+  
+  Código do módulo

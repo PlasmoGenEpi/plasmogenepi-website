@@ -21,7 +21,9 @@ import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/Inter
 export default function LabClonesWithSNPs({
   phase,
   forwards,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   phase: number;
   forwards: boolean;
 }) {
@@ -30,7 +32,15 @@ export default function LabClonesWithSNPs({
   if (phase === 1) {
     return (
       <InteractivePrimaryLayout
-        leftHeader={`Lab Clones with SNPs`}
+        leftHeader={
+          lang === "EN"
+            ? `Lab Clones with SNPs`
+            : lang === "FR"
+            ? `Clones de laboratoire avec SNPs`
+            : lang === "PT"
+            ? `Clones de laboratório com SNPs`
+            : `Lab Clones with SNPs`
+        }
         leftContent={<CloneRowTable phase={phase} forwards={forwards} />}
       />
     );
@@ -38,13 +48,27 @@ export default function LabClonesWithSNPs({
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Lab Clones with SNPs`}
+      leftHeader={
+        lang === "EN"
+          ? `Lab Clones with SNPs`
+          : lang === "FR"
+          ? `Clones de laboratoire avec SNPs`
+          : lang === "PT"
+          ? `Clones de laboratório com SNPs`
+          : `Lab Clones with SNPs`
+      }
+      // leftHeader={`Lab Clones with SNPs`}
       leftContent={<CloneRowTable phase={phase} forwards={forwards} />}
       rightHeader={
         phase === 2 ? (
-          <div className="@4xl/main:col-start-2 @4xl/main:row-start-1 @4xl/main:text-left @4xl/main:mt-0 mt-8 text-center">
-            <h4 className="@2xl/main:text-wrap @2xl/main:text-left text-balance  text-center text-lg font-semibold">
-              Positive Control {selectedBoard}
+          <div className="mt-8 text-center @4xl/main:col-start-2 @4xl/main:row-start-1 @4xl/main:mt-0 @4xl/main:text-left">
+            <h4 className="text-balance text-center text-lg  font-semibold @2xl/main:text-wrap @2xl/main:text-left">
+              {lang === "EN"
+                ? `Positive Control`
+                : lang === "FR"
+                ? `Contrôle positif`
+                : `Controle positivo`}{" "}
+              {selectedBoard}
               <label className="text-sm">
                 <br></br>
                 MOI = {selectedBoard > 4 ? 4 : selectedBoard > 2 ? 2 : 1}
@@ -53,7 +77,9 @@ export default function LabClonesWithSNPs({
           </div>
         ) : undefined
       }
-      rightContent={phase === 2 ? <P1PositiveControlBoard /> : undefined}
+      rightContent={
+        phase === 2 ? <P1PositiveControlBoard lang={lang} /> : undefined
+      }
     />
   );
 

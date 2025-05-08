@@ -1,0 +1,161 @@
+Sleuthing 2.6
+
+0: Introduction
+  1. Background
+    > Estimating the multiplicity of infection (MOI) in a set of patient samples can be a valuable tool for assessing the effectiveness of malaria control interventions, like bed-nets, indoor residual spraying or antimalarial treatments. A high MOI generally indicates a higher transmission intensity in the community because if people are infected more frequently there is a greater change of superinfection. Therefore, effective malaria control interventions should reduce the transmission of the parasite, leading to a decrease in the MOI over time.
+
+    > In this activity, you return to your role as the Head of Surveillance of the National Malaria Control Program of Kambawe.
+
+    > The National Malaria Control Program of Kambawe has been implementing an expensive new vector control intervention. Routine surveillance data suggest it may be working. But you are not convinced of the data's quality.
+
+    > You have dried blood spot (DBS) samples stored from a recent malaria indicator survey and a functioning molecular lab. You also have historic data showing average MOI in this high transmission area was 2.5 before the vector controls intervention began.
+
+  2. Goal
+    > The goal of this activity is to interpret the genotypes of a set of samples where the true MOI in your population is unknown. Then, you will interpret results to assess whether or not the National Malaria Control Program's interventions have been effective.
+
+  3. Instructions
+    > This activity includes six steps, which are intended to reflect the process of using genetic data to estimate MOI in a molecular lab:
+
+    > Step 1: Make positive control samples from laboratory clones where you know the MOI. Then genotype your positive control samples to make sure your assay is working correctly.
+
+    > Step 2: Analyze results from your field samples using SNPs to estimate the MOI in your population.
+
+    > Step 3: Genotype the same positive controls at the same loci, this time analyzing groups of SNPs together as microhaplotypes.
+
+    > Step 4: Analyze results from your field samples using microphaplotypes to estimate the unknown MOI in your population.
+
+    > Step 5: Compare your estimates of MOI from SNPs to your estimates of MOI from microhaplotypes.
+
+    > Step 6: Interpret results and provide feedback to your program about the intervention.
+
+
+
+
+1: Step 1. Make Positive Controls from SNPs When You Know the MOI 
+  0. Background
+    > First up, you will need to make positive control samples from SNPs when you know the MOI. Then genotype your positive control samples to make sure your assay is working correctly.
+
+    Good luck!
+
+  1. 1.1. Make Laboratory Clones with SNPs
+    > Click each parasite icon 1-5 to make 5 laboratory clones. Each laboratory clone will be assigned SNP alleles at 12 loci in the genome, randomly choosing the reference allele or alternate allele at each position. The reference and alternate alleles for loci 1-12 are shown below.
+
+
+  2. 1.2. Make Positive Controls with SNPs
+    > Make six different positive controls using different combinations of your laboratory clones. Click on your laboratory clones to move them on or off the sample cards on the right. The number of clones you use for each positive control will depend on the MOI.
+
+
+  3. 1.3. Genotype Your Positive Controls
+    > Click the reference allele, the alternate allele or both alleles to enter data into the genotype form at each of the 12 loci. Do this for each of your positive controls. The alleles you enter will depend on which are present at each loci – one, the other, or both.
+
+  4. 1.4. Knowledge Check
+    > Answer the following questions.
+
+  5. 1.5 More Knowledge Checks
+    > Before you continue to Step 2, let's take a moment to think about the relationship between genotypes and heterozygosity. Complete the eight-question quiz below.
+
+
+
+
+2: Step 2. Analyze Results from Your Field Samples Using SNPs to Estimate the Unknown MOI in Your Population
+  0. Background  
+    > Now that you have validated your lab’s genotyping data, you are ready to test the samples from your malaria indicator survey!
+
+    > These samples are collected from across your country and therefore should be broadly representative of what is going on. In this step of the activity, you will analyze 10 genotyped infections so you can finish this activity in a reasonable amount of time, but we will assume that they are representative of your full sample which is much larger.
+
+    > You will need to estimate the MOI for each one, based on your experience analyzing data from controls. Then you will calculate the mean MOI and interpret your results to determine if your vector control interventions are working.
+
+    > Good luck!
+  
+  1. 2.1. Estimate MOI for Each of the 10 Field Samples  
+    > View the genotype for each field samples from SNPs. Estimate the MOI for each infection and enter it into the table. When you enter your estimate of the MOI for each infection, the results will display in a histogram below.
+
+
+  
+  2. 2.2. Calculate the Average MOI  
+    > The average MOI from your estimates (adding up your 10 estimates of MOI and dividing by 10) is shown below.
+
+
+  
+  3. 2.3. Knowledge Check
+    > Before you continue to Step 3, let's take a moment to think about the relationship between MOI and the impact of your vector control interventions.
+
+    > Recall from the beginning of the activity that have DBS stored from a recent malaria indicator survey and historic data showing average MOI was 2.5 before the intervention.
+  
+
+3: Step 3. Make Positive Controls from Microhaplotypes When You Know the MOI
+
+  0. Background
+  > You now have data from a new malaria indicator survey, with thousands of samples collected across your country, and you genotyped a representative set of the samples that were positive. Your lab director comes in and tells you that the 12 SNPs actually come from 4 distinct parts of the genome - each containing 3 SNPs right next to each other (i.e. 4 microhaplotypes).
+  > The director asks whether analyzing the same data as microhaplotypes might provide more accurate and easily interpretable results. You agree to try.
+  > In this step of the activity, you will repeat the process, using the same genotyping results. But, instead of using the individual SNPs, this time you will analyze combinations of SNPs as microhaplotypes.
+  > Will the microhaplotypes give you a different result?
+  > Let's find out!
+
+
+  1. 3.1. Make Laboratory Clones with Microhaplotypes
+  > You will now analyze the same 5 laboratory clones using microhaplotypes. Note that the individual SNPs are the same as before, but now you are analyzing each combination of 3 SNPs together as a single microhaplotype (4 microhaplotypes in total). Therefore you have 4 loci instead of 12, each with more diversity than the individual SNPs. Click microhaplotypes in the look-up table on the left to place them on loci on the right. Selecting a different column will change the loci shown in the table.
+
+
+  2. 3.2. Make Positive Controls with Microhaplotypes
+  > Make six positive controls using different combinations of your laboratory clones. Click on your laboratory clones to move them on or off the sample cards on the right. The number of clones you use for each positive control will depend on the MOI,and each control must be different from others.
+
+
+  3. 3.3. Genotype Your Positive Controls
+  > Enter data in the genotype form by clicking each microhaplotype that is present at locus 1, 2, 3, and 4. The number of microhaplotypes that you enter will depend on how many different microhaplotypes are present at each locus.
+
+
+  4. 3.4. Knowledge Check
+  > Answer the following questions.
+
+
+  5. 3.5. More Knowledge Checks
+  > Before you continue to Step 4, let's take a moment to think about the relationship between MOI and the number of alleles you observe in microhaplotypes. Complete the three-question quiz below.
+
+
+  
+    
+
+
+4: Step 4. Analyze Results from Your Field Samples Using Microhaplotypes to Estimate the Unknown MOI in Your Population
+  0. Background  
+    > Now it's time to analyze results from your field samples using microhaplotypes to estimate the unknown MOI in your population.
+  
+  1. 4.1. Estimate MOI for Each of the 10 Field Samples  
+    > View the genotype for each field samples from microhaplotypes. Estimate the MOI for each infection and enter it into the table. When you enter your estimate of the MOI for each infection, the results will display in a histogram below.
+
+
+  
+  2. 4.2. Calculate the Average MOI  
+    > Calculate the average MOI from your estimates (add up your 10 estimates of MOI and divide by 10). This has been done for you.
+
+
+5: Step 5. Compare Estimates of MOI from SNPs to Estimates of MOI from Microhaplotypes  
+  0. 5.1. Compare Your Estimates of MOI from SNPs to Microhaplotypes
+    > View the table below and take note of any differences that you see between your estimates of MOI in SNPs vs. microhaplotypes. Select a row in the table to compare your genotypes. Then consider some questions below.
+
+
+
+  1. 5.2. Compare Your Estimates with the True MOI
+    > View your estimates of MOI between SNPs, microhaplotypes, and the true MOI value for each infection. Select a row in the table to compare your genotypes.
+
+
+6: Step 6. Interpret Results and Provide Feedback to Your Program About the Intervention
+  > Now the moment we've been building toward. It is time to interpret the results and provide feedback to your program about the effectiveness of its intervention.
+
+
+7: Summary
+  > Amazing work! You successfully interpreted the genotypes of a set of samples where the true MOI in your population was unknown! Using that information, you were able to demonstrate that the National Malaria Control Program is, in fact, controlling malaria with its new vector control interventions.
+  
+  Key Takeaways
+    > You covered a lot in this activity! Here are a few key takeaways:
+
+    > Both SNPs and microhaplotypes can be used to estimate MOI.
+
+    > Microhaplotypes have more diversity than SNPs and provide a more accurate reflection of MOI, particularly when MOI is high.
+
+    > Even though microhaplotypes are more easy to interpret, they are not perfect.
+
+    > Getting accurate MOI even from a relatively small number of samples from your population may provide insight into changes in transmission, along with other epidemiological and genetic data.
+  
+  Module Code

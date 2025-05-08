@@ -1,0 +1,362 @@
+1.
+
+  Créer un hybride
+  Comparer des clones identiques
+  Comparaisons où IBD = 0%
+  Comparaisons de génotypes avec microhaplotypes et hybrides
+
+
+
+  Questions
+
+    [
+      En comparant deux clones de laboratoire, vous pensez que :
+
+        Les clones ne sont absolument pas apparentés par l'ascendance, de sorte que probablement 0/12 (0 %) des SNP entre deux clones correspondront. L'IBS sera de 0.
+
+        Même si les clones ne sont pas apparentés, les SNP peuvent toujours correspondre par hasard. Étant donné qu'il existe deux allèles parfaitement équilibrés à chaque locus, la probabilité de concordance sera la même que si l'on tire deux fois à pile ou face et que l'on obtient le même résultat. On peut s'attendre à ce qu'environ 6/12 (50 %) des SNP correspondent. L'IBS sera probablement très proche de 0,5, mais peut varier.
+
+        Étant donné que la simulation est aléatoire pour les trois clones, il n'y a aucun moyen de prédire ce que sera l'IBS. Il est tout aussi probable qu'il soit compris entre 0 et 1.
+
+        > La simulation est aléatoire, mais vous avez toujours une idée de ce qui va se passer. Lorsque vous comparez deux clones à un locus donné, ils ont 50 % de chances de partager un allèle puisqu'il y a deux options aussi probables l'une que l'autre. Bien qu'il soit possible qu'aucun des SNP ne corresponde (première option), la probabilité que cela se produise est très faible (environ 0,02 %).
+
+      Combien de loci correspondent ?
+
+      Quel est le SII pour ces deux parasites ?
+
+      Quelle est la MII de ces deux parasites ?
+
+        > C'est exact - nous avons le privilège de savoir que ces parasites n'ont aucun lien de parenté puisqu'il s'agit de clones de laboratoire connus. Comme le D de l'IBD signifie "descendance" et que ces clones ne descendent pas les uns des autres, l'IBD dans ce cas est exactement égal à zéro.
+
+        > Environ 50 % des loci devraient correspondre dans chacune de ces comparaisons. Vous pouvez constater que certaines paires de clones ont un IBS plus élevé que d'autres. Cela signifie-t-il que ces clones sont plus étroitement liés que les autres ? Non, nous savons que ce n'est pas le cas - l'IBD est égal à zéro ! Toute différence d'IBS entre ces paires est purement due au hasard. Si vous répétez l'activité, vous obtiendrez un résultat différent à chaque fois, mais les clones ne sont toujours pas apparentés.
+
+      Sur cette base, pensez-vous qu'il est probable que les 12 loci correspondent si les parasites ne sont pas apparentés ?
+
+        > Il est très peu probable qu'ils correspondent tous par hasard ; la probabilité est la même qu'aucun d'entre eux ne corresponde, soit environ 0,02 %. Il est également peu probable ( <1% de chances) que 11 des 12 correspondent.
+
+        > Probabilité de correspondance des SNP - Distribution des allèles 50/50
+
+      Ce scénario est quelque peu optimiste dans la mesure où les SNP sont parfaitement diversifiés. Dans une situation plus réaliste, si les fréquences alléliques des SNP n'étaient pas de 50/50 mais de 80/20 par exemple, s'attendrait-on à plus ou moins de correspondances ?
+
+        > On peut s'attendre à un plus grand nombre de correspondances puisque la diversité est moindre. L'allèle le plus courant a plus de chances d'être présent chez les deux parasites, et ils s'apparieront donc plus souvent, environ 70 % du temps. Pour le cas 80/20, la probabilité de voir différents nombres de correspondances est indiquée dans le graphique.
+
+        > Probabilité de correspondance des SNP - Distribution des allèles 80/20
+
+      Pensez-vous que cette fréquence d'allèles plus élevée rendrait plus difficile ou plus facile la distinction entre parasites apparentés et parasites non apparentés ?
+
+        > Correct : c'est parce qu'il y aura plus de correspondances lorsque les parasites ne sont pas apparentés, de sorte qu'il y aura moins de différence dans le syndrome de l'intestin irritable entre les parasites apparentés et non apparentés. Ils auront tous un nombre assez élevé de correspondances. Par exemple, 12/12 correspondances (IBS de 1,0) est encore peu fréquent mais n'est plus extrêmement rare pour des parasites complètement non apparentés, à environ 1 %. Il est à noter que plus de 20 % des comparaisons entre parasites non apparentés présenteront encore 10/12 correspondances ou plus (IBS>0,8) !
+
+        > Probabilité de correspondance des SNP - Distribution des allèles 80/20
+
+      Combien de loci correspondent ?
+
+      Quel est le SII pour ces deux parasites ?
+      
+      Quelle est la MII de ces deux parasites ?
+
+        > Probabilité de correspondance des SNP - Clones de fratrie (50% IBD)
+
+        > C'est exact - nous avons à nouveau le privilège de connaître le véritable lien de parenté par ascendance de ces clones de laboratoire. Puisque le clone 4 est un enfant du clone 1 et qu'il partage exactement 50 % de son génome par ascendance - la partie rouge - l'IBD est de 0,5 ou 50 %.
+
+        > C'est exact - comme précédemment, l'IBD est de 0,5 puisque le clone hybride partage 50 % de son génome avec le parent, dans ce cas la partie bleue.
+
+        > On peut s'attendre à ce qu'ils aient à peu près le même syndrome de l'intestin irritable, soit environ 9/12 ou 75 %. Les SNP dans la moitié apparentée du génome devraient toujours correspondre parfaitement, à moins qu'il n'y ait des mutations ou des erreurs de génotypage. Toutefois, comme les correspondances dans la partie non apparentée sont aléatoires, le nombre total de correspondances peut varier.
+
+        > La plupart du temps, nous nous attendons à voir entre 7 et 11 correspondances, mais nous pouvons obtenir 12/12 correspondances dans environ 2 % des cas. Dans tous ces cas, l'IBD serait de 0,5, mais l'IBS pourrait varier de 0,5 à 1,0 en raison du hasard.
+
+        > C'est exact - nous avons à nouveau le privilège de connaître la véritable parenté ancestrale de ces clones de laboratoire. Comme le clone 4 n'est pas un enfant du clone 3 et qu'il ne partage aucun élément de son génome par ascendance, l'IBD est de 0 %. La situation est identique à celle de nos comparaisons initiales des clones de laboratoire 1, 2 et 3.
+
+        > C'est exact - si les parasites sont identiques, l'ensemble du génome est apparenté, de sorte que les MICI sont à 100 % ou à 1,0, et que tous les loci correspondront (c'est-à-dire que le SII sera également à 1,0). Tant que votre génotypage est précis, vous obtiendrez des correspondances 12/12 à chaque fois !
+
+        > Probabilité de correspondance des SNP - Clones identiques (100% IBD)
+
+      Sur la base de vos résultats, dans quelle mesure pensez-vous pouvoir distinguer les parasites identiquement apparentés de ceux qui ne le sont pas du tout dans le cadre de l'IBS ?
+
+        Pas très fiable
+
+        Plus ou moins fiable
+
+        Très fiable
+
+          > Statistiquement, il devrait être relativement simple de distinguer les parasites parfaitement apparentés des parasites complètement non apparentés avec 12 SNP parfaitement équilibrés. En effet, les parasites parfaitement apparentés auront toujours un IBS de 1, alors que les parasites complètement non apparentés auront presque toujours un IBS au moins légèrement inférieur à 1, comme dans ces deux histogrammes :
+
+
+          > Distinguer les parasites apparentés des parasites non apparentés semble raisonnablement simple avec les SNP, mais qu'en est-il de la distinction entre les parasites frères et sœurs (IBD 0,5) et ceux qui ne sont pas apparentés (IBD 0) ?
+
+      Sur la base de vos résultats, dans quelle mesure pensez-vous pouvoir distinguer les parasites identiquement apparentés de ceux qui ne le sont pas du tout dans le cadre de l'IBS ?
+
+        > Les frères et sœurs peuvent être difficiles à distinguer de manière fiable des parasites non apparentés. En effet, le nombre de correspondances que nous attendons avec 12 SNP se chevauche dans ces deux situations. Nous avons tendance à avoir plus de correspondances en moyenne dans les fratries que pour les parasites sans lien de parenté, mais pas de manière fiable.
+
+        IBS Distribution - IBD 0.5
+        IBS Distribution - IBD 0.5
+        Distribution IBS - IBD 0
+        Distribution IBS - IBD 0
+
+        > Si nous avons 7, 8 ou 9 correspondances, par exemple, il peut s'agir de frères et sœurs ou de parasites sans aucun lien de parenté.
+
+      Comment pourriez-vous améliorer votre capacité à distinguer les parasites apparentés de ceux qui ne le sont pas ? Choisissez toutes les réponses qui s'appliquent.
+
+        Augmentez le nombre de loci que vous génotypez, par exemple de 12 à 100.
+
+        Augmentez la diversité des loci que vous génotypez, par exemple en utilisant des microhaplotypes au lieu de SNP.
+
+        Observez-les au microscope et essayez de les distinguer en fonction de leur aspect.
+
+        > Plus vous évaluez de loci, plus il sera facile de distinguer la proportion de correspondances (IBS) correspondant à des parasites apparentés ou non. De même, plus les loci sont diversifiés, moins il y a de chances que des correspondances se produisent par hasard, de sorte que l'IBS reflète plus étroitement les MICI.
+
+        > L'augmentation du nombre et de la diversité des loci vous donnera la plus grande puissance. Les loci plus diversifiés sont particulièrement utiles en cas d'infections polyclonales, dont vous savez qu'elles peuvent être fréquentes, et vous décidez donc d'emprunter cette voie.
+
+        > Vous savez, grâce à un cours en ligne sur la génomique du paludisme, que les microhaplotypes sont plus diversifiés que les SNP et qu'ils peuvent être facilement génotypés grâce à un séquençage ciblé. Vous demandez donc à votre laboratoire de refaire le séquençage en utilisant 12 microhaplotypes au lieu de 12 SNP.
+
+      Que pensez-vous voir ?
+
+        L'IBD sera le même pour toutes les comparaisons que lorsque vous avez utilisé des SNP. Mais l'IBS sera en moyenne plus faible, puisqu'il y a 1/8 de chance d'appariement à chaque loci au lieu de ½ lorsque vous utilisiez des SNP.
+
+        L'IBD et l'IBD seront tous deux inférieurs à ce qu'ils étaient lorsque vous utilisiez les SNP.
+
+        Le nombre de MICI et d'IBS sera plus élevé que lorsque vous utilisez les SNP.
+
+        Les MICI et le syndrome de l'intestin irritable resteront identiques à ce qu'ils étaient lorsque vous avez utilisé les SNP.
+
+        > L'IBD sera le même pour toutes les comparaisons que précédemment. Mais l'IBS sera en moyenne plus faible, puisqu'il y a 1/8 de chances d'appariement à chaque loci au lieu de 1/2.
+
+        > C'est exact - des parasites non apparentés signifient toujours que l'IBD est nulle, qu'il y ait ou non concordance des loci.
+
+      Comment les résultats de votre IBS comparant ces mêmes 3 parasites non apparentés diffèrent-ils en utilisant 12 microhaplotypes par rapport à 12 SNP ?
+
+        En utilisant les microhaplotypes, il y avait moins d'allèles correspondant au hasard.
+
+        En utilisant les microhaplotypes, il y avait plus d'allèles correspondant au hasard.
+
+        Il n'y avait pas de différence dans le nombre d'allèles correspondant au hasard.
+
+        > Vous auriez dû remarquer que vous aviez moins d'allèles correspondant par hasard dans ces parasites non apparentés, puisque les microhaplotypes étaient plus diversifiés que les SNP - rendant le SII plus faible et reflétant mieux les MICI (qui étaient toujours nulles). Cet histogramme montre le nombre attendu de correspondances en utilisant 12 microhaplotypes de 8 allèles chacun - généralement moins de 5. Cela contraste avec les SNP, qui peuvent avoir jusqu'à 9 ou 10 correspondances.
+
+        Distribution des correspondances entre les microhaplotypes (IBD 0%)
+        Distribution des correspondances de microhaplotypes (IBD 0%)
+        Distribution des correspondances SNP (IBD 0%)
+
+        > C'est exact - nous avons à nouveau le privilège de connaître le véritable lien de parenté par ascendance de ces clones de laboratoire. Puisque le clone 4 est un enfant du clone 1 et qu'il partage exactement 50 % de son génome par ascendance - la partie rouge - l'IBD est de 0,5 ou 50 %.
+
+      Les deux comparaisons précédentes ont donné le même IBD - 0,5 - puisque le clone hybride est apparenté à 50 % à chaque parent. Avez-vous obtenu le même résultat pour l'IBD à chaque fois ? Que pensez-vous que vous obtiendriez si vous faisiez des expériences similaires en examinant d'autres clones apparentés de la même manière ?
+
+        0, ou proche de 0 allumettes
+
+        Environ 50 % de correspondance
+
+        100 %, ou près de 100 % de concordance
+
+        Probabilité de concordance des microhaplotypes - Clones de la fratrie (0,5 IBD)
+
+        > Les microhaplotypes, tout comme les SNP, dans la moitié apparentée du génome devraient toujours correspondre parfaitement, à moins qu'il n'y ait des mutations ou des erreurs de génotypage. Étant donné que les correspondances dans la partie non apparentée sont aléatoires, le nombre total de correspondances peut varier, mais devrait être moins élevé qu'avec les loci SNP moins diversifiés que vous avez utilisés précédemment.
+
+        > La plupart du temps, nous nous attendons à ce qu'il y ait entre 6 et 8 correspondances, mais nous pouvons obtenir 9/12 dans environ 2 % des cas. Contrairement aux SNP, il est très peu probable que nous obtenions 10 correspondances ou plus - moins de 0,3 % du temps.
+
+      Que pensez-vous voir si vous comparez le clone 4 de notre laboratoire hybride au clone 3, qui n'est pas son parent ?
+
+        La valeur IBD serait de 0 et la valeur IBS serait la même que celle de la comparaison de clones totalement indépendants, généralement entre 0 et 4 correspondances.
+
+        IBD serait 1 et IBS serait la même chose que la comparaison de clones complètement non apparentés, généralement entre 0 et 4 correspondances.
+
+        Les MICI seraient à 0 et le syndrome de l'intestin irritable serait légèrement plus élevé, quelque part entre 5 et 8 correspondances.
+
+        > Puisque l'hybride n'est pas du tout apparenté au clone 3, l'IBD serait de 0 et l'IBS serait identique à la comparaison de clones complètement non apparentés, généralement entre 0 et 4 correspondances pour ces divers loci de microhaplotypes.
+
+      En quoi vos résultats concernant les microhaplotypes diffèrent-ils de ceux obtenus lors de la comparaison des clones de laboratoire avec les SNP ?
+
+        Il est plus facile de distinguer les parasites apparentés de ceux qui ne le sont pas avec les microhaplotypes qu'avec les SNP.
+
+        Il est plus difficile de distinguer les parasites apparentés de ceux qui ne le sont pas avec les microhaplotypes qu'avec les SNP.
+
+        Il est également difficile de distinguer les parasites apparentés de ceux qui ne le sont pas, que l'on utilise les microhaplotypes ou les SNP.
+
+        > Votre investissement a porté ses fruits : avec 12 SNP, il vous était difficile de distinguer les frères et sœurs des parasites non apparentés, et parfois même des parasites parfaitement apparentés, sur la base du nombre de correspondances.
+
+        > Vous avez maintenant terminé le génotypage avec des microhaplotypes à plus haute résolution.
+
+        > En augmentant la résolution de votre génotypage, vous pouvez plus facilement déterminer quels parasites sont apparentés par l'ascendance et donc par la transmission. Vous avez maintenant une bonne idée de ce que ce que vous observez en termes de SII signifie en termes de parenté réelle des parasites. Vous êtes presque prêt à répondre aux questions de votre programme sur ces foyers inquiétants ! Il ne vous reste plus qu'une chose à faire...
+
+    ]
+
+2.
+
+  Comparaisons de génotypes polyclonaux
+  Transmissions
+
+  Questions
+    [
+      Combien de loci correspondent ?
+
+      Quel est l'IBS pour ces deux échantillons ?
+
+      Quelle est la DIB pour ces deux échantillons ?
+
+        > Même si le nombre de correspondances peut être plus élevé qu'auparavant puisque l'un de vos échantillons est polyclonal, cela ne change rien au fait qu'aucun des parasites entre les deux échantillons n'est apparenté par l'ascendance. Comme ils ne sont pas du tout apparentés, l'IBD est de 0.
+
+        > Même chose que pour la comparaison précédente - Puisqu'ils ne sont pas du tout liés, l'IBD est 0
+
+      Que pensez-vous observer si la MOI de l'un ou des deux échantillons était encore plus élevée, mais qu'il n'y avait toujours pas de parasites apparentés entre les deux échantillons ?
+
+        L'IBS serait plus faible.
+
+        Le syndrome de l'intestin irritable serait le même.
+
+        Le taux d'IBS serait plus élevé.
+
+        > Correct, l'IBS serait plus élevé. C'est pour la même raison que l'IBS est susceptible d'être plus élevé dans les échantillons polyclonaux que dans les échantillons monoclonaux - il peut y avoir plus d'allèles présents à faire correspondre par hasard. Cet histogramme montre le nombre de loci que l'on peut s'attendre à voir avec des allèles correspondants (IBS) s'il n'y a pas de parasites apparentés entre les deux échantillons.
+
+        > IBS pour des infections non liées
+
+      Que pensez-vous pouvoir faire pour mieux distinguer les infections apparentées de celles qui ne le sont pas à mesure que la MOI augmente ? (choisissez toutes les réponses qui s'appliquent)
+
+        Abandonnez - il sera impossible de le savoir.
+
+        Augmentez le nombre de loci que vous génotypez.
+
+        Augmentez la diversité des loci que vous génotypez.
+
+        Utiliser des méthodes statistiques plus puissantes qui permettent d'estimer directement la MII au lieu d'utiliser l'IBS.
+
+          > Dans les situations où la MOI est plus élevée, un panel de génotypage plus large et plus diversifié peut contribuer à une meilleure résolution. En outre, il existe des méthodes statistiques spécialement conçues pour estimer l'IBD à partir d'infections polyclonales et qui fournissent des estimations précises ainsi qu'une signification statistique. Heureusement, pour les cas que vous étudiez dans cet exercice, la transmission est relativement faible et vous devriez être en mesure de comprendre ce qui se passe en calculant l'IBS à l'aide de votre panel de 12 microhaplotypes.
+
+      Quel est l'IBD pour ces deux échantillons ? Comme il peut y avoir plusieurs façons d'interpréter l'IBD lorsque les échantillons sont polyclonaux, considérons l'IBD maximal pour tous les parasites entre les deux échantillons, c'est-à-dire l'IBD des parasites les plus apparentés.
+
+        > Vous avez un parasite génétiquement identique dans les deux échantillons - le clone 1 (le parasite de couleur rouge), donc l'IBD est de 1,0 ou 100%.
+
+      Que pensez-vous que le syndrome de l'intestin irritable serait dans cette situation ? Heureusement, vous avez les témoins qu'il vous faut pour vérifier votre hypothèse ! Quels sont les deux témoins à comparer ?
+
+        > Vous auriez dû trouver que IBS est 1.0 - est-ce que c'est ce à quoi vous vous attendiez ?
+
+        > Le point important à retenir est que si une personne transmet des parasites directement à une autre personne par l'intermédiaire d'un moustique, chaque locus devrait avoir une correspondance entre ces deux personnes - l'IBS devrait être de 1,0.
+
+        > Ceci est vrai indépendamment du fait qu'un ou plusieurs parasites soient transmis, et que la recombinaison se produise ou non chez le moustique.
+
+
+    ]
+
+3.
+  Infections
+  Réseau de transmission potentiel
+  Génotypes avec IBS
+  Correspondance des génotypes
+  Réseau de transmission du village
+  Retour d'information
+  Infections d'étudiants
+  Résultats
+
+  Questions
+    [
+      Ces valeurs de MOI vous donnent-elles des indications sur le fait que la transmission s'est probablement produite à l'école ou à partir des villages d'origine des élèves ?
+
+        Oui, ces données sont suffisantes pour conclure définitivement que toutes les transmissions ont eu lieu dans les villages d'origine.
+
+        Oui, ces données sont suffisantes pour conclure définitivement que toutes les transmissions ont eu lieu à l'école.
+
+        Oui, ces données suggèrent qu'au moins certaines infections ont pu trouver leur origine dans les villages d'origine.
+
+        Non, les valeurs de la MOI ne fournissent aucune information utile sur l'origine des infections.
+
+          > Les valeurs de la MOI ne fournissent pas d'informations concluantes sur le lieu de la transmission. Cependant, certaines des valeurs les plus élevées sont suspectes pour les élèves infectés dans une zone à forte transmission, ce qui pourrait suggérer que ces cas se sont produits à la maison et non à l'école. En effet, l'école se trouve dans une zone à très faible transmission dans la province d'Eliminati et il ne faut donc pas s'attendre à une surinfection importante, même si, comme vous le savez, la cotransmission, même dans une zone à faible transmission, peut toujours entraîner une infection polyclonale à partir d'une seule piqûre de moustique.
+
+      D'après votre analyse des génotypes, existe-t-il des preuves de transmission directe du paludisme (par l'intermédiaire d'un moustique) entre l'un ou l'autre de ces enfants ? Rappelez-vous qu'au début de cet exercice, vous vous attendez à ce que l'IBS soit de 1 lorsqu'il y a une transmission directe.
+
+        > Correct ! Même si certains allèles correspondent par hasard entre ces infections, l'IBS est inférieur à 1 pour toutes vos comparaisons. Cela signifie que vous n'avez trouvé aucune preuve de transmission directe à l'école !
+
+      Parmi les éléments suivants, quel serait le meilleur moyen de communiquer vos résultats aux parties prenantes telles que la communauté scolaire, le gouvernement local et le programme de lutte contre le paludisme ?
+
+        Vous avez définitivement prouvé qu'il n'y a absolument aucune transmission du paludisme à l'école.
+
+        Il n'est pas possible d'affirmer avec certitude que l'école transmet le paludisme, c'est pourquoi vous choisissez de dire que les résultats ne sont pas clairs.
+
+        Vous pouvez affirmer avec un degré de confiance raisonnable que ces quatre cas ne sont pas liés par la transmission et qu'ils ne sont pas suspects d'une épidémie dans l'école. Toutefois, si d'autres cas sont détectés dans l'école ou à proximité, votre équipe doit être contactée immédiatement pour poursuivre l'enquête.
+
+        Vous ne vous souciez pas d'interpréter les résultats pour d'autres personnes et vous vous contentez de leur montrer les données de génotypage, en les laissant se débrouiller par eux-mêmes.
+
+          > Vous pouvez être certain que ces cas ne sont pas directement liés, compte tenu de vos résultats. Il est bien sûr possible qu'une transmission se produise encore à l'avenir ou que d'autres infections paludéennes liées à certains de ces quatre cas n'aient pas encore été détectées. Il est toujours bon de maintenir un niveau de vigilance et de poursuivre une surveillance et une gestion des cas de paludisme de haute qualité, mais pour l'instant, il ne semble pas y avoir de raison de mettre en œuvre des interventions supplémentaires. Excellent travail ! Vous avez évité à la communauté de gaspiller des ressources en essayant de contrôler une "épidémie" qui n'était pas vraiment préoccupante.
+
+      Examinez les deux cas qui ont des antécédents de voyage et qui sont potentiellement des cas importés. Pensez-vous que leurs infections par le parasite du paludisme sont liées l'une à l'autre par la descendance ? Pourquoi ou pourquoi pas ? Choisissez toutes les réponses qui s'appliquent.
+
+        Oui, parce qu'ils ont tous deux voyagé pour que leurs parasites ressemblent aux parasites importés, qui sont tous les mêmes.
+
+        Oui, parce qu'ils ont tous deux des infections polyclonales, il est probable que les infections soient liées les unes aux autres.
+
+        Non, parce qu'ils ont tous deux voyagé dans des endroits différents, les populations de parasites peuvent être différentes et il est donc peu probable que les parasites qu'ils ont contractés soient apparentés.
+
+        Non, parce qu'ils se sont rendus dans des zones de forte transmission où la diversité des parasites peut être élevée et où il est peu probable que ces parasites soient apparentés les uns aux autres.
+
+        > Si les deux personnes ayant des antécédents de voyage ont voyagé ensemble, par exemple si elles faisaient partie du même ménage, il est possible que leurs infections soient liées. Dans ce cas, nous savons qu'elles ont voyagé dans différentes zones géographiques à forte transmission et qu'elles y ont probablement contracté leurs infections. Étant donné que la diversité génétique des parasites est généralement importante dans les zones de forte transmission et que ces personnes viennent de régions différentes, on ne s'attendrait pas à ce que leurs parasites soient liés par l'ascendance. C'est exactement ce que nous constatons. Étant donné que le MOI de ces cas est de 2 et 3, on s'attendrait à voir quelques correspondances par hasard ; ce que nous observons - 4 loci sur 12 avec une correspondance, soit un IBS de 0,33 - est dans la fourchette de ce à quoi on s'attendrait avec des infections sans lien de parenté.
+
+        > Plusieurs types d'informations peuvent vous intéresser, mais la date des cas est un élément important. Votre équipe partage avec vous une base de données épidémiologiques propre et bien conservée contenant des données sur les cinq cas. Il s'avère que les cas E et F ont été détectés à une semaine d'intervalle et que les cas G, H et I ont tous présenté un paludisme entre deux et six semaines plus tard.
+
+      Comment interpréter ces données épidémiologiques supplémentaires sur la chronologie des cas ?
+
+        Les cas E et F se sont produits si près l'un de l'autre dans le temps qu'ils sont probablement apparentés, même s'ils ont tous deux voyagé dans des lieux différents et que leurs infections ne sont pas étroitement liées sur le plan génétique.
+
+        Les cas G, H et I (qui n'ont pas voyagé) ne peuvent pas être liés aux cas E et F puisqu'ils se sont produits beaucoup plus tard.
+
+        Les cas G, H et I (qui n'ont pas voyagé) pourraient être liés aux cas importés, car la transmission d'une personne à une autre peut prendre plusieurs semaines avant de provoquer un paludisme symptomatique.
+
+      Beau travail ! Vous avez intégré les données épidémiologiques et génétiques du parasite pour évaluer avec précision la transmission dans le village.
+
+      Il y a cependant un cas qui mérite d'être examiné de plus près.
+
+        > Vous pensiez qu'il n'y avait pas de preuve de transmission directe entre les cas G et I. Vous aviez raison - l'IBS était inférieur à un. Cependant, ces deux génotypes présentaient plus de correspondances que ce que l'on pourrait s'attendre à voir pour des infections sans aucun lien de parenté. S'ils n'étaient pas apparentés (barres dans l'histogramme), nous nous attendrions à voir plus de 5 correspondances, mais dans vos données, vous avez vu 8/12 (IBS=0,67).
+
+        > Le nombre de correspondances est cohérent avec le fait que les parasites dans ces cas sont des frères et sœurs, c'est-à-dire un IBD de 0,5 (barres vertes dans l'histogramme). Il peut y avoir des fratries lorsque deux parasites ont les mêmes parents... cela a-t-il un sens compte tenu du reste de votre estimation de la transmission ?
+
+        > Vous avez une très bonne intuition - ces deux cas ont plus de loci apparentés que ce que l'on pourrait attendre du hasard. Le MOI est unique pour les deux cas, de sorte que nous ne nous attendrions pas à voir plus de cinq loci en correspondance si les cas n'étaient pas du tout apparentés (barres bleues dans l'histogramme) et nous voyons 8 correspondances (IBS de 0,67). Cependant, nous savons également qu'ils ne sont pas directement liés par la transmission, puisque nous nous attendrions alors à ce qu'ils soient identiques (IBS=1). Qu'est-ce qui, selon vous, pourrait expliquer ce niveau intermédiaire de parenté ?
+
+        > Le nombre de correspondances est cohérent avec le fait que les parasites dans ces cas sont des frères et sœurs, c'est-à-dire un IBD de 0,5 (barres vertes dans l'histogramme). Il peut y avoir des fratries lorsque deux parasites ont les mêmes parents... cela a-t-il un sens compte tenu du reste de votre estimation de la transmission ?
+
+      Sur la base de votre évaluation, quels types de cas, s'il y en a, pensez-vous qu'il y a dans le village (choisissez tous ceux qui s'appliquent) ?
+
+        Mallettes importées
+
+        Cas introduits
+
+        Cas de transmission locale
+        
+        > Correct ! Les cas E et F sont très probablement des cas importés, compte tenu du fait qu'aucun cas n'a été signalé dans ce village avant ces deux cas, et de leurs récents voyages dans des zones à forte transmission. Les cas I et G sont probablement des cas introduits provenant du cas E, et le cas H est probablement un cas introduit provenant du cas F.
+
+      Parmi les éléments suivants, quel est le meilleur moyen de communiquer vos résultats aux parties prenantes telles que la communauté villageoise, le gouvernement local et le programme de lutte contre le paludisme ?
+
+        Vous avez définitivement prouvé qu'il n'y a absolument aucune transmission du paludisme dans le village.
+
+        Il n'est pas possible d'affirmer avec certitude qu'il y a transmission du paludisme dans le village, c'est pourquoi vous choisissez de dire que les résultats ne sont pas clairs.
+
+        Vous pouvez affirmer avec un degré élevé de confiance que vous avez jusqu'à présent observé des preuves d'une transmission locale limitée - une seule génération de transmission à partir de cas importés conduisant à trois cas introduits. Vous n'avez pas encore de preuve d'une transmission locale continue au-delà de cela, ce qui est compatible avec le statut d'élimination.
+
+        On peut affirmer avec un degré de confiance raisonnable que ces cinq cas ne sont pas liés par la transmission et qu'ils ne sont pas suspects d'une épidémie dans le village.
+
+        Vous ne vous souciez pas d'interpréter les résultats pour d'autres personnes et vous vous contentez de leur montrer les données de génotypage, en les laissant se débrouiller par eux-mêmes.
+
+      Votre directeur de programme vous demande ce qu'il convient de faire au niveau du programme sur la base de ces résultats détaillés issus de votre enquête approfondie. Vous lui suggérez :
+
+        Réduire les interventions dans la zone administrative où se trouve ce village, étant donné qu'il n'y a pas de transmission dans cette zone et que les ressources pourraient être mieux utilisées ailleurs.
+
+        Maintenir les interventions au niveau où elles se trouvent - il y a eu une transmission limitée entre les cas importés et les cas introduits, mais il ne semble pas qu'elle se poursuive au-delà. Toutefois, si d'autres cas sont détectés dans le village ou à proximité, votre équipe doit être contactée immédiatement pour poursuivre l'enquête. Entre-temps, vous conserverez toutes les données de génotypage bien organisées dans votre base de données permanente si d'autres cas sont détectés.
+
+        Investir dans des interventions plus intensives, car vous craignez l'imminence d'une épidémie de grande ampleur.
+
+        > Vous avez montré qu'il y a une certaine transmission dans le village (l'option A est donc incorrecte), mais elle semble limitée, du moins pour l'instant. Il serait donc raisonnable de maintenir les interventions là où elles sont, tout en restant vigilant et en investissant dans une surveillance épidémiologique et génomique rigoureuse. Des ressources supplémentaires consacrées aux interventions pourraient réduire la probabilité d'apparition de nouveaux cas, mais comme la transmission ne semble pas durable pour le moment, ces ressources pourraient être mieux utilisées ailleurs.
+
+      Auparavant, vous avez dit que les transmissions provenaient très probablement de cas importés et qu'il fallait maintenir les interventions aux niveaux actuels tout en restant diligent. Cette recommandation change-t-elle sur la base de ce réseau de transmission ?
+
+        Cela n'aurait pas changé ma recommandation.
+
+        J'aurais été plus préoccupé par la transmission locale soutenue et j'aurais recommandé d'intensifier les interventions visant à réduire la transmission dans le village.
+
+        J'aurais été moins inquiet et j'aurais recommandé de réduire l'intensité des interventions.
+
+        > Si la transmission a pu avoir lieu entre les cas G et I, cela aurait représenté au moins deux générations de transmission - E à G puis G à I - ce qui correspond à une transmission locale continue et n'est plus compatible avec le statut d'élimination. Pour parvenir à l'élimination, qui est votre objectif pour cette région, les interventions devraient probablement être améliorées par un meilleur ciblage ou une intensification générale.
+
+      Combien de clones de parasites différents y a-t-il dans tous les cas ? Conseil : Rappelez-vous que les boules colorées représentent les génotypes des parasites présents dans ces cinq cas, de sorte que des boules d'aspect différent seront des clones distincts avec des génotypes différents.
+
+        > C'est exact : dans ces cas, chaque parasite est génétiquement distinct, bien que certains soient apparentés les uns aux autres. Il y en a neuf au total.
+
+      Combien de clones de parasites, ou de lignées, ont été initialement introduits dans le village par les deux cas qui avaient voyagé ?
+
+        > Grand - cinq lignées génétiquement distinctes ont été introduites dans le village, deux par le cas E et trois par le cas F. Les parasites des cas G, H et I sont tous apparentés à ces cinq lignées.
+
+
+    ]

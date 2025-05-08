@@ -33,13 +33,13 @@ export default function BloodSpotThumbnail({
   return (
     <button
       type="button"
-      aria-label={`positive control ${id}`}
+      aria-label={`${id}`}
       onClick={() => {
         if (callback) {
           callback();
         }
       }}
-      data-tip={tooltip}
+      // data-tip={tooltip}
       className={`tooltip relative mb-auto w-full max-w-[200px] select-none border-[3px] p-2 transition-all focus-visible:tooltip-open focus:outline-offset-4 dark:brightness-75 ${
         className ? className : ""
       } ${active ? "border-interactiveBlue" : "border-transparent"} ${

@@ -18,7 +18,9 @@ export default function InteractiveSideBar({
   currentView,
   setCurrentView,
   dev,
+  lang = "EN",
 }: {
+  lang: "EN" | "FR" | "PT";
   dev?: boolean;
   currentView: InteractiveViewSettings;
   // SetAtom<[SetStateActionWithReset<{ module: string; section: number; phase: number; }>]
@@ -83,12 +85,15 @@ export default function InteractiveSideBar({
                 : module === "5.6"
                 ? "5.6"
                 : "4.4"} */}
-              Genetic Sleuthing & Surveillance
+              {lang === "EN"
+                ? "Genetic Sleuthing & Surveillance"
+                : lang === "FR"
+                ? "Enquête et surveillance génétiques"
+                : "Investigação e vigilância genética"}
             </h3>
           </div>
           {module === "2.6"
             ? sections.map((section, idx) => {
-                console.log(section);
                 return (
                   <InteractiveSideBarSection
                     currentView={currentView}
@@ -96,7 +101,7 @@ export default function InteractiveSideBar({
                     first={idx === 0}
                     key={idx}
                     node={{
-                      title: section.title,
+                      title: section.title[lang],
                       active: currentView.section === section.sectionId,
                       sectionId: section.sectionId,
                       locked:
@@ -122,7 +127,9 @@ export default function InteractiveSideBar({
                                   ]
                                 : false,
                             requires:
-                              typeof subComponent?.requiresKey === "number"
+                              dev === true
+                                ? true
+                                : typeof subComponent?.requiresKey === "number"
                                 ? section.completionAtom
                                   ? !!useAtomValue(section.completionAtom)[
                                       subComponent.requiresKey
@@ -133,7 +140,7 @@ export default function InteractiveSideBar({
                                     ).includes(false)
                                   : false
                                 : null,
-                            title: subComponent.title,
+                            title: subComponent.title?.[lang] ?? "",
                             callback: () => {
                               setCurrentView({
                                 ...currentView,
@@ -211,22 +218,6 @@ export default function InteractiveSideBar({
                 );
               })
             : null}
-          {/* <InteractiveSideBarSection
-            node={{
-              title: "Genotype & Sleuthing",
-              active: false,
-              subcomponents: [
-                {
-                  title: "hello world",
-                  active: false,
-                  complete: false,
-                  node: <></>,
-                  requires: null,
-                  callback: () => {},
-                },
-              ],
-            }}
-          /> */}
         </div>
       </div>
     </div>

@@ -17,7 +17,11 @@ import {
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import { useMemo } from "react";
 
-export default function PartThreeMicrohaplotypeTable() {
+export default function PartThreeMicrohaplotypeTable({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [[row, col], setActiveTuple] = useAtom(activeRowColumnTransformAtom);
   const [transformMatrix, setTransformMatrix] = useAtom(transformMatrixAtom);
   const cloneRows = useAtomValue(cloneRowsAtom);
@@ -34,10 +38,9 @@ export default function PartThreeMicrohaplotypeTable() {
     }
   }, [cloneRows, row, col, hints, transformMatrix]);
 
-  console.log(targetMicroId);
-
   return (
     <MicrohaplotypeTable
+      lang={lang}
       disabled={completion[1]}
       hint={targetMicroId}
       callback={(arrConfig: MicroId) => {

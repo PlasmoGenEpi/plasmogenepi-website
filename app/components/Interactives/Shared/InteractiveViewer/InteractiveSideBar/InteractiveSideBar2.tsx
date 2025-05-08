@@ -457,7 +457,7 @@ export default function InteractiveSideBar2({
       //     ? "min-w-full grid-cols-[1fr]"
       //     : "min-w-0 -translate-x-full grid-cols-[0fr]"
       // } md:duration-1000  md:min-w-fit overflow-auto relative transition-none md:transition-all h-[calc(100vh-80px)] md:h-[calc(100vh-48px)] bg-zinc-950`}
-      className={`sticky top-0 grid text-zinc-400 shadow-lg shadow-black ${
+      className={`sticky top-0 grid text-zinc-400 shadow-lg shadow-black md:max-w-[384px] ${
         isOpen ? "min-w-full grid-cols-[1fr]" : "min-w-0 grid-cols-[0fr]"
       } relative  h-[calc(100vh-80px)] overflow-auto bg-zinc-950 transition-none md:h-[calc(100vh-48px)] md:min-w-fit md:transition-[grid-template-columns] md:duration-1000`}
     >
@@ -552,8 +552,10 @@ export default function InteractiveSideBar2({
                               ]
                             : false,
                         requires:
-                          typeof subComponent?.requiresKey === "number" &&
-                          section.completionAtom
+                          dev === true
+                            ? true
+                            : typeof subComponent?.requiresKey === "number" &&
+                              section.completionAtom
                             ? useAtomValue(section.completionAtom)[
                                 subComponent.requiresKey
                               ]

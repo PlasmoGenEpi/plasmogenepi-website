@@ -184,7 +184,7 @@ export default function SNPKnowledgeCheck() {
           <QuestionResponseText
             visible={p6AddedQuestions[1] === 3}
             content={
-              <div className="bg-interactiveBlue/10 mt-8 flex flex-col gap-4 text-pretty p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8">
+              <div className="mt-8 flex flex-col gap-4 text-pretty bg-interactiveBlue/10 p-4 leading-[23px] md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400">
                 <p>
                   Statistically, it should be relatively straightforward to
                   distinguish perfectly related parasites from completely
@@ -208,12 +208,6 @@ export default function SNPKnowledgeCheck() {
                   label="IBS Distribution - IBD 0"
                   alt=""
                 />
-                <p className="mt-4">
-                  Distinguishing related parasites from unrelated parasites
-                  appears reasonably straightforward with SNPs, but what about
-                  distinguishing sibling parasites (IBD 0.5) from those that are
-                  unrelated (IBD 0)?
-                </p>
               </div>
             }
           />
@@ -251,12 +245,15 @@ export default function SNPKnowledgeCheck() {
                   },
                 ]}
                 hasAnswer={p6AddedQuestions[2] === 1}
-                headerText="Based on your results, how reliably do you think you could distinguish identically related parasites from those that are completely unrelated using IBS?"
+                headerText="Distinguishing related parasites from unrelated parasites
+                  appears reasonably straightforward with SNPs, but what about
+                  distinguishing sibling parasites (IBD 0.5) from those that are
+                  unrelated (IBD 0)?"
               />
               <QuestionResponseText
                 visible={p6AddedQuestions[2] === 1}
                 content={
-                  <div className="bg-interactiveBlue/10 mt-8 text-pretty p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8">
+                  <div className="mt-8 text-pretty bg-interactiveBlue/10 p-4 leading-[23px] md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400">
                     <p>
                       Siblings may be difficult to reliably distinguish from
                       unrelated parasites. This is because the number of matches
@@ -356,7 +353,7 @@ export default function SNPKnowledgeCheck() {
                   !p6AddedQuestions[3].includes(3)
                 }
                 content={
-                  <div className="bg-interactiveBlue/10 mt-8 text-pretty p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8">
+                  <div className="mt-8 text-pretty bg-interactiveBlue/10 p-4 leading-[23px] md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400">
                     {/* <p>
                       Siblings may be difficult to reliably distinguish from
                       unrelated parasites. This is because the number of matches
@@ -671,7 +668,7 @@ export default function SNPKnowledgeCheck() {
                 (questions[3] === false || questions[3] === null)
                   ? "fadeIn500"
                   : "invisible"
-              } mt-8 flex flex-col gap-2 bg-primaryBlue/10 p-4 text-sm lg:p-6`}
+              } bg-primaryBlue/10 mt-8 flex flex-col gap-2 p-4 text-sm lg:p-6`}
             >
               <p>
                 The more loci you evaluate, the easier it will be to distinguish

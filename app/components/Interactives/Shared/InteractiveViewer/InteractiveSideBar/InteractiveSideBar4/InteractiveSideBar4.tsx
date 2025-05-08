@@ -25,7 +25,7 @@ export type SideBarSection = {
   }[];
 };
 
-export default function InteractiveSideBar4() {
+export default function InteractiveSideBar4({ dev }: { dev: boolean }) {
   const [isOpen, setIsOpen] = useAtom(sideBarIsOpenAtom);
   const completion6 = useAtomValue(partSixCompletionAtom);
   const completion7 = useAtomValue(partSevenCompletionAtom);
@@ -932,7 +932,7 @@ export default function InteractiveSideBar4() {
         isOpen
           ? "min-w-full translate-x-0 grid-cols-[1fr]"
           : "min-w-0 -translate-x-full grid-cols-[0fr]"
-      } md:transition-[grid-template-columns]/  relative h-[calc(100vh-80px)] overflow-auto bg-zinc-950 transition-none md:h-[calc(100vh-48px)] md:min-w-fit md:transition-all md:duration-1000`}
+      } md:transition-[grid-template-columns]/ relative h-[calc(100vh-80px)] overflow-auto bg-zinc-950 transition-none md:h-[calc(100vh-48px)] md:min-w-0 md:max-w-[400px] md:transition-all md:duration-1000`}
     >
       <button
         autoFocus={isOpen}
@@ -973,7 +973,7 @@ export default function InteractiveSideBar4() {
             </h3>
           </div>
           {sections.map((section, idx) => {
-            return <SideBar4SubComponent section={section} />;
+            return <SideBar4SubComponent section={section} dev={dev} />;
           })}
         </div>
       </div>

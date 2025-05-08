@@ -12,7 +12,11 @@ import { useEffect } from "react";
 import QuestionResponseText from "../../Shared/misc/QuestionResponseText";
 import { countMHPs } from "../../helpers";
 
-export default function PartThreeQuestions() {
+export default function PartThreeQuestions({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [boards, setBoards] = useAtom(partThreePositiveControlBoardsAtom);
   const selectedBoard = useAtomValue(selectedPositiveControlBoardAtom);
   const currentBoard = boards[selectedBoard];
@@ -77,7 +81,15 @@ export default function PartThreeQuestions() {
             });
           }}
           hasAnswer={currentBoard.questions[1] === 4}
-          headerText={`How many loci in positive control 1 (MOI = 1) have a single allele?`}
+          headerText={
+            lang === "EN"
+              ? `How many loci in positive control 1 (MOI = 1) have a single allele?`
+              : lang === "FR"
+              ? `Combien de loci dans le contrôle positif 1 (MOI = 1) ont un seul allèle ?`
+              : lang === "PT"
+              ? `Quantos loci no controle positivo 1 (MOI = 1) têm um único alelo?`
+              : ``
+          }
           questionIdx={1}
         />
         <KnowledgeCheckQuestion
@@ -119,7 +131,15 @@ export default function PartThreeQuestions() {
             });
           }}
           hasAnswer={currentBoard.questions[2] === 0}
-          headerText={`How many loci in positive control 1 have have more than 1 allele?`}
+          headerText={
+            lang === "EN"
+              ? `How many loci in positive control 1 have have more than 1 allele?`
+              : lang === "FR"
+              ? `Combien de loci dans le contrôle positif 1 ont plus d'un allèle ?`
+              : lang === "PT"
+              ? `Quantos loci no controle positivo 1 têm mais de 1 alelo?`
+              : ``
+          }
           questionIdx={2}
         />
       </div>
@@ -164,7 +184,15 @@ export default function PartThreeQuestions() {
             });
           }}
           hasAnswer={currentBoard.questions[1] === 4}
-          headerText={`How many loci in positive control 2 (MOI = 1) have a single allele?`}
+          headerText={
+            lang === "EN"
+              ? `How many loci in positive control 2 (MOI = 1) have a single allele?`
+              : lang === "FR"
+              ? `Combien de loci dans le contrôle positif 2 (MOI = 1) ont un seul allèle ?`
+              : lang === "PT"
+              ? `Quantos loci no controle positivo 2 (MOI = 1) têm um único alelo?`
+              : ``
+          }
           questionIdx={1}
         />
         <KnowledgeCheckQuestion
@@ -206,7 +234,15 @@ export default function PartThreeQuestions() {
             });
           }}
           hasAnswer={currentBoard.questions[2] === 0}
-          headerText={`How many loci in positive control 2 have have more than 1 allele?`}
+          headerText={
+            lang === "EN"
+              ? `How many loci in positive control 2 have have more than 1 allele?`
+              : lang === "FR"
+              ? `Combien de loci dans le contrôle positif 2 ont plus d'un allèle ?`
+              : lang === "PT"
+              ? `Quantos loci no controle positivo 2 têm mais de 1 alelo?`
+              : ``
+          }
           questionIdx={2}
         />
       </div>
@@ -256,7 +292,15 @@ export default function PartThreeQuestions() {
               return locus === 1;
             }).length
           }
-          headerText={`How many loci in positive control 3 (MOI = 2) have a single allele?`}
+          headerText={
+            lang === "EN"
+              ? `How many loci in positive control 3 (MOI = 2) have a single allele?`
+              : lang === "FR"
+              ? `Combien de loci dans le contrôle positif 3 (MOI = 2) ont un seul allèle ?`
+              : lang === "PT"
+              ? `Quantos loci no controle positivo 3 (MOI = 2) têm um único alelo?`
+              : ``
+          }
           questionIdx={1}
         />
         <KnowledgeCheckQuestion
@@ -302,7 +346,15 @@ export default function PartThreeQuestions() {
           hasAnswer={
             currentBoard.questions[2] === Math.max(...Object.values(mhpCount))
           }
-          headerText={`What is the highest number of alleles seen at a given locus in positive control 3?`}
+          headerText={
+            lang === "EN"
+              ? `What is the highest number of alleles seen at a given locus in positive control 3?`
+              : lang === "FR"
+              ? `Quel est le nombre le plus élevé d'allèles observés à un locus donné dans le contrôle positif 3 ?`
+              : lang === "PT"
+              ? `Qual é o maior número de alelos observados em um determinado locus no controle positivo 3?`
+              : ``
+          }
           questionIdx={2}
         />
         <KnowledgeCheckQuestion
@@ -339,7 +391,15 @@ export default function PartThreeQuestions() {
             });
           }}
           hasAnswer={currentBoard.questions[3] === 0}
-          headerText={`How many loci have more than two alleles in positive control 3?`}
+          headerText={
+            lang === "EN"
+              ? `How many loci have more than two alleles in positive control 3?`
+              : lang === "FR"
+              ? `Combien de loci ont plus de deux allèles dans le contrôle positif 3 ?`
+              : lang === "PT"
+              ? `Quantos loci têm mais de dois alelos no controle positivo 3?`
+              : ``
+          }
           questionIdx={3}
         />
       </div>
@@ -385,7 +445,15 @@ export default function PartThreeQuestions() {
               return locus === 1;
             }).length
           }
-          headerText={`How many loci in positive control 4 (MOI = 2) have a single allele?`}
+          headerText={
+            lang === "EN"
+              ? `How many loci in positive control 4 (MOI = 2) have a single allele?`
+              : lang === "FR"
+              ? `Combien de loci dans le contrôle positif 4 (MOI = 2) ont un seul allèle ?`
+              : lang === "PT"
+              ? `Quantos loci no controle positivo 4 (MOI = 2) têm um único alelo?`
+              : ``
+          }
           questionIdx={1}
         />
         <KnowledgeCheckQuestion
@@ -427,14 +495,30 @@ export default function PartThreeQuestions() {
           hasAnswer={
             currentBoard.questions[2] === Math.max(...Object.values(mhpCount))
           }
-          headerText={`What is the highest number of alleles seen at a given locus in positive control 4?`}
+          headerText={
+            lang === "EN"
+              ? `What is the highest number of alleles seen at a given locus in positive control 4?`
+              : lang === "FR"
+              ? `Quel est le nombre le plus élevé d'allèles observés à un locus donné dans le contrôle positif 4 ?`
+              : lang === "PT"
+              ? `Qual é o maior número de alelos observados em um determinado locus no controle positivo 4?`
+              : ``
+          }
           questionIdx={2}
         />
         <QuestionResponseText
           visible={
             currentBoard.questions[2] === Math.max(...Object.values(mhpCount))
           }
-          text={`Are you starting to notice any relationship between MOI and the number of alleles detected? What do you think you will see when you genotype the next 2 controls with MOI of 4?`}
+          text={
+            lang === "EN"
+              ? `Are you starting to notice any relationship between MOI and the number of alleles detected? What do you think you will see when you genotype the next 2 controls with MOI of 4?`
+              : lang === "FR"
+              ? `Commencez-vous à remarquer une relation entre le MOI et le nombre d'allèles détectés ? Que pensez-vous qu'il se passera lorsque vous génotyperez les 2 prochains contrôles avec un MOI de 4 ?`
+              : lang === "PT"
+              ? `Você está começando a notar alguma relação entre MOI e o número de alelos detectados? O que você acha que verá quando genotipar os próximos 2 controles com MOI de 4?`
+              : ``
+          }
         />
       </div>
     );
@@ -479,7 +563,15 @@ export default function PartThreeQuestions() {
               return locus === 1;
             }).length
           }
-          headerText={`How many loci in positive control 5 (MOI = 4) have a single allele?`}
+          headerText={
+            lang === "EN"
+              ? `How many loci in positive control 5 (MOI = 4) have a single allele?`
+              : lang === "FR"
+              ? `Combien de loci dans le contrôle positif 5 (MOI = 4) ont un seul allèle ?`
+              : lang === "PT"
+              ? `Quantos loci no controle positivo 5 (MOI = 4) têm um único alelo?`
+              : ""
+          }
           questionIdx={1}
         />
         <KnowledgeCheckQuestion
@@ -522,7 +614,15 @@ export default function PartThreeQuestions() {
           hasAnswer={
             currentBoard.questions[2] === Math.max(...Object.values(mhpCount))
           }
-          headerText={`What is the highest number of alleles seen at a given locus in positive control 5?`}
+          headerText={
+            lang === "EN"
+              ? `What is the highest number of alleles seen at a given locus in positive control 5?`
+              : lang === "FR"
+              ? `Quel est le nombre le plus élevé d'allèles observés à un locus donné dans le contrôle positif 5 ?`
+              : lang === "PT"
+              ? `Qual é o maior número de alelos observados em um determinado locus no controle positivo 5?`
+              : ""
+          }
           questionIdx={2}
         />
         <KnowledgeCheckQuestion
@@ -572,7 +672,15 @@ export default function PartThreeQuestions() {
               return count === Math.max(...Object.values(mhpCount));
             }).length
           }
-          headerText={`How many loci have this highest number of alleles?`}
+          headerText={
+            lang === "EN"
+              ? `How many loci have this highest number of alleles?`
+              : lang === "FR"
+              ? `Combien de loci ont ce nombre le plus élevé d'allèles ?`
+              : lang === "PT"
+              ? `Quantos loci têm esse maior número de alelos?`
+              : ""
+          }
           questionIdx={3}
         />
       </div>
@@ -616,21 +724,41 @@ export default function PartThreeQuestions() {
           hasAnswer={
             currentBoard.questions[1] === Math.max(...Object.values(mhpCount))
           }
-          headerText={`What is the highest number of alleles seen at a given locus in positive control 6? (MOI = 4)`}
+          headerText={
+            lang === "EN"
+              ? `What is the highest number of alleles seen at a given locus in positive control 6? (MOI = 4)`
+              : lang === "FR"
+              ? `Quel est le nombre le plus élevé d'allèles observés à un locus donné dans le contrôle positif 6 ? (MOI = 4)`
+              : lang === "PT"
+              ? `Qual é o maior número de alelos observados em um determinado locus no controle positivo 6? (MOI = 4)`
+              : ""
+          }
           questionIdx={1}
         />
         {/* w-[calc(100%+16px)] -translate-x-2  */}
         <QuestionResponseText
-          className="mt-4 mb-8"
+          className="mb-8 mt-4"
           trigger={
             currentBoard.questions[1] === Math.max(...Object.values(mhpCount))
           }
           visible={
             currentBoard.questions[1] === Math.max(...Object.values(mhpCount))
           }
-          text="Do the results for controls 5 and 6, with MOI of 4, match your
+          text={
+            lang === "EN"
+              ? `Do the results for controls 5 and 6, with MOI of 4, match your
             prediction? Why or why not? Take a moment to think about this
-            question."
+            question.`
+              : lang === "FR"
+              ? `Les résultats des contrôles 5 et 6, avec un MOI de 4, correspondent-ils à votre
+            prédiction ? Pourquoi ou pourquoi pas ? Prenez un moment pour réfléchir à cette
+            question.`
+              : lang === "PT"
+              ? `Os resultados dos controles 5 e 6, com MOI de 4, correspondem ao seu
+            previsão? Por que ou por que não? Reserve um momento para pensar sobre isso
+            questão.`
+              : ``
+          }
         />
         <div
           role="radiogroup"
@@ -643,9 +771,15 @@ export default function PartThreeQuestions() {
               : "invisible"
           }`}
         >
-          <h4 className={`[font-size:15px] text-pretty`}>
-            Why don&apos;t all the loci in positive control 5 and positive
-            control 6 have 4 alleles detected, even though the MOI = 4?
+          <h4 className={`text-pretty [font-size:15px]`}>
+            {lang === "EN"
+              ? `Why don&apos;t all the loci in positive control 5 and positive
+            control 6 have 4 alleles detected, even though the MOI = 4?`
+              : lang === "FR"
+              ? `Pourquoi tous les loci du contrôle positif 5 et du contrôle positif 6 n'ont-ils pas 4 allèles détectés, même si le MOI = 4 ?`
+              : lang === "PT"
+              ? `Por que nem todos os loci no controle positivo 5 e no controle positivo 6 têm 4 alelos detectados, mesmo que o MOI = 4?`
+              : ""}
           </h4>
           <div className={`mt-4 flex flex-col gap-4`}>
             <div className="flex flex-col gap-2">
@@ -675,7 +809,13 @@ export default function PartThreeQuestions() {
                   }`}
                   htmlFor="interactive-q2-a1"
                 >
-                  The genotyping is wrong.
+                  {lang === "EN"
+                    ? `The genotyping is wrong.`
+                    : lang === "FR"
+                    ? `Le génotypage est incorrect.`
+                    : lang === "PT"
+                    ? `A genotipagem está errada.`
+                    : ``}
                 </label>
               </div>
               {/* <p
@@ -713,7 +853,13 @@ export default function PartThreeQuestions() {
                   }`}
                   htmlFor="interactive-q2-a2"
                 >
-                  There aren&apos;t 4 possible alleles at each locus.
+                  {lang === "EN"
+                    ? `There aren't 4 possible alleles at each locus.`
+                    : lang === "FR"
+                    ? `Il n'y a pas 4 allèles possibles à chaque locus.`
+                    : lang === "PT"
+                    ? `Não há 4 alelos possíveis em cada locus.`
+                    : ``}
                 </label>
               </div>
               {/* <p
@@ -739,13 +885,21 @@ export default function PartThreeQuestions() {
                     });
                   }}
                   checked={currentBoard.questions[2] === 3}
-                  className="h-4 w-4 dark:accent-emerald-400 md:h-[14px] md:w-[14px]"
+                  className="h-4 w-4 md:h-[14px] md:w-[14px] dark:accent-emerald-400"
                   type="checkbox"
                   id="interactive-q2-a3"
                 ></input>
                 <label className={`text-sm`} htmlFor="interactive-q2-a3">
-                  Sometimes alleles in different strains will match by chance,
-                  even if diversity is high
+                  {lang === "EN"
+                    ? `Sometimes alleles in different strains will match by chance,
+                  even if diversity is high`
+                    : lang === "FR"
+                    ? `Parfois, les allèles de différentes souches correspondent par hasard,
+                  même si la diversité est élevée`
+                    : lang === "PT"
+                    ? `Às vezes, os alelos em diferentes cepas corresponderão por acaso,
+                  mesmo que a diversidade seja alta`
+                    : ``}
                 </label>
               </div>
               {/* <div className="min-h-32 dark:text-emerald-400 dark:bg-zinc-900/50 bg-interactiveBlue/10">
@@ -784,30 +938,46 @@ export default function PartThreeQuestions() {
                   currentBoard.questions[2] === 3 ? (
                     <div
                       className={
-                        "text-pretty bg-interactiveBlue/10 dark:bg-zinc-900/50 dark:text-emerald-400 p-4 leading-[23px] md:p-6 md:px-8"
+                        "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400"
                       }
                     >
                       <p>
-                        That is correct! Even with eight possible alleles, as in
+                        {lang === "EN"
+                          ? `That is correct! Even with eight possible alleles, as in
                         this exercise, there is a reasonable chance that some of
                         them will match if you have 4 of them. If you pick nine
-                        of them, it is certain that at least 2 will be the same!
+                        of them, it is certain that at least 2 will be the same!`
+                          : lang === "FR"
+                          ? `C'est exact ! Même avec huit allèles possibles, comme dans
+                        cet exercice, il y a une chance raisonnable que certains d'entre eux
+                        correspondent si vous en avez 4. Si vous en choisissez neuf, c'est
+                        certain qu'au moins 2 seront les mêmes !`
+                          : lang === "PT"
+                          ? `Isso está correto! Mesmo com oito alelos possíveis, como em
+                        este exercício, há uma chance razoável de que alguns deles
+                        corresponderão se você tiver 4 deles. Se você escolher nove
+                        deles, é certo que pelo menos 2 serão iguais!`
+                          : ``}
                       </p>
                     </div>
                   ) : currentBoard.questions[2] ? (
                     <div
-                      className={
-                        "text-pretty bg-cloneRed/20 dark:bg-zinc-900/50 dark:border-microRed dark:text-white dark:border-2 p-4 leading-[23px] md:p-6 md:px-8"
-                      }
+                      className={`text-pretty bg-cloneRed/20 ${
+                        lang === "EN" ? "p-4 md:p-6 md:px-8" : ""
+                      } leading-[23px]  dark:border-2 dark:border-microRed dark:bg-zinc-900/50 dark:text-white`}
                     >
                       <p>
                         {currentBoard.questions[2] === 2
-                          ? `Not true, there are actually eight possible alleles for every
+                          ? lang === "EN"
+                            ? `Not true, there are actually eight possible alleles for every
                 locus, as you identified during the genotyping process.`
+                            : null
                           : currentBoard.questions[2] === 1
-                          ? `Not correct, fortunately in this exercise we are assuming
+                          ? lang === "EN"
+                            ? `Not correct, fortunately in this exercise we are assuming
                       genotyping is perfect. This will not always be the case in
                 reality though!`
+                            : null
                           : null}
                       </p>
                     </div>

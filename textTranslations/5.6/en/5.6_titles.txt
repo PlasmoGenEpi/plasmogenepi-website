@@ -1,0 +1,348 @@
+Sleuthing 5.6
+
+Genotype Sleuthing to Estimate Relatedness from Genetic Data
+
+
+0: Introduction
+  1. Background
+    > Genotyping parasites from patient samples can help you determine how related they are to each other. In the context of a potential outbreak, estimates of identity by descent (IBD) and identity by state (IBS) help you sort out how much local transmission is occurring vs. how much importation from other geographic areas could be driving transmission.
+
+  2. Case Study
+    > In this activity, you return to your role as the Head of Surveillance for the National Malaria Control Program.
+
+
+    > Congratulations! Your persistent efforts advocating for intensified vector control within your national malaria program have paid off. Malaria cases are down across the country, and your program has just decided to attempt subnational elimination in a few provinces where transmission is lowest, including in the Eliminati Province.
+
+    > There were only a few cases last year in the pre-elimination region and, since you are taking detailed travel history from all cases as part of routine surveillance, you know that all of these cases had clear travel history to areas of the country with higher transmission.
+
+    > You are feeling good!
+
+    > Mission accomplished? Not so fast ...
+
+    > Just then, you get a text message from Tarsis, your Surveillance Officer in the Eliminati Region.
+
+
+    > “Hey Chief, this is Tarsis. I'm concerned about some new cases up here in Eliminati Province. Please call me as soon as you can!"
+
+    > You drop what you were doing (mainly feeling good about yourself) and call Tarsis immediately.
+
+
+    > Hey Chief," Tarsis begins. "I investigated 5 cases that occurred last month in a village in our Province. Only 2 of them report a history of travel outside the region."
+
+    > "Go on," you reply.
+
+    > Tarsis continues, "I know that malaria cases directly stemming from imported cases are known as introduced cases and can occasionally occur without too much concern . . . But if the 3 cases without travel history represent a longer chain of sustained transmission, that could threaten our program's goal of elimination!"
+
+    > "OK, well this is concerning but nothing to get too worried about," You reply calmly.
+
+    > "But, wait boss," Tarsis continues. "There's more . . . A boarding school from another village in Eliminati Province just reported 4 cases in students within a month after returning from holidays . . . What do you think - is there an outbreak at the school, or did these students all acquire their infections while visiting family upcountry over the holidays?"
+
+    > "OK, Tarsis. We can handle this. Give me a few minutes to think about how we can approach this and I'll get back to you ASAP." You say as you hang up the phone.
+
+    > So what will you do next?
+
+
+    > With a sigh of relief, you remember that one of the first things you instituted as lead for the subnational elimination program was universal collection of dried blood spots from all malaria cases occurring in Eliminati Province.
+
+    > You know that you can genotype parasites from these samples and determine how related they are to each other, helping you sort out how much local transmission is occurring and what if any new response is required.
+
+    > You head to the lab to see what needs to be done next. You are not a molecular biologist, but you have recently taken an excellent online course on interpreting malaria genetic data for surveillance, so you know a thing or two about what needs to happen.
+
+  3. Your Goal
+
+    > In this activity, your goal is to determine whether the newly identified cases in the village and school settings represent an outbreak of local cases requiring additional interventions, or are consistent with a path towards elimination without further intervention.
+
+
+  4. Instructions
+
+    > You know from your course that you are trying to estimate the actual relatedness between infections as identity by descent, or IBD, since that tells you whether parasites in infections are likely to be related by transmission. However, you also know that you will only be able to directly observe identity by state, or IBS, in your genotyping results.
+
+    > Therefore, you will first do a series of tests on laboratory controls of known composition to determine which genotyping method you will use and how to interpret your results, as you should in any laboratory. With this insight, you will then genotype your cases, figure out what is going on in the village and school, and decide on next steps.
+
+    > Speficially you will:
+
+    > Genotype laboratory clones, estimate their relatedness by calculating IBS, and compare this to what you know about IBD.
+
+    > Evaluate genotypes of polyclonal positive controls created from combinations of the laboratory clones, since your cases may also be polyclonal. You will then compare these controls using IBS and IBD.
+
+    > Genotype your cases from the village and school, assess their genetic relatedness, and lead your program to the right set of next steps.
+
+    > Good luck. Let's get started!
+  
+  
+1: Step 1. Genotype Laboratory Clones, Estimate Their Relatedness by Calculating IBS, and Compare This to What You Know about IBD
+  1.1 Genotyping with SNPs
+
+    > As is the case with most laboratory assays, it is often very helpful and sometimes essential to first generate and interpret data when you know the truth, so you can interpret the data where the truth is unknown.
+
+    > Therefore, in order to understand how to interpret data from your village and school outbreaks, you will first evaluate your methods and analysis on some laboratory clones. Fortunately, your experienced Laboratory Research Scientist, Dr. Issac, has stored samples from cultured parasite clones. You ask them to pull out samples from 3 clones that come from 3 different continents.
+
+      1.1.1. Genotype 3 Unrelated Laboratory Clones with SNPs
+        
+        > The simulation will randomly assign SNP alleles to 12 loci for each laboratory clone. The reference and alternate alleles for these 12 loci are shown below. Like prior genotype sleuthing activities, these SNPs have only 2 alleles each and are perfectly balanced, so there is a 50/50 chance of getting the reference or alternate allele at each locus. Each clone is completely unrelated to the others by ancestry, as indicated by their different colors – you know this since they come from completely different parts of the world. Click on each of the three laboratory clones below to generate genotypes.
+
+      1.1.2. Predict What You Will Observe about IBS/IBD in Pairwise Comparisons
+
+        > Now that these unrelated clones have sequences, you can compare their genotypes and calculate IBS - the percentage of SNPs that match between any two. Before you do, however, you already have a sense of what you expect.
+
+      1.1.3. Genotype and Compare Pairs of Unrelated Clones
+
+        > Compare the genotype of lab clone 1 to lab clone 2 and use the interactive form to check if the SNP alleles match at each locus.
+
+
+      1.1.4. Observe All Three IBS Estimates Together
+
+        > Take a look at the IBS estimates between these 3 pairs of clones, using 12 perfectly balanced SNPs.
+
+      1.1.5. Knowledge Check: Distinguishing Related Parasites from Unrelated Parasites Using IBS
+
+        > With 12 perfectly balanced SNPs like in these examples, we can estimate the probability that a certain number of SNPs will match when IBD is zero.
+
+
+      1.1.6. Generate a Laboratory Clone for 1 Hybrid Strain
+
+        > Now you and your lab team have a good idea of what to expect in terms of IBS when you compare 12 SNPs in two completely unrelated parasites. How about when they are related to each other?
+
+        > What if the parasites are related, but not the same? Once again, your wise lab director impresses you with their preparedness and deep respect for the utility of proper laboratory controls. They apparently have an additional sample that is a hybrid of 2 of the 3 unrelated clones. You are fortunate to work with such a fantastic team.
+
+        > This time, the simulation will make a laboratory clone (#4 ) that is a hybrid of lab clone 1  and lab clone 2 . Just like with humans, half of the genome of the progeny will be related to each parent. In this case, the first six SNP loci are identical to clone 1 , and the last six are identical to clone 2 . Click on the mosquito to have the parasites recombine and form a hybrid clone.
+
+      1.1.7. Genotype and Compare the Hybrid Clone to the First Three Clones
+
+        > Let's compare the genotype of the new hybrid clone 4  to one of its parents, lab clone 1 . Use the interactive form to check if the SNP alleles match at each locus.
+
+        > Now, let’s compare the genotype of the new hybrid clone 4  to its other parent, lab clone 2 . Use the interactive form to check if the SNP alleles match at each locus.
+
+        > Answer the following question.
+
+        > Now let's compare our hybrid lab clone 4  to clone 3 , which is not its parent.
+
+        > At the other extreme, what if we compare two parasites which are completely related to each other, in other words they are genetically identical?
+
+      1.1.8. Knowledge Check: Distinguishing Related Parasites from Unrelated Parasites Using IBS
+
+        > Great work! You've now done lab work to estimate genetic relatedness via IBS using 12 SNPs for a few parasites you know are unrelated by ancestry (IBD 0), some which are strongly related (IBD 0.5, like siblings) or are completely identical (IBD 1.0).
+
+        > Let's review our results so far.
+
+
+
+  1.2 Genotyping with Microhaplotypes
+    
+    > Let’s look now and see how your related and unrelated clones would compare with microhaplotype genotyping. In this part of the activity, you will once again genotype laboratory clones, estimate their relatedness by calculating IBS, and compare this to what you know about IBD – but this time, all with microhaplotypes.
+
+    > In this example, each microhaplotype locus can have 1 of 8 alleles, like the exercise you did before in Module 2 where they were composed of 3 SNPs each. Microhaplotypes can have more or fewer possible alleles. Do you think it will be easier or harder to distinguish related and unrelated parasites using microhaplotypes? Let’s find out!
+
+    > A quick note about microhaplotypes in this exercise and moving forward. In previous exercises you will recall they appeared as showing the component SNPs but moving forward the microhaplotype allele be shown just as a different color without the individual SNPs visible. Just know that these represent the same thing.
+
+    1.2.1. Generate Laboratory Clones for 3 Unrelated Strains with Microhaplotypes
+
+      > Run the simulation by clicking the empty rows in the table to genotype 3 laboratory clones. Each laboratory clone will be assigned a random sequence of 12 microhaplotype alleles (represented by 1 of 8 colors).
+
+      > Like prior genotype sleuthing activities, these microhaplotypes are perfectly balanced, so there is a 1/8 chance of getting any microhaplotype allele at each locus. Just like before, each clone is completely unrelated to the others by ancestry, as indicated by their different colors – you know this since they come from completely different parts of the world.
+
+    1.2.2. Predict What You Will Observe about IBS/IBD in Pairwise Comparisons
+
+      > Now that these unrelated clones have microhaplotype sequences, you can compare their genotypes and calculate IBS - the percentage of microhaplotypes that match between any two pairs. Before you do...
+
+    1.2.3. Genotype and Compare Pairs of Unrelated Clones
+
+      > Compare the genotype of lab clone 1  to lab clone 2  and use the interactive form to check if the SNP alleles match at each locus.
+
+
+    1.2.4. Observe All Three IBS Estimates Together
+
+      > Answer the questions below.
+
+    1.2.5. Generate a Laboratory Clone for 1 Hybrid Strain
+
+      > Now you and your lab team have a good idea of what to expect in terms of IBS when you compare 12 microhaplotypes in two completely unrelated parasites, and how that is different to when you used SNPs to compare unrelated parasites. But what about related parasites?
+
+      > Click the mosquito to run the simulation. This time, the simulation will make a laboratory clone from microhaplotypes (#4  ) that is a hybrid of lab clone 1  and lab clone 2 . Just like when we used SNPs earlier in the exercise, half of the genome of the progeny will be related to each parent. In this case, the first six microhaplotype loci are identical to clone 1  , and the last six microhaplotype loci are identical to clone 2 . Click on the mosquito to have the parasites recombine and form a hybrid clone.
+    
+    1.2.6. Genotype and Compare the Hybrid Clone to First Three Clones
+
+      > Let’s compare the genotype of the new hybrid clone 4  to one of its parents, lab clone 1 . Use the interactive form to check if the microhaplotype alleles match at each locus.
+
+      > Now, let’s compare the genotype of the new hybrid clone 4  to its other parent, lab clone 2 . Use the interactive form to check if the microhaplotype alleles match at each locus.
+
+      > Now, let’s compare the genotype of the new hybrid clone 4  to its other parent, lab clone 3 . 
+
+    1.2.7. Knowledge Check: Distinguishing Related Parasites from Unrelated Parasites Using IBS
+
+      > Great work! You’ve now done lab work to estimate genetic relatedness via IBS using 12 microhaplotypes for a few parasites you know are unrelated by ancestry (IBD 0) and some which are strongly related ( IBD 0.5, like siblings). You already know that if parasites are completely identical (IBD 1.0), then genotypes will be identical unless there is mutation or error.
+
+      > Let’s review our results so far:
+
+      > Your investment has paid off – with 12 SNPs it was difficult for you to distinguish siblings from unrelated parasites, and sometimes even from perfectly related parasites, based on the number of matches.
+
+
+
+2: Step 2. Evaluate Genotypes of Polyclonal Positive Controls Created from Combinations of the Laboratory Clones and Compare Them Using IBS and IBD
+  
+  2.1 Introduction
+
+    2.1.1 Case Study Recap
+
+      > So far, you have been comparing genotypes of individual parasites to each other. However, you remember that to evaluate data from real cases in your potential outbreaks you will need to compare infections which are often polyclonal, containing more than one genetically distinct parasite.
+
+      > Your lab director suggests a solution: make positive controls using combinations of the laboratory clones, so you can see what IBS looks like in the setting of polyclonal infections when you know the truth. You agree this is the best next step and ask your lab to make the polyclonal controls right away.
+
+      > While the controls are being prepared, you think about how you will evaluate IBS when there are multiple alleles present in each sample. In reality, there are several ways this could be calculated, but for the purposes of this exercise we will consider a locus to be IBS if there are any matching alleles between samples.
+
+      > With this in mind, do you expect IBS to be higher or lower with unrelated polyclonal vs. monoclonal samples?
+
+      > At the end of step 1, you have 3 laboratory clones made from microhaplotypes. Take a moment to recall their composition.
+    
+    2.1.2. View Your Positive Controls
+
+    2.1.3. View the Genotypes of Your Polyclonal Positive Controls
+
+  2.2. Compare Polyclonal Controls to Unrelated Lab Clones
+
+    2.2.1. Check Matching Alleles at Each Locus between Polyclonal Control 1:2  and Lab Clone 3  (Unrelated)
+
+      > Now you are ready to make some comparisons.
+
+      > Compare the polyclonal control  to lab clone 3 . Check yes or no for each of the 12 loci as to whether there is any match in alleles between the two samples. Remember, if any alleles match between two samples at a locus you will consider that locus to be identical by state (IBS).
+
+    2.2.2. Check Matching Alleles at Each Locus between Polyclonal Control 2:3  and Lab Clone 1  (Unrelated)
+
+      > Now you are ready to make some comparisons.
+
+      > Compare the polyclonal control  to lab clone 1 . Check yes or no for each of the 12 loci as to whether there is any match in alleles between the two samples. Remember, if any alleles match between two samples at a locus you will consider that locus to be identical by state (IBS).
+
+    2.2.3. Knowledge Check Questions When IBD is 0
+
+      > With comparing polyclonal samples where IBD is 0, you may have noticed that IBS is higher than before, as you expected. These comparisons had an MOI of 1 in one sample, and an MOI of 2 in the other. As you can see in the histogram, on average we would expect to see more matches when comparing monoclonal samples (blue bars) versus samples where one is polyclonal with an MOI of two (purple bars). With monoclonal samples, we expect the number of matches to usually be 5 or less (IBS < 0.5), but when one sample has an MOI of 2 we may see as many as 7 matches (IBS > 0.5).
+
+      > Notice that when MOI is three in both samples, you may see IBS as high as 1 even when IBD is 0 using the genotyping panel in this exercise: 12 microhaplotypes with 8 alleles each. As MOI gets higher, it gets harder to distinguish infections containing related parasites from those containing unrelated parasites!
+
+  2.3. Compare Polyclonal Control to Related Lab Clones
+
+    2.3.1. Check Matching Alleles at Each Locus between Polyclonal Control 1:2  and Lab Clone 1  (Related)
+
+      > Now let's see what happens when you compare polyclonal samples where there is at least 1 perfectly related parasite between the two.
+
+      > Compare the polyclonal control  to lab clone 1 . Note that lab clone 1  is contained within the polyclonal control (so it is perfectly related to one of the clones in that control). Check yes or no for each of the 12 loci as to whether there is any match in alleles between the two samples.
+
+    2.3.2. Making the Connection
+
+      > Note that this comparison of lab clones would be similar to a situation in which a person was infected with 2 parasite clones (MOI of 2) and a mosquito passed one of those two clones on to another person, without any recombination occurring. IBD and IBS would both be 1 just like with the lab clones, since one parasite is being passed on from one person to another.
+
+    2.3.3. Check Matching Alleles at Each Locus between the Polyclonal Control  and Lab Clone 4  (Related)
+
+      > Compare the polyclonal control  to lab clone 1 . Check yes or no for each of the 12 loci as to whether there is any match in alleles between the two samples.
+
+    2.3.4. Step 2 Summary
+
+      > You may have noticed in this case that IBD between the child  is only 0.5 with each parent (lab clone 1  and lab clone 2 ). However, since the child has gotten some of its genetic material at every locus from at least one parent, there is a match at every locus.
+
+      > Are you ready to solve the outbreak cases? Before we do, let’s summarize what we’ve learned in this section. When MOI is high, IBS can be high between two infections even none of the parasites are related - there are just a lot of alleles that can match by chance. Increasing the number and diversity of loci can help in these situations. The good news is that two infections related by direct transmission should always have a matching allele at every locus - IBS of 1.0. This means that with your current genotyping panel of 12 microhaplotypes, you should be able to tell using IBS if two infections are related by direct transmission or not as long as MOI is ≤2 in both of the infections. You should be able to tell whether MOI is >2 pretty easily with the 12 microhaplotypes as well; at least one locus should have 3 or more alleles if so. Now let’s solve the cases!
+
+
+3: Step 3. Genotype Your Cases From the Village and School, Assess Their Genetic Relatedness, and Lead Your Program to the Correct Interventions
+
+  3.1. Potential Outbreak at the Boarding School
+
+    > Now let's figure out what is going on with these outbreaks! Remember that as lead for your country's subnational malaria elimination effort, you were called on to investigate two different scenarios in Eliminati Province: four students came down with malaria in a boarding school, and five cases occurred in a different village.
+
+    > Let's start with the cases in the boarding school. These were all students who were diagnosed with malaria soon after returning from holiday visits to families. Some of these students travel far for school and may have family homes in higher transmission areas. Your lab has successfully genotyped infections from all four cases using the same amplicon sequencing panel with 12 microhaplotypes you just evaluated on controls.
+  
+  3.1.1. Estimating MOI
+
+    > First let's estimate the MOI of each infection. Recall from Module 2, and from the controls you just evaluated, that with diverse loci like microhaplotypes you can just count the maximum number of alleles detected at a given locus to obtain a reasonable estimate of MOI. As before, the 12 columns represent your 12 microhaplotype loci, and the number of unique alleles detected at each locus is shown by colored boxes at that locus.
+
+  3.1.2. Comparing Genotypes
+
+    > Let's compare the genotypes of patients A-D to get a more definitive answer. There are 6 pairwise comparisons (A and B, A and C, A and D, B and C, B and D, C and D). Select each  to compare the genotypes and IBS between each pair . You must view all 6 pairwise comparisons before moving on.
+
+    > Answer the following questions.
+
+  3.1.3. Actual Infections
+
+    > In a real-world setting, you would be able to interpret the genotypes as you have just done, and be able to come to the right conclusions without actually needing to know what the actual parasite composition of the infections were. However, since this is a simulated example, you might be interested to know what the underlying infections in these unrelated cases actually looked like.
+
+    > Consistent with your conclusions, you can see that the parasites in the infections are completely unrelated to any other by descent (i.e. IBD is 0 for all comparisons). The simulation code used to create these data randomly chose alleles for each of the 8 parasites, just like when you created your lab clones.
+
+  3.2. Outbreak at the Boarding School
+
+    > Now let's investigate the five cases that occurred in the community of a different village. Recall that two of these five reported a history of recent travel outside Eliminati Province to different, high-transmission areas. That history may be consistent with them acquiring the infections elsewhere and importing them to the community you are investigating. However, the other three cases don't report recent travel and therefore raise concern about sustained transmission, potentially threatening your goal of elimination. If you do find evidence of transmission, you know cases directly linked to imported cases are classified as “introduced” cases and can sometimes occur even in areas certified as having eliminated malaria. However, if transmission occurs beyond introduced cases, you may need to consider intensifying interventions to successfully reach and maintain elimination.
+
+    > Let's take a look at your data!
+  
+    3.2.1. Estimating MOI
+
+      > View the genotypes for each infection. Estimate the MOI based on the genotype and enter it in the form. This information will not provide definitive answers regarding transmission, but may help you interpret your IBS results, since you learned earlier in this exercise that MOI can affect IBS.
+    
+    3.2.2. Comparing Genotypes
+
+      > Ok – let's see if the genetic data for these cases match your expectations. Select the  icon to compare the genotypes and IBS between these two infections. Once you understand why the transmission is unlikely, select the  to remove the connection.
+
+      > Great – your investigation is starting to come together. Next, we might be interested to see if either of these potentially imported cases might have been responsible for infecting the three other cases (G, H, and I).
+
+      > Before we look at the genotyping data, what basic piece of epidemiologic data might you want to know in addition to the fact that they didn’t report recent travel? Why? Think about your answer then click the button below to get this important additional data!
+
+      > Let's start with looking at any evidence of introduced cases stemming from case E. Based on your genotyping data and the epidemiologic data that you have, identify what, if any, transmission you think is related to case E.
+
+      > Click the  to check IBS and decide whether you believe a transmission has taken place to add a connection. Click the  to remove the connection if you think transmission is unlikely. If you think transmission is likely, click the ends of the connection  to indicate which direction the infection likely went. You must view all connections and all connections you choose to keep must have a direction  before proceeding.
+
+      > Now let's look at case F. Based on your genotyping data and the epidemiologic data you have, identify what, if any, transmission you think is related to case F.
+
+      > Click the  to check IBS and decide whether you believe a transmission has taken place to add a connection. Click the  to remove the connection if you think transmission is unlikely. If you think transmission is likely, click the ends of the connection  to indicate which direction the infection likely went. You must view all connections and all connections you choose to keep must have a direction  before proceeding.
+
+      > Finally, let's look for any evidence of local transmission between cases G, H, and I.
+
+      > Click the  to check IBS and decide whether you believe a transmission has taken place to add a connection. Click the  to remove the connection if you think transmission is unlikely. If you think transmission is likely, click the ends of the connection  to indicate which direction the infection likely went. You must view all connections and all connections you choose to keep must have a direction  before proceeding.
+
+    3.2.3. Interpretation of Results and Communcation of Findings
+
+      > Let's take a look at your results. Use this opportunity to fix your network by changing the direction of the infections, removing ones that should not exist, or adding ones that should.
+
+      > Finally, let's look for any evidence of local transmission between cases G, H, and I.
+
+      > Based on your genotyping data and the epidemiologic data you have, identify what, if any, transmission you think is related to case F.
+
+      > Once you are satisfied with the connections and their directions, continue to the next step. You can return to this step during the activity to adjust your connections.
+
+    3.2.4. Actual Infections
+
+      > As with Scenario 1, you would be able to interpret the genotypes as you have just done and come to the right conclusions without actually needing to know what the parasite composition of the infections were. However, since this is a simulated example, we can show you what the underlying infections and transmission history in these cases actually looked like.
+
+      > Let’s look at how this transmission occurred now, step by step. Case E came into the village after traveling to a high transmission area and being infected with two genetically distinct parasite clones, resulting in a polyclonal infection with MOI of 2 (indicated by the red and blue colored balls in case E). This could have been due to infections by two different mosquitoes while traveling (superinfection) or infection with two unrelated parasite clones at the same time from one mosquito (cotransmission).
+
+      > Next, a mosquito bit case E, and was infected with both clones.
+
+      > Sexual recombination between the clones occurred in the mosquito, creating a parasite clone that was a hybrid of the two.
+
+      > After a week or so, the mosquito became infectious and was able to successfully feed on case G, infecting them and causing them to become sick with malaria a week or two after that. You were able to link these infections with genotyping despite the recombination, since all of the parasite genome in case G descended from the parasites in case E.
+
+      > A similar process occurred for case I, after a second mosquito bit case E, was also infected, and transmitted a different hybrid of the parasites imported by case E.
+
+      > Notice that since cases G and I both were infected with parasites which had the same two parents, they are siblings. You had thought this might be the case from your genotyping data earlier, and you were right! We can also see from their sequences that IBD is 0.5, as we would expect for siblings.
+
+      > Fortunately, you were able to distinguish this relatedness from direct transmission between cases I and G. If you hadn’t been able to make that distinction, then transmission could have looked like this instead. How might this have changed your recommendations to the program?
+
+      > Case F also came into the village after traveling from a different high transmission area. This person was infected with three genetically distinct parasite clones during travel.
+
+      > A third mosquito bit case F and was infected with at least 4 gametocytes, representing all three clones.
+
+      > Recombination between these parasites again occurred in the mosquito, creating two new hybrid clones.
+
+      > The mosquito then infected case H with the two hybrid clones. Case H developed malaria from these 2 clones, which you were able to clearly link to case F with your genotyping despite the polyclonal nature of both the infections.
+
+    3.2.5. IBD & IBS Comparisons
+
+      > Now that we know exactly what the composition of all the infections was, we can evaluate IBD for each pair of infections and compare this to IBS. Click on any of the comparisons between cases in the table at the right to see more information about that connection (or lack of connection). Remember that IBD tells us more directly about shared ancestry than IBS, and therefore is potentially more informative about transmission, but that IBS is easier to calculate from genotyping data. In this scenario, you were able to use IBS to figure out the transmission process, but in a more complicated situation IBD might be more helpful. The good news is that there are available statistical methods which can estimate IBD from the same type of genotyping data you used here, even when you don’t know the underlying composition of the infections. There are even methods under development to specifically estimate transmission links, which we will review later in this module.
+
+      > Notice that both IBD and IBS are 1 for all related infections, but that IBD is generally much lower than IBS for unrelated infections, making it easier to distinguish which are truly related by ancestry. In particular, note that the two infections which are siblings (cases G and I) have an IBD which is easier to distinguish from completely unrelated cases (0.5 vs. 0 for unrelated cases) than the IBS values (0.67 vs. a range of 0.17-0.33 for unrelated cases). This information about the siblings could have been particularly useful if case E was not captured by your surveillance – for example if they had an asymptomatic infection and did not present for care. In this case, we might still have be able to infer the presence of an imported case leading to cases G and I based on fact that these two siblings quite possibly derived from the same infection.
+
+    3.2.6. Knowledge Check
+
+      > We’ve covered a lot of material in this module so far! Before we finish with the activity, let’s use this scenario to review a few concepts.
+
+
+4: Summary
+
+  > That was hard work, but it has paid off. You have shown that there is no concern about transmission in Scenario 1, allaying fears of an outbreak in the boarding school. You have also demonstrated for Scenario 2 that while there has been limited local transmission in the village, leading to a few introduced cases, there is not yet any evidence of sustained transmission. You made some very good choices early on, allowing you to come to such clear conclusions. You started by rigorously evaluating your genotyping methods on laboratory controls, allowing you to ensure that the data you produced were likely to provide the information that you needed. For example, you determined early on that a panel of 12 SNPs would not allow you to easily distinguish whether polyclonal infections were related or not and moved to a higher resolution panel of 12 microhaplotypes. You also generated enough data from your controls to show you how to interpret the results on unknowns. Finally, you carefully considered your genotyping data in the context of your high quality epidemiologic data, based your conclusions on the available evidence, and communicated results in a straightforward and accurate way to relevant parties. Your efforts have been noticed by those in charge, and there are rumors that additional resources are being mobilized to support your work along with promotions for you and your team.
+

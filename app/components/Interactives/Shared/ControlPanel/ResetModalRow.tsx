@@ -5,7 +5,9 @@ export default function ResetModalRow({
   completion,
   disabled,
   requires,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   requires: boolean;
   disabled: boolean;
   id: string | number;
@@ -19,7 +21,7 @@ export default function ResetModalRow({
 
   return (
     <div
-      className={`flex px-2 py-4 gap-24 justify-between ${
+      className={`flex justify-between gap-24 px-2 py-4 ${
         requires ? "disabled pointer-events-none" : ""
       }`}
     >
@@ -27,11 +29,13 @@ export default function ResetModalRow({
         <label
           className={`${requires ? "opacity-50" : ""}`}
           htmlFor={`interactive-reset-${id}`}
-        >{`Step ${id}`}</label>
+        >{`${
+          lang === "EN" ? "Step" : lang === "FR" ? "Etape" : "Passo"
+        } ${id}`}</label>
         <span>
           {requires && (
             <svg
-              className=" fill-zinc-600 m-auto mt-2"
+              className=" m-auto mt-2 fill-zinc-600"
               width="16pt"
               height="16pt"
               version="1.1"
@@ -53,7 +57,7 @@ export default function ResetModalRow({
         checked={!requires && checked}
         type="checkbox"
         className={`m-4/ mb-auto accent-orange-400 ${
-          requires ? "opacity-50 pointer-events-none" : ""
+          requires ? "pointer-events-none opacity-50" : ""
         }`}
       />
     </div>

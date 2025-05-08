@@ -13,7 +13,9 @@ import { SetStateAction } from "jotai";
 export default function InteractivePrimaryView({
   currentView,
   setCurrentView,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   currentView: InteractiveViewSettings;
   setCurrentView: any;
 }) {
@@ -39,7 +41,7 @@ export default function InteractivePrimaryView({
         // inert={isOpen}
         className="relative pb-80 @container/main"
       >
-        <PageView currentView={currentView} />
+        <PageView lang={lang} currentView={currentView} />
       </div>
     </div>
   );

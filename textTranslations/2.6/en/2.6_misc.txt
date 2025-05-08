@@ -1,0 +1,250 @@
+Complete
+
+1.
+
+  lab clones with SNPs
+  reference
+  alternate
+  positive Control
+  genotyping
+  questions
+  yes
+  no
+  Homozygous Allele Count
+  Heterozygous Allele Count
+  Positive Control
+
+    [
+      How many loci in positive control 1 (MOI = 1) have a single allele?
+
+      How many loci in positive control 1 have two alleles?
+
+      1. Should you get any heterozygous loci – loci containing more than a single allele - when you genotype a control containing a single clone?
+
+        > That’s right – if there is only one clone present in the sample, we should only get one allele at each locus. Therefore, each locus should be homozygous (containing a single allele) not heterozygous (containing multiple alleles).
+
+      2. If you did get heterozygous loci when genotyping a single clone, what are some possible explanations?
+
+        The assay is not working correctly
+
+        The assay is generating false positives
+
+        Your sample is contaminated
+
+        You mixed up the sample, i.e. the sample isn’t what you think it is
+
+        You forgot to add the sample DNA
+
+        > The last option is not correct – if you forgot to add sample DNA you should detect no alleles, not too many. All of the other options represent possible explanations for why you could get heterozygous allele data from a single clone.
+
+      3. If you got heterozygous loci from a single clone, what should you do? (choose one)
+ 
+        Nothing, these are only controls not “real” data.
+
+        Nothing, it is ok to get incorrect results some of the time. No assay is perfect
+
+        Rigorously investigate the potential source of the error, so you know what the source is and how to interpret data on clinical samples.
+
+        > Controls are the most important samples you will ever run on a laboratory assay. They tell you if your assay is working or not so you know how to interpret the data. If your controls are giving you wrong results, you should not trust any other results until you thoroughly investigate the source of the problem and correct it.
+
+      4. If all 12 of your loci are heterozygous, does that mean you have exactly 2 clones?
+
+        Definitely yes.
+
+        Definitely not.
+
+        Possibly, but extremely unlikely.
+
+        > It definitely means that you have more than one clone, but two clones would not be likely to give you heterozygous calls at ALL the loci. Based on the controls that you have created, it seems you would require a fairly high MOI for this to be likely. Recall, how many of your loci were heterozygous when genotyping controls with an MOI of 2? Of 4?
+
+      5. Why is it extremely unlikely that you would have 2 clones when all of your 12 loci are heterozygous?
+
+        It is more likely that you have a monoclonal sample and a lot of false positives.
+
+        12 heterozygous loci means you have an MOI of 12, not 2.
+
+        You would expect at least some of the loci to have the same allele for the two clones, so most likely at least some will have a single allele.
+
+        The likelihood of having two clones with different SNPs at each locus is low because each SNP occurs independently and randomly.
+
+        > With two perfectly balanced SNPs as in this exercise, there is a 50/50 chance you will get the reference or alternate allele. Therefore, getting a heterozygous SNP genotype with two clones is like flipping two coins and getting heads on one and tails on the other - this will happen 50% of the time. Doing the two-coin flip and having them be different from each other 12 times in a row is very unlikely (<0.02% chance)! The same is true for 12 loci - you would expect somewhere around 6 of them to be heterozygous, maybe a few more, maybe a few less, but very unlikely to be all 12.
+
+
+      6. Would you expect to get any heterozygous loci when you genotype a control containing 4 clones?
+
+      7. Is it possible that you could genotype a control containing 4 clones but get no heterozygous loci using 12 perfectly balanced SNPs?
+
+        Yes - but exceedingly unlikely!
+
+        No
+
+        > It is possible, but very unlikely. To NOT get any heterozygous loci, this would be like flipping four coins and having them all land heads or all land tails, then doing that 12 times in a row!
+
+      8. What do you notice about the relationship between MOI and the number of loci that are heterzygous?
+ 
+        The higher the MOI, the higher the proportion of loci that are heterozygous.
+
+        The lower the MOI, the higher the proportion of loci that are heterozygous.
+
+        MOI and the proportion of heterozygous loci are not related.
+
+        > You should have noticed that the higher the MOI, the higher proportion of loci that are heterozygous. The exact proportion you would expect for a given MOI will depend on how diverse each SNP is in the population and to some extent on random variation. In this example, each of the 12 SNPs is perfectly balanced like a coin, maximizing diversity.
+
+        > The histogram shows the expected number of heterozygous loci for different MOI with 12 perfectly balanced SNPs. In practice, most SNPs are not perfectly diverse, and diversity for a given SNP will likely vary in different settings, even within a country. The more SNPs you have and the more diverse each one is, the more precisely you can estimate MOI.
+
+
+
+    ]
+
+2. 
+  
+  Genotype with SNPs
+  MOI Estimates
+  infection
+  Average
+  SNP estimates
+  Graph
+  questions
+
+    [
+      Based on your results, do you think the vector control intervention worked?
+
+      > If the intervention worked, MOI should be significantly less than baseline, which was 2.5. Depending on your estimates, you may determine that the mean MOI is now indeed lower (in which case it worked!), about the same, or even higher. We are not going to tell you the answer now, but don’t worry – you will soon do another activity with some additional analysis on the same samples and we’ll discuss the results in more detail.
+
+
+    ]
+
+3.
+  Microhaplotype Table
+  Lab Clones
+  Lab Clones with Microhaplotypes
+  Alleles
+  Positive Control 1
+  Maximum # of alleles
+  Average # of alleles
+  genotyping
+  no
+  yes
+  questions
+
+    [
+      How many loci in positive control 1 (MOI = 1) have a single allele?
+
+      How many loci in positive control 1 have have more than 1 allele?
+
+      What is the highest number of alleles seen at a given locus in positive control 3?
+
+        > Are you starting to notice any relationship between MOI and the number of alleles detected? What do you think you will see when you genotype the next 2 controls with MOI of 4?
+
+        > Do the results for controls 5 and 6, with MOI of 4, match your prediction? Why or why not? Take a moment to think about this question.
+
+      How many loci have more than two alleles in positive control 3?
+
+      How many loci have this highest number of alleles?
+
+      Why don't all the loci in positive control 5 and positive control 6 have 4 alleles detected, even though the MOI = 4?
+
+        The genotyping is wrong.
+
+          > Not correct, fortunately in this exercise we are assuming
+            genotyping is perfect. This will not always be the case in reality though!
+
+        There aren't 4 possible alleles at each locus.
+          
+          > Not true, there are actually eight possible alleles for every locus, as you identified during the genotyping process.
+
+        Sometimes alleles in different strains will match by chance, even if diversity is high
+
+
+
+        > That is correct! Even with eight possible alleles, as in this exercise, there is a reasonable chance that some of them will match if you have 4 of them. If you pick nine of them, it is certain that at least 2 will be the same!
+
+
+
+
+
+      Do you think it would be a reasonable strategy to look at the highest number of alleles to estimate the MOI, if you are using microhaplotypes?
+
+        Yes, this strategy will always give me the correct answer.
+
+        Yes, as long as diversity at the loci is high enough and MOI is not too high.
+
+        No, there is no relationship between MOI and the highest number of alleles detected.
+
+        No, it is hard to count that high.
+
+        > Correct. Remember that if MOI is higher than the highest number of possible alleles, the number of alleles detected will never be as high as MOI.
+
+      Is it possible that the highest number of alleles you detect at a locus could be higher than MOI based on the rules of this exercise (perfect genotyping with no errors)?
+
+        > Correct. Unfortunately, genotyping errors do occur, and it is important to be vigilant for them. These could be caused by mixing up samples, contamination in the laboratory, or errors during PCR or sequencing. We will talk about these situations in more detail in a later module and how bioinformatics and good quality control analysis can help identify these errors.
+
+      Now that you have genotyped the same controls using SNPs and microhaplotypes, which do you think is going to give you a more accurate estimate of MOI on your unknown field samples?
+
+        SNPs
+
+        Microhaplotypes
+
+        Both are the same
+
+        > So, what's the answer? You will find out at the end of the activity!
+
+
+
+    ]
+
+4.
+  Genotype with Microhaplotypes
+  Estimates
+  Average
+  Graph
+
+5. 
+  questions
+  feedback
+  [
+    Look at your data and think about the following two questions.
+
+    Did you get an MOI with microhaplotypes that was higher, lower, or the same as MOI with SNPs?
+
+    Which do you think is a more accurate reflection of the true MOI for each sample, and, by extension, in your population?
+
+    > Different people might have had different strategies for estimating MOI, but in general it might have been easier to detect MOI more accurately in the field samples using microhaplotypes. This is because with SNPs, the maximum number of alleles that you can detect is 2 and it is hard to precisely estimate MOI from the proportion of loci that are heterozygous unless you have a lot of loci. On the other hand, using higher diversity markers such as microhaplotypes allows you to more directly observe MOI, with the caveats discussed above. Namely, sometimes you can have genotyping errors creating positive alleles, inflating MOI. On the other hand, sometimes alleles will match by chance even when loci are diverse. For these reasons, statistical methods have been developed to take these and other factors into account for more accurate estimates of MOI even when you are using microhaplotype markers. Let’s take a look at the true MOI now and see how accurate your estimates were!
+
+    > Now that you know the truth, were your estimates for each of the 10 infections more accurate using SNPs or microhaplotypes? How about the overall distribution and your estimate of mean MOI? Depending on how well you were able to estimate from the genotyping data, you may find that you were able to more accurately estimate the MOI for each infection using microhaplotypes than SNPs. However, the overall distribution and average MOI may still be fairly close to the truth for both methods. Any errors in estimation may average out - for example you may overestimate the MOI of one infection but underestimate the MOI of another. This is why having a good method of estimation and a large enough sample size can provide accurate estimates for the population even if estimates for individual infections are incorrect.
+
+  ]
+
+6. 
+  Intepreting Results
+
+  questions
+  [
+    Recall that prior to the intervention, you estimated MOI to be 2.5, and that even though you only analyzed data from 10 samples in this exercise, we are assuming these 10 samples are representative of a larger sample.
+
+    Based on your estimates of MOI, do you have evidence that your intervention worked?
+
+      > If your intervention worked, you might have expected this to result in a decrease in within-host diversity, as reflected by lower MOI. However, you should have noticed that the mean MOI increased rather than decreased.
+
+    Recall that prior to the intervention, you estimated MOI to be 2.5, and that even though you only analyzed data from 10 samples in this exercise, we are assuming these 10 samples are representative of a larger sample.
+
+      Hide your molecular data – they don’t agree with what you hoped to see so best to pretend they don’t exist
+
+      Take your molecular data as irrefutable proof that transmission increased and immediately make sweeping and expensive programmatic changes
+
+      Use your molecular data as a potential cause for concern, and think about additional sources of data that you can use or generate to confirm whether transmission is getting worse and if so why
+
+      > Despite implementing a new intervention, there did not seem to be any decrease in MOI, which might have been expected with a decrease in transmission. In fact, MOI increased from 2.5 to 3.2! With a sufficient sample size, a difference of this magnitude would likely have been statistically significant, indicating that transmission may have actually increased despite, or potentially because of, the change in interventions. This may not surprise those working in malaria control – sometimes interventions that are supposed to work based on data from controlled settings actually behave differently when implemented in the field. Hopefully your investigation and analysis of the data helped identify this important result. You are now able to communicate this information to others in your program and think about additional actions.
+
+  ]
+
+7.
+  Summary
+  Module Code
+
+
+MISC:
+
+  Reset
+  Enable Hints
+  Step 1

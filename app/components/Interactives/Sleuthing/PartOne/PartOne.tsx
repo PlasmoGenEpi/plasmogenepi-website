@@ -26,7 +26,13 @@ import {
   selectedPositiveControlBoardAtom,
 } from "@/data/Interactives/interactiveStore";
 
-export default function PartOne({ fixedPanel }: { fixedPanel?: boolean }) {
+export default function PartOne({
+  fixedPanel,
+  lang,
+}: {
+  fixedPanel?: boolean;
+  lang: "EN" | "FR" | "PT";
+}) {
   const [phase1, setPhase1] = useAtom(phase1Atom);
   const [partOneCompletion, setPartOneCompletion] = useAtom(
     partOneCompletionAtom,
@@ -60,22 +66,29 @@ export default function PartOne({ fixedPanel }: { fixedPanel?: boolean }) {
       {phase1 <= 5 && (
         <div>
           <InteractivePrompt
+            lang={lang}
             skippable={partOneCompletion[1]}
             complete={partOneCompletion[phase1]}
-            title={partOnePrompts[phase1].title}
-            instructions={partOnePrompts[phase1].instructions}
+            title={partOnePrompts[phase1].title[lang]}
+            instructions={partOnePrompts[phase1].instructions[lang]}
+
+            // instructions={prompts[phase1].instructions}
           />
-          {phase1 > 0 && phase1 < 5 && <PartOneNavArray forwards={forwards} />}
+          {phase1 > 0 && phase1 < 5 && (
+            <PartOneNavArray lang={lang} forwards={forwards} />
+          )}
         </div>
       )}
       <div>
         {(phase1 === 1 || phase1 === 2) && (
-          <LabClonesWithSNPs phase={phase1} forwards={forwards} />
+          <LabClonesWithSNPs phase={phase1} forwards={forwards} lang={lang} />
         )}
-        {phase1 === 3 && <P1GenotypeCreation forwards={forwards} />}
-        {phase1 === 4 && <PartOneKnowledgeCheck forwards={forwards} />}
+        {phase1 === 3 && <P1GenotypeCreation forwards={forwards} lang={lang} />}
+        {phase1 === 4 && (
+          <PartOneKnowledgeCheck forwards={forwards} lang={lang} />
+        )}
       </div>
-      {phase1 === 5 && <P1KnowledgeCheck2 />}
+      {phase1 === 5 && <P1KnowledgeCheck2 lang={lang} />}
       {/* <div className="mt-20">
         <PartOneControlPanel fixed={true} />
       </div> */}

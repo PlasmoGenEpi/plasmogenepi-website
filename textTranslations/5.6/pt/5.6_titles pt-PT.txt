@@ -1,0 +1,348 @@
+Investigação 5.6
+
+Investigação de genótipos para estimar a relação de parentesco a partir de dados genéticos
+
+
+0: Introdução
+  1. Antecedentes
+    > A genotipagem de parasitas a partir de amostras de pacientes pode ajudar a determinar o grau de parentesco entre eles. No contexto de um potencial surto, as estimativas de identidade por descendência (IBD) e identidade por estado (IBS) ajudam a determinar o grau de transmissão local versus o grau de importação de outras áreas geográficas que podem estar a conduzir a transmissão.
+
+  2. Estudo de caso
+    > Nesta atividade, regressa à sua função de chefe de vigilância do Programa Nacional de Controlo do Paludismo.
+
+
+    > Parabéns! Os seus esforços persistentes para defender a intensificação do controlo de vectores no âmbito do seu programa nacional contra o paludismo deram frutos. Os casos de paludismo estão a diminuir em todo o país e o seu programa acabou de decidir tentar a eliminação subnacional em algumas províncias onde a transmissão é mais baixa, incluindo a província de Eliminati.
+
+    > No ano passado, registaram-se apenas alguns casos na região de pré-eliminação e, uma vez que estão a recolher o historial detalhado de viagens de todos os casos como parte da vigilância de rotina, sabem que todos estes casos tinham um historial claro de viagens a áreas do país com maior transmissão.
+
+    > Está a sentir-se bem!
+
+    > Missão cumprida? Não tão depressa ...
+
+    > Nessa altura, recebe uma mensagem de texto de Tarsis, o seu agente de vigilância na região de Eliminati.
+
+
+    > "Ei Chefe, aqui é o Tarsis. Estou preocupado com alguns casos novos aqui na província de Eliminati. Por favor, liguem-me assim que puderem!"
+
+    > Deixa de fazer o que estava a fazer (principalmente sentir-se bem consigo mesmo) e liga imediatamente para Tarsis.
+
+
+    > Olá, Chefe", começa Tarsis. "Investiguei 5 casos que ocorreram no mês passado numa aldeia da nossa Província. Apenas 2 deles relatam um historial de viagens para fora da região."
+
+    > "Continua", respondes.
+
+    > Tarsis continua: "Sei que os casos de paludismo que resultam diretamente de casos importados são conhecidos como casos introduzidos e podem ocorrer ocasionalmente sem grande preocupação... Mas se os 3 casos sem história de viagem representarem uma cadeia mais longa de transmissão sustentada, isso pode ameaçar o objetivo de eliminação do nosso programa!"
+
+    > "OK, bem, isto é preocupante, mas nada de muito preocupante", respondes calmamente.
+
+    > "Mas, espera chefe," Tarsis continua. "Há mais... Um colégio interno de outra aldeia na província de Eliminati acaba de registar 4 casos em alunos no espaço de um mês após o regresso das férias... O que é que acha - há um surto na escola, ou será que todos estes alunos contraíram a infeção enquanto visitavam a família no interior durante as férias?"
+
+    > "OK, Tarsis. Nós podemos tratar disto. Dêem-me alguns minutos para pensar como podemos abordar isto e eu volto a contactar-vos o mais depressa possível." Diz enquanto desliga o telefone.
+
+    > Então, o que vais fazer a seguir?
+
+
+    > Com um suspiro de alívio, lembra-se que uma das primeiras coisas que instituiu como líder do programa de eliminação subnacional foi a recolha universal de manchas de sangue seco de todos os casos de paludismo ocorridos na província de Eliminati.
+
+    > Sabe-se que é possível fazer o genótipo dos parasitas a partir destas amostras e determinar o grau de parentesco entre eles, o que ajuda a determinar o grau de transmissão local e a eventual necessidade de uma nova resposta.
+
+    > Dirige-se ao laboratório para ver o que tem de ser feito a seguir. Não é biólogo molecular, mas fez recentemente um excelente curso em linha sobre interpretação de dados genéticos da malária para vigilância, por isso sabe uma ou duas coisas sobre o que tem de acontecer.
+
+  3. O seu objetivo
+
+    > Nesta atividade, o seu objetivo é determinar se os casos recentemente identificados na aldeia e na escola representam um surto de casos locais que requerem intervenções adicionais, ou se são consistentes com um caminho para a eliminação sem intervenção adicional.
+
+
+  4. Instruções
+
+    > Sabe, pelo seu curso, que está a tentar estimar o parentesco real entre infecções como identidade por descendência, ou IBD, uma vez que isso lhe diz se é provável que os parasitas nas infecções estejam relacionados por transmissão. No entanto, também sabe que só poderá observar diretamente a identidade por estado, ou IBS, nos seus resultados de genotipagem.
+
+    > Por conseguinte, começará por fazer uma série de testes em controlos laboratoriais de composição conhecida para determinar qual o método de genotipagem a utilizar e como interpretar os resultados, como deve fazer em qualquer laboratório. Com este conhecimento, irá então fazer o genótipo dos seus casos, descobrir o que se está a passar na aldeia e na escola, e decidir os próximos passos.
+
+    > Oficialmente, sim:
+
+    > Faça o genótipo dos clones do laboratório, estime a sua relação de parentesco calculando o IBS e compare-o com o que sabe sobre a IBD.
+
+    > Avaliar os genótipos dos controlos positivos policlonais criados a partir de combinações dos clones do laboratório, uma vez que os seus casos também podem ser policlonais. Em seguida, comparará estes controlos utilizando IBS e IBD.
+
+    > Genotipar os seus casos da aldeia e da escola, avaliar o seu parentesco genético e conduzir o seu programa para o conjunto correto de passos seguintes.
+
+    > Boa sorte. Vamos lá começar!
+  
+  
+1: Passo 1. Fazer a genotipagem dos clones de laboratório, estimar a sua relação de parentesco através do cálculo do IBS e comparar com o que sabe sobre a DII
+  1.1 Genotipagem com SNPs
+
+    > Tal como acontece com a maioria dos ensaios laboratoriais, é frequentemente muito útil e por vezes essencial gerar e interpretar primeiro os dados quando se conhece a verdade, para que se possa interpretar os dados quando a verdade é desconhecida.
+
+    > Por isso, para compreender como interpretar os dados dos surtos da vossa aldeia e da vossa escola, vão primeiro avaliar os vossos métodos e análises em alguns clones de laboratório. Felizmente, o vosso experiente investigador de laboratório, o Dr. Issac, armazenou amostras de clones de parasitas cultivados. Pede-lhes que retirem amostras de 3 clones provenientes de 3 continentes diferentes.
+
+      1.1.1. Clones de laboratório não relacionados com o genótipo 3 com SNPs
+        
+        > A simulação atribuirá aleatoriamente alelos SNP a 12 loci para cada clone de laboratório. Os alelos de referência e alternativos para esses 12 loci são mostrados abaixo. Tal como nas actividades anteriores de pesquisa de genótipos, estes SNP têm apenas 2 alelos cada e estão perfeitamente equilibrados, pelo que existe uma probabilidade de 50/50 de obter o alelo de referência ou alternativo em cada locus. Cada clone não tem qualquer relação com os outros em termos de ascendência, como indicado pelas suas cores diferentes - sabe isto porque eles vêm de partes do mundo completamente diferentes. Clique em cada um dos três clones de laboratório abaixo para gerar genótipos.
+
+      1.1.2. Preveja o que você vai observar sobre SII/DII em comparações pareadas
+
+        > Agora que estes clones não relacionados têm sequências, pode comparar os seus genótipos e calcular o IBS - a percentagem de SNPs que coincidem entre quaisquer dois. Antes de o fazer, no entanto, já tem uma noção do que espera.
+
+      1.1.3. Genotipar e comparar pares de clones não relacionados
+
+        > Compare o genótipo do clone de laboratório 1 com o clone de laboratório 2 e utilize o formulário interativo para verificar se os alelos SNP coincidem em cada locus.
+
+
+      1.1.4. Observar as três estimativas do SCI em conjunto
+
+        > Veja as estimativas de IBS entre estes 3 pares de clones, utilizando 12 SNPs perfeitamente equilibrados.
+
+      1.1.5. Verificação de conhecimentos: Distinguir Parasitas Relacionados de Parasitas Não Relacionados Utilizando o SCI
+
+        > Com 12 SNPs perfeitamente equilibrados como nestes exemplos, podemos estimar a probabilidade de um certo número de SNPs coincidir quando o IBD é zero.
+
+
+      1.1.6. Gerar um clone de laboratório para 1 estirpe híbrida
+
+        > Agora você e a sua equipa de laboratório têm uma boa ideia do que esperar em termos de SII quando comparam 12 SNPs em dois parasitas completamente não relacionados. E quando eles estão relacionados um com o outro?
+
+        > E se os parasitas estiverem relacionados, mas não forem os mesmos? Mais uma vez, o seu sábio diretor de laboratório impressiona-o com a sua preparação e profundo respeito pela utilidade dos controlos laboratoriais adequados. Aparentemente, eles têm uma amostra adicional que é um híbrido de 2 dos 3 clones não relacionados. Tem a sorte de trabalhar com uma equipa tão fantástica.
+
+        > Desta vez, a simulação produzirá um clone de laboratório (#4) que é um híbrido do clone de laboratório 1 e do clone de laboratório 2. Tal como nos humanos, metade do genoma da descendência estará relacionado com cada um dos progenitores. Neste caso, os primeiros seis loci SNP são idênticos ao clone 1 , e os últimos seis são idênticos ao clone 2 . Clique no mosquito para que os parasitas se recombinem e formem um clone híbrido.
+
+      1.1.7. Genotipar e comparar o clone híbrido com os três primeiros clones
+
+        > Vamos comparar o genótipo do novo clone híbrido 4 com um dos seus progenitores, o clone de laboratório 1 . Utilize o formulário interativo para verificar se os alelos SNP coincidem em cada locus.
+
+        > Agora, vamos comparar o genótipo do novo clone híbrido 4 com o seu outro progenitor, o clone de laboratório 2 . Utilize o formulário interativo para verificar se os alelos SNP coincidem em cada locus.
+
+        > Responder à seguinte pergunta.
+
+        > Agora vamos comparar o nosso laboratório híbrido clone 4 com o clone 3 , que não é o seu progenitor.
+
+        > No outro extremo, e se compararmos dois parasitas que estão completamente relacionados entre si, ou seja, são geneticamente idênticos?
+
+      1.1.8. Verificação de conhecimentos: Distinguir Parasitas Relacionados de Parasitas Não Relacionados Utilizando o SCI
+
+        > Ótimo trabalho! Agora fizeste um trabalho de laboratório para estimar o parentesco genético através do IBS usando 12 SNPs para alguns parasitas que sabes que não estão relacionados por ascendência (IBD 0), alguns que estão fortemente relacionados (IBD 0.5, como irmãos) ou são completamente idênticos (IBD 1.0).
+
+        > Vamos rever os nossos resultados até agora.
+
+
+
+  1.2 Genotipagem com microhaplótipos
+    
+    > Vamos agora ver como é que os seus clones aparentados e não aparentados se comparam com a genotipagem de microhaplótipos. Nesta parte da atividade, irá mais uma vez genotipar clones de laboratório, estimar a sua relação de parentesco através do cálculo do IBS e comparar isto com o que sabe sobre a IBD - mas desta vez, tudo com microhaplótipos.
+
+    > Neste exemplo, cada locus de microhaplótipo pode ter 1 de 8 alelos, como no exercício que fez anteriormente no Módulo 2, onde eram compostos por 3 SNPs cada. Os microhaplótipos podem ter mais ou menos alelos possíveis. Achas que será mais fácil ou mais difícil distinguir parasitas aparentados e não aparentados usando microhaplótipos? Vamos descobrir!
+
+    > Uma nota rápida sobre os microhaplótipos neste exercício e no futuro. Em exercícios anteriores, recordar-se-á de que apareceram como mostrando os SNPs componentes, mas, daqui para a frente, o alelo do microhaplótipo será mostrado apenas como uma cor diferente, sem os SNPs individuais visíveis. Saiba que eles representam a mesma coisa.
+
+    1.2.1. Gerar clones de laboratório para 3 estirpes não relacionadas com microhaplótipos
+
+      > Execute a simulação clicando nas linhas vazias da tabela para genotipar 3 clones de laboratório. A cada clone de laboratório será atribuída uma sequência aleatória de 12 alelos de microhaplótipos (representados por 1 de 8 cores).
+
+      > Tal como nas actividades anteriores de investigação de genótipos, estes microhaplótipos estão perfeitamente equilibrados, pelo que existe uma probabilidade de 1/8 de obter qualquer alelo de microhaplótipo em cada locus. Tal como antes, cada clone não tem qualquer relação com os outros em termos de ascendência, tal como indicado pelas suas cores diferentes - sabe isto porque eles vêm de partes do mundo completamente diferentes.
+
+    1.2.2. Preveja o que você vai observar sobre SII/DII em comparações pareadas
+
+      > Agora que estes clones não relacionados têm sequências de microhaplótipos, pode comparar os seus genótipos e calcular o IBS - a percentagem de microhaplótipos que coincidem entre quaisquer dois pares. Antes de o fazer...
+
+    1.2.3. Genotipar e comparar pares de clones não relacionados
+
+      > Compare o genótipo do clone de laboratório 1 com o clone de laboratório 2 e utilize o formulário interativo para verificar se os alelos SNP coincidem em cada locus.
+
+
+    1.2.4. Observar as três estimativas do SCI em conjunto
+
+      > Responda às perguntas que se seguem.
+
+    1.2.5. Gerar um clone de laboratório para 1 estirpe híbrida
+
+      > Agora você e a sua equipa de laboratório têm uma boa ideia do que esperar em termos de SII quando comparam 12 microhaplótipos em dois parasitas completamente não relacionados, e como isso é diferente de quando usaram SNPs para comparar parasitas não relacionados. Mas e quanto aos parasitas relacionados?
+
+      > Clique no mosquito para executar a simulação. Desta vez, a simulação irá criar um clone de laboratório a partir de microhaplótipos (#4 ) que é um híbrido do clone de laboratório 1 e do clone de laboratório 2 . Tal como quando utilizámos SNPs no início do exercício, metade do genoma da descendência estará relacionado com cada progenitor. Neste caso, os primeiros seis loci de microhaplótipos são idênticos ao clone 1 e os últimos seis loci de microhaplótipos são idênticos ao clone 2. Clique no mosquito para que os parasitas se recombinem e formem um clone híbrido.
+    
+    1.2.6. Genotipar e comparar o clone híbrido com os três primeiros clones
+
+      > Vamos comparar o genótipo do novo clone híbrido 4 com um dos seus progenitores, o clone de laboratório 1 . Utilize o formulário interativo para verificar se os alelos dos microhaplótipos coincidem em cada locus.
+
+      > Agora, vamos comparar o genótipo do novo clone híbrido 4 com o seu outro progenitor, o clone de laboratório 2 . Utilize o formulário interativo para verificar se os alelos dos microhaplótipos coincidem em cada locus.
+
+      > Agora, vamos comparar o genótipo do novo clone híbrido 4 com o seu outro progenitor, o clone de laboratório 3 .
+
+    1.2.7. Verificação de conhecimentos: Distinguir Parasitas Relacionados de Parasitas Não Relacionados Utilizando o SCI
+
+      > Ótimo trabalho! Agora fez um trabalho de laboratório para estimar o parentesco genético através do IBS usando 12 microhaplótipos para alguns parasitas que sabe que não estão relacionados por ancestralidade (IBD 0) e alguns que estão fortemente relacionados (IBD 0.5, como irmãos). Já sabe que se os parasitas forem completamente idênticos (IBD 1.0), então os genótipos serão idênticos, exceto se houver mutação ou erro.
+
+      > Vamos rever os nossos resultados até agora:
+
+      > O seu investimento valeu a pena - com 12 SNPs era difícil distinguir irmãos de parasitas não relacionados, e por vezes até de parasitas perfeitamente relacionados, com base no número de correspondências.
+
+
+
+2: Etapa 2. Avaliar os genótipos dos controlos policlonais positivos criados a partir de combinações dos clones de laboratório e compará-los utilizando IBS e IBD
+  
+  2.1 Introdução
+
+    2.1.1 Recapitulação do estudo de caso
+
+      > Até agora, tem estado a comparar genótipos de parasitas individuais entre si. No entanto, lembra-se que para avaliar dados de casos reais nos seus potenciais surtos, terá de comparar infecções que são frequentemente policlonais, contendo mais do que um parasita geneticamente distinto.
+
+      > O diretor do seu laboratório sugere uma solução: fazer controlos positivos utilizando combinações dos clones do laboratório, para que possa ver como é o SCI no contexto de infecções policlonais quando sabe a verdade. Concorda que este é o melhor passo seguinte e pede ao seu laboratório para fazer os controlos policlonais imediatamente.
+
+      > Enquanto os controlos estão a ser preparados, pense na forma como irá avaliar o IBS quando existem múltiplos alelos presentes em cada amostra. Na realidade, existem várias formas de calcular este valor, mas para efeitos deste exercício, consideraremos um locus como SII se existirem alelos correspondentes entre as amostras.
+
+      > Tendo isto em conta, espera que o IBS seja maior ou menor com amostras policlonais não relacionadas versus amostras monoclonais?
+
+      > No final da etapa 1, tem 3 clones de laboratório feitos a partir de microhaplótipos. Recorde a sua composição.
+    
+    2.1.2. Ver os seus controlos positivos
+
+    2.1.3. Ver os genótipos dos seus controlos policlonais positivos
+
+  2.2. Comparar controlos policlonais com clones de laboratório não relacionados
+
+    2.2.1. Verificar os alelos correspondentes em cada locus entre o controlo policlonal 1:2 e o clone de laboratório 3 (não relacionado)
+
+      > Agora está pronto para fazer algumas comparações.
+
+      > Comparar o controlo policlonal com o clone 3 do laboratório. Marque sim ou não para cada um dos 12 loci para saber se existe alguma correspondência de alelos entre as duas amostras. Lembre-se de que, se houver uma correspondência de alelos entre duas amostras num locus, considera-se que esse locus é idêntico por estado (IBS).
+
+    2.2.2. Verificar os alelos correspondentes em cada locus entre o controlo policlonal 2:3 e o clone de laboratório 1 (não relacionado)
+
+      > Agora está pronto para fazer algumas comparações.
+
+      > Comparar o controlo policlonal com o clone 1 do laboratório. Marque sim ou não para cada um dos 12 loci para saber se existe alguma correspondência de alelos entre as duas amostras. Lembre-se de que, se houver uma correspondência de alelos entre duas amostras num locus, considera-se que esse locus é idêntico por estado (IBS).
+
+    2.2.3. Perguntas de verificação de conhecimentos quando o IBD é 0
+
+      > Ao comparar amostras policlonais em que o IBD é 0, deve ter reparado que o IBD é mais elevado do que antes, como era de esperar. Estas comparações tinham um MOI de 1 numa amostra e um MOI de 2 na outra. Como pode ver no histograma, em média, seria de esperar ver mais correspondências quando se comparam amostras monoclonais (barras azuis) com amostras em que uma é policlonal com um MOI de dois (barras roxas). Com amostras monoclonais, esperamos que o número de correspondências seja geralmente de 5 ou menos (IBS < 0,5), mas quando uma amostra tem um MOI de 2, podemos ver até 7 correspondências (IBS > 0,5).
+
+      > Observar que quando o MOI é três em ambas as amostras, é possível observar IBS tão alto quanto 1 mesmo quando IBD é 0 usando o painel de genotipagem neste exercício: 12 microhaplótipos com 8 alelos cada. À medida que o MOI aumenta, torna-se mais difícil distinguir as infecções que contêm parasitas relacionados das que contêm parasitas não relacionados!
+
+  2.3. Comparar o controlo policlonal com clones de laboratório relacionados
+
+    2.3.1. Verificar os alelos correspondentes em cada locus entre o controlo policlonal 1:2 e o clone de laboratório 1 (relacionado)
+
+      > Agora vamos ver o que acontece quando se comparam amostras policlonais em que existe pelo menos um parasita perfeitamente relacionado entre as duas.
+
+      > Compare o controlo policlonal com o clone 1 do laboratório. Note que o clone 1 do laboratório está contido no controlo policlonal (pelo que está perfeitamente relacionado com um dos clones desse controlo). Marque sim ou não para cada um dos 12 loci para saber se existe alguma correspondência de alelos entre as duas amostras.
+
+    2.3.2. Efetuar a ligação
+
+      > Note-se que esta comparação de clones de laboratório seria semelhante a uma situação em que uma pessoa estivesse infetada com 2 clones de parasitas (MOI de 2) e um mosquito passasse um desses dois clones a outra pessoa, sem que ocorresse qualquer recombinação. A IBD e a IBS seriam ambas 1, tal como com os clones de laboratório, uma vez que um parasita está a ser transmitido de uma pessoa para outra.
+
+    2.3.3. Verificar os alelos correspondentes em cada locus entre o controlo policlonal e o clone de laboratório 4 (relacionado)
+
+      > Comparar o controlo policlonal com o clone 1 do laboratório. Marque sim ou não para cada um dos 12 loci para saber se existe alguma correspondência de alelos entre as duas amostras.
+
+    2.3.4. Resumo da etapa 2
+
+      > Deve ter reparado que, neste caso, o IBD entre a criança é apenas 0,5 com cada um dos pais (clone de laboratório 1 e clone de laboratório 2). No entanto, uma vez que a criança obteve algum do seu material genético em cada locus de pelo menos um dos pais, existe uma correspondência em cada locus.
+
+      > Está pronto para resolver os casos de surtos? Antes de o fazermos, vamos resumir o que aprendemos nesta secção. Quando o MOI é elevado, o SCI pode ser elevado entre duas infecções, mesmo que nenhum dos parasitas esteja relacionado - existem apenas muitos alelos que podem coincidir por acaso. Aumentar o número e a diversidade de loci pode ajudar nestas situações. A boa notícia é que duas infecções relacionadas por transmissão direta devem ter sempre um alelo correspondente em cada locus - IBS de 1.0. Isto significa que, com o seu painel de genotipagem atual de 12 microhaplótipos, deve ser capaz de dizer, utilizando o SCI, se duas infecções estão relacionadas por transmissão direta ou não, desde que o MOI seja ≤2 em ambas as infecções. Com os 12 microhaplótipos, também deve ser possível saber se o MOI é >2; pelo menos um locus deve ter 3 ou mais alelos, se for o caso. Agora vamos resolver os casos!
+
+
+3: Passo 3. Faça o genótipo dos seus casos da aldeia e da escola, avalie a sua relação genética e conduza o seu programa para as intervenções corretas
+
+  3.1. Potencial surto no internato
+
+    > Agora vamos descobrir o que se está a passar com estes surtos! Lembre-se que, como líder do esforço subnacional de eliminação do paludismo no seu país, foi chamado a investigar dois cenários diferentes na província de Eliminati: quatro estudantes apanharam paludismo num internato e cinco casos ocorreram numa aldeia diferente.
+
+    > Comecemos pelos casos do colégio interno. Todos estes alunos foram diagnosticados com malária pouco depois de regressarem das visitas de férias às suas famílias. Alguns destes alunos viajam para longe para irem à escola e podem ter casas de família em zonas de maior transmissão. O seu laboratório conseguiu genotipar as infecções dos quatro casos utilizando o mesmo painel de sequenciação de amplicons com 12 microhaplótipos que acabou de avaliar nos controlos.
+  
+  3.1.1. Estimativa do MOI
+
+    > Primeiro, vamos estimar o MOI de cada infeção. Recorde-se do Módulo 2 e dos controlos que acabou de avaliar que, com loci diversos como os microhaplótipos, basta contar o número máximo de alelos detectados num determinado locus para obter uma estimativa razoável do MOI. Tal como anteriormente, as 12 colunas representam os seus 12 loci de microhaplótipos e o número de alelos únicos detectados em cada locus é mostrado por caixas coloridas nesse locus.
+
+  3.1.2. Comparação de genótipos
+
+    > Vamos comparar os genótipos dos doentes A-D para obter uma resposta mais definitiva. Existem 6 comparações entre pares (A e B, A e C, A e D, B e C, B e D, C e D). Selecione cada uma delas para comparar os genótipos e o IBS entre cada par. Tem de ver todas as 6 comparações de pares antes de avançar.
+
+    > Responda às seguintes perguntas.
+
+  3.1.3. Infecções reais
+
+    > Num contexto real, seria possível interpretar os genótipos como acabou de fazer e chegar às conclusões corretas sem precisar de saber qual era a composição real dos parasitas das infecções. No entanto, uma vez que se trata de um exemplo simulado, poderá estar interessado em saber como eram realmente as infecções subjacentes nestes casos não relacionados.
+
+    > De acordo com as suas conclusões, pode ver que os parasitas nas infecções não estão completamente relacionados com nenhum outro por descendência (i.e. IBD é 0 para todas as comparações). O código de simulação utilizado para criar estes dados escolheu aleatoriamente alelos para cada um dos 8 parasitas, tal como quando criou os seus clones de laboratório.
+
+  3.2. Surto no internato
+
+    > Agora vamos investigar os cinco casos que ocorreram na comunidade de uma aldeia diferente. Recorde-se que dois destes cinco relataram um historial de viagens recentes para fora da província de Eliminati, para áreas diferentes e de elevada transmissão. Esse historial pode ser consistente com o facto de terem adquirido as infecções noutro local e as terem importado para a comunidade que está a ser investigada. No entanto, os outros três casos não relatam viagens recentes e, portanto, levantam preocupações sobre a transmissão sustentada, potencialmente ameaçando o seu objetivo de eliminação. Se encontrar provas de transmissão, sabe que os casos diretamente ligados a casos importados são classificados como casos "introduzidos" e podem por vezes ocorrer mesmo em zonas certificadas como tendo eliminado o paludismo. No entanto, se a transmissão ocorrer para além dos casos introduzidos, pode ser necessário considerar a intensificação das intervenções para alcançar e manter a eliminação com êxito.
+
+    > Vamos dar uma vista de olhos aos seus dados!
+  
+    3.2.1. Estimativa do MOI
+
+      > Ver os genótipos de cada infeção. Faça uma estimativa do MOI com base no genótipo e introduza-o no formulário. Esta informação não fornecerá respostas definitivas sobre a transmissão, mas pode ajudá-lo a interpretar os resultados da SII, uma vez que aprendeu anteriormente neste exercício que o MOI pode afetar a SII.
+    
+    3.2.2. Comparação de genótipos
+
+      > Ok - vamos ver se os dados genéticos para estes casos correspondem às suas expectativas. Selecione o ícone para comparar os genótipos e o SCI entre estas duas infecções. Assim que perceber porque é que a transmissão é improvável, selecione o ícone para remover a ligação.
+
+      > Ótimo - a vossa investigação está a começar a ganhar forma. A seguir, podemos estar interessados em ver se algum destes casos potencialmente importados pode ter sido responsável por infetar os outros três casos (G, H e I).
+
+      > Antes de analisarmos os dados de genotipagem, que dados epidemiológicos básicos poderá querer saber, para além do facto de não terem relatado viagens recentes? Porquê? Pense na sua resposta e clique no botão abaixo para obter estes importantes dados adicionais!
+
+      > Com base nos seus dados de genotipagem e nos dados epidemiológicos de que dispõe, identifique qual a transmissão que pensa estar relacionada com o caso E, se é que existe alguma.
+
+      > Clique em para verificar o IBS e decidir se acredita que ocorreu uma transmissão para adicionar uma ligação. Clique em para remover a ligação se achar que a transmissão é improvável. Se considerar que a transmissão é provável, clique nas extremidades da ligação para indicar a direção provável da infeção. Tem de ver todas as ligações e todas as ligações que optar por manter têm de ter uma direção antes de continuar.
+
+      > Agora vejamos o caso F. Com base nos dados de genotipagem e nos dados epidemiológicos de que dispõe, identifique qual a transmissão, se é que existe alguma, que pensa estar relacionada com o caso F.
+
+      > Clique em para verificar o IBS e decidir se acredita que ocorreu uma transmissão para adicionar uma ligação. Clique em para remover a ligação se achar que a transmissão é improvável. Se considerar que a transmissão é provável, clique nas extremidades da ligação para indicar a direção provável da infeção. Tem de ver todas as ligações e todas as ligações que optar por manter têm de ter uma direção antes de continuar.
+
+      > Finalmente, vamos procurar qualquer evidência de transmissão local entre os casos G, H e I.
+
+      > Clique em para verificar o IBS e decidir se acredita que ocorreu uma transmissão para adicionar uma ligação. Clique em para remover a ligação se achar que a transmissão é improvável. Se considerar que a transmissão é provável, clique nas extremidades da ligação para indicar a direção provável da infeção. Tem de ver todas as ligações e todas as ligações que optar por manter têm de ter uma direção antes de continuar.
+
+    3.2.3. Interpretação dos resultados e comunicação das conclusões
+
+      > Vamos dar uma vista de olhos nos resultados. Utilize esta oportunidade para corrigir a sua rede, alterando a direção das infecções, removendo as que não deveriam existir ou adicionando as que deveriam.
+
+      > Finalmente, vamos procurar qualquer evidência de transmissão local entre os casos G, H e I.
+
+      > Com base nos seus dados de genotipagem e nos dados epidemiológicos de que dispõe, identifique qual a transmissão, se é que existe alguma, que pensa estar relacionada com o caso F.
+
+      > Quando estiver satisfeito com as ligações e as suas direcções, avance para o passo seguinte. Pode voltar a este passo durante a atividade para ajustar as suas ligações.
+
+    3.2.4. Infecções reais
+
+      > Tal como no cenário 1, seria possível interpretar os genótipos como acabou de fazer e chegar às conclusões corretas sem precisar de saber qual era a composição parasitária das infecções. No entanto, uma vez que se trata de um exemplo simulado, podemos mostrar-lhe como eram realmente as infecções subjacentes e o historial de transmissão nestes casos.
+
+      > Vejamos agora como é que esta transmissão ocorreu, passo a passo. O caso E chegou à aldeia depois de ter viajado para uma zona de alta transmissão e de ter sido infetado com dois clones de parasitas geneticamente distintos, o que resultou numa infeção policlonal com MOI de 2 (indicado pelas bolas de cor vermelha e azul no caso E). Isto pode ter sido devido a infecções por dois mosquitos diferentes durante a viagem (superinfeção) ou infeção com dois clones de parasitas não relacionados ao mesmo tempo por um mosquito (cotransmissão).
+
+      > A seguir, um mosquito picou o caso E e foi infetado com ambos os clones.
+
+      > A recombinação sexual entre os clones ocorreu no mosquito, criando um clone do parasita que era um híbrido dos dois.
+
+      > Após cerca de uma semana, o mosquito tornou-se infecioso e foi capaz de se alimentar com sucesso do caso G, infectando-o e fazendo com que adoecesse com malária uma ou duas semanas depois. Foi possível associar estas infecções com genotipagem apesar da recombinação, uma vez que todo o genoma do parasita do caso G descende dos parasitas do caso E.
+
+      > Um processo semelhante ocorreu no caso I, depois de um segundo mosquito ter picado o caso E, também infetado, e transmitido um híbrido diferente dos parasitas importados pelo caso E.
+
+      > Repare que, uma vez que os casos G e I foram ambos infectados com parasitas que tinham os mesmos dois progenitores, são irmãos. Os seus dados de genotipagem anteriores indicavam que este poderia ser o caso, e tinha razão! Também podemos ver pelas suas sequências que o IBD é 0,5, como seria de esperar para irmãos.
+
+      > Felizmente, foi capaz de distinguir esta relação de parentesco da transmissão direta entre os casos I e G. Se não tivesse sido capaz de fazer essa distinção, a transmissão poderia ter sido a seguinte. Como é que isso poderia ter alterado as suas recomendações para o programa?
+
+      > O caso F também chegou à aldeia depois de viajar de uma área diferente de alta transmissão. Esta pessoa foi infetada com três clones de parasitas geneticamente distintos durante a viagem.
+
+      > Um terceiro mosquito picou o caso F e foi infetado com pelo menos 4 gametócitos, representando os três clones.
+
+      > A recombinação entre estes parasitas ocorreu novamente no mosquito, criando dois novos clones híbridos.
+
+      > O mosquito infectou então o caso H com os dois clones híbridos. O caso H desenvolveu malária a partir destes 2 clones, que conseguiu associar claramente ao caso F com a sua genotipagem, apesar da natureza policlonal de ambas as infecções.
+
+    3.2.5. Comparações entre IBD e IBS
+
+      > Agora que sabemos exatamente qual era a composição de todas as infecções, podemos avaliar a DII para cada par de infecções e compará-la com a SII. Clique em qualquer uma das comparações entre casos na tabela à direita para ver mais informações sobre essa conexão (ou falta de conexão). Lembre-se que a IBD nos diz mais diretamente sobre a ancestralidade partilhada do que a SII, e por isso é potencialmente mais informativa sobre a transmissão, mas que a SII é mais fácil de calcular a partir de dados de genotipagem. Neste cenário, foi possível utilizar o IBS para descobrir o processo de transmissão, mas numa situação mais complicada o IBD poderá ser mais útil. A boa notícia é que existem métodos estatísticos disponíveis que podem estimar a IBD a partir do mesmo tipo de dados de genotipagem que utilizou aqui, mesmo quando não conhece a composição subjacente das infecções. Existem mesmo métodos em desenvolvimento para estimar especificamente as ligações de transmissão, que analisaremos mais adiante neste módulo.
+
+      > Repare que tanto o IBD como o IBS são 1 para todas as infecções relacionadas, mas que o IBD é geralmente muito inferior ao IBS para infecções não relacionadas, tornando mais fácil distinguir quais são verdadeiramente relacionadas por ascendência. Em particular, note-se que as duas infecções que são irmãs (casos G e I) têm um IBD que é mais fácil de distinguir de casos completamente não relacionados (0,5 vs. 0 para casos não relacionados) do que os valores IBS (0,67 vs. um intervalo de 0,17-0,33 para casos não relacionados). Esta informação sobre os irmãos poderia ter sido particularmente útil se o caso E não tivesse sido captado pela sua vigilância - por exemplo, se tivesse uma infeção assintomática e não se apresentasse para cuidados. Neste caso, poderíamos ainda inferir a presença de um caso importado que conduziu aos casos G e I, com base no facto de estes dois irmãos terem muito possivelmente derivado da mesma infeção.
+
+    3.2.6. Verificação de conhecimentos
+
+      > Até agora, já abordámos muita matéria neste módulo! Antes de terminarmos a atividade, vamos utilizar este cenário para rever alguns conceitos.
+
+
+4: Resumo
+
+  > Foi um trabalho árduo, mas valeu a pena. Mostrou que não há preocupação com a transmissão no Cenário 1, afastando os receios de um surto no internato. Também demonstrou, para o Cenário 2, que embora tenha havido uma transmissão local limitada na aldeia, levando a alguns casos introduzidos, ainda não há provas de uma transmissão sustentada. Fez algumas escolhas muito boas desde o início, o que lhe permitiu chegar a conclusões tão claras. Começou por avaliar rigorosamente os seus métodos de genotipagem em controlos laboratoriais, o que lhe permitiu garantir que os dados que produziu eram susceptíveis de fornecer a informação de que necessitava. Por exemplo, determinou desde logo que um painel de 12 SNP não lhe permitiria distinguir facilmente se as infecções policlonais estavam ou não relacionadas e passou para um painel de maior resolução de 12 microhaplótipos. Também gerou dados suficientes dos seus controlos para lhe mostrar como interpretar os resultados em casos desconhecidos. Por fim, considerou cuidadosamente os seus dados de genotipagem no contexto dos seus dados epidemiológicos de alta qualidade, baseou as suas conclusões nas provas disponíveis e comunicou os resultados de uma forma direta e precisa às partes relevantes. Os seus esforços foram notados pelos responsáveis, e há rumores de que estão a ser mobilizados recursos adicionais para apoiar o seu trabalho, bem como promoções para si e para a sua equipa.
+

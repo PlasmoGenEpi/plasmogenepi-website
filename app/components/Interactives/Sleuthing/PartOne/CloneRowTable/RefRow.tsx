@@ -5,7 +5,9 @@ import { fixedData } from "@/data/Interactives/fixedData";
 export default function RefRow({
   refValues,
   altValues,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   refValues: string[];
   altValues: string[];
 }) {
@@ -23,12 +25,16 @@ export default function RefRow({
           }
           className={`relative aspect-square rounded-full`}
         >
-          <div className="@2xl/main:flex @2xl/main:justify-end absolute right-4 top-1/2 hidden aspect-square items-center rounded-full">
+          <div className="absolute right-4 top-1/2 hidden aspect-square items-center rounded-full @2xl/main:flex @2xl/main:justify-end">
             <span className="absolute translate-y-[3px] font-bold">
-              Reference
+              {lang === "EN"
+                ? `Reference`
+                : lang === "FR"
+                ? `Référence`
+                : `Referência`}
             </span>
           </div>
-          <div className="@2xl/main:hidden absolute right-4 top-1/2 flex aspect-square items-center justify-center rounded-full">
+          <div className="absolute right-4 top-1/2 flex aspect-square items-center justify-center rounded-full @2xl/main:hidden">
             <span className="absolute translate-y-[3px] font-bold">Ref</span>
           </div>
         </div>

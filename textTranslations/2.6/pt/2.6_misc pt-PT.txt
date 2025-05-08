@@ -1,0 +1,250 @@
+Completo
+
+1.
+
+  clones de laboratório com SNPs
+  referência
+  alternativo
+  controlo positivo
+  genotipagem
+  perguntas
+  sim
+  não
+  Contagem de alelos homozigóticos
+  Contagem de alelos heterozigotos
+  Controlo positivo
+
+    [
+      Quantos loci no controlo positivo 1 (MOI = 1) têm um único alelo?
+
+      Quantos loci no controlo positivo 1 têm dois alelos?
+
+      1. Deverá obter-se algum loci heterozigótico - loci que contém mais do que um único alelo - quando se faz o genótipo de um controlo que contém um único clone?
+
+        > É isso mesmo - se houver apenas um clone presente na amostra, devemos obter apenas um alelo em cada locus. Por conseguinte, cada locus deve ser homozigótico (contendo um único alelo) e não heterozigótico (contendo múltiplos alelos).
+
+      2. Se obtiveste loci heterozigóticos quando fizeste a genotipagem de um único clone, quais são algumas das explicações possíveis?
+
+        O ensaio não está a funcionar corretamente
+
+        O ensaio está a gerar falsos positivos
+
+        A sua amostra está contaminada
+
+        Misturou a amostra, ou seja, a amostra não é o que pensa que é
+
+        Esqueceu-se de adicionar a amostra de ADN
+
+        > A última opção não está correta - se se esqueceu de adicionar ADN de amostra, não deveria detetar alelos, mas sim demasiados. Todas as outras opções representam explicações possíveis para o facto de poder obter dados de alelos heterozigóticos a partir de um único clone.
+
+      3. Se obtiveste loci heterozigóticos de um único clone, o que deves fazer? (escolha uma)
+ 
+        Nada, trata-se apenas de controlos e não de dados "reais".
+
+        Nada, não há problema em obter resultados incorrectos algumas vezes. Nenhum ensaio é perfeito
+
+        Investigar rigorosamente a fonte potencial do erro, para saber qual é a fonte e como interpretar os dados das amostras clínicas.
+
+        > Os controlos são as amostras mais importantes que alguma vez serão utilizadas num ensaio laboratorial. Dizem-lhe se o ensaio está a funcionar ou não, para que saiba como interpretar os dados. Se os seus controlos estão a dar resultados errados, não deve confiar em mais nenhum resultado até investigar a fundo a origem do problema e corrigi-lo.
+
+      4. Se todos os 12 loci forem heterozigóticos, isso significa que tem exatamente 2 clones?
+
+        Definitivamente, sim.
+
+        De certeza que não.
+
+        É possível, mas extremamente improvável.
+
+        > Isso definitivamente significa que você tem mais de um clone, mas dois clones não seriam susceptíveis de lhe dar chamadas heterozigóticas em TODOS os loci. Com base nos controlos que criou, parece que necessitaria de um MOI bastante elevado para que isso fosse provável. Recorde-se, quantos dos seus loci eram heterozigóticos quando genotipou controlos com um MOI de 2? De 4?
+
+      5. Porque é que é extremamente improvável que tenha 2 clones quando todos os seus 12 loci são heterozigóticos?
+
+        É mais provável que tenha uma amostra monoclonal e muitos falsos positivos.
+
+        12 loci heterozigóticos significa que tem um MOI de 12, não de 2.
+
+        Seria de esperar que pelo menos alguns dos loci tivessem o mesmo alelo para os dois clones, pelo que o mais provável é que pelo menos alguns tenham um único alelo.
+
+        A probabilidade de ter dois clones com SNPs diferentes em cada locus é baixa porque cada SNP ocorre de forma independente e aleatória.
+
+        > Com dois SNPs perfeitamente equilibrados como neste exercício, há uma hipótese de 50/50 de obter o alelo de referência ou alternativo. Portanto, obter um genótipo SNP heterozigótico com dois clones é como atirar duas moedas ao ar e obter cara numa e coroa na outra - isto acontecerá 50% das vezes. Fazer o lançamento de duas moedas e fazer com que elas sejam diferentes uma da outra 12 vezes seguidas é muito improvável (<0,02% de probabilidade)! O mesmo é verdade para 12 loci - seria de esperar que cerca de 6 deles fossem heterozigóticos, talvez um pouco mais, talvez um pouco menos, mas muito improvável que fossem todos os 12.
+
+
+      6. Seria de esperar obter algum loci heterozigótico quando se genotipa um controlo com 4 clones?
+
+      7. É possível genotipar um controlo com 4 clones e não obter nenhum loci heterozigótico utilizando 12 SNPs perfeitamente equilibrados?
+
+        Sim - mas extremamente improvável!
+
+        Não
+
+        > É possível, mas muito improvável. Para NÃO obter quaisquer loci heterozigóticos, isto seria como atirar quatro moedas ao ar e fazer com que todas elas saiam caras ou coroas, e depois fazer isso 12 vezes seguidas!
+
+      8. O que é que nota na relação entre o MOI e o número de loci que são heterozigóticos?
+ 
+        Quanto maior o MOI, maior a proporção de loci que são heterozigotos.
+
+        Quanto mais baixo for o MOI, maior será a proporção de loci heterozigóticos.
+
+        O MOI e a proporção de loci heterozigóticos não estão relacionados.
+
+        > Deve ter reparado que quanto maior o MOI, maior a proporção de loci que são heterozigóticos. A proporção exacta que seria de esperar para um determinado MOI dependerá da diversidade de cada SNP na população e, em certa medida, da variação aleatória. Neste exemplo, cada um dos 12 SNPs está perfeitamente equilibrado como uma moeda, maximizando a diversidade.
+
+        > O histograma mostra o número esperado de loci heterozigotos para diferentes MOI com 12 SNPs perfeitamente equilibrados. Na prática, a maioria dos SNPs não são perfeitamente diversos, e a diversidade para um determinado SNP provavelmente variará em diferentes contextos, mesmo dentro de um país. Quanto mais SNPs tiver e quanto mais diversificado for cada um deles, mais precisamente pode estimar o MOI.
+
+
+
+    ]
+
+2.
+  
+  Genótipo com SNPs
+  Estimativas de MOI
+  infeção
+  Média
+  Estimativas SNP
+  Gráfico
+  perguntas
+
+    [
+      Com base nos seus resultados, considera que a intervenção de controlo de vectores funcionou?
+
+      > Se a intervenção funcionou, o MOI deve ser significativamente inferior à linha de base, que era de 2,5. Dependendo das suas estimativas, pode determinar que o MOI médio é agora efetivamente mais baixo (nesse caso, funcionou!), mais ou menos igual, ou mesmo mais alto. Não lhe vamos dizer a resposta agora, mas não se preocupe - em breve realizará outra atividade com algumas análises adicionais sobre as mesmas amostras e discutiremos os resultados com mais pormenor.
+
+
+    ]
+
+3.
+  Tabela de microhaplótipos
+  Clones de laboratório
+  Clones de laboratório com microhaplótipos
+  Alelos
+  Controlo positivo 1
+  Número máximo de alelos
+  Número médio de alelos
+  genotipagem
+  não
+  sim
+  perguntas
+
+    [
+      Quantos loci no controlo positivo 1 (MOI = 1) têm um único alelo?
+
+      Quantos loci no controlo positivo 1 têm mais de 1 alelo?
+
+      Qual é o maior número de alelos observado num determinado locus no controlo positivo 3?
+
+        > Está a começar a notar alguma relação entre o MOI e o número de alelos detectados? O que acha que vai ver quando fizer o genótipo dos próximos 2 controlos com MOI de 4?
+
+        > Os resultados dos controlos 5 e 6, com MOI de 4, correspondem à sua previsão? Porquê ou porque não? Reserve um momento para refletir sobre esta questão.
+
+      Quantos loci têm mais de dois alelos no controlo positivo 3?
+
+      Quantos loci têm este número máximo de alelos?
+
+      Por que razão nem todos os loci no controlo positivo 5 e no controlo positivo 6 têm 4 alelos detectados, apesar de o MOI = 4?
+
+        O genótipo está errado.
+
+          > Não está correto, felizmente neste exercício estamos a assumir que a
+            que a genotipagem é perfeita. Mas nem sempre será esse o caso na realidade!
+
+        Não existem 4 alelos possíveis em cada locus.
+          
+          > Não é verdade, existem de facto oito alelos possíveis para cada locus, como identificou durante o processo de genotipagem.
+
+        Por vezes, os alelos de diferentes estirpes coincidem por acaso, mesmo que a diversidade seja elevada
+
+
+
+        > Isso está correto! Mesmo com oito alelos possíveis, como neste exercício, há uma hipótese razoável de que alguns deles coincidam se tiver 4 deles. Se escolher nove deles, é certo que pelo menos 2 serão iguais!
+
+
+
+
+
+      Considera que seria uma estratégia razoável analisar o maior número de alelos para estimar o MOI, se estiver a utilizar microhaplótipos?
+
+        Sim, esta estratégia dá-me sempre a resposta correta.
+
+        Sim, desde que a diversidade nos loci seja suficientemente elevada e o MOI não seja demasiado elevado.
+
+        Não, não existe qualquer relação entre a MOI e o maior número de alelos detectados.
+
+        Não, é difícil contar tão alto.
+
+        > Correto. Lembre-se que se o MOI for superior ao número máximo de alelos possíveis, o número de alelos detectados nunca será tão elevado como o MOI.
+
+      É possível que o número mais elevado de alelos detectados num locus possa ser superior ao MOI com base nas regras deste exercício (genotipagem perfeita sem erros)?
+
+        > Correto. Infelizmente, ocorrem erros de genotipagem e é importante estar atento a eles. Estes podem ser causados pela mistura de amostras, contaminação no laboratório ou erros durante a PCR ou a sequenciação. Falaremos mais detalhadamente sobre estas situações num módulo posterior e sobre como a bioinformática e uma boa análise de controlo de qualidade podem ajudar a identificar estes erros.
+
+      Agora que já fez a genotipagem dos mesmos controlos utilizando SNPs e microhaplótipos, qual é que acha que lhe vai dar uma estimativa mais precisa do MOI nas suas amostras de campo desconhecidas?
+
+        SNPs
+
+        Microhaplótipos
+
+        Ambos são iguais
+
+        > Então, qual é a resposta? Descobrirá no final da atividade!
+
+
+
+    ]
+
+4.
+  Genótipo com microhaplótipos
+  Estimativas
+  Média
+  Gráfico
+
+5.
+  perguntas
+  feedback
+  [
+    Observa os teus dados e pensa nas duas perguntas seguintes.
+
+    Obteve um MOI com microhaplótipos superior, inferior ou igual ao MOI com SNPs?
+
+    Qual considera ser um reflexo mais exato do verdadeiro MOI para cada amostra e, por extensão, para a sua população?
+
+    > Pessoas diferentes podem ter tido estratégias diferentes para estimar o MOI, mas, em geral, pode ter sido mais fácil detetar o MOI com mais precisão nas amostras de campo usando microhaplótipos. Isto deve-se ao facto de que, com os SNP, o número máximo de alelos que se pode detetar é 2 e é difícil estimar com precisão o MOI a partir da proporção de loci que são heterozigóticos, a menos que se tenha muitos loci. Por outro lado, a utilização de marcadores de maior diversidade, como os microhaplótipos, permite observar mais diretamente o MOI, com as ressalvas acima referidas. Nomeadamente, por vezes podem ocorrer erros de genotipagem que criam alelos positivos, aumentando o MOI. Por outro lado, por vezes os alelos coincidem por acaso, mesmo quando os loci são diversos. Por estas razões, foram desenvolvidos métodos estatísticos para ter em conta estes e outros factores, de modo a obter estimativas mais precisas do MOI, mesmo quando se utilizam marcadores de microhaplótipos. Vamos agora analisar o verdadeiro MOI e ver quão exactas foram as suas estimativas!
+
+    > Agora que sabe a verdade, as suas estimativas para cada uma das 10 infecções foram mais exactas utilizando SNPs ou microhaplótipos? E quanto à distribuição geral e à sua estimativa do MOI médio? Dependendo de quão bem foi capaz de estimar a partir dos dados de genotipagem, pode achar que foi capaz de estimar com mais precisão o MOI para cada infeção usando microhaplótipos do que SNPs. No entanto, a distribuição global e o MOI médio podem ainda estar bastante próximos da verdade para ambos os métodos. Quaisquer erros na estimativa podem ser compensados - por exemplo, pode sobrestimar-se o MOI de uma infeção mas subestimar-se o MOI de outra. É por isso que um bom método de estimativa e uma amostra de dimensão suficientemente grande podem fornecer estimativas exactas para a população, mesmo que as estimativas para infecções individuais sejam incorrectas.
+
+  ]
+
+6.
+  Interpretação dos resultados
+
+  perguntas
+  [
+    Recorde-se que, antes da intervenção, estimou que o MOI era de 2,5 e que, embora só tenha analisado dados de 10 amostras neste exercício, estamos a assumir que estas 10 amostras são representativas de uma amostra maior.
+
+    Com base nas vossas estimativas de MOI, têm provas de que a vossa intervenção funcionou?
+
+      > Se a sua intervenção funcionasse, poderia ter esperado que isso resultasse numa diminuição da diversidade dentro do hospedeiro, como refletido por um MOI mais baixo. No entanto, deve ter notado que o MOI médio aumentou em vez de diminuir.
+
+    Lembre-se de que, antes da intervenção, estimou que o MOI era de 2,5 e que, apesar de só ter analisado dados de 10 amostras neste exercício, estamos a assumir que estas 10 amostras são representativas de uma amostra maior.
+
+      Esconda os seus dados moleculares - não estão de acordo com o que esperava ver, por isso é melhor fingir que não existem
+
+      Tomar os seus dados moleculares como prova irrefutável de que a transmissão aumentou e efetuar imediatamente alterações programáticas abrangentes e dispendiosas
+
+      Utilize os seus dados moleculares como um potencial motivo de preocupação e pense em fontes adicionais de dados que pode utilizar ou gerar para confirmar se a transmissão está a piorar e, em caso afirmativo, porquê
+
+      > Apesar da implementação de uma nova intervenção, não parece ter havido qualquer diminuição do MOI, o que poderia ter sido esperado com uma diminuição da transmissão. De facto, o MOI aumentou de 2,5 para 3,2! Com um tamanho de amostra suficiente, uma diferença desta magnitude teria provavelmente sido estatisticamente significativa, indicando que a transmissão pode ter efetivamente aumentado apesar, ou potencialmente por causa, da mudança nas intervenções. Isto pode não surpreender quem trabalha no controlo da malária - por vezes, as intervenções que supostamente funcionam com base em dados de ambientes controlados comportam-se de forma diferente quando implementadas no terreno. Esperemos que a sua investigação e análise dos dados tenha ajudado a identificar este resultado importante. Agora pode comunicar esta informação a outras pessoas no seu programa e pensar em acções adicionais.
+
+  ]
+
+7.
+  Resumo
+  Código do módulo
+
+
+MISC:
+
+  Reiniciar
+  Ativar dicas
+  Passo 1

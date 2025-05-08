@@ -23,7 +23,11 @@ import { useAtom, useAtomValue } from "jotai";
 const refValues = fixedData[1].refValues;
 const altValues = fixedData[1].altValues;
 
-export default function P1PositiveControlBoard() {
+export default function P1PositiveControlBoard({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [boards, setBoards] = useAtom(positiveControlBoardsAtom);
   const activeBoard = useAtomValue(selectedPositiveControlBoardAtom);
   const currentBoard = boards[activeBoard];
@@ -44,7 +48,11 @@ export default function P1PositiveControlBoard() {
         ((activeBoard === 1 || activeBoard === 2) &&
           currentBoard.rows.length !== 1)
       ) {
-        return "Make sure you are using the right number of clones according to the MOI.";
+        return lang === "EN"
+          ? "Make sure you are using the right number of clones according to the MOI."
+          : lang === "FR"
+          ? "Assurez-vous d'utiliser le bon nombre de clones en fonction du MOI."
+          : "Certifique-se de que está usando o número correto de clones de acordo com o MOI.";
       }
     }
     let otherBoard = boards[switchValues(activeBoard)];
@@ -52,7 +60,11 @@ export default function P1PositiveControlBoard() {
       currentBoard.rows.length &&
       compareUnorderedArrays(currentBoard.rows, otherBoard.rows)
     ) {
-      return "Positive controls must be unique.";
+      return lang === "EN"
+        ? "Positive controls must be unique."
+        : lang === "FR"
+        ? "Les contrôles positifs doivent être uniques."
+        : "Os controles positivos devem ser únicos.";
     }
   }
 

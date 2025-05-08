@@ -180,7 +180,7 @@ export default function EIComparison() {
                       {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cloneRed/80 via-[#e61048_33%,#4896e8_33%_#4896e8_66%] to-cloneRed"></div> */}
                     </div>
                     <ol
-                      className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-cloneRed/80 via-[#e61048_25.5%,#4896e8_25.5%,#4896e8_74.5%,#e61048_74.5%] to-cloneRed/80  p-1 shadow-sm shadow-black`}
+                      className={`grid h-full grow grid-cols-12 gap-0.5 bg-gradient-to-r from-cloneRed/80 via-[#e61048_25.5%,#4896e8_25.5%,#4896e8_74.5%,#e61048_74.5%] to-cloneRed/80  p-1 shadow-sm shadow-black `}
                     >
                       {Array(12)
                         .fill(0)

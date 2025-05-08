@@ -1,0 +1,383 @@
+1.
+
+  Create Hybrid
+  Compare Identical Clones
+  Comparisons where IBD = 0%
+  Genotype Comparisons with Microhaplotypes and Hybrid
+
+
+
+  Questions
+
+    [
+      When comparing two lab clones, you think that:
+
+        The clones are completely unrelated by ancestry, so probably 0/12 (0%) of the SNPs between any two will match. IBS will be 0.
+
+        Even though the clones are unrelated, SNPs can still match by chance. Since there are two perfectly balanced alleles at every locus, the chance of matching will be the same as flipping a coin twice and getting the same result. You would expect around 6/12 (50%) of the SNPs to match. IBS will probably be very close to 0.5, but may vary.
+
+        Since the simulation is random for the 3 clones, there is no way to predict what IBS will be. It is just as likely to be anywhere from 0 to 1.
+
+        > The simulation is random, but you still have some expectation of what is going to happen. When you compare two clones at a given locus, they have 50% chance of sharing an allele since there are two equally likely options. Although it is possible that none of the SNPs will match (first option), the probability of that happening is very low (around 0.02%).
+
+      How many of the loci match?
+
+      What is the IBS for these two parasites?
+
+      What is the IBD for these two parasites?
+
+        > That's right - we have the privilege of knowing that these parasites are completely unrelated by ancestry since they are known laboratory clones. Since the D in IBD stands for descent, and these clones are not descended from each other, IBD in this case is exactly zero.
+
+        > Approximately 50% of loci should match in each of these comparisons. You may see that some pairs of clones have a higher IBS than others. Does this mean those clones are more closely related than the others? No, we know they are not - IBD is zero! Any difference in IBS between these pairs is purely due to random chance. If you repeat the activity, you will get a different IBS result every time, but the clones are still completely unrelated.
+
+      Based on this, do you think it is likely that all 12 loci would match if parasites are unrelated?
+
+        > It is very unlikely that they would all match by chance; the probability is the same as none of them matching, around 0.02%. It also unlikely ( <1% chance) that 11 of the 12 would match.
+
+        > SNP Match Probability - 50/50 Allele Distribution
+
+      This scenario is somewhat optimistic in that the SNPs are perfectly diverse. In a more realistic situation if SNP allele frequencies were not actually 50/50 but e.g. 80/20 would we expect more or fewer matches?
+
+        > You would expect more matches since there is less diversity. The more common allele would be more likely to be present in both parasites, and so they would match more often, about 70% of the time. For the 80/20 case, the probability of seeing different numbers of matches is shown in the graphic.
+
+        > SNP Match Probability - 80/20 Allele Distribution
+
+      Do you think this higher allele frequency would make it harder or easier to distinguish related from unrelated parasites?
+
+        > Correct: This is because there will be more matches when parasites are unrelated, so there will less of a difference in IBS between related and unrelated parasites. They will all have a fairly high number of matches. For example, 12/12 matches (IBS of 1.0) is still uncommon but no longer extremely rare for completely unrelated parasites, at around 1%. Notably, over 20% of comparisons between unrelated parasites will still have 10/12 or more matches (IBS>0.8)!
+
+        > SNP Match Probability - 80/20 Allele Distribution
+
+      How many of the loci match?
+
+      What is the IBS for these two parasites?
+      
+      What is the IBD for these two parasites?
+
+        > SNP Match Probability - Sibling Clones (50% IBD)
+
+        > That's right - again we have the privilege of knowing the true relatedness by ancestry of these lab clones. Since clone 4 is a child of clone 1 and shares exactly 50% of it's genome by ancestry - the red part - IBD is 0.5 or 50%.
+
+        > That's right - just like before, IBD is 0.5 since the hybrid clone shares 50% of its genome with the parent, in this case the blue part.
+
+        > You would expect them to have roughly the same IBS, around 9/12 or 75%. SNPs in the related half of the genome should always match perfectly, unless there are mutations or genotyping errors. However, since matches in the unrelated part are random, the overall number of matches can vary.
+
+        > Most of the time, we expect to see somewhere between 7 and 11 matches, but we may get 12/12 matches about 2% of the time. In all of these cases, IBD would be 0.5, but IBS could vary from 0.5 to 1.0 due to chance.
+
+        > That's right - again we have the privilege of knowing the true relatedness by ancestry of these lab clones. Since clone 4 is not a child of clone 3 and shares none of it's genome by ancestry, IBD is 0%. This is the same situation as our initial comparisons of lab clones 1, 2, and 3.
+
+        > That's right - if the parasites are identical, the entire genome is related, so IBD is 100% or 1.0, and all the loci will match (i.e. IBS will also be 1.0). As long as your genotyping is accurate, you will get 12/12 matches every time!
+
+        > SNP Match Probability - Identical Clones (100% IBD)
+
+      Based on your results, how reliably do you think you could distinguish identically related parasites from those that are completely unrelated using IBS?
+
+        Not very reliably
+
+        Somewhat reliably
+
+        Very reliably
+
+          > Statistically, it should be relatively straightforward to distinguish perfectly related parasites from completely unrelated parasites with 12 perfectly balanced SNPs. This is because perfectly related parasites will always have an IBS of 1, whereas completely unrelated parasites will almost always have IBS at least a little less than 1, like in these two histograms:
+
+
+          > Distinguishing related parasites from unrelated parasites appears reasonably straightforward with SNPs, but what about distinguishing sibling parasites (IBD 0.5) from those that are unrelated (IBD 0)?
+
+      Based on your results, how reliably do you think you could distinguish identically related parasites from those that are completely unrelated using IBS?
+
+        > Siblings may be difficult to reliably distinguish from unrelated parasites. This is because the number of matches we expect to see with 12 SNPs overlaps in these two situations. We tend to have more matches on average in the siblings than for completely unrelated parasites, but not reliably so.
+
+        IBS Distribution - IBD 0.5
+        IBS Distribution - IBD 0.5
+        IBS Distribution - IBD 0
+        IBS Distribution - IBD 0
+
+        > If we have 7, 8, or 9 matches, for example, it could be from siblings or completely unrelated parasites.
+
+      How might you increase your ability to distinguish related from unrelated parasites? Choose all that apply.
+
+        Increase the number of loci that you genotype, e.g. from 12 to 100.
+
+        Increase the diversity of loci that you genotype, e.g. by using microhaplotypes instead of SNPs.
+
+        Look at them under a microscope and try to distinguish them based on how they look.
+
+        > The more loci you evaluate, the easier it will be to distinguish the proportion of matches (IBS) consistent with related vs. unrelated parasites. Similarly, the more diverse the loci, the less likely there will be matches occurring by chance, so IBS will more closely reflect IBD.
+
+        > Increasing both the number and diversity of loci will give you the greatest power. Loci with higher diversity are particularly useful when you have polyclonal infections, which you know can be common, so you decide to go this route.
+
+        > You know from an online course about malaria genomics that microhaplotypes have more diversity than SNPs and can be easily genotyped with targeted sequencing, so you direct your lab to redo the sequencing using 12 microhaplotypes instead of 12 SNPs.
+
+      What do you think you will see?
+
+        IBD will be the same for all of the comparisons as before when you used SNPs. But, IBS will be on average lower, since there is a 1/8 chance of matching at each loci instead of ½ when you used SNPs.
+
+        Both IBD and IBD will be lower than when you used SNPs.
+
+        Both IBD and IBS will be higher than when you used SNPs.
+
+        Both IBD and IBS will remain the same as when you used SNPs.
+
+        > IBD will be the same for all of the comparisons as before. But, IBS will be on average lower, since there is a 1/8 chance of matching at each loci instead of 1/2.
+
+        > That’s right - unrelated parasites still mean IBD is zero, whether or not any loci match.
+
+      How did your IBS results comparing these same 3 unrelated parasites differ using 12 microhaplotypes versus using 12 SNPs?
+
+        Using microhaplotypes, there were fewer alleles matching by chance.
+
+        Using microhaplotypes, there were more alleles matching by chance.
+
+        There was no difference in the number of alleles matching by chance.
+
+        > You should have noticed that you had fewer alleles matching by chance in these unrelated parasites, since the microhaplotypes were more diverse than SNPs – making IBS lower and better reflecting IBD (which was always zero). This histogram shows the expected number of matches using 12 microhaplotypes with 8 alleles each – usually less than 5. This contrasts with SNPs, which could have up to 9 or 10 matches.
+
+        Microhaplotype Match Distribution (IBD 0%)
+        Microhaplotype Match Distribution (IBD 0%)
+        SNP Match Distribution (IBD 0%)
+
+        > That’s right – again we have the privilege of knowing the true relatedness by ancestry of these lab clones. Since clone 4 is a child of clone 1 and shares exactly 50% of it’s genome by ancestry – the red part – IBD is 0.5 or 50%.
+
+      Both of the previous comparisons had the same IBD – 0.5 – since the hybrid clone is 50% related to each parent. Did you get the same IBS result each time? What do you think you would find if you did similar experiments looking at other, similarly related clones?
+
+        0, or close to 0 matches
+
+        Approximately 50% matches
+
+        100%, or close to 100% matches
+
+        Microhaplotype Match Probability - Sibling Clones (0.5 IBD)
+
+        > Microhaplotypes, just like SNPs, in the related half of the genome should always match perfectly, unless there are mutations or genotyping errors. Since matches in the unrelated part are random, the overall number of matches can vary, but should be fewer than with your less diverse SNP loci from before.
+
+        > Most of the time, we expect to see somewhere between 6 and 8 matches, but we may get 9/12 about 2% of the time. Unlike with SNPs, we are very unlikely to see 10 or more matches – less than 0.3% of the time.
+
+      What do you think you would see if you compared our hybrid lab clone 4 to clone 3, which is not its parent?
+
+        IBD would be 0 and IBS would be the same as comparing any completely unrelated clones, usually between 0 and 4 matches
+
+        IBD would be 1 and IBS would be the same as comparing any completely unrelated clones, usually between 0 and 4 matches.
+
+        IBD would be 0 and IBS would be slightly higher, somewhere between 5 and 8 matches
+
+        > Since the hybrid is not related to clone 3 at all, IBD would be 0 and IBS would be the same as comparing any completely unrelated clones, usually between 0 and 4 matches for these diverse microhaplotype loci.
+
+      How are your results with microhaplotypes different from when you compared laboratory clones with SNPs?
+
+        It is easier to distinguish related from unrelated parasites with microhaplotypes than it is with SNPs.
+
+        It is harder to distinguish related from unrelated parasites with microhaplotypes than it is with SNPs.
+
+        It is equally difficult to distinguish related from unrelated parasites whether using microhaplotypes or SNPs.
+
+        > Your investment has paid off – with 12 SNPs it was difficult for you to distinguish siblings from unrelated parasites, and sometimes even from perfectly related parasites, based on the number of matches.
+
+        > You have now completed genotyping with higher resolution microhaplotypes.
+
+        > By increasing the resolution of your genotyping, you can more easily tell which parasites are related by ancestry and therefore by transmission. You also now have a good sense of what you observe in terms of IBS means in terms of the true relatedness of the parasites. You are almost ready to answer your program's questions about these concerning outbreaks! You have just one more thing to do first…
+
+    ]
+
+2.
+
+  Polyclonal Genotype Comparisons
+  Transmissions
+
+  Questions 
+    [
+      How many of the loci match?
+
+      What is the IBS for these two samples?
+
+      What is the IBD for these two samples?
+
+        > Even though the number of matches may be higher than before since one of your samples is polyclonal, it does not change the fact that none of the parasites between the two samples are related by ancestry. Since they are completely unrelated, IBD is 0.
+
+        > The same as the previous comparison - Since they are completely unrelated, IBD is 0
+
+      What do you think you might see if MOI in one or both samples was even higher, but still contained no related parasites between the two samples?
+
+        IBS would be lower.
+
+        IBS would be the same.
+
+        IBS would be higher.
+
+        > Correct, IBS would be higher. This is for the same reason that IBS is likely to be higher in polyclonal versus monoclonal samples – there may be more alleles present to potentially match by chance. This histogram shows the number of loci you would expect to see with matching alleles (IBS) if there are no related parasites between the two samples.
+
+        > IBS for unrelated infections
+
+      What do you think you could do to better distinguish related from unrelated infections as MOI increases? (choose all that apply)
+
+        Give up – it will be impossible to tell.
+
+        Increase the number of loci you genotype.
+
+        Increase the diversity of loci you genotype.
+
+        Use more powerful statistical methods that directly estimate IBD instead of using IBS.
+
+          > In situations where MOI is higher, a larger, more diverse genotyping panel can help provide increased resolution. In addition, statistical methods specifically designed to estimate IBD from polyclonal infections are available and provide accurate estimates as well as statistical significance. Fortunately, for the cases you are investigating this exercise, transmission is relatively low and you should be able to figure out what is going on by calculating IBS using your panel of 12 microhaplotypes.
+
+      What is the IBD for these two samples? Since there could be several ways to interpret IBD when samples are polyclonal, let’s consider the maximum IBD for any parasites between the 2 samples, i.e. the IBD of the most related parasites.
+
+        > You have a genetically identical parasite in both samples – clone 1 (the red color parasite), so IBD is 1.0 or 100%.
+
+      What do you think IBS would be in this situation? Fortunately, you have just the controls to test out your hypothesis! Which two controls should you compare?
+
+        > You should have found that IBS is 1.0 - is this what you expected?
+
+        > The important take home point is that if one person transmits parasites directly to another person through a mosquito, every locus should have a match between those two people - IBS should be 1.0.
+
+        > This is true regardless of whether one or more parasites are transmitted, and whether recombination occurs in the mosquito or not.
+
+
+    ]
+
+3.
+  Infections
+  Potential Transmission Network
+  Genotypes with IBS
+  Genotype Matches
+  Village Transmission Network
+  Feedback
+  Student Infections
+  Results
+
+  Questions
+    [
+      Do these MOI values give you any clues as to whether transmission likely occurred at the school or from the students' home villages?
+
+        Yes, these data are sufficient to make final conclusions that all transmission originated in the home villages.
+
+        Yes, these data are sufficient to make final conclusions that all transmission occurred in the school.
+
+        Yes, these data are suggestive that at least some infections may have originated in the home villages.
+
+        No, the MOI values do not provide any useful information on the origin of infections.
+
+          > Values for MOI do not provide conclusive information on where transmission occurred. However, some of the higher values here are suspicious for students being infected in a high transmission area, potentially suggestive that those cases may have occurred at home and not in the school. This is because the school is in a very low transmission area in Eliminati Province and so you do not expect a lot of superinfection, although as you know cotransmission even in a low transmission area can still result in a polyclonal infection from a single mosquito bite.
+
+      Based on your analysis of the genotypes, do you see any evidence of direct malaria transmission (via a mosquito) between any of these children? Recall from earlier in this exercise that you expect IBS to be 1 when there is direct transmission.
+
+        > Correct! Even though there are some alleles matching by chance between these infections, IBS is less than 1 for all your comparisons. This means that you have found no evidence of direct transmission occurring at the school!
+
+      Which of the following would be an accurate way of communicating your findings to stakeholders such as the school community, local government, and malaria control program?
+
+        You have definitively proven that there is absolutely no malaria transmission occurring at the school.
+
+        You can't really say one way or the other whether malaria transmission is occurring at the school, so you choose to say the results were not clear.
+
+        You can say with a reasonable degree of confidence that these four cases are not related by transmission and are not suspicious of an outbreak occurring at the school. However, if additional cases in the school or nearby are detected, your team should be contacted immediately to continue the investigation.
+
+        You can’t be bothered with interpreting results for other people and just show them the genotyping data, letting them figure it out for themselves.
+
+          > You can be confident that these cases are not directly related given your results. It is of course possible that transmission could still occur in the future, or that there were additional malaria infections related to some of these four that have not yet been detected. It is always good to maintain a level of vigilance and continue high quality malaria surveillance and case management, but for now there does not seem to be any reason to implement any additional interventions. Great work! You have saved the community from wasting resources on trying to control an “outbreak” that wasn't really a concern.
+
+      Take a look at the two cases with travel history that are potentially imported cases. Would you expect their malaria parasite infections to be related to each other by descent? Why or why not? Choose all that apply.
+
+        Yes, because they both travelled so their parasites will look like imported parasites, which are all the same.
+
+        Yes, because they both have polyclonal infections, the infections are likely to be related to each other.
+
+        No, because they both travelled to different places, the parasite populations may be different and thus the parasites they acquired are unlikely to be related.
+
+        No, because they traveled to areas of high transmission where parasite diversity may be high and such parasites are unlikely to be related to each other.
+
+        > If the two people with travel history traveled together, for example if they were part of the same household, then it's possible that their infections might be related. In this case, we know that they report travel to different geographic areas with high transmission and likely acquired their infections there. Since there is generally a lot of parasite genetic diversity in areas of high transmission, and they're coming from different regions, we would not expect their parasites to be related by ancestry. This is exactly what we find. Since the MOI of these cases are 2 and 3, we'd expect to see some matches by chance; what we observe - 4 of 12 loci with a match, or IBS of 0.33 - is within the range of what we'd expect with unrelated infections.
+
+        > There may be several types of information that you are interested in, but date of the cases is an important one. Your team shares a clean, well curated epidemiologic database with you with data for all five cases. It turns out that cases E and F were both detected within a week of each other, and that cases G, H, and I all presented with malaria between two and six weeks after.
+
+      How do you interpret these additional epidemiologic data on the timing of cases?
+
+        Cases E and F happened so close to each other in time that they are likely related to each other even though they both travelled to different places and their infections are not closely related genetically.
+
+        Cases G, H, and I (who did not travel) cannot be related to cases E and F since they happened so much later.
+
+        Cases G, H, and I (who did not travel) could be related to the imported cases, since it can take several weeks for transmission to occur from one person to another and then cause symptomatic malaria.
+
+      Nice work! You have integrated epidemiologic and parasite genetic data to accurately assess transmission in the village.
+
+      There is one case worth taking a closer look at, however.
+
+        > You didn’t think there was evidence of direct transmission between cases G and I. You were right – IBS was less than one. However, these two genotypes had more matches than we would expect to see for completely unrelated infections. If they were unrelated (bars in the histogram), we would expect to see more than 5 matches but in your data you saw 8/12 (IBS=0.67).
+
+        > The number of matches is consistent with parasites in these cases being siblings, i.e. an IBD of 0.5 (green bars in the histogram). Siblings can occur when two parasites have the same parents… does this make sense given the rest of your estimated transmission?
+
+        > You have very good intuition – these two cases have more loci related than would be expected by chance. The MOI is only one for both cases, so we would not expect to see more than five loci matching if the cases were completely unrelated (blue bars in the histogram) and we see 8 matches (IBS of 0.67). However, we also know that they are not directly related by transmission, since we would then expect them to be identical (IBS=1). What do you think could explain this intermediate level of relatedness?
+
+        > The number of matches is consistent with parasites in these cases being siblings, i.e. an IBD of 0.5 (green bars in the histogram). Siblings can occur when two parasites have the same parents… does this make sense given the rest of your estimated transmission?
+
+      Based on your evaluation, what if any types of cases do you think are present in the village? (Choose all that apply)
+
+        Imported cases
+
+        Introduced cases
+
+        Locally transmitted cases
+        
+        > Correct! Cases E and F are very likely imported cases, based on the fact that there have not been cases reported in this village before those two, and their recent travel history to high transmission areas. Cases I and G are likely to be introduced cases stemming from Case E, and Case H is likely an introduced case from Case F.
+
+      Which of the following would be an accurate way of communicating your findings to stakeholders such as the village community, local government, and malaria control program?
+
+        You have definitively proven that there is absolutely no malaria transmission occurring in the village.
+
+        You can’t really say one way or the other whether malaria transmission is occurring in the village, so you choose to say the results were not clear.
+
+        You can say with a high degree of confidence that you have so far seen evidence of limited local transmission – only a single generation of transmission from imported cases leading to three introduced cases. You do not yet see any evidence of ongoing local transmission beyond this, consistent with elimination status.
+
+        You can say with a reasonable degree of confidence that these five cases are not related by transmission and are not suspicious of an outbreak occurring at the village.
+
+        You can’t be bothered with interpreting results for other people and just show them the genotyping data, letting them figure it out for themselves.
+
+      Your program director asks you what should be done programmatically based on these detailed results stemming from your thorough investigation. You suggest:
+
+        Reducing interventions in the administrative area where this village is located, since there is no transmission occurring here and resources could be better spent elsewhere.
+
+        Keeping interventions at the level they are - there was limited transmission from imported to introduced cases but it did not appear to continue beyond that. However, if additional cases in the village or nearby are detected, your team should be contacted immediately to continue the investigation. Meanwhile, you will keep all of the genotyping data well organized in your ongoing database if more cases are detected.
+
+        Investing in more intensive interventions, since you are concerned that a large outbreak could be imminent.
+
+        > You have shown that there is some transmission occurring in the village (so option A is incorrect) but it does seem to be limited, at least for now. Therefore, it would be reasonable to keep interventions where they are while continuing to be vigilant and investing in rigorous epidemiologic and genomic surveillance. Additional resources spent on interventions might reduce the probability of introduced cases, but since transmission does not appear to be sustained at this time, those resources might be better spent elsewhere.
+
+      Previously you said that the transmissions very likely originated from imported cases and to keep interventions at the current levels while remaining diligent. Does that recommendation change based on this transmission network?
+
+        It would not have changed my recommendation.
+
+        I would have been more concerned about sustained local transmission and recommended intensifying interventions aimed at reducing transmission in the village.
+
+        I would have been less concerned and recommended reducing the intensity of interventions.
+
+        > If transmission could have occurred between cases G and I, then this would have represented at least two generations of transmission - E to G and then G to I - consistent with ongoing local transmission and no longer consistent with elimination status. To achieve elimination, which is your goal for this area, interventions would likely need to be improved by better targeting or general intensification.
+
+      How many different parasite clones are there across all the cases? Hint: Remember that the colored balls represent the genotypes of parasites present within these five cases, so different looking balls will be distinct clones with different genotypes.
+
+        > That’s right - every parasite in these cases is genetically distinct, although some are related to each other. There are nine in total.
+
+      How many parasite clones, or lineages, were initially introduced into the village by the two cases who had traveled?
+
+        > Great - five genetically distinct lineages were introduced into the village, two by case E and three by case F. The parasites in cases G, H, and I are all related to these five lineages.
+
+      What process resulted in the introduced cases (G, H, and I) being infected with related but genetically distinct parasites from the imported cases (E and F)?
+
+        Mutation in the human cases
+
+        Mutation in the mosquito
+
+        Sexual (meiotic) recombination in the human cases
+
+        Sexual (meiotic) recombination in the mosquito
+
+        Superinfection
+
+        Super-duper-infection
+
+        > Good. Sexual recombination, which occurs exclusively in the mosquito, allows the genetic material of multiple distinct parasites to mix if the mosquito picks up more than one genetically distinct gametocyte when feeding. Some level of parasite mutation does occur, but generally not enough to result in parasites becoming meaningfully different over one or a few transmission cycles. Sexual recombination of malaria parasites occurs only in the mosquito. Superinfection, while indirectly facilitating recombination by producing polyclonal infections, does not directly result in distinct but related parasites.
+
+      Here’s a challenging thought exercise for you. If the MOI of both imported cases (E and F) was one and both infections unique, and the same transmission between people occurred as in this scenario, how many different parasite genotypes would you expect to see in this village?
+
+        > If case E and F were only infected with one parasite each, there would have been no opportunity for recombination between distinct clones. In this situation, introduced cases I and G would have been infected with a clone identical to the one imported by case E, and case H would have been infected with a clone identical to the one imported by case F. Therefore, only two distinct genotypes would have circulated. It is interesting to note that in this alternate scenario there would have been a lot less population diversity in the circulating parasites despite the exact same transmission pattern. Importantly, the connections between cases would have still been apparent from your genotyping, although the relationship between cases E, I, and G would have been harder to estimate from the genetic data alone. Fortunately, you would have had data on travel and time to help as well.
+
+
+
+    ]

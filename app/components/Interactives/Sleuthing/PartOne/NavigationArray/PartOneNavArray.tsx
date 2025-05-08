@@ -16,7 +16,13 @@ import { fixedData } from "@/data/Interactives/fixedData";
 import { usePrevious } from "@/app/components/hooks";
 import { findFirstFocusableElement } from "@/app/components/Interactives/helpers";
 
-export default function PartOneNavArray({ forwards }: { forwards?: boolean }) {
+export default function PartOneNavArray({
+  forwards,
+  lang,
+}: {
+  forwards?: boolean;
+  lang: "EN" | "FR" | "PT";
+}) {
   const phase = useAtomValue(phase1Atom);
   const boards = useAtomValue(positiveControlBoardsAtom);
   const [activeBoard, setActiveBoard] = useAtom(
@@ -65,7 +71,7 @@ export default function PartOneNavArray({ forwards }: { forwards?: boolean }) {
   }, [phase, activeBoard]);
 
   return (
-    <div className="@xl/main:max-w-[80%] @xl/main:grid-cols-3 @4xl/main:min-h-[82px] @4xl/main:max-w-none @4xl/main:grid-cols-6 @4xl/main:gap-0 @4xl/main:gap-8 relative mx-auto mb-12 grid min-h-[100px] grid-cols-3 place-items-center gap-1">
+    <div className="relative mx-auto mb-12 grid min-h-[100px] grid-cols-3 place-items-center gap-1 @xl/main:max-w-[80%] @xl/main:grid-cols-3 @4xl/main:min-h-[82px] @4xl/main:max-w-none @4xl/main:grid-cols-6 @4xl/main:gap-0 @4xl/main:gap-8">
       {phase < 3 && (
         <div
           style={{
@@ -73,7 +79,7 @@ export default function PartOneNavArray({ forwards }: { forwards?: boolean }) {
           }}
           className={`${
             phase === 1 ? "fadeIn500" : "invisible"
-          } @xl/main:w-[32rem] @3xl/main:left-[calc(50%-16px)] @3xl/main:max-w-none @3xl/main:-translate-x-1/2 @4xl/main:w-[calc(50%-32px)] @4xl/main:-translate-x-[calc(50%+16px)] absolute  top-0 flex w-full flex-col 
+          } absolute top-0 flex w-full flex-col @xl/main:w-[32rem] @3xl/main:left-[calc(50%-16px)]  @3xl/main:max-w-none @3xl/main:-translate-x-1/2 @4xl/main:w-[calc(50%-32px)] @4xl/main:-translate-x-[calc(50%+16px)] 
           `}
         >
           <div
@@ -84,10 +90,12 @@ export default function PartOneNavArray({ forwards }: { forwards?: boolean }) {
             </div>
           </div>
           <RefRow
+            lang={lang}
             refValues={fixedData[1].refValues}
             altValues={fixedData[1].altValues}
           />
           <AlternateRow
+            lang={lang}
             refValues={fixedData[1].refValues}
             altValues={fixedData[1].altValues}
           />

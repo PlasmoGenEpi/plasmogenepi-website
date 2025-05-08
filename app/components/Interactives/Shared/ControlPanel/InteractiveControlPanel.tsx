@@ -25,7 +25,11 @@ export const currentBackCallbackAtom = atom(null);
 export const currentNextCallbackAtom = atom<null | (() => void)>(null);
 export const currentPhaseIsCompleteAtom = atom(false);
 
-export default function InteractiveControlPanel() {
+export default function InteractiveControlPanel({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [menuOpen, setMenuOpen] = useAtom(sideBarIsOpenAtom);
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
   const [hintsEnabled, setHintsEnabled] = useAtom(hintsEnabledAtom);
@@ -159,16 +163,30 @@ export default function InteractiveControlPanel() {
     if (section === 0) {
       if (phase === 0) {
         // return "Background";
-        result.primaryText = "Background";
+        result.primaryText =
+          lang === "EN"
+            ? "Background"
+            : lang === "FR"
+            ? "Contexte"
+            : "Contexto";
       } else if (phase === 1) {
-        result.primaryText = "Goal";
+        result.primaryText =
+          lang === "EN" ? "Goal" : lang === "FR" ? "Objectif" : "Objetivo";
       } else if (phase >= 2) {
-        result.primaryText = "Instructions";
+        result.primaryText =
+          lang === "EN"
+            ? "Instructions"
+            : lang === "FR"
+            ? "Instructions"
+            : "Instruções";
       }
     } else if (section === 7) {
-      result.primaryText = "Summary";
+      result.primaryText =
+        lang === "EN" ? "Summary" : lang === "FR" ? "Résumé" : "Resumo";
     } else {
-      result.primaryText = `Step ${section}`;
+      result.primaryText = `${
+        lang === "EN" ? "Step" : lang === "FR" ? "Étape" : "Passo"
+      } ${section}`;
       if (phase > 0 && section !== 5) {
         result.secondaryText = `${phase} / ${
           section === 1
@@ -329,7 +347,13 @@ export default function InteractiveControlPanel() {
                 fillRule="evenodd"
               />
             </svg>
-            <span className="ml-2 mt-1">Reset</span>
+            <span className="ml-2 mt-1">
+              {lang === "EN"
+                ? `Reset`
+                : lang === "FR"
+                ? "Réinitialiser"
+                : "Reiniciar"}
+            </span>
           </button>
           <div className="my-auto inline-flex ">
             <input
@@ -342,7 +366,11 @@ export default function InteractiveControlPanel() {
               type="checkbox"
             />
             <label htmlFor="hints" className="ml-4 mt-1 text-lg">
-              Enable Hints
+              {lang === "EN"
+                ? `Enable Hints`
+                : lang === "FR"
+                ? "Activer les indices"
+                : "Ativar dicas"}
             </label>
           </div>
         </div>
@@ -391,7 +419,13 @@ export default function InteractiveControlPanel() {
                   fillRule="evenodd"
                 />
               </svg>
-              <span className="ml-2 mt-1">Reset</span>
+              <span className="ml-2 mt-1">
+                {lang === "EN"
+                  ? `Reset`
+                  : lang === "FR"
+                  ? "Réinitialiser"
+                  : "Reiniciar"}
+              </span>
             </button>
             <div className="my-auto hidden md:inline-flex">
               <input
@@ -404,7 +438,11 @@ export default function InteractiveControlPanel() {
                 type="checkbox"
               />
               <label htmlFor="hints" className="ml-4 mt-1  ">
-                Enable Hints
+                {lang === "EN"
+                  ? `Enable Hints`
+                  : lang === "FR"
+                  ? "Activer les indices"
+                  : "Ativar dicas"}
               </label>
             </div>
             <span className="my-auto self-center overflow-hidden text-ellipsis md:translate-y-0.5">
@@ -501,7 +539,12 @@ export default function InteractiveControlPanel() {
                 } ml-2 block translate-y-1 text-nowrap text-current underline underline-offset-2`}
               >
                 {/* Next */}
-                Step {getNextStep()}
+                {lang === "EN"
+                  ? `Step`
+                  : lang === "FR"
+                  ? `Étape`
+                  : `Passo`}{" "}
+                {getNextStep()}
               </span>
             </div>
           </button>

@@ -6,15 +6,24 @@ import { useAtomValue } from "jotai";
 import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function PartThreeGenotypeCreation() {
+export default function PartThreeGenotypeCreation({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const selectedBoard = useAtomValue(selectedPositiveControlBoardAtom);
 
   return (
     <InteractivePrimaryLayout
       leftHeader={
-        <div className="@4xl/main:col-start-1 @4xl/main:text-left text-center">
-          <h4 className="@2xl/main:text-wrap @2xl/main:text-left text-balance  text-center text-lg font-semibold">
-            Positive Control {selectedBoard}
+        <div className="text-center @4xl/main:col-start-1 @4xl/main:text-left">
+          <h4 className="text-balance text-center text-lg  font-semibold @2xl/main:text-wrap @2xl/main:text-left">
+            {lang === "EN"
+              ? `Positive Control`
+              : lang === "FR"
+              ? `Contrôle positif`
+              : `Controlo Positivo`}{" "}
+            {selectedBoard}
             <label className="text-sm">
               <br></br>
               MOI = {selectedBoard > 4 ? 4 : selectedBoard > 2 ? 2 : 1}
@@ -22,9 +31,15 @@ export default function PartThreeGenotypeCreation() {
           </h4>
         </div>
       }
-      leftContent={<PartThreePositiveControlBoard />}
-      rightHeader={"Genotyping"}
-      rightContent={<PartThreeMicrohaplotypeGenotyping />}
+      leftContent={<PartThreePositiveControlBoard lang={lang} />}
+      rightHeader={
+        lang === "EN"
+          ? "Genotyping"
+          : lang === "FR"
+          ? "Génotypage"
+          : "Genotipagem"
+      }
+      rightContent={<PartThreeMicrohaplotypeGenotyping lang={lang} />}
     />
   );
 

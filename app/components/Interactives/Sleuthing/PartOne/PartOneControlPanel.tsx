@@ -51,7 +51,7 @@ const P1CurrentVersionAtom = atomWithStorage(
   "P1CurrentVersionAtom",
   "1.1.1",
   undefined,
-  { getOnInit: true }
+  { getOnInit: true },
 );
 
 export const p1ResetAtom = atom<null | (() => void)>(null);
@@ -68,7 +68,7 @@ export default function PartOneControlPanel({
   const [cloneRows, setCloneRows] = useAtom(cloneRowsAtom);
   const [boards, setBoards] = useAtom(positiveControlBoardsAtom);
   const [selectedBoard, setSelectedBoard] = useAtom(
-    selectedPositiveControlBoardAtom
+    selectedPositiveControlBoardAtom,
   );
   let currentBoard = boards[selectedBoard];
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
@@ -82,7 +82,7 @@ export default function PartOneControlPanel({
   const [newQuestions, setNewQuestions] = useAtom(newP1QuestionsAtom);
   const setCurrentNextCallback = useSetAtom(currentNextCallbackAtom);
   const [currentPhaseIsComplete, setCurrentPhaseIsComplete] = useAtom(
-    currentPhaseIsCompleteAtom
+    currentPhaseIsCompleteAtom,
   );
   const setReset = useSetAtom(p1ResetAtom);
 
@@ -93,7 +93,7 @@ export default function PartOneControlPanel({
     setGenotypeHints(
       Array(12)
         .fill(0)
-        .map((el) => null)
+        .map((el) => null),
     );
     setSelectedBoard(1);
     setCloneRows(RESET);
@@ -114,6 +114,10 @@ export default function PartOneControlPanel({
     //   phase: 0,
     // });
   };
+
+  // const resetCallback = function () {
+  //   // set all atoms to original state jotai
+  // };
 
   useEffect(() => {
     if (resetCallback) {
@@ -205,7 +209,7 @@ export default function PartOneControlPanel({
     });
     setGenotypeHints(
       //@ts-ignore
-      compareGenotypeWithClones(currentBoard.inputs, clonesMatrix)
+      compareGenotypeWithClones(currentBoard.inputs, clonesMatrix),
     );
   }, [setGenotypeHints, currentBoard.inputs, currentBoard.rows, cloneRows]);
 
@@ -243,7 +247,7 @@ export default function PartOneControlPanel({
           })
           .map((invalidBoard) => {
             return invalidBoard.id;
-          })
+          }),
       ); // let valids = Object.values(boards).map((board, idx) => {
       //   return board.valid;
       // });
@@ -274,7 +278,7 @@ export default function PartOneControlPanel({
           })
           .map((invalidBoard) => {
             return invalidBoard.id;
-          })
+          }),
       );
       if (nextBoardId > 0 && nextBoardId !== Infinity) {
         if (currentBoard.inputValid === false) {
@@ -303,7 +307,7 @@ export default function PartOneControlPanel({
           })
           .map((invalidBoard) => {
             return invalidBoard.id;
-          })
+          }),
       );
       if (nextBoardId > 0 && nextBoardId !== Infinity) {
         if (currentBoard.questionsValid === false) {
@@ -353,7 +357,7 @@ export default function PartOneControlPanel({
               if (!isDisabled(phase)) {
                 handleClick(phase);
               }
-            }
+            },
       );
     }
     // return () => {
@@ -401,7 +405,7 @@ export default function PartOneControlPanel({
 
   return (
     <ControlPanelWrapper resetCallback={resetCallback}>
-      <div className="max-w-6xl text-zinc-300 mx-auto w-full grid grid-cols-[min-content,1fr_auto_auto] ">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-[min-content,1fr_auto_auto] text-zinc-300 ">
         <button
           className="mx-6 md:mx-12"
           onClick={() => {
@@ -414,16 +418,16 @@ export default function PartOneControlPanel({
             version="1.1"
             viewBox="0 0 1200 1200"
             xmlns="http://www.w3.org/2000/svg"
-            className="fill-current my-auto"
+            className="my-auto fill-current"
           >
             <path d="m869.52 355.32c-185.28 4.6797-370.44 9.3594-555.72 13.918-46.199 1.1992-46.441 73.199 0 72 185.28-4.6797 370.44-9.2383 555.72-13.922 46.199-1.0781 46.441-73.078 0-71.996z" />
             <path d="m871.44 550.8c-179.64 7.8008-359.4 13.559-539.16 17.16-46.32 0.96094-46.441 72.961 0 72 179.76-3.6016 359.52-9.3594 539.16-17.16 46.078-2.0391 46.438-74.039 0-72z" />
             <path d="m332.28 771.48c-46.32-0.48047-46.441 71.52 0 72 184.68 1.6797 369.24 1.3203 553.92-1.1992 46.32-0.60156 46.441-72.602 0-72-184.68 2.5195-369.24 3-553.92 1.1992z" />
           </svg>
         </button>
-        <div className="flex flex-col md:flex-row mx-auto  text-center  w-full  col-start-2 row-start-1 py-1 translate-y-0.5 h-[calc(2lh+24px)] md:h-full">
+        <div className="col-start-2 row-start-1 mx-auto flex  h-[calc(2lh+24px)]  w-full  translate-y-0.5 flex-col py-1 text-center md:h-full md:flex-row">
           <button
-            className=" gap-2  my-auto hidden md:inline-flex"
+            className=" my-auto  hidden gap-2 md:inline-flex"
             onClick={() => {
               setResetConfirmOpen(true);
             }}
@@ -441,7 +445,7 @@ export default function PartOneControlPanel({
                 fillRule="evenodd"
               />
             </svg>
-            <span className="mt-1 ml-2">Reset</span>
+            <span className="ml-2 mt-1">Reset</span>
           </button>
           <button
             className="hidden"
@@ -455,7 +459,7 @@ export default function PartOneControlPanel({
               version="1.1"
               viewBox="0 0 1200 1200"
               xmlns="http://www.w3.org/2000/svg"
-              className="fill-current mx-auto"
+              className="mx-auto fill-current"
             >
               <path
                 d="m287.73 350c72.848-90.875 184.54-149.27 309.9-149.99 1.7227-0.011718 3.4375-0.011718 5.1562 0 106.71 0.73047 203.5 43.242 274.8 111.99 4.1406 3.9883 8.1914 8.0664 12.156 12.234 67.055 70.43 108.7 165.28 110.21 269.84 0.066406 4.1406 0.0625 8.2812-0.003906 12.426-1.6523 103.7-42.77 197.81-108.98 267.98-5.2891 5.6055-10.742 11.059-16.359 16.363-70.281 66.383-164.61 107.57-268.54 109.11-3.8359 0.0625-7.6797 0.0625-11.523 0.011719-201.55-2.6953-367.12-154.46-391.46-350.07-3.4102-27.398-25.469-49.898-53.082-49.898s-50.258 22.441-47.504 49.914c1.6914 16.859 4.2344 33.574 7.6055 50.086 17.723 86.824 58.344 168.01 118.48 234.73 82.77 91.844 196.63 149.77 319.6 162.57 122.97 12.816 246.32-20.383 346.25-93.191 99.93-72.805 169.34-180.05 194.83-301.03 25.488-120.98 5.25-247.11-56.809-354.05-62.055-106.93-161.53-187.09-279.21-224.98-117.68-37.895-245.24-30.84-358.03 19.801-77.801 34.93-144.77 88.891-195.21 156.14v-100c0-27.613-22.387-50-50-50s-50 22.387-50 50v250h250c27.613 0 50-22.387 50-50s-22.387-50-50-50z"
@@ -464,7 +468,7 @@ export default function PartOneControlPanel({
             </svg>
             {/* <span className="mt-auto block">Reset</span> */}
           </button>
-          <div className="my-auto hidden md:inline-flex mx-12">
+          <div className="mx-12 my-auto hidden md:inline-flex">
             <input
               onChange={(e) => {
                 setHintsEnabled(!hintsEnabled);
@@ -474,18 +478,18 @@ export default function PartOneControlPanel({
               className=" dark:accent-emerald-400"
               type="checkbox"
             />
-            <label htmlFor="hints" className="mt-1 ml-4  ">
+            <label htmlFor="hints" className="ml-4 mt-1  ">
               Enable Hints
             </label>
           </div>
-          <div className="flex flex-col md:flex-row mx-auto  text-center grow">
-            <h6 className="self-center my-auto md:mb-0 md:mt-1 md:mr-4">
+          <div className="mx-auto flex grow flex-col  text-center md:flex-row">
+            <h6 className="my-auto self-center md:mb-0 md:mr-4 md:mt-1">
               Step 1
             </h6>
             <span
               className={`${
                 phase > 0 ? "" : "hidden"
-              } align-bottom mb-auto md:mb-0 md:self-center md:mt-1 md:mr-4`}
+              } mb-auto align-bottom md:mb-0 md:mr-4 md:mt-1 md:self-center`}
             >{`${phase} / 5`}</span>
           </div>
           {/* <span>{`&frac${phase}/5`}</span> */}
@@ -505,10 +509,10 @@ export default function PartOneControlPanel({
               });
             }
           }}
-          className="col-start-3 bg-zinc-950/50 px-6  mx-auto md:mr-0"
+          className="col-start-3 mx-auto bg-zinc-950/50  px-6 md:mr-0"
         >
           <svg
-            className={` rotate-90 fill-white aspect-square h-12 md:h-8 mx-auto`}
+            className={` mx-auto aspect-square h-12 rotate-90 fill-white md:h-8`}
             version="1.1"
             viewBox="0 0 1200 1200"
             xmlns="http://www.w3.org/2000/svg"
@@ -518,7 +522,7 @@ export default function PartOneControlPanel({
         </button>
         <button
           disabled={isDisabled(phase)}
-          className={`col-start-4 bg-zinc-950/50 px-6 disabled:invisible mx-auto md:ml-0 ${
+          className={`col-start-4 mx-auto bg-zinc-950/50 px-6 disabled:invisible md:ml-0 ${
             !isDisabled(phase) && !completion[phase]
               ? "fill-yellow-400"
               : "fill-current"
@@ -528,7 +532,7 @@ export default function PartOneControlPanel({
           }}
         >
           <svg
-            className={` -rotate-90 aspect-square h-12 md:h-8 mx-auto`}
+            className={` mx-auto aspect-square h-12 -rotate-90 md:h-8`}
             version="1.1"
             viewBox="0 0 1200 1200"
             xmlns="http://www.w3.org/2000/svg"

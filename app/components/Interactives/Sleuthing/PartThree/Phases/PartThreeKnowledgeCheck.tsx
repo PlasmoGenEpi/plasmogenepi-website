@@ -18,7 +18,11 @@ import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 import P3AlleleDistribution from "../P3AlleleDistribution/P3AlleleDistribution";
 
-export default function PartThreeKnowledgeCheck() {
+export default function PartThreeKnowledgeCheck({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [selectedBoard, setSelectedBoard] = useAtom(
     selectedPositiveControlBoardAtom,
   );
@@ -33,12 +37,21 @@ export default function PartThreeKnowledgeCheck() {
   return (
     <InteractivePrimaryLayout
       leftHeader={
-        <div className="@4xl/main:col-start-1 @4xl/main:text-left text-center">
-          <h4 className="@2xl/main:text-wrap @2xl/main:text-left text-balance  text-center text-lg font-semibold">
-            Genotype
+        <div className="text-center @4xl/main:col-start-1 @4xl/main:text-left">
+          <h4 className="text-balance text-center text-lg  font-semibold @2xl/main:text-wrap @2xl/main:text-left">
+            {lang === "EN"
+              ? `Genotype`
+              : lang === "FR"
+              ? `Génotype`
+              : `Genótipo`}
             <label className="text-sm">
               <br></br>
-              Positive Control {selectedBoard} (MOI ={" "}
+              {lang === "EN"
+                ? `Positive Control`
+                : lang === "FR"
+                ? `Contrôle positif`
+                : `Controlo positivo`}{" "}
+              {selectedBoard} (MOI ={" "}
               {selectedBoard > 4 ? 4 : selectedBoard > 2 ? 2 : 1})
             </label>
           </h4>
@@ -61,12 +74,18 @@ export default function PartThreeKnowledgeCheck() {
             ></MicrohaplotypeGenotypeTable>{" "}
           </div>
           <div className="mt-8 w-full">
-            <P3AlleleDistribution />
+            <P3AlleleDistribution lang={lang} />
           </div>
         </div>
       }
-      rightHeader={`Questions`}
-      rightContent={<PartThreeQuestions />}
+      rightHeader={
+        lang === "EN"
+          ? `Questions`
+          : lang === "FR"
+          ? `Des questions`
+          : `Questões`
+      }
+      rightContent={<PartThreeQuestions lang={lang} />}
     />
   );
 

@@ -42,7 +42,9 @@ export const s2Reset3Atom = atom<any>(null);
 export const s3ResetAtom = atom<any>(null);
 export default function ResetPrompt({
   currentModule,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   currentModule: string;
 }) {
   // const resetCallback = useAtomValue(globalResetCallbackAtom);
@@ -281,13 +283,24 @@ export default function ResetPrompt({
         resetConfirmOpen ? "modal-open" : "hidden"
       }`}
     >
-      <div className="modal-box h-fit max-w-sm overflow-hidden dark:bg-zinc-800 dark:font-normal dark:text-gray-200 md:max-w-lg">
+      <div className="modal-box h-fit max-w-sm overflow-hidden md:max-w-lg dark:bg-zinc-800 dark:font-normal dark:text-gray-200">
         <h3 className="border-b border-b-black/50 pb-4 text-center text-xl dark:border-b-white/50">
-          Are you sure?
+          {lang === "EN"
+            ? `Are you sure?`
+            : lang === "FR"
+            ? `Êtes-vous sûr ?`
+            : `Tem certeza?`}
         </h3>
         <p className="text-pretty py-8 text-center text-base">
-          Resetting will clear data for your current activity and any others
-          that depend on it.
+          {lang === "EN"
+            ? `Resetting will clear data for your current activity and any others
+          that depend on it.`
+            : lang === "FR"
+            ? `La réinitialisation effacera les données de votre activité actuelle et de toute autre activité qui en dépend.`
+            : lang === "PT"
+            ? `A redefinição limpará os dados de sua atividade atual e de quaisquer outras que dependam dela.`
+            : `Resetting will clear data for your current activity and any others
+          that depend on it.`}
         </p>
         <div className="grid/ mb-4">
           {currentModule === "2.6"
@@ -297,6 +310,7 @@ export default function ResetPrompt({
                   console.log(completionObjects);
                   return (
                     <ResetModalRow
+                      lang={lang}
                       requires={
                         idx === 0
                           ? false
@@ -478,7 +492,13 @@ export default function ResetPrompt({
             className=" px-4 py-1 "
           >
             {" "}
-            <span className="block translate-y-0.5">Cancel</span>
+            <span className="block translate-y-0.5">
+              {lang === "EN"
+                ? `Cancel`
+                : lang === "FR"
+                ? `Annuler`
+                : `Cancelar`}
+            </span>
           </button>
           <button
             disabled={currentModule === "4.4" ? false : !prevStepIsResetting(7)}
@@ -487,7 +507,13 @@ export default function ResetPrompt({
             }}
             className={`bg-orange-500/70 px-6 py-2 text-white disabled:opacity-20`}
           >
-            <span className="block translate-y-0.5">Reset</span>
+            <span className="block translate-y-0.5">
+              {lang === "EN"
+                ? `Reset`
+                : lang === "FR"
+                ? `Réinitialiser`
+                : `Reiniciar`}
+            </span>
           </button>
         </div>
       </div>
@@ -499,7 +525,7 @@ export default function ResetPrompt({
           }}
           className="outline-none ring-0 focus-within:outline-none focus-within:ring-0"
         >
-          close
+          {lang === "EN" ? `close` : lang === "FR" ? `proche` : `fechar`}
         </button>
       </form>
     </dialog>

@@ -14,7 +14,9 @@ import AlleleDistribution from "../AlleleDistribution/AlleleDistribution";
 
 export default function PartOneKnowledgeCheck({
   forwards,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   forwards: boolean;
 }) {
   const selectedBoard = useAtomValue(selectedPositiveControlBoardAtom);
@@ -26,12 +28,21 @@ export default function PartOneKnowledgeCheck({
   return (
     <InteractivePrimaryLayout
       leftHeader={
-        <div className="@4xl/main:col-start-1 @4xl/main:text-left text-center">
-          <h4 className="@2xl/main:text-wrap @2xl/main:text-left text-balance  text-center text-lg font-semibold">
-            Genotype
+        <div className="text-center @4xl/main:col-start-1 @4xl/main:text-left">
+          <h4 className="text-balance text-center text-lg  font-semibold @2xl/main:text-wrap @2xl/main:text-left">
+            {lang === "EN"
+              ? `Genotype`
+              : lang === "FR"
+              ? `Génotype`
+              : `Genótipo`}
             <label className="text-sm ">
               <br></br>
-              Positive Control {selectedBoard} (MOI ={" "}
+              {lang === "EN"
+                ? `Positive Control`
+                : lang === "FR"
+                ? `Contrôle Positif`
+                : `Controle Positivo`}{" "}
+              {selectedBoard} (MOI ={" "}
               {selectedBoard < 3 ? "1" : selectedBoard < 5 ? "2" : "4"})
             </label>
           </h4>
@@ -50,11 +61,17 @@ export default function PartOneKnowledgeCheck({
             vals={currentBoard.inputs}
           />{" "}
           <div className="mt-24">
-            <AlleleDistribution />
+            <AlleleDistribution lang={lang} />
           </div>
         </div>
       }
-      rightHeader={`Questions`}
+      rightHeader={
+        lang === "EN"
+          ? `Questions`
+          : lang === "FR"
+          ? `Des questions`
+          : `Questões`
+      }
       rightContent={
         <div>
           <KnowledgeCheckQuestion
@@ -74,10 +91,20 @@ export default function PartOneKnowledgeCheck({
               answersContainer: "grid grid-cols-5 gap-8 md:gap-4",
               answers: "w-4 md:w-3 lg:w-4",
             }}
-            headerText={`How many loci in positive control ${selectedBoard}               (MOI = ${
-              selectedBoard < 3 ? "1" : selectedBoard < 5 ? "2" : "4"
-            })
-have a single allele?`}
+            headerText={
+              lang === "EN"
+                ? `How many loci in positive control ${selectedBoard}               (MOI = ${
+                    selectedBoard < 3 ? "1" : selectedBoard < 5 ? "2" : "4"
+                  })
+have a single allele?`
+                : lang === "FR"
+                ? `Combien de loci dans le contrôle positif ${selectedBoard} (MOI = ${
+                    selectedBoard < 3 ? "1" : selectedBoard < 5 ? "2" : "4"
+                  }) ont un seul allèle ?`
+                : `Quantos loci no controle positivo ${selectedBoard} (MOI = ${
+                    selectedBoard < 3 ? "1" : selectedBoard < 5 ? "2" : "4"
+                  }) têm um único alelo?`
+            }
             questionIdx={1}
             callback={(questionIdx: number, answerIdx: number) => {
               let newBoards = { ...boards };
@@ -119,7 +146,13 @@ have a single allele?`}
               answersContainer: "grid grid-cols-5 gap-8 md:gap-4",
               answers: "w-4 md:w-3 lg:w-4",
             }}
-            headerText={`How many loci in positive control ${selectedBoard} have two alleles?`}
+            headerText={
+              lang === "EN"
+                ? `How many loci in positive control ${selectedBoard} have two alleles?`
+                : lang === "FR"
+                ? `Combien de loci dans le contrôle positif ${selectedBoard} ont deux allèles ?`
+                : `Quantos loci no controle positivo ${selectedBoard} têm dois alelos?`
+            }
             questionIdx={2}
             callback={(questionIdx: number, answerIdx: number) => {
               let newBoards = { ...boards };

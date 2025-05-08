@@ -16,16 +16,18 @@ export const incorrectGuessCountAtom = atom(0);
 
 export default function PartFourInfectionTable({
   average,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   average: number;
 }) {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [attemptedInput, setAttemptedInput] = useAtom(attemptedInputAtom);
   const [incorrectGuessCount, setIncorrectGuessCount] = useAtom(
-    incorrectGuessCountAtom
+    incorrectGuessCountAtom,
   );
   const [averageDeduced, setAverageDeduced] = useAtom(
-    partFourAverageDeducedAtom
+    partFourAverageDeducedAtom,
   );
   const [activeIndex, setActiveIndex] = useAtom(selectedInfectionIndexAtom);
   const [infections, setInfections] = useAtom(partFourInfectionsAtom);
@@ -48,6 +50,7 @@ export default function PartFourInfectionTable({
 
   return (
     <InfectionTable
+      lang={lang}
       activeRow={phase === 1 ? activeIndex : null}
       averageInputRow={
         <tr className={` text-center text-sm text-current transition-all`}>
@@ -58,11 +61,11 @@ export default function PartFourInfectionTable({
                 phase === 2 || averageDeduced ? " text-current" : ""
               }`}
             >
-              Average
+              {lang === "EN" ? `Average` : lang === "FR" ? `Moyenne` : `Média`}
             </label>
           </td>
           <td className="py-4 underline underline-offset-2">
-            <span className="font-bold text-xl">
+            <span className="text-xl font-bold">
               {/* 1/4 */}
               {averageDeduced ? average : ""}
             </span>

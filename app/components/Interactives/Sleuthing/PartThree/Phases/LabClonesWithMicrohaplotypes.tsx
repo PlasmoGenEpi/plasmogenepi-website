@@ -12,7 +12,11 @@ import P3CloneRows from "../CloneRows/P3CloneRows";
 import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function LabClonesWithMicrohaplotypes() {
+export default function LabClonesWithMicrohaplotypes({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [selectedBoard, setSelectedBoard] = useAtom(
     selectedPositiveControlBoardAtom,
   );
@@ -21,12 +25,23 @@ export default function LabClonesWithMicrohaplotypes() {
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Lab Clones with Microhaplotypes`}
+      leftHeader={
+        lang === "EN"
+          ? `Lab Clones with Microhaplotypes`
+          : lang === "FR"
+          ? `Clones de laboratoire avec microhaplotypes`
+          : `Clones de laboratório com microhaplótipos`
+      }
       leftContent={<P3CloneRows />}
       rightHeader={
-        <div className="@4xl/main:col-start-2 @4xl/main:row-start-1 @4xl/main:text-left @4xl/main:mt-0 mt-8 text-center">
-          <h4 className="@2xl/main:text-wrap @2xl/main:text-left text-balance  text-center text-lg font-semibold">
-            Positive Control {selectedBoard}
+        <div className="mt-8 text-center @4xl/main:col-start-2 @4xl/main:row-start-1 @4xl/main:mt-0 @4xl/main:text-left">
+          <h4 className="text-balance text-center text-lg  font-semibold @2xl/main:text-wrap @2xl/main:text-left">
+            {lang === "EN"
+              ? `Positive Control`
+              : lang === "FR"
+              ? `Contrôle positif`
+              : `Controlo positivo`}{" "}
+            {selectedBoard}
             <label className="text-sm">
               <br></br>
               MOI = {selectedBoard > 4 ? 4 : selectedBoard > 2 ? 2 : 1}
@@ -34,7 +49,7 @@ export default function LabClonesWithMicrohaplotypes() {
           </h4>
         </div>
       }
-      rightContent={<PartThreePositiveControlBoard />}
+      rightContent={<PartThreePositiveControlBoard lang={lang} />}
     />
   );
 

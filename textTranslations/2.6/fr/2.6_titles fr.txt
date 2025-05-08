@@ -1,0 +1,162 @@
+Enquête 2.6
+
+0 : Introduction
+  1. Contexte
+    > L'estimation de la multiplicité des infections (MOI) dans un ensemble d'échantillons de patients peut être un outil précieux pour évaluer l'efficacité des interventions de lutte contre le paludisme, comme les moustiquaires, les pulvérisations intradomiciliaires d'insecticide à effet rémanent ou les traitements antipaludiques. Un taux d'infection élevé indique généralement une intensité de transmission plus élevée dans la communauté, car si les personnes sont infectées plus fréquemment, le risque de surinfection est plus important. Par conséquent, les interventions efficaces de lutte contre le paludisme doivent réduire la transmission du parasite, ce qui entraîne une diminution de la MOI au fil du temps.
+
+    > Dans cette activité, vous reprenez votre rôle de responsable de la surveillance du Programme national de contrôle du paludisme de Kambawe.
+
+    > Le programme national de lutte contre le paludisme de Kambawe a mis en œuvre une nouvelle intervention coûteuse de lutte contre les vecteurs. Les données de surveillance de routine suggèrent qu'elle est efficace. Mais vous n'êtes pas convaincu de la qualité des données.
+
+    > Vous disposez d'échantillons de taches de sang séché provenant d'une enquête récente sur les indicateurs du paludisme et d'un laboratoire moléculaire opérationnel. Vous disposez également de données historiques montrant que le MOI moyen dans cette zone à forte transmission était de 2,5 avant le début de l'intervention de lutte antivectorielle.
+
+  2. Objectif
+    > L'objectif de cette activité est d'interpréter les génotypes d'un ensemble d'échantillons pour lesquels le véritable MOI de votre population est inconnu. Ensuite, vous interpréterez les résultats pour évaluer si les interventions du Programme national de lutte contre le paludisme ont été efficaces ou non.
+
+  3. Instructions
+    > Cette activité comprend six étapes, destinées à refléter le processus d'utilisation des données génétiques pour estimer la MOI dans un laboratoire moléculaire :
+
+    > Étape 1 : Préparez des échantillons de contrôle positif à partir de clones de laboratoire dont vous connaissez la MOI. Ensuite, génotypez vos échantillons de contrôle positif pour vous assurer que votre test fonctionne correctement.
+
+    > Étape 2 : Analysez les résultats de vos échantillons de terrain en utilisant les SNP pour estimer le MOI dans votre population.
+
+    > Étape 3 : génotyper les mêmes contrôles positifs aux mêmes loci, en analysant cette fois des groupes de SNP ensemble en tant que microhaplotypes.
+
+    > Étape 4 : Analysez les résultats de vos échantillons de terrain en utilisant les microphaplotypes pour estimer le MOI inconnu dans votre population.
+
+    > Étape 5 : Comparez vos estimations de la MOI à partir des SNP à vos estimations de la MOI à partir des microhaplotypes.
+
+    > Étape 6 : Interpréter les résultats et fournir un retour d'information sur l'intervention à votre programme.
+
+
+
+
+1 : Étape 1. Faire des contrôles positifs à partir de SNP lorsque l'on connaît le MOI
+  0. contexte
+    > Tout d'abord, vous devrez faire des échantillons de contrôle positif à partir de SNP lorsque vous connaissez le MOI. Ensuite, génotypez vos échantillons de contrôle positif pour vous assurer que votre test fonctionne correctement.
+
+    Bonne chance !
+
+  1. 1.1. Créer des clones de laboratoire avec des SNP
+    > Cliquez sur chaque icône de parasite 1-5 pour créer 5 clones de laboratoire. Chaque clone de laboratoire se verra attribuer des allèles SNP à 12 loci du génome, en choisissant au hasard l'allèle de référence ou l'allèle alternatif à chaque position. Les allèles de référence et alternatifs pour les loci 1-12 sont indiqués ci-dessous.
+
+
+  2. 1.2. Réaliser des contrôles positifs avec des SNP
+    > Créez six contrôles positifs différents en utilisant différentes combinaisons de vos clones de laboratoire. Cliquez sur vos clones de laboratoire pour les déplacer sur les cartes d'échantillons à droite. Le nombre de clones que vous utilisez pour chaque contrôle positif dépend de la MOI.
+
+
+  3. 1.3. Génotypez vos contrôles positifs
+    > Cliquez sur l'allèle de référence, l'allèle alternatif ou les deux allèles pour saisir des données dans le formulaire de génotype à chacun des 12 loci. Procédez ainsi pour chacun de vos contrôles positifs. Les allèles que vous saisissez dépendent de ceux qui sont présents à chaque loci - l'un, l'autre ou les deux.
+
+  4. 1.4. Contrôle des connaissances
+    > Répondez aux questions suivantes.
+
+  5. 1.5 Autres contrôles des connaissances
+    > Avant de passer à l'étape 2, prenons le temps de réfléchir à la relation entre les génotypes et l'hétérozygotie. Répondez aux huit questions ci-dessous.
+
+
+
+
+2 : Étape 2. Analyser les résultats de vos échantillons de terrain à l'aide de SNP pour estimer la MOI inconnue dans votre population
+  0. contexte
+    > Maintenant que vous avez validé les données de génotypage de votre laboratoire, vous êtes prêt à tester les échantillons de votre enquête sur les indicateurs du paludisme !
+
+    > Ces échantillons sont collectés dans l'ensemble de votre pays et devraient donc être largement représentatifs de ce qui se passe. Dans cette étape de l'activité, vous analyserez 10 infections génotypées afin de pouvoir terminer cette activité dans un délai raisonnable, mais nous supposerons qu'elles sont représentatives de votre échantillon complet, qui est beaucoup plus important.
+
+    > Vous devrez estimer la MOI pour chacun d'entre eux, en vous basant sur votre expérience de l'analyse des données des témoins. Vous calculerez ensuite la MOI moyenne et interpréterez vos résultats pour déterminer si vos interventions de lutte antivectorielle sont efficaces.
+
+    > Bonne chance !
+  
+  1. 2.1. Estimer le MOI pour chacun des 10 échantillons de terrain
+    > Visualisez le génotype de chaque échantillon de terrain à partir des SNP. Estimez la MOI pour chaque infection et entrez-la dans le tableau. Lorsque vous entrez votre estimation de la MOI pour chaque infection, les résultats s'affichent dans l'histogramme ci-dessous.
+
+
+  
+  2. 2.2. Calculer le MOI moyen
+    > Le MOI moyen obtenu à partir de vos estimations (en additionnant vos 10 estimations de MOI et en les divisant par 10) est indiqué ci-dessous.
+
+
+  
+  3. 2.3. Contrôle des connaissances
+    > Avant de passer à l'étape 3, prenons le temps de réfléchir à la relation entre la MOI et l'impact de vos interventions de lutte antivectorielle.
+
+    > Rappeler depuis le début de l'activité que l'on dispose d'un DBS stocké à partir d'une enquête récente sur les indicateurs du paludisme et de données historiques montrant que le MOI moyen était de 2,5 avant l'intervention.
+  
+
+3 : Étape 3. Faire des contrôles positifs à partir de microhaplotypes lorsque l'on connaît le MOI
+
+  0. contexte
+  > Vous disposez maintenant de données provenant d'une nouvelle enquête sur les indicateurs du paludisme, avec des milliers d'échantillons collectés dans votre pays, et vous avez génotypé un ensemble représentatif d'échantillons positifs. Le directeur de votre laboratoire vient vous dire que les 12 SNP proviennent en fait de 4 parties distinctes du génome - chacune contenant 3 SNP juste à côté les uns des autres (c'est-à-dire 4 microhaplotypes).
+  > Le directeur vous demande si l'analyse des mêmes données sous forme de microhaplotypes pourrait fournir des résultats plus précis et plus faciles à interpréter. Vous acceptez d'essayer.
+  > Dans cette étape de l'activité, vous répéterez le processus en utilisant les mêmes résultats de génotypage. Mais au lieu d'utiliser les SNP individuels, vous analyserez cette fois les combinaisons de SNP en tant que microhaplotypes.
+  > Les microhaplotypes vous donneront-ils un résultat différent ?
+  > Découvrons-le !
+
+
+  1. 3.1. Faire des clones de laboratoire avec des microhaplotypes
+  > Vous allez maintenant analyser les mêmes 5 clones de laboratoire en utilisant des microhaplotypes. Notez que les SNP individuels sont les mêmes que précédemment, mais vous analysez maintenant chaque combinaison de 3 SNP ensemble comme un seul microhaplotype (4 microhaplotypes au total). Vous avez donc 4 loci au lieu de 12, chacun avec plus de diversité que les SNP individuels. Cliquez sur les microhaplotypes dans la table de recherche de gauche pour les placer sur les loci de droite. La sélection d'une colonne différente modifie les loci affichés dans le tableau.
+
+
+  2. 3.2. Réaliser des contrôles positifs avec des microhaplotypes
+  > Réalisez six contrôles positifs en utilisant différentes combinaisons de vos clones de laboratoire. Cliquez sur vos clones de laboratoire pour les déplacer sur les cartes d'échantillons à droite. Le nombre de clones que vous utilisez pour chaque contrôle positif dépend de la MOI, et chaque contrôle doit être différent des autres.
+
+
+  3. 3.3. Génotypez vos contrôles positifs
+  > Saisissez les données dans le formulaire de génotype en cliquant sur chaque microhaplotype présent aux locus 1, 2, 3 et 4. Le nombre de microhaplotypes que vous saisissez dépend du nombre de microhaplotypes différents présents à chaque locus.
+
+
+  4. 3.4. Contrôle des connaissances
+  > Répondez aux questions suivantes.
+
+
+  5. 3.5. Autres vérifications des connaissances
+  > Avant de passer à l'étape 4, prenons le temps de réfléchir à la relation entre le MOI et le nombre d'allèles que vous observez dans les microhaplotypes. Répondez aux trois questions ci-dessous.
+
+
+  
+    
+
+
+4 : Étape 4. Analyser les résultats de vos échantillons de terrain en utilisant les microhaplotypes pour estimer la MOI inconnue dans votre population
+  0. Contexte
+    > Il est maintenant temps d'analyser les résultats de vos échantillons de terrain en utilisant les microhaplotypes pour estimer le MOI inconnu de votre population.
+  
+  1. 4.1. Estimer le MOI pour chacun des 10 échantillons de terrain
+    > Visualisez le génotype de chaque échantillon de terrain à partir des microhaplotypes. Estimez la MOI pour chaque infection et saisissez-la dans le tableau. Lorsque vous entrez votre estimation de la MOI pour chaque infection, les résultats s'affichent dans l'histogramme ci-dessous.
+
+
+  
+  2. 4.2. Calculer le MOI moyen
+    > Calculez le MOI moyen à partir de vos estimations (additionnez vos 10 estimations de MOI et divisez par 10). Ceci a été fait pour vous.
+
+
+5 : Étape 5. Comparer les estimations de la MOI à partir des SNP aux estimations de la MOI à partir des microhaplotypes
+  0. 5.1. Comparez vos estimations de MOI à partir des SNP aux microhaplotypes
+    > Examinez le tableau ci-dessous et notez les différences que vous constatez entre vos estimations de MOI dans les SNP et les microhaplotypes. Sélectionnez une ligne du tableau pour comparer vos génotypes. Réfléchissez ensuite aux questions ci-dessous.
+
+
+
+  1. 5.2. Comparez vos estimations avec la MOI réelle
+    > Visualisez vos estimations de MOI entre les SNP, les microhaplotypes et la vraie valeur de MOI pour chaque infection. Sélectionnez une ligne du tableau pour comparer vos génotypes.
+
+
+6 : Étape 6. Formulez vos recommandations
+  Interprétation des résultats
+  > Le moment que nous attendions est arrivé. Il est temps d'interpréter les résultats et de fournir à votre programme un retour d'information sur l'efficacité de son intervention.
+
+
+7 : Résumé
+  > Un travail remarquable ! Vous avez réussi à interpréter les génotypes d'un ensemble d'échantillons pour lesquels le véritable MOI de votre population était inconnu ! En utilisant ces informations, vous avez pu démontrer que le Programme national de lutte contre le paludisme contrôle effectivement le paludisme grâce à ses nouvelles interventions de lutte antivectorielle.
+  
+  Principaux enseignements
+    > Vous avez couvert beaucoup de choses au cours de cette activité ! Voici quelques points clés à retenir :
+
+    > Les SNP et les microhaplotypes peuvent être utilisés pour estimer le MOI.
+
+    > Les microhaplotypes sont plus diversifiés que les SNP et reflètent plus fidèlement le MOI, en particulier lorsque celui-ci est élevé.
+
+    > Même si les microhaplotypes sont plus faciles à interpréter, ils ne sont pas parfaits.
+
+    > L'obtention d'un MOI précis, même à partir d'un nombre relativement faible d'échantillons de votre population, peut fournir des indications sur l'évolution de la transmission, ainsi que d'autres données épidémiologiques et génétiques.
+  
+  Code du module

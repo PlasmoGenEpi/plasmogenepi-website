@@ -8,7 +8,9 @@ import { partEightCompletionAtom } from "@/data/Interactives/interactiveStore";
 
 export default function SideBar4SubComponent({
   section,
+  dev,
 }: {
+  dev: boolean;
   section: SideBarSection;
 }) {
   const sideBarIsOpen = useAtomValue(sideBarIsOpenAtom);
@@ -54,7 +56,13 @@ export default function SideBar4SubComponent({
 
   return (
     <button
-      disabled={section.sectionTitle === "Summary" ? !completion8[39] : false}
+      disabled={
+        dev
+          ? false
+          : section.sectionTitle === "Summary"
+          ? !completion8[39]
+          : false
+      }
       onClick={() => {
         if (section.sectionTitle === "Summary") {
           setCurrentView({ ...currentView, section: 3, phase: 40 });
@@ -152,7 +160,7 @@ export default function SideBar4SubComponent({
                   e.stopPropagation();
                   subcomponent.callback(setCurrentView);
                 }}
-                disabled={!subcomponent.available}
+                disabled={dev ? false : !subcomponent.available}
                 className={`grid w-full gap-[5%] py-3 ${
                   subcomponent.pad
                     ? "pl-[calc(52px+10%)]"

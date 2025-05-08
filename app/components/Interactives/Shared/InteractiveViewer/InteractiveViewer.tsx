@@ -85,7 +85,9 @@ export const sideBarDisablesMainContent = false;
 export default function InteractiveViewer({
   module,
   dev,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   dev?: boolean;
   module: "2.6" | "4.4" | "5.6";
 }) {
@@ -134,8 +136,9 @@ export default function InteractiveViewer({
         Open Menu
       </button>
       <div className="flex w-full max-w-full grow overflow-clip">
-        <ResetPrompt currentModule="2.6" />
+        <ResetPrompt currentModule="2.6" lang={lang} />
         <InteractiveSideBar
+          lang={lang}
           dev={dev}
           module={module}
           currentView={currentView}
@@ -165,6 +168,7 @@ export default function InteractiveViewer({
             {JSON.stringify(currentView)}
           </span> */}
           <InteractivePrimaryView
+            lang={lang}
             currentView={currentView}
             setCurrentView={setCurrentView}
           />
@@ -182,7 +186,7 @@ export default function InteractiveViewer({
           <PartThreeControlPanel />
           <PartFourControlPanel />
           <PartFiveControlPanel />
-          <InteractiveControlPanel />
+          <InteractiveControlPanel lang={lang} />
         </div>
       ) : module === "5.6" ? (
         <div>

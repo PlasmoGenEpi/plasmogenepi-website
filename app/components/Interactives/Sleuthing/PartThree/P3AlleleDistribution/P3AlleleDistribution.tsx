@@ -135,7 +135,11 @@ const options = {
   },
 };
 
-export default function P3AlleleDistribution() {
+export default function P3AlleleDistribution({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const boards = useAtomValue(partThreePositiveControlBoardsAtom);
   const viewWidth = useAtomValue(viewWidthAtom);
   const containerRef = useRef<null | HTMLDivElement>(null);
@@ -223,29 +227,64 @@ export default function P3AlleleDistribution() {
           //@ts-ignore
           options={options}
           data={{
-            labels: [
-              "Positive Control 1",
-              "Positive Control 2",
-              "Positive Control 3",
-              "Positive Control 4",
-              "Positive Control 5",
-              "Positive Control 6",
-            ],
+            labels:
+              lang === "EN"
+                ? [
+                    "Positive Control 1",
+                    "Positive Control 2",
+                    "Positive Control 3",
+                    "Positive Control 4",
+                    "Positive Control 5",
+                    "Positive Control 6",
+                  ]
+                : lang === "FR"
+                ? [
+                    "Contrôle positif 1",
+                    "Contrôle positif 2",
+                    "Contrôle positif 3",
+                    "Contrôle positif 4",
+                    "Contrôle positif 5",
+                    "Contrôle positif 6",
+                  ]
+                : [
+                    "Controlo positivo 1",
+                    "Controlo positivo 2",
+                    "Controlo positivo 3",
+                    "Controlo positivo 4",
+                    "Controlo positivo 5",
+                    "Controlo positivo 6",
+                  ],
+
             datasets:
               currentView.phase === 4
                 ? [
                     {
-                      label: "Maximum # of alleles",
+                      label:
+                        lang === "EN"
+                          ? "Maximum # of alleles"
+                          : lang === "FR"
+                          ? "Nombre maximum d'allèles"
+                          : "Número máximo de alelos",
                       data: x,
                     },
                   ]
                 : [
                     {
-                      label: "Maximum # of alleles",
+                      label:
+                        lang === "EN"
+                          ? "Maximum # of alleles"
+                          : lang === "FR"
+                          ? "Nombre maximum d'allèles"
+                          : "Número máximo de alelos",
                       data: x,
                     },
                     {
-                      label: "Average # of alleles",
+                      label:
+                        lang === "EN"
+                          ? "Average # of alleles"
+                          : lang === "FR"
+                          ? "Nombre moyen d'allèles"
+                          : "Número médio de alelos",
                       data: y,
                     },
                   ],
@@ -255,12 +294,24 @@ export default function P3AlleleDistribution() {
       <div className="mx-auto mt-2 flex w-fit flex-col gap-2 text-base text-[hsl(0,0%,39%)]">
         <div className="inline-flex gap-2">
           <div className="inline h-[.75lh] w-[2lh] bg-[rgba(54,_162,_235,_0.5)]"></div>
-          <label>Maximum # of alleles</label>
+          <label>
+            {lang === "EN"
+              ? `Maximum # of alleles`
+              : lang === "FR"
+              ? `Nombre maximum d'allèles`
+              : `Número máximo de alelos`}
+          </label>
         </div>
         {currentView.phase !== 4 && (
           <div className="inline-flex gap-2">
             <div className="inline h-[.75lh] w-[2lh] bg-[rgba(255,_99,_132,_0.5)]"></div>
-            <label>Average # of alleles</label>
+            <label>
+              {lang === "EN"
+                ? `Average # of alleles`
+                : lang === "FR"
+                ? `Nombre moyen d'allèles`
+                : `Número médio de alelos`}
+            </label>
           </div>
         )}
       </div>

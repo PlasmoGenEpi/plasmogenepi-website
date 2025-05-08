@@ -1,0 +1,250 @@
+Compléter
+
+1.
+
+  clones de laboratoire avec SNP
+  référence
+  alternatif
+  contrôle positif
+  génotypage
+  questions
+  oui
+  non
+  Nombre d'allèles homozygotes
+  Nombre d'allèles hétérozygotes
+  Contrôle positif
+
+    [
+      Combien de loci dans le contrôle positif 1 (MOI = 1) ont un seul allèle ?
+
+      Combien de loci du contrôle positif 1 ont deux allèles ?
+
+      1. Lorsque vous génotypez un contrôle contenant un seul clone, devez-vous obtenir des loci hétérozygotes, c'est-à-dire des loci contenant plus d'un allèle ?
+
+        > C'est exact - s'il n'y a qu'un seul clone présent dans l'échantillon, nous ne devrions obtenir qu'un seul allèle à chaque locus. Par conséquent, chaque locus devrait être homozygote (contenant un seul allèle) et non hétérozygote (contenant plusieurs allèles).
+
+      2. Si vous avez obtenu des loci hétérozygotes lors du génotypage d'un seul clone, quelles sont les explications possibles ?
+
+        Le test ne fonctionne pas correctement
+
+        Le test génère des faux positifs
+
+        Votre échantillon est contaminé
+
+        Vous avez mélangé l'échantillon, c'est-à-dire que l'échantillon n'est pas ce que vous pensez qu'il est.
+
+        Vous avez oublié d'ajouter l'échantillon d'ADN
+
+        > La dernière option n'est pas correcte - si vous avez oublié d'ajouter l'ADN de l'échantillon, vous ne devriez détecter aucun allèle, pas trop. Toutes les autres options représentent des explications possibles de la raison pour laquelle vous pouvez obtenir des données d'allèles hétérozygotes à partir d'un seul clone.
+
+      3. Si vous obtenez des loci hétérozygotes à partir d'un seul clone, que devez-vous faire ? (choisissez une réponse)
+ 
+        Rien, ce ne sont que des contrôles et non des données "réelles".
+
+        Rien, il est normal d'obtenir parfois des résultats incorrects. Aucun test n'est parfait
+
+        Rechercher rigoureusement la source potentielle de l'erreur, afin de savoir quelle est la source et comment interpréter les données sur les échantillons cliniques.
+
+        > Les contrôles sont les échantillons les plus importants que vous effectuerez jamais dans le cadre d'un essai en laboratoire. Ils vous indiquent si votre essai fonctionne ou non, afin que vous sachiez comment interpréter les données. Si vos contrôles vous donnent des résultats erronés, vous ne devez vous fier à aucun autre résultat tant que vous n'avez pas recherché la source du problème et que vous ne l'avez pas corrigé.
+
+      4. Si les 12 loci sont hétérozygotes, cela signifie-t-il que vous avez exactement 2 clones ?
+
+        Oui, sans aucun doute.
+
+        Certainement pas.
+
+        C'est possible, mais extrêmement improbable.
+
+        > Cela signifie certainement que vous avez plus d'un clone, mais il est peu probable que deux clones vous donnent des appels hétérozygotes à TOUS les loci. Sur la base des contrôles que vous avez créés, il semble que vous auriez besoin d'un MOI assez élevé pour que cela soit possible. Rappelez-vous, combien de vos loci étaient hétérozygotes lors du génotypage des contrôles avec un MOI de 2 ? De 4 ?
+
+      5. Pourquoi est-il extrêmement improbable que vous ayez 2 clones lorsque tous vos 12 loci sont hétérozygotes ?
+
+        Il est plus probable que vous ayez un échantillon monoclonal et un grand nombre de faux positifs.
+
+        12 loci hétérozygotes signifient que vous avez un MOI de 12, et non de 2.
+
+        On s'attendrait à ce qu'au moins certains loci aient le même allèle pour les deux clones, et il est donc très probable qu'au moins certains loci aient un seul allèle.
+
+        La probabilité d'avoir deux clones avec des SNP différents à chaque locus est faible car chaque SNP se produit de manière indépendante et aléatoire.
+
+        > Avec deux SNP parfaitement équilibrés comme dans cet exercice, il y a une chance sur deux d'obtenir l'allèle de référence ou l'allèle alternatif. Par conséquent, obtenir un génotype SNP hétérozygote avec deux clones, c'est comme jouer à pile ou face avec deux pièces de monnaie et obtenir pile sur l'une et face sur l'autre - cela se produira dans 50 % des cas. Il est très peu probable (<0,02 % de chances) que les deux pièces soient différentes l'une de l'autre 12 fois de suite ! Il en va de même pour 12 loci : on peut s'attendre à ce qu'environ 6 d'entre eux soient hétérozygotes, peut-être un peu plus, peut-être un peu moins, mais il est très peu probable que ce soit l'ensemble des 12 loci.
+
+
+      6. Vous attendez-vous à obtenir des loci hétérozygotes lorsque vous génotypez un contrôle contenant 4 clones ?
+
+      7. Est-il possible de génotyper un contrôle contenant 4 clones sans obtenir de loci hétérozygotes en utilisant 12 SNP parfaitement équilibrés ?
+
+        Oui, mais c'est très peu probable !
+
+        Non
+
+        > C'est possible, mais très peu probable. Pour NE PAS obtenir de loci hétérozygotes, cela reviendrait à tirer à pile ou face quatre pièces de monnaie et à les faire tomber toutes sur pile ou sur face, puis à recommencer 12 fois de suite !
+
+      8. Que remarquez-vous à propos de la relation entre le MOI et le nombre de loci hétérozygotes ?
+ 
+        Plus le MOI est élevé, plus la proportion de loci hétérozygotes est importante.
+
+        Plus le MOI est faible, plus la proportion de loci hétérozygotes est élevée.
+
+        Le MOI et la proportion de loci hétérozygotes ne sont pas liés.
+
+        > Vous devriez avoir remarqué que plus le MOI est élevé, plus la proportion de loci hétérozygotes est importante. La proportion exacte à laquelle on peut s'attendre pour un MOI donné dépend de la diversité de chaque SNP dans la population et, dans une certaine mesure, de la variation aléatoire. Dans cet exemple, chacun des 12 SNP est parfaitement équilibré comme une pièce de monnaie, ce qui maximise la diversité.
+
+        > L'histogramme montre le nombre attendu de loci hétérozygotes pour différents MOI avec 12 SNP parfaitement équilibrés. En pratique, la plupart des SNP ne sont pas parfaitement diversifiés et la diversité d'un SNP donné variera probablement dans différents contextes, même à l'intérieur d'un pays. Plus vous avez de SNP et plus la diversité de chacun d'entre eux est grande, plus vous pouvez estimer le MOI avec précision.
+
+
+
+    ]
+
+2.
+  
+  Génotype avec SNP
+  MOI Estimations
+  infection
+  Moyenne
+  Estimations SNP
+  Graphique
+  questions
+
+    [
+      D'après vos résultats, pensez-vous que l'intervention de lutte antivectorielle a fonctionné ?
+
+      > Si l'intervention a fonctionné, le MOI devrait être significativement inférieur au niveau de référence, qui était de 2,5. En fonction de vos estimations, vous pouvez déterminer que le MOI moyen est maintenant effectivement inférieur (dans ce cas, l'intervention a fonctionné !), à peu près identique, ou même supérieur. Nous n'allons pas vous donner la réponse maintenant, mais ne vous inquiétez pas - vous ferez bientôt une autre activité avec une analyse supplémentaire sur les mêmes échantillons et nous discuterons des résultats plus en détail.
+
+
+    ]
+
+3.
+  Tableau des microhaplotypes
+  Clones de laboratoire
+  Clones de laboratoire avec microhaplotypes
+  Allèles
+  Contrôle positif 1
+  Nombre maximal d'allèles
+  Nombre moyen d'allèles
+  génotypage
+  non
+  oui
+  questions
+
+    [
+      Combien de loci dans le contrôle positif 1 (MOI = 1) ont un seul allèle ?
+
+      Combien de loci dans le contrôle positif 1 ont plus d'un allèle ?
+
+      Quel est le nombre le plus élevé d'allèles observés à un locus donné dans le contrôle positif 3 ?
+
+        > Commencez-vous à remarquer une relation entre le MOI et le nombre d'allèles détectés ? Que pensez-vous voir lorsque vous génotyperez les 2 prochains contrôles avec un MOI de 4 ?
+
+        > Les résultats des contrôles 5 et 6, avec une MOI de 4, correspondent-ils à votre prédiction ? Pourquoi ou pourquoi pas ? Prenez le temps de réfléchir à cette question.
+
+      Combien de loci ont plus de deux allèles dans le contrôle positif 3 ?
+
+      Combien de loci ont ce nombre le plus élevé d'allèles ?
+
+      Pourquoi tous les loci du contrôle positif 5 et du contrôle positif 6 n'ont-ils pas 4 allèles détectés, bien que le MOI = 4 ?
+
+        Le génotype est erroné.
+
+          > Ce n'est pas correct, heureusement dans cet exercice nous supposons que
+            que le génotypage est parfait. Ce ne sera pas toujours le cas dans la réalité !
+
+        Il n'y a pas 4 allèles possibles à chaque locus.
+          
+          > Il y a en fait huit allèles possibles pour chaque locus, comme vous l'avez identifié au cours du processus de génotypage.
+
+        Il arrive que les allèles de différentes souches correspondent par hasard, même si la diversité est élevée.
+
+
+
+        > C'est exact ! Même avec huit allèles possibles, comme dans cet exercice, il y a une chance raisonnable que certains d'entre eux correspondent si vous en avez quatre. Si vous en choisissez neuf, il est certain qu'au moins deux d'entre eux seront identiques !
+
+
+
+
+
+      Pensez-vous qu'il serait raisonnable de considérer le plus grand nombre d'allèles pour estimer le MOI, si vous utilisez des microhaplotypes ?
+
+        Oui, cette stratégie me donnera toujours la bonne réponse.
+
+        Oui, tant que la diversité des loci est suffisamment élevée et que le MOI n'est pas trop important.
+
+        Non, il n'y a pas de relation entre le MOI et le plus grand nombre d'allèles détectés.
+
+        Non, il est difficile de compter aussi haut.
+
+        > Correct. N'oubliez pas que si le MOI est supérieur au plus grand nombre d'allèles possibles, le nombre d'allèles détectés ne sera jamais aussi élevé que le MOI.
+
+      Est-il possible que le nombre le plus élevé d'allèles que vous détectez à un locus soit supérieur à la MOI sur la base des règles de cet exercice (génotypage parfait sans erreur) ?
+
+        > Correct. Malheureusement, des erreurs de génotypage se produisent et il est important d'être vigilant. Elles peuvent être dues à un mélange d'échantillons, à une contamination dans le laboratoire ou à des erreurs lors de la PCR ou du séquençage. Nous aborderons ces situations plus en détail dans un module ultérieur et nous verrons comment la bio-informatique et une bonne analyse du contrôle de qualité peuvent aider à identifier ces erreurs.
+
+      Maintenant que vous avez génotypé les mêmes témoins à l'aide de SNP et de microhaplotypes, lequel des deux vous donnera une estimation plus précise de la MOI sur vos échantillons de terrain inconnus ?
+
+        SNP
+
+        Microhaplotypes
+
+        Les deux sont identiques
+
+        > Alors, quelle est la réponse ? Vous le saurez à la fin de l'activité !
+
+
+
+    ]
+
+4.
+  Génotype avec microhaplotypes
+  Estimations
+  Moyenne
+  Graphique
+
+5.
+  questions
+  retour d'information
+  [
+    Examinez vos données et réfléchissez aux deux questions suivantes.
+
+    Avez-vous obtenu un MOI avec microhaplotypes plus élevé, plus bas ou identique au MOI avec SNP ?
+
+    Selon vous, quel est le reflet le plus fidèle du MOI réel pour chaque échantillon et, par extension, pour votre population ?
+
+    > Différentes personnes ont pu avoir des stratégies différentes pour estimer la MOI, mais en général, il aurait été plus facile de détecter la MOI avec plus de précision dans les échantillons de terrain en utilisant des microhaplotypes. En effet, avec les SNP, le nombre maximum d'allèles que l'on peut détecter est de 2 et il est difficile d'estimer précisément la MOI à partir de la proportion de loci qui sont hétérozygotes, à moins de disposer d'un grand nombre de loci. D'autre part, l'utilisation de marqueurs à plus grande diversité, tels que les microhaplotypes, permet d'observer plus directement le MOI, avec les mises en garde mentionnées ci-dessus. En effet, il arrive que des erreurs de génotypage créent des allèles positifs, ce qui gonfle le MOI. D'autre part, il arrive que des allèles correspondent par hasard, même lorsque les loci sont diversifiés. Pour ces raisons, des méthodes statistiques ont été mises au point pour prendre en compte ces facteurs et d'autres encore, afin d'obtenir des estimations plus précises du MOI, même lorsque l'on utilise des marqueurs de microhaplotypes. Jetons un coup d'œil au MOI réel maintenant et voyons à quel point vos estimations étaient précises !
+
+    > Maintenant que vous connaissez la vérité, vos estimations pour chacune des 10 infections étaient-elles plus précises en utilisant les SNP ou les microhaplotypes ? Qu'en est-il de la distribution globale et de votre estimation de la MOI moyenne ? En fonction de la qualité de vos estimations à partir des données de génotypage, il se peut que vous estimiez plus précisément la MOI pour chaque infection en utilisant des microhaplotypes que des SNP. Cependant, la distribution globale et la MOI moyenne peuvent toujours être assez proches de la vérité pour les deux méthodes. Toute erreur d'estimation peut se compenser - par exemple, vous pouvez surestimer la MOI d'une infection et sous-estimer la MOI d'une autre. C'est pourquoi une bonne méthode d'estimation et un échantillon de taille suffisante permettent d'obtenir des estimations précises pour la population, même si les estimations pour les infections individuelles sont incorrectes.
+
+  ]
+
+6.
+  Interprétation des résultats
+
+  questions
+  [
+    Rappelez-vous qu'avant l'intervention, vous aviez estimé le MOI à 2,5, et que même si vous n'avez analysé que les données de 10 échantillons dans cet exercice, nous supposons que ces 10 échantillons sont représentatifs d'un échantillon plus large.
+
+    Sur la base de vos estimations de la MOI, avez-vous la preuve que votre intervention a fonctionné ?
+
+      > Si votre intervention a fonctionné, vous auriez pu vous attendre à ce qu'elle se traduise par une diminution de la diversité au sein de l'hôte, comme le montre la baisse de la MOI. Cependant, vous auriez dû remarquer que le MOI moyen a augmenté au lieu de diminuer.
+
+    Rappelez-vous qu'avant l'intervention, vous aviez estimé le MOI à 2,5 et que, même si vous n'avez analysé que les données de 10 échantillons dans cet exercice, nous supposons que ces 10 échantillons sont représentatifs d'un échantillon plus large.
+
+      Cachez vos données moléculaires - elles ne correspondent pas à ce que vous espériez voir, alors mieux vaut faire comme si elles n'existaient pas.
+
+      Prenez vos données moléculaires comme une preuve irréfutable que la transmission a augmenté et procédez immédiatement à des changements programmatiques radicaux et coûteux.
+
+      Utilisez vos données moléculaires comme source potentielle d'inquiétude et réfléchissez à d'autres sources de données que vous pourriez utiliser ou générer pour confirmer si la transmission s'aggrave et, le cas échéant, pour quelles raisons.
+
+      > Malgré la mise en œuvre d'une nouvelle intervention, il ne semble pas y avoir eu de diminution de la MOI, ce qui aurait pu être attendu avec une diminution de la transmission. En fait, la MOI est passée de 2,5 à 3,2 ! Avec un échantillon de taille suffisante, une différence de cette ampleur aurait probablement été statistiquement significative, indiquant que la transmission pourrait avoir augmenté malgré, ou potentiellement à cause, du changement d'intervention. Cela ne surprendra peut-être pas les personnes travaillant dans le domaine de la lutte contre le paludisme : parfois, les interventions censées fonctionner sur la base de données obtenues dans des environnements contrôlés se comportent différemment lorsqu'elles sont mises en œuvre sur le terrain. Nous espérons que votre enquête et votre analyse des données ont permis d'identifier ce résultat important. Vous êtes maintenant en mesure de communiquer cette information aux autres membres de votre programme et de réfléchir à des actions supplémentaires.
+
+  ]
+
+7.
+  Résumé
+  Code du module
+
+
+DIVERS :
+
+  Réinitialiser
+  Activer les conseils
+  Étape 1

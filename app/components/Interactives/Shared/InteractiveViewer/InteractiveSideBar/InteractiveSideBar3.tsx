@@ -24,7 +24,9 @@ import { dragDropCompletionAtom } from "@/data/Interactives/interactiveStore";
 
 export default function InteractiveSideBar3({
   module,
+  dev,
 }: {
+  dev?: boolean;
   // SetAtom<[SetStateActionWithReset<{ module: string; section: number; phase: number; }>]
   module: string | string[] | undefined;
 }) {
@@ -33,8 +35,6 @@ export default function InteractiveSideBar3({
   const [currentView, setCurrentView] = useAtom(currentView3Atom);
   // const [currentView, setCurrentView] = useAtom(currentViewAtom);
   const [resetConfirmOpen, setResetConfirmOpen] = useAtom(resetConfirmOpenAtom);
-
-  console.log("COMPLETION OBJ", completion);
 
   const nodes = [
     {
@@ -325,7 +325,7 @@ export default function InteractiveSideBar3({
         isOpen
           ? "min-w-full grid-cols-[1fr] md:w-[384px]"
           : "min-w-0 grid-cols-[0fr] md:w-0"
-      } bg-zinc-950/  md:w-[384px]/ relative h-[calc(100vh-80px)] overflow-auto bg-zinc-950 transition-none md:h-[calc(100vh-48px)] md:min-w-0 md:transition-[grid-template-columns] md:duration-1000`}
+      } bg-zinc-950/  relative h-[calc(100vh-80px)] overflow-auto bg-zinc-950 transition-none md:h-[calc(100vh-48px)] md:w-[384px] md:min-w-0 md:transition-[grid-template-columns] md:duration-1000`}
     >
       <button
         autoFocus={isOpen}
@@ -371,7 +371,7 @@ export default function InteractiveSideBar3({
             console.log(currentView);
             return (
               <button
-                disabled={!node.available}
+                disabled={dev === true ? false : !node.available}
                 onClick={() => {
                   node.callback(setCurrentView);
                 }}

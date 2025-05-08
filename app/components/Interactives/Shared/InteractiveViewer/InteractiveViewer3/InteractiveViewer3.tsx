@@ -20,7 +20,9 @@ import DragDropControlPanel from "../../../DragDrop/DragDropControlPanel";
 
 export default function InteractiveViewer3({
   module,
+  dev,
 }: {
+  dev?: boolean;
   module: "2.6" | "4.4" | "5.6";
 }) {
   const [isOpen, setIsOpen] = useAtom(sideBarIsOpenAtom);
@@ -61,11 +63,11 @@ export default function InteractiveViewer3({
           currentView={currentView}
           setCurrentView={setCurrentView}
         /> */}
-        <InteractiveSideBar3 module={"4.4"} />
+        <InteractiveSideBar3 module={"4.4"} dev={dev} />
         <div
           className={`${
             isOpen ? "hidden md:flex" : ""
-          } @container/margins relative flex grow`}
+          } relative flex grow @container/margins`}
         >
           {sideBarDisablesMainContent && (
             <div

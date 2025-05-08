@@ -195,7 +195,7 @@ export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
           currentView={currentView}
           setCurrentView={setCurrentView}
         /> */}
-        <InteractiveSideBar4 />
+        <InteractiveSideBar4 dev={dev} />
         {/* <InteractiveSideBar
           setCurrentView={setCurrentView}
           currentView={currentView}

@@ -12,14 +12,30 @@ import PartThreeMicrohaplotypeTable from "../ClonesTableTransform.tsx/PartThreeM
 import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function MicrohaplotypeSelect() {
+export default function MicrohaplotypeSelect({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [activeTuple, setActiveTuple] = useAtom(activeRowColumnTransformAtom);
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Microhaplotype Table`}
-      leftContent={<PartThreeMicrohaplotypeTable />}
-      rightHeader={`Lab Clones`}
+      leftHeader={
+        lang === "EN"
+          ? `Microhaplotype Table`
+          : lang === "FR"
+          ? `Tableau des microhaplotypes`
+          : `Tabela de microhaplótipos`
+      }
+      leftContent={<PartThreeMicrohaplotypeTable lang={lang} />}
+      rightHeader={
+        lang === "EN"
+          ? `Lab Clones`
+          : lang === "FR"
+          ? `Clones de laboratoire`
+          : `Clones de laboratório`
+      }
       rightContent={
         <div>
           <ClonesTableTransform

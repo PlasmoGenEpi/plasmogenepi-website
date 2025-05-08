@@ -38,7 +38,13 @@ const possibleVals = {
   }),
 };
 
-export default function PartFour({ fixedPanel }: { fixedPanel: boolean }) {
+export default function PartFour({
+  fixedPanel,
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+  fixedPanel: boolean;
+}) {
   const [phase, setPhase] = useAtom(phase1Atom);
   const [completion, setCompletion] = useAtom(partFourCompletionAtom);
 
@@ -142,16 +148,25 @@ export default function PartFour({ fixedPanel }: { fixedPanel: boolean }) {
   return (
     <div>
       <InteractivePrompt
+        lang={lang}
         complete={completion[phase as 1 | 2]}
-        instructions={partFourPrompts[phase].instructions}
-        title={partFourPrompts[phase].title}
+        instructions={partFourPrompts[phase].instructions[lang]}
+        title={partFourPrompts[phase].title[lang]}
       />
       {phase >= 1 && (
         <InteractivePrimaryLayout
           leftHeader={
             phase === 1
-              ? `Genotype with Microhaplotypes`
-              : "MOI Estimates (Graph)"
+              ? lang === "EN"
+                ? `Genotype with Microhaplotypes`
+                : lang === "FR"
+                ? "Génotype avec des microhaplotypes"
+                : "Genótipo com microhaplótipos"
+              : lang === "EN"
+              ? "MOI Estimates (Graph)"
+              : lang === "FR"
+              ? "Estimations du MOI (Graphique)"
+              : "Estimativas de MOI (Gráfico)"
           }
           leftContent={
             <div className="flex flex-col transition-all duration-1000">
@@ -228,7 +243,12 @@ export default function PartFour({ fixedPanel }: { fixedPanel: boolean }) {
                     datasets={[
                       {
                         correctAverage: averageDeduced,
-                        label: "Microhaplotype Estimates",
+                        label:
+                          lang === "EN"
+                            ? "Microhaplotype Estimates"
+                            : lang === "FR"
+                            ? "Estimations de microhaplotypes"
+                            : "Estimativas de microhaplótipos",
                         data: infectionsCount,
                         backgroundColor: " rgb(20 130 140 / 0.6)",
                         borderColor: " rgb(20 130 140 / 0.6)",
@@ -240,10 +260,16 @@ export default function PartFour({ fixedPanel }: { fixedPanel: boolean }) {
               )}
             </div>
           }
-          rightHeader={`Estimates`}
+          rightHeader={
+            lang === "EN"
+              ? `Estimates`
+              : lang === "FR"
+              ? `Estimations`
+              : `Estimativas`
+          }
           rightContent={
             <div className="grid place-items-center">
-              <PartFourInfectionTable average={infectionAverage} />
+              <PartFourInfectionTable lang={lang} average={infectionAverage} />
             </div>
           }
         />

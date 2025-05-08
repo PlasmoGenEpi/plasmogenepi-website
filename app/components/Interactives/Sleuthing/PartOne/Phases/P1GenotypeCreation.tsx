@@ -16,7 +16,9 @@ import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/Inter
 
 export default function P1GenotypeCreation({
   forwards,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   forwards: boolean;
 }) {
   const [selectedBoard, setSelectedBoard] = useAtom(
@@ -27,9 +29,14 @@ export default function P1GenotypeCreation({
   return (
     <InteractivePrimaryLayout
       leftHeader={
-        <div className="@4xl/main:col-start-1 @4xl/main:text-left text-center">
-          <h4 className="@2xl/main:text-wrap @2xl/main:text-left text-balance  text-center text-lg font-semibold">
-            Positive Control {selectedBoard}
+        <div className="text-center @4xl/main:col-start-1 @4xl/main:text-left">
+          <h4 className="text-balance text-center text-lg  font-semibold @2xl/main:text-wrap @2xl/main:text-left">
+            {lang === "EN"
+              ? `Positive Control`
+              : lang === "FR"
+              ? `Contrôle positif`
+              : `Controle positivo`}{" "}
+            {selectedBoard}
             <label className="text-sm">
               <br></br>
               MOI = {selectedBoard < 3 ? 1 : selectedBoard < 5 ? 2 : 4}
@@ -38,7 +45,13 @@ export default function P1GenotypeCreation({
         </div>
       }
       leftContent={<P1PositiveControlBoard />}
-      rightHeader={"Genotyping"}
+      rightHeader={
+        lang === "EN"
+          ? "Genotyping"
+          : lang === "FR"
+          ? "Génotypage"
+          : "Genotipagem"
+      }
       rightContent={<P1GenotypeResult />}
     ></InteractivePrimaryLayout>
   );

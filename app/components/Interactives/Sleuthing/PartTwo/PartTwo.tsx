@@ -40,7 +40,13 @@ export const p2QuestionAnsweredAtom = atomWithStorage<null | number>(
 );
 export const p2TextIsShownAtom = atomWithStorage("p2TextIsShownAtom", false);
 
-export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
+export default function PartTwo({
+  fixedPanel,
+  lang,
+}: {
+  fixedPanel: boolean;
+  lang: "EN" | "FR" | "PT";
+}) {
   const [textIsShown, setTextIsShown] = useAtom(p2TextIsShownAtom);
   const [phase, setPhase] = useAtom(phase1Atom);
   const [completion, setCompletion] = useAtom(partTwoCompletionAtom);
@@ -188,27 +194,47 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
   return (
     <div>
       <InteractivePrompt
+        lang={lang}
         complete={completion[phase as 1 | 2]}
-        instructions={partTwoPrompts[phase].instructions}
-        title={partTwoPrompts[phase].title}
+        instructions={partTwoPrompts[phase].instructions[lang]}
+        title={partTwoPrompts[phase].title[lang]}
       />
       {phase >= 1 && (
         <InteractivePrimaryLayout
           leftHeader={
             phase === 1 ? (
-              <div className=" @4xl/main:text-left @4xl/main:mt-0 mt-8 text-center">
-                <h4 className="@2xl/main:text-wrap @2xl/main:text-left text-balance  text-center text-lg font-semibold">
-                  Genotype with SNPs
+              <div className=" mt-8 text-center @4xl/main:mt-0 @4xl/main:text-left">
+                <h4 className="text-balance text-center text-lg  font-semibold @2xl/main:text-wrap @2xl/main:text-left">
+                  {lang === "EN"
+                    ? `Genotype with SNPs`
+                    : lang === "FR"
+                    ? `Génotype avec SNP`
+                    : `Genótipo com SNPs`}
                   <label className="text-sm">
                     <br></br>
-                    Infection {activeIndex + 1}
+                    {lang === "EN"
+                      ? `Infection`
+                      : lang === "FR"
+                      ? `Infection`
+                      : `Infecção`}{" "}
+                    {activeIndex + 1}
                   </label>
                 </h4>
               </div>
             ) : phase === 2 ? (
-              `MOI Estimates (Graph)`
-            ) : (
+              lang === "EN" ? (
+                `MOI Estimates (Graph)`
+              ) : lang === "FR" ? (
+                `Estimations du MOI (Graphique)`
+              ) : (
+                `Estimativas de MOI (Gráfico)`
+              )
+            ) : lang === "EN" ? (
               `MOI Estimates`
+            ) : lang === "FR" ? (
+              `Estimations du MOI`
+            ) : (
+              `Estimativas de MOI`
             )
           }
           leftContent={
@@ -275,11 +301,22 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
               <div className="mx-auto max-w-[500px]">
                 <Histogram
                   color={`bg-[rgba(20_130_140_/_0.6)]`}
-                  label={"SNP Estimates"}
+                  label={
+                    lang === "EN"
+                      ? "SNP Estimates"
+                      : lang === "FR"
+                      ? "Estimations SNP"
+                      : "Estimativas SNP"
+                  }
                   datasets={[
                     {
                       correctAverage: averageDeduced,
-                      label: "SNP Estimates",
+                      label:
+                        lang === "EN"
+                          ? "SNP Estimates"
+                          : lang === "FR"
+                          ? "Estimations SNP"
+                          : "Estimativas SNP",
                       data: infectionsCount,
                       backgroundColor: "rgb(20 130 140 / 0.6)",
                       borderColor: "rgb(20 130 140 / 0.6)",
@@ -290,15 +327,27 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
               </div>
             ) : (
               <div className="grid place-items-center">
-                <PartTwoInfectionTable average={infectionAverage} />
+                <PartTwoInfectionTable lang={lang} average={infectionAverage} />
               </div>
             )
           }
-          rightHeader={phase !== 3 ? `MOI Estimates` : "Questions"}
+          rightHeader={
+            phase !== 3
+              ? lang === "EN"
+                ? `MOI Estimates`
+                : lang === "FR"
+                ? `Estimations du MOI`
+                : `Estimativas de MOI`
+              : lang === "EN"
+              ? "Questions"
+              : lang === "FR"
+              ? "Des questions"
+              : "Questões"
+          }
           rightContent={
             phase < 3 ? (
               <div className="grid place-items-center">
-                <PartTwoInfectionTable average={infectionAverage} />
+                <PartTwoInfectionTable lang={lang} average={infectionAverage} />
               </div>
             ) : (
               <div>
@@ -308,13 +357,15 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
                       checked: questionAnswered === 1,
                       correct: true,
                       index: 1,
-                      text: "Yes",
+                      text:
+                        lang === "EN" ? "Yes" : lang === "FR" ? "Oui" : "Sim",
                     },
                     {
                       checked: questionAnswered === 2,
                       correct: true,
                       index: 2,
-                      text: "No",
+                      text:
+                        lang === "EN" ? "No" : lang === "FR" ? "Non" : "Não",
                     },
                   ]}
                   classNames={{
@@ -330,7 +381,13 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
                     }
                   }}
                   hasAnswer={textIsShown}
-                  headerText="Based on your results, do you think the vector control intervention worked?"
+                  headerText={
+                    lang === "EN"
+                      ? "Based on your results, do you think the vector control intervention worked?"
+                      : lang === "FR"
+                      ? "D'après vos résultats, pensez-vous que l'intervention de lutte antivectorielle a fonctionné ?"
+                      : "Com base em seus resultados, você acha que a intervenção de controle de vetores funcionou?"
+                  }
                 />
                 {questionAnswered && (
                   <div className="mt-4 flex">
@@ -339,7 +396,11 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
                         visible={true}
                         className="mt-4"
                         text={
-                          "If the intervention worked, MOI should be significantly less than baseline, which was 2.5. Depending on your estimates,  you may determine that the mean MOI is now indeed lower (in which case it worked!), about the same, or even higher. We are not going to tell you the answer now, but don’t worry – you will soon do another activity with some additional analysis on the same samples and we’ll discuss the results in more detail."
+                          lang === "EN"
+                            ? "If the intervention worked, MOI should be significantly less than baseline, which was 2.5. Depending on your estimates,  you may determine that the mean MOI is now indeed lower (in which case it worked!), about the same, or even higher. We are not going to tell you the answer now, but don’t worry – you will soon do another activity with some additional analysis on the same samples and we’ll discuss the results in more detail."
+                            : lang === "FR"
+                            ? "Si l'intervention a fonctionné, le MOI devrait être nettement inférieur au niveau de base, qui était de 2,5. En fonction de vos estimations, vous pouvez déterminer que le MOI moyen est maintenant effectivement plus faible (auquel cas cela a fonctionné !), à peu près le même, voire plus élevé. Nous n'allons pas vous donner la réponse maintenant, mais ne vous inquiétez pas – vous allez bientôt faire une autre activité avec une analyse supplémentaire sur les mêmes échantillons et nous discuterons des résultats plus en détail."
+                            : "Se a intervenção funcionou, o MOI deve ser significativamente menor do que a linha de base, que era de 2,5. Dependendo de suas estimativas, você pode determinar que o MOI médio agora é realmente menor (caso em que funcionou!), aproximadamente o mesmo ou até maior. Não vamos lhe dar a resposta agora, mas não se preocupe – você logo fará outra atividade com alguma análise adicional sobre as mesmas amostras e discutiremos os resultados com mais detalhes."
                         }
                       />
                     ) : (
@@ -347,9 +408,17 @@ export default function PartTwo({ fixedPanel }: { fixedPanel: boolean }) {
                         onClick={() => {
                           setTextIsShown(true);
                         }}
-                        className="bg-interactiveGreen fadeIn500 mx-auto rounded px-4 py-2 text-white shadow-sm shadow-black/50"
+                        className="fadeIn500 mx-auto rounded bg-interactiveGreen px-4 py-2 text-white shadow-sm shadow-black/50"
                       >
-                        <span className="block translate-y-0.5">Feedback</span>
+                        <span className="block translate-y-0.5">
+                          {lang === "EN"
+                            ? `Feedback`
+                            : lang === "FR"
+                            ? `Rétroaction`
+                            : lang === "PT"
+                            ? `Opinião`
+                            : `Feedback`}
+                        </span>
                       </button>
                     )}
                   </div>

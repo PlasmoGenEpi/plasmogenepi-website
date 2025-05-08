@@ -15,7 +15,9 @@ export default function InfectionTable({
   activeIndex,
   averageInputRow,
   activeRow,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   activeRow: number | null;
   averageInputRow: ReactNode;
   activeIndex: number;
@@ -25,10 +27,16 @@ export default function InfectionTable({
   averageVisible: boolean;
 }) {
   return (
-    <table className="table max-w-[400px] text-center dark:bg-zinc-700 bg-zinc-50 overflow-hidden">
-      <thead className=" text-current bg-interactiveBlue/40">
+    <table className="table max-w-[400px] overflow-hidden bg-zinc-50 text-center dark:bg-zinc-700">
+      <thead className=" bg-interactiveBlue/40 text-current">
         <tr>
-          <th className="translate-y-0.5 text-nowrap  py-4 ">Infection</th>
+          <th className="translate-y-0.5 text-nowrap  py-4 ">
+            {lang === "EN"
+              ? `Infection`
+              : lang === "FR"
+              ? `Infection`
+              : `Infecção`}
+          </th>
           <th className="translate-y-0.5 text-nowrap  py-4 ">MOI</th>
         </tr>
       </thead>
@@ -57,10 +65,10 @@ export default function InfectionTable({
               // className={`${callback ? "cursor-pointer" : ""} text-center hover:bg-primaryBlue/20 ${idx % 2 === 0 ? "" : "bg-primaryBlue/10"}   ${idx === activeIndex ? "font-bold outline outline-2 -outline-offset-1 outline-primaryGreen" : "text-black/50"} transition-all`}
               className={`${callback ? "cursor-pointer" : ""} ${
                 activeRow !== null
-                  ? "dark:hover:bg-zinc-900 hover:bg-black/10"
+                  ? "hover:bg-black/10 dark:hover:bg-zinc-900"
                   : ""
               }   ${
-                activeRow === idx ? "dark:bg-zinc-900  bg-black/10" : ""
+                activeRow === idx ? "bg-black/10  dark:bg-zinc-900" : ""
               } transition-all`}
             >
               <td className="p-2">

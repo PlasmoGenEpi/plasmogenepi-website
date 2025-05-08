@@ -1,0 +1,142 @@
+Locus
+Sequencing Depth
+Alignment
+
+
+Background
+
+  It is your very first day in the malaria genomics lab. You are really excited to start looking at data, since you have just taken an online course where you heard about all the great things that could be done with sequence data.
+
+  The sequencing facility emails and lets you know that the results for your most recent run are back. Unfortunately, the lab technologist has the flu and the bioinformatician on your team has traveled to a conference, so you know nothing about the assay that was run or what software to use. Not deterred, you plan to look into the data anyway!
+
+  Will you be able to make sense of your data and unlock the secrets hidden in your sequencer generated reads?
+
+  If you are using a touch screen it is recommended that you continue the activity with the side bar closed.
+
+Goal
+
+  The goal of this activity is to identify various mutations, loci, SNPs, and microhaplotypes by comparing sequencer generated reads to a reference genome.
+
+Instructions
+
+  This first activity includes three steps:
+
+  First, you will match a batch of 10 sequencer generated reads to the correct locations on a reference genome.
+  
+  Next, you will match a batch of 20 more sequencer generated reads to the correct locations on a reference genome. However, this time there may be some mutations and errors, which makes your work here more challenging.
+  
+  Lastly, you will identify various mutations, loci, SNPs, and microhaplotypes in your reads.
+  Along the way, you will respond to some multiple choice questions to check your understanding of the sequencing data.
+
+  Go to the lab and get started!
+
+Step 1. Align Sequencer Generated Reads to the Reference Genome
+
+  Below is the reference genome, a sequence of 51 DNA base letters A, G, C, and T.
+
+  You are tasked with aligning the reads, sequences of 15 DNA base letters in this example, to the matching part of the reference genome. Do this by dragging the sequence to the correct part of the reference genome.
+
+  Once all the reads are placed correctly, continue the activity to answer some questions.
+
+  Knowledge Check
+
+    How many loci do we have reads for in this example?
+
+    > Correct! Locus (plural: "loci") refers to a specific position or location on a chromosome where a particular gene or DNA sequence is located. In this example, there are two loci that denote the location of the sequence generated reads.
+
+    How many reads are there in each locus?
+
+      5 in locus 1, 5 in locus 2
+
+      6 in locus 1, 4 in locus 2
+
+      10 in locus 1, 0 in locus 2
+
+      0 in locus 1, 10 in locus 2
+
+      > This is what we call sequencing depth: we have a depth of 6 reads in locus 1 and 4 reads in locus 2. You were able to get these numbers because you aligned the reads to a reference genome.
+
+Match Sequencer Generated Reads with Mutations and Errors to the Reference Genome
+
+  > Match the reads to the corresponding part of the reference genome.
+
+  > This time, some of the reads will contain mutations (SNPs), amplification or sequencing errors that will appear like SNP mutations but be "false mutations" (these tend to be seen in few reads, making them easier to detect), off target sequences (reads that will not align anywhere), and chimera errors (reads where part of the sequence aligns in one place and another part aligns in another place). You will place these reads in the trash. You can click on reads in the trash to remove them from the trash.
+
+  > Once all the reads are placed correctly, continue the activity to answer some questions below.
+
+  Which of the following describes the reads that you discarded? Choose all that apply.
+
+    Chimera
+
+    Off target
+
+    Mutations
+
+    High quality read
+
+    > Correct - Two of these are off target reads which do not align anywhere. One of these is a chimera, where part of the read aligns still in the locus and another part aligns to another locus.
+
+  Which of these three discarded reads is the chimera?
+
+  > Sequencing and library preparations are not perfect processes. Many of the resulting sequences correspond to off-target amplification (e.g. from the human DNA in our samples) or may be completely spurious sequences.
+
+  > Some reads may look like a correct one, partially matching the reference genome, but still be spurious. A common type of error that occurs during amplicon sequencing is a chimera formed from a combination of two different amplicons that occurs during PCR.
+
+  > Chimeras can be detected because part of the sequence will match well with one amplicon, while another part will match well with a different amplicon. These reads also need to be discarded, since they don't represent actual sequences in the genome.
+
+  > Bioinformatics takes care of these artifacts by filtering the obtained sequences, just as you did.
+
+Step 3. Identify Genotyping Errors
+
+  > You have correctly filtered out the chimera and off target errors, but there are still genotyping errors (false mutations) present in the data. For our purposes, we will consider a false mutation a site (DNA base) where only one read has an alternate allele.
+
+  > Identify and select any false mutations present in the reads below. Once you have identified all false mutations, answer the questions below.
+
+  Which base belongs in place of the mutation in locus 1?
+
+  Which base belongs in place of the mutation in locus 2?
+
+  > Here you’ve manually corrected these reads with minor PCR or sequencing errors. Actual bioinformatic pipelines do something very similar. They identify reads with minor errors, and use similar reads to find the correct sequence and fix the error. The important part is identifying whether differences represent an error or a real SNP. This is usually done using similar information as you had here - rare, minor differences are considered errors, particularly when the sequence quality of that base is poor (additional information from the sequencer that you didn’t have here). If there are lots of reads with a given SNP, it is more likely to be a real polymorphism.
+
+Identify Mutations
+
+  > Now that you have removed all the errors, the remaining bases that are different from the reference genome represent mutations, or alternate alleles.
+
+  > View the same reads that were matched to the reference genome in the last step. Click the letters in the reads where you see the mutations, changing the appearance of the letters from normal to hollow text. Mutations in the genome of malaria parasites will show up as DNA bases in sequencing reads which are different from the reference sequence, such as the hollow A, C, T, and C alternate alleles (SNPs) shown below. When you have identified all the mutations, answer the questions below.
+
+  How many SNPs are there in total?
+
+    > Correct! After correcting the false mutations, there are a total of 6 SNPs in the reads above: 3 in locus 1 and 3 in locus 2. They are indicated by the arrow icons above the reference genome.
+
+  How many microhaplotypes do you observe in each of the loci?
+
+    > 1 on the left, 1 on the right
+
+    > 2 on the left, 3 on the right
+
+    > 3 on the left, 2 on the right
+    
+    > Correct! The reads have been grouped together according to their microhaplotypes.
+
+Estimating MOI
+
+  With the microhaplotypes identified for both loci, we can determine the MOI. Answer the question below.
+  
+  If this were data from a real sample, what would you estimate to be the MOI?
+
+    > Correct! The most likely explanation is that there are 3 parasites in the sample, each with a different allele in locus 1, while some of them share the same allele in locus 2. Exactly how these parasites in locus 2 share the same allele is beyond the scope of this exercise, however, an example is given above. Thus, the MOI is 3.
+
+  If you were told that resistance to an antimalarial drug required a microhaplotype sequence from locus 1 represented by the 3 SNPs GAC, would this infection contain a drug resistant parasite?
+
+  Yes
+
+  No
+
+  Can't tell
+
+  > That’s right - there are only 3 microhaplotypes present in this sample at locus 1, and none of them match the drug resistant sequence.
+
+Summary
+
+  > Great work! You identified the loci and read depth by aligning reads to the reference genome. You then identified a chimeric read and two off-target reads that were not useful and corrected two PCR or sequencing errors that showed up as false alleles. Finally, you used the microhaplotypes to identify the MOI of the samples and rule out antimalarial resistance. While the example in this exercise is a simplification of the much larger datasets that are produced by sequencing and that would be very challenging to analyze manually, bioinformatic pipelines take very similar steps to call alleles and produce final sequence data.
+  

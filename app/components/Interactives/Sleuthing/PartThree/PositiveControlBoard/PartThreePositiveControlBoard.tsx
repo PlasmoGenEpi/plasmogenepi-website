@@ -23,7 +23,11 @@ import { RESET } from "jotai/utils";
 import { useEffect } from "react";
 import LabelRow from "../../PartOne/CloneRowTable/LabelRow";
 
-export default function PartThreePositiveControlBoard() {
+export default function PartThreePositiveControlBoard({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [selectedBoard, setSelectedBoard] = useAtom(
     selectedPositiveControlBoardAtom,
   );
@@ -50,7 +54,11 @@ export default function PartThreePositiveControlBoard() {
         ((selectedBoard === 1 || selectedBoard === 2) &&
           currentBoard.rows.length !== 1)
       ) {
-        return "Make sure you are using the right number of clones according to the MOI.";
+        return lang === "EN"
+          ? "Make sure you are using the right number of clones according to the MOI."
+          : lang === "FR"
+          ? "Assurez-vous d'utiliser le bon nombre de clones en fonction du MOI."
+          : "Certifique-se de que está a usar o número correto de clones de acordo com o MOI.";
       }
     }
     let otherBoard = boards[switchValues(selectedBoard)];
@@ -58,7 +66,11 @@ export default function PartThreePositiveControlBoard() {
       currentBoard.rows.length &&
       compareUnorderedArrays(currentBoard.rows, otherBoard.rows)
     ) {
-      return "Positive controls must be unique.";
+      return lang === "EN"
+        ? "Positive controls must be unique."
+        : lang === "FR"
+        ? "Les contrôles positifs doivent être uniques."
+        : "Os controlos positivos devem ser únicos.";
     }
   }
 

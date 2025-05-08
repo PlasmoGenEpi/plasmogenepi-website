@@ -10,7 +10,9 @@ export default function MicrohaplotypeTable({
   callback,
   disabled,
   hint,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   hint?: MicroId;
   disabled?: boolean;
   callback?: (arrConfig: MicroId) => void;
@@ -34,7 +36,13 @@ export default function MicrohaplotypeTable({
           </span>{" "}
         </div>
         <div className="flex flex-col justify-center border-b-[3px] border-black/20  text-white">
-          <label className="py-2 text-center text-sm">Microhaplotype</label>
+          <label className="py-2 text-center text-sm">
+            {lang === "EN"
+              ? `Microhaplotype`
+              : lang === "FR"
+              ? `Microhaplotype`
+              : `Microhaplótipo`}
+          </label>
           <span className="inline-block pb-1 text-center text-xs first-letter:text-sm">
             M{activeColumn + 1}
           </span>{" "}
@@ -70,7 +78,7 @@ export default function MicrohaplotypeTable({
         </div>
       </div>
       <div className="col-span-4 col-start-9 grid">
-        <h3 className="h-min bg-primaryGreen py-4 text-center text-white">
+        <h3 className="bg-primaryGreen h-min py-4 text-center text-white">
           Microhaplotype
         </h3>
         <Microhaplotype

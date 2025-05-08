@@ -118,7 +118,11 @@ const options = {
   },
 };
 
-export default function AlleleDistribution() {
+export default function AlleleDistribution({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const boards = useAtomValue(positiveControlBoardsAtom);
   const viewWidth = useAtomValue(viewWidthAtom);
   const containerRef = useRef<null | HTMLDivElement>(null);
@@ -148,7 +152,6 @@ export default function AlleleDistribution() {
   const snp_results = useMemo(() => {
     return Object.values(boards).map((board) => {
       let { singles, pairs } = countSNPs(board.inputs);
-      console.log("SINGLES, PAIRS", singles, pairs);
       return {
         singles: singles === board.questions[1] ? singles : 0,
         pairs: pairs === board.questions[2] ? pairs : 0,
@@ -169,24 +172,56 @@ export default function AlleleDistribution() {
             //@ts-ignore
             options={options}
             data={{
-              labels: [
-                "Positive Control 1",
-                "Positive Control 2",
-                "Positive Control 3",
-                "Positive Control 4",
-                "Positive Control 5",
-                "Positive Control 6",
-              ],
+              labels:
+                lang === "EN"
+                  ? [
+                      "Positive Control 1",
+                      "Positive Control 2",
+                      "Positive Control 3",
+                      "Positive Control 4",
+                      "Positive Control 5",
+                      "Positive Control 6",
+                    ]
+                  : lang === "FR"
+                  ? [
+                      "Contrôle positif 1",
+                      "Contrôle positif 2",
+                      "Contrôle positif 3",
+                      "Contrôle positif 4",
+                      "Contrôle positif 5",
+                      "Contrôle positif 6",
+                    ]
+                  : [
+                      "Controle Positivo 1",
+                      "Controle Positivo 2",
+                      "Controle Positivo 3",
+                      "Controle Positivo 4",
+                      "Controle Positivo 5",
+                      "Controle Positivo 6",
+                    ],
+
               datasets: [
                 {
-                  label: "Homozygous Allele Count",
+                  label:
+                    lang === "EN"
+                      ? "Homozygous Allele Count"
+                      : lang === "FR"
+                      ? "Nombre d'allèles homozygotes"
+                      : "Contagem de alelos homozigotos",
+
                   data: snp_results.map(({ singles, pairs }) => {
                     return singles;
                   }),
                   barPercentage: 0.95,
                 },
                 {
-                  label: "Heterozygous Allele Count",
+                  label:
+                    lang === "EN"
+                      ? "Heterozygous Allele Count"
+                      : lang === "FR"
+                      ? "Nombre d'allèles hétérozygotes"
+                      : "Contagem de alelos heterozigotos",
+
                   data: snp_results.map(({ singles, pairs }) => {
                     return pairs;
                   }),
@@ -198,12 +233,22 @@ export default function AlleleDistribution() {
           <div className="mx-auto mt-2 flex w-fit flex-col gap-2 text-base text-[hsl(0,0%,39%)]">
             <div className="inline-flex gap-2">
               <div className="inline h-[.75lh] w-[2lh] bg-[rgba(54,_162,_235,_0.5)]"></div>
-              <label>Homozygous Allele Count</label>
+              <label>
+                {lang === "EN"
+                  ? `Homozygous Allele Count`
+                  : lang === "FR"
+                  ? `Nombre d'allèles homozygotes`
+                  : `Contagem de alelos homozigotos`}
+              </label>
             </div>
             <div className="inline-flex gap-2">
               <div className="inline h-[.75lh] w-[2lh] bg-[rgba(255,_99,_132,_0.5)] "></div>
               <label className="[font-variant:small-caps]/">
-                Heterozygous Allele Count
+                {lang === "EN"
+                  ? `Heterozygous Allele Count`
+                  : lang === "FR"
+                  ? `Nombre d'allèles hétérozygotes`
+                  : `Contagem de alelos heterozigotos`}
               </label>
             </div>
           </div>

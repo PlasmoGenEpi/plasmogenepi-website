@@ -1,0 +1,362 @@
+1.
+
+  Criar híbrido
+  Comparar clones idênticos
+  Comparações em que IBD = 0%
+  Comparações de genótipos com microhaplótipos e híbridos
+
+
+
+  Perguntas
+
+    [
+      Quando se comparam dois clones de laboratório, pensa-se que:
+
+        Os clones não têm qualquer relação de ancestralidade, pelo que provavelmente 0/12 (0%) dos SNP entre dois clones coincidirão. O IBS será 0.
+
+        Mesmo que os clones não estejam relacionados, os SNPs podem coincidir por acaso. Uma vez que existem dois alelos perfeitamente equilibrados em cada locus, a probabilidade de coincidência será a mesma que atirar uma moeda ao ar duas vezes e obter o mesmo resultado. Espera-se que cerca de 6/12 (50%) dos SNPs coincidam. O IBS será provavelmente muito próximo de 0,5, mas pode variar.
+
+        Uma vez que a simulação é aleatória para os 3 clones, não há forma de prever qual será o IBS. É igualmente provável que seja qualquer coisa entre 0 e 1.
+
+        > A simulação é aleatória, mas ainda temos alguma expetativa do que vai acontecer. Quando se comparam dois clones num determinado locus, eles têm 50% de hipóteses de partilhar um alelo, uma vez que existem duas opções igualmente prováveis. Embora seja possível que nenhum dos SNP coincida (primeira opção), a probabilidade de isso acontecer é muito baixa (cerca de 0,02%).
+
+      Quantos dos loci coincidem?
+
+      O que é a SII para estes dois parasitas?
+
+      Qual é a IBD para estes dois parasitas?
+
+        > Isso mesmo - temos o privilégio de saber que estes parasitas não têm qualquer relação de ancestralidade, uma vez que são conhecidos clones de laboratório. Uma vez que o D em IBD significa descendência, e estes clones não descendem uns dos outros, o IBD neste caso é exatamente zero.
+
+        > Aproximadamente 50% dos loci devem coincidir em cada uma destas comparações. Você pode ver que alguns pares de clones têm um IBS mais alto do que outros. Isso significa que esses clones estão mais intimamente relacionados do que os outros? Não, nós sabemos que eles não são - IBD é zero! Qualquer diferença no SII entre esses pares é puramente devido ao acaso. Se repetir a atividade, obterá sempre um resultado diferente de SII, mas os clones continuam a não ter qualquer relação entre si.
+
+      Com base nisto, acha que é provável que todos os 12 loci coincidam se os parasitas não estiverem relacionados?
+
+        > É muito improvável que todas coincidam por acaso; a probabilidade é a mesma que nenhuma coincidir, cerca de 0,02%. Também é pouco provável (<1% de hipóteses) que 11 dos 12 coincidam.
+
+        > Probabilidade de correspondência de SNP - Distribuição de alelos 50/50
+
+      Este cenário é algo otimista, na medida em que os SNP são perfeitamente diversos. Numa situação mais realista, se as frequências alélicas dos SNP não fossem de facto 50/50 mas, por exemplo, 80/20, esperaríamos mais ou menos correspondências?
+
+        > Seria de esperar mais correspondências, uma vez que há menos diversidade. O alelo mais comum teria mais probabilidades de estar presente em ambos os parasitas e, por isso, corresponderiam mais vezes, cerca de 70% das vezes. Para o caso 80/20, a probabilidade de ver diferentes números de correspondências é mostrada no gráfico.
+
+        > Probabilidade de correspondência de SNP - Distribuição de alelos 80/20
+
+      Considera que esta maior frequência de alelos tornaria mais difícil ou mais fácil distinguir os parasitas aparentados dos não aparentados?
+
+        > Correto: Isto deve-se ao facto de haver mais correspondências quando os parasitas não estão relacionados, pelo que haverá menos diferenças na SII entre parasitas relacionados e não relacionados. Todos eles terão um número bastante elevado de correspondências. Por exemplo, 12/12 correspondências (IBS de 1.0) ainda é incomum, mas já não é extremamente raro para parasitas completamente não relacionados, em cerca de 1%. Notavelmente, mais de 20% das comparações entre parasitas não relacionados ainda terão 10/12 ou mais correspondências (IBS>0,8)!
+
+        > Probabilidade de correspondência SNP - Distribuição de alelos 80/20
+
+      Quantos dos loci coincidem?
+
+      O que é a SII para estes dois parasitas?
+      
+      Qual é a IBD para estes dois parasitas?
+
+        > Probabilidade de correspondência SNP - Clones de irmãos (50% IBD)
+
+        > É isso mesmo - mais uma vez temos o privilégio de conhecer o verdadeiro parentesco por ascendência destes clones de laboratório. Uma vez que o clone 4 é um filho do clone 1 e partilha exatamente 50% do seu genoma por ascendência - a parte vermelha - o IBD é 0,5 ou 50%.
+
+        > É isso mesmo - tal como antes, o IBD é 0,5, uma vez que o clone híbrido partilha 50% do seu genoma com o progenitor, neste caso a parte azul.
+
+        > Seria de esperar que tivessem aproximadamente a mesma SII, cerca de 9/12 ou 75%. Os SNPs na metade relacionada do genoma devem sempre corresponder perfeitamente, a menos que haja mutações ou erros de genotipagem. No entanto, como as correspondências na parte não relacionada são aleatórias, o número total de correspondências pode variar.
+
+        > Na maioria das vezes, esperamos ver algo entre 7 e 11 correspondências, mas podemos obter 12/12 correspondências em cerca de 2% das vezes. Em todos estes casos, o IBD seria 0,5, mas o IBS poderia variar de 0,5 a 1,0 devido ao acaso.
+
+        > É isso mesmo - mais uma vez temos o privilégio de conhecer a verdadeira relação de parentesco por ascendência destes clones de laboratório. Uma vez que o clone 4 não é um filho do clone 3 e não partilha nada do seu genoma por ascendência, o IBD é 0%. Esta é a mesma situação das nossas comparações iniciais dos clones de laboratório 1, 2 e 3.
+
+        > É isso mesmo - se os parasitas forem idênticos, todo o genoma está relacionado, pelo que a DII é 100% ou 1.0, e todos os loci coincidirão (ou seja, a SII também será 1.0). Desde que a sua genotipagem seja exacta, obterá sempre 12/12 correspondências!
+
+        > Probabilidade de correspondência SNP - Clones idênticos (100% IBD)
+
+      Com base nos seus resultados, com que fiabilidade pensa que poderia distinguir parasitas relacionados de forma idêntica daqueles que não estão relacionados usando o SCI?
+
+        Não muito fiável
+
+        Com alguma fiabilidade
+
+        Muito fiável
+
+          > Estatisticamente, deve ser relativamente simples distinguir parasitas perfeitamente relacionados de parasitas completamente não relacionados com 12 SNPs perfeitamente equilibrados. Isso ocorre porque os parasitas perfeitamente relacionados sempre terão um SII de 1, enquanto os parasitas completamente não relacionados quase sempre terão um SII pelo menos um pouco menor que 1, como nesses dois histogramas:
+
+
+          > Distinguir parasitas aparentados de parasitas não aparentados parece razoavelmente simples com SNPs, mas e quanto a distinguir parasitas irmãos (IBD 0.5) daqueles que não são aparentados (IBD 0)?
+
+      Com base nos seus resultados, com que fiabilidade pensa que poderia distinguir parasitas relacionados de forma idêntica daqueles que não estão relacionados usando o SCI?
+
+        > Os irmãos podem ser difíceis de distinguir de forma fiável de parasitas não relacionados. Isso ocorre porque o número de correspondências que esperamos ver com 12 SNPs se sobrepõe nessas duas situações. Em média, tendemos a ter mais correspondências nos irmãos do que nos parasitas completamente não relacionados, mas não de forma fiável.
+
+        Distribuição IBS - IBD 0.5
+        Distribuição IBS - IBD 0,5
+        Distribuição IBS - IBD 0
+        Distribuição de IBS - IBD 0
+
+        > Se tivermos 7, 8 ou 9 correspondências, por exemplo, podem ser de irmãos ou de parasitas completamente não relacionados.
+
+      Como é que pode aumentar a sua capacidade de distinguir parasitas aparentados de não aparentados? Escolhe todos os que se aplicam.
+
+        Aumentar o número de loci que genotipa, por exemplo, de 12 para 100.
+
+        Aumente a diversidade dos loci que genotipa, por exemplo, utilizando microhaplótipos em vez de SNPs.
+
+        Observe-os ao microscópio e tente distingui-los com base no seu aspeto.
+
+        > Quanto mais loci forem avaliados, mais fácil será distinguir a proporção de combinações (SII) consistentes com parasitas relacionados e não relacionados. Da mesma forma, quanto mais diversos forem os loci, menor será a probabilidade de haver correspondências por acaso, pelo que a SII reflectirá melhor a DII.
+
+        > Aumentar tanto o número como a diversidade de loci dar-lhe-á o maior poder. Os loci com maior diversidade são particularmente úteis quando se tem infecções policlonais, que se sabe que podem ser comuns, pelo que se decide seguir esta via.
+
+        > Sabe, através de um curso em linha sobre genómica da malária, que os microhaplótipos têm mais diversidade do que os SNP e podem ser facilmente genotipados com sequenciação direcionada, pelo que dá instruções ao seu laboratório para refazer a sequenciação utilizando 12 microhaplótipos em vez de 12 SNP.
+
+      O que é que achas que vais ver?
+
+        O IBD será o mesmo para todas as comparações como antes, quando usou SNPs. Mas o IBS será, em média, mais baixo, uma vez que existe uma probabilidade de 1/8 de coincidir em cada loci em vez de ½ quando utilizou SNPs.
+
+        Tanto o IBD como o IBD serão mais baixos do que quando utilizou SNPs.
+
+        Tanto a IBD como a IBS serão mais elevadas do que quando utilizou SNPs.
+
+        Tanto a IBD como a IBS permanecerão as mesmas que quando utilizou SNPs.
+
+        > O IBD será o mesmo para todas as comparações como anteriormente. Mas o IBS será, em média, mais baixo, uma vez que há 1/8 de hipóteses de coincidência em cada loci em vez de 1/2.
+
+        > É isso mesmo - parasitas não relacionados continuam a significar que a IBD é zero, quer os loci coincidam ou não.
+
+      Qual foi a diferença entre os resultados da SII comparando estes mesmos 3 parasitas não relacionados usando 12 microhaplótipos versus usando 12 SNPs?
+
+        Utilizando microhaplótipos, havia menos alelos que coincidiam por acaso.
+
+        Utilizando microhaplótipos, havia mais alelos que coincidiam por acaso.
+
+        Não se registou qualquer diferença no número de alelos que coincidem por acaso.
+
+        > Deveria ter notado que tinha menos alelos correspondentes por acaso nestes parasitas não relacionados, uma vez que os microhaplótipos eram mais diversos do que os SNPs - tornando o IBS mais baixo e reflectindo melhor o IBD (que era sempre zero). Este histograma mostra o número esperado de correspondências usando 12 microhaplótipos com 8 alelos cada - geralmente menos de 5. Isso contrasta com os SNPs, que podem ter até 9 ou 10 correspondências.
+
+        Distribuição de correspondências de microhaplótipos (IBD 0%)
+        Distribuição de correspondências de microhaplótipos (IBD 0%)
+        Distribuição de correspondências SNP (IBD 0%)
+
+        > É isso mesmo - mais uma vez temos o privilégio de conhecer o verdadeiro parentesco por ascendência destes clones de laboratório. Uma vez que o clone 4 é um filho do clone 1 e partilha exatamente 50% do seu genoma por ascendência - a parte vermelha - o IBD é 0,5 ou 50%.
+
+      Ambas as comparações anteriores tiveram o mesmo IBD - 0,5 - uma vez que o clone híbrido está 50% relacionado com cada progenitor. Obtiveste o mesmo resultado de IBD de cada vez? O que achas que encontrarias se fizesses experiências semelhantes com outros clones relacionados de forma semelhante?
+
+        0, ou perto de 0 correspondências
+
+        Cerca de 50% de correspondências
+
+        100%, ou perto de 100% de correspondências
+
+        Probabilidade de correspondência de microhaplótipos - Clones de irmãos (0,5 IBD)
+
+        > Os microhaplótipos, tal como os SNP, na metade relacionada do genoma devem sempre corresponder perfeitamente, a menos que existam mutações ou erros de genotipagem. Uma vez que as correspondências na parte não relacionada são aleatórias, o número total de correspondências pode variar, mas deve ser menor do que com os seus loci SNP menos diversificados de antes.
+
+        > Na maioria das vezes, esperamos ver algo entre 6 e 8 correspondências, mas podemos obter 9/12 em cerca de 2% das vezes. Ao contrário do que acontece com os SNPs, é muito improvável que vejamos 10 ou mais correspondências - menos de 0,3% das vezes.
+
+      O que achas que verias se comparasses o clone 4 do nosso laboratório híbrido com o clone 3, que não é o seu progenitor?
+
+        IBD seria 0 e IBS seria o mesmo que comparar quaisquer clones completamente não relacionados, normalmente entre 0 e 4 correspondências
+
+        IBD seria 1 e IBS seria o mesmo que comparar quaisquer clones completamente não relacionados, normalmente entre 0 e 4 correspondências.
+
+        O IBD seria 0 e o IBS seria ligeiramente superior, algures entre 5 e 8 correspondências
+
+        > Uma vez que o híbrido não tem qualquer relação com o clone 3, o IBD seria 0 e o IBS seria o mesmo que comparar quaisquer clones completamente não relacionados, normalmente entre 0 e 4 correspondências para estes diversos loci de microhaplótipos.
+
+      Em que é que os seus resultados com microhaplótipos são diferentes dos resultados obtidos quando comparou clones de laboratório com SNPs?
+
+        É mais fácil distinguir parasitas aparentados de não aparentados com microhaplótipos do que com SNPs.
+
+        É mais difícil distinguir entre parasitas aparentados e não aparentados com microhaplótipos do que com SNPs.
+
+        É igualmente difícil distinguir parasitas aparentados de não aparentados, quer utilizando microhaplótipos ou SNPs.
+
+        > O seu investimento valeu a pena - com 12 SNPs era difícil distinguir irmãos de parasitas não relacionados, e por vezes até de parasitas perfeitamente relacionados, com base no número de correspondências.
+
+        > Concluiu a genotipagem com microhaplótipos de alta resolução.
+
+        > Ao aumentar a resolução da sua genotipagem, pode mais facilmente dizer quais os parasitas que estão relacionados por ancestralidade e, portanto, por transmissão. Agora também tem uma boa noção do que observa em termos de SII significa em termos do verdadeiro parentesco dos parasitas. Está quase pronto para responder às perguntas do seu programa sobre estes surtos! Só tem mais uma coisa a fazer primeiro...
+
+    ]
+
+2.
+
+  Comparações de genótipos policlonais
+  Transmissões
+
+  Perguntas
+    [
+      Quantos dos loci coincidem?
+
+      Qual é o IBS para estas duas amostras?
+
+      Qual é o IBD para estas duas amostras?
+
+        > Embora o número de correspondências possa ser superior ao anterior, uma vez que uma das suas amostras é policlonal, isso não altera o facto de nenhum dos parasitas entre as duas amostras estar relacionado por ascendência. Uma vez que não têm qualquer relação entre si, o IBD é 0.
+
+        > O mesmo que a comparação anterior - Uma vez que não estão completamente relacionados, o IBD é 0
+
+      O que achas que poderias ver se o MOI numa ou em ambas as amostras fosse ainda mais elevado, mas ainda assim não contivesse parasitas relacionados entre as duas amostras?
+
+        O IBS seria menor.
+
+        A SII seria a mesma coisa.
+
+        O IBS seria mais elevado.
+
+        > Correto, o SCI seria mais elevado. Isto deve-se à mesma razão pela qual é provável que o SCI seja mais elevado em amostras policlonais do que em amostras monoclonais - pode haver mais alelos presentes para potencialmente coincidirem por acaso. Este histograma mostra o número de loci que se esperaria ver com alelos correspondentes (SCI) se não houver parasitas relacionados entre as duas amostras.
+
+        > IBS para infecções não relacionadas
+
+      O que pensa que poderia fazer para distinguir melhor as infecções relacionadas das não relacionadas à medida que o MOI aumenta? (escolher tudo o que se aplica)
+
+        Desista - será impossível saber.
+
+        Aumentar o número de loci genotipados.
+
+        Aumente a diversidade dos loci que genotipa.
+
+        Utilizar métodos estatísticos mais poderosos que estimem diretamente a IBD em vez de utilizar a IBS.
+
+          > Em situações em que o MOI é mais elevado, um painel de genotipagem maior e mais diversificado pode ajudar a obter uma maior resolução. Além disso, estão disponíveis métodos estatísticos especificamente concebidos para estimar a IBD a partir de infecções policlonais, que fornecem estimativas exactas, bem como significância estatística. Felizmente, para os casos que está a investigar neste exercício, a transmissão é relativamente baixa e deverá ser capaz de descobrir o que se está a passar calculando a IBD utilizando o seu painel de 12 microhaplótipos.
+
+      Qual é o IBD para estas duas amostras? Uma vez que pode haver várias formas de interpretar o IBD quando as amostras são policlonais, vamos considerar o IBD máximo para quaisquer parasitas entre as duas amostras, ou seja, o IBD dos parasitas mais relacionados.
+
+        > Tem um parasita geneticamente idêntico em ambas as amostras - clone 1 (o parasita de cor vermelha), pelo que a IBD é 1.0 ou 100%.
+
+      O que é que acha que seria o SII nesta situação? Felizmente, tem os controlos certos para testar a sua hipótese! Quais são os dois controlos que deve comparar?
+
+        > Deveria ter verificado que o IBS é 1.0 - era isto que esperava?
+
+        > O ponto importante a reter é que se uma pessoa transmite parasitas diretamente a outra pessoa através de um mosquito, todos os locus devem ter uma correspondência entre essas duas pessoas - o SCI deve ser 1.0.
+
+        > Isto é verdade independentemente do facto de um ou mais parasitas serem transmitidos e de a recombinação ocorrer ou não no mosquito.
+
+
+    ]
+
+3.
+  Infecções
+  Potencial rede de transmissão
+  Genótipos com SII
+  Correspondências de genótipos
+  Rede de transmissão da aldeia
+  Feedback
+  Infecções de estudantes
+  Resultados
+
+  Perguntas
+    [
+      Estes valores de MOI dão-lhe alguma pista sobre a probabilidade de a transmissão ter ocorrido na escola ou nas aldeias de origem dos alunos?
+
+        Sim, estes dados são suficientes para tirar conclusões finais de que toda a transmissão teve origem nas aldeias de origem.
+
+        Sim, estes dados são suficientes para tirar conclusões finais de que toda a transmissão ocorreu na escola.
+
+        Sim, estes dados sugerem que pelo menos algumas infecções podem ter tido origem nas aldeias de origem.
+
+        Não, os valores MOI não fornecem qualquer informação útil sobre a origem das infecções.
+
+          > Os valores de MOI não fornecem informações conclusivas sobre o local onde ocorreu a transmissão. No entanto, alguns dos valores mais elevados são suspeitos de que os alunos tenham sido infectados numa área de alta transmissão, o que sugere potencialmente que esses casos podem ter ocorrido em casa e não na escola. Isto deve-se ao facto de a escola se situar numa zona de transmissão muito baixa na província de Eliminati e, por isso, não é de esperar muita superinfeção, embora, como se sabe, a co-transmissão, mesmo numa zona de baixa transmissão, possa resultar numa infeção policlonal a partir de uma única picada de mosquito.
+
+      Com base na sua análise dos genótipos, vê alguma evidência de transmissão direta de paludismo (através de um mosquito) entre alguma destas crianças? Lembre-se de que, neste exercício, espera que o IBS seja 1 quando há transmissão direta.
+
+        > Correto! Apesar de existirem alguns alelos que coincidem por acaso entre estas infecções, o IBS é inferior a 1 para todas as suas comparações. Isto significa que não encontrou provas de transmissão direta na escola!
+
+      Qual das seguintes seria uma forma correta de comunicar as suas conclusões às partes interessadas, tais como a comunidade escolar, o governo local e o programa de controlo da malária?
+
+        Provou definitivamente que não existe qualquer transmissão de malária na escola.
+
+        Não se pode dizer de uma forma ou de outra se a transmissão da malária está a ocorrer na escola, pelo que se opta por dizer que os resultados não são claros.
+
+        Pode afirmar com um grau de confiança razoável que estes quatro casos não estão relacionados com a transmissão e não são suspeitos de um surto na escola. No entanto, se forem detectados casos adicionais na escola ou nas proximidades, a sua equipa deve ser imediatamente contactada para prosseguir a investigação.
+
+        Não se pode dar ao trabalho de interpretar os resultados para as outras pessoas e apenas lhes mostra os dados de genotipagem, deixando-as descobrir por si próprias.
+
+          > Pode ter a certeza de que estes casos não estão diretamente relacionados com os seus resultados. É claro que é possível que a transmissão ainda possa ocorrer no futuro, ou que haja infecções adicionais por paludismo relacionadas com alguns destes quatro casos que ainda não foram detectados. É sempre bom manter um nível de vigilância e continuar a vigilância de alta qualidade da malária e a gestão de casos, mas, por enquanto, não parece haver qualquer razão para implementar quaisquer intervenções adicionais. Excelente trabalho! Evitou que a comunidade desperdiçasse recursos na tentativa de controlar um "surto" que não era realmente uma preocupação.
+
+      Repare nos dois casos com historial de viagens que são potencialmente casos importados. Seria de esperar que as suas infecções por parasitas da malária estivessem relacionadas entre si por descendência? Porquê ou porque não? Escolha todas as opções aplicáveis.
+
+        Sim, porque ambos viajaram para que os seus parasitas se pareçam com os parasitas importados, que são todos iguais.
+
+        Sim, uma vez que ambos têm infecções policlonais, é provável que as infecções estejam relacionadas entre si.
+
+        Não, porque ambos viajaram para locais diferentes, as populações de parasitas podem ser diferentes e, portanto, é pouco provável que os parasitas que adquiriram estejam relacionados.
+
+        Não, porque viajaram para áreas de elevada transmissão onde a diversidade de parasitas pode ser elevada e é pouco provável que esses parasitas estejam relacionados entre si.
+
+        > Se as duas pessoas com historial de viagens viajaram juntas, por exemplo, se faziam parte do mesmo agregado familiar, então é possível que as suas infecções possam estar relacionadas. Neste caso, sabemos que relatam ter viajado para diferentes áreas geográficas com elevada transmissão e que provavelmente adquiriram as suas infecções nessas áreas. Uma vez que, em geral, existe uma grande diversidade genética de parasitas em áreas de elevada transmissão, e que são provenientes de regiões diferentes, não seria de esperar que os seus parasitas estivessem relacionados por ascendência. É exatamente isso que encontramos. Uma vez que o MOI destes casos é 2 e 3, seria de esperar ver algumas correspondências por acaso; o que observamos - 4 de 12 loci com uma correspondência, ou IBS de 0,33 - está dentro do intervalo do que seria de esperar com infecções não relacionadas.
+
+        > Pode haver vários tipos de informação que lhe interessam, mas a data dos casos é uma das mais importantes. A sua equipa partilha consigo uma base de dados epidemiológica limpa e bem organizada com dados relativos aos cinco casos. Acontece que os casos E e F foram detectados com uma semana de diferença um do outro, e que os casos G, H e I apresentaram paludismo entre duas e seis semanas depois.
+
+      Como é que interpreta estes dados epidemiológicos adicionais sobre a cronologia dos casos?
+
+        Os casos E e F ocorreram tão perto um do outro no tempo que é provável que estejam relacionados um com o outro, apesar de ambos terem viajado para locais diferentes e de as suas infecções não estarem estreitamente relacionadas geneticamente.
+
+        Os casos G, H e I (que não viajaram) não podem ser relacionados com os casos E e F, uma vez que ocorreram muito mais tarde.
+
+        Os casos G, H e I (que não viajaram) podem estar relacionados com os casos importados, uma vez que pode levar várias semanas para que a transmissão ocorra de uma pessoa para outra e depois cause malária sintomática.
+
+      Bom trabalho! Integrou dados epidemiológicos e genéticos do parasita para avaliar com exatidão a transmissão na aldeia.
+
+      Há, no entanto, um caso que vale a pena analisar mais de perto.
+
+        > Achou que não havia provas de transmissão direta entre os casos G e I. Tinha razão - o IBS era inferior a um. No entanto, estes dois genótipos tinham mais correspondências do que seria de esperar para infecções completamente não relacionadas. Se não estivessem relacionados (barras no histograma), esperaríamos ver mais de 5 correspondências, mas nos seus dados viu 8/12 (IBS=0,67).
+
+        > O número de correspondências é consistente com o facto de os parasitas nestes casos serem irmãos, ou seja, um IBD de 0,5 (barras verdes no histograma). Os irmãos podem ocorrer quando dois parasitas têm os mesmos pais... isto faz sentido tendo em conta o resto da vossa estimativa de transmissão?
+
+        > A sua intuição é muito boa - estes dois casos têm mais loci relacionados do que seria de esperar por acaso. O MOI é apenas um para ambos os casos, pelo que não seria de esperar ver mais de cinco loci emparelhados se os casos fossem completamente não relacionados (barras azuis no histograma) e vemos 8 correspondências (IBS de 0,67). No entanto, também sabemos que não estão diretamente relacionados por transmissão, uma vez que esperaríamos que fossem idênticos (IBS=1). O que é que acha que poderia explicar este nível intermédio de parentesco?
+
+        > O número de correspondências é consistente com o facto de os parasitas nestes casos serem irmãos, ou seja, um IBD de 0,5 (barras verdes no histograma). Os irmãos podem ocorrer quando dois parasitas têm os mesmos pais... isto faz sentido tendo em conta o resto da vossa estimativa de transmissão?
+
+      Com base na sua avaliação, que tipos de casos pensa que existem na aldeia? (Escolha todos os que se aplicam)
+
+        Estojos importados
+
+        Casos introduzidos
+
+        Casos de transmissão local
+        
+        > Correto! Os casos E e F são muito provavelmente casos importados, com base no facto de não terem sido notificados casos nesta aldeia antes destes dois, e no seu historial recente de viagens a áreas de elevada transmissão. Os casos I e G são provavelmente casos introduzidos provenientes do caso E, e o caso H é provavelmente um caso introduzido do caso F.
+
+      Qual das seguintes seria uma forma correta de comunicar as suas conclusões aos interessados, tais como a comunidade da aldeia, o governo local e o programa de controlo da malária?
+
+        Provou definitivamente que não há absolutamente nenhuma transmissão de malária na aldeia.
+
+        Não se pode dizer de uma forma ou de outra se a transmissão da malária está a ocorrer na aldeia, pelo que se opta por dizer que os resultados não são claros.
+
+        Pode afirmar-se com um elevado grau de confiança que, até à data, foram observados indícios de uma transmissão local limitada - apenas uma única geração de transmissão a partir de casos importados que conduziu a três casos introduzidos. Ainda não existem provas de transmissão local contínua para além desta, o que é consistente com o estatuto de eliminação.
+
+        Pode dizer-se com um grau de confiança razoável que estes cinco casos não estão relacionados com a transmissão e não são suspeitos de um surto que esteja a ocorrer na aldeia.
+
+        Não se pode dar ao trabalho de interpretar os resultados para as outras pessoas e apenas lhes mostra os dados de genotipagem, deixando-as descobrir por si próprias.
+
+      O diretor do programa pergunta-lhe o que deve ser feito a nível programático com base nestes resultados detalhados resultantes da sua investigação minuciosa. Sugere:
+
+        Reduzir as intervenções na área administrativa onde se situa esta aldeia, uma vez que não há transmissão aqui e que os recursos poderiam ser mais bem empregues noutros locais.
+
+        Manter as intervenções ao nível atual - a transmissão de casos importados para casos introduzidos foi limitada, mas não parece ter continuado para além disso. No entanto, se forem detectados casos adicionais na aldeia ou nas proximidades, a sua equipa deve ser imediatamente contactada para continuar a investigação. Entretanto, manterá todos os dados de genotipagem bem organizados na sua base de dados atual, caso sejam detectados mais casos.
+
+        Investir em intervenções mais intensivas, uma vez que se receia a iminência de um grande surto.
+
+        > Demonstrou que existe alguma transmissão na aldeia (pelo que a opção A está incorrecta), mas parece ser limitada, pelo menos por enquanto. Por conseguinte, seria razoável manter as intervenções onde estão, continuando a estar vigilante e investindo numa vigilância epidemiológica e genómica rigorosa. Os recursos adicionais gastos em intervenções podem reduzir a probabilidade de introdução de casos, mas como a transmissão não parece ser sustentada neste momento, esses recursos podem ser mais bem gastos noutros locais.
+
+      Anteriormente, afirmou que as transmissões eram muito provavelmente originárias de casos importados e que as intervenções deveriam ser mantidas aos níveis actuais, mantendo a diligência. Essa recomendação altera-se com base nesta rede de transmissão?
+
+        Não teria alterado a minha recomendação.
+
+        Teria ficado mais preocupado com a transmissão local sustentada e teria recomendado a intensificação das intervenções destinadas a reduzir a transmissão na aldeia.
+
+        Eu teria ficado menos preocupado e teria recomendado a redução da intensidade das intervenções.
+
+        > Se a transmissão pudesse ter ocorrido entre os casos G e I, isso representaria pelo menos duas gerações de transmissão - E para G e depois G para I - consistente com a transmissão local contínua e não mais consistente com o status de eliminação. Para alcançar a eliminação, que é o seu objetivo para esta área, as intervenções teriam provavelmente de ser melhoradas através de uma melhor orientação ou de uma intensificação geral.
+
+      Quantos clones de parasitas diferentes existem em todos os casos? Dica: Lembra-te que as bolas coloridas representam os genótipos dos parasitas presentes nestes cinco casos, pelo que bolas de aspeto diferente serão clones distintos com genótipos diferentes.
+
+        > É isso mesmo - cada parasita nestes casos é geneticamente distinto, embora alguns estejam relacionados entre si. São nove no total.
+
+      Quantos clones de parasitas, ou linhagens, foram inicialmente introduzidos na aldeia pelos dois casos que tinham viajado?
+
+        > Grande - cinco linhagens geneticamente distintas foram introduzidas na aldeia, duas pelo caso E e três pelo caso F. Os parasitas dos casos G, H e I estão todos relacionados com estas cinco linhagens.
+
+
+    ]

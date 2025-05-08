@@ -7,7 +7,9 @@ export default function InteractivePrompt({
   instructions,
   complete,
   skippable,
+  lang = "EN",
 }: {
+  lang: "EN" | "FR" | "PT";
   skippable?: boolean;
   complete: boolean;
   title: ReactElement | null;
@@ -21,14 +23,30 @@ export default function InteractivePrompt({
           id="interactive-top"
           className="sr-only focus:not-sr-only focus:absolute focus:px-1 focus:py-0.5"
         >
-          Top of Interactive
+          {lang === "EN"
+            ? `Top of Interactive`
+            : lang === "FR"
+            ? `Haut de l'interactif`
+            : lang === "PT"
+            ? `Topo do Interativo`
+            : `Top of Interactive`}
         </button>
         <div
           className={`${
             complete ? "" : "invisible"
           } ml-auto flex items-center gap-2`}
         >
-          <span className="ml-auto text-lg font-normal">(Complete)</span>
+          <span className="ml-auto text-lg font-normal">
+            (
+            {lang === "EN"
+              ? `Complete`
+              : lang === "FR"
+              ? `Complété`
+              : lang === "PT"
+              ? `Completo`
+              : `Complete`}
+            )
+          </span>
           <svg
             className="-translate-y-1 fill-current"
             width="16pt"
@@ -50,7 +68,7 @@ export default function InteractivePrompt({
         >
           {title}
         </div>
-        <div className="leading-[23px] min-h-[calc(2lh+8px)]">
+        <div className="min-h-[calc(2lh+8px)] leading-[23px]">
           {instructions}
         </div>
       </div>
@@ -64,7 +82,13 @@ export default function InteractivePrompt({
           }}
           className="sr-only focus:not-sr-only focus:absolute focus:p-1"
         >
-          Skip Interactive Content
+          {lang === "EN"
+            ? `Skip Interactive Content`
+            : lang === "FR"
+            ? `Passer le contenu interactif`
+            : lang === "PT"
+            ? `Pular conteúdo interativo`
+            : `Skip Interactive Content`}
         </button>
       )}
     </div>
