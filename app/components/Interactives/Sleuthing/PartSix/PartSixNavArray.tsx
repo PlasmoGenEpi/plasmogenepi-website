@@ -23,15 +23,21 @@ import SquareMicrohaplotype from "../../Shared/Microhaplotypes/SquareMicrohaplot
 import { useEffect } from "react";
 import { currentView2Atom } from "../../Shared/InteractiveViewer/InteractiveViewer";
 
-export default function PartSixNavArray({ forwards }: { forwards: boolean }) {
+export default function PartSixNavArray({
+  forwards,
+  lang,
+}: {
+  lang: "EN" | "PT" | "FR";
+  forwards: boolean;
+}) {
   const [phase2, setPhase2] = useAtom(phase2Atom);
   const cloneRows = useAtomValue(partSixCloneRowsAtom);
   const cloneRowsMHPs = useAtomValue(partSixCloneRowsMHPsAtom);
   const [activePairwiseCombo, setActivePairwiseCombo] = useAtom(
-    activePairwiseComboAtom
+    activePairwiseComboAtom,
   );
   const [activePairwiseMHPsCombo, setActivePairwiseMHPsCombo] = useAtom(
-    activePairwiseMHPsComboAtom
+    activePairwiseMHPsComboAtom,
   );
   const completion = useAtomValue(partSixCompletionAtom);
   const setCurrentView = useSetAtom(currentView2Atom);
@@ -43,10 +49,12 @@ export default function PartSixNavArray({ forwards }: { forwards: boolean }) {
       {phase2 <= 2 && (
         <div className={"mx-auto w-full max-w-[500px]"}>
           <RefRow
+            lang={lang}
             refValues={fixedData[6].refValues}
             altValues={fixedData[6].altValues}
           />
           <AlternateRow
+            lang={lang}
             refValues={fixedData[6].refValues}
             altValues={fixedData[6].altValues}
           />
@@ -70,10 +78,10 @@ export default function PartSixNavArray({ forwards }: { forwards: boolean }) {
                 ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                 : "[&>*]:opacity-50"
             } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
           >
             <div className="w-full text-center text-sm font-bold">
-              <label>Clones 1 & 2</label>
+              {lang === "EN" && <label>{`Clones 1 & 2`}</label>}
             </div>
             <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
               <div
@@ -86,7 +94,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   return (
                     <div
                       className={`aspect-square border ${microhaplotypeColorMap.get(
-                        JSON.stringify(getRowConfiguration(val as number))
+                        JSON.stringify(getRowConfiguration(val as number)),
                       )}`}
                       key={idx}
                     >
@@ -107,7 +115,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   return (
                     <div
                       className={`aspect-square border ${microhaplotypeColorMap.get(
-                        JSON.stringify(getRowConfiguration(val))
+                        JSON.stringify(getRowConfiguration(val)),
                       )}`}
                       key={idx}
                     >
@@ -135,11 +143,11 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                   : "[&>*]:opacity-50"
               } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
             >
               {" "}
               <div className="w-full text-center text-sm font-bold">
-                <label>Clones 1 & 3</label>
+                {lang === "EN" && <label>Clones 1 & 3</label>}
               </div>
               <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
                 <div
@@ -152,7 +160,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -173,7 +181,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val))
+                          JSON.stringify(getRowConfiguration(val)),
                         )}`}
                         key={idx}
                       >
@@ -202,11 +210,11 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                   : "[&>*]:opacity-50"
               } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
             >
               {" "}
               <div className="w-full text-center text-sm font-bold">
-                <label>Clones 2 & 3</label>
+                {lang === "EN" && <label>Clones 2 & 3</label>}
               </div>
               <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
                 <div
@@ -219,7 +227,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -240,7 +248,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -263,9 +271,9 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
               }}
               className={`${
                 phase2 === 8
-                  ? "outline-2 outline-offset-4 outline outline-interactiveBlue"
+                  ? "outline outline-2 outline-offset-4 outline-interactiveBlue"
                   : "opacity-50"
-              } text-xl text-center text-current my-auto [font-variant:all-small-caps] p-2 transition-all`}
+              } my-auto p-2 text-center text-xl text-current transition-all [font-variant:all-small-caps]`}
             >
               <svg
                 width="36pt"
@@ -288,9 +296,9 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
               }}
               className={`${
                 phase2 === 9
-                  ? "outline-2 outline-offset-4 outline outline-interactiveBlue"
+                  ? "outline outline-2 outline-offset-4 outline-interactiveBlue"
                   : "opacity-50"
-              } text-xl text-center text-current my-auto [font-variant:all-small-caps] p-2 transition-all`}
+              } my-auto p-2 text-center text-xl text-current transition-all [font-variant:all-small-caps]`}
             >
               <svg
                 width="36pt"
@@ -313,9 +321,9 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
               }}
               className={`${
                 phase2 === 10
-                  ? "outline-2 outline-offset-4 outline outline-interactiveBlue"
+                  ? "outline outline-2 outline-offset-4 outline-interactiveBlue"
                   : "opacity-50"
-              } text-xl text-center text-current my-auto [font-variant:all-small-caps] p-2 transition-all`}
+              } my-auto p-2 text-center text-xl text-current transition-all [font-variant:all-small-caps]`}
             >
               <svg
                 width="36pt"
@@ -335,7 +343,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
       )}
       {phase2 >= 12 && phase2 <= 14.5 && (
         <div
-          className={` grid grid-cols-3 @4xl/main:grid-cols-5 place-items-center gap-8 [&>button]:mx-auto`}
+          className={` grid grid-cols-3 place-items-center gap-8 @4xl/main:grid-cols-5 [&>button]:mx-auto`}
         >
           <button
             data-tip="Clones 1 & 4"
@@ -353,10 +361,10 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                 ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                 : "[&>*]:opacity-50"
             } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
           >
             <div className="w-full text-center text-sm font-bold">
-              <label>Clones 1 & 4</label>
+              {lang === "EN" && <label>Clones 1 & 4</label>}
             </div>
             <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
               <div
@@ -369,7 +377,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   return (
                     <div
                       className={`aspect-square border ${microhaplotypeColorMap.get(
-                        JSON.stringify(getRowConfiguration(val as number))
+                        JSON.stringify(getRowConfiguration(val as number)),
                       )}`}
                       key={idx}
                     >
@@ -388,7 +396,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   return (
                     <div
                       className={`aspect-square border ${microhaplotypeColorMap.get(
-                        JSON.stringify(getRowConfiguration(val))
+                        JSON.stringify(getRowConfiguration(val)),
                       )}`}
                       key={idx}
                     >
@@ -416,10 +424,10 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                   : "[&>*]:opacity-50"
               } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
             >
               <div className="w-full text-center text-sm font-bold">
-                <label>Clones 2 & 4</label>
+                {lang === "EN" && <label>Clones 2 & 4</label>}
               </div>
               <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
                 <div
@@ -432,7 +440,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -451,7 +459,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val))
+                          JSON.stringify(getRowConfiguration(val)),
                         )}`}
                         key={idx}
                       >
@@ -470,9 +478,9 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
               }}
               className={`${
                 phase2 === 13.5
-                  ? "outline-2 outline-offset-4 outline outline-interactiveBlue"
+                  ? "outline outline-2 outline-offset-4 outline-interactiveBlue"
                   : "opacity-50"
-              } text-xl text-center text-current my-auto [font-variant:all-small-caps] p-2 transition-all`}
+              } my-auto p-2 text-center text-xl text-current transition-all [font-variant:all-small-caps]`}
             >
               <svg
                 width="36pt"
@@ -505,10 +513,10 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                   : "[&>*]:opacity-50"
               } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
             >
               <div className="w-full text-center text-sm font-bold">
-                <label>Clones 3 & 4</label>
+                {lang === "EN" && <label>Clones 3 & 4</label>}
               </div>
               <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
                 <div
@@ -521,7 +529,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -540,7 +548,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -569,10 +577,10 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                   : "[&>*]:opacity-50"
               } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
             >
               <div className="w-full text-center text-sm font-bold">
-                <label>Clones X & X</label>
+                {lang === "EN" && <label>Clones X & X</label>}
               </div>
               <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
                 <div
@@ -585,7 +593,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -606,7 +614,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val))
+                          JSON.stringify(getRowConfiguration(val)),
                         )}`}
                         key={idx}
                       >
@@ -647,10 +655,10 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                 ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                 : "[&>*]:opacity-50"
             } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
           >
             <div className="w-full text-center text-sm font-bold">
-              <label>Clones 1 & 2</label>
+              {lang === "EN" && <label>Clones 1 & 2</label>}
             </div>
             <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
               <div
@@ -663,7 +671,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   return (
                     <div
                       className={`aspect-square border ${microhaplotypeColorMap.get(
-                        JSON.stringify(getRowConfiguration(val as number))
+                        JSON.stringify(getRowConfiguration(val as number)),
                       )}`}
                       key={idx}
                     >
@@ -684,7 +692,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   return (
                     <div
                       className={`aspect-square border ${microhaplotypeColorMap.get(
-                        JSON.stringify(getRowConfiguration(val))
+                        JSON.stringify(getRowConfiguration(val)),
                       )}`}
                       key={idx}
                     >
@@ -712,10 +720,10 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                   : "[&>*]:opacity-50"
               } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
             >
               <div className="w-full text-center text-sm font-bold">
-                <label>Clones 1 & 3</label>
+                {lang === "EN" && <label>Clones 1 & 3</label>}
               </div>
               <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
                 <div
@@ -728,7 +736,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -749,7 +757,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val))
+                          JSON.stringify(getRowConfiguration(val)),
                         )}`}
                         key={idx}
                       >
@@ -778,10 +786,10 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                   : "[&>*]:opacity-50"
               } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
             >
               <div className="w-full text-center text-sm font-bold">
-                <label>Clones 2 & 3</label>
+                {lang === "EN" && <label>Clones 2 & 3</label>}
               </div>
               <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
                 <div
@@ -794,7 +802,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -815,7 +823,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -847,10 +855,10 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                 ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                 : "[&>*]:opacity-50"
             } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
           >
             <div className="w-full text-center text-sm font-bold">
-              <label>Clones 1 & 4</label>
+              {lang === "EN" && <label>Clones 1 & 4</label>}
             </div>
             <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
               <div
@@ -863,7 +871,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   return (
                     <div
                       className={`aspect-square border ${microhaplotypeColorMap.get(
-                        JSON.stringify(getRowConfiguration(val as number))
+                        JSON.stringify(getRowConfiguration(val as number)),
                       )}`}
                       key={idx}
                     >
@@ -882,7 +890,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   return (
                     <div
                       className={`aspect-square border ${microhaplotypeColorMap.get(
-                        JSON.stringify(getRowConfiguration(val))
+                        JSON.stringify(getRowConfiguration(val)),
                       )}`}
                       key={idx}
                     >
@@ -910,10 +918,10 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                   : "[&>*]:opacity-50"
               } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
             >
               <div className="w-full text-center text-sm font-bold">
-                <label>Clones 2 & 4</label>
+                {lang === "EN" && <label>Clones 2 & 4</label>}
               </div>
               <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
                 <div
@@ -926,7 +934,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -945,7 +953,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val))
+                          JSON.stringify(getRowConfiguration(val)),
                         )}`}
                         key={idx}
                       >
@@ -964,9 +972,9 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
               }}
               className={`${
                 phase2 === 31.5
-                  ? "outline-2 outline-offset-4 outline outline-interactiveBlue"
+                  ? "outline outline-2 outline-offset-4 outline-interactiveBlue"
                   : "opacity-50"
-              } text-xl text-center text-current my-auto [font-variant:all-small-caps] p-2 transition-all`}
+              } my-auto p-2 text-center text-xl text-current transition-all [font-variant:all-small-caps]`}
             >
               <svg
                 width="36pt"
@@ -997,10 +1005,10 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                   ? "outline outline-2 outline-offset-4  outline-interactiveBlue"
                   : "[&>*]:opacity-50"
               } +
-tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-open p-2`}
+tooltip flex  w-full max-w-[200px] flex-col gap-1 p-2 transition-all focus:tooltip-open`}
             >
               <div className="w-full text-center text-sm font-bold">
-                <label>Clones 3 & 4</label>
+                {lang === "EN" && <label>Clones 3 & 4</label>}
               </div>
               <div className="grid w-full gap-1 [grid-template-columns:8%_auto]">
                 <div
@@ -1013,7 +1021,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >
@@ -1032,7 +1040,7 @@ tooltip flex  w-full max-w-[200px] flex-col gap-1 transition-all focus:tooltip-o
                     return (
                       <div
                         className={`aspect-square border ${microhaplotypeColorMap.get(
-                          JSON.stringify(getRowConfiguration(val as number))
+                          JSON.stringify(getRowConfiguration(val as number)),
                         )}`}
                         key={idx}
                       >

@@ -15,7 +15,9 @@ import SNPHybridClone from "../Comparators/SNPs/SNPHybridClone";
 export default function P6CloneRowsWithHybrid({
   forwards,
   label = true,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   forwards?: boolean;
   label?: boolean;
 }) {
@@ -92,7 +94,7 @@ export default function P6CloneRowsWithHybrid({
             </CloneRow>
           );
         })}
-      <SNPHybridClone />
+      <SNPHybridClone lang={lang} />
     </div>
   );
 }

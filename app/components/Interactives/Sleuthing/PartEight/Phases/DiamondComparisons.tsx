@@ -15,7 +15,11 @@ import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 import QuestionResponseText from "@/app/components/Interactives/Shared/misc/QuestionResponseText";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function DiamondComparisons() {
+export default function DiamondComparisons({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [activePair, setActivePair] = useAtom(partEightDiamondPersonPairAtom);
   const [phase, setPhase] = useAtom(phase2Atom);
   const [questions, setQuestions] = useAtom(partEightQuestionsAtom);
@@ -23,7 +27,13 @@ export default function DiamondComparisons() {
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={"Potential Transmission Network"}
+      leftHeader={
+        lang === "EN"
+          ? "Potential Transmission Network"
+          : lang === "FR"
+          ? "Réseau de transmission potentiel"
+          : "Rede de transmissão potencial"
+      }
       rightHeader={phase === 5 ? "Genotypes with IBS" : "Questions"}
       leftContent={<NewDiamond />}
       rightContent={

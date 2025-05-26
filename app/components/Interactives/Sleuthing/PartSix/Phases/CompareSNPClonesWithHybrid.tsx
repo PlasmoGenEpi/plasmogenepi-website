@@ -30,7 +30,11 @@ import MultiRowLayout from "@/app/components/Interactives/Shared/misc/MultiRowLa
 import ImageContainer from "@/app/components/Interactives/Shared/misc/ImageContainer";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function CompareSNPClonesWithHybrid() {
+export default function CompareSNPClonesWithHybrid({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [pairwiseCompletion, setPairwiseCompletion] = useAtom(
     pairwiseCompletionAtom,
   );
@@ -74,7 +78,15 @@ export default function CompareSNPClonesWithHybrid() {
 
     return (
       <InteractivePrimaryLayout
-        leftHeader={"Questions"}
+        leftHeader={
+          lang === "EN"
+            ? "Questions"
+            : lang === "FR"
+            ? "Questions"
+            : lang === "PT"
+            ? "Perguntas"
+            : ""
+        }
         leftContent={
           <div className="col-start-1 md:row-span-2 ">
             <div className={`${complete[phase] ? "" : "fadeIn500"}`}>
@@ -95,7 +107,15 @@ export default function CompareSNPClonesWithHybrid() {
                 hasAnswer={
                   partSixPairwiseQuestions[JSON.stringify([2, 4])][4] === 3
                 }
-                headerText="Both of the previous comparisons had the same IBD &ndash; 0.5 &ndash; since the hybrid clone is 50% related to each parent. Did you get the same IBS result each time? What do you think you would find if you did similar experiments looking at other, similarly related clones?"
+                headerText={
+                  lang === "EN"
+                    ? "Both of the previous comparisons had the same IBD &ndash; 0.5 &ndash; since the hybrid clone is 50% related to each parent. Did you get the same IBS result each time? What do you think you would find if you did similar experiments looking at other, similarly related clones?"
+                    : lang === "FR"
+                    ? "Les deux comparaisons précédentes avaient le même IBD &ndash; 0,5 &ndash; puisque le clone hybride est lié à 50 % à chaque parent. Avez-vous obtenu le même résultat d'IBS à chaque fois ? Que pensez-vous que vous trouveriez si vous faisiez des expériences similaires en examinant d'autres clones liés de la même manière ?"
+                    : lang === "PT"
+                    ? "Ambas as comparações anteriores tiveram o mesmo IBD &ndash; 0,5 &ndash; uma vez que o clone híbrido está 50% relacionado com cada progenitor. Obteve o mesmo resultado de SCI em cada vez? O que pensa que encontraria se fizesse experiências semelhantes analisando outros clones relacionados de forma semelhante?"
+                    : ""
+                }
                 classNames={{
                   container:
                     partSixPairwiseQuestions[JSON.stringify([2, 4])][2] ===
@@ -113,35 +133,70 @@ export default function CompareSNPClonesWithHybrid() {
                       partSixPairwiseQuestions[JSON.stringify([2, 4])][4] === 0,
                     correct: false,
                     index: 0,
-                    text: "0, or close to 0 matches",
+                    text:
+                      lang === "EN"
+                        ? "0, or close to 0 matches"
+                        : lang === "FR"
+                        ? "0, ou près de 0 correspondances"
+                        : lang === "PT"
+                        ? "0, ou perto de 0 correspondências"
+                        : "",
                   },
                   {
                     checked:
                       partSixPairwiseQuestions[JSON.stringify([2, 4])][4] === 1,
                     correct: false,
                     index: 1,
-                    text: "Approximately 25% matches",
+                    text:
+                      lang === "EN"
+                        ? "Approximately 25% matches"
+                        : lang === "FR"
+                        ? "Environ 25 % de correspondances"
+                        : lang === "PT"
+                        ? "Aproximadamente 25% de correspondências"
+                        : "",
                   },
                   {
                     checked:
                       partSixPairwiseQuestions[JSON.stringify([2, 4])][4] === 2,
                     correct: false,
                     index: 2,
-                    text: "Approximately 50% matches",
+                    text:
+                      lang === "EN"
+                        ? "Approximately 50% matches"
+                        : lang === "FR"
+                        ? "Environ 50 % de correspondances"
+                        : lang === "PT"
+                        ? "Aproximadamente 50% de correspondências"
+                        : "",
                   },
                   {
                     checked:
                       partSixPairwiseQuestions[JSON.stringify([2, 4])][4] === 3,
                     correct: true,
                     index: 3,
-                    text: "Approximately 75% matches",
+                    text:
+                      lang === "EN"
+                        ? "Approximately 75% matches"
+                        : lang === "FR"
+                        ? "Environ 75 % de correspondances"
+                        : lang === "PT"
+                        ? "Aproximadamente 75% de correspondências"
+                        : "",
                   },
                   {
                     checked:
                       partSixPairwiseQuestions[JSON.stringify([2, 4])][4] === 4,
                     correct: false,
                     index: 4,
-                    text: "100%, or close to 100% matches",
+                    text:
+                      lang === "EN"
+                        ? "100%, or close to 100% matches"
+                        : lang === "FR"
+                        ? "100 %, ou près de 100 % de correspondances"
+                        : lang === "PT"
+                        ? "100%, ou perto de 100% de correspondências"
+                        : "",
                   },
                 ]}
               >
@@ -151,7 +206,7 @@ export default function CompareSNPClonesWithHybrid() {
                     <span className="text-sm font-bold">IBS</span>
                   </div>
                   <div className="w-full">
-                    <SNPComparator activeCombo={[1, 4]} />
+                    <SNPComparator activeCombo={[1, 4]} lang={lang} />
                   </div>
 
                   <div className="col-start-2  self-center px-1 md:px-4">
@@ -167,7 +222,7 @@ export default function CompareSNPClonesWithHybrid() {
                     </span>{" "}
                   </div>
                   <div className="w-full">
-                    <SNPComparator activeCombo={[2, 4]} />
+                    <SNPComparator activeCombo={[2, 4]} lang={lang} />
                   </div>
                   <div className="col-start-2  self-center px-1 md:px-4">
                     <span className="text-sm font-bold">
@@ -219,7 +274,15 @@ export default function CompareSNPClonesWithHybrid() {
             </div>
           </div>
         }
-        rightHeader="IBS Distribution Graphs"
+        rightHeader={
+          lang === "EN"
+            ? "IBS Distribution Graphs"
+            : lang === "FR"
+            ? "Graphiques de distribution IBS"
+            : lang === "PT"
+            ? "Gráficos de distribuição de SCI"
+            : ""
+        }
         rightContent={
           <div
             className={`${
@@ -232,7 +295,15 @@ export default function CompareSNPClonesWithHybrid() {
           >
             {/* <FormHeader text="IBS Distribution Graphs" /> */}
             <ImageContainer
-              label={`SNP Match Probability - Sibling Clones (50% IBD)`}
+              label={
+                lang === "EN"
+                  ? `SNP Match Probability - Sibling Clones (50% IBD)`
+                  : lang === "FR"
+                  ? `Probabilité de correspondance SNP - Clones frères (50% IBD)`
+                  : lang === "PT"
+                  ? `Probabilidade de correspondência de SNP - Clones irmãos (50% IBD)`
+                  : ""
+              }
               id="SNP-75-25"
               path="/InteractiveAssets/M5_sluething_histogram_SNPs_MOI1_IBD0.5.svg"
             />
@@ -245,22 +316,66 @@ export default function CompareSNPClonesWithHybrid() {
               }
               complete={complete[phase] || false}
               content={
-                <div className="[fontSize: 15px] bg-interactiveBlue/10 p-4 dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8">
-                  <p>
-                    You would expect them to have roughly the same IBS, around
-                    9/12 or 75%. SNPs in the related half of the genome should
-                    always match perfectly, unless there are mutations or
-                    genotyping errors. However, since matches in the unrelated
-                    part are random, the overall number of matches can vary.
-                  </p>
+                lang === "EN" ? (
+                  <div className="[fontSize: 15px] bg-interactiveBlue/10 p-4 md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400">
+                    <p>
+                      You would expect them to have roughly the same IBS, around
+                      9/12 or 75%. SNPs in the related half of the genome should
+                      always match perfectly, unless there are mutations or
+                      genotyping errors. However, since matches in the unrelated
+                      part are random, the overall number of matches can vary.
+                    </p>
 
-                  <p className="mt-4">
-                    Most of the time, we expect to see somewhere between 7 and
-                    11 matches, but we may get 12/12 matches about 2% of the
-                    time. In all of these cases, IBD would be 0.5, but IBS could
-                    vary from 0.5 to 1.0 due to chance.
-                  </p>
-                </div>
+                    <p className="mt-4">
+                      Most of the time, we expect to see somewhere between 7 and
+                      11 matches, but we may get 12/12 matches about 2% of the
+                      time. In all of these cases, IBD would be 0.5, but IBS
+                      could vary from 0.5 to 1.0 due to chance.
+                    </p>
+                  </div>
+                ) : lang === "FR" ? (
+                  <div className="[fontSize: 15px] bg-interactiveBlue/10 p-4 md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400">
+                    <p>
+                      Vous vous attendriez à ce qu'ils aient à peu près le même
+                      IBS, environ 9/12 ou 75 %. Les SNP dans la moitié
+                      apparentée du génome devraient toujours correspondre
+                      parfaitement, sauf en cas de mutations ou d'erreurs de
+                      génotypage. Cependant, puisque les correspondances dans la
+                      partie non apparentée sont aléatoires, le nombre total de
+                      correspondances peut varier.
+                    </p>
+
+                    <p className="mt-4">
+                      La plupart du temps, nous nous attendons à voir entre 7 et
+                      11 correspondances, mais nous pouvons obtenir 12/12
+                      correspondances environ 2 % du temps. Dans tous ces cas,
+                      l'IBD serait de 0,5, mais l'IBS pourrait varier de 0,5 à
+                      1,0 en raison du hasard.
+                    </p>
+                  </div>
+                ) : lang === "PT" ? (
+                  <div className="[fontSize: 15px] bg-interactiveBlue/10 p-4 md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400">
+                    <p>
+                      Esperaria que tivessem aproximadamente o mesmo SCI, cerca
+                      de 9/12 ou 75%. Os SNPs na metade relacionada do genoma
+                      devem corresponder sempre perfeitamente, a menos que
+                      existam mutações ou erros de genotipagem. No entanto, uma
+                      vez que as correspondências na parte não relacionada são
+                      aleatórias, o número total de correspondências pode
+                      variar.
+                    </p>
+
+                    <p className="mt-4">
+                      Na maioria das vezes, esperamos ver entre 7 e 11
+                      correspondências, mas podemos obter 12/12 correspondências
+                      cerca de 2% das vezes. Em todos estes casos, o DCI seria
+                      de 0,5 , mas o SCI poderia variar de 0,5 a 1,0 devido ao
+                      acaso.
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )
               }
             />
           </div>
@@ -272,8 +387,24 @@ export default function CompareSNPClonesWithHybrid() {
   if (phase === 14.5) {
     return (
       <InteractivePrimaryLayout
-        leftHeader={`Compare Identical Clones`}
-        rightHeader={`Questions`}
+        leftHeader={
+          lang === "EN"
+            ? `Compare Identical Clones`
+            : lang === "FR"
+            ? `Comparer des clones identiques`
+            : lang === "PT"
+            ? `Comparar Clones Idênticos`
+            : ``
+        }
+        rightHeader={
+          lang === "EN"
+            ? `Questions`
+            : lang === "FR"
+            ? `Questions`
+            : lang === "PT"
+            ? `Perguntas`
+            : ``
+        }
         leftContent={
           <div className="col-start-1 ">
             <div className=" flex max-w-[500px] flex-col gap-1 dark:brightness-75">
@@ -371,7 +502,15 @@ export default function CompareSNPClonesWithHybrid() {
                         partSixPairwiseQuestions[JSON.stringify([3, 4])][4] ===
                         12
                       }
-                      headerText="What is the IBS in this case?"
+                      headerText={
+                        lang === "EN"
+                          ? "What is the IBS in this case?"
+                          : lang === "FR"
+                          ? "Quel est l'IBS dans ce cas ?"
+                          : lang === "PT"
+                          ? "Qual é o SCI neste caso?"
+                          : ""
+                      }
                       questionIdx={4}
                     />
                     <KnowledgeCheckQuestion
@@ -421,7 +560,15 @@ export default function CompareSNPClonesWithHybrid() {
                         partSixPairwiseQuestions[JSON.stringify([3, 4])][5] ===
                         12
                       }
-                      headerText="What is the IBD?"
+                      headerText={
+                        lang === "EN"
+                          ? "What is the IBD?"
+                          : lang === "FR"
+                          ? "Quel est l'IBD ?"
+                          : lang === "PT"
+                          ? "Qual é o DCI?"
+                          : ""
+                      }
                       questionIdx={5}
                     />
                   </div>
@@ -438,27 +585,73 @@ export default function CompareSNPClonesWithHybrid() {
                 partSixPairwiseQuestions[JSON.stringify([3, 4])][5] === 12
               }
               content={
-                <div>
-                  <div
-                    className={
-                      "bg-interactiveBlue/10 text-pretty p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
-                    }
-                  >
-                    <p>
-                      That's right - if the parasites are identical, the entire
-                      genome is related, so IBD is 100% or 1.0, and all the loci
-                      will match (i.e. IBS will also be 1.0). As long as your
-                      genotyping is accurate, you will get 12/12 matches every
-                      time!
-                    </p>
+                lang === "EN" ? (
+                  <div>
+                    <div
+                      className={
+                        "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400"
+                      }
+                    >
+                      <p>
+                        That's right - if the parasites are identical, the
+                        entire genome is related, so IBD is 100% or 1.0, and all
+                        the loci will match (i.e. IBS will also be 1.0). As long
+                        as your genotyping is accurate, you will get 12/12
+                        matches every time!
+                      </p>
+                    </div>
+                    <ImageContainer
+                      className="border-x-[24px] border-b-[24px] border-interactiveBlue/10 dark:border-zinc-900/50"
+                      id="IBD-100"
+                      path="/InteractiveAssets/M5_sluething_histogram_SNPs_MOI1_IBD1.svg"
+                      label={`SNP Match Probability - Identical Clones (100% IBD)`}
+                    />
                   </div>
-                  <ImageContainer
-                    className="border-interactiveBlue/10 border-x-[24px] border-b-[24px] dark:border-zinc-900/50"
-                    id="IBD-100"
-                    path="/InteractiveAssets/M5_sluething_histogram_SNPs_MOI1_IBD1.svg"
-                    label={`SNP Match Probability - Identical Clones (100% IBD)`}
-                  />
-                </div>
+                ) : lang === "FR" ? (
+                  <div>
+                    <div
+                      className={
+                        "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400"
+                      }
+                    >
+                      <p>
+                        C'est exact : si les parasites sont identiques, tout le
+                        génome est lié, donc l'IBD est de 100 % ou 1,0, et tous
+                        les loci correspondront (c'est-à-dire que l'IBS sera
+                        également de 1,0). Tant que votre génotypage est précis,
+                        vous obtiendrez 12/12 correspondances à chaque fois !
+                      </p>
+                    </div>
+                    <ImageContainer
+                      className="border-x-[24px] border-b-[24px] border-interactiveBlue/10 dark:border-zinc-900/50"
+                      id="IBD-100"
+                      path="/InteractiveAssets/M5_sluething_histogram_SNPs_MOI1_IBD1.svg"
+                      label={`Probabilité de correspondance SNP - Clones identiques (IBD de 100 %)`}
+                    />
+                  </div>
+                ) : (
+                  <div>
+                    <div
+                      className={
+                        "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400"
+                      }
+                    >
+                      <p>
+                        Isso mesmo - se os parasitas forem idênticos, todo o
+                        genoma está relacionado, pelo que o DCI é de 100% ou
+                        1,0, e todos os loci corresponderão (ou seja, o SCI
+                        também será de 1,0). Desde que a sua genotipagem seja
+                        precisa, obterá 12/12 correspondências sempre!
+                      </p>
+                    </div>
+                    <ImageContainer
+                      className="border-x-[24px] border-b-[24px] border-interactiveBlue/10 dark:border-zinc-900/50"
+                      id="IBD-100"
+                      path="/InteractiveAssets/M5_sluething_histogram_SNPs_MOI1_IBD1.svg"
+                      label={`Probabilidade de correspondência de SNP - Clones idênticos (DCI de 100%)`}
+                    />
+                  </div>
+                )
               }
             />
           </div>
@@ -655,15 +848,24 @@ export default function CompareSNPClonesWithHybrid() {
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Genotype Comparisons with SNPs and Hybrid`}
+      leftHeader={
+        lang === "EN"
+          ? `Genotype Comparisons with SNPs and Hybrid`
+          : lang === "FR"
+          ? `Comparaisons de génotypes avec SNPs et hybride`
+          : lang === "PT"
+          ? `Comparações de genótipos com SNPs e híbrido`
+          : ``
+      }
       leftContent={
         <div
           // key={JSON.stringify(activeCombo)}
           className=" "
         >
-          <P6CloneRowsWithHybrid />
+          <P6CloneRowsWithHybrid lang={lang} />
           <div className="mt-2">
             <SNPComparator
+              lang={lang}
               activeCombo={
                 phase === 12
                   ? [1, 4]
@@ -678,13 +880,22 @@ export default function CompareSNPClonesWithHybrid() {
           </div>
         </div>
       }
-      rightHeader="Questions"
+      rightHeader={
+        lang === "EN"
+          ? "Questions"
+          : lang === "FR"
+          ? "Questions"
+          : lang === "PT"
+          ? "Perguntas"
+          : ""
+      }
       rightContentStyle={{
         gridRow: "span 2",
       }}
       rightContent={
         <div className="">
           <CompareSNPHybridCloneQuestions
+            lang={lang}
             activePairwiseCombo={
               phase === 12
                 ? [1, 4]
@@ -711,20 +922,38 @@ export default function CompareSNPClonesWithHybrid() {
           }
           text={
             phase === 12
-              ? `      That's right - again we have the privilege of knowing the
+              ? lang === "EN"
+                ? `That's right - again we have the privilege of knowing the
     true relatedness by ancestry of these lab clones. Since clone 4 is a
     child of clone 1 and shares exactly 50% of it's genome by
     ancestry - the red part - IBD is 0.5 or 50%.`
+                : lang === "FR"
+                ? `C'est exact - encore une fois, nous avons le privilège de connaître la véritable parenté par ascendance de ces clones de laboratoire. Puisque le clone 4 est un enfant du clone 1 et partage exactement 50% de son génome par ascendance - la partie rouge - l'IBD est de 0,5 ou 50%.`
+                : lang === "PT"
+                ? `Isso mesmo - mais uma vez temos o privilégio de conhecer o verdadeiro parentesco por ascendência destes clones de laboratório. Uma vez que o clone 4 é um filho do clone 1 e partilha exatamente 50% do seu genoma por ascendência - a parte vermelha - o DCI é de 0,5 ou 50%.`
+                : ""
               : phase === 13
-              ? `That's right - just like before, IBD is 0.5 since the hybrid
-      clone shares 50% of its genome with the parent, in this case the blue
-      part.`
+              ? lang === "EN"
+                ? `That's right - just like before, IBD is 0.5 since the hybrid
+                clone shares 50% of its genome with the parent, in this case the blue
+                part.`
+                : lang === "FR"
+                ? `C'est exact - tout comme avant, l'IBD est de 0,5 puisque le clone hybride partage 50% de son génome avec le parent, dans ce cas la partie bleue.`
+                : lang === "PT"
+                ? `Isso mesmo - tal como antes, o DCI é de 0,5 uma vez que o clone híbrido partilha 50% do seu genoma com o progenitor, neste caso a parte azul.`
+                : ""
               : phase === 14
-              ? `That's right - again we have the privilege of knowing the
+              ? lang === "EN"
+                ? `That's right - again we have the privilege of knowing the
         true relatedness by ancestry of these lab clones. Since clone 4 is not
         a child of clone 3 and shares none of it's genome by ancestry, IBD
         is 0%. This is the same situation as our initial comparisons of lab
         clones 1, 2, and 3.`
+                : lang === "FR"
+                ? `C'est exact - encore une fois, nous avons le privilège de connaître la véritable parenté par ascendance de ces clones de laboratoire. Puisque le clone 4 n'est pas un enfant du clone 3 et ne partage aucune partie de son génome par ascendance, l'IBD est de 0%. C'est la même situation que nos comparaisons initiales des clones de laboratoire 1, 2 et 3.`
+                : lang === "PT"
+                ? `Isso mesmo - mais uma vez temos o privilégio de conhecer o verdadeiro parentesco por ascendência destes clones de laboratório. Uma vez que o clone 4 não é um filho do clone 3 e não partilha nenhuma parte do seu genoma por ascendência, o DCI é de 0%. Esta é a mesma situação que as nossas comparações iniciais dos clones de laboratório 1, 2 e 3.`
+                : ""
               : undefined
           }
         />

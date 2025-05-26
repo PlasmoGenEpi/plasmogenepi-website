@@ -27,7 +27,9 @@ import {
 export default function SNPComparator({
   activeCombo,
   label,
+  lang,
 }: {
+  lang?: "EN" | "FR" | "PT";
   label?: boolean;
   activeCombo: [number, number];
 }) {
@@ -88,8 +90,14 @@ export default function SNPComparator({
         {label && (
           <div className="mb-2 mt-4  text-center">
             <label className="text-sm">
-              Check each box below with matching alleles at the corresponding
-              locus.
+              {lang === "EN"
+                ? `Check each box below with matching alleles at the corresponding
+              locus.`
+                : lang === "FR"
+                ? `Cochez chaque case ci-dessous avec les allèles correspondants au locus correspondant.`
+                : lang === "PT"
+                ? `Marque cada caixa abaixo com alelos correspondentes no locus correspondente.`
+                : ``}
             </label>
           </div>
         )}
@@ -136,8 +144,14 @@ export default function SNPComparator({
       {label && (
         <div className="mb-2 mt-4  text-center">
           <label className="text-sm">
-            Check each box below with matching alleles at the corresponding
-            locus.
+            {lang === "EN"
+              ? `Check each box below with matching alleles at the corresponding
+            locus.`
+              : lang === "FR"
+              ? `Cochez chaque case ci-dessous avec les allèles correspondants au locus correspondant.`
+              : lang === "PT"
+              ? `Marque cada caixa abaixo com alelos correspondentes no locus correspondente.`
+              : ``}
           </label>
         </div>
       )}

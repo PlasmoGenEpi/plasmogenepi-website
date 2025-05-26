@@ -164,7 +164,13 @@ import InteractiveSideBar4 from "../InteractiveSideBar/InteractiveSideBar4/Inter
 //   );
 // }
 
-export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
+export default function InteractiveViewer2({
+  dev,
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+  dev?: boolean;
+}) {
   const [isOpen, setIsOpen] = useAtom(sideBarIsOpenAtom);
   const [currentView, setCurrentView] = useAtom(currentView2Atom);
 
@@ -181,10 +187,16 @@ export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
         }}
         className={`sr-only`}
       >
-        Open Menu
+        {lang === "EN"
+          ? `Open Menu`
+          : lang === "FR"
+          ? `Ouvrir le menu`
+          : lang === "PT"
+          ? `Abrir Menu`
+          : ``}
       </button>
       <div className="flex w-full max-w-full grow overflow-clip">
-        <ResetPrompt currentModule="5.6" />
+        <ResetPrompt currentModule="5.6" lang={lang} />
         {/* <InteractiveSideBar
             module={module}
             currentView={currentView}
@@ -195,7 +207,7 @@ export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
           currentView={currentView}
           setCurrentView={setCurrentView}
         /> */}
-        <InteractiveSideBar4 dev={dev} />
+        <InteractiveSideBar4 dev={dev} lang={lang} />
         {/* <InteractiveSideBar
           setCurrentView={setCurrentView}
           currentView={currentView}
@@ -248,13 +260,13 @@ export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
               className="relative pb-80 @container/main"
             >
               {currentView.section === 0 ? (
-                <Part2Intro />
+                <Part2Intro lang={lang} />
               ) : currentView.section === 1 ? (
-                <PartSix />
+                <PartSix lang={lang} />
               ) : currentView.section === 2 ? (
-                <PartSeven />
+                <PartSeven lang={lang} />
               ) : currentView.section === 3 ? (
-                <PartEight fixed={false} />
+                <PartEight fixed={false} lang={lang} />
               ) : null}{" "}
             </div>
           </div>
@@ -265,7 +277,7 @@ export default function InteractiveViewer2({ dev }: { dev?: boolean }) {
           ></div>
         </div>
       </div>
-      <InteractiveControlPanel2 />
+      <InteractiveControlPanel2 lang={lang} />
     </div>
   );
 }

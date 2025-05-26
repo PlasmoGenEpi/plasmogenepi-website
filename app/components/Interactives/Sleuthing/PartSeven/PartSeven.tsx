@@ -107,7 +107,7 @@ const cloneControlDivMap: { [key: number]: ReactElement } = {
   ),
 };
 
-export default function PartSeven() {
+export default function PartSeven({ lang }: { lang: "EN" | "FR" | "PT" }) {
   const [phase, setPhase] = useAtom(phase2Atom);
   const [questions, setQuestions] = useAtom(P6Step2QuestionsAtom);
   const completion = useAtomValue(partSevenCompletionAtom);
@@ -138,26 +138,47 @@ export default function PartSeven() {
   return (
     <div>
       <InteractivePrompt
+        lang={lang}
         complete={completion[phase]}
-        title={partSevenPrompts[phase]?.title}
-        instructions={partSevenPrompts[phase]?.instructions}
+        title={partSevenPrompts[phase]?.title[lang]}
+        instructions={partSevenPrompts[phase]?.instructions[lang]}
       />
-      {phase <= 3 && phase > 0 && <PositiveControls />}
+      {phase <= 3 && phase > 0 && <PositiveControls lang={lang} />}
       {phase >= 4 && phase < 6 && (
-        <Genotypes currentClone={3} first={1} second={2} />
+        <Genotypes currentClone={3} first={1} second={2} lang={lang} />
       )}
       {phase >= 6 && phase <= 7 && (
-        <Genotypes currentClone={1} first={2} second={3} />
+        <Genotypes currentClone={1} first={2} second={3} lang={lang} />
       )}
       {phase > 7 && phase <= 8 && (
         <InteractivePrimaryLayout
-          leftHeader={"IBS Probability"}
-          rightHeader={"Questions"}
+          leftHeader={
+            lang === "EN"
+              ? "IBS Probability"
+              : lang === "FR"
+              ? "Probabilité IBS"
+              : "Probabilidade IBS"
+          }
+          rightHeader={
+            lang === "EN"
+              ? "Questions"
+              : lang === "FR"
+              ? "Questions"
+              : "Questões"
+          }
           leftContent={
             <ImageContainer
               className="fadeIn500"
               id="moi-1-2"
-              label="IBS for unrelated infections"
+              label={
+                lang === "EN"
+                  ? "IBS for unrelated infections"
+                  : lang === "FR"
+                  ? "IBS pour les infections non liées"
+                  : lang === "PT"
+                  ? "IBS para infecções não relacionadas"
+                  : ""
+              }
               path="/InteractiveAssets/M5_sluething_histogram_MHs_MOI1.1_vs1.2_IBD_0.svg"
             />
           }
@@ -181,29 +202,66 @@ export default function PartSeven() {
                     checked: questions[7] === 0,
                     correct: false,
                     index: 0,
-                    text: "IBS would be lower.",
+                    text:
+                      lang === "EN"
+                        ? "IBS would be lower."
+                        : lang === "FR"
+                        ? "L'IBS serait plus faible."
+                        : lang === "PT"
+                        ? "O IBS seria menor."
+                        : "",
                   },
                   {
                     checked: questions[7] === 1,
                     correct: false,
                     index: 1,
-                    text: "IBS would be the same.",
+                    text:
+                      lang === "EN"
+                        ? "IBS would be the same."
+                        : lang === "FR"
+                        ? "L'IBS serait le même."
+                        : lang === "PT"
+                        ? "O IBS seria o mesmo."
+                        : "",
                   },
                   {
                     checked: questions[7] === 2,
                     correct: true,
                     index: 2,
-                    text: "IBS would be higher.",
+                    text:
+                      lang === "EN"
+                        ? "IBS would be higher."
+                        : lang === "FR"
+                        ? "L'IBS serait plus élevé."
+                        : lang === "PT"
+                        ? "O IBS seria maior."
+                        : "",
                   },
                 ]}
-                headerText="What do you think you might see if MOI in one or both samples was even higher, but still contained no related parasites between the two samples?"
+                headerText={
+                  lang === "EN"
+                    ? "What do you think you might see if MOI in one or both samples was even higher, but still contained no related parasites between the two samples?"
+                    : lang === "FR"
+                    ? "Que pensez-vous que vous pourriez voir si l'IMO dans un ou les deux échantillons était encore plus élevé, mais ne contenait toujours aucun parasite apparenté entre les deux échantillons ?"
+                    : lang === "PT"
+                    ? "O que você acha que poderia ver se o MOI em uma ou ambas as amostras fosse ainda maior, mas ainda não contivesse parasitas relacionados entre as duas amostras?"
+                    : ""
+                }
               />
               <QuestionResponseText
                 className="mt-8"
                 complete={completion[phase] || false}
                 trigger={questions[7] === 2}
                 visible={questions[7] === 2}
-                text="Correct, IBS would be higher. This is for the same reason that IBS is likely to be higher in polyclonal versus monoclonal samples – there may be more alleles present to potentially match by chance. This histogram shows the number of loci you would expect to see with matching alleles (IBS) if there are no related parasites between the two samples."
+                text={
+                  lang === "EN"
+                    ? "Correct, IBS would be higher. This is for the same reason that IBS is likely to be higher in polyclonal versus monoclonal samples – there may be more alleles present to potentially match by chance. This histogram shows the number of loci you would expect to see with matching alleles (IBS) if there are no related parasites between the two samples."
+                    : lang === "FR"
+                    ? "Correct, l'IBS serait plus élevé. C'est pour la même raison que l'IBS est susceptible d'être plus élevé dans les échantillons polyclonaux que dans les échantillons monoclonaux : il peut y avoir plus d'allèles présents qui peuvent potentiellement correspondre par hasard. Cet histogramme montre le nombre de locus que vous vous attendriez à voir avec des allèles correspondants (IBS) s'il n'y a pas de parasites apparentés entre les deux échantillons."
+                    : lang === "PT"
+                    ? "Correto, o IBS seria maior. Isso ocorre pelo mesmo motivo pelo qual o IBS provavelmente será maior em amostras policlonais versus monoclonais – pode haver mais alelos presentes para potencialmente corresponder por acaso. Este histograma mostra o número de loci que você esperaria ver com alelos correspondentes (IBS) se não houver parasitas relacionados entre as duas amostras."
+                    : ""
+                }
               />
             </div>
           }
@@ -272,16 +330,36 @@ export default function PartSeven() {
       )}
       {phase > 8 && phase <= 9 && (
         <InteractivePrimaryLayout
-          leftHeader={"IBS Probability"}
+          leftHeader={
+            lang === "EN"
+              ? "IBS Probability"
+              : lang === "FR"
+              ? "Probabilité IBS"
+              : "Probabilidade IBS"
+          }
           leftContent={
             <ImageContainer
               className="fadeIn500"
               id="moi-varies"
-              label="IBS Distribution for Different MOIs"
+              label={
+                lang === "EN"
+                  ? "IBS Distribution for Different MOIs"
+                  : lang === "FR"
+                  ? "Distribution IBS pour différents MOI"
+                  : lang === "PT"
+                  ? "Distribuição IBS para diferentes MOIs"
+                  : "IBS Distribution for Different MOIs"
+              }
               path="/InteractiveAssets/M5_sluething_histogram_MHs_MOIvaries_IBD_0.svg"
             />
           }
-          rightHeader="Questions"
+          rightHeader={
+            lang === "EN"
+              ? "Questions"
+              : lang === "FR"
+              ? "Questions"
+              : "Questões"
+          }
           rightContent={
             <div>
               <KnowledgeCheckQuestion
@@ -309,28 +387,64 @@ export default function PartSeven() {
                     checked: questions[8][0] ?? false,
                     correct: false,
                     index: 0,
-                    text: " Give up – it will be impossible to tell.",
+                    text:
+                      lang === "EN"
+                        ? " Give up – it will be impossible to tell."
+                        : lang === "FR"
+                        ? " Abandonner – il sera impossible de le dire."
+                        : lang === "PT"
+                        ? " Desistir – será impossível dizer."
+                        : " Give up – it will be impossible to tell.",
                   },
                   {
                     checked: questions[8][1] ?? false,
                     correct: true,
                     index: 1,
-                    text: "Increase the number of loci you genotype.",
+                    text:
+                      lang === "EN"
+                        ? "Increase the number of loci you genotype."
+                        : lang === "FR"
+                        ? "Augmenter le nombre de loci que vous génotypez."
+                        : lang === "PT"
+                        ? "Aumentar o número de loci que você genotipa."
+                        : "Increase the number of loci you genotype.",
                   },
                   {
                     checked: questions[8][2] ?? false,
                     correct: true,
                     index: 2,
-                    text: "Increase the diversity of loci you genotype.",
+                    text:
+                      lang === "EN"
+                        ? "Increase the diversity of loci you genotype."
+                        : lang === "FR"
+                        ? "Augmenter la diversité des loci que vous génotypez."
+                        : lang === "PT"
+                        ? "Aumentar a diversidade de loci que você genotipa."
+                        : "Increase the diversity of loci you genotype.",
                   },
                   {
                     checked: questions[8][3] ?? false,
                     correct: true,
                     index: 3,
-                    text: "Use more powerful statistical methods that directly estimate IBD instead of using IBS.",
+                    text:
+                      lang === "EN"
+                        ? "Use more powerful statistical methods that directly estimate IBD instead of using IBS."
+                        : lang === "FR"
+                        ? "Utiliser des méthodes statistiques plus puissantes qui estiment directement l'IBD au lieu d'utiliser l'IBS."
+                        : lang === "PT"
+                        ? "Use métodos estatísticos mais poderosos que estimam diretamente o IBD em vez de usar o IBS."
+                        : "Use more powerful statistical methods that directly estimate IBD instead of using IBS.",
                   },
                 ]}
-                headerText="What do you think you could do to better distinguish related from unrelated infections as MOI increases? (choose all that apply)"
+                headerText={
+                  lang === "EN"
+                    ? "What do you think you could do to better distinguish related from unrelated infections as MOI increases? (choose all that apply)"
+                    : lang === "FR"
+                    ? "Que pensez-vous que vous pourriez faire pour mieux distinguer les infections apparentées des infections non apparentées à mesure que l'IMO augmente ? (choisissez toutes les réponses appropriées)"
+                    : lang === "PT"
+                    ? "O que você acha que poderia fazer para distinguir melhor as infecções relacionadas de não relacionadas à medida que o MOI aumenta? (escolha todas as opções aplicáveis)"
+                    : "What do you think you could do to better distinguish related from unrelated infections as MOI increases? (choose all that apply)"
+                }
               />
               <QuestionResponseText
                 className="mt-8"
@@ -347,7 +461,15 @@ export default function PartSeven() {
                   questions[8][2] &&
                   questions[8][3]
                 }
-                text="In situations where MOI is higher, a larger, more diverse genotyping panel can help provide increased resolution. In addition, statistical methods specifically designed to estimate IBD from polyclonal infections are available and provide accurate estimates as well as statistical significance.  Fortunately, for the cases you are investigating this exercise, transmission is relatively low and you should be able to figure out what is going on by calculating IBS using your panel of 12 microhaplotypes."
+                text={
+                  lang === "EN"
+                    ? "In situations where MOI is higher, a larger, more diverse genotyping panel can help provide increased resolution. In addition, statistical methods specifically designed to estimate IBD from polyclonal infections are available and provide accurate estimates as well as statistical significance.  Fortunately, for the cases you are investigating this exercise, transmission is relatively low and you should be able to figure out what is going on by calculating IBS using your panel of 12 microhaplotypes."
+                    : lang === "FR"
+                    ? "Dans les situations où l'IMO est plus élevé, un panel de génotypage plus large et plus diversifié peut aider à fournir une résolution accrue. De plus, des méthodes statistiques spécialement conçues pour estimer l'IBD à partir d'infections polyclonales sont disponibles et fournissent des estimations précises ainsi qu'une signification statistique. Heureusement, pour les cas que vous étudiez dans cet exercice, la transmission est relativement faible et vous devriez être en mesure de comprendre ce qui se passe en calculant l'IBS à l'aide de votre panel de 12 microhaplotypes."
+                    : lang === "PT"
+                    ? "Em situações em que o MOI é maior, um painel de genotipagem maior e mais diversificado pode ajudar a fornecer maior resolução. Além disso, métodos estatísticos especificamente projetados para estimar o IBD a partir de infecções policlonais estão disponíveis e fornecem estimativas precisas, bem como significância estatística. Felizmente, para os casos que você está investigando neste exercício, a transmissão é relativamente baixa e você deve ser capaz de descobrir o que está acontecendo calculando o IBS usando seu painel de 12 microhaplótipos."
+                    : "In situations where MOI is higher, a larger, more diverse genotyping panel can help provide increased resolution. In addition, statistical methods specifically designed to estimate IBD from polyclonal infections are available and provide accurate estimates as well as statistical significance.  Fortunately, for the cases you are investigating this exercise, transmission is relatively low and you should be able to figure out what is going on by calculating IBS using your panel of 12 microhaplotypes."
+                }
               />
             </div>
           }
@@ -438,15 +560,35 @@ export default function PartSeven() {
         // ></MultiRowLayout>
       )}
       {phase >= 10 && phase < 12 && (
-        <Genotypes currentClone={1} first={1} second={2} />
+        <Genotypes lang={lang} currentClone={1} first={1} second={2} />
       )}
 
       {phase === 12 && (
         <InteractivePrimaryLayout
           leftHeader={
-            phase === 12 ? "Polyclonal Genotype Comparisons" : "Questions"
+            phase === 12
+              ? lang === "EN"
+                ? "Polyclonal Genotype Comparisons"
+                : lang === "FR"
+                ? "Comparaisons de génotypes polyclonaux"
+                : "Comparaisons de génotypes polyclonaux"
+              : lang === "EN"
+              ? "Questions"
+              : lang === "FR"
+              ? "Questions"
+              : lang === "PT"
+              ? "Questões"
+              : "Questions"
           }
-          rightHeader={"Transmissions"}
+          rightHeader={
+            lang === "EN"
+              ? "Transmissions"
+              : lang === "FR"
+              ? "Transmissions"
+              : lang === "PT"
+              ? "Transmissões"
+              : "Transmissions"
+          }
           rightContent={
             <ImageContainer
               className="fadeIn500"
@@ -535,8 +677,22 @@ export default function PartSeven() {
       )}
       {phase === 13 && (
         <InteractivePrimaryLayout
-          leftHeader={"Contransmission with Recombination"}
-          rightHeader="Questions"
+          leftHeader={
+            lang === "EN"
+              ? "Contransmission with Recombination"
+              : lang === "FR"
+              ? "Cotransmission avec recombinaison"
+              : lang === "PT"
+              ? "Cotransmissão com recombinação"
+              : "Contransmission with Recombination"
+          }
+          rightHeader={
+            lang === "EN"
+              ? "Questions"
+              : lang === "PT"
+              ? "Questões"
+              : "Questions"
+          }
           leftContent={
             <ImageContainer
               className="fadeIn500"
@@ -551,14 +707,23 @@ export default function PartSeven() {
               role="radiogroup"
               aria-roledescription="radiogroup"
               className={`focus-within:outline-offset-8`}
-              aria-label={`What do you think IBS would be in this situation? Fortunately,
-              you have just the controls to test out your hypothesis! Which
-              two controls should you compare?`}
             >
               <h6 className="mb-8 [fontSize:15px]">
-                What do you think IBS would be in this situation? Fortunately,
+                {lang === "EN"
+                  ? `What do you think IBS would be in this situation? Fortunately,
                 you have just the controls to test out your hypothesis! Which
-                two controls should you compare?
+                two controls should you compare?`
+                  : lang === "FR"
+                  ? `Quel serait selon vous l'IBS dans cette situation ? Heureusement,
+                vous avez juste les contrôles pour tester votre hypothèse ! Quels
+                deux contrôles devriez-vous comparer ?`
+                  : lang === "PT"
+                  ? `Qual você acha que seria o IBS nesta situação? Felizmente,
+                você tem apenas os controles para testar sua hipótese! Quais
+                dois controles você deve comparar?`
+                  : `What do you think IBS would be in this situation? Fortunately,
+                you have just the controls to test out your hypothesis! Which
+                two controls should you compare?`}
               </h6>
               <ol className="grid grid-cols-2 gap-4 text-black dark:brightness-75">
                 {Array(7)
@@ -777,12 +942,28 @@ export default function PartSeven() {
         // ></MultiRowLayout>
       )}
       {(phase === 14 || phase === 15) && (
-        <Genotypes currentClone={4} first={1} second={2} />
+        <Genotypes lang={lang} currentClone={4} first={1} second={2} />
       )}
       {phase === 16 && (
         <InteractivePrimaryLayout
-          leftHeader="Polyclonal Genotype Comparison"
-          rightHeader="Transmissions"
+          leftHeader={
+            lang === "EN"
+              ? "Polyclonal Genotype Comparison"
+              : lang === "FR"
+              ? "Comparaison de génotypes polyclonaux"
+              : lang === "PT"
+              ? "Comparação de genótipos policlonais"
+              : "Polyclonal Genotype Comparison"
+          }
+          rightHeader={
+            lang === "EN"
+              ? "Transmissions"
+              : lang === "FR"
+              ? "Transmissions"
+              : lang === "PT"
+              ? "Transmissões"
+              : "Transmissions"
+          }
           leftContent={
             <div>
               <div
@@ -893,31 +1074,87 @@ export default function PartSeven() {
             })}
           </CloneRow> */}
               </div>
-              <QuestionResponseText
-                className="mt-8"
-                visible
-                content={
-                  <div
-                    className={
-                      "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] dark:bg-zinc-900/50 dark:text-emerald-400 md:p-6 md:px-8"
-                    }
-                  >
-                    <p>
-                      <span className="font-bold">
-                        The important take home point is that if one person
-                        transmits parasites directly to another person through a
-                        mosquito, every locus should have a match between those
-                        two people - IBS should be 1.0.
-                      </span>
-                    </p>
-                    <p className="mt-4">
-                      This is true regardless of whether one or more parasites
-                      are transmitted, and whether recombination occurs in the
-                      mosquito or not.
-                    </p>
-                  </div>
-                }
-              />
+              {lang === "EN" ? (
+                <QuestionResponseText
+                  className="mt-8"
+                  visible
+                  content={
+                    <div
+                      className={
+                        "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400"
+                      }
+                    >
+                      <p>
+                        <span className="font-bold">
+                          The important take home point is that if one person
+                          transmits parasites directly to another person through
+                          a mosquito, every locus should have a match between
+                          those two people - IBS should be 1.0.
+                        </span>
+                      </p>
+                      <p className="mt-4">
+                        This is true regardless of whether one or more parasites
+                        are transmitted, and whether recombination occurs in the
+                        mosquito or not.
+                      </p>
+                    </div>
+                  }
+                />
+              ) : lang === "FR" ? (
+                <QuestionResponseText
+                  className="mt-8"
+                  visible
+                  content={
+                    <div
+                      className={
+                        "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400"
+                      }
+                    >
+                      <p>
+                        <span className="font-bold">
+                          Le point essentiel à retenir est que si une personne
+                          transmet des parasites directement à une autre
+                          personne par l'intermédiaire d'un moustique, chaque
+                          locus doit avoir une correspondance entre ces deux
+                          personnes - IBS doit être de 1,0.
+                        </span>
+                      </p>
+                      <p className="mt-4">
+                        Cela est vrai, qu'un ou plusieurs parasites soient
+                        transmis, et que la recombinaison se produise ou non
+                        chez le moustique.
+                      </p>
+                    </div>
+                  }
+                />
+              ) : (
+                <QuestionResponseText
+                  className="mt-8"
+                  visible
+                  content={
+                    <div
+                      className={
+                        "text-pretty bg-interactiveBlue/10 p-4 leading-[23px] md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400"
+                      }
+                    >
+                      <p>
+                        <span className="font-bold">
+                          O ponto principal importante é que, se uma pessoa
+                          transmitir parasitas diretamente para outra pessoa por
+                          meio de um mosquito, cada locus deve ter uma
+                          correspondência entre essas duas pessoas - o IBS deve
+                          ser 1,0.
+                        </span>
+                      </p>
+                      <p className="mt-4">
+                        Isso é verdade, independentemente de um ou mais
+                        parasitas serem transmitidos e se a recombinação ocorre
+                        ou não no mosquito.
+                      </p>
+                    </div>
+                  }
+                />
+              )}
             </div>
           }
           rightContent={
@@ -1095,7 +1332,15 @@ export default function PartSeven() {
         <div className="grid place-items-center">
           <div className="mx-auto">
             <ImageContainer
-              label={` Microhaplotype Match Probability (0%, 50%, 100% IBD)`}
+              label={
+                lang === "EN"
+                  ? ` Microhaplotype Match Probability (0%, 50%, 100% IBD)`
+                  : lang === "FR"
+                  ? `Probabilité de correspondance des microhaplotypes (0 %, 50 %, 100 % IBD)`
+                  : lang === "PT"
+                  ? `Probabilidade de correspondência de microhaplótipos (0%, 50%, 100% IBD)`
+                  : ` Microhaplotype Match Probability (0%, 50%, 100% IBD)`
+              }
               id="a"
               path="/InteractiveAssets/M5_sluething_histogram_MHs_MOI1_IBD_0_0.5_1_together.svg"
             />

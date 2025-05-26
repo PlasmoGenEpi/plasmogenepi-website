@@ -16,7 +16,10 @@ export default function MicrohaplotypeComparator({
   label,
   activeCombo,
   children,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
+
   children?: ReactNode;
   activeCombo: [number, number];
   label?: boolean;
@@ -38,8 +41,14 @@ export default function MicrohaplotypeComparator({
         {label && (
           <div className="mb-2 mt-4  text-center">
             <label className="text-sm">
-              Check each box below with matching alleles at the corresponding
-              locus.
+              {lang === "EN"
+                ? `Check each box below with matching alleles at the corresponding
+              locus.`
+                : lang === "FR"
+                ? `Cochez chaque case ci-dessous avec les allèles correspondants au locus correspondant.`
+                : lang === "PT"
+                ? `Marque cada caixa abaixo com alelos correspondentes no locus correspondente.`
+                : ""}
             </label>
           </div>
         )}
@@ -85,8 +94,14 @@ export default function MicrohaplotypeComparator({
       {label && (
         <div className="mb-2 mt-4  text-center">
           <label className="text-sm">
-            Check each box below with matching alleles at the corresponding
-            locus.
+            {lang === "EN"
+              ? `Check each box below with matching alleles at the corresponding
+            locus.`
+              : lang === "FR"
+              ? `Cochez chaque case ci-dessous avec les allèles correspondants au locus correspondant.`
+              : lang === "PT"
+              ? `Marque cada caixa abaixo com alelos correspondentes no locus correspondente.`
+              : ""}
           </label>
         </div>
       )}

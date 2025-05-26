@@ -18,7 +18,10 @@ export const finalHybridQAtom = atomWithStorage<null | number>(
 
 export default function CompareMHPHybridCloneQuestions({
   activePairwiseCombo,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
+
   activePairwiseCombo: [number, number];
 }) {
   const phase = useAtomValue(phase2Atom);
@@ -63,7 +66,15 @@ export default function CompareMHPHybridCloneQuestions({
                       questions[JSON.stringify(activePairwiseCombo)][1] ===
                       correctCount
                     }
-                    headerText="How many of the loci match?"
+                    headerText={
+                      lang === "EN"
+                        ? "How many of the loci match?"
+                        : lang === "FR"
+                        ? "Combien de loci correspondent?"
+                        : lang === "PT"
+                        ? "Quantos dos loci correspondem?"
+                        : ""
+                    }
                     classNames={{
                       container:
                         questions[JSON.stringify(activePairwiseCombo)][1] ===
@@ -115,7 +126,15 @@ export default function CompareMHPHybridCloneQuestions({
                       questions[JSON.stringify(activePairwiseCombo)][2] ===
                       correctCount
                     }
-                    headerText="What is the IBS for these two parasites?"
+                    headerText={
+                      lang === "EN"
+                        ? "What is the IBS for these two parasites?"
+                        : lang === "FR"
+                        ? "Quel est l'IBS pour ces deux parasites?"
+                        : lang === "PT"
+                        ? "Qual é o SCI para estes dois parasitas?"
+                        : ""
+                    }
                     classNames={{
                       container:
                         questions[JSON.stringify(activePairwiseCombo)][2] ===
@@ -182,7 +201,15 @@ export default function CompareMHPHybridCloneQuestions({
                       questions[JSON.stringify(activePairwiseCombo)][3] ===
                       (phase === 32 ? 0 : 6)
                     }
-                    headerText="What is the IBD for these two parasites?"
+                    headerText={
+                      lang === "EN"
+                        ? "What is the IBD for these two parasites?"
+                        : lang === "FR"
+                        ? "Quel est l'IBD pour ces deux parasites?"
+                        : lang === "PT"
+                        ? "Qual é a DII para estes dois parasitas?"
+                        : "What is the IBD for these two parasites?"
+                    }
                     classNames={{
                       container:
                         questions[JSON.stringify(activePairwiseCombo)][3] ===
@@ -225,28 +252,79 @@ export default function CompareMHPHybridCloneQuestions({
                           : ""}
                     </p>
                   </div> */}
-                  <div
-                    className={
-                      phase === 31 && questions["[3,4]"][3] === 0
-                        ? ""
-                        : "hidden"
-                    }
-                  >
-                    <Image
-                      alt=""
-                      height={400}
-                      width={600}
-                      src="/InteractiveAssets/M5_sluething_histogram_MHs_MOI1_IBD0.5.svg"
-                    ></Image>
-                    <div className=" bg-interactiveBlue/10 mt-4 p-4 text-sm md:p-6">
-                      <p>
-                        Most of the time, we expect to see somewhere between 6
-                        and 8 matches, but we may get 9/12 matches about 2% of
-                        the time. Unlike with SNPs, we are very unlikely to see
-                        10 or more matches – less than 0.3% of the time.
-                      </p>
+                  {lang === "EN" ? (
+                    <div
+                      className={
+                        phase === 31 && questions["[3,4]"][3] === 0
+                          ? ""
+                          : "hidden"
+                      }
+                    >
+                      <Image
+                        alt=""
+                        height={400}
+                        width={600}
+                        src="/InteractiveAssets/M5_sluething_histogram_MHs_MOI1_IBD0.5.svg"
+                      ></Image>
+                      <div className=" mt-4 bg-interactiveBlue/10 p-4 text-sm md:p-6">
+                        <p>
+                          Most of the time, we expect to see somewhere between 6
+                          and 8 matches, but we may get 9/12 matches about 2% of
+                          the time. Unlike with SNPs, we are very unlikely to
+                          see 10 or more matches – less than 0.3% of the time.
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  ) : lang === "FR" ? (
+                    <div
+                      className={
+                        phase === 31 && questions["[3,4]"][3] === 0
+                          ? ""
+                          : "hidden"
+                      }
+                    >
+                      <Image
+                        alt=""
+                        height={400}
+                        width={600}
+                        src="/InteractiveAssets/M5_sluething_histogram_MHs_MOI1_IBD0.5.svg"
+                      ></Image>
+                      <div className=" mt-4 bg-interactiveBlue/10 p-4 text-sm md:p-6">
+                        <p>
+                          La plupart du temps, nous nous attendons à voir entre
+                          6 et 8 correspondances, mais nous pourrions obtenir
+                          9/12 correspondances environ 2 % du temps.
+                          Contrairement aux SNP, il est très peu probable que
+                          nous voyions 10 correspondances ou plus : moins de
+                          0,3 % du temps.
+                        </p>
+                      </div>
+                    </div>
+                  ) : lang === "PT" ? (
+                    <div
+                      className={
+                        phase === 31 && questions["[3,4]"][3] === 0
+                          ? ""
+                          : "hidden"
+                      }
+                    >
+                      <Image
+                        alt=""
+                        height={400}
+                        width={600}
+                        src="/InteractiveAssets/M5_sluething_histogram_MHs_MOI1_IBD0.5.svg"
+                      ></Image>
+                      <div className=" mt-4 bg-interactiveBlue/10 p-4 text-sm md:p-6">
+                        <p>
+                          Na maioria das vezes, esperamos ver entre 6 e 8
+                          correspondências, mas podemos obter 9/12
+                          correspondências cerca de 2% das vezes. Ao contrário
+                          dos SNPs, é muito improvável que vejamos 10 ou mais
+                          correspondências - menos de 0,3% das vezes.
+                        </p>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               )}
               {phase === 32 && (
@@ -262,19 +340,40 @@ export default function CompareMHPHybridCloneQuestions({
                         checked: finalHybridQ === 0,
                         correct: true,
                         index: 0,
-                        text: "IBD would be 0 and IBS would be the same as comparing any completely unrelated clones, usually between 0 and 4 matches",
+                        text:
+                          lang === "EN"
+                            ? "IBD would be 0 and IBS would be the same as comparing any completely unrelated clones, usually between 0 and 4 matches"
+                            : lang === "FR"
+                            ? "L'IBD serait de 0 et l'IBS serait le même que la comparaison de clones complètement non apparentés, généralement entre 0 et 4 correspondances"
+                            : lang === "PT"
+                            ? "A DII seria 0 e o SCI seria o mesmo que comparar quaisquer clones completamente não relacionados, geralmente entre 0 e 4 correspondências"
+                            : "",
                       },
                       {
                         checked: finalHybridQ === 1,
                         correct: false,
                         index: 1,
-                        text: "IBD would be 1 and IBS would be the same as comparing any completely unrelated clones, usually between 0 and 4 matches.",
+                        text:
+                          lang === "EN"
+                            ? "IBD would be 1 and IBS would be the same as comparing any completely unrelated clones, usually between 0 and 4 matches."
+                            : lang === "FR"
+                            ? "L'IBD serait de 1 et l'IBS serait le même que la comparaison de clones complètement non apparentés, généralement entre 0 et 4 correspondances."
+                            : lang === "PT"
+                            ? "A DII seria 1 e o SCI seria o mesmo que comparar quaisquer clones completamente não relacionados, geralmente entre 0 e 4 correspondências."
+                            : "",
                       },
                       {
                         checked: finalHybridQ === 2,
                         correct: false,
                         index: 2,
-                        text: "IBD would be 0 and IBS would be slightly higher, somewhere between 5 and 8 matches",
+                        text:
+                          lang === "EN"
+                            ? "IBD would be 0 and IBS would be slightly higher, somewhere between 5 and 8 matches"
+                            : lang === "FR"
+                            ? "L'IBD serait de 0 et l'IBS serait légèrement plus élevé, quelque part entre 5 et 8 correspondances"
+                            : lang === "PT"
+                            ? "A DII seria 0 e o SCI seria ligeiramente superior, algures entre 5 e 8 correspondências"
+                            : "",
                       },
                     ]}
                     callback={(questionIdx, answerIdx) => {
@@ -285,7 +384,15 @@ export default function CompareMHPHybridCloneQuestions({
                       }
                     }}
                     hasAnswer={finalHybridQ === 0}
-                    headerText="What do you think you would see if you compared our hybrid lab clone 4 to clone 3, which is not its parent?"
+                    headerText={
+                      lang === "EN"
+                        ? "What do you think you would see if you compared our hybrid lab clone 4 to clone 3, which is not its parent?"
+                        : lang === "FR"
+                        ? "Que pensez-vous que vous verriez si vous compariez notre clone de laboratoire hybride 4 au clone 3, qui n'est pas son parent ?"
+                        : lang === "PT"
+                        ? "O que pensa que veria se comparasse o nosso clone de laboratório híbrido 4 ao clone 3, que não é o seu progenitor?"
+                        : ""
+                    }
                   />
                 </div>
               )}

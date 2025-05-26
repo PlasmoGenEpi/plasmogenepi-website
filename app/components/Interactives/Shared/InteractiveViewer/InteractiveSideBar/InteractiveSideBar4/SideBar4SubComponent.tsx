@@ -9,7 +9,9 @@ import { partEightCompletionAtom } from "@/data/Interactives/interactiveStore";
 export default function SideBar4SubComponent({
   section,
   dev,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   dev: boolean;
   section: SideBarSection;
 }) {
@@ -111,7 +113,13 @@ export default function SideBar4SubComponent({
             !isOpen ? "text-nowrap" : ""
           } py-2 pr-2`}
         >
-          {section.sectionTitle}
+          {lang === "EN"
+            ? section.sectionTitle
+            : lang === "FR"
+            ? section.fr
+            : lang === "PT"
+            ? section.pt
+            : ""}
         </h6>
         <div className="col-start-3">
           {section.sectionComplete ? (
@@ -174,7 +182,15 @@ export default function SideBar4SubComponent({
                 }`}
                 key={idx2}
               >
-                <h6 className=" block translate-y-0.5">{subcomponent.title}</h6>
+                <h6 className=" block translate-y-0.5">
+                  {lang === "EN"
+                    ? subcomponent.title
+                    : lang === "FR"
+                    ? subcomponent.fr
+                    : lang === "PT"
+                    ? subcomponent.pt
+                    : ""}
+                </h6>
                 <div
                   className={`${
                     subcomponent.complete

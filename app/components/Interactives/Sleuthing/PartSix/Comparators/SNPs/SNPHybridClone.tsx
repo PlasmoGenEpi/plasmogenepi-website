@@ -2,14 +2,14 @@ import { fixedData } from "@/data/Interactives/fixedData";
 import { partSixCloneRowsAtom } from "@/data/Interactives/interactiveStore";
 import { useAtomValue } from "jotai";
 
-export default function SNPHybridClone() {
+export default function SNPHybridClone({ lang }: { lang: "EN" | "FR" | "PT" }) {
   const cloneRows = useAtomValue(partSixCloneRowsAtom);
 
   const vals = cloneRows[1].vals
     .slice(0, 6)
     .concat(cloneRows[2].vals.slice(6, 12));
   return (
-    <div className="grid gap-1 font-helvetica [grid-template-columns:8%_auto] text-black">
+    <div className="grid gap-1 font-helvetica text-black [grid-template-columns:8%_auto]">
       <div
         //   style={{
         //     backgroundImage: `

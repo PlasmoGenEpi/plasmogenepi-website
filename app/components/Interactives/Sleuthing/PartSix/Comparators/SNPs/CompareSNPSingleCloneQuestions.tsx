@@ -13,7 +13,11 @@ import {
 import { useAtom, useAtomValue } from "jotai";
 import { useEffect } from "react";
 
-export default function CompareSNPSingleCloneQuestions() {
+export default function CompareSNPSingleCloneQuestions({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [activePairwiseCombo, setActivePairwiseCombo] = useAtom(
     activePairwiseComboAtom,
   );
@@ -84,7 +88,15 @@ export default function CompareSNPSingleCloneQuestions() {
                       JSON.stringify(activePairwiseCombo)
                     ][1] === correctCount
                   }
-                  headerText="How many of the loci match?"
+                  headerText={
+                    lang === "EN"
+                      ? "How many of the loci match?"
+                      : lang === "FR"
+                      ? "Combien de loci correspondent ?"
+                      : lang === "PT"
+                      ? "Quantos dos loci correspondem?"
+                      : ``
+                  }
                   classNames={{
                     container: `${
                       partSixPairwiseQuestions[
@@ -148,7 +160,15 @@ export default function CompareSNPSingleCloneQuestions() {
                       JSON.stringify(activePairwiseCombo)
                     ][2] === correctCount
                   }
-                  headerText="What is the IBS for these two parasites?"
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBS for these two parasites?"
+                      : lang === "FR"
+                      ? "Quel est l'IBS pour ces deux parasites ?"
+                      : lang === "PT"
+                      ? "Qual é o SCI para estes dois parasitas?"
+                      : ``
+                  }
                   classNames={{
                     container:
                       partSixPairwiseQuestions[
@@ -219,7 +239,15 @@ export default function CompareSNPSingleCloneQuestions() {
                       JSON.stringify(activePairwiseCombo)
                     ][3] === 0
                   }
-                  headerText="What is the IBD for these two parasites?"
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBD for these two parasites?"
+                      : lang === "FR"
+                      ? "Quel est l'IBD pour ces deux parasites ?"
+                      : lang === "PT"
+                      ? "Qual é a DII para estes dois parasitas?"
+                      : ``
+                  }
                   classNames={{
                     container:
                       partSixPairwiseQuestions[

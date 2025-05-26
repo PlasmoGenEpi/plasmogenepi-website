@@ -14,7 +14,11 @@ import { useAtom, useAtomValue } from "jotai";
 import { RESET } from "jotai/utils";
 import { useEffect } from "react";
 
-export default function CompareMHPSingleCloneQuestions() {
+export default function CompareMHPSingleCloneQuestions({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [activePairwiseMHPsCombo, setActivePairwiseMHPsCombo] = useAtom(
     activePairwiseMHPsComboAtom,
   );
@@ -85,7 +89,15 @@ export default function CompareMHPSingleCloneQuestions() {
                     JSON.stringify(activePairwiseMHPsCombo)
                   ][1] === correctCount
                 }
-                headerText="How many of the loci match?"
+                headerText={
+                  lang === "EN"
+                    ? "How many of the loci match?"
+                    : lang === "FR"
+                    ? "Combien de loci correspondent ?"
+                    : lang === "PT"
+                    ? "Quantos loci correspondem?"
+                    : ""
+                }
                 classNames={{
                   container:
                     partSixMHPPairwiseQuestions[
@@ -148,7 +160,15 @@ export default function CompareMHPSingleCloneQuestions() {
                     JSON.stringify(activePairwiseMHPsCombo)
                   ][2] === correctCount
                 }
-                headerText="What is the IBS for these two parasites?"
+                headerText={
+                  lang === "EN"
+                    ? "What is the IBS for these two parasites?"
+                    : lang === "FR"
+                    ? "Quel est l'IBS de ces deux parasites ?"
+                    : lang === "PT"
+                    ? "Qual é o SCI para estes dois parasitas?"
+                    : ""
+                }
                 classNames={{
                   container:
                     partSixMHPPairwiseQuestions[
@@ -215,7 +235,15 @@ export default function CompareMHPSingleCloneQuestions() {
                     JSON.stringify(activePairwiseMHPsCombo)
                   ][3] === 0
                 }
-                headerText="What is the IBD for these two parasites?"
+                headerText={
+                  lang === "EN"
+                    ? "What is the IBD for these two parasites?"
+                    : lang === "FR"
+                    ? "Quelle est l'IBD de ces deux parasites ?"
+                    : lang === "PT"
+                    ? "Qual é a DII para estes dois parasitas?"
+                    : ""
+                }
                 classNames={{
                   container:
                     partSixMHPPairwiseQuestions[
