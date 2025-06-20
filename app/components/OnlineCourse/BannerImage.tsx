@@ -48,6 +48,10 @@ export default function BannerImage() {
           discussion forums and job aids. This course is free and open to the
           public.
         </p>
+        <p className="mb-4 text-pretty font-roboto">
+          <span className="font-bold">Record of Completion</span>: available for
+          download when you complete any of the four course learning paths.
+        </p>
         <div className="mt-8 flex justify-center">
           <div>
             <Link
