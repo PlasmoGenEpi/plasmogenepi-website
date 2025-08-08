@@ -22,7 +22,11 @@ import MultiRowLayout from "@/app/components/Interactives/Shared/misc/MultiRowLa
 import QuestionResponseText from "@/app/components/Interactives/Shared/misc/QuestionResponseText";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function CompareMHPClonesWithHybrid() {
+export default function CompareMHPClonesWithHybrid({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [pairwiseCompletion, setPairwiseCompletion] = useAtom(
     pairwiseMHPCompletionAtom,
   );
@@ -65,15 +69,24 @@ export default function CompareMHPClonesWithHybrid() {
       : phase === 32
       ? [3, 4]
       : [1, 2];
-  console.log(phase);
-  console.log(partSixPairwiseQuestions);
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Genotype Comparisons with Microhaplotypes and Hybrid`}
+      leftHeader={
+        lang === "EN"
+          ? `Genotype Comparisons with Microhaplotypes and Hybrid`
+          : lang === "FR"
+          ? `Comparaisons de génotypes avec des microhaplotypes et un hybride`
+          : lang === "PT"
+          ? `Comparações de genótipos com microhaplótipos e híbridos`
+          : ""
+      }
       leftContent={
         <div className="sticky top-20">
-          <P6MHPCloneRowsWithHybrid activePairwiseCombo={activePairwiseCombo} />
+          <P6MHPCloneRowsWithHybrid
+            lang={lang}
+            activePairwiseCombo={activePairwiseCombo}
+          />
           <div className="mt-2">
             {/* <SNPComparator
   activeCombo={
@@ -90,8 +103,16 @@ export default function CompareMHPClonesWithHybrid() {
           </div>
           {phase === 13 &&
             partSixPairwiseQuestions[JSON.stringify([2, 4])][4] === 3 && (
-              <div className=" mt-12 hidden p-4 text-center outline outline-2 outline-primaryBlue md:block">
-                <label htmlFor="75/25-SNP-image">75/25 allele frequency</label>
+              <div className=" outline-primaryBlue mt-12 hidden p-4 text-center outline outline-2 md:block">
+                <label htmlFor="75/25-SNP-image">
+                  {lang === "EN"
+                    ? `75/25 allele frequency`
+                    : lang === "FR"
+                    ? `Fréquence des allèles 75/25`
+                    : lang === "PT"
+                    ? `Frequência de alelos 75/25`
+                    : ""}
+                </label>
                 {/* <Image
       id="SNP IBD 75/25 distribution diagram"
       src={"/assets/M5_sluething_histogram_SNPs_MOI1_IBD0.5.svg"}
@@ -103,7 +124,7 @@ export default function CompareMHPClonesWithHybrid() {
             )}
           {phase === 14 &&
             partSixPairwiseQuestions[JSON.stringify([3, 4])][5] === 12 && (
-              <div className=" mt-8 hidden p-4 outline outline-2 outline-primaryBlue md:block">
+              <div className=" outline-primaryBlue mt-8 hidden p-4 outline outline-2 md:block">
                 {/* <Image
       id="SNP IBD 100% distribution diagram"
       src="/assets/M5_sluething_histogram_SNPs_MOI1_IBD1.svg"
@@ -115,9 +136,18 @@ export default function CompareMHPClonesWithHybrid() {
             )}
         </div>
       }
-      rightHeader={"Questions"}
+      rightHeader={
+        lang === "EN"
+          ? "Questions"
+          : lang === "FR"
+          ? `Questions`
+          : lang === "PT"
+          ? `Perguntas`
+          : ""
+      }
       rightContent={
         <CompareMHPHybridCloneQuestions
+          lang={lang}
           activePairwiseCombo={activePairwiseCombo}
         />
       }
@@ -148,19 +178,37 @@ export default function CompareMHPClonesWithHybrid() {
           }
           text={
             phase === 30
-              ? `That’s right – again we have the privilege of knowing the
+              ? lang === "EN"
+                ? `That’s right – again we have the privilege of knowing the
 true relatedness by ancestry of these lab clones. Since
 clone 4 is a child of clone 1 and shares exactly 50% of it’s
 genome by ancestry – the red part – IBD is 0.5 or 50%.`
+                : lang === "FR"
+                ? `C'est exact – encore une fois, nous avons le privilège de connaître la parenté réelle par ascendance de ces clones de laboratoire. Puisque le clone 4 est un enfant du clone 1 et partage exactement 50 % de son génome par ascendance – la partie rouge – l'IBD est de 0,5 ou 50 %.`
+                : lang === "PT"
+                ? `Está certo – mais uma vez temos o privilégio de conhecer o parentesco verdadeiro por ascendência destes clones de laboratório. Uma vez que o clone 4 é um descendente do clone 1 e partilha exatamente 50% do seu genoma por ascendência – a parte vermelha – o DII é de 0,5 ou 50%.`
+                : ""
               : phase === 31
-              ? `That’s right – again we have the privilege of knowing the
+              ? lang === "EN"
+                ? `That’s right – again we have the privilege of knowing the
 true relatedness by ancestry of these lab clones. Since
 clone 4 is a child of clone 2 and shares exactly 50% of it’s
 genome by ancestry – the blue part – IBD is 0.5 or 50%.`
-              : `Since the hybrid is not related to clone 3 at all, IBD
+                : lang === "FR"
+                ? `C'est exact – encore une fois, nous avons le privilège de connaître la parenté réelle par ascendance de ces clones de laboratoire. Puisque le clone 4 est un enfant du clone 2 et partage exactement 50 % de son génome par ascendance – la partie bleue – l'IBD est de 0,5 ou 50 %.`
+                : lang === "PT"
+                ? `Está certo – tal como antes, o DII é de 0,5 uma vez que o clone híbrido partilha 50% do seu genoma com o progenitor, desta vez a parte azul. Ambas as comparações anteriores tiveram o mesmo DII - 0,5 - uma vez que o clone híbrido está 50% relacionado com cada progenitor. O que pensa que encontraria se fizesse experiências semelhantes analisando outros clones relacionados de forma semelhante? Microhaplótipos, tal como SNPs, na metade relacionada do genoma devem sempre corresponder perfeitamente, a menos que existam mutações ou erros de genotipagem. No entanto, uma vez que as correspondências na parte não relacionada são aleatórias, o número total de correspondências pode variar.`
+                : ""
+              : lang === "EN"
+              ? `Since the hybrid is not related to clone 3 at all, IBD
         would be 0 and IBS would be the same as comparing any
         completely unrelated clones, usually between 0 and 4
         matches for these diverse microhaplotype loci.`
+              : lang === "FR"
+              ? `Puisque l'hybride n'est pas du tout lié au clone 3, l'IBD serait de 0 et l'IBS serait le même que la comparaison de clones complètement non liés, généralement entre 0 et 4 correspondances pour ces loci de microhaplotypes divers.`
+              : lang === "PT"
+              ? `Uma vez que o híbrido não está relacionado com o clone 3, o DII seria 0 e o SCI seria o mesmo que comparar quaisquer clones completamente não relacionados, normalmente entre 0 e 4 correspondências para estes diversos loci de microhaplótipos.`
+              : ""
           }
         />
       }
@@ -195,7 +243,7 @@ genome by ancestry – the blue part – IBD is 0.5 or 50%.`
             </div>
             {phase === 13 &&
               partSixPairwiseQuestions[JSON.stringify([2, 4])][4] === 3 && (
-                <div className=" mt-12 hidden p-4 text-center outline outline-2 outline-primaryBlue md:block">
+                <div className=" outline-primaryBlue mt-12 hidden p-4 text-center outline outline-2 md:block">
                   <label htmlFor="75/25-SNP-image">
                     75/25 allele frequency
                   </label>
@@ -210,7 +258,7 @@ genome by ancestry – the blue part – IBD is 0.5 or 50%.`
               )}
             {phase === 14 &&
               partSixPairwiseQuestions[JSON.stringify([3, 4])][5] === 12 && (
-                <div className=" mt-8 hidden p-4 outline outline-2 outline-primaryBlue md:block">
+                <div className=" outline-primaryBlue mt-8 hidden p-4 outline outline-2 md:block">
                   {/* <Image
               id="SNP IBD 100% distribution diagram"
               src="/assets/M5_sluething_histogram_SNPs_MOI1_IBD1.svg"
@@ -298,7 +346,7 @@ genome by ancestry – the red part – IBD is 0.5 or 50%.`
           </div>
           {phase === 13 &&
             partSixPairwiseQuestions[JSON.stringify([2, 4])][4] === 3 && (
-              <div className=" mt-12 hidden p-4 text-center outline outline-2 outline-primaryBlue md:block">
+              <div className=" outline-primaryBlue mt-12 hidden p-4 text-center outline outline-2 md:block">
                 <label htmlFor="75/25-SNP-image">75/25 allele frequency</label>
                 {/* <Image
                   id="SNP IBD 75/25 distribution diagram"
@@ -311,7 +359,7 @@ genome by ancestry – the red part – IBD is 0.5 or 50%.`
             )}
           {phase === 14 &&
             partSixPairwiseQuestions[JSON.stringify([3, 4])][5] === 12 && (
-              <div className=" mt-8 hidden p-4 outline outline-2 outline-primaryBlue md:block">
+              <div className=" outline-primaryBlue mt-8 hidden p-4 outline outline-2 md:block">
                 {/* <Image
                   id="SNP IBD 100% distribution diagram"
                   src="/assets/M5_sluething_histogram_SNPs_MOI1_IBD1.svg"

@@ -210,11 +210,11 @@ Parabéns camarada!!!`}
     if (section === 0) {
       return <Part2Intro />;
     } else if (section === 1) {
-      return <PartSix />;
+      return <PartSix lang={lang} />;
     } else if (section === 2) {
-      return <PartSeven />;
+      return <PartSeven lang={lang} />;
     } else if (section === 3) {
-      return <PartEight fixed={false} />;
+      return <PartEight fixed={false} lang={lang} />;
     }
   }
 }

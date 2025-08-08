@@ -19,18 +19,32 @@ import BlueGreenGenotype from "../Genotypes/BlueGreenGenotype";
 import RedBlueGenotype from "../Genotypes/RedBlueGenotype";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function PositiveControls() {
+export default function PositiveControls({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const phase = useAtomValue(phase2Atom);
   const cloneRows = useAtomValue(partSixCloneRowsMHPsAtom);
 
   return (
     <InteractivePrimaryLayout
       leftHeader={
-        phase === 1 ? "Lab Clones with Microhaplotypes" : "Positive Controls"
+        phase === 1
+          ? lang === "EN"
+            ? "Lab Clones with Microhaplotypes"
+            : lang === "FR"
+            ? "Clones de laboratoire avec microhaplotypes"
+            : "Clones de laboratório com microhaplótipos"
+          : lang === "EN"
+          ? "Positive Controls"
+          : lang === "FR"
+          ? "Contrôles positifs"
+          : "Controlos Positivos"
       }
       leftContent={
         phase === 0 ? (
-          <P6MHPCloneRowsWithHybrid partSeven />
+          <P6MHPCloneRowsWithHybrid partSeven lang={lang} />
         ) : (
           <div className="flex flex-col gap-12 dark:brightness-75">
             <div className="flex max-w-[500px] origin-center scale-90 flex-col gap-2 lg:scale-75">
@@ -108,7 +122,15 @@ export default function PositiveControls() {
           </div>
         )
       }
-      rightHeader={phase === 2 ? `Genotypes` : ``}
+      rightHeader={
+        phase === 2
+          ? lang === "EN"
+            ? `Genotypes`
+            : lang === "FR"
+            ? "Génotypes"
+            : "Genótipos"
+          : ``
+      }
       rightContent={
         phase === 2 ? (
           <div className="flex h-full flex-col">

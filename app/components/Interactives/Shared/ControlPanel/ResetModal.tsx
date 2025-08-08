@@ -349,6 +349,7 @@ export default function ResetPrompt({
                 .map((el, idx) => {
                   return (
                     <ResetModalRow
+                      lang={lang}
                       requires={
                         idx === 0
                           ? false

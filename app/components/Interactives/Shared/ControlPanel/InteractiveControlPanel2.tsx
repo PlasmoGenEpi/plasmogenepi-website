@@ -89,7 +89,11 @@ export const s2p0CompletionAtom = atomWithStorage("s2p0Completion", {
   3: false,
 });
 
-export default function InteractiveControlPanel2() {
+export default function InteractiveControlPanel2({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [s2p0Completion, setS2p0Completion] = useAtom(s2p0CompletionAtom);
   const [menuOpen, setMenuOpen] = useAtom(sideBarIsOpenAtom);
   const [currentView, setCurrentView] = useAtom(currentView2Atom);
@@ -379,17 +383,126 @@ export default function InteractiveControlPanel2() {
     if (section === 0) {
       if (phase === 0) {
         // return "Background";
-        result.primaryText = "Introduction";
+        result.primaryText =
+          lang === "EN"
+            ? "Introduction"
+            : lang === "FR"
+            ? "Introduction"
+            : lang === "PT"
+            ? "Introdução"
+            : "Introduction";
       } else if (phase === 1) {
-        result.primaryText = "Case Study";
+        result.primaryText =
+          lang === "EN"
+            ? "Case Study"
+            : lang === "FR"
+            ? "Étude de cas"
+            : lang === "PT"
+            ? "Estudo de caso"
+            : "Case Study";
       } else if (phase === 2) {
-        result.primaryText = "Your Goal";
+        result.primaryText =
+          lang === "EN"
+            ? "Your Goal"
+            : lang === "FR"
+            ? "Votre objectif"
+            : lang === "PT"
+            ? "Seu objetivo"
+            : "Your Goal";
+      } else if (phase === 4) {
+        result.primaryText =
+          lang === "EN"
+            ? "Instructions"
+            : lang === "FR"
+            ? "Instructions"
+            : lang === "PT"
+            ? "Instruções"
+            : "Instructions";
+      }
+    } else if (section === 1) {
+      if (phase === 0) {
+        result.primaryText =
+          lang === "EN"
+            ? "Introduction"
+            : lang === "FR"
+            ? "Introduction"
+            : lang === "PT"
+            ? "Introdução"
+            : "Introduction";
+      } else if (phase === 1) {
+        result.primaryText =
+          lang === "EN"
+            ? "SNP Genotypes"
+            : lang === "FR"
+            ? "Génotypes SNP"
+            : lang === "PT"
+            ? "Genótipos SNP"
+            : "SNP Genotypes";
+      } else if (phase === 2) {
+        result.primaryText =
+          lang === "EN"
+            ? "SNP Genotypes"
+            : lang === "FR"
+            ? "Génotypes SNP"
+            : lang === "PT"
+            ? "Genótipos SNP"
+            : "SNP Genotypes";
       } else if (phase === 3) {
-        result.primaryText = "Instructions";
+        result.primaryText =
+          lang === "EN"
+            ? "SNP Genotypes"
+            : lang === "FR"
+            ? "Génotypes SNP"
+            : lang === "PT"
+            ? "Genótipos SNP"
+            : "SNP Genotypes";
+      } else if (phase === 4) {
+        result.primaryText =
+          lang === "EN"
+            ? "SNP Genotypes"
+            : lang === "FR"
+            ? "Génotypes SNP"
+            : lang === "PT"
+            ? "Genótipos SNP"
+            : "SNP Genotypes";
+      } else if (phase === 5) {
+        result.primaryText =
+          lang === "EN"
+            ? "SNP Genotypes"
+            : lang === "FR"
+            ? "Génotypes SNP"
+            : lang === "PT"
+            ? "Genótipos SNP"
+            : "SNP Genotypes";
+      } else if (phase === 6) {
+        result.primaryText =
+          lang === "EN"
+            ? "SNP Genotypes"
+            : lang === "FR"
+            ? "Génotypes SNP"
+            : lang === "PT"
+            ? "Genótipos SNP"
+            : "SNP Genotypes";
+      } else if (phase === 3) {
+        result.primaryText =
+          lang === "EN"
+            ? "Instructions"
+            : lang === "FR"
+            ? "Instructions"
+            : lang === "PT"
+            ? "Instruções"
+            : "Instructions";
       }
     } else {
       if (section === 1) {
-        result.primaryText = `Step 1`;
+        result.primaryText =
+          lang === "EN"
+            ? `Step 1`
+            : lang === "FR"
+            ? `Étape 1`
+            : lang === "PT"
+            ? `Etapa 1`
+            : `Step 1`;
         if (phase === 1) {
           result.secondaryText = "1 / 15";
         } else if (phase === 2) {
@@ -422,7 +535,14 @@ export default function InteractiveControlPanel2() {
           result.secondaryText = "15 / 15";
         }
       } else if (section === 2) {
-        result.primaryText = `Step 2`;
+        result.primaryText =
+          lang === "EN"
+            ? `Step 2`
+            : lang === "FR"
+            ? `Étape 2`
+            : lang === "PT"
+            ? `Etapa 2`
+            : `Step 2`;
         if (phase >= 4 && phase <= 5) {
           result.secondaryText = "1 / 6";
         } else if (phase >= 6 && phase <= 7) {
@@ -439,7 +559,14 @@ export default function InteractiveControlPanel2() {
           result.secondaryText = "Summary";
         }
       } else if (section === 3) {
-        result.primaryText = `Step 3`;
+        result.primaryText =
+          lang === "EN"
+            ? `Step 3`
+            : lang === "FR"
+            ? `Étape 3`
+            : lang === "PT"
+            ? `Etapa 3`
+            : `Step 3`;
         if (phase >= 0 && phase <= 3) {
           result.secondaryText = "1 / 11";
         } else if (phase === 4) {
@@ -463,7 +590,14 @@ export default function InteractiveControlPanel2() {
         } else if (phase >= 35 && phase < 40) {
           result.secondaryText = "11 / 11";
         } else if (phase === 40) {
-          result.secondaryText = "Summary";
+          result.secondaryText =
+            lang === "EN"
+              ? "Summary"
+              : lang === "FR"
+              ? "Résumé"
+              : lang === "PT"
+              ? "Resumo"
+              : "Summary";
         }
       }
       // result.primaryText = `Step ${section}`;
@@ -1720,7 +1854,15 @@ export default function InteractiveControlPanel2() {
                   fillRule="evenodd"
                 />
               </svg>
-              <span className="ml-2 mt-1">Reset</span>
+              {lang === "EN" ? (
+                <span className="ml-2 mt-1">Reset</span>
+              ) : lang === "FR" ? (
+                <span className="ml-2 mt-1">Réinitialiser</span>
+              ) : lang === "PT" ? (
+                <span className="ml-2 mt-1">Reiniciar</span>
+              ) : (
+                <span className="ml-2 mt-1">Reset</span>
+              )}
             </button>
             <div className="my-auto hidden md:inline-flex">
               <input
@@ -1733,7 +1875,13 @@ export default function InteractiveControlPanel2() {
                 type="checkbox"
               />
               <label htmlFor="hints" className="ml-4 mt-1  ">
-                Enable Hints
+                {lang === "EN"
+                  ? `Enable Hints`
+                  : lang === "FR"
+                  ? `Activer les indices`
+                  : lang === "PT"
+                  ? `Ativar Dicas`
+                  : ``}
               </label>
             </div>
             <span className="my-auto self-center overflow-hidden text-ellipsis md:translate-y-0.5">
@@ -1831,7 +1979,13 @@ export default function InteractiveControlPanel2() {
                  }
                 `}
               >
-                Step{" "}
+                {lang === "EN"
+                  ? "Step"
+                  : lang === "FR"
+                  ? "Étape"
+                  : lang === "PT"
+                  ? "Etapa"
+                  : "Step"}{" "}
                 {currentView.section === 0
                   ? 1
                   : currentView.section === 1

@@ -18,7 +18,11 @@ import { fixedData } from "@/data/Interactives/fixedData";
 import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function GenerateSNPHybrid() {
+export default function GenerateSNPHybrid({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const cloneRows = useAtomValue(partSixCloneRowsAtom);
   const [hybridCreated, setHybridCreated] = useAtom(
     partSixSNPHybridCreatedAtom,
@@ -30,7 +34,15 @@ export default function GenerateSNPHybrid() {
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Create Hybrid`}
+      leftHeader={
+        lang === "EN"
+          ? `Create Hybrid`
+          : lang === "FR"
+          ? `Créer un hybride`
+          : lang === "PT"
+          ? `Criar Híbrido`
+          : ""
+      }
       leftContent={
         <div className="flex max-w-[500px] flex-col gap-1 text-black dark:brightness-75">
           <div className="w-full">
@@ -111,8 +123,24 @@ export default function GenerateSNPHybrid() {
               onClick={() => {
                 setHybridCreated(true);
               }}
-              data-tip={"Create Hybrid"}
-              aria-label={"Create hybrid clone"}
+              data-tip={
+                lang === "EN"
+                  ? "Create Hybrid"
+                  : lang === "FR"
+                  ? "Créer un hybride"
+                  : lang === "PT"
+                  ? "Criar Híbrido"
+                  : ""
+              }
+              aria-label={
+                lang === "EN"
+                  ? "Create hybrid clone"
+                  : lang === "FR"
+                  ? "Créer un clone hybride"
+                  : lang === "PT"
+                  ? "Criar clone híbrido"
+                  : ""
+              }
               className={` ${
                 !hybridCreated ? "tooltip tooltip-bottom" : "translate-x-0"
               }   col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-to-r from-cloneRed via-[#FFB0B0_25%,#B8E6FA_75%] to-cloneBlue bg-blend-overlay transition-all hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100`}
@@ -126,7 +154,7 @@ export default function GenerateSNPHybrid() {
             </button>
           </div>
           <div className={`w-full ${hybridCreated ? "fadeIn500" : "hidden"}`}>
-            <SNPHybridClone />
+            <SNPHybridClone lang={lang} />
           </div>
         </div>
       }

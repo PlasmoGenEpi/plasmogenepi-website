@@ -23,7 +23,11 @@ export const partSixMHPHybridCreatedAtom = atomWithStorage(
   false,
 );
 
-export default function GenerateMHPHybrid() {
+export default function GenerateMHPHybrid({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const cloneRows = useAtomValue(partSixCloneRowsMHPsAtom);
   const [hybridCreated, setHybridCreated] = useAtom(
     partSixMHPHybridCreatedAtom,
@@ -35,7 +39,15 @@ export default function GenerateMHPHybrid() {
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Create Hybrid`}
+      leftHeader={
+        lang === "EN"
+          ? `Create Hybrid`
+          : lang === "FR"
+          ? `Créer un hybride`
+          : lang === "PT"
+          ? `Criar Híbrido`
+          : ""
+      }
       leftContent={
         <div className="flex w-full max-w-[500px] flex-col gap-1 dark:brightness-75">
           <div className="w-full">
@@ -98,8 +110,24 @@ export default function GenerateMHPHybrid() {
               onClick={() => {
                 setHybridCreated(true);
               }}
-              data-tip={"Create Hybrid"}
-              aria-label={"Create hybrid clone"}
+              data-tip={
+                lang === "EN"
+                  ? "Create Hybrid"
+                  : lang === "FR"
+                  ? "Créer un hybride"
+                  : lang === "PT"
+                  ? "Criar Híbrido"
+                  : ""
+              }
+              aria-label={
+                lang === "EN"
+                  ? "Create hybrid clone"
+                  : lang === "FR"
+                  ? "Créer un clone hybride"
+                  : lang === "PT"
+                  ? "Criar clone híbrido"
+                  : ""
+              }
               className={` ${
                 !hybridCreated ? "tooltip tooltip-bottom" : "translate-x-0"
               }  col-start-2 mx-auto my-4 aspect-square w-fit rounded-full bg-gradient-to-r from-cloneRed via-[#FFB0B0_25%,#B8E6FA_75%] to-cloneBlue bg-blend-overlay transition-all focus:tooltip-open hover:scale-105 focus:ring-2 focus:ring-black active:scale-90 disabled:hover:scale-100`}
@@ -113,7 +141,7 @@ export default function GenerateMHPHybrid() {
             </button>
           </div>
           <div className={`w-full ${hybridCreated ? "fadeIn500" : "hidden"}`}>
-            <MHPHybridClone />
+            <MHPHybridClone lang={lang} />
           </div>
         </div>
       }

@@ -32,7 +32,9 @@ let randomArr = Array(12)
 
 export default function CompareSNPHybridCloneQuestions({
   activePairwiseCombo,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   activePairwiseCombo: [number, number];
 }) {
   // const [activePairwiseCombo, setActivePairwiseCombo] = useAtom(
@@ -106,7 +108,15 @@ export default function CompareSNPHybridCloneQuestions({
                       JSON.stringify(activePairwiseCombo)
                     ][1] === correctCount
                   }
-                  headerText="How many of the loci match?"
+                  headerText={
+                    lang === "EN"
+                      ? "How many of the loci match?"
+                      : lang === "FR"
+                      ? "Combien de loci correspondent ?"
+                      : lang === "PT"
+                      ? "Quantos dos loci correspondem?"
+                      : ""
+                  }
                   classNames={{
                     container:
                       partSixPairwiseQuestions[
@@ -163,7 +173,15 @@ export default function CompareSNPHybridCloneQuestions({
                       JSON.stringify(activePairwiseCombo)
                     ][2] === correctCount
                   }
-                  headerText="What is the IBS for these two parasites?"
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBS for these two parasites?"
+                      : lang === "FR"
+                      ? "Quel est l'IBS pour ces deux parasites ?"
+                      : lang === "PT"
+                      ? "Qual é o SCI para estes dois parasitas?"
+                      : ""
+                  }
                   classNames={{
                     container:
                       partSixPairwiseQuestions[
@@ -235,7 +253,15 @@ export default function CompareSNPHybridCloneQuestions({
                       JSON.stringify(activePairwiseCombo)
                     ][3] === (phase === 14 ? 0 : 6)
                   }
-                  headerText="What is the IBD for these two parasites?"
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBD for these two parasites?"
+                      : lang === "FR"
+                      ? "Quel est l'IBD pour ces deux parasites ?"
+                      : lang === "PT"
+                      ? "Qual é o DCI para estes dois parasitas?"
+                      : ""
+                  }
                   classNames={{
                     container:
                       partSixPairwiseQuestions[

@@ -106,7 +106,9 @@ export default function Genotypes({
   first,
   second,
   currentClone = 1,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
   currentClone: number;
   first: number;
   second: number;
@@ -128,7 +130,15 @@ export default function Genotypes({
       leftHeader={``}
       leftContent={
         <div>
-          <FormHeader text="Polyclonal Genotype Comparisons" />
+          <FormHeader
+            text={
+              lang === "EN"
+                ? "Polyclonal Genotype Comparisons"
+                : lang === "FR"
+                ? "Comparaisons de génotypes polyclonaux"
+                : "Comparações de genótipos policlonais"
+            }
+          />
           {
             <div className="grid max-w-[500px] gap-1 [grid-template-columns:8%_auto]">
               <div className="col-start-2 grid grid-cols-12 place-items-center text-xs">
@@ -151,6 +161,7 @@ export default function Genotypes({
               {phase >= 10 && phase < 16 && <RedBlueGenotype className="" />}
 
               <GenotypeComparator
+                lang={lang}
                 vals={
                   phase === 14 || phase === 15
                     ? identicalGenotype2
@@ -190,7 +201,15 @@ export default function Genotypes({
       rightContent={
         phase === 5 ? (
           <div className="fadeIn500 md:row-span-2">
-            <FormHeader text="Questions" />
+            <FormHeader
+              text={
+                lang === "EN"
+                  ? "Questions"
+                  : lang === "FR"
+                  ? "Des questions"
+                  : "Perguntas"
+              }
+            />
             <div className="flex flex-col gap-8">
               <KnowledgeCheckQuestion
                 classNames={{
@@ -226,7 +245,13 @@ export default function Genotypes({
                     [cloneRowsMHPs[3].vals],
                   ).length
                 }
-                headerText="How many of the loci match?"
+                headerText={
+                  lang === "EN"
+                    ? "How many of the loci match?"
+                    : lang === "FR"
+                    ? "Combien de loci correspondent ?"
+                    : "Quantos loci correspondem?"
+                }
                 questionIdx={1}
               />
               {questions[1] ===
@@ -268,7 +293,13 @@ export default function Genotypes({
                       [cloneRowsMHPs[3].vals],
                     ).length === questions[2]
                   }
-                  headerText="What is the IBS for these two samples?"
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBS for these two samples?"
+                      : lang === "FR"
+                      ? "Quel est l'IBS pour ces deux échantillons ?"
+                      : "Qual é o IBS para essas duas amostras?"
+                  }
                   questionIdx={2}
                 />
               )}
@@ -301,7 +332,13 @@ export default function Genotypes({
                     }
                   }}
                   hasAnswer={questions[3] === 0}
-                  headerText="What is the IBD for these two samples?"
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBD for these two samples?"
+                      : lang === "FR"
+                      ? "Quel est l'IBD pour ces deux échantillons ?"
+                      : "Qual é o IBD para essas duas amostras?"
+                  }
                   questionIdx={3}
                 />
               )}
@@ -309,7 +346,15 @@ export default function Genotypes({
           </div>
         ) : phase === 7 ? (
           <div className="fadeIn500 md:row-span-2">
-            <FormHeader text="Questions" />
+            <FormHeader
+              text={
+                lang === "EN"
+                  ? "Questions"
+                  : lang === "FR"
+                  ? "Des questions"
+                  : "Perguntas"
+              }
+            />
             <div className="flex flex-col gap-8">
               <KnowledgeCheckQuestion
                 classNames={{
@@ -345,7 +390,13 @@ export default function Genotypes({
                     [cloneRowsMHPs[1].vals],
                   ).length
                 }
-                headerText="How many of the loci match?"
+                headerText={
+                  lang === "EN"
+                    ? "How many of the loci match?"
+                    : lang === "FR"
+                    ? "Combien de loci correspondent ?"
+                    : "Quantos loci correspondem?"
+                }
                 questionIdx={4}
               />
               {questions[4] ===
@@ -388,7 +439,13 @@ export default function Genotypes({
                       [cloneRowsMHPs[1].vals],
                     ).length
                   }
-                  headerText="What is the IBS for these two samples?"
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBS for these two samples?"
+                      : lang === "FR"
+                      ? "Quel est l'IBS pour ces deux échantillons ?"
+                      : "Qual é o IBS para essas duas amostras?"
+                  }
                   questionIdx={5}
                 />
               )}
@@ -422,7 +479,13 @@ export default function Genotypes({
                     }
                   }}
                   hasAnswer={questions[6] === 0}
-                  headerText="What is the IBD for these two samples?"
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBD for these two samples?"
+                      : lang === "FR"
+                      ? "Quel est l'IBD pour ces deux échantillons ?"
+                      : "Qual é o IBD para essas duas amostras?"
+                  }
                   questionIdx={6}
                 />
               )}
@@ -430,7 +493,15 @@ export default function Genotypes({
           </div>
         ) : phase === 11 ? (
           <div className="fadeIn500 md:row-span-2">
-            <FormHeader text="Questions" />
+            <FormHeader
+              text={
+                lang === "EN"
+                  ? "Questions"
+                  : lang === "FR"
+                  ? "Des questions"
+                  : "Perguntas"
+              }
+            />
             <div className="flex flex-col gap-8">
               <KnowledgeCheckQuestion
                 classNames={{
@@ -456,7 +527,13 @@ export default function Genotypes({
                   }
                 }}
                 hasAnswer={questions[9] === 12}
-                headerText="How many of the loci match?"
+                headerText={
+                  lang === "EN"
+                    ? "How many of the loci match?"
+                    : lang === "FR"
+                    ? "Combien de loci correspondent ?"
+                    : "Quantos loci correspondem?"
+                }
                 questionIdx={9}
               />
               {questions[9] === 12 && (
@@ -485,7 +562,13 @@ export default function Genotypes({
                     }
                   }}
                   hasAnswer={questions[10] === 12}
-                  headerText="What is the IBS for these two samples?"
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBS for these two samples?"
+                      : lang === "FR"
+                      ? "Quel est l'IBS pour ces deux échantillons ?"
+                      : "Qual é o IBS para essas duas amostras?"
+                  }
                   questionIdx={10}
                 />
               )}
@@ -515,7 +598,13 @@ export default function Genotypes({
                     }
                   }}
                   hasAnswer={questions[11] === 12}
-                  headerText="What is the IBD for these two samples? Since there could be several ways to interpret IBD when samples are polyclonal, let’s consider the maximum IBD for any parasites between the 2 samples, i.e. the IBD of the most related parasites."
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBD for these two samples? Since there could be several ways to interpret IBD when samples are polyclonal, let’s consider the maximum IBD for any parasites between the 2 samples, i.e. the IBD of the most related parasites."
+                      : lang === "FR"
+                      ? "Quel est l'IBD pour ces deux échantillons ? Puisqu'il pourrait y avoir plusieurs façons d'interpréter l'IBD lorsque les échantillons sont polyclonaux, considérons l'IBD maximale pour tout parasite entre les 2 échantillons, c'est-à-dire l'IBD des parasites les plus apparentés."
+                      : "Qual é o IBD para essas duas amostras? Como pode haver várias maneiras de interpretar o IBD quando as amostras são policlonais, vamos considerar o IBD máximo para quaisquer parasitas entre as 2 amostras, ou seja, o IBD dos parasitas mais relacionados."
+                  }
                   questionIdx={11}
                 />
               )}
@@ -549,7 +638,13 @@ export default function Genotypes({
                   }
                 }}
                 hasAnswer={questions[12] === 12}
-                headerText="How many of the loci match?"
+                headerText={
+                  lang === "EN"
+                    ? "How many of the loci match?"
+                    : lang === "FR"
+                    ? "Combien de loci correspondent ?"
+                    : "Quantos loci correspondem?"
+                }
                 questionIdx={12}
               />
               {questions[12] === 12 && (
@@ -578,7 +673,13 @@ export default function Genotypes({
                     }
                   }}
                   hasAnswer={questions[13] === 12}
-                  headerText="What is the IBS for these two samples?"
+                  headerText={
+                    lang === "EN"
+                      ? "What is the IBS for these two samples?"
+                      : lang === "FR"
+                      ? "Quel est l'IBS pour ces deux échantillons ?"
+                      : "Qual é o IBS para essas duas amostras?"
+                  }
                   questionIdx={13}
                 />
               )}
@@ -642,17 +743,45 @@ export default function Genotypes({
               }
               text={
                 phase === 5
-                  ? `Even though the number of matches may be higher than before
+                  ? lang === "EN"
+                    ? `Even though the number of matches may be higher than before
         since one of your samples is polyclonal, it does not change
         the fact that none of the parasites between the two samples
         are related by ancestry. Since they are completely unrelated,
         IBD is 0.`
+                    : lang === "FR"
+                    ? `Même si le nombre de correspondances peut être plus élevé qu'auparavant
+        étant donné que l'un de vos échantillons est polyclonal, cela ne change pas
+        le fait qu'aucun des parasites entre les deux échantillons
+        ne sont liés par ascendance. Puisqu'ils sont complètement indépendants,
+        l'IBD est de 0.`
+                    : lang === "PT"
+                    ? `Mesmo que o número de correspondências possa ser maior do que antes
+        já que uma de suas amostras é policlonal, isso não muda
+        o fato de que nenhum dos parasitas entre as duas amostras
+        estão relacionados por ancestralidade. Como eles são completamente não relacionados,
+        o IBD é 0.`
+                    : ""
                   : phase === 7
-                  ? "The same as the previous comparison - Since they are completely unrelated, IBD is 0"
+                  ? lang === "EN"
+                    ? "The same as the previous comparison - Since they are completely unrelated, IBD is 0"
+                    : lang === "FR"
+                    ? "La même chose que la comparaison précédente - Puisqu'ils sont complètement indépendants, l'IBD est de 0"
+                    : "O mesmo que a comparação anterior - Como eles são completamente não relacionados, o IBD é 0"
                   : phase === 11
-                  ? "You have a genetically identical parasite in both samples – clone 1 (the red color parasite), so IBD is 1.0 or 100%."
+                  ? lang === "EN"
+                    ? "You have a genetically identical parasite in both samples – clone 1 (the red color parasite), so IBD is 1.0 or 100%."
+                    : lang === "FR"
+                    ? "Vous avez un parasite génétiquement identique dans les deux échantillons – clone 1 (le parasite de couleur rouge), donc l'IBD est de 1.0 ou 100%."
+                    : lang === "PT"
+                    ? "Você tem um parasita geneticamente idêntico em ambas as amostras – clone 1 (o parasita de cor vermelha), então o IBD é 1.0 ou 100%."
+                    : ""
                   : phase === 15
-                  ? "You should have found that IBS is 1.0 - is this what you expected?"
+                  ? lang === "EN"
+                    ? "You should have found that IBS is 1.0 - is this what you expected?"
+                    : lang === "FR"
+                    ? "Vous auriez dû constater que l'IBS est de 1.0 - est-ce ce à quoi vous vous attendiez ?"
+                    : "Você deveria ter descoberto que o IBS é 1.0 - é isso que você esperava?"
                   : undefined
               }
             />

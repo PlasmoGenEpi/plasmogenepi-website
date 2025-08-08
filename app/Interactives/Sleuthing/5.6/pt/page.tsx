@@ -2,5 +2,5 @@ import InteractiveViewer2 from "@/app/components/Interactives/Shared/Interactive
 import InteractiveViewer4 from "@/app/components/Interactives/Shared/InteractiveViewer/InteractiveViewer4/InteractiveViewer4";
 
 export default function Page() {
-  return <InteractiveViewer2 lang={"EN"} />;
+  return <InteractiveViewer2 lang={"PT"} />;
 }

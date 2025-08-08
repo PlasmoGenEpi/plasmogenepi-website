@@ -25,7 +25,10 @@ export default function P6MHPCloneRowsWithHybrid({
   activePairwiseCombo,
   partSeven,
   hideHybrid,
+  lang,
 }: {
+  lang: "EN" | "FR" | "PT";
+
   hideHybrid?: boolean;
   partSeven?: boolean;
   activePairwiseCombo?: [number, number];
@@ -79,7 +82,7 @@ export default function P6MHPCloneRowsWithHybrid({
           </CloneRow>
         </div>
         <div className="dark:brightness-75">
-          {!hideHybrid && <MHPHybridClone />}
+          {!hideHybrid && <MHPHybridClone lang={lang} />}
         </div>
       </div>
     );
@@ -132,10 +135,14 @@ export default function P6MHPCloneRowsWithHybrid({
         )}
       </div>
       <div className="dark:brightness-75">
-        {!hideHybrid && <MHPHybridClone />}
+        {!hideHybrid && <MHPHybridClone lang={lang} />}
       </div>
       {phase !== 32 && activePairwiseCombo && (
-        <MicrohaplotypeComparator label activeCombo={activePairwiseCombo} />
+        <MicrohaplotypeComparator
+          label
+          activeCombo={activePairwiseCombo}
+          lang={lang}
+        />
       )}
     </div>
   );

@@ -17,7 +17,11 @@ import QuestionResponseText from "@/app/components/Interactives/Shared/misc/Ques
 import { useEffect } from "react";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function CompareSNPClones() {
+export default function CompareSNPClones({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [pairwiseCompletion, setPairwiseCompletion] = useAtom(
     pairwiseCompletionAtom,
   );
@@ -32,24 +36,38 @@ export default function CompareSNPClones() {
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Genotype Comparisons with SNPs`}
+      leftHeader={
+        lang === "EN"
+          ? `Genotype Comparisons with SNPs`
+          : lang === "FR"
+          ? `Comparaisons de génotypes avec des SNP`
+          : lang === "PT"
+          ? `Comparações de genótipos com SNPs`
+          : ``
+      }
       leftContent={
         <div>
           <P6CloneRows />
           <div className="mt-2">
-            <SNPComparator activeCombo={activeCombo} label />
+            <SNPComparator activeCombo={activeCombo} label lang={lang} />
           </div>
         </div>
       }
       rightHeader={
         pairwiseCompletion[activePairwiseCombo[0]][activePairwiseCombo[1]]
-          ? `Questions`
+          ? lang === "EN"
+            ? `Questions`
+            : lang === "FR"
+            ? `Questions`
+            : lang === "PT"
+            ? `Perguntas`
+            : ``
           : ``
       }
       rightContentStyle={{
         gridRow: `span 2`,
       }}
-      rightContent={<CompareSNPSingleCloneQuestions />}
+      rightContent={<CompareSNPSingleCloneQuestions lang={lang} />}
       moreContent={
         <QuestionResponseText
           className="max-w-[500px]"
@@ -60,11 +78,19 @@ export default function CompareSNPClones() {
           visible={
             partSixPairwiseQuestions[JSON.stringify(activeCombo)][3] === 0
           }
-          text={`That's right - we have the privilege of knowing that these
+          text={
+            lang === "EN"
+              ? `That's right - we have the privilege of knowing that these
     parasites are completely unrelated by ancestry since they are known
     laboratory clones. Since the D in IBD stands for descent, and these
     clones are not descended from each other, IBD in this case is exactly
-    zero.`}
+    zero.`
+              : lang === "FR"
+              ? `C'est exact - nous avons le privilège de savoir que ces parasites ne sont absolument pas liés par ascendance puisqu'il s'agit de clones de laboratoire connus. Puisque le D dans IBD signifie descendance, et que ces clones ne descendent pas les uns des autres, l'IBD dans ce cas est exactement zéro.`
+              : lang === "PT"
+              ? `Está certo - temos o privilégio de saber que estes parasitas não estão relacionados por ascendência, uma vez que são clones de laboratório conhecidos. Uma vez que o D em DII significa descendência, e estes clones não descendem uns dos outros, a DII neste caso é exatamente zero.`
+              : ``
+          }
         />
       }
     />

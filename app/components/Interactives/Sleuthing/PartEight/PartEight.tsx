@@ -32,7 +32,13 @@ import { currentView2Atom } from "../../Shared/InteractiveViewer/InteractiveView
 import PartEightNavArray from "./PartEightNavArray/PartEightNavArray";
 import VillageAnimations2 from "./Phases/VillageAnimations2";
 
-export default function PartEight({ fixed }: { fixed: boolean }) {
+export default function PartEight({
+  fixed,
+  lang,
+}: {
+  fixed: boolean;
+  lang: "EN" | "FR" | "PT";
+}) {
   const partEightCompletion = useAtomValue(partEightCompletionAtom);
   // const phase = useAtomValue(phase2Atom);
   const currentView = useAtomValue(currentView2Atom);
@@ -60,8 +66,6 @@ export default function PartEight({ fixed }: { fixed: boolean }) {
   //   }
   // }, [phase]);
 
-  console.log(currentView);
-
   // if (phase === 41) {
   //   return (
   //     <div>
@@ -76,19 +80,19 @@ export default function PartEight({ fixed }: { fixed: boolean }) {
       <InteractivePrompt
         skippable={partEightCompletion[1]}
         complete={partEightCompletion[phase]}
-        title={partEightPrompts[phase]?.title}
-        instructions={partEightPrompts[phase]?.instructions}
+        title={partEightPrompts[phase]?.title[lang]}
+        instructions={partEightPrompts[phase]?.instructions[lang]}
       />
       {/* <PartEightNavArray /> */}
-      {phase >= 2 && phase <= 4 && <Persons />}
-      {phase >= 5 && phase < 8 && <DiamondComparisons />}
-      {phase === 8 && <TruePersonGenotypes />}
-      {phase >= 10 && phase < 11 && <VillagePersons />}
+      {phase >= 2 && phase <= 4 && <Persons lang={lang} />}
+      {phase >= 5 && phase < 8 && <DiamondComparisons lang={lang} />}
+      {phase === 8 && <TruePersonGenotypes lang={lang} />}
+      {phase >= 10 && phase < 11 && <VillagePersons lang={lang} />}
       {phase >= 40 ? null : phase >= 23 ? (
-        <VillageAnimations />
+        <VillageAnimations lang={lang} />
       ) : (
         // <VillageAnimations2 />
-        phase >= 11 && <VillageComparisons />
+        phase >= 11 && <VillageComparisons lang={lang} />
       )}
       {phase === 41 && (
         <Image
@@ -114,7 +118,7 @@ export default function PartEight({ fixed }: { fixed: boolean }) {
         //   </div>
         // </div>
       )}
-      <PartEightControlPanelWrapper fixed={fixed} />
+      <PartEightControlPanelWrapper lang={lang} fixed={fixed} />
     </div>
   );
 

@@ -20,7 +20,11 @@ import MultiRowLayout from "@/app/components/Interactives/Shared/misc/MultiRowLa
 import QuestionResponseText from "@/app/components/Interactives/Shared/misc/QuestionResponseText";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function CompareMHPClones() {
+export default function CompareMHPClones({
+  lang,
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const [activePairwiseMHPsCombo, setActivePairwiseMHPsCombo] = useAtom(
     activePairwiseMHPsComboAtom,
   );
@@ -39,31 +43,56 @@ export default function CompareMHPClones() {
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Lab Clones with Microhaplotypes`}
+      leftHeader={
+        lang === "EN"
+          ? `Lab Clones with Microhaplotypes`
+          : lang === "FR"
+          ? `Clones de laboratoire avec microhaplotypes`
+          : lang === "PT"
+          ? `Clones de laboratório com microhaplótipos`
+          : ""
+      }
       leftContent={
         <div>
           <P6MHPCloneRows />
           <div className="mt-2">
             <MicrohaplotypeComparator
+              lang={lang}
               label
               activeCombo={activePairwiseMHPsCombo}
             />
           </div>
         </div>
       }
-      rightHeader={`Questions`}
+      rightHeader={
+        lang === "EN"
+          ? `Questions`
+          : lang === "FR"
+          ? `Questions`
+          : lang === "PT"
+          ? `Perguntas`
+          : ""
+      }
       moreContent={
         <QuestionResponseText
           complete={completion[phase] || false}
           trigger={questions[JSON.stringify(activePairwiseMHPsCombo)][3] === 0}
           visible={questions[JSON.stringify(activePairwiseMHPsCombo)][3] === 0}
-          text={`That’s right - unrelated parasites still mean IBD is zero, whether or not any loci match.`}
+          text={
+            lang === "EN"
+              ? `That’s right - unrelated parasites still mean IBD is zero, whether or not any loci match.`
+              : lang === "FR"
+              ? `C'est exact - les parasites non apparentés signifient toujours que l'IBD est nul, que des loci correspondent ou non.`
+              : lang === "PT"
+              ? `Isso mesmo - parasitas não relacionados ainda significam que o IBD é zero, quer haja ou não correspondência de loci.`
+              : ""
+          }
         />
       }
       rightContentStyle={{
         gridRow: "span 2",
       }}
-      rightContent={<CompareMHPSingleCloneQuestions />}
+      rightContent={<CompareMHPSingleCloneQuestions lang={lang} />}
     />
   );
 
@@ -104,7 +133,7 @@ export default function CompareMHPClones() {
     className={
       questions[JSON.stringify(activePairwiseMHPsCombo)][3] === 0
         ? " bg-primaryBlue/10 p-4 text-sm md:p-6"
-        : "invisible bg-primaryBlue/10 p-4 text-sm md:p-6"
+        : "bg-primaryBlue/10 invisible p-4 text-sm md:p-6"
     }
   >
     <p>
