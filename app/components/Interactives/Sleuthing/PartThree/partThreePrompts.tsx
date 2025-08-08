@@ -772,7 +772,7 @@ export const partThreePrompts: {
       PT: (
         <div>
           <p>
-            Antes de prosseguir para o Passo 4, vamos parar um momento para
+            Antes de prosseguir para o etapa 4, vamos parar um momento para
             pensar sobre a relação entre MOI e o número de alelos observados nos
             microhaplótipos. Complete o questionário de três perguntas abaixo.
           </p>

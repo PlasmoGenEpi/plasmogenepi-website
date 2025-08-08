@@ -185,7 +185,7 @@ export default function InteractiveControlPanel({
         lang === "EN" ? "Summary" : lang === "FR" ? "Résumé" : "Resumo";
     } else {
       result.primaryText = `${
-        lang === "EN" ? "Step" : lang === "FR" ? "Étape" : "Passo"
+        lang === "EN" ? "Step" : lang === "FR" ? "Étape" : "Etapa"
       } ${section}`;
       if (phase > 0 && section !== 5) {
         result.secondaryText = `${phase} / ${
@@ -543,7 +543,7 @@ export default function InteractiveControlPanel({
                   ? `Step`
                   : lang === "FR"
                   ? `Étape`
-                  : `Passo`}{" "}
+                  : `Etapa`}{" "}
                 {getNextStep()}
               </span>
             </div>

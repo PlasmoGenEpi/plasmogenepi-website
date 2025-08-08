@@ -64,7 +64,7 @@ export const sections = [
     title: {
       EN: "Step 1. Make Positive Controls from SNPs When You Know the MOI",
       FR: "Étape 1. Faire des contrôles positifs à partir de SNP lorsque l'on connaît le MOI",
-      PT: "Passo 1. Criar Controlos Positivos a partir de SNPs quando se conhece o MOI",
+      PT: "Etapa 1. Criar Controlos Positivos a partir de SNPs quando se conhece o MOI",
     },
     sectionId: 1,
     completionAtom: partOneCompletionAtom,
@@ -153,7 +153,7 @@ export const sections = [
     title: {
       EN: "Step 2. Analyze Results from Your Field Samples Using SNPs to Estimate the Unknown MOI in Your Population",
       FR: "Étape 2. Analyser les résultats de vos échantillons de terrain à l'aide de SNP pour estimer la MOI inconnue dans votre population",
-      PT: "Passo 2. Analisar os resultados das suas amostras de campo utilizando SNPs para estimar o MOI desconhecido na sua população",
+      PT: "Etapa 2. Analisar os resultados das suas amostras de campo utilizando SNPs para estimar o MOI desconhecido na sua população",
     },
     // title:
     //   "Step 2. Analyze Results from Your Field Samples Using SNPs to Estimate the Unknown MOI in Your Population",
@@ -211,7 +211,7 @@ export const sections = [
     title: {
       EN: "Step 3. Make Positive Controls from Microhaplotypes When You Know the MOI",
       FR: "Étape 3. Faire des clones de laboratoire avec des microhaplotypes",
-      PT: "Passo 3. Criar controlos positivos a partir de microhaplótipos quando se conhece o MOI",
+      PT: "Etapa 3. Criar controlos positivos a partir de microhaplótipos quando se conhece o MOI",
     },
     // title:
     //   "Step 3. Make Positive Controls from Microhaplotypes When You Know the MOI",
@@ -292,7 +292,7 @@ export const sections = [
     title: {
       EN: "Step 4. Analyze Results from Your Field Samples Using Microhaplotypes to Estimate the Unknown MOI",
       FR: "Étape 4. Analyser les résultats de vos échantillons de terrain en utilisant les microhaplotypes pour estimer la MOI inconnue dans votre population",
-      PT: "Passo 4. Analisar os resultados das suas amostras de campo utilizando microhaplótipos para estimar o MOI desconhecido na sua população",
+      PT: "Etapa 4. Analisar os resultados das suas amostras de campo utilizando microhaplótipos para estimar o MOI desconhecido na sua população",
     },
     // title:
     //   "Step 4. Analyze Results from Your Field Samples Using Microhaplotypes to Estimate the Unknown MOI",
@@ -340,7 +340,7 @@ export const sections = [
     title: {
       EN: "Step 5. Compare Estimates of MOI from SNPs to Estimates of MOI from Microhaplotypes",
       FR: "Étape 5. Comparer les estimations de la MOI à partir des SNP aux estimations de la MOI à partir des microhaplotypes",
-      PT: "Passo 5. Comparar as estimativas de MOI de SNPs com as estimativas de MOI de Microhaplótipos",
+      PT: "Etapa 5. Comparar as estimativas de MOI de SNPs com as estimativas de MOI de Microhaplótipos",
     },
     // title:
     //   "Step 5. Compare Estimates of MOI from SNPs to Estimates of MOI from Microhaplotypes",
@@ -383,7 +383,7 @@ export const sections = [
     title: {
       EN: "Step 6. Make Your Recommendations",
       FR: "Étape 6. Formulez vos recommandations",
-      PT: "Passo 6. Fazer as suas recomendações",
+      PT: "Etapa 6. Fazer as suas recomendações",
     },
     // title: "Step 6. Make Your Recommendations",
     completionAtom: stepSixCompletionAtom,

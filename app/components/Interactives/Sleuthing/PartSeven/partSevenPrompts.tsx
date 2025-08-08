@@ -321,12 +321,12 @@ export const partSevenPrompts: {
         <div className="flex flex-col gap-4 font-helvetica [font-size:15px]">
           <p>
             Seguindo o conselho do seu gerente de laboratório (veja a introdução
-            ao Passo 2), você faz 3 controles positivos policlonais. Esses
+            ao etapa 2), você faz 3 controles positivos policlonais. Esses
             controles positivos consistem em diferentes combinações dos clones
             de laboratório monoclonais 1{" "}
             <InlineCircle className="bg-cloneRed" />, 2{" "}
             <InlineCircle className="bg-cloneBlue" />, e 3{" "}
-            <InlineCircle className="bg-cloneGreen" /> do passo 1, incluindo:
+            <InlineCircle className="bg-cloneGreen" /> do etapa 1, incluindo:
           </p>
           {/* <ul className="list-disc pl-8">
             <li>
@@ -1615,7 +1615,7 @@ export const partSevenPrompts: {
     title: {
       EN: <h5> 2.3.4. Step 2 Summary</h5>,
       FR: <h5> 2.3.4. Résumé de l'Étape 2</h5>,
-      PT: <h5> 2.3.4. Resumo do Passo 2</h5>,
+      PT: <h5> 2.3.4. Resumo do Etapa 2</h5>,
     },
 
     // instructions: (
@@ -1677,7 +1677,7 @@ export const partSevenPrompts: {
     title: {
       EN: <h5> 2.3.4. Step 2 Summary</h5>,
       FR: <h5> 2.3.4. Résumé de l'Étape 2</h5>,
-      PT: <h5> 2.3.4. Resumo do Passo 2</h5>,
+      PT: <h5> 2.3.4. Resumo do Etapa 2</h5>,
     },
 
     // instructions: (

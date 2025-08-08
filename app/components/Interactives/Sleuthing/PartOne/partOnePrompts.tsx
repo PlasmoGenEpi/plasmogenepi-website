@@ -704,7 +704,7 @@ export const partOnePrompts: {
       PT: (
         <div>
           <p>
-            Antes de prosseguir para o Passo 2, vamos parar um momento para
+            Antes de prosseguir para o etapa 2, vamos parar um momento para
             pensar na relação entre genótipos e heterozigotia. Complete o
             questionário de oito perguntas abaixo.
           </p>

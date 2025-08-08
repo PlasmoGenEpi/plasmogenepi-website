@@ -407,7 +407,7 @@ export default function PartZero({ lang }: { lang: "EN" | "FR" | "PT" }) {
                 <ol className="flex list-disc flex-col gap-4 px-4">
                   <li>
                     <p>
-                      <span className="font-bold">Passo 1:</span> Faça amostras
+                      <span className="font-bold">Etapa 1:</span> Faça amostras
                       de controlo positivo a partir de clones de laboratório
                       para os quais conhece o MOI. Em seguida, faça o genótipo
                       das suas amostras de controlo positivo para se certificar
@@ -419,14 +419,14 @@ export default function PartZero({ lang }: { lang: "EN" | "FR" | "PT" }) {
                   </li>
                   <li>
                     <p>
-                      <span className="font-bold">Passo 2:</span> Analisar os
+                      <span className="font-bold">Etapa 2:</span> Analisar os
                       resultados das suas amostras de campo utilizando SNPs para
                       estimar o MOI na sua população.
                     </p>
                   </li>
                   <li>
                     <p>
-                      <span className="font-bold">Passo 3:</span> Genotipar os
+                      <span className="font-bold">Etapa 3:</span> Genotipar os
                       mesmos controlos positivos nos mesmos loci, desta vez
                       analisando grupos de SNPs em conjunto como
                       microhaplótipos.
@@ -434,7 +434,7 @@ export default function PartZero({ lang }: { lang: "EN" | "FR" | "PT" }) {
                   </li>
                   <li>
                     <p>
-                      <span className="font-bold">Passo 4:</span> Analisar os
+                      <span className="font-bold">Etapa 4:</span> Analisar os
                       resultados das suas amostras de campo utilizando os
                       microhaplótipos para estimar o MOI desconhecido na sua
                       população.
@@ -442,14 +442,14 @@ export default function PartZero({ lang }: { lang: "EN" | "FR" | "PT" }) {
                   </li>
                   <li>
                     <p>
-                      <span className="font-bold">Passo 5:</span> Compare as
+                      <span className="font-bold">Etapa 5:</span> Compare as
                       suas estimativas de MOI a partir de SNPs com as suas
                       estimativas de MOI a partir de microhaplótipos.
                     </p>
                   </li>
                   <li>
                     <p>
-                      <span className="font-bold">Passo 6:</span> Interpretar os
+                      <span className="font-bold">Etapa 6:</span> Interpretar os
                       resultados e dar feedback ao seu programa sobre a
                       intervenção.
                     </p>

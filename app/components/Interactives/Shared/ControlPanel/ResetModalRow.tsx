@@ -30,7 +30,7 @@ export default function ResetModalRow({
           className={`${requires ? "opacity-50" : ""}`}
           htmlFor={`interactive-reset-${id}`}
         >{`${
-          lang === "EN" ? "Step" : lang === "FR" ? "Etape" : "Passo"
+          lang === "EN" ? "Step" : lang === "FR" ? "Etape" : "Etapa"
         } ${id}`}</label>
         <span>
           {requires && (
