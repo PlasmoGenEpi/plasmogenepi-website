@@ -1410,6 +1410,7 @@ export default function DragDropPrompts({
       {/* {JSON.stringify(currentView)} */}
 
       <InteractivePrompt
+        lang={lang}
         complete={completion?.[section ?? 0]?.[phase]}
         instructions={instructions}
         title={title}
