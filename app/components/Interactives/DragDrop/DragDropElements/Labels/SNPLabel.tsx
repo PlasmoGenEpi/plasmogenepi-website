@@ -35,11 +35,11 @@ export default function SNPLabel({
         animationDelay: `500ms`,
       }}
     >
-      {trigger && (
-        <span className="rotate-180 block translate-y-10 not-italic dark:text-cyan-500 text-interactiveGreen text-sm translate-x-1">
+      {/* {trigger && (
+        <span className="block translate-x-1 translate-y-10 rotate-180 text-sm not-italic text-interactiveGreen dark:text-cyan-500">
           SNP
         </span>
-      )}
+      )} */}
       <svg
         className="absolute translate-x-[1px] fill-[#0E5258] dark:fill-cyan-500"
         width="10pt"

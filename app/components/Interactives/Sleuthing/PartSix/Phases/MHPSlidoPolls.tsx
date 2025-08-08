@@ -89,7 +89,7 @@ export default function MHPSlidoPolls({ lang }: { lang: "EN" | "FR" | "PT" }) {
           : lang === "FR"
           ? "Estimations IBS avec des microhaplotypes"
           : lang === "PT"
-          ? "Estimativas de SCI com microhaplótipos"
+          ? "Estimativas de IBS com microhaplótipos"
           : ""
       }
       leftContent={
@@ -148,7 +148,7 @@ export default function MHPSlidoPolls({ lang }: { lang: "EN" | "FR" | "PT" }) {
                 : lang === "FR"
                 ? "En quoi vos résultats IBS comparant ces mêmes 3 parasites non apparentés différaient-ils en utilisant 12 microhaplotypes par rapport à 12 SNP ?"
                 : lang === "PT"
-                ? "Em que é que os seus resultados de SCI comparando estes mesmos 3 parasitas não relacionados diferiram utilizando 12 microhaplótipos em vez de utilizar 12 SNPs?"
+                ? "Em que é que os seus resultados de IBS comparando estes mesmos 3 parasitas não relacionados diferiram utilizando 12 microhaplótipos em vez de utilizar 12 SNPs?"
                 : ""
             }
             questionIdx={1}
@@ -278,7 +278,7 @@ export default function MHPSlidoPolls({ lang }: { lang: "EN" | "FR" | "PT" }) {
                     Deve ter reparado que tinha menos alelos a corresponder por
                     acaso nestes parasitas não relacionados, uma vez que os
                     microhaplótipos eram mais diversos do que os SNPs – tornando
-                    o SCI mais baixo e refletindo melhor a DII (que era sempre
+                    o IBS mais baixo e refletindo melhor a DII (que era sempre
                     zero). Este histograma mostra o número esperado de
                     correspondências utilizando 12 microhaplótipos com 8 alelos
                     cada – geralmente menos de 5. Isto contrasta com os SNPs,

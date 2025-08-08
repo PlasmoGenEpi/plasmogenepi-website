@@ -83,7 +83,7 @@ export default function GenerateMHPCloneRows({
                     : lang === "FR"
                     ? "L'IBD sera la même pour toutes les comparaisons qu'avant lorsque vous avez utilisé des SNP. Mais, l'IBS sera en moyenne plus faible, car il y a une chance sur 8 de correspondance à chaque locus au lieu de ½ lorsque vous avez utilisé des SNP."
                     : lang === "PT"
-                    ? "O IBD será o mesmo para todas as comparações como antes, quando utilizou SNPs. Mas, o SCI será, em média, inferior, uma vez que existe uma probabilidade de 1/8 de correspondência em cada locus em vez de ½ quando utilizou SNPs."
+                    ? "O IBD será o mesmo para todas as comparações como antes, quando utilizou SNPs. Mas, o IBS será, em média, inferior, uma vez que existe uma probabilidade de 1/8 de correspondência em cada locus em vez de ½ quando utilizou SNPs."
                     : "",
               },
               {
@@ -96,7 +96,7 @@ export default function GenerateMHPCloneRows({
                     : lang === "FR"
                     ? "L'IBD et l'IBS seront tous deux inférieurs à ceux que vous avez utilisés avec les SNP."
                     : lang === "PT"
-                    ? "Tanto o IBD como o SCI serão inferiores aos que utilizou com SNPs."
+                    ? "Tanto o IBD como o IBS serão inferiores aos que utilizou com SNPs."
                     : "",
               },
               {
@@ -109,7 +109,7 @@ export default function GenerateMHPCloneRows({
                     : lang === "FR"
                     ? "L'IBD et l'IBS seront tous deux supérieurs à ceux que vous avez utilisés avec les SNP."
                     : lang === "PT"
-                    ? "Tanto o IBD como o SCI serão superiores aos que utilizou com SNPs."
+                    ? "Tanto o IBD como o IBS serão superiores aos que utilizou com SNPs."
                     : "",
               },
               {
@@ -122,7 +122,7 @@ export default function GenerateMHPCloneRows({
                     : lang === "FR"
                     ? "L'IBD et l'IBS resteront les mêmes que lorsque vous avez utilisé des SNP."
                     : lang === "PT"
-                    ? "Tanto o IBD como o SCI permanecerão os mesmos que quando utilizou SNPs."
+                    ? "Tanto o IBD como o IBS permanecerão os mesmos que quando utilizou SNPs."
                     : "",
               },
             ]}
@@ -146,7 +146,7 @@ export default function GenerateMHPCloneRows({
                 : lang === "FR"
                 ? "L'IBD sera la même pour toutes les comparaisons qu'avant. Mais, l'IBS sera en moyenne plus faible, car il y a une chance sur 8 de correspondance à chaque locus au lieu de 1/2."
                 : lang === "PT"
-                ? "O IBD será o mesmo para todas as comparações como antes. Mas, o SCI será, em média, inferior, uma vez que existe uma probabilidade de 1/8 de correspondência em cada locus em vez de 1/2."
+                ? "O IBD será o mesmo para todas as comparações como antes. Mas, o IBS será, em média, inferior, uma vez que existe uma probabilidade de 1/8 de correspondência em cada locus em vez de 1/2."
                 : ""
             }
           />

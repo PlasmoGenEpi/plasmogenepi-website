@@ -166,7 +166,7 @@ export default function CompareSNPSingleCloneQuestions({
                       : lang === "FR"
                       ? "Quel est l'IBS pour ces deux parasites ?"
                       : lang === "PT"
-                      ? "Qual é o SCI para estes dois parasitas?"
+                      ? "Qual é o IBS para estes dois parasitas?"
                       : ``
                   }
                   classNames={{

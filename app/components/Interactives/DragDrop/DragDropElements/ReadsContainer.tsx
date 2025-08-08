@@ -90,7 +90,9 @@ export const chimaeraReadAtom = atomWithStorage<ReadType>("chimaeraRead", {
 export default function ReadsContainer({
   scrollRef,
   scrollIntervalTimeoutRef,
+  lang = "EN",
 }: {
+  lang: "EN" | "PT" | "FR";
   scrollRef: RefObject<HTMLDivElement>;
   scrollIntervalTimeoutRef: MutableRefObject<NodeJS.Timeout | null>;
 }) {
@@ -623,17 +625,28 @@ export default function ReadsContainer({
               style={{
                 animationDelay: "5000ms",
               }}
-              className="fadeIn500 absolute left-8 top-12 max-w-xs select-none"
+              className="fadeIn500 absolute left-8 top-4 max-w-xs select-none"
             >
-              If you are having trouble placing all the reads correctly, try
-              enabling hints{" "}
+              {lang === "EN"
+                ? `If you are having trouble placing all the reads correctly, try`
+                : lang === `PT`
+                ? `Se você está tendo problemas para posicionar todas as leituras corretamente, tente`
+                : lang === `FR`
+                ? `Si vous avez du mal à placer toutes les lectures correctement, essayez`
+                : ""}{" "}
               <button
                 onClick={() => {
                   setHintsEnabled(true);
                 }}
-                className="text-interactiveBlue font-bold italic underline"
+                className="z-[900] font-bold italic text-interactiveBlue underline"
               >
-                here!
+                {lang === "EN"
+                  ? `enabling hints`
+                  : lang === `PT`
+                  ? `ativar as dicas`
+                  : lang === `FR`
+                  ? `d'activer les indices`
+                  : ""}
               </button>
             </span>
           )}

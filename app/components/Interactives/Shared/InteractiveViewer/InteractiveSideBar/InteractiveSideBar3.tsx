@@ -25,7 +25,9 @@ import { dragDropCompletionAtom } from "@/data/Interactives/interactiveStore";
 export default function InteractiveSideBar3({
   module,
   dev,
+  lang,
 }: {
+  lang: "EN" | "PT" | "FR";
   dev?: boolean;
   // SetAtom<[SetStateActionWithReset<{ module: string; section: number; phase: number; }>]
   module: string | string[] | undefined;
@@ -38,7 +40,12 @@ export default function InteractiveSideBar3({
 
   const nodes = [
     {
-      title: "Background",
+      title: {
+        EN: "Background",
+        PT: "Contexto",
+        FR: "Contexte",
+      },
+      // "Background",
       complete: completion?.[0]?.[0],
       available: true,
       isActive: (currentView: InteractiveViewSettings) => {
@@ -60,7 +67,12 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title: "Goal",
+      // title: "Goal",
+      title: {
+        EN: "Goal",
+        PT: "Objetivo",
+        FR: "Objectif",
+      },
       complete: completion?.[0]?.[1],
       available: completion?.[0]?.[0],
       isActive: (currentView: InteractiveViewSettings) => {
@@ -82,7 +94,12 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title: "Instructions",
+      // title: "Instructions",
+      title: {
+        EN: "Instructions",
+        PT: "Instruções",
+        FR: "Instructions",
+      },
       complete: completion?.[0]?.[2],
       available: completion?.[0]?.[1],
       isActive: (currentView: InteractiveViewSettings) => {
@@ -104,7 +121,12 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title: "Step 1. Align Sequencer Generated Reads to the Reference Genome",
+      // title: "Step 1. Align Sequencer Generated Reads to the Reference Genome",
+      title: {
+        EN: "Step 1. Align Sequencer Generated Reads to the Reference Genome",
+        PT: "Etapa 1. Alinhe as leituras geradas pelo sequenciador ao genoma de referência",
+        FR: "Étape 1. Alignez les lectures générées par le séquenceur sur le génome de référence",
+      },
       complete: completion?.[1]?.[0],
       available: completion?.[0]?.[2],
       isActive: (currentView: InteractiveViewSettings) => {
@@ -126,7 +148,12 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title: "Knowledge Check",
+      // title: "Knowledge Check",
+      title: {
+        EN: "Knowledge Check",
+        PT: "Checagem de Conhecimento",
+        FR: "Vérification de Connaissance",
+      },
       pad: true,
       complete: completion?.[1]?.[1],
       available: completion?.[1]?.[0],
@@ -149,8 +176,13 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title:
-        "Step 2. Match Sequencer Generated Reads with Mutations and Errors to the Reference the Genome",
+      // title:
+      // "Step 2. Match Sequencer Generated Reads with Mutations and Errors to the Reference the Genome",
+      title: {
+        EN: "Step 2. Match Sequencer Generated Reads with Mutations and Errors to the Reference the Genome",
+        PT: "Etapa 2. Combine as leituras geradas pelo sequenciador com mutações e erros com o genoma de referência",
+        FR: "Étape 2. Faites corresponder les lectures générées par le séquenceur avec les mutations et les erreurs au génome de référence",
+      },
       complete: completion?.[2]?.[0],
       available: completion?.[1]?.[1],
       isActive: (currentView: InteractiveViewSettings) => {
@@ -172,7 +204,12 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title: "Knowledge Check",
+      // title: "Knowledge Check",
+      title: {
+        EN: "Knowledge Check",
+        PT: "Checagem de Conhecimento",
+        FR: "Vérification de Connaissance",
+      },
       pad: true,
       complete: completion?.[2]?.[1],
       available: completion?.[2]?.[0],
@@ -195,7 +232,12 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title: "Step 3. Identify Genotyping Errors",
+      // title: "Step 3. Identify Genotyping Errors",
+      title: {
+        EN: "Step 3. Identify Genotyping Errors",
+        PT: "Etapa 3. Identifique erros de genotipagem",
+        FR: "Étape 3. Identifier les erreurs de génotypage",
+      },
       complete: completion?.[2]?.[2],
       available: completion?.[2]?.[1],
       isActive: (currentView: InteractiveViewSettings) => {
@@ -217,7 +259,12 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title: "Knowledge Check",
+      // title: "Knowledge Check",
+      title: {
+        EN: "Knowledge Check",
+        PT: "Checagem de Conhecimento",
+        FR: "Vérification de Connaissance",
+      },
       pad: true,
       complete: completion?.[2]?.[3],
       available: completion?.[2]?.[2],
@@ -240,7 +287,12 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title: "Step 4. Identify Mutations",
+      // title: "Step 4. Identify Mutations",
+      title: {
+        EN: "Step 4. Identify Mutations",
+        PT: "Etapa 4. Identifique mutações",
+        FR: "Étape 4. Identifier les mutations",
+      },
       complete: completion?.[3]?.[0],
       available: completion?.[2]?.[3],
       isActive: (currentView: InteractiveViewSettings) => {
@@ -262,7 +314,12 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title: "Knowledge Check",
+      // title: "Knowledge Check",
+      title: {
+        EN: "Knowledge Check",
+        PT: "Checagem de Conhecimento",
+        FR: "Vérification de Connaissance",
+      },
       pad: true,
       complete: completion?.[3]?.[2],
       available: completion?.[3]?.[0],
@@ -285,7 +342,12 @@ export default function InteractiveSideBar3({
       },
     },
     {
-      title: "Summary",
+      // title: "Summary",
+      title: {
+        EN: "Summary",
+        PT: "Resumo",
+        FR: "Résumé",
+      },
       complete: completion?.[3]?.[2],
       available: completion?.[3]?.[2],
       isActive: (currentView: InteractiveViewSettings) => {
@@ -332,7 +394,7 @@ export default function InteractiveSideBar3({
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        className="absolute right-2 top-2 border-b border-transparent text-sm hover:border-gray-200 hover:text-white focus-visible:text-white"
+        className="absolute right-2 top-2 border-b border-transparent text-sm hover:border-gray-200 hover:text-white focus-visible:text-white md:hidden"
       >
         <svg
           width="16pt"
@@ -352,7 +414,7 @@ export default function InteractiveSideBar3({
       >
         <div
           className={` pb-32 md:pb-28  ${
-            isOpen ? "md:delay-500" : "text-transparent"
+            isOpen ? "md:delay-500" : "text-transparent md:text-inherit"
           } duration-300`}
         >
           <div className="w-full bg-interactiveGreen/60 px-12 pb-4 pt-8 text-center  font-bold text-white md:max-w-sm">
@@ -362,13 +424,15 @@ export default function InteractiveSideBar3({
                 : module === "5.6"
                 ? "5.6"
                 : "4.4"} */}
-              Bioinformatics
+              {lang === "EN"
+                ? "Bioinformatics"
+                : lang === "PT"
+                ? "Bioinformática"
+                : "Bioinformatique"}
               {/* Genetic Sleuthing & Surveillance */}
             </h3>
           </div>
           {nodes.map((node, idx) => {
-            console.log(node.isActive);
-            console.log(currentView);
             return (
               <button
                 disabled={dev === true ? false : !node.available}
@@ -386,7 +450,9 @@ export default function InteractiveSideBar3({
                 } relative flex w-full justify-between gap-8 overflow-hidden border-b border-white/20 py-3 pl-10 pr-16 text-left text-sm`}
                 key={idx}
               >
-                <h5 className={`translate-y-0.5`}>{node.title}</h5>
+                <h5 className={`translate-y-0.5`}>
+                  {node.title[lang] ?? node.title}
+                </h5>
                 <div className="absolute right-0 w-16 shrink-0 place-self-center">
                   {
                     node.available || node.complete ? (

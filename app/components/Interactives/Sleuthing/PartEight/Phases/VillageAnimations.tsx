@@ -6,7 +6,11 @@ import { phase2Atom } from "@/data/Interactives/interactiveStore";
 import FormHeader from "@/app/components/Interactives/Shared/misc/FormHeader";
 import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/InteractiveStandardForm/InteractivePrimaryLayout/InteractivePrimaryLayout";
 
-export default function VillageAnimations() {
+export default function VillageAnimations({
+  lang = "EN",
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const phase = useAtomValue(phase2Atom);
 
   // return (
@@ -19,8 +23,22 @@ export default function VillageAnimations() {
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Village Transmission Network ${
-        phase === 29.5 ? "(Hypothetical)" : ""
+      leftHeader={`${
+        lang === "EN"
+          ? `Village Transmission Network`
+          : lang === "FR"
+          ? `Réseau de transmission du village`
+          : `Rede de Transmissão da Aldeia`
+      } ${
+        phase === 29.5
+          ? lang === "EN"
+            ? "(Hypothetical)"
+            : lang === "PT"
+            ? `(Hipótese)`
+            : lang === "FR"
+            ? `(Hypothèse)`
+            : ""
+          : ""
       }
 `}
       rightHeader={
@@ -51,17 +69,33 @@ export default function VillageAnimations() {
             </span>
           </h2>
         ) : phase === 29.5 ? (
-          `Reassessing`
+          lang === "EN" ? (
+            `Reassessing`
+          ) : lang === "FR" ? (
+            `Réévaluation`
+          ) : (
+            `Reavaliando`
+          )
         ) : phase >= 34 && phase < 36 ? (
-          "Transmissions"
+          lang === "EN" ? (
+            "Transmissions"
+          ) : lang === "FR" ? (
+            `Transmission`
+          ) : (
+            `Transmissões`
+          )
         ) : phase >= 36 && phase < 40 ? (
-          "Questions"
+          lang === "PT" ? (
+            "Perguntas"
+          ) : (
+            "Questions"
+          )
         ) : (
           ""
         )
       }
       leftContent={<AnimationPentagon />}
-      rightContent={<AnimationPentagonSideBySide />}
+      rightContent={<AnimationPentagonSideBySide lang={lang} />}
     />
   );
 

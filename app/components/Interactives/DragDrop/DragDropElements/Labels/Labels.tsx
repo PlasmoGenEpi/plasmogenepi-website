@@ -24,8 +24,9 @@ const rowDistance = 32;
 const charSize = 18;
 const readStartOffset = 18;
 const dropContainerWidth = 1148;
+const SNPLeftPadding = 64;
 
-export default function Labels() {
+export default function Labels({ lang = "EN" }: { lang: "EN" | "PT" | "FR" }) {
   // const phase = useAtomValue(phase3Atom);
   const currentView = useAtomValue(currentView3Atom);
   const globalDrag = useAtomValue(globalDragAtom);
@@ -108,7 +109,15 @@ export default function Labels() {
         }}
         labelClassName="text-primaryGreen [fontSize:15px] translate-y-1 block fadeIn500 text-right translate-x-2"
         readRowHeight={rowDistance}
-        text="Sequencing depth: 6"
+        text={
+          lang === "EN"
+            ? "Sequencing depth: 6"
+            : lang === "FR"
+            ? "Profondeur de séquençage: 6"
+            : lang === "PT"
+            ? "Profundidade de sequenciamento: 6"
+            : "Sequencing depth: 6"
+        }
         rowNumber={6.25}
         left={18 * charSize + paddingLeft}
         size={charSize}
@@ -121,7 +130,15 @@ export default function Labels() {
         }}
         labelClassName="text-primaryGreen [fontSize:15px] translate-y-1 block fadeIn500 text-right translate-x-2"
         readRowHeight={rowDistance}
-        text="Sequencing depth: 4"
+        text={
+          lang === "EN"
+            ? "Sequencing depth: 4"
+            : lang === "FR"
+            ? "Profondeur de séquençage: 4"
+            : lang === "PT"
+            ? "Profundidade de sequenciamento: 4"
+            : "Sequencing depth: 4"
+        }
         rowNumber={4.25}
         left={47 * charSize + paddingLeft}
         size={charSize}
@@ -132,28 +149,34 @@ export default function Labels() {
         <div>
           <SNPLabel
             top={topDistanceIncludingBorder - rowDistance * 1.2}
-            left={charSize * 4 + paddingLeft}
+            // left={charSize * 4 + paddingLeft}
+            left={charSize * 5 + paddingLeft + 2}
             trigger={!completion?.[3]?.[1]}
           />
           <SNPLabel
             top={topDistanceIncludingBorder - rowDistance * 1.2}
-            left={charSize * 11 + paddingLeft}
+            // left={charSize * 11 + paddingLeft}
+            left={charSize * 12 + paddingLeft + 2}
           />
           <SNPLabel
             top={topDistanceIncludingBorder - rowDistance * 1.2}
-            left={charSize * 16 + paddingLeft}
+            // left={charSize * 16 + paddingLeft}
+            left={charSize * 17 + paddingLeft + 2}
           />
           <SNPLabel
             top={topDistanceIncludingBorder - rowDistance * 1.2}
-            left={charSize * 35 + paddingLeft}
+            // left={charSize * 35 + paddingLeft}
+            left={charSize * 36 + paddingLeft + 2}
           />
           <SNPLabel
             top={topDistanceIncludingBorder - rowDistance * 1.2}
-            left={charSize * 38 + paddingLeft}
+            // left={charSize * 38 + paddingLeft}
+            left={charSize * 39 + paddingLeft + 2}
           />
           <SNPLabel
             top={topDistanceIncludingBorder - rowDistance * 1.2}
-            left={charSize * 43 + paddingLeft}
+            // left={charSize * 43 + paddingLeft}
+            left={charSize * 44 + paddingLeft + 2}
           />
         </div>
       )}

@@ -39,7 +39,7 @@ export default function SNPSlidoPolls({ lang }: { lang: "EN" | "FR" | "PT" }) {
           : lang === "FR"
           ? `Estimations IBS avec SNPs`
           : lang === "PT"
-          ? `Estimativas de SCI com SNPs`
+          ? `Estimativas de IBS com SNPs`
           : ``
       }
       leftContent={
@@ -90,7 +90,7 @@ export default function SNPSlidoPolls({ lang }: { lang: "EN" | "FR" | "PT" }) {
               : lang === "FR"
               ? `Environ 50 % des loci devraient correspondre dans chacune de ces comparaisons. Vous constaterez peut-être que certaines paires de clones ont un IBS plus élevé que d'autres. Cela signifie-t-il que ces clones sont plus étroitement liés que les autres ? Non, nous savons que ce n'est pas le cas - l'IBD est nul ! Toute différence d'IBS entre ces paires est uniquement due au hasard. Si vous répétez l'activité, vous obtiendrez un résultat d'IBS différent à chaque fois, mais les clones ne seront toujours pas liés.`
               : lang === "PT"
-              ? `Aproximadamente 50% dos loci devem corresponder em cada uma destas comparações. Pode ver que alguns pares de clones têm um SCI mais elevado do que outros. Isto significa que esses clones estão mais estreitamente relacionados do que os outros? Não, sabemos que não estão - a DII é zero! Qualquer diferença no SCI entre estes pares deve-se puramente ao acaso. Se repetir a atividade, obterá um resultado de SCI diferente de cada vez, mas os clones continuam a não estar relacionados.`
+              ? `Aproximadamente 50% dos loci devem corresponder em cada uma destas comparações. Pode ver que alguns pares de clones têm um IBS mais elevado do que outros. Isto significa que esses clones estão mais estreitamente relacionados do que os outros? Não, sabemos que não estão - a DII é zero! Qualquer diferença no IBS entre estes pares deve-se puramente ao acaso. Se repetir a atividade, obterá um resultado de IBS diferente de cada vez, mas os clones continuam a não estar relacionados.`
               : ``
           }
         />

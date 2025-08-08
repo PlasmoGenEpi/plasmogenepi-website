@@ -112,7 +112,9 @@ export const DragDropCurrentVersionAtom = atomWithStorage(
 
 export default function DragDropControlPanel({
   scrollRef,
+  lang = "EN",
 }: {
+  lang: "EN" | "PT" | "FR";
   scrollRef: MutableRefObject<null | HTMLDivElement>;
 }) {
   const [phase, setPhase] = useAtom(phase3Atom);
@@ -526,14 +528,56 @@ export default function DragDropControlPanel({
     if (section === 0) {
       if (phase === 0) {
         // return "Background";
-        result.primaryText = "Background";
+        result.primaryText =
+          lang === "EN"
+            ? "Background"
+            : lang === "PT"
+            ? "Contexto"
+            : "Contexte";
       } else if (phase === 1) {
-        result.primaryText = "Goal";
+        result.primaryText =
+          lang === "EN" ? "Goal" : lang === "PT" ? "Objetivo" : "Objectif";
       } else if (phase >= 2) {
-        result.primaryText = "Instructions";
+        result.primaryText =
+          lang === "EN"
+            ? "Instructions"
+            : lang === "PT"
+            ? "Instruções"
+            : "Instructions";
       }
     } else {
-      result.primaryText = `Step ${section}`;
+      result.primaryText = `${
+        !(phase === 3 && section === 3)
+          ? lang === "EN"
+            ? "Step"
+            : lang === "FR"
+            ? "Étape"
+            : lang === "PT"
+            ? "Etapa"
+            : "Step"
+          : ""
+      } 
+      ${
+        section !== null && section <= 2 && phase < 2
+          ? section
+          : section === 2 && phase >= 2
+          ? 3
+          : section === 3
+          ? phase !== 3
+            ? 4
+            : lang === "EN"
+            ? "Summary"
+            : lang === "FR"
+            ? "Résumé"
+            : "Résumé"
+          : `${section} / ${phase}`
+        // section === 2 && phase === 3
+        // : phase >= 2 && phase < 4
+        // ? 3
+        // : section >= 3 && phase < 6
+        // ? 4
+        // : "Summary"
+      }`;
       if (section === 1) {
         if (phase === 0) {
           result.secondaryText = "1 / 2";
@@ -600,7 +644,13 @@ export default function DragDropControlPanel({
                 fillRule="evenodd"
               />
             </svg>
-            <span className="ml-2 mt-1">Reset</span>
+            <span className="ml-2 mt-1">
+              {lang === "EN"
+                ? `Reset`
+                : lang === "PT"
+                ? `Reiniciar`
+                : `Réinitialiser`}
+            </span>
           </button>
           <div className="my-auto inline-flex ">
             <input
@@ -613,13 +663,17 @@ export default function DragDropControlPanel({
               type="checkbox"
             />
             <label htmlFor="hints" className="ml-4 mt-1 text-lg">
-              Enable Hints
+              {lang === "EN"
+                ? `Enable Hints`
+                : lang === "PT"
+                ? `Ativar Dicas`
+                : `Activer les Indices`}
             </label>
           </div>
         </div>
         <div className="mb-2 grid [grid-template-columns:min-content_auto_min-content_136px]">
           <button
-            className="mx-6 md:mx-12"
+            className="mx-6 md:invisible md:mx-12"
             onClick={() => {
               setMenuOpen(!menuOpen);
             }}
@@ -671,7 +725,15 @@ export default function DragDropControlPanel({
                   fillRule="evenodd"
                 />
               </svg>
-              <span className="ml-2 mt-1">Reset</span>
+              <span className="ml-2 mt-1">
+                {lang === "EN"
+                  ? "Reset"
+                  : lang === "FR"
+                  ? "Réinitialiser"
+                  : lang === "PT"
+                  ? "Reiniciar"
+                  : "Reset"}
+              </span>
             </button>
             <div className="my-auto hidden md:inline-flex">
               <input
@@ -684,7 +746,13 @@ export default function DragDropControlPanel({
                 type="checkbox"
               />
               <label htmlFor="hints" className="ml-4 mt-1  ">
-                Enable Hints
+                {lang === "EN"
+                  ? `Enable Hints`
+                  : lang === "FR"
+                  ? `Activer les Indices`
+                  : lang === "PT"
+                  ? `Ativar Dicas`
+                  : `Enable Hints`}
               </label>
             </div>
             <span className="my-auto self-center overflow-hidden text-ellipsis md:translate-y-0.5">

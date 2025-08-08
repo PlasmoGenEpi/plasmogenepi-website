@@ -24,8 +24,8 @@ export const partSixPrompts: {
   0: {
     title: {
       EN: <h5>1.1. Genotyping with SNPs</h5>,
-      FR: <h5>1.1 Génotypage à l'aide de SNP</h5>,
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      FR: <h5>1.1. Génotypage à l'aide de SNP</h5>,
+      PT: <h5>1.1. Genotipagem com SNPs</h5>,
     },
     instructions: {
       EN: (
@@ -68,18 +68,18 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            As is the case with most laboratory assays, it is often very helpful
-            and sometimes essential to first generate and interpret data when
-            you know the truth, so you can interpret the data where the truth is
-            unknown.
+            Como é o caso da maioria dos ensaios laboratoriais, é muitas vezes
+            muito útil e, por vezes, essencial, gerar e interpretar dados
+            primeiro quando se conhece a verdade, para que se possa interpretar
+            os dados onde a verdade é desconhecida.
           </p>
           <p>
-            Therefore, in order to understand how to interpret data from your
-            village and school outbreaks, you will first evaluate your methods
-            and analysis on some laboratory clones. Fortunately, your
-            experienced Laboratory Research Scientist, Dr. Issac, has stored
-            samples from cultured parasite clones. You ask them to pull out
-            samples from 3 clones that come from 3 different continents.
+            Portanto, para entender como interpretar os dados dos surtos na sua
+            aldeia e escola, irá primeiro avaliar os seus métodos e análises em
+            alguns clones de laboratório. Felizmente, o seu experiente Cientista
+            de Investigação Laboratorial, Dr. Issac, guardou amostras de clones
+            de parasitas cultivados. Você pede-lhe para retirar amostras de 3
+            clones que vêm de 3 continentes diferentes.
           </p>
         </div>
       ),
@@ -154,7 +154,7 @@ export const partSixPrompts: {
           1.1.1. Clones de laboratoire non apparentés du génotype 3 avec SNP
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: <h5>1.1. Genotipagem com SNPs</h5>,
     },
     instructions: {
       EN: (
@@ -185,7 +185,21 @@ export const partSixPrompts: {
           génotypes.
         </div>
       ),
-      PT: <div className="flex flex-col gap-4"></div>,
+      PT: (
+        <div className="flex flex-col gap-4">
+          A simulação atribuirá aleatoriamente alelos SNP a 12 loci para cada
+          clone de laboratório. Os alelos de referência e alternativos para
+          estes 12 loci são mostrados abaixo. Tal como nas atividades anteriores
+          de investigação de genótipos, estes SNPs têm apenas 2 alelos cada e
+          estão perfeitamente equilibrados, pelo que há uma probabilidade de
+          50/50 de obter o alelo de referência ou o alelo alternativo em cada
+          locus. Cada clone é completamente não relacionado com os outros por
+          ancestralidade, como indicado pelas suas cores diferentes – você sabe
+          disto porque eles vêm de partes completamente diferentes do mundo.
+          Clique em cada um dos três clones de laboratório abaixo para gerar
+          genótipos.
+        </div>
+      ),
     },
   },
   2: {
@@ -218,7 +232,12 @@ export const partSixPrompts: {
           comparaisons par paires
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.1.2. Preveja o que você vai observar sobre SII/DII em comparações
+          pareadas
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -237,7 +256,14 @@ export const partSixPrompts: {
           avez déjà une idée de ce à quoi vous vous attendez.
         </div>
       ),
-      PT: <div className="flex flex-col gap-4"></div>,
+      PT: (
+        <div className="flex flex-col gap-4">
+          Agora que esses clones não relacionados têm sequências, você pode
+          comparar seus genótipos e calcular o IBS - a porcentagem de SNPs que
+          correspondem entre quaisquer dois. Antes de fazer isso, no entanto,
+          você já tem uma ideia do que esperar.
+        </div>
+      ),
     },
   },
   3: {
@@ -259,11 +285,11 @@ export const partSixPrompts: {
           1.1.3. Génotypage et comparaison de paires de clones non apparentés
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: <h5>1.1.3. Genotipar e comparar pares de clones não relacionados</h5>,
     },
     instructions: {
       EN: (
-        <div className="flex flex-col gap-4">
+        <div>
           Compare the genotype of lab clone 1{" "}
           <InlineCircle className="bg-cloneRed" /> to lab clone 2{" "}
           <InlineCircle className="bg-cloneBlue" /> and use the interactive form
@@ -271,13 +297,22 @@ export const partSixPrompts: {
         </div>
       ),
       FR: (
-        <div className="flex flex-col gap-4">
-          Comparez le génotype du clone de laboratoire 1 à celui du clone de
-          laboratoire 2 et utilisez le formulaire interactif pour vérifier si
-          les allèles SNP correspondent à chaque locus.
+        <div>
+          Comparez le génotype du clone de laboratoire 1{" "}
+          <InlineCircle className="bg-cloneRed" /> à celui du clone de
+          laboratoire 2 <InlineCircle className="bg-cloneBlue" /> et utilisez le
+          formulaire interactif pour vérifier si les allèles SNP correspondent à
+          chaque locus.
         </div>
       ),
-      PT: <div className="flex flex-col gap-4"></div>,
+      PT: (
+        <div>
+          Compare o genótipo do clone de laboratório 1{" "}
+          <InlineCircle className="bg-cloneRed" /> com o clone de laboratório 2{" "}
+          <InlineCircle className="bg-cloneBlue" /> e use o formulário
+          interativo para verificar se os alelos SNP correspondem em cada locus.
+        </div>
+      ),
     },
   },
   4: {
@@ -299,11 +334,11 @@ export const partSixPrompts: {
           1.1.3. Génotypage et comparaison de paires de clones non apparentés
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: <h5>1.1.3. Genotipar e comparar pares de clones não relacionados</h5>,
     },
     instructions: {
       EN: (
-        <div className="flex flex-col gap-4">
+        <div>
           Compare the genotype of lab clone 1{" "}
           <InlineCircle className="bg-cloneRed" /> to lab clone 3{" "}
           <InlineCircle className="bg-cloneGreen" /> and use the interactive
@@ -311,13 +346,20 @@ export const partSixPrompts: {
         </div>
       ),
       FR: (
-        <div className="flex flex-col gap-4">
+        <div>
           Comparez le génotype du clone de laboratoire 1 à celui du clone de
           laboratoire 3 et utilisez le formulaire interactif pour vérifier si
           les allèles SNP correspondent à chaque locus.
         </div>
       ),
-      PT: <div className="flex flex-col gap-4"></div>,
+      PT: (
+        <div>
+          Compare o genótipo do clone de laboratório 1{" "}
+          <InlineCircle className="bg-cloneRed" /> com o clone de laboratório 3{" "}
+          <InlineCircle className="bg-cloneGreen" /> e use o formulário
+          interativo para verificar se os alelos SNP correspondem em cada locus.
+        </div>
+      ),
     },
   },
   5: {
@@ -339,11 +381,11 @@ export const partSixPrompts: {
           1.1.3. Génotypage et comparaison de paires de clones non apparentés
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: <h5>1.1.3. Genotipar e comparar pares de clones não relacionados</h5>,
     },
     instructions: {
       EN: (
-        <div className="flex flex-col gap-4">
+        <div className="">
           Compare the genotype of lab clone 2{" "}
           <InlineCircle className="bg-cloneBlue" /> to lab clone 3{" "}
           <InlineCircle className="bg-cloneGreen" /> and use the interactive
@@ -351,13 +393,22 @@ export const partSixPrompts: {
         </div>
       ),
       FR: (
-        <div className="flex flex-col gap-4">
-          Comparez le génotype du clone de laboratoire 2 à celui du clone de
-          laboratoire 3 et utilisez le formulaire interactif pour vérifier si
-          les allèles SNP correspondent à chaque locus.
+        <div>
+          Comparez le génotype du clone de laboratoire 2{" "}
+          <InlineCircle className="bg-cloneBlue" /> à celui du clone de
+          laboratoire 3 <InlineCircle className="bg-cloneGreen" /> et utilisez
+          le formulaire interactif pour vérifier si les allèles SNP
+          correspondent à chaque locus.
         </div>
       ),
-      PT: <div className="flex flex-col gap-4"></div>,
+      PT: (
+        <div>
+          Compare o genótipo do clone de laboratório 2{" "}
+          <InlineCircle className="bg-cloneBlue" /> com o clone de laboratório 3{" "}
+          <InlineCircle className="bg-cloneGreen" /> e use o formulário
+          interativo para verificar se os alelos SNP correspondem em cada locus.
+        </div>
+      ),
     },
   },
   6: {
@@ -372,8 +423,8 @@ export const partSixPrompts: {
     // ),
     title: {
       EN: <h5>1.1.4. Observe All Three IBS Estimates Together</h5>,
-      FR: <h5>1.1. Genotyping with SNPs</h5>,
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      FR: <h5>1.1.4. Observer les trois estimations de l'IBS ensemble</h5>,
+      PT: <h5>1.1.4. Observar as três estimativas do IBS em conjunto</h5>,
     },
     instructions: {
       EN: (
@@ -395,8 +446,8 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Take a look at the IBS estimates between these 3 pairs of clones,
-            using 12 perfectly balanced SNPs.
+            Dê uma olhada nas estimativas de IBS entre esses 3 pares de clones,
+            usando 12 SNPs perfeitamente equilibrados.
           </p>
         </div>
       ),
@@ -411,8 +462,8 @@ export const partSixPrompts: {
     // ),
     title: {
       EN: <h5>1.1.4. Observe All Three IBS Estimates Together</h5>,
-      FR: <h5>1.1. Genotyping with SNPs</h5>,
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      FR: <h5>1.1.4. Observer les trois estimations de l'IBS ensemble</h5>,
+      PT: <h5>1.1.4. Observar as três estimativas do IBS em conjunto</h5>,
     },
     instructions: {
       EN: (
@@ -427,7 +478,7 @@ export const partSixPrompts: {
       ),
       PT: (
         <div className="flex flex-col gap-4">
-          <p></p>
+          <p>Responda às seguintes perguntas.</p>
         </div>
       ),
     },
@@ -461,7 +512,12 @@ export const partSixPrompts: {
           apparentés des parasites non apparentés à l'aide de l'IBS
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.1.5. Verificação de conhecimentos: Distinguir Parasitas Relacionados
+          de Parasitas Não Relacionados Utilizando o IBS
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -485,9 +541,9 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            // With 12 perfectly balanced SNPs like in these examples, we can //
-            estimate the probability that a certain number of SNPs will match
-            when // IBD is zero. //{" "}
+            Com 12 SNPs perfeitamente equilibrados como nestes exemplos, podemos
+            estimar a probabilidade de um certo número de SNPs coincidir quando
+            o IBD é zero.
           </p>
         </div>
       ),
@@ -516,8 +572,18 @@ export const partSixPrompts: {
           Unrelated Parasites Using IBS
         </h5>
       ),
-      FR: <h5>1.1. Genotyping with SNPs</h5>,
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      FR: (
+        <h5>
+          1.1.5. Contrôle des connaissances : Distinguer les parasites
+          apparentés des parasites non apparentés à l'aide de l'IBS
+        </h5>
+      ),
+      PT: (
+        <h5>
+          1.1.5. Verificação de conhecimentos: Distinguir Parasitas Relacionados
+          de Parasitas Não Relacionados Utilizando o IBS
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -541,9 +607,9 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            With 12 perfectly balanced SNPs like in these examples, we can
-            estimate the probability that a certain number of SNPs will match
-            when IBD is zero.
+            Com 12 SNPs perfeitamente equilibrados como nestes exemplos, podemos
+            estimar a probabilidade de um certo número de SNPs coincidir quando
+            o IBD é zero.
           </p>
         </div>
       ),
@@ -572,8 +638,18 @@ export const partSixPrompts: {
           Unrelated Parasites Using IBS
         </h5>
       ),
-      FR: <h5>1.1. Genotyping with SNPs</h5>,
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      FR: (
+        <h5>
+          1.1.5. Contrôle des connaissances : Distinguer les parasites
+          apparentés des parasites non apparentés à l'aide de l'IBS
+        </h5>
+      ),
+      PT: (
+        <h5>
+          1.1.5. Verificação de conhecimentos: Distinguir Parasitas Relacionados
+          de Parasitas Não Relacionados Utilizando o IBS
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -597,9 +673,9 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            With 12 perfectly balanced SNPs like in these examples, we can
-            estimate the probability that a certain number of SNPs will match
-            when IBD is zero.
+            Com 12 SNPs perfeitamente equilibrados como nestes exemplos, podemos
+            estimar a probabilidade de um certo número de SNPs coincidir quando
+            o IBD é zero.
           </p>
         </div>
       ),
@@ -640,7 +716,7 @@ export const partSixPrompts: {
       FR: (
         <h5>1.1.6. Générer un clone de laboratoire pour une souche hybride</h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: <h5>1.1.6. Gerar um clone de laboratório para 1 estirpe híbrida</h5>,
     },
     instructions: {
       EN: (
@@ -703,29 +779,27 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Now you and your lab team have a good idea of what to expect in
-            terms of IBS when you compare 12 SNPs in two completely unrelated
-            parasites. How about when they are related to each other?
+            Agora você e a sua equipa de laboratório têm uma boa ideia do que
+            esperar em termos de SII quando comparam 12 SNPs em dois parasitas
+            completamente não relacionados. E quando eles estão relacionados um
+            com o outro?
           </p>
           <p>
-            What if the parasites are related, but not the same? Once again,
-            your wise lab director impresses you with their preparedness and
-            deep respect for the utility of proper laboratory controls. They
-            apparently have an additional sample that is a hybrid of 2 of the 3
-            unrelated clones. You are fortunate to work with such a fantastic
-            team.
+            E se os parasitas estiverem relacionados, mas não forem os mesmos?
+            Mais uma vez, o seu sábio diretor de laboratório impressiona-o com a
+            sua preparação e profundo respeito pela utilidade dos controlos
+            laboratoriais adequados. Aparentemente, eles têm uma amostra
+            adicional que é um híbrido de 2 dos 3 clones não relacionados. Tem a
+            sorte de trabalhar com uma equipa tão fantástica.
           </p>
           <p className="mt-2">
-            This time, the simulation will make a laboratory clone (#4{" "}
-            <InlineCircle hybrid />) that is a hybrid of lab clone 1{" "}
-            <InlineCircle className="bg-cloneRed" /> and lab clone 2{" "}
-            <InlineCircle className="bg-cloneBlue" />. Just like with humans,
-            half of the genome of the progeny will be related to each parent. In
-            this case, the first six SNP loci are identical to clone 1{" "}
-            <InlineCircle className="bg-cloneRed" />, and the last six are
-            identical to clone 2 <InlineCircle className="bg-cloneBlue" />.
-            Click on the mosquito to have the parasites recombine and form a
-            hybrid clone.
+            Desta vez, a simulação produzirá um clone de laboratório (#4) que é
+            um híbrido do clone de laboratório 1 e do clone de laboratório 2.
+            Tal como nos humanos, metade do genoma da descendência estará
+            relacionado com cada um dos progenitores. Neste caso, os primeiros
+            seis loci SNP são idênticos ao clone 1 , e os últimos seis são
+            idênticos ao clone 2 . Clique no mosquito para que os parasitas se
+            recombinem e formem um clone híbrido.
           </p>
         </div>
       ),
@@ -759,7 +833,12 @@ export const partSixPrompts: {
           clones
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.1.7. Genotipar e comparar o clone híbrido com os três primeiros
+          clones
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -775,8 +854,9 @@ export const partSixPrompts: {
       FR: (
         <div className="flex flex-col gap-4">
           <p className="mt-2">
-            Comparons le génotype du nouveau clone hybride 4 à l'un de ses
-            parents, le clone de laboratoire 1. Utilisez le formulaire
+            Maintenant, comparons le génotype du nouveau clone hybride 4{" "}
+            <InlineCircle hybrid /> à son autre parent, le clone de laboratoire
+            1 <InlineCircle className="bg-cloneRed" />. Utilisez le formulaire
             interactif pour vérifier si les allèles SNP correspondent à chaque
             locus.
           </p>
@@ -785,10 +865,11 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p className="mt-2">
-            Let&apos;s compare the genotype of the new hybrid clone 4{" "}
-            <InlineCircle hybrid /> to one of its parents, lab clone 1{" "}
-            <InlineCircle className="bg-cloneRed" />. Use the interactive form
-            to check if the SNP alleles match at each locus.
+            Vamos comparar o genótipo do novo clone híbrido 4{" "}
+            <InlineCircle hybrid /> com um dos seus pais, o clone de laboratório
+            1 <InlineCircle className="bg-cloneRed" />. Utilize o formulário
+            interativo para verificar se os alelos SNP correspondem em cada
+            locus.
           </p>
         </div>
       ),
@@ -822,26 +903,46 @@ export const partSixPrompts: {
           clones
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.1.7. Genotipar e comparar o clone híbrido com os três primeiros
+          clones
+        </h5>
+      ),
     },
     instructions: {
       EN: (
         <div className="flex flex-col gap-4">
-          Now, let’s compare the genotype of the new hybrid clone 4{" "}
-          <InlineCircle hybrid /> to its other parent, lab clone 2{" "}
-          <InlineCircle className="bg-cloneBlue" />. Use the interactive form to
-          check if the SNP alleles match at each locus.
+          <p className="mt-2">
+            Let&apos;s compare the genotype of the new hybrid clone 4{" "}
+            <InlineCircle hybrid /> to one of its parents, lab clone 2{" "}
+            <InlineCircle className="bg-cloneBLue" />. Use the interactive form
+            to check if the SNP alleles match at each locus.
+          </p>
         </div>
       ),
       FR: (
         <div className="flex flex-col gap-4">
-          Comparons maintenant le génotype du nouveau clone hybride 4 à celui de
-          son autre parent, le clone de laboratoire 2. Utilisez le formulaire
-          interactif pour vérifier si les allèles SNP correspondent à chaque
-          locus.
+          <p className="mt-2">
+            Maintenant, comparons le génotype du nouveau clone hybride 4{" "}
+            <InlineCircle hybrid /> à son autre parent, le clone de laboratoire
+            2 <InlineCircle className="bg-cloneBLue" />. Utilisez le formulaire
+            interactif pour vérifier si les allèles SNP correspondent à chaque
+            locus.
+          </p>
         </div>
       ),
-      PT: <div className="flex flex-col gap-4"></div>,
+      PT: (
+        <div className="flex flex-col gap-4">
+          <p className="mt-2">
+            Vamos comparar o genótipo do novo clone híbrido 4{" "}
+            <InlineCircle hybrid /> com um dos seus pais, o clone de laboratório
+            2 <InlineCircle className="bg-cloneBlue" />. Utilize o formulário
+            interativo para verificar se os alelos SNP correspondem em cada
+            locus.
+          </p>
+        </div>
+      ),
     },
   },
   13.5: {
@@ -873,7 +974,12 @@ export const partSixPrompts: {
           clones
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.1.7. Genotipar e comparar o clone híbrido com os três primeiros
+          clones
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -920,23 +1026,38 @@ export const partSixPrompts: {
           clones
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.1.7. Genotipar e comparar o clone híbrido com os três primeiros
+          clones
+        </h5>
+      ),
     },
     instructions: {
       EN: (
-        <div className="flex flex-col gap-4">
+        <div>
           Now let&apos;s compare our hybrid lab clone 4 <InlineCircle hybrid />{" "}
           to clone 3 <InlineCircle className="bg-cloneGreen" />, which is not
           its parent.
         </div>
       ),
       FR: (
-        <div className="flex flex-col gap-4">
-          Comparons maintenant notre laboratoire hybride clone 4 au clone 3 ,
-          qui n'est pas son parent.
+        <div>
+          Comparons maintenant notre laboratoire hybride clone 4{" "}
+          <InlineCircle hybrid /> au clone 3{" "}
+          <InlineCircle className="bg-cloneGreen" />, qui n'est pas son parent.
         </div>
       ),
-      PT: <div className="flex flex-col gap-4"></div>,
+      PT: (
+        <div>
+          <p>
+            Compare agora o nosso clone híbrido de laboratório 4{" "}
+            <InlineCircle hybrid /> com o clone 3{" "}
+            <InlineCircle className="bg-cloneGreen" />, que não é o seu
+            progenitor.
+          </p>
+        </div>
+      ),
     },
   },
   14.5: {
@@ -966,7 +1087,12 @@ export const partSixPrompts: {
           clones
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.1.7. Genotipar e comparar o clone híbrido com os três primeiros
+          clones
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -989,9 +1115,9 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p className="mt-2">
-            At the other extreme, what if we compare two parasites which are
-            completely related to each other, in other words they are
-            genetically identical?
+            No outro extremo, o que acontece se compararmos dois parasitas que
+            estão completamente relacionados entre si, ou seja, são
+            geneticamente idênticos?
           </p>
         </div>
       ),
@@ -1028,7 +1154,12 @@ export const partSixPrompts: {
           des parasites non apparentés à l'aide de l'IBS
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.1.8. Verificação de conhecimentos: Distinguir Parasitas Relacionados
+          de Parasitas Não Relacionados Utilizando o IBS
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -1060,12 +1191,13 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p className="mt-2">
-            Great work! You&apos;ve now done lab work to estimate genetic
-            relatedness via IBS using 12 SNPs for a few parasites you know are
-            unrelated by ancestry (IBD 0), some which are strongly related (IBD
-            0.5, like siblings) or are completely identical (IBD 1.0).
+            Excelente trabalho! Você já fez o trabalho de laboratório para
+            estimar o parentesco genético via IBS usando 12 SNPs para alguns
+            parasitas que você sabe que não são relacionados por ancestralidade
+            (IBD 0), alguns que são fortemente relacionados (IBD 0.5, como
+            irmãos) ou são completamente idênticos (IBD 1.0).
           </p>
-          <p className="mt-2">Let's review our results so far.</p>
+          <p className="mt-2">Vamos rever os nossos resultados até agora.</p>
         </div>
       ),
     },
@@ -1261,8 +1393,8 @@ export const partSixPrompts: {
     // ),
     title: {
       EN: <h5>1.2. Genotyping with Microhaplotypes</h5>,
-      FR: <h5>1.2 Génotypage avec les microhaplotypes</h5>,
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      FR: <h5>1.2. Génotypage avec les microhaplotypes</h5>,
+      PT: <h5>1.2. Genotipagem com microhaplótipos</h5>,
     },
     instructions: {
       EN: (
@@ -1348,77 +1480,24 @@ export const partSixPrompts: {
             les parasites apparentés de ceux qui ne le sont pas en utilisant les
             microhaplotypes ? Nous allons le découvrir !
           </p>
-          <p>
-            Une petite remarque sur les microhaplotypes dans cet exercice et à
-            l'avenir. Dans les exercices précédents, vous vous souviendrez
-            qu'ils apparaissaient comme montrant les SNP composants, mais dans
-            la suite de l'exercice, l'allèle du microhaplotype sera montré comme
-            une couleur différente sans que les SNP individuels soient visibles.
-            Sachez simplement qu'il s'agit de la même chose.
-          </p>
         </div>
       ),
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Let’s look now and see how your related and unrelated clones would
-            compare with microhaplotype genotyping. In this part of the
-            activity, you will once again genotype laboratory clones, estimate
-            their relatedness by calculating IBS, and compare this to what you
-            know about IBD – but this time, all with microhaplotypes.
+            Vamos agora ver como os seus clones relacionados e não relacionados
+            se comparariam com a genotipagem de microhaplótipos. Nesta parte da
+            atividade, você irá novamente genotipar clones de laboratório,
+            estimar o seu parentesco calculando o IBS, e comparar isso com o que
+            você sabe sobre o IBD – mas desta vez, tudo com microhaplótipos.
           </p>
           <p>
-            In this example, each microhaplotype locus can have 1 of 8 alleles,
-            like the exercise you did before in Module 2 where they were
-            composed of 3 SNPs each. Microhaplotypes can have more or fewer
-            possible alleles. Do you think it will be easier or harder to
-            distinguish related and unrelated parasites using microhaplotypes?
-            Let’s find out!
-          </p>
-          <p>
-            A quick note about microhaplotypes in this exercise and moving
-            forward. In previous exercises you will recall they appeared as{" "}
-            <span
-              aria-label="microhaplotype TTT"
-              className=" inline-block h-0 w-[72px] scale-75 dark:brightness-75 "
-            >
-              <Microhaplotype
-                possibleVals={[
-                  {
-                    reference: fixedData[1].refValues[0 * 3],
-                    alternate: fixedData[1].altValues[0 * 3],
-                  },
-                  {
-                    reference: fixedData[1].refValues[0 * 3 + 1],
-                    alternate: fixedData[1].altValues[0 * 3 + 1],
-                  },
-                  {
-                    reference: fixedData[1].refValues[0 * 3 + 2],
-                    alternate: fixedData[1].altValues[0 * 3 + 2],
-                  },
-                ]}
-                // @ts-ignore
-                vals={[0, 0, 0]}
-                childClassNames={{
-                  left: "pl-2",
-                  right: "pr-2",
-                }}
-                className={`col-span-3 border-2 ${microhaplotypeColorMap.get(
-                  JSON.stringify([0, 0, 0]),
-                )}`}
-              />
-            </span>
-            showing the component SNPs but moving forward the microhaplotype
-            allele be shown just as a different color without the individual
-            SNPs visible{" "}
-            <span className="inline-block">
-              <SquareMicrohaplotype
-                className="absolute h-4 w-4 -translate-y-3"
-                id={0}
-              />
-              <span className="inline-block w-5"></span>
-            </span>
-            . Just know that these represent the same thing.{" "}
+            Neste exemplo, cada locus de microhaplótipo pode ter 1 de 8 alelos,
+            como no exercício que você fez antes no Módulo 2, onde eles eram
+            compostos por 3 SNPs cada. Os microhaplótipos podem ter mais ou
+            menos alelos possíveis. Você acha que será mais fácil ou mais
+            difícil distinguir parasitas relacionados de parasitas não
+            relacionados usando microhaplótipos? Vamos descobrir!
           </p>
         </div>
       ),
@@ -1462,7 +1541,12 @@ export const partSixPrompts: {
           apparentées avec des microhaplotypes
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.2.1. Gerar clones de laboratório para 3 estirpes não relacionadas
+          com microhaplótipos
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -1505,18 +1589,19 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Run the simulation by clicking the empty rows in the table to
-            genotype 3 laboratory clones. Each laboratory clone will be assigned
-            a random sequence of 12 microhaplotype alleles (represented by 1 of
-            8 colors).
+            Execute a simulação clicando nas linhas vazias da tabela para
+            genotipar 3 clones de laboratório. Cada clone de laboratório terá
+            uma sequência aleatória de 12 alelos de microhaplótipos
+            (representados por 1 de 8 cores).
           </p>
           <p>
-            Like prior genotype sleuthing activities, these microhaplotypes are
-            perfectly balanced, so there is a 1/8 chance of getting any
-            microhaplotype allele at each locus. Just like before, each clone is
-            completely unrelated to the others by ancestry, as indicated by
-            their different colors – you know this since they come from
-            completely different parts of the world.
+            Assim como nas atividades anteriores de investigação de genótipos,
+            estes microhaplótipos são perfeitamente equilibrados, então há uma
+            chance de 1/8 de obter qualquer alelo de microhaplótipo em cada
+            locus. Assim como antes, cada clone é completamente não relacionado
+            aos outros por ancestralidade, como indicado por suas cores
+            diferentes – você sabe disso porque eles vêm de partes completamente
+            diferentes do mundo.
           </p>
         </div>
       ),
@@ -1551,7 +1636,12 @@ export const partSixPrompts: {
           comparaisons par paires
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.2.2. Preveja o que você vai observar sobre SII/DII em comparações
+          pareadas
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -1576,9 +1666,10 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Now that these unrelated clones have microhaplotype sequences, you
-            can compare their genotypes and calculate IBS - the percentage of
-            microhaplotypes that match between any two pairs. Before you do...
+            Agora que esses clones não relacionados têm sequências de
+            microhaplótipos, você pode comparar seus genótipos e calcular o IBS
+            - a porcentagem de microhaplótipos que correspondem entre quaisquer
+            dois pares. Antes de fazer isso...
           </p>
         </div>
       ),
@@ -1603,7 +1694,7 @@ export const partSixPrompts: {
           1.2.3. Génotypage et comparaison de paires de clones non apparentés
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: <h5>1.2.3. Genotipar e comparar pares de clones não relacionados</h5>,
     },
     instructions: {
       EN: (
@@ -1619,19 +1710,22 @@ export const partSixPrompts: {
       FR: (
         <div className="flex flex-col gap-4">
           <p>
-            Comparez le génotype du clone de laboratoire 1 à celui du clone de
-            laboratoire 2 et utilisez le formulaire interactif pour vérifier si
-            les allèles SNP correspondent à chaque locus.
+            Comparez le génotype du clone de laboratoire 1{" "}
+            <InlineCircle className="bg-cloneRed" /> à celui du clone de
+            laboratoire 2 <InlineCircle className="bg-cloneBlue" /> et utilisez
+            le formulaire interactif pour vérifier si les allèles SNP
+            correspondent à chaque locus.
           </p>
         </div>
       ),
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Compare the genotype of lab clone 1{" "}
-            <InlineCircle className="bg-cloneRed" /> to lab clone 2{" "}
-            <InlineCircle className="bg-cloneBlue" /> and use the interactive
-            form to check if the SNP alleles match at each locus.
+            Compare o genótipo do clone de laboratório 1{" "}
+            <InlineCircle className="bg-cloneRed" /> com o clone de laboratório
+            2 <InlineCircle className="bg-cloneBlue" /> e use o formulário
+            interativo para verificar se os alelos SNP correspondem em cada
+            locus.
           </p>
         </div>
       ),
@@ -1672,19 +1766,22 @@ export const partSixPrompts: {
       FR: (
         <div className="flex flex-col gap-4">
           <p>
-            Comparez le génotype du clone de laboratoire 1 à celui du clone de
-            laboratoire 3 et utilisez le formulaire interactif pour vérifier si
-            les allèles SNP correspondent à chaque locus.
+            Comparez le génotype du clone de laboratoire 1{" "}
+            <InlineCircle className="bg-cloneRed" /> à celui du clone de
+            laboratoire 3 <InlineCircle className="bg-cloneGreen" /> et utilisez
+            le formulaire interactif pour vérifier si les allèles SNP
+            correspondent à chaque locus.
           </p>
         </div>
       ),
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Compare the genotype of lab clone 1{" "}
-            <InlineCircle className="bg-cloneRed" /> to lab clone 3{" "}
-            <InlineCircle className="bg-cloneGreen" /> and use the interactive
-            form to check if the SNP alleles match at each locus.
+            Compare o genótipo do clone de laboratório 1{" "}
+            <InlineCircle className="bg-cloneRed" /> com o clone de laboratório
+            3 <InlineCircle className="bg-cloneGreen" /> e use o formulário
+            interativo para verificar se os alelos SNP correspondem em cada
+            locus.
           </p>
         </div>
       ),
@@ -1725,19 +1822,22 @@ export const partSixPrompts: {
       FR: (
         <div className="flex flex-col gap-4">
           <p>
-            Comparez le génotype du clone de laboratoire 2 à celui du clone de
-            laboratoire 3 et utilisez le formulaire interactif pour vérifier si
-            les allèles SNP correspondent à chaque locus.
+            Comparez le génotype du clone de laboratoire 2{" "}
+            <InlineCircle className="bg-cloneBlue" /> à celui du clone de
+            laboratoire 3 <InlineCircle className="bg-cloneGreen" /> et utilisez
+            le formulaire interactif pour vérifier si les allèles SNP
+            correspondent à chaque locus.
           </p>
         </div>
       ),
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Compare the genotype of lab clone 2{" "}
-            <InlineCircle className="bg-cloneBlue" /> to lab clone 3{" "}
-            <InlineCircle className="bg-cloneGreen" /> and use the interactive
-            form to check if the SNP alleles match at each locus.
+            Compare o genótipo do clone de laboratório 2{" "}
+            <InlineCircle className="bg-cloneBlue" /> com o clone de laboratório
+            3 <InlineCircle className="bg-cloneGreen" /> e use o formulário
+            interativo para verificar se os alelos SNP correspondem em cada
+            locus.
           </p>
         </div>
       ),
@@ -1753,7 +1853,7 @@ export const partSixPrompts: {
     title: {
       EN: <h5>1.2.4. Observe All Three IBS Estimates Together</h5>,
       FR: <h5>1.2.4. Observer les trois estimations de l'IBS ensemble</h5>,
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: <h5>1.2.4. Observar as três estimativas do IBS em conjunto</h5>,
     },
     instructions: {
       EN: (
@@ -1768,7 +1868,7 @@ export const partSixPrompts: {
       ),
       PT: (
         <div className="flex flex-col gap-4">
-          <p>Answer the questions below.</p>
+          <p>Responda às perguntas abaixo.</p>
         </div>
       ),
     },
@@ -1790,7 +1890,7 @@ export const partSixPrompts: {
     title: {
       EN: <h5>1.2.4 Knowledge Check</h5>,
       FR: <h5>1.2.4. Contrôle des connaissances</h5>,
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: <h5>1.2.4. Observar as três estimativas do IBS em conjunto</h5>,
     },
     instructions: {
       EN: (
@@ -1878,7 +1978,7 @@ export const partSixPrompts: {
       FR: (
         <h5>1.2.5. Générer un clone de laboratoire pour une souche hybride</h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: <h5>1.2.5. Gerar um clone de laboratório para 1 estirpe híbrida</h5>,
     },
     instructions: {
       EN: (
@@ -1917,39 +2017,40 @@ export const partSixPrompts: {
           </p>
           <p>
             Cliquez sur le moustique pour lancer la simulation. Cette fois, la
-            simulation produira un clone de laboratoire à partir de
-            microhaplotypes (#4) qui est un hybride du clone de laboratoire 1 et
-            du clone de laboratoire 2. Tout comme lorsque nous avons utilisé les
-            SNP plus tôt dans l'exercice, la moitié du génome de la progéniture
-            sera liée à chaque parent. Dans ce cas, les six premiers loci du
-            microhaplotype sont identiques au clone 1, et les six derniers loci
-            du microhaplotype sont identiques au clone 2. Cliquez sur le
-            moustique pour que les parasites se recombinent et forment un clone
-            hybride.
+            simulation créera un clone de laboratoire à partir de
+            microhaplotypes (#4 <InlineCircle hybrid />) qui est un hybride du
+            clone de laboratoire 1 <InlineCircle className="bg-cloneRed" /> et
+            du clone de laboratoire 2 <InlineCircle className="bg-cloneBlue" />.
+            Tout comme lorsque nous avons utilisé des SNP plus tôt dans
+            l'exercice, la moitié du génome de la progéniture sera liée à chaque
+            parent. Dans ce cas, les six premiers loci de microhaplotypes sont
+            identiques au clone 1 <InlineCircle className="bg-cloneRed" />, et
+            les six derniers loci de microhaplotypes sont identiques au clone 2{" "}
+            <InlineCircle className="bg-cloneBlue" />. Cliquez sur le moustique
+            pour que les parasites se recombinent et forment un clone hybride.
           </p>
         </div>
       ),
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Now you and your lab team have a good idea of what to expect in
-            terms of IBS when you compare 12 microhaplotypes in two completely
-            unrelated parasites, and how that is different to when you used SNPs
-            to compare unrelated parasites. But what about related parasites?
+            Agora você e a sua equipa de laboratório têm uma boa ideia do que
+            esperar em termos de SII quando comparam 12 microhaplótipos em dois
+            parasitas completamente não relacionados, e como isso é diferente de
+            quando usaram SNPs para comparar parasitas não relacionados. Mas e
+            os parasitas relacionados?
           </p>
           <p>
-            Click the mosquito to run the simulation. This time, the simulation
-            will make a laboratory clone from microhaplotypes (#4{" "}
-            <InlineCircle hybrid /> ) that is a hybrid of lab clone 1{" "}
-            <InlineCircle className="bg-cloneRed" /> and lab clone 2{" "}
-            <InlineCircle className="bg-cloneBlue" />. Just like when we used
-            SNPs earlier in the exercise, half of the genome of the progeny will
-            be related to each parent. In this case, the first six
-            microhaplotype loci are identical to clone 1{" "}
-            <InlineCircle className="bg-cloneRed" /> , and the last six
-            microhaplotype loci are identical to clone 2{" "}
-            <InlineCircle className="bg-cloneBlue" />. Click on the mosquito to
-            have the parasites recombine and form a hybrid clone.
+            Clique no mosquito para executar a simulação. Desta vez, a simulação
+            criará um clone de laboratório a partir de microhaplótipos (#4{" "}
+            <InlineCircle hybrid />) que é um híbrido do clone de laboratório 1{" "}
+            <InlineCircle className="bg-cloneRed" /> e do clone de laboratório 2{" "}
+            <InlineCircle className="bg-cloneBlue" />. Assim como quando usamos
+            SNPs anteriormente no exercício, metade do genoma da prole estará
+            relacionada a cada um dos pais. Neste caso, os primeiros seis loci
+            de microhaplótipos são idênticos ao clone 1{" "}
+            <InlineCircle className="bg-cloneRed" />, e os últimos seis loci de
+            microhaplótipos são idênt
           </p>
         </div>
       ),
@@ -1983,7 +2084,12 @@ export const partSixPrompts: {
           clones
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.2.6. Genotipar e comparar o clone híbrido com os três primeiros
+          clones
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -1999,20 +2105,22 @@ export const partSixPrompts: {
       FR: (
         <div className="flex flex-col gap-4">
           <p>
-            Comparons le génotype du nouveau clone hybride 4 à l'un de ses
-            parents, le clone de laboratoire 1. Utilisez le formulaire
-            interactif pour vérifier si les allèles du microhaplotype
-            correspondent à chaque locus.
+            Comparons le génotype du nouveau clone hybride 4{" "}
+            <InlineCircle hybrid /> à l'un de ses parents, le clone de
+            laboratoire 1 <InlineCircle className="bg-cloneRed" />. Utilisez le
+            formulaire interactif pour vérifier si les allèles de
+            microhaplotypes correspondent à chaque locus.
           </p>
         </div>
       ),
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Let’s compare the genotype of the new hybrid clone 4{" "}
-            <InlineCircle hybrid /> to one of its parents, lab clone 1{" "}
-            <InlineCircle className="bg-cloneRed" />. Use the interactive form
-            to check if the microhaplotype alleles match at each locus.
+            Vamos comparar o genótipo do novo clone híbrido 4{" "}
+            <InlineCircle hybrid /> com um dos seus pais, o clone de laboratório
+            1 <InlineCircle className="bg-cloneRed" />. Utilize o formulário
+            interativo para verificar se os alelos de microhaplótipos
+            correspondem em cada locus.
           </p>
         </div>
       ),
@@ -2046,7 +2154,12 @@ export const partSixPrompts: {
           clones
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.2.6. Genotipar e comparar o clone híbrido com os três primeiros
+          clones
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -2062,9 +2175,10 @@ export const partSixPrompts: {
       FR: (
         <div className="flex flex-col gap-4">
           <p>
-            Comparons le génotype du nouveau clone hybride 4 à l'un de ses
-            parents, le clone de laboratoire 2. Utilisez le formulaire
-            interactif pour vérifier si les allèles du microhaplotype
+            Maintenant, comparons le génotype du nouveau clone hybride 4{" "}
+            <InlineCircle hybrid /> à son autre parent, le clone de laboratoire
+            2 <InlineCircle className="bg-cloneBlue" />. Utilisez le formulaire
+            interactif pour vérifier si les allèles de microhaplotypes
             correspondent à chaque locus.
           </p>
         </div>
@@ -2072,10 +2186,11 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Now, let’s compare the genotype of the new hybrid clone 4{" "}
-            <InlineCircle hybrid /> to its other parent, lab clone 2{" "}
-            <InlineCircle className="bg-cloneBlue" />. Use the interactive form
-            to check if the microhaplotype alleles match at each locus.
+            Agora, vamos comparar o genótipo do novo clone híbrido 4{" "}
+            <InlineCircle hybrid /> com o seu outro progenitor, o clone de
+            laboratório 2 <InlineCircle className="bg-cloneBlue" />. Utilize o
+            formulário interativo para verificar se os alelos de microhaplótipos
+            correspondem em cada locus.
           </p>
         </div>
       ),
@@ -2112,7 +2227,12 @@ export const partSixPrompts: {
           clones
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.2.6. Genotipar e comparar o clone híbrido com os três primeiros
+          clones
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -2131,20 +2251,25 @@ export const partSixPrompts: {
       FR: (
         <div className="flex flex-col gap-4">
           <p>
-            Comparons maintenant le génotype du nouveau clone hybride 4 à celui
-            de son autre parent, le clone de laboratoire 3.
+            Maintenant, comparons le génotype du nouveau clone hybride 4{" "}
+            <InlineCircle hybrid /> à son autre parent, le clone de laboratoire
+            3 <InlineCircle className="bg-cloneGreen" />.{" "}
+            <span className="invisible">
+              Utilisez le formulaire interactif pour vérifier si les allèles de
+              microhaplotypes correspondent à chaque locus.
+            </span>
           </p>
         </div>
       ),
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Now, let’s compare the genotype of the new hybrid clone 4{" "}
-            <InlineCircle hybrid /> to its other parent, lab clone 3{" "}
-            <InlineCircle className="bg-cloneGreen" />.{" "}
+            Agora, vamos comparar o genótipo do novo clone híbrido 4{" "}
+            <InlineCircle hybrid /> com o seu outro progenitor, o clone de
+            laboratório 3 <InlineCircle className="bg-cloneGreen" />.{" "}
             <span className="invisible">
-              Use the interactive form to check if the microhaplotype alleles
-              match at each locus.
+              Utilize o formulário interativo para verificar se os alelos de
+              microhaplótipos correspondem em cada locus.
             </span>
           </p>
         </div>
@@ -2182,7 +2307,12 @@ export const partSixPrompts: {
           clones
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.2.6. Genotipar e comparar o clone híbrido com os três primeiros
+          clones
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -2201,20 +2331,25 @@ export const partSixPrompts: {
       FR: (
         <div className="flex flex-col gap-4">
           <p>
-            Comparons maintenant le génotype du nouveau clone hybride 4 à celui
-            de son autre parent, le clone de laboratoire 3.
+            Maintenant, comparons le génotype du nouveau clone hybride 4{" "}
+            <InlineCircle hybrid /> à un clone non apparenté, le clone de
+            laboratoire 3 <InlineCircle className="bg-cloneGreen" />.{" "}
+            <span className="invisible">
+              Utilisez le formulaire interactif pour vérifier si les allèles de
+              microhaplotypes correspondent à chaque locus.
+            </span>
           </p>
         </div>
       ),
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Now, let’s compare the genotype of the new hybrid clone 4{" "}
-            <InlineCircle hybrid /> to an unrelated clone, lab clone 3{" "}
-            <InlineCircle className="bg-cloneGreen" />.{" "}
+            Agora, vamos comparar o genótipo do novo clone híbrido 4{" "}
+            <InlineCircle hybrid /> com um clone não relacionado, o clone de
+            laboratório 3 <InlineCircle className="bg-cloneGreen" />.{" "}
             <span className="invisible">
-              Use the interactive form to check if the microhaplotype alleles
-              match at each locus.
+              Utilize o formulário interativo para verificar se os alelos de
+              microhaplótipos correspondem em cada locus.
             </span>
           </p>
         </div>
@@ -2254,7 +2389,12 @@ export const partSixPrompts: {
           apparentés des parasites non apparentés à l'aide de l'IBS
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.2.7. Verificação de conhecimentos: Distinguir Parasitas Relacionados
+          de Parasitas Não Relacionados Utilizando o IBS
+        </h5>
+      ),
     },
     instructions: {
       EN: (
@@ -2288,14 +2428,15 @@ export const partSixPrompts: {
       PT: (
         <div className="flex flex-col gap-4">
           <p>
-            Great work! You’ve now done lab work to estimate genetic relatedness
-            via IBS using 12 microhaplotypes for a few parasites you know are
-            unrelated by ancestry (IBD 0) and some which are strongly related (
-            IBD 0.5, like siblings). You already know that if parasites are
-            completely identical (IBD 1.0), then genotypes will be identical
-            unless there is mutation or error.
+            Ótimo trabalho! Você já fez o trabalho de laboratório para estimar o
+            parentesco genético via IBS usando 12 microhaplótipos para alguns
+            parasitas que você sabe que não são relacionados por ancestralidade
+            (IBD 0) e alguns que são fortemente relacionados (IBD 0.5, como
+            irmãos). Você já sabe que se os parasitas são completamente
+            idênticos (IBD 1.0), então os genótipos serão idênticos, a menos que
+            haja mutação ou erro.
           </p>
-          <p>Let’s review our results so far:</p>
+          <p>Vamos rever os nossos resultados até agora:</p>
         </div>
       ),
     },
@@ -2329,7 +2470,12 @@ export const partSixPrompts: {
           apparentés des parasites non apparentés à l'aide de l'IBS
         </h5>
       ),
-      PT: <h5>1.1. Genotyping with SNPs</h5>,
+      PT: (
+        <h5>
+          1.2.7. Verificação de conhecimentos: Distinguir Parasitas Relacionados
+          de Parasitas Não Relacionados Utilizando o IBS
+        </h5>
+      ),
     },
     instructions: {
       EN: (

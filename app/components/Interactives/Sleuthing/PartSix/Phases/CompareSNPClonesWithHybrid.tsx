@@ -109,11 +109,11 @@ export default function CompareSNPClonesWithHybrid({
                 }
                 headerText={
                   lang === "EN"
-                    ? "Both of the previous comparisons had the same IBD &ndash; 0.5 &ndash; since the hybrid clone is 50% related to each parent. Did you get the same IBS result each time? What do you think you would find if you did similar experiments looking at other, similarly related clones?"
+                    ? "Both of the previous comparisons had the same IBD &- 0.5 - since the hybrid clone is 50% related to each parent. Did you get the same IBS result each time? What do you think you would find if you did similar experiments looking at other, similarly related clones?"
                     : lang === "FR"
-                    ? "Les deux comparaisons précédentes avaient le même IBD &ndash; 0,5 &ndash; puisque le clone hybride est lié à 50 % à chaque parent. Avez-vous obtenu le même résultat d'IBS à chaque fois ? Que pensez-vous que vous trouveriez si vous faisiez des expériences similaires en examinant d'autres clones liés de la même manière ?"
+                    ? "Les deux comparaisons précédentes avaient le même IBD - 0,5 - puisque le clone hybride est lié à 50 % à chaque parent. Avez-vous obtenu le même résultat d'IBS à chaque fois ? Que pensez-vous que vous trouveriez si vous faisiez des expériences similaires en examinant d'autres clones liés de la même manière ?"
                     : lang === "PT"
-                    ? "Ambas as comparações anteriores tiveram o mesmo IBD &ndash; 0,5 &ndash; uma vez que o clone híbrido está 50% relacionado com cada progenitor. Obteve o mesmo resultado de SCI em cada vez? O que pensa que encontraria se fizesse experiências semelhantes analisando outros clones relacionados de forma semelhante?"
+                    ? "Ambas as comparações anteriores tiveram o mesmo IBD - 0,5 - uma vez que o clone híbrido está 50% relacionado com cada progenitor. Obteve o mesmo resultado de IBS em cada vez? O que pensa que encontraria se fizesse experiências semelhantes analisando outros clones relacionados de forma semelhante?"
                     : ""
                 }
                 classNames={{
@@ -280,7 +280,7 @@ export default function CompareSNPClonesWithHybrid({
             : lang === "FR"
             ? "Graphiques de distribution IBS"
             : lang === "PT"
-            ? "Gráficos de distribuição de SCI"
+            ? "Gráficos de distribuição de IBS"
             : ""
         }
         rightContent={
@@ -356,7 +356,7 @@ export default function CompareSNPClonesWithHybrid({
                 ) : lang === "PT" ? (
                   <div className="[fontSize: 15px] bg-interactiveBlue/10 p-4 md:p-6 md:px-8 dark:bg-zinc-900/50 dark:text-emerald-400">
                     <p>
-                      Esperaria que tivessem aproximadamente o mesmo SCI, cerca
+                      Esperaria que tivessem aproximadamente o mesmo IBS, cerca
                       de 9/12 ou 75%. Os SNPs na metade relacionada do genoma
                       devem corresponder sempre perfeitamente, a menos que
                       existam mutações ou erros de genotipagem. No entanto, uma
@@ -369,7 +369,7 @@ export default function CompareSNPClonesWithHybrid({
                       Na maioria das vezes, esperamos ver entre 7 e 11
                       correspondências, mas podemos obter 12/12 correspondências
                       cerca de 2% das vezes. Em todos estes casos, o DCI seria
-                      de 0,5 , mas o SCI poderia variar de 0,5 a 1,0 devido ao
+                      de 0,5 , mas o IBS poderia variar de 0,5 a 1,0 devido ao
                       acaso.
                     </p>
                   </div>
@@ -508,7 +508,7 @@ export default function CompareSNPClonesWithHybrid({
                           : lang === "FR"
                           ? "Quel est l'IBS dans ce cas ?"
                           : lang === "PT"
-                          ? "Qual é o SCI neste caso?"
+                          ? "Qual é o IBS neste caso?"
                           : ""
                       }
                       questionIdx={4}
@@ -639,7 +639,7 @@ export default function CompareSNPClonesWithHybrid({
                       <p>
                         Isso mesmo - se os parasitas forem idênticos, todo o
                         genoma está relacionado, pelo que o DCI é de 100% ou
-                        1,0, e todos os loci corresponderão (ou seja, o SCI
+                        1,0, e todos os loci corresponderão (ou seja, o IBS
                         também será de 1,0). Desde que a sua genotipagem seja
                         precisa, obterá 12/12 correspondências sempre!
                       </p>

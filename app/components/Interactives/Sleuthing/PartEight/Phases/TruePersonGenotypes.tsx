@@ -32,10 +32,22 @@ const P8CloneRowButtonColors = {
   8: "to-microGreen/50 via-microGreen/50",
 };
 
-export default function TruePersonGenotypes() {
+export default function TruePersonGenotypes({
+  lang = "EN",
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   return (
     <InteractivePrimaryLayout
-      leftHeader={"Student Infections"}
+      leftHeader={
+        lang === "EN"
+          ? "Student Infections"
+          : lang === "FR"
+          ? "Casos de Estudantes"
+          : lang === "PT"
+          ? "Infecções de Estudantes"
+          : ""
+      }
       // rightHeader={}
       leftContent={
         <div className="grid gap-4 gap-y-0">
@@ -44,7 +56,7 @@ export default function TruePersonGenotypes() {
               <div className="w-16">
                 <Person id="A" circles={["#AA6012", "#E61048"]} />
               </div>
-              <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+              <div className="my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2 @md/main:scale-75">
                 <CloneRow
                   label={1}
                   classNames={{
@@ -94,7 +106,7 @@ export default function TruePersonGenotypes() {
                 <div className="w-16">
                   <Person id="B" circles={["#AA6012", "#E61048"]} />
                 </div>
-                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+                <div className="my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2 @md/main:scale-75">
                   <CloneRow
                     label={3}
                     classNames={{
@@ -132,7 +144,7 @@ export default function TruePersonGenotypes() {
                 <div className="w-16">
                   <Person id="C" circles={["#AA6012", "#E61048"]} />
                 </div>
-                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+                <div className="my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2 @md/main:scale-75">
                   <CloneRow
                     label={4}
                     classNames={{
@@ -185,7 +197,7 @@ export default function TruePersonGenotypes() {
                 <div className="w-16">
                   <Person id="D" circles={["#AA6012", "#E61048"]} />
                 </div>
-                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+                <div className="my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2 @md/main:scale-75">
                   <CloneRow
                     label={6}
                     classNames={{
@@ -267,7 +279,7 @@ export default function TruePersonGenotypes() {
               <div className="my-auto w-20">
                 <Person id="A" circles={["#AA6012", "#E61048"]} />
               </div>
-              <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+              <div className="my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2 @md/main:scale-75">
                 <CloneRow
                   label={1}
                   classNames={{
@@ -317,7 +329,7 @@ export default function TruePersonGenotypes() {
                 <div className="my-auto w-20">
                   <Person id="B" circles={["#AA6012", "#E61048"]} />
                 </div>
-                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+                <div className="my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2 @md/main:scale-75">
                   <CloneRow
                     label={3}
                     classNames={{
@@ -355,7 +367,7 @@ export default function TruePersonGenotypes() {
                 <div className="my-auto w-20">
                   <Person id="C" circles={["#AA6012", "#E61048"]} />
                 </div>
-                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+                <div className="my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2 @md/main:scale-75">
                   <CloneRow
                     label={4}
                     classNames={{
@@ -408,7 +420,7 @@ export default function TruePersonGenotypes() {
                 <div className="my-auto w-20">
                   <Person id="D" circles={["#AA6012", "#E61048"]} />
                 </div>
-                <div className="@md/main:scale-75 my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2">
+                <div className="my-auto flex max-w-[500px] grow origin-top-left flex-col gap-2 @md/main:scale-75">
                   <CloneRow
                     label={6}
                     classNames={{

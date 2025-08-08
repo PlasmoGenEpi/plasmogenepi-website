@@ -26,7 +26,11 @@ export const p8addedQuestion2Atom = atomWithStorage<boolean | number>(
   false,
 );
 
-export default function PentagonSideBySide() {
+export default function PentagonSideBySide({
+  lang = "EN",
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const phase = useAtomValue(phase2Atom);
   const selectedEdges = useAtomValue(partEightPentagonSelectedEdgesAtom);
   const [questions, setQuestions] = useAtom(partEightPentagonQuestionsAtom);
@@ -96,7 +100,9 @@ export default function PentagonSideBySide() {
           complete={completion[phase]}
           trigger={phase === 12 && selectedEdges.EF.visited}
           visible={phase === 12 && selectedEdges.EF.visited}
-          text="If the two people with travel history traveled together, for
+          text={
+            lang === "EN"
+              ? `If the two people with travel history traveled together, for
          example if they were part of the same household, then it's
          possible that their infections might be related. In this case, we
          know that they report travel to different geographic areas with
@@ -108,7 +114,11 @@ export default function PentagonSideBySide() {
          cases are 2 and 3, we'd expect to see some matches by chance;
          what we observe - 4 of 12 loci with a match, or IBS of 0.33
          - is within the range of what we'd expect with
-         unrelated infections."
+         unrelated infections.`
+              : lang === "FR"
+              ? `Si les deux personnes ayant des antécédents de voyage ont voyagé ensemble, par exemple si elles faisaient partie du même foyer, il est possible que leurs infections soient liées. Dans ce cas, nous savons qu'elles ont déclaré avoir voyagé dans différentes zones géographiques à forte transmission et qu'elles y ont probablement contracté leurs infections. Étant donné qu'il existe généralement une grande diversité génétique parasitaire dans les zones à forte transmission, et qu'elles proviennent de régions différentes, nous ne nous attendrions pas à ce que leurs parasites soient liés par ascendance. C'est exactement ce que nous trouvons. Étant donné que le MOI de ces cas est de 2 et 3, nous nous attendrions à voir des correspondances par hasard ; ce que nous observons - 4 loci sur 12 avec une correspondance, ou un IBS de 0,33 - est dans la fourchette de ce à quoi nous nous attendrions avec des infections non apparentées.`
+              : `Se as duas pessoas com histórico de viagem viajaram juntas, por exemplo, se faziam parte do mesmo agregado familiar, é possível que as suas infeções estivessem relacionadas. Neste caso, sabemos que elas relatam ter viajado para diferentes áreas geográficas com alta transmissão e provavelmente adquiriram as suas infeções lá. Uma vez que existe geralmente muita diversidade genética parasitária em áreas de alta transmissão, e elas vêm de regiões diferentes, não esperaríamos que os seus parasitas estivessem relacionados por ascendência. É exatamente isso que encontramos. Uma vez que o MOI destes casos é de 2 e 3, esperaríamos ver algumas correspondências por acaso; o que observamos - 4 de 12 loci com uma correspondência, ou IBS de 0,33 - está dentro do que esperaríamos com infeções não relacionadas.`
+          }
         />
       </div>
     );
@@ -146,22 +156,38 @@ export default function PentagonSideBySide() {
             }}
             className={`${
               buttonClicked ? "hidden" : ""
-            } bg-interactiveBlue m-auto px-6 py-3 text-white shadow-sm shadow-black`}
+            } m-auto bg-interactiveBlue px-6 py-3 text-white shadow-sm shadow-black`}
           >
-            <span className="block translate-y-0.5">Additional Info</span>
+            <span className="block translate-y-0.5">
+              {lang === "EN"
+                ? `Additional Info`
+                : lang === "FR"
+                ? `Info. Adicional`
+                : lang === "PT"
+                ? `Informações Adicionais`
+                : ``}
+            </span>
           </button>
         </div>
         <QuestionResponseText
           // complete={completion[phase] ?? false}
           // trigger={phase === 14}
           visible={buttonClicked}
-          text="There may be several types of information that you are
+          text={
+            lang === "EN"
+              ? `There may be several types of information that you are
           interested in, but date of the cases is an important one. Your
           team shares a clean, well curated epidemiologic database with
           you with data for all five cases. It turns out that cases E and
           F were both detected within a week of each other, and that cases
           G, H, and I all presented with malaria between two and six weeks
-          after."
+          after.`
+              : lang === "FR"
+              ? `Il peut y avoir plusieurs types d'informations qui vous intéressent, mais la date des cas est une information importante. Votre équipe partage avec vous une base de données épidémiologiques propre et bien organisée, contenant des données pour les cinq cas. Il s'avère que les cas E et F ont tous deux été détectés à une semaine d'intervalle, et que les cas G, H et I ont tous présenté le paludisme entre deux et six semaines plus tard.`
+              : lang === "PT"
+              ? `Pode haver vários tipos de informação que lhe interessam, mas a data dos casos é uma delas. A sua equipa partilha consigo uma base de dados epidemiológica limpa e bem organizada com dados para todos os cinco casos. Acontece que os casos E e F foram ambos detetados com uma semana de diferença, e que os casos G, H e I apresentaram todos malária entre duas e seis semanas depois.`
+              : ``
+          }
         />
         <KnowledgeCheckQuestion
           questionIdx={0}
@@ -177,19 +203,39 @@ export default function PentagonSideBySide() {
           }}
           answers={[
             {
-              text: "Cases E and F happened so close to each other in time that they are likely related to each other even though they both travelled to different places and their infections are not closely related genetically.",
+              text:
+                lang === "EN"
+                  ? "Cases E and F happened so close to each other in time that they are likely related to each other even though they both travelled to different places and their infections are not closely related genetically."
+                  : lang === "FR"
+                  ? `Cas E et F se sont produits si près l'un de l'autre dans le temps qu'ils sont probablement liés l'un à l'autre, même s'ils ont tous deux voyagé dans des endroits différents et que leurs infections ne sont pas génétiquement étroitement liées.`
+                  : lang === "PT"
+                  ? `Os casos E e F aconteceram tão próximos um do outro no tempo que provavelmente estão relacionados entre si, embora ambos tenham viajado para lugares diferentes e as suas infeções não estejam geneticamente muito relacionadas.`
+                  : ``,
               checked: p8addedQuestion2 === 0,
               correct: false,
               index: 0,
             },
             {
-              text: "Cases G, H, and I (who did not travel) cannot be related to cases E and F since they happened so much later.",
+              text:
+                lang === "EN"
+                  ? "Cases G, H, and I (who did not travel) cannot be related to cases E and F since they happened so much later."
+                  : lang === "FR"
+                  ? `Les cas G, H et I (qui n'ont pas voyagé) ne peuvent pas être liés aux cas E et F puisqu'ils se sont produits beaucoup plus tard.`
+                  : `Casos G, H e I (que não viajaram) não podem estar relacionados com os casos E e F, uma vez que ocorreram muito mais tarde.`,
+
               checked: p8addedQuestion2 === 1,
               correct: false,
               index: 1,
             },
             {
-              text: "Cases G, H, and I (who did not travel) could be related to the imported cases, since it can take several weeks for transmission to occur from one person to another and then cause symptomatic malaria.",
+              text:
+                lang === "EN"
+                  ? "Cases G, H, and I (who did not travel) could be related to the imported cases, since it can take several weeks for transmission to occur from one person to another and then cause symptomatic malaria."
+                  : lang === "FR"
+                  ? `Les cas G, H et I (qui n'ont pas voyagé) pourraient être liés aux cas importés, car il peut falloir plusieurs semaines pour que la transmission se produise d'une personne à l'autre et provoque ensuite le paludisme symptomatique.`
+                  : lang === "PT"
+                  ? `Casos G, H e I (que não viajaram) podem estar relacionados com os casos importados, uma vez que pode demorar várias semanas para que a transmissão ocorra de uma pessoa para outra e depois cause malária sintomática.`
+                  : ``,
               checked: p8addedQuestion2 === 2,
               correct: true,
               index: 2,
@@ -203,7 +249,15 @@ export default function PentagonSideBySide() {
             }
           }}
           hasAnswer={p8addedQuestion2 === 2}
-          headerText="How do you interpret these additional epidemiologic data on the timing of cases?"
+          headerText={
+            lang === "EN"
+              ? "How do you interpret these additional epidemiologic data on the timing of cases?"
+              : lang === "FR"
+              ? `Comment interprétez-vous ces données épidémiologiques supplémentaires sur le moment des cas ?`
+              : lang === "PT"
+              ? `Como interpreta estes dados epidemiológicos adicionais sobre o momento dos casos?`
+              : ``
+          }
         />
         {/* {phase === 14 && (
       <div className="fadeIn500 bg-primaryBlue/20 p-4 text-sm lg:p-8">
@@ -221,7 +275,7 @@ export default function PentagonSideBySide() {
       </div>
     );
   } else if (phase >= 18 && phase < 20) {
-    return <PentagonCorrections />;
+    return <PentagonCorrections lang={lang} />;
   } else if (phase === 20) {
     return (
       <div>
@@ -235,19 +289,40 @@ export default function PentagonSideBySide() {
               checked: questions[1][1],
               correct: true,
               index: 0,
-              text: "Imported cases",
+              text:
+                lang === "EN"
+                  ? "Imported cases"
+                  : lang === "FR"
+                  ? `Cas importés`
+                  : lang === "PT"
+                  ? `Casos importados`
+                  : ``,
             },
             {
               checked: questions[1][2],
               correct: true,
               index: 1,
-              text: "Introduced cases",
+              text:
+                lang === "EN"
+                  ? "Introduced cases"
+                  : lang === "FR"
+                  ? `Cas introduits`
+                  : lang === "PT"
+                  ? `Casos introduzidos`
+                  : ``,
             },
             {
               checked: questions[1][3],
               correct: false,
               index: 2,
-              text: "Locally transmitted cases",
+              text:
+                lang === "EN"
+                  ? "Locally transmitted cases"
+                  : lang === "FR"
+                  ? `Transmission locale`
+                  : lang === "PT"
+                  ? `Casos de transmissão local`
+                  : ``,
             },
           ]}
           callback={(questionIdx, answerIdx) => {
@@ -260,7 +335,11 @@ export default function PentagonSideBySide() {
             });
           }}
           hasAnswer={questions[1][1] && questions[1][2] && !questions[1][3]}
-          headerText="Based on your evaluation, what if any types of cases do you think are present in the village? (Choose all that apply)"
+          headerText={
+            lang === "EN"
+              ? "Based on your evaluation, what if any types of cases do you think are present in the village? (Choose all that apply)"
+              : `Qual tipos de casos você acha que estão presentes na aldeia? (Escolha todas as opções aplicáveis)`
+          }
           questionIdx={1}
         />
         <QuestionResponseText
@@ -268,12 +347,20 @@ export default function PentagonSideBySide() {
           trigger={questions[1][1] && questions[1][2] && !questions[1][3]}
           complete={completion[phase] ?? false}
           visible={questions[1][1] && questions[1][2] && !questions[1][3]}
-          text="Correct! Cases E and F are very likely imported cases, based on
+          text={
+            lang === "EN"
+              ? `Correct! Cases E and F are very likely imported cases, based on
               the fact that there have not been cases reported in this village
               before those two, and their recent travel history to high
               transmission areas. Cases I and G are likely to be introduced
               cases stemming from Case E, and Case H is likely an introduced
-              case from Case F."
+              case from Case F.`
+              : lang === "FR"
+              ? `Correct! Les cas E et F sont très probablement des cas importés, étant donné qu'aucun cas n'a été signalé dans ce village avant ces deux-là, et leur récent historique de voyage dans des zones à forte transmission. Les cas I et G sont susceptibles d'être des cas introduits provenant du cas E, et le cas H est probablement un cas introduit provenant du cas F.`
+              : lang === "PT"
+              ? `Correto! Os casos E e F são muito provavelmente casos importados, com base no facto de não terem sido notificados casos nesta aldeia antes desses dois, e no seu historial de viagens recentes para áreas de alta transmissão. Os casos I e G são provavelmente casos introduzidos decorrentes do Caso E, e o Caso H é provavelmente um caso introduzido do Caso F.`
+              : ``
+          }
         />
       </div>
     );
@@ -285,31 +372,66 @@ export default function PentagonSideBySide() {
             checked: questions[2] === 0,
             correct: false,
             index: 0,
-            text: "You have definitively proven that there is absolutely no malaria transmission occurring in the village.",
+            text:
+              lang === "EN"
+                ? "You have definitively proven that there is absolutely no malaria transmission occurring in the village."
+                : lang === "FR"
+                ? `Vous avez définitivement prouvé qu'il n'y a absolument aucune transmission du paludisme dans le village.`
+                : lang === "PT"
+                ? `Você provou definitivamente que não há absolutamente nenhuma transmissão de malária ocorrendo na aldeia.`
+                : ``,
           },
           {
             checked: questions[2] === 1,
             correct: false,
             index: 1,
-            text: "You can’t really say one way or the other whether malaria transmission is occurring in the village, so you choose to say the results were not clear.",
+            text:
+              lang === "EN"
+                ? "You can’t really say one way or the other whether malaria transmission is occurring in the village, so you choose to say the results were not clear."
+                : lang === "FR"
+                ? `Vous ne pouvez pas vraiment dire d'une manière ou d'une autre si la transmission du paludisme se produit dans le village, vous choisissez donc de dire que les résultats n'étaient pas clairs.`
+                : lang === "PT"
+                ? `Você não pode realmente dizer de uma forma ou de outra se a transmissão da malária está ocorrendo na aldeia, então você escolhe dizer que os resultados não foram claros.`
+                : ``,
           },
           {
             checked: questions[2] === 2,
             correct: true,
             index: 2,
-            text: "You can say with a high degree of confidence that you have so far seen evidence of limited local transmission – only a single generation of transmission from imported cases leading to three introduced cases. You do not yet see any evidence of ongoing local transmission beyond this, consistent with elimination status.",
+            text:
+              lang === "EN"
+                ? "You can say with a high degree of confidence that you have so far seen evidence of limited local transmission – only a single generation of transmission from imported cases leading to three introduced cases. You do not yet see any evidence of ongoing local transmission beyond this, consistent with elimination status."
+                : lang === "FR"
+                ? `Vous pouvez affirmer avec un degré de confiance élevé que vous avez jusqu'à présent vu des preuves de transmission locale limitée – seulement une seule génération de transmission à partir de cas importés menant à trois cas introduits. Vous ne voyez pas encore de preuves de transmission locale continue au-delà de cela, ce qui est cohérent avec le statut d'élimination.`
+                : lang === "PT"
+                ? `Pode dizer com um alto grau de confiança que até agora viu evidências de transmissão local limitada – apenas uma única geração de transmissão de casos importados levando a três casos introduzidos. Ainda não vê nenhuma evidência de transmissão local contínua para além disso, consistente com o estado de eliminação.`
+                : ``,
           },
           {
             checked: questions[2] === 3,
             correct: false,
             index: 3,
-            text: "You can say with a reasonable degree of confidence that these five cases are not related by transmission and are not suspicious of an outbreak occurring at the village.",
+            text:
+              lang === "EN"
+                ? "You can say with a reasonable degree of confidence that these five cases are not related by transmission and are not suspicious of an outbreak occurring at the village."
+                : lang === "FR"
+                ? `Vous pouvez dire avec un degré de confiance raisonnable que ces cinq cas ne sont pas liés par transmission et ne sont pas suspects d'une épidémie se produisant dans le village.`
+                : lang === "PT"
+                ? `Você pode dizer com um grau razoável de confiança que esses cinco casos não estão relacionados por transmissão e não são suspeitos de um surto ocorrendo na aldeia.`
+                : ``,
           },
           {
             checked: questions[2] === 4,
             correct: false,
             index: 4,
-            text: "You can’t be bothered with interpreting results for other people and just show them the genotyping data, letting them figure it out for themselves.",
+            text:
+              lang === "EN"
+                ? "You can’t be bothered with interpreting results for other people and just show them the genotyping data, letting them figure it out for themselves."
+                : lang === "FR"
+                ? `Vous ne pouvez pas être dérangé par l'interprétation des résultats pour d'autres personnes et vous contentez de leur montrer les données de génotypage, les laissant se débrouiller seuls.`
+                : lang === "PT"
+                ? `Você não se importa em interpretar resultados para outras pessoas e apenas mostra os dados de genotipagem, deixando-as descobrir por si mesmas.`
+                : ``,
           },
         ]}
         callback={(questionIdx, answerIdx) => {
@@ -320,7 +442,13 @@ export default function PentagonSideBySide() {
           }
         }}
         hasAnswer={questions[2] === 2}
-        headerText="Which of the following would be an accurate way of communicating your findings to stakeholders such as the village community, local government, and malaria control program?"
+        headerText={
+          lang === "EN"
+            ? "Which of the following would be an accurate way of communicating your findings to stakeholders such as the village community, local government, and malaria control program?"
+            : lang === "FR"
+            ? `Quelle serait une manière précise de communiquer vos découvertes aux parties prenantes telles que la communauté villageoise, le gouvernement local et le programme de lutte contre le paludisme ?`
+            : `Qual das seguintes seria uma forma precisa de comunicar as suas descobertas às partes interessadas, como a comunidade da aldeia, o governo local e o programa de controlo da malária?`
+        }
         questionIdx={2}
         classNames={{
           container: "fadeIn500 mt-8",
@@ -337,19 +465,40 @@ export default function PentagonSideBySide() {
               checked: questions[3] === 0,
               correct: false,
               index: 0,
-              text: "Reducing interventions in the administrative area where this village is located, since there is no transmission occurring here and resources could be better spent elsewhere.",
+              text:
+                lang === "EN"
+                  ? "Reducing interventions in the administrative area where this village is located, since there is no transmission occurring here and resources could be better spent elsewhere."
+                  : lang === "FR"
+                  ? `Réduire les interventions dans la zone administrative où se trouve ce village, car il n'y a pas de transmission ici et les ressources pourraient être mieux utilisées ailleurs.`
+                  : lang === "PT"
+                  ? `Reduzir as intervenções na área administrativa onde esta aldeia está localizada, uma vez que não há transmissão ocorrendo aqui e os recursos poderiam ser melhor utilizados em outro lugar.`
+                  : ``,
             },
             {
               checked: questions[3] === 1,
               correct: true,
               index: 1,
-              text: "Keeping interventions at the level they are - there was limited transmission from imported to introduced cases but it did not appear to continue beyond that. However, if additional cases in the village or nearby are detected, your team should be contacted immediately to continue the investigation. Meanwhile, you will keep all of the genotyping data well organized in your ongoing database if more cases are detected.",
+              text:
+                lang === "EN"
+                  ? "Keeping interventions at the level they are - there was limited transmission from imported to introduced cases but it did not appear to continue beyond that. However, if additional cases in the village or nearby are detected, your team should be contacted immediately to continue the investigation. Meanwhile, you will keep all of the genotyping data well organized in your ongoing database if more cases are detected."
+                  : lang === "FR"
+                  ? `Maintenir les interventions au niveau actuel - il y a eu une transmission limitée des cas importés aux cas introduits, mais elle ne semble pas s'être poursuivie au-delà. Cependant, si des cas supplémentaires sont détectés dans le village ou à proximité, votre équipe doit être contactée immédiatement pour poursuivre l'enquête. En attendant, vous conserverez toutes les données de génotypage bien organisées dans votre base de données continue si d'autres cas sont détectés.`
+                  : lang === "PT"
+                  ? `Manter as intervenções ao nível atual - houve uma transmissão limitada de casos importados para casos introduzidos, mas não pareceu continuar para além disso. No entanto, se forem detetados casos adicionais na aldeia ou nas proximidades, a sua equipa deve ser contactada imediatamente para continuar a investigação. Entretanto, manterá todos os dados de genotipagem bem organizados na sua base de dados contínua, caso sejam detetados mais casos.`
+                  : ``,
             },
             {
               checked: questions[3] === 2,
               correct: false,
               index: 2,
-              text: "Investing in more intensive interventions, since you are concerned that a large outbreak could be imminent.",
+              text:
+                lang === "EN"
+                  ? "Investing in more intensive interventions, since you are concerned that a large outbreak could be imminent."
+                  : lang === "FR"
+                  ? `Investir dans des interventions plus intensives, car vous craignez qu'une épidémie majeure ne soit imminente.`
+                  : lang === "PT"
+                  ? `Investir em intervenções mais intensivas, uma vez que está preocupado com a iminência de um grande surto.`
+                  : ``,
             },
           ]}
           callback={(questionIdx, answerIdx) => {
@@ -360,7 +509,15 @@ export default function PentagonSideBySide() {
             }
           }}
           hasAnswer={questions[3] === 1}
-          headerText="Your program director asks you what should be done programmatically based on these detailed results stemming from your thorough investigation. You suggest:"
+          headerText={
+            lang === "EN"
+              ? "Your program director asks you what should be done programmatically based on these detailed results stemming from your thorough investigation. You suggest:"
+              : lang === "FR"
+              ? `Votre directeur de programme vous demande ce qui devrait être fait au niveau programmatique sur la base de ces résultats détaillés découlant de votre enquête approfondie. Vous suggérez :`
+              : lang === "PT"
+              ? `O seu diretor de programa pergunta-lhe o que deve ser feito programaticamente com base nestes resultados detalhados resultantes da sua investigação aprofundada. Você sugere:`
+              : ``
+          }
           questionIdx={3}
           classNames={{
             container: "fadeIn500 mt-8",
@@ -372,7 +529,9 @@ export default function PentagonSideBySide() {
           trigger={questions[3] === 1}
           className="mt-8"
           visible={questions[3] === 1}
-          text=" You have shown that there is some transmission occurring in the
+          text={
+            lang === "EN"
+              ? ` You have shown that there is some transmission occurring in the
               village (so option A is incorrect) but it does seem to be limited,
               at least for now. Therefore, it would be reasonable to keep
               interventions where they are while continuing to be vigilant and
@@ -380,7 +539,11 @@ export default function PentagonSideBySide() {
               Additional resources spent on interventions might reduce the
               probability of introduced cases, but since transmission does not
               appear to be sustained at this time, those resources might be
-              better spent elsewhere."
+              better spent elsewhere.`
+              : lang === "FR"
+              ? `Vous avez montré qu'il y a une certaine transmission dans le village (donc l'option A est incorrecte) mais elle semble limitée, du moins pour l'instant. Par conséquent, il serait raisonnable de maintenir les interventions telles qu'elles sont tout en restant vigilant et en investissant dans une surveillance épidémiologique et génomique rigoureuse. Des ressources supplémentaires consacrées aux interventions pourraient réduire la probabilité de cas introduits, mais comme la transmission ne semble pas être soutenue pour le moment, ces ressources pourraient être mieux utilisées ailleurs.`
+              : `Você demonstrou que alguma transmissão está ocorrendo na aldeia (portanto, a opção A está incorreta), mas parece ser limitada, pelo menos por enquanto. Portanto, seria razoável manter as intervenções como estão, continuando a ser vigilante e investindo em vigilância epidemiológica e genômica rigorosa. Recursos adicionais gastos em intervenções podem reduzir a probabilidade de casos introduzidos, mas como a transmissão não parece ser sustentada neste momento, esses recursos podem ser melhor gastos em outro lugar.`
+          }
         />
       </div>
     );
@@ -390,12 +553,22 @@ export default function PentagonSideBySide() {
     <div>
       {phase === 11 && (
         <div>
-          <FormHeader text="Questions" />
+          <FormHeader
+            text={lang === "EN" || lang === "FR" ? "Questions" : "Perguntas"}
+          />
         </div>
       )}
       {phase > 11 && phase !== 13 && phase !== 14 && phase < 18 && (
         <div>
-          <FormHeader text="Genotype Matches" />
+          <FormHeader
+            text={
+              lang === "EN"
+                ? "Genotype Matches"
+                : lang === "FR"
+                ? `Correspondances de génotypes`
+                : `Correspondências de Genótipos`
+            }
+          />
 
           <div className="mb-auto ">
             <div className="">
@@ -496,7 +669,7 @@ export default function PentagonSideBySide() {
               }}
               className={`${
                 buttonClicked ? "hidden" : ""
-              } bg-interactiveBlue m-auto px-6 py-3 text-white shadow-sm shadow-black`}
+              } m-auto bg-interactiveBlue px-6 py-3 text-white shadow-sm shadow-black`}
             >
               <span className="block translate-y-0.5">Additional Info</span>
             </button>
@@ -570,7 +743,7 @@ export default function PentagonSideBySide() {
           )} */}
         </div>
       )}
-      {phase >= 18 && phase < 20 && <PentagonCorrections />}
+      {phase >= 18 && phase < 20 && <PentagonCorrections lang={lang} />}
       {phase === 20 && (
         <div>
           <FormHeader text="Questions" />

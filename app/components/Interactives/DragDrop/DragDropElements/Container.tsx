@@ -83,7 +83,9 @@ export const handleVerticalScroll = function (
 export default function Container({
   scrollRef,
   scrollIntervalTimeoutRef,
+  lang = "EN",
 }: {
+  lang: "EN" | "PT" | "FR";
   scrollRef: MutableRefObject<HTMLDivElement | null>;
   scrollIntervalTimeoutRef: MutableRefObject<null | NodeJS.Timeout>;
 }) {
@@ -170,10 +172,11 @@ export default function Container({
         >
           <ReferenceGenome />
           <ReadsContainer
+            lang={lang}
             scrollRef={scrollRef}
             scrollIntervalTimeoutRef={scrollIntervalTimeoutRef}
           />
-          <Labels />
+          <Labels lang={lang} />
         </div>
       </div>
     </div>

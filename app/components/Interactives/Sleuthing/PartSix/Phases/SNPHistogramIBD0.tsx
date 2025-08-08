@@ -284,10 +284,10 @@ export default function SNPHistogramIBD0({
                     : lang === "PT"
                     ? `Correto: Isto porque haverá mais correspondências quando
             os parasitas não estiverem relacionados, pelo que haverá menos diferença
-            no SCI entre parasitas relacionados e não relacionados. Todos eles terão
-            um número bastante elevado de correspondências. Por exemplo, 12/12 correspondências (SCI
+            no IBS entre parasitas relacionados e não relacionados. Todos eles terão
+            um número bastante elevado de correspondências. Por exemplo, 12/12 correspondências (IBS
             de 1,0) ainda é incomum, mas já não é extremamente raro para
-            parasitas completamente não relacionados, em cerca de 1%! Notavelmente, mais de 20% das comparações entre parasitas não relacionados ainda terão 10/12 ou mais correspondências (SCI>0,8)!`
+            parasitas completamente não relacionados, em cerca de 1%! Notavelmente, mais de 20% das comparações entre parasitas não relacionados ainda terão 10/12 ou mais correspondências (IBS>0,8)!`
                     : `Correct: This is because there will be more matches when
             parasites are unrelated, so there will less of a difference in
             IBS between related and unrelated parasites. They will all have
@@ -306,7 +306,7 @@ export default function SNPHistogramIBD0({
           : lang === "FR"
           ? `Probabilité IBS`
           : lang === "PT"
-          ? `Probabilidade de SCI`
+          ? `Probabilidade de IBS`
           : "IBS Probability"
       }
       rightContent={

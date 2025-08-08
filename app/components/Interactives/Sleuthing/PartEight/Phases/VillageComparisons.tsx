@@ -8,27 +8,53 @@ import InteractivePrimaryLayout from "@/app/components/Interactives/Shared/Inter
 import { currentView2Atom } from "@/app/components/Interactives/Shared/InteractiveViewer/InteractiveViewer";
 import { useAtomValue } from "jotai";
 
-export default function VillageComparisons() {
+export default function VillageComparisons({
+  lang = "EN",
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   const currentView = useAtomValue(currentView2Atom);
 
   const { phase } = currentView;
 
   return (
     <InteractivePrimaryLayout
-      leftHeader={`Village Transmission Network`}
-      leftContent={<PentagonViewer />}
+      leftHeader={
+        lang === "EN"
+          ? `Village Transmission Network`
+          : lang === "FR"
+          ? `Réseau de transmission du village`
+          : `Rede de Transmissão da Aldeia`
+      }
+      leftContent={<PentagonViewer lang={lang} />}
       rightHeader={
         phase > 11 && phase !== 13 && phase !== 14 && phase < 18
-          ? `Genotype Matches`
+          ? lang === "EN"
+            ? `Genotype Matches`
+            : lang === `FR`
+            ? `Correspondances de génotypes`
+            : lang === `PT`
+            ? `Correspondências de Genótipos`
+            : ``
           : phase === 13
-          ? "Questions"
+          ? lang === "EN" || lang === "FR"
+            ? "Questions"
+            : "Perguntas"
           : phase >= 20
-          ? "Questions"
+          ? lang === "EN" || lang === "FR"
+            ? "Questions"
+            : "Perguntas"
           : phase >= 18
-          ? "Results"
+          ? lang === "EN"
+            ? "Results"
+            : lang === "FR"
+            ? `Resultats`
+            : lang === "PT"
+            ? `Resultados`
+            : ``
           : ""
       }
-      rightContent={<PentagonSideBySide />}
+      rightContent={<PentagonSideBySide lang={lang} />}
     />
   );
 

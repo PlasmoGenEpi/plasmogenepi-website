@@ -215,7 +215,7 @@ export default function InteractiveSideBar4({
           pad: true,
           title: "1.1.4. Observe All Three IBS Estimates Together",
           fr: "1.1.4. Observer les trois estimations de l'IBS ensemble",
-          pt: "1.1.4. Observar as três estimativas do SCI em conjunto",
+          pt: "1.1.4. Observar as três estimativas do IBS em conjunto",
           isActive: (currentView: InteractiveViewSettings) => {
             let { section, phase } = currentView;
             return section === 1 && phase === 6;
@@ -235,7 +235,7 @@ export default function InteractiveSideBar4({
           title:
             "1.1.5. Knowledge Check: Distinguishing Related Parasites from Unrelated Parasites Using IBS",
           fr: "1.1.5. Contrôle des connaissances: Distinguer les parasites apparentés des parasites non apparentés à l'aide de l'IBS",
-          pt: "1.1.5. Verificação de conhecimentos: Distinguir Parasitas Relacionados de Parasitas Não Relacionados Utilizando o SCI",
+          pt: "1.1.5. Verificação de conhecimentos: Distinguir Parasitas Relacionados de Parasitas Não Relacionados Utilizando o IBS",
           isActive: (currentView: InteractiveViewSettings) => {
             let { section, phase } = currentView;
             return section === 1 && phase >= 8 && phase <= 10;
@@ -294,7 +294,7 @@ export default function InteractiveSideBar4({
           title:
             "1.1.8. Knowledge Check: Distinguishing Related Parasites from Unrelated Parasites Using IBS",
           fr: "1.1.8. Contrôle des connaissances: Distinguer les parasites apparentés des parasites non apparentés à l'aide de l'IBS",
-          pt: "1.1.8. Verificação de conhecimentos: Distinguir Parasitas Relacionados de Parasitas Não Relacionados Utilizando o SCI",
+          pt: "1.1.8. Verificação de conhecimentos: Distinguir Parasitas Relacionados de Parasitas Não Relacionados Utilizando o IBS",
           isActive: (currentView: InteractiveViewSettings) => {
             let { section, phase } = currentView;
             return section === 1 && phase === 15;
@@ -390,7 +390,7 @@ export default function InteractiveSideBar4({
           pad: true,
           title: "1.2.4. Observe All Three IBS Estimates Together",
           fr: "1.2.4. Observer les trois estimations de l'IBS ensemble",
-          pt: "1.2.4. Observar as três estimativas do SCI em conjunto",
+          pt: "1.2.4. Observar as três estimativas do IBS em conjunto",
           isActive: (currentView: InteractiveViewSettings) => {
             let { section, phase } = currentView;
             return section === 1 && phase === 26;
@@ -449,7 +449,7 @@ export default function InteractiveSideBar4({
           title:
             "1.2.7. Knowledge Check: Distinguishing Related Parasites from Unrelated Parasites Using IBS",
           fr: "1.2.7. Contrôle des connaissances : Distinguer les parasites apparentés des parasites non apparentés à l'aide de l'IBS",
-          pt: "1.2.7. Verificação de conhecimentos: Distinguir Parasitas Relacionados de Parasitas Não Relacionados Utilizando o SCI",
+          pt: "1.2.7. Verificação de conhecimentos: Distinguir Parasitas Relacionados de Parasitas Não Relacionados Utilizando o IBS",
           isActive: (currentView: InteractiveViewSettings) => {
             let { section, phase } = currentView;
             return section === 1 && phase >= 33 && phase <= 33.5;
@@ -977,7 +977,7 @@ export default function InteractiveSideBar4({
         {
           pad: true,
           title: "3.2.5. IBD & IBS Comparisons",
-          fr: "3.2.5. Comparaisons entre les MII et le SCI",
+          fr: "3.2.5. Comparaisons entre les MII et le IBS",
           pt: "3.2.5. Comparações entre IBD e IBS",
           available: completion8[33],
           isActive: (currentView: InteractiveViewSettings) => {

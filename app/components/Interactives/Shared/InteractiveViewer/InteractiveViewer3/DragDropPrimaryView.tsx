@@ -20,7 +20,9 @@ export default function DragDropPrimaryView({
   scrollRef,
   scrollIntervalTimeoutRef,
   verticalScrollIntervalTimeoutRef,
+  lang = "EN",
 }: {
+  lang: "EN" | "PT" | "FR";
   verticalScrollIntervalTimeoutRef: any;
   scrollRef: any;
   scrollIntervalTimeoutRef: any;
@@ -47,10 +49,10 @@ export default function DragDropPrimaryView({
     >
       <div
         // inert={isOpen}
-        className="@container/main relative pb-20"
+        className="relative pb-20 @container/main"
       >
         <div className="mx-auto max-w-6xl px-4">
-          <DragDropPrompts />
+          <DragDropPrompts lang={lang} />
         </div>
         {currentView.section && currentView.section > 0 ? (
           <DndProvider
@@ -67,6 +69,7 @@ export default function DragDropPrimaryView({
               }
             />
             <Container
+              lang={lang}
               scrollRef={scrollRef}
               scrollIntervalTimeoutRef={scrollIntervalTimeoutRef}
             />
@@ -74,7 +77,7 @@ export default function DragDropPrimaryView({
         ) : null}
 
         <div>
-          <QuestionContent />
+          <QuestionContent lang={lang} />
         </div>
         {/* <PageView currentView={currentView} /> */}
       </div>

@@ -198,7 +198,7 @@ export default function Persons({ lang }: { lang: "EN" | "FR" | "PT" }) {
                       ? "No, the MOI values do not provide any useful information on the origin of infections."
                       : lang === "FR"
                       ? "Non, les valeurs de l'IBS ne fournissent aucune information utile sur l'origine des infections."
-                      : "Não, os valores do SCI não fornecem qualquer informação útil sobre a origem das infeções.",
+                      : "Não, os valores do IBS não fornecem qualquer informação útil sobre a origem das infeções.",
                 },
               ]}
               callback={(questionIdx, answerIndex) => {
@@ -216,7 +216,7 @@ export default function Persons({ lang }: { lang: "EN" | "FR" | "PT" }) {
                   ? `Do these MOI values give you any clues as to whether transmission likely occurred at the school or from the students' home villages?`
                   : lang === "FR"
                   ? `Ces valeurs de l'IBS vous donnent-elles des indices sur la probabilité que la transmission ait eu lieu à l'école ou dans les villages d'origine des élèves ?`
-                  : `Estes valores de SCI dão-lhe alguma pista sobre se a transmissão ocorreu provavelmente na escola ou nas aldeias de origem dos alunos?`
+                  : `Estes valores de IBS dão-lhe alguma pista sobre se a transmissão ocorreu provavelmente na escola ou nas aldeias de origem dos alunos?`
               }
               questionIdx={1}
               classNames={{
@@ -232,7 +232,7 @@ export default function Persons({ lang }: { lang: "EN" | "FR" | "PT" }) {
                   ? `Values for MOI do not provide conclusive information on where transmission occurred. However, some of the higher values here are suspicious for students being infected in a high transmission area, potentially suggestive that those cases may have occurred at home and not in the school. This is because the school is in a very low transmission area in  Eliminati Province and so you do not expect a lot of superinfection, although as you know cotransmission even in a low transmission area can still result in a polyclonal infection from a single mosquito bite.`
                   : lang === "FR"
                   ? `Les valeurs de l'IBS ne fournissent pas d'informations concluantes sur le lieu de la transmission. Cependant, certaines des valeurs les plus élevées ici sont suspectes pour les élèves infectés dans une zone de transmission élevée, suggérant potentiellement que ces cas peuvent avoir eu lieu à la maison et non à l'école. En effet, l'école se trouve dans une zone de transmission très faible dans votre région de pré-élimination et vous ne vous attendez donc pas à beaucoup de surinfection, bien que, comme vous le savez, la co-transmission, même dans une zone de faible transmission, puisse toujours entraîner une infection polyclonale à partir d'une seule piqûre de moustique.`
-                  : `Os valores de SCI não fornecem informações conclusivas sobre onde ocorreu a transmissão. No entanto, alguns dos valores mais elevados aqui são suspeitos de que os alunos foram infetados numa área de alta transmissão, sugerindo potencialmente que esses casos podem ter ocorrido em casa e não na escola. Isto porque a escola se encontra numa área de transmissão muito baixa na sua região de pré-eliminação e, por isso, não se espera muita superinfeção, embora, como sabe, a cotransmissão, mesmo numa área de baixa transmissão, possa ainda resultar numa infeção policlonal a partir de uma única picada de mosquito.`
+                  : `Os valores de IBS não fornecem informações conclusivas sobre onde ocorreu a transmissão. No entanto, alguns dos valores mais elevados aqui são suspeitos de que os alunos foram infetados numa área de alta transmissão, sugerindo potencialmente que esses casos podem ter ocorrido em casa e não na escola. Isto porque a escola se encontra numa área de transmissão muito baixa na sua região de pré-eliminação e, por isso, não se espera muita superinfeção, embora, como sabe, a cotransmissão, mesmo numa área de baixa transmissão, possa ainda resultar numa infeção policlonal a partir de uma única picada de mosquito.`
               }
             />
           </div>

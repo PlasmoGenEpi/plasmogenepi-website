@@ -52,267 +52,1006 @@ let sampleRead = [
 const dragDropSections: {
   [key: number]: {
     [key: number]: {
-      title: ReactElement | null;
-      instructions: ReactElement | null;
+      titles: {
+        EN: ReactElement | null;
+        FR: ReactElement | null;
+        PT: ReactElement | null;
+      };
+      instructions: {
+        EN: ReactElement | null;
+        FR: ReactElement | null;
+        PT: ReactElement | null;
+      };
+      // title: ReactElement | null;
+      // instructions: ReactElement | null;
     };
   };
 } = {
   0: {
     0: {
-      title: <h5>Background</h5>,
-      instructions: (
-        <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
-          <p>
-            It is your very first day in the malaria genomics lab. You are
-            really excited to start looking at data, since you have just taken
-            an online course where you heard about all the great things that
-            could be done with sequence data.
-          </p>
-          <p>
-            The sequencing facility emails and lets you know that the results
-            for your most recent run are back. Unfortunately, the lab
-            technologist has the flu and the bioinformatician on your team has
-            traveled to a conference, so you know nothing about the assay that
-            was run or what software to use. Not deterred, you plan to look into
-            the data anyway!
-          </p>
-          <p>
-            Will you be able to make sense of your data and unlock the secrets
-            hidden in your sequencer generated reads?
-          </p>
-          <p>
-            If you are using a touch screen it is recommended that you continue
-            the activity with the side bar closed.
-          </p>
-        </div>
-      ),
+      titles: {
+        EN: <h5>Background</h5>,
+        FR: <h5>Contexte</h5>,
+        PT: <h5>Contexto</h5>,
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+            <p>
+              It is your very first day in the malaria genomics lab. You are
+              really excited to start looking at data, since you have just taken
+              an online course where you heard about all the great things that
+              could be done with sequence data.
+            </p>
+            <p>
+              The sequencing facility emails and lets you know that the results
+              for your most recent run are back. Unfortunately, the lab
+              technologist has the flu and the bioinformatician on your team has
+              traveled to a conference, so you know nothing about the assay that
+              was run or what software to use. Not deterred, you plan to look
+              into the data anyway!
+            </p>
+            <p>
+              Will you be able to make sense of your data and unlock the secrets
+              hidden in your sequencer generated reads?
+            </p>
+            <p>
+              If you are using a touch screen it is recommended that you
+              continue the activity with the side bar closed.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+            <p>
+              C'est votre tout premier jour au laboratoire de génomique du
+              paludisme. Vous êtes vraiment impatient de commencer à examiner
+              les données, car vous venez de suivre un cours en ligne où vous
+              avez entendu parler de toutes les grandes choses qui peuvent être
+              faites avec les données de séquence.
+            </p>
+            <p>
+              L'installation de séquençage vous envoie un e-mail pour vous
+              informer que les résultats de votre dernière série sont
+              disponibles. Malheureusement, le technologue de laboratoire a la
+              grippe et le bioinformaticien de votre équipe est parti en
+              conférence, vous ne savez donc rien de l'essai qui a été réalisé
+              ni du logiciel à utiliser. Non découragé, vous comptez quand même
+              examiner les données !
+            </p>
+            <p>
+              Serez-vous capable de donner un sens à vos données et de percer
+              les secrets cachés dans vos lectures générées par le séquençage ?
+            </p>
+            <p>
+              Si vous utilisez un écran tactile, il est recommandé de continuer
+              l'activité avec la barre latérale fermée.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+            <p>
+              É o seu primeiro dia no laboratório de genômica da malária. Você
+              está muito animado para começar a analisar os dados, pois acabou
+              de fazer um curso online onde aprendeu sobre todas as grandes
+              coisas que poderiam ser feitas com dados de sequência.
+            </p>
+            <p>
+              A instalação de sequenciamento envia um e-mail informando que os
+              resultados da sua corrida mais recente estão de volta.
+              Infelizmente, o tecnólogo de laboratório está com gripe e o
+              bioinformacionista da sua equipe viajou para uma conferência,
+              então você não sabe nada sobre o ensaio que foi realizado ou qual
+              software usar. Não desanimado, você planeja analisar os dados
+              mesmo assim!
+            </p>
+            <p>
+              Você será capaz de entender seus dados e desvendar os segredos
+              escondidos em suas leituras geradas pelo sequenciador?
+            </p>
+            <p>
+              Se você estiver usando uma tela sensível ao toque, é recomendável
+              que você continue a atividade com a barra lateral fechada.
+            </p>
+          </div>
+        ),
+      },
     },
     1: {
-      title: <h5>Goal</h5>,
-      instructions: (
-        <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
-          <p>
-            The goal of this activity is to identify various mutations, loci,
-            SNPs, and microhaplotypes by comparing sequencer generated reads to
-            a reference genome.
-          </p>
-        </div>
-      ),
+      titles: {
+        EN: <h5>Goal</h5>,
+        FR: <h5>Objectif</h5>,
+        PT: <h5>Objetivo</h5>,
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+            <p>
+              The goal of this activity is to identify various mutations, loci,
+              SNPs, and microhaplotypes by comparing sequencer generated reads
+              to a reference genome.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+            <p>
+              L'objectif de cette activité est d'identifier diverses mutations,
+              loci, SNP et microhaplotypes en comparant les lectures générées
+              par le séquenceur à un génome de référence.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+            <p>
+              O objetivo desta atividade é identificar várias mutações, loci,
+              SNPs e microhaplótipos comparando as leituras geradas pelo
+              sequenciador com um genoma de referência.
+            </p>
+          </div>
+        ),
+      },
     },
+
+    // 1: {
+    //   title: <h5>Goal</h5>,
+    //   instructions: (
+    //     <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+    //       <p>
+    //         The goal of this activity is to identify various mutations, loci,
+    //         SNPs, and microhaplotypes by comparing sequencer generated reads to
+    //         a reference genome.
+    //       </p>
+    //     </div>
+    //   ),
+    // },
+    // 2: {
+    //   title: <h5>Instructions</h5>,
+    //   instructions: (
+    //     <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+    //       <p>This first activity includes three steps:</p>
+    //       <ol className="list flex list-disc flex-col gap-2 px-4">
+    //         <li>
+    //           First, you will match a batch of 10 sequencer generated reads to
+    //           the correct locations on a reference genome.
+    //         </li>
+    //         <li>
+    //           Next, you will match a batch of 20 more sequencer generated reads
+    //           to the correct locations on a reference genome. However, this time
+    //           there may be some mutations and errors, which makes your work here
+    //           more challenging.
+    //         </li>
+    //         <li>
+    //           Lastly, you will identify various mutations, loci, SNPs, and
+    //           microhaplotypes in your reads.
+    //         </li>
+    //       </ol>
+    //       <p>
+    //         Along the way, you will respond to some multiple choice questions to
+    //         check your understanding of the sequencing data.
+    //       </p>
+    //       <p>Go to the lab and get started!</p>
+    //     </div>
+    //   ),
+    // },
     2: {
-      title: <h5>Instructions</h5>,
-      instructions: (
-        <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
-          <p>This first activity includes three steps:</p>
-          <ol className="list flex list-disc flex-col gap-2 px-4">
-            <li>
-              First, you will match a batch of 10 sequencer generated reads to
-              the correct locations on a reference genome.
-            </li>
-            <li>
-              Next, you will match a batch of 20 more sequencer generated reads
-              to the correct locations on a reference genome. However, this time
-              there may be some mutations and errors, which makes your work here
-              more challenging.
-            </li>
-            <li>
-              Lastly, you will identify various mutations, loci, SNPs, and
-              microhaplotypes in your reads.
-            </li>
-          </ol>
-          <p>
-            Along the way, you will respond to some multiple choice questions to
-            check your understanding of the sequencing data.
-          </p>
-          <p>Go to the lab and get started!</p>
-        </div>
-      ),
+      titles: {
+        EN: <h5>Instructions</h5>,
+        FR: <h5>Instructions</h5>,
+        PT: <h5>Instruções</h5>,
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+            <p>This first activity includes three steps:</p>
+            <ol className="list flex list-disc flex-col gap-2 px-4">
+              <li>
+                First, you will match a batch of 10 sequencer generated reads to
+                the correct locations on a reference genome.
+              </li>
+              <li>
+                Next, you will match a batch of 20 more sequencer generated
+                reads to the correct locations on a reference genome. However,
+                this time there may be some mutations and errors, which makes
+                your work here more challenging.
+              </li>
+              <li>
+                Lastly, you will identify various mutations, loci, SNPs, and
+                microhaplotypes in your reads.
+              </li>
+            </ol>
+            <p>
+              Along the way, you will respond to some multiple choice questions
+              to check your understanding of the sequencing data.
+            </p>
+            <p>Go to the lab and get started!</p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+            <p>Cette première activité comprend trois étapes :</p>
+            <ol className="list flex list-disc flex-col gap-2 px-4">
+              <li>
+                Tout d'abord, vous associerez un lot de 10 lectures générées par
+                le séquenceur aux emplacements corrects sur un génome de
+                référence.
+              </li>
+              <li>
+                Ensuite, vous associerez un lot de 20 lectures supplémentaires
+                générées par le séquenceur aux emplacements corrects sur un
+                génome de référence. Cependant, cette fois, il peut y avoir des
+                mutations et des erreurs, ce qui rend votre travail plus
+                difficile.
+              </li>
+              <li>
+                Enfin, vous identifierez diverses mutations, loci, SNP et
+                microhaplotypes dans vos lectures.
+              </li>
+            </ol>
+            <p>
+              En cours de route, vous répondrez à des questions à choix
+              multiples pour vérifier votre compréhension des données de
+              séquençage.
+            </p>
+            <p>Allez au laboratoire et commençons !</p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4 font-helvetica [fontSize:15px]">
+            <p>
+              É o seu primeiro dia no laboratório de genômica da malária. Você
+              está muito animado para começar a analisar os dados, pois acabou
+              de fazer um curso online onde aprendeu sobre todas as grandes
+              coisas que poderiam ser feitas com dados de sequência.
+            </p>
+            <p>
+              A instalação de sequenciamento envia um e-mail informando que os
+              resultados da sua corrida mais recente estão de volta.
+              Infelizmente, o tecnólogo de laboratório está com gripe e o
+              bioinformacionista da sua equipe viajou para uma conferência,
+              então você não sabe nada sobre o ensaio que foi realizado ou qual
+              software usar. Não desanimado, você planeja analisar os dados
+              mesmo assim!
+            </p>
+            <p>
+              Você será capaz de entender seus dados e desvendar os segredos
+              escondidos em suas leituras geradas pelo sequenciador?
+            </p>
+            <p>
+              Se você estiver usando uma tela sensível ao toque, é recomendável
+              que você continue a atividade com a barra lateral fechada.
+            </p>
+          </div>
+        ),
+      },
     },
   },
   1: {
     0: {
-      title: (
-        <h5>Step 1. Align Sequencer Generated Reads to the Reference Genome</h5>
-      ),
-      instructions: (
-        <div className="flex flex-col gap-4">
-          <p>
-            Below is the reference genome, a sequence of 51 DNA base letters A,
-            G, C, and T.
-          </p>
-          <p>
-            You are tasked with aligning the reads, sequences of 15 DNA base
-            letters in this example, to the matching part of the reference
-            genome. Do this by dragging the sequence to the correct part of the
-            reference genome.
-          </p>
-          <p>
-            Once all the reads are placed correctly, continue the activity to
-            answer some questions.
-          </p>
-        </div>
-      ),
+      // title: (
+      //   <h5>Step 1. Align Sequencer Generated Reads to the Reference Genome</h5>
+      // ),
+      // instructions: (
+      //   <div className="flex flex-col gap-4">
+      //     <p>
+      //       Below is the reference genome, a sequence of 51 DNA base letters A,
+      //       G, C, and T.
+      //     </p>
+      //     <p>
+      //       You are tasked with aligning the reads, sequences of 15 DNA base
+      //       letters in this example, to the matching part of the reference
+      //       genome. Do this by dragging the sequence to the correct part of the
+      //       reference genome.
+      //     </p>
+      //     <p>
+      //       Once all the reads are placed correctly, continue the activity to
+      //       answer some questions.
+      //     </p>
+      //   </div>
+      // ),
+      titles: {
+        EN: (
+          <h5>
+            Step 1. Align Sequencer Generated Reads to the Reference Genome
+          </h5>
+        ),
+        FR: (
+          <h5>
+            Étape 1. Alignez les lectures générées par le séquenceur au génome
+            de référence
+          </h5>
+        ),
+        PT: (
+          <h5>
+            Etapa 1. Alinhe as leituras geradas pelo sequenciador ao genoma de
+            referência
+          </h5>
+        ),
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Below is the reference genome, a sequence of 51 DNA base letters
+              A, G, C, and T.
+            </p>
+            <p>
+              You are tasked with aligning the reads, sequences of 15 DNA base
+              letters in this example, to the matching part of the reference
+              genome. Do this by dragging the sequence to the correct part of
+              the reference genome.
+            </p>
+            <p>
+              Once all the reads are placed correctly, continue the activity to
+              answer some questions.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Ci-dessous se trouve le génome de référence, une séquence de 51
+              lettres de bases d'ADN A, G, C et T.
+            </p>
+            <p>
+              Votre tâche consiste à aligner les lectures, séquences de 15
+              lettres de bases d'ADN dans cet exemple, à la partie
+              correspondante du génome de référence. Pour ce faire, faites
+              glisser la séquence vers la partie correcte du génome de
+              référence.
+            </p>
+            <p>
+              Une fois toutes les lectures correctement placées, continuez
+              l'activité pour répondre à quelques questions.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Abaixo está o genoma de referência, uma sequência de 51 letras
+              base de DNA A, G, C e T.
+            </p>
+            <p>
+              A sua tarefa é alinhar as leituras, sequências de 15 letras de
+              base de DNA neste exemplo, ao local correspondente no genoma de
+              referência. Faça isso arrastando a sequência para a parte correta
+              do genoma de referência.
+            </p>
+            <p>
+              Assim que todas as leituras estiverem corretamente posicionadas,
+              continue a atividade para responder a algumas perguntas.
+            </p>
+          </div>
+        ),
+      },
     },
     1: {
-      title: (
-        <h5>Step 1. Align Sequencer Generated Reads to the Reference Genome</h5>
-      ),
-      instructions: (
-        <div className="flex flex-col gap-4">
-          <p>
-            Below is the reference genome, a sequence of 51 DNA base letters A,
-            G, C, and T.
-          </p>
-          <p>
-            You are tasked with dragging the <i>reads</i>, sequences of 15 DNA
-            base letters, to the matching part of the reference genome. There
-            are ten reads in total and none contain any errors or mutations at
-            this point.
-          </p>
-          <p>
-            Once all the reads are placed correctly, continue the activity to
-            answer some questions.
-          </p>
-        </div>
-      ),
+      // title: (
+      //   <h5>Step 1. Align Sequencer Generated Reads to the Reference Genome</h5>
+      // ),
+      // instructions: (
+      //   <div className="flex flex-col gap-4">
+      //     <p>
+      //       Below is the reference genome, a sequence of 51 DNA base letters A,
+      //       G, C, and T.
+      //     </p>
+      //     <p>
+      //       You are tasked with dragging the <i>reads</i>, sequences of 15 DNA
+      //       base letters, to the matching part of the reference genome. There
+      //       are ten reads in total and none contain any errors or mutations at
+      //       this point.
+      //     </p>
+      //     <p>
+      //       Once all the reads are placed correctly, continue the activity to
+      //       answer some questions.
+      //     </p>
+      //   </div>
+      // ),
+      titles: {
+        EN: <h5>Knowledge Check</h5>,
+        FR: <h5>Vérification de Connaissance</h5>,
+        PT: <h5>Checagem de Conhecimento</h5>,
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4">
+            <p>
+              You have successfully aligned all the reads to the reference
+              genome. Now, answer the following questions to check your
+              understanding.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Vous avez réussi à aligner toutes les lectures sur le génome de
+              référence. Maintenant, répondez aux questions suivantes pour
+              vérifier votre compréhension.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Você alinhou com sucesso todas as leituras ao genoma de
+              referência. Agora, responda às seguintes perguntas para verificar
+              seu entendimento.
+            </p>
+          </div>
+        ),
+      },
     },
     2: {
-      title: <h5>Match sequencer generated reads to the reference genome</h5>,
-      instructions: (
-        <div className="flex flex-col gap-4">
-          <p>
-            Below is the reference genome, a sequence of 51 DNA base letters A,
-            G, C, and T.
-          </p>
-          <p>
-            You are tasked with dragging the <i>reads</i>, sequences of 15 DNA
-            base letters, to the matching part of the reference genome. There
-            are ten reads in total and none contain any errors or mutations at
-            this point.
-          </p>
-          <p>
-            Once all the reads are placed correctly, continue the activity to
-            answer some questions.
-          </p>
-        </div>
-      ),
+      // title: <h5>Match sequencer generated reads to the reference genome</h5>,
+      // instructions: (
+      //   <div className="flex flex-col gap-4">
+      //     <p>
+      //       Below is the reference genome, a sequence of 51 DNA base letters A,
+      //       G, C, and T.
+      //     </p>
+      //     <p>
+      //       You are tasked with dragging the <i>reads</i>, sequences of 15 DNA
+      //       base letters, to the matching part of the reference genome. There
+      //       are ten reads in total and none contain any errors or mutations at
+      //       this point.
+      //     </p>
+      //     <p>
+      //       Once all the reads are placed correctly, continue the activity to
+      //       answer some questions.
+      //     </p>
+      //   </div>
+      // ),
+      titles: {
+        EN: <h5>Match sequencer generated reads to the reference genome</h5>,
+        FR: (
+          <h5>
+            Faites correspondre les lectures générées par le séquenceur au
+            génome de référence
+          </h5>
+        ),
+        PT: (
+          <h5>
+            Faça a correspondência das leituras geradas pelo sequenciador com o
+            genoma de referência
+          </h5>
+        ),
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Below is the reference genome, a sequence of 51 DNA base letters
+              A, G, C, and T.
+            </p>
+            <p>
+              You are tasked with dragging the <i>reads</i>, sequences of 15 DNA
+              base letters, to the matching part of the reference genome. There
+              are ten reads in total and none contain any errors or mutations at
+              this point.
+            </p>
+            <p>
+              Once all the reads are placed correctly, continue the activity to
+              answer some questions.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Ci-dessous se trouve le génome de référence, une séquence de 51
+              lettres de bases d'ADN A, G, C et T.
+            </p>
+            <p>
+              Votre tâche consiste à faire glisser les <i>lectures</i>,
+              séquences de 15 lettres de bases d'ADN, vers la partie
+              correspondante du génome de référence. Il y a dix lectures au
+              total et aucune ne contient d'erreurs ou de mutations à ce stade.
+            </p>
+            <p>
+              Une fois toutes les lectures correctement placées, continuez
+              l'activité pour répondre à quelques questions.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Abaixo está o genoma de referência, uma sequência de 51 letras
+              base de DNA A, G, C e T.
+            </p>
+            <p>
+              A sua tarefa é arrastar as <i>leituras</i>, sequências de 15
+              letras base de DNA, para a parte correspondente do genoma de
+              referência. Existem dez leituras no total e nenhuma contém erros
+              ou mutações neste ponto.
+            </p>
+            <p>
+              Assim que todas as leituras estiverem corretamente posicionadas,
+              continue a atividade para responder a algumas perguntas.
+            </p>
+          </div>
+        ),
+      },
     },
     3: {
-      title: <h5>Match sequencer generated reads to the reference genome</h5>,
-      instructions: (
-        <div className="flex flex-col gap-4">
-          <p>
-            Below is the reference genome, a sequence of 51 DNA base letters A,
-            G, C, and T.
-          </p>
-          <p>
-            You are tasked with dragging the <i>reads</i>, sequences of 15 DNA
-            base letters, to the matching part of the reference genome. There
-            are ten reads in total and none contain any errors or mutations at
-            this point.
-          </p>
-          <p>
-            Once all the reads are placed correctly, continue the activity to
-            answer some questions below.
-          </p>
-        </div>
-      ),
+      // title: <h5>Match sequencer generated reads to the reference genome</h5>,
+      // instructions: (
+      //   <div className="flex flex-col gap-4">
+      //     <p>
+      //       Below is the reference genome, a sequence of 51 DNA base letters A,
+      //       G, C, and T.
+      //     </p>
+      //     <p>
+      //       You are tasked with dragging the <i>reads</i>, sequences of 15 DNA
+      //       base letters, to the matching part of the reference genome. There
+      //       are ten reads in total and none contain any errors or mutations at
+      //       this point.
+      //     </p>
+      //     <p>
+      //       Once all the reads are placed correctly, continue the activity to
+      //       answer some questions below.
+      //     </p>
+      //   </div>
+      // ),
+      titles: {
+        EN: <h5>Match sequencer generated reads to the reference genome</h5>,
+        FR: (
+          <h5>
+            Faites correspondre les lectures générées par le séquenceur au
+            génome de référence
+          </h5>
+        ),
+        PT: (
+          <h5>
+            Faça a correspondência das leituras geradas pelo sequenciador com o
+            genoma de referência
+          </h5>
+        ),
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Below is the reference genome, a sequence of 51 DNA base letters
+              A, G, C, and T.
+            </p>
+            <p>
+              You are tasked with dragging the <i>reads</i>, sequences of 15 DNA
+              base letters, to the matching part of the reference genome. There
+              are ten reads in total and none contain any errors or mutations at
+              this point.
+            </p>
+            <p>
+              Once all the reads are placed correctly, continue the activity to
+              answer some questions below.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Ci-dessous se trouve le génome de référence, une séquence de 51
+              lettres de bases d'ADN A, G, C et T.
+            </p>
+            <p>
+              Votre tâche consiste à faire glisser les <i>lectures</i>,
+              séquences de 15 lettres de bases d'ADN, vers la partie
+              correspondante du génome de référence. Il y a dix lectures au
+              total et aucune ne contient d'erreurs ou de mutations à ce stade.
+            </p>
+            <p>
+              Une fois toutes les lectures correctement placées, continuez
+              l'activité pour répondre à quelques questions ci-dessous.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Abaixo está o genoma de referência, uma sequência de 51 letras
+              base de DNA A, G, C e T.
+            </p>
+            <p>
+              A sua tarefa é arrastar as <i>leituras</i>, sequências de 15
+              letras base de DNA, para a parte correspondente do genoma de
+              referência. Existem dez leituras no total e nenhuma contém erros
+              ou mutações neste ponto.
+            </p>
+            <p>
+              Assim que todas as leituras estiverem corretamente posicionadas,
+              continue a atividade para responder a algumas perguntas abaixo.
+            </p>
+          </div>
+        ),
+      },
     },
   },
   2: {
     0: {
-      title: (
-        <h5>
-          Match Sequencer Generated Reads with Mutations and Errors to the
-          Reference Genome
-        </h5>
-      ),
-      instructions: (
-        <div className="flex flex-col gap-4">
-          <p>
-            Match the reads to the corresponding part of the reference genome.
-          </p>
-          <p>
-            This time, some of the reads will contain mutations (SNPs),
-            amplification or sequencing errors that will appear like SNP
-            mutations but be "false mutations" (these tend to be seen in few
-            reads, making them easier to detect), off target sequences (reads
-            that will not align anywhere), and chimera errors (reads where part
-            of the sequence aligns in one place and another part aligns in
-            another place). You will place these reads in the trash. You can
-            click on reads in the trash to remove them from the trash.
-          </p>
-          <p>
-            Once all the reads are placed correctly, continue the activity to
-            answer some questions below.
-          </p>
-        </div>
-      ),
+      titles: {
+        EN: (
+          <h5>
+            Match Sequencer Generated Reads with Mutations and Errors to the
+            Reference Genome
+          </h5>
+        ),
+        FR: (
+          <h5>
+            Faites correspondre les lectures générées par le séquenceur avec des
+            mutations et des erreurs au génome de référence
+          </h5>
+        ),
+        PT: (
+          <h5>
+            Faça a correspondência das leituras geradas pelo sequenciador com
+            mutações e erros ao genoma de referência
+          </h5>
+        ),
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Match the reads to the corresponding part of the reference genome.
+            </p>
+            <p>
+              This time, some of the reads will contain mutations (SNPs),
+              amplification or sequencing errors that will appear like SNP
+              mutations but be "false mutations" (these tend to be seen in few
+              reads, making them easier to detect), off target sequences (reads
+              that will not align anywhere), and chimera errors (reads where
+              part of the sequence aligns in one place and another part aligns
+              in another place). You will place these reads in the trash. You
+              can click on reads in the trash to remove them from the trash.
+            </p>
+            <p>
+              Once all the reads are placed correctly, continue the activity to
+              answer some questions below.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Faites correspondre les lectures à la partie correspondante du
+              génome de référence.
+            </p>
+            <p>
+              Cette fois, certaines des lectures contiendront des mutations
+              (SNP), des erreurs d'amplification ou de séquençage qui
+              apparaîtront comme des mutations SNP mais seront de "fausses
+              mutations" (celles-ci ont tendance à être vues dans peu de
+              lectures, ce qui les rend plus faciles à détecter), des séquences
+              hors cible (lectures qui ne s'aligneront nulle part), et des
+              erreurs chimériques (lectures où une partie de la séquence
+              s'aligne à un endroit et une autre àun autre endroit). Vous
+              placerez ces lectures à la poubelle. Vous pouvez cliquer sur les
+              lectures dans la poubelle pour les en retirer.
+            </p>
+            <p>
+              Une fois toutes les lectures correctement placées, continuez
+              l'activité pour répondre à quelques questions ci-dessous.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Faça a correspondência das leituras com a parte correspondente do
+              genoma de referência.
+            </p>
+            <p>
+              Desta vez, algumas das leituras conterão mutações (SNPs), erros de
+              amplificação ou sequenciamento que aparecerão como mutações SNP,
+              mas serão "falsas mutações" (estas tendem a ser vistas em poucas
+              leituras, tornando-as mais fáceis de detectar), sequências fora do
+              alvo (leituras que não se alinharão em nenhum lugar) e erros de
+              quimera (leituras onde parte da sequência se alinha em um lugar e
+              outra parte se alinha em outro lugar). Você colocará essas
+              leituras no lixo. Você pode clicar nas leituras no lixo para
+              removê-las do lixo.
+            </p>
+            <p>
+              Assim que todas as leituras estiverem corretamente posicionadas,
+              continue a atividade para responder a algumas perguntas abaixo.
+            </p>
+          </div>
+        ),
+      },
+      // title: (
+      //   <h5>
+      //     Match Sequencer Generated Reads with Mutations and Errors to the
+      //     Reference Genome
+      //   </h5>
+      // ),
+      // instructions: (
+      //   <div className="flex flex-col gap-4">
+      //     <p>
+      //       Match the reads to the corresponding part of the reference genome.
+      //     </p>
+      //     <p>
+      //       This time, some of the reads will contain mutations (SNPs),
+      //       amplification or sequencing errors that will appear like SNP
+      //       mutations but be "false mutations" (these tend to be seen in few
+      //       reads, making them easier to detect), off target sequences (reads
+      //       that will not align anywhere), and chimera errors (reads where part
+      //       of the sequence aligns in one place and another part aligns in
+      //       another place). You will place these reads in the trash. You can
+      //       click on reads in the trash to remove them from the trash.
+      //     </p>
+      //     <p>
+      //       Once all the reads are placed correctly, continue the activity to
+      //       answer some questions below.
+      //     </p>
+      //   </div>
+      // ),
     },
     1: {
-      title: (
-        <h5>
-          Match Sequencer Generated Reads with Mutations and Errors to the
-          Reference Genome
-        </h5>
-      ),
-      instructions: (
-        <div className="flex flex-col gap-4">
-          <p>
-            Match the reads to the corresponding part of the reference genome.
-          </p>
-          <p>
-            This time, some of the reads will contain mutations (SNPs),
-            amplification or sequencing errors that will appear like SNP
-            mutations but be "false mutations" (these tend to be seen in few
-            reads, making them easier to detect), off target sequences (reads
-            that will not align anywhere), and chimera errors (reads where part
-            of the sequence aligns in one place and another part aligns in
-            another place). You will place these reads in the trash. You can
-            click on reads in the trash to remove them from the trash.
-          </p>
-          <p>
-            Once all the reads are placed correctly, continue the activity to
-            answer some questions below.
-          </p>
-        </div>
-      ),
+      titles: {
+        EN: (
+          <h5>
+            Match Sequencer Generated Reads with Mutations and Errors to the
+            Reference Genome
+          </h5>
+        ),
+        FR: (
+          <h5>
+            Faites correspondre les lectures générées par le séquenceur avec des
+            mutations et des erreurs au génome de référence
+          </h5>
+        ),
+        PT: (
+          <h5>
+            Faça a correspondência das leituras geradas pelo sequenciador com
+            mutações e erros ao genoma de referência
+          </h5>
+        ),
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Match the reads to the corresponding part of the reference genome.
+            </p>
+            <p>
+              This time, some of the reads will contain mutations (SNPs),
+              amplification or sequencing errors that will appear like SNP
+              mutations but be "false mutations" (these tend to be seen in few
+              reads, making them easier to detect), off target sequences (reads
+              that will not align anywhere), and chimera errors (reads where
+              part of the sequence aligns in one place and another part aligns
+              in another place). You will place these reads in the trash. You
+              can click on reads in the trash to remove them from the trash.
+            </p>
+            <p>
+              Once all the reads are placed correctly, continue the activity to
+              answer some questions below.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Faites correspondre les lectures à la partie correspondante du
+              génome de référence.
+            </p>
+            <p>
+              Cette fois, certaines des lectures contiendront des mutations
+              (SNP), des erreurs d'amplification ou de séquençage qui
+              apparaîtront comme des mutations SNP mais seront de "fausses
+              mutations" (celles-ci ont tendance à être vues dans peu de
+              lectures, ce qui les rend plus faciles à détecter), des séquences
+              hors cible (lectures qui ne s'aligneront nulle part), et des
+              erreurs chimériques (lectures où une partie de la séquence
+              s'aligne à un endroit et une autre àun autre endroit). Vous
+              placerez ces lectures à la poubelle. Vous pouvez cliquer sur les
+              lectures dans la poubelle pour les en retirer.
+            </p>
+            <p>
+              Une fois toutes les lectures correctement placées, continuez
+              l'activité pour répondre à quelques questions ci-dessous.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Faça a correspondência das leituras com a parte correspondente do
+              genoma de referência.
+            </p>
+            <p>
+              Desta vez, algumas das leituras conterão mutações (SNPs), erros de
+              amplificação ou sequenciamento que aparecerão como mutações SNP,
+              mas serão "falsas mutações" (estas tendem a ser vistas em poucas
+              leituras, tornando-as mais fáceis de detectar), sequências fora do
+              alvo (leituras que não se alinharão em nenhum lugar) e erros de
+              quimera (leituras onde parte da sequência se alinha em um lugar e
+              outra parte se alinha em outro lugar). Você colocará essas
+              leituras no lixo. Você pode clicar nas leituras no lixo para
+              removê-las do lixo.
+            </p>
+            <p>
+              Assim que todas as leituras estiverem corretamente posicionadas,
+              continue a atividade para responder a algumas perguntas abaixo.
+            </p>
+          </div>
+        ),
+      },
+      // title: (
+      //   <h5>
+      // Match Sequencer Generated Reads with Mutations and Errors to the
+      // Reference Genome
+      //   </h5>
+      // ),
+      // instructions: (
+      // <div className="flex flex-col gap-4">
+      //   <p>
+      //     Match the reads to the corresponding part of the reference genome.
+      //   </p>
+      //   <p>
+      //     This time, some of the reads will contain mutations (SNPs),
+      //     amplification or sequencing errors that will appear like SNP
+      //     mutations but be "false mutations" (these tend to be seen in few
+      //     reads, making them easier to detect), off target sequences (reads
+      //     that will not align anywhere), and chimera errors (reads where part
+      //     of the sequence aligns in one place and another part aligns in
+      //     another place). You will place these reads in the trash. You can
+      //     click on reads in the trash to remove them from the trash.
+      //   </p>
+      //   <p>
+      //     Once all the reads are placed correctly, continue the activity to
+      //     answer some questions below.
+      //   </p>
+      // </div>
+      // ),
     },
     2: {
-      title: <h5>Identify Genotyping Errors</h5>,
-      instructions: (
-        <div className="flex flex-col gap-4">
-          <p>
-            You have correctly filtered out the chimera and off target errors,
-            but there are still genotyping errors (false mutations) present in
-            the data. For our purposes, we will consider a false mutation a site
-            (DNA base) where only one read has an alternate allele.
-          </p>
-          <p>
-            Identify and select any false mutations present in the reads below.
-            Once you have identified all false mutations, answer the questions
-            below.
-          </p>
-        </div>
-      ),
+      titles: {
+        EN: <h5>Identify Genotyping Errors</h5>,
+        FR: <h5>Identifier les erreurs de génotypage</h5>,
+        PT: <h5>Identificar erros de genotipagem</h5>,
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4">
+            <p>
+              You have correctly filtered out the chimera and off target errors,
+              but there are still genotyping errors (false mutations) present in
+              the data. For our purposes, we will consider a false mutation a
+              site (DNA base) where only one read has an alternate allele.
+            </p>
+            <p>
+              Identify and select any false mutations present in the reads
+              below. Once you have identified all false mutations, answer the
+              questions below.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Vous avez correctement filtré les erreurs de chimère et hors
+              cible, mais il y a toujours des erreurs de génotypage (fausses
+              mutations) présentes dans les données. Pour nos besoins, nous
+              considérerons une fausse mutation comme un site (base d'ADN) où
+              une seule lecture présente un allèle alternatif.
+            </p>
+            <p>
+              Identifiez et sélectionnez toutes les fausses mutations présentes
+              dans les lectures ci-dessous. Une fois que vous avez identifié
+              toutes les fausses mutations, répondez aux questions ci-dessous.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Você filtrou corretamente os erros de quimera e fora do alvo, mas
+              ainda há erros de genotipagem (falsas mutações) presentes nos
+              dados. Para nossos propósitos, consideraremos uma falsa mutação um
+              sítio (base de DNA) onde apenas uma leitura possui um alelo
+              alternativo.
+            </p>
+            <p>
+              Identifique e selecione quaisquer falsas mutações presentes nas
+              leituras abaixo. Assim que tiver identificado todas as falsas
+              mutações, responda às perguntas abaixo.
+            </p>
+          </div>
+        ),
+      },
+      // title: <h5>Identify Genotyping Errors</h5>,
+      // instructions: (
+      //   <div className="flex flex-col gap-4">
+      //     <p>
+      //       You have correctly filtered out the chimera and off target errors,
+      //       but there are still genotyping errors (false mutations) present in
+      //       the data. For our purposes, we will consider a false mutation a site
+      //       (DNA base) where only one read has an alternate allele.
+      //     </p>
+      //     <p>
+      //       Identify and select any false mutations present in the reads below.
+      //       Once you have identified all false mutations, answer the questions
+      //       below.
+      //     </p>
+      //   </div>
+      // ),
     },
     3: {
-      title: <h5>Identify Genotyping Errors</h5>,
-      instructions: (
-        <div className="flex flex-col gap-4">
-          <p>
-            You have correctly filtered out the chimera and off target errors,
-            but there are still genotyping errors (false mutations) present in
-            the data. For our purposes, we will consider a false mutation a site
-            (DNA base) where only one read has an alternate allele.
-          </p>
-          <p>
-            Identify and select any false mutations present in the reads below.
-            Once you have identified all false mutations, answer the questions
-            below.
-          </p>
-        </div>
-      ),
+      titles: {
+        EN: <h5>Identify Genotyping Errors</h5>,
+        FR: <h5>Identifier les erreurs de génotypage</h5>,
+        PT: <h5>Identificar erros de genotipagem</h5>,
+      },
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4">
+            <p>
+              You have correctly filtered out the chimera and off target errors,
+              but there are still genotyping errors (false mutations) present in
+              the data. For our purposes, we will consider a false mutation a
+              site (DNA base) where only one read has an alternate allele.
+            </p>
+            <p>
+              Identify and select any false mutations present in the reads
+              below. Once you have identified all false mutations, answer the
+              questions below.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Você filtrou corretamente os erros de quimera e fora do alvo, mas
+              ainda há erros de genotipagem (falsas mutações) presentes nos
+              dados. Para nossos propósitos, consideraremos uma falsa mutação um
+              sítio (base de DNA) onde apenas uma leitura possui um alelo
+              alternativo.
+            </p>
+            <p>
+              Identifique e selecione quaisquer falsas mutações presentes nas
+              leituras abaixo. Assim que tiver identificado todas as falsas
+              mutações, responda às perguntas abaixo.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Você filtrou corretamente os erros de quimera e fora do alvo, mas
+              ainda há erros de genotipagem (falsas mutações) presentes nos
+              dados. Para nossos propósitos, consideraremos uma falsa mutação um
+              sítio (base de DNA) onde apenas uma leitura possui um alelo
+              alternativo.
+            </p>
+            <p>
+              Identifique e selecione quaisquer falsas mutações presentes nas
+              leituras abaixo. Assim que tiver identificado todas as falsas
+              mutações, responda às perguntas abaixo.
+            </p>
+          </div>
+        ),
+      },
+      // title: <h5>Identify Genotyping Errors</h5>,
+      // instructions: (
+      //   <div className="flex flex-col gap-4">
+      //     <p>
+      //       You have correctly filtered out the chimera and off target errors,
+      //       but there are still genotyping errors (false mutations) present in
+      //       the data. For our purposes, we will consider a false mutation a site
+      //       (DNA base) where only one read has an alternate allele.
+      //     </p>
+      //     <p>
+      //       Identify and select any false mutations present in the reads below.
+      //       Once you have identified all false mutations, answer the questions
+      //       below.
+      //     </p>
+      //   </div>
+      // ),
     },
     // 2: {
     //   title: (
@@ -330,84 +1069,312 @@ const dragDropSections: {
   },
   3: {
     0: {
-      title: <h5>Identify Mutations</h5>,
-      instructions: (
-        <div className="flex flex-col gap-4">
-          <p>
-            Now that you have removed all the errors, the remaining bases that
-            are different from the reference genome represent mutations, or
-            alternate alleles.
-          </p>
-          <p>
-            View the same reads that were matched to the reference genome in the
-            last step. Click the letters in the reads where you see the
-            mutations, changing the appearance of the letters from normal to
-            hollow text. Mutations in the genome of malaria parasites will show
-            up as DNA bases in sequencing reads which are different from the
-            reference sequence, such as the hollow A, C, T, and C alternate
-            alleles (SNPs) shown below. When you have identified all the
-            mutations, answer the questions below.
-          </p>
-        </div>
-      ),
+      // title: <h5>Identify Mutations</h5>,
+      titles: {
+        EN: <h5>Identify Mutations</h5>,
+        FR: <h5>Identifier les mutations</h5>,
+        PT: <h5>Identificar mutações</h5>,
+      },
+      // instructions: (
+      //   <div className="flex flex-col gap-4">
+      //     <p>
+      //       Now that you have removed all the errors, the remaining bases that
+      //       are different from the reference genome represent mutations, or
+      //       alternate alleles.
+      //     </p>
+      //     <p>
+      //       View the same reads that were matched to the reference genome in the
+      //       last step. Click the letters in the reads where you see the
+      //       mutations, changing the appearance of the letters from normal to
+      //       hollow text. Mutations in the genome of malaria parasites will show
+      //       up as DNA bases in sequencing reads which are different from the
+      //       reference sequence, such as the hollow A, C, T, and C alternate
+      //       alleles (SNPs) shown below. When you have identified all the
+      //       mutations, answer the questions below.
+      //     </p>
+      //   </div>
+      // ),
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Now that you have removed all the errors, the remaining bases that
+              are different from the reference genome represent mutations, or
+              alternate alleles.
+            </p>
+            <p>
+              View the same reads that were matched to the reference genome in
+              the last step. Click the letters in the reads where you see the
+              mutations, changing the appearance of the letters from normal to
+              hollow text. Mutations in the genome of malaria parasites will
+              show up as DNA bases in sequencing reads which are different from
+              the reference sequence, such as the hollow A, C, T, and C
+              alternate alleles (SNPs) shown below. When you have identified all
+              the mutations, answer the questions below.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Maintenant que vous avez supprimé toutes les erreurs, les bases
+              restantes qui sont différentes du génome de référence représentent
+              des mutations, ou des allèles alternatifs.
+            </p>
+            <p>
+              Visualisez les mêmes lectures qui ont été associées au génome de
+              référence à l'étape précédente. Cliquez sur les lettres dans les
+              lectures où vous voyez les mutations, changeant l'apparence des
+              lettres de normale à un texte creux. Les mutations dans le génome
+              des parasites du paludisme apparaîtront comme des bases d'ADN dans
+              les lectures de séquençage qui sont différentes de la séquence de
+              référence, telles que les allèles alternatifs (SNP) A, C, T et C
+              creux montrés ci-dessous. Lorsque vous avez identifié toutes les
+              mutations, répondez aux questions ci-dessous.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Agora que você removeu todos os erros, as bases restantes que são
+              diferentes do genoma de referência representam mutações, ou alelos
+              alternativos.
+            </p>
+            <p>
+              Visualize as mesmas leituras que foram pareadas com o genoma de
+              referência na última etapa. Clique nas letras nas leituras onde
+              você vê as mutações, mudando a aparência das letras de normal para
+              texto vazado. Mutações no genoma de parasitas da malária
+              aparecerão como bases de DNA em leituras de sequenciamento que são
+              diferentes da sequência de referência, como os alelos alternativos
+              (SNPs) A, C, T e C vazados mostrados abaixo. Quando você tiver
+              identificado todas as mutações, responda às perguntas abaixo.
+            </p>
+          </div>
+        ),
+      },
     },
     1: {
-      title: <h5>Identify Mutations</h5>,
-      instructions: (
-        <div className="flex flex-col gap-4">
-          <p>
-            Now that you have removed all the errors, the remaining bases that
-            are different from the reference genome represent mutations, or
-            alternate alleles.
-          </p>
-          <p>
-            View the same reads that were matched to the reference genome in the
-            last step. Click the letters in the reads where you see the
-            mutations, changing the appearance of the letters from normal to
-            hollow text. Mutations in the genome of malaria parasites will show
-            up as DNA bases in sequencing reads which are different from the
-            reference sequence, such as the hollow A, C, T, and C alternate
-            alleles (SNPs) shown below. When you have identified all the
-            mutations, answer the questions below.
-          </p>
-        </div>
-      ),
+      // title: <h5>Identify Mutations</h5>,
+      titles: {
+        EN: <h5>Identify Mutations</h5>,
+        FR: <h5>Identifier les mutations</h5>,
+        PT: <h5>Identificar mutações</h5>,
+      },
+      // instructions: (
+      //   <div className="flex flex-col gap-4">
+      //     <p>
+      //       Now that you have removed all the errors, the remaining bases that
+      //       are different from the reference genome represent mutations, or
+      //       alternate alleles.
+      //     </p>
+      //     <p>
+      //       View the same reads that were matched to the reference genome in the
+      //       last step. Click the letters in the reads where you see the
+      //       mutations, changing the appearance of the letters from normal to
+      //       hollow text. Mutations in the genome of malaria parasites will show
+      //       up as DNA bases in sequencing reads which are different from the
+      //       reference sequence, such as the hollow A, C, T, and C alternate
+      //       alleles (SNPs) shown below. When you have identified all the
+      //       mutations, answer the questions below.
+      //     </p>
+      //   </div>
+      // ),
+      instructions: {
+        EN: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Now that you have removed all the errors, the remaining bases that
+              are different from the reference genome represent mutations, or
+              alternate alleles.
+            </p>
+            <p>
+              View the same reads that were matched to the reference genome in
+              the last step. Click the letters in the reads where you see the
+              mutations, changing the appearance of the letters from normal to
+              hollow text. Mutations in the genome of malaria parasites will
+              show up as DNA bases in sequencing reads which are different from
+              the reference sequence, such as the hollow A, C, T, and C
+              alternate alleles (SNPs) shown below. When you have identified all
+              the mutations, answer the questions below.
+            </p>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Maintenant que vous avez supprimé toutes les erreurs, les bases
+              restantes qui sont différentes du génome de référence représentent
+              des mutations, ou des allèles alternatifs.
+            </p>
+            <p>
+              Visualisez les mêmes lectures qui ont été associées au génome de
+              référence à l'étape précédente. Cliquez sur les lettres dans les
+              lectures où vous voyez les mutations, changeant l'apparence des
+              lettres de normale à un texte creux. Les mutations dans le génome
+              des parasites du paludisme apparaîtront comme des bases d'ADN dans
+              les lectures de séquençage qui sont différentes de la séquence de
+              référence, telles que les allèles alternatifs (SNPs) A, C, T et C
+              creux montrés ci-dessous. Lorsque vous avez identifié toutes les
+              mutations, répondez aux questions ci-dessous.
+            </p>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Agora que você removeu todos os erros, as bases restantes que são
+              diferentes do genoma de referência representam mutações, ou alelos
+              alternativos.
+            </p>
+            <p>
+              Visualize as mesmas leituras que foram pareadas com o genoma de
+              referência na última etapa. Clique nas letras nas leituras onde
+              você vê as mutações, mudando a aparência das letras de normal para
+              texto vazado. Mutações no genoma de parasitas da malária
+              aparecerão como bases de DNA em leituras de sequenciamento que são
+              diferentes da sequência de referência, como os alelos alternativos
+              (SNPs) A, C, T e C vazados mostrados abaixo. Quando você tiver
+              identificado todas as mutações, responda às perguntas abaixo.
+            </p>
+          </div>
+        ),
+      },
     },
     2: {
-      title: <h5>Estimating MOI</h5>,
-      instructions: (
-        <p>
-          With the microhaplotypes identified for both loci, we can determine
-          the MOI. Answer the question below.
-        </p>
-      ),
+      // title: <h5>Estimating MOI</h5>,
+      titles: {
+        EN: <h5>Estimating MOI</h5>,
+        FR: <h5>Estimation du MOI</h5>,
+        PT: <h5>Estimando o MOI</h5>,
+      },
+      // instructions: (
+      //   <p>
+      //     With the microhaplotypes identified for both loci, we can determine
+      //     the MOI. Answer the question below.
+      //   </p>
+      // ),
+      instructions: {
+        EN: (
+          <p>
+            With the microhaplotypes identified for both loci, we can determine
+            the MOI. Answer the question below.
+          </p>
+        ),
+        FR: (
+          <p>
+            Avec les microhaplotypes identifiés pour les deux loci, nous pouvons
+            déterminer le MOI. Répondez à la question ci-dessous.
+          </p>
+        ),
+        PT: (
+          <p>
+            Com os microhaplótipos identificados para ambos os loci, podemos
+            determinar o MOI. Responda à pergunta abaixo.
+          </p>
+        ),
+      },
     },
     3: {
-      title: <h5>Summary</h5>,
-      instructions: (
-        <div>
-          <p>
-            Great work! You identified the loci and read depth by aligning reads
-            to the reference genome. You then identified a chimeric read and two
-            off-target reads that were not useful and corrected two PCR or
-            sequencing errors that showed up as false alleles. Finally, you used
-            the microhaplotypes to identify the MOI of the samples and rule out
-            antimalarial resistance. While the example in this exercise is a
-            simplification of the much larger datasets that are produced by
-            sequencing and that would be very challenging to analyze manually,
-            bioinformatic pipelines take very similar steps to call alleles and
-            produce final sequence data.
-          </p>
-          <div className="py-8">
-            <ModuleCopyCode code="HildaHudson1881" />
-          </div>{" "}
-        </div>
-      ),
+      // title: <h5>Summary</h5>,
+      titles: {
+        EN: <h5>Summary</h5>,
+        FR: <h5>Résumé</h5>,
+        PT: <h5>Resumo</h5>,
+      },
+      instructions: {
+        EN: (
+          <div>
+            <p>
+              Great work! You identified the loci and read depth by aligning
+              reads to the reference genome. You then identified a chimeric read
+              and two off-target reads that were not useful and corrected two
+              PCR or sequencing errors that showed up as false alleles. Finally,
+              you used the microhaplotypes to identify the MOI of the samples
+              and rule out antimalarial resistance. While the example in this
+              exercise is a simplification of the much larger datasets that are
+              produced by sequencing and that would be very challenging to
+              analyze manually, bioinformatic pipelines take very similar steps
+              to call alleles and produce final sequence data.
+            </p>
+            <div className="py-8">
+              <ModuleCopyCode lang={"EN"} code="HildaHudson1881" />
+            </div>
+          </div>
+        ),
+        FR: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Excellent travail ! Vous avez identifié les loci et la profondeur
+              de lecture en alignant les lectures sur le génome de référence.
+              Vous avez ensuite identifié une lecture chimérique et deux
+              lectures hors cible qui n'étaient pas utiles et corrigé deux
+              erreurs de PCR ou de séquençage qui apparaissaient comme de faux
+              allèles. Enfin, vous avez utilisé les microhaplotypes pour
+              identifier le MOI des échantillons et exclure la résistance aux
+              antipaludiques. Bien que l'exemple de cet exercice soit une
+              simplification des ensembles de données beaucoup plus importants
+              produits par le séquençage et qui seraient très difficiles à
+              analyser manuellement, les pipelines bioinformatiques suivent des
+              étapes très similaires pour appeler les allèles et produire les
+              données de séquence finales.
+            </p>
+            <div className="py-8">
+              <ModuleCopyCode lang={"FR"} code="HildaHudson1881" />
+            </div>
+          </div>
+        ),
+        PT: (
+          <div className="flex flex-col gap-4">
+            <p>
+              Ótimo trabalho! Você identificou os loci e a profundidade de
+              leitura alinhando as leituras ao genoma de referência. Em seguida,
+              você identificou uma leitura quimérica eduas leituras fora do alvo
+              que não eram úteis e corrigiu dois erros de PCR ou sequenciamento
+              que apareceram como alelos falsos. Finalmente, você usou os
+              microhaplótipos para identificar o MOI das amostras e descartar a
+              resistência antimalárica. Embora o exemplo neste exercício seja
+              uma simplificação dos conjuntos de dados muito maiores que são
+              produzidos pelo sequenciamento e que seriam muito desafiadores
+              para analisar manualmente, os pipelines bioinformáticos seguem
+              etapas muito semelhantes para chamar alelos e produzir dados de
+              sequência finais.
+            </p>
+            <div className="py-8">
+              <ModuleCopyCode lang={"PT"} code="HildaHudson1881" />
+            </div>
+          </div>
+        ),
+      },
+      // instructions: (
+      //   <div>
+      //     <p>
+      //       Great work! You identified the loci and read depth by aligning reads
+      //       to the reference genome. You then identified a chimeric read and two
+      //       off-target reads that were not useful and corrected two PCR or
+      //       sequencing errors that showed up as false alleles. Finally, you used
+      //       the microhaplotypes to identify the MOI of the samples and rule out
+      //       antimalarial resistance. While the example in this exercise is a
+      //       simplification of the much larger datasets that are produced by
+      //       sequencing and that would be very challenging to analyze manually,
+      //       bioinformatic pipelines take very similar steps to call alleles and
+      //       produce final sequence data.
+      //     </p>
+      //     <div className="py-8">
+      //       <ModuleCopyCode code="HildaHudson1881" />
+      //     </div>{" "}
+      //   </div>
+      // ),
     },
   },
 };
 
-export default function DragDropPrompts() {
+export default function DragDropPrompts({
+  lang = "EN",
+}: {
+  lang: "EN" | "FR" | "PT";
+}) {
   // const phase = useAtomValue(phase3Atom);
   const [currentView, setCurrentView] = useAtom(currentView3Atom);
   let { section, phase } = currentView;
@@ -431,8 +1398,12 @@ export default function DragDropPrompts() {
   const complete = completion[phase];
   const skippable = false;
 
-  const title = dragDropSections?.[section ?? 0]?.[phase]?.title;
-  const instructions = dragDropSections?.[section ?? 0]?.[phase]?.instructions;
+  const title =
+    dragDropSections?.[section ?? 0]?.[phase]?.titles?.[lang] ??
+    dragDropSections?.[section ?? 0]?.[phase]?.title;
+  const instructions =
+    dragDropSections?.[section ?? 0]?.[phase]?.instructions[lang] ??
+    dragDropSections?.[section ?? 0]?.[phase]?.instructions;
 
   return (
     <div>

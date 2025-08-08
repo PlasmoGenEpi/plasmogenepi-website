@@ -1,10 +1,24 @@
 import { useState } from "react";
 
-export function ModuleCopyCode({ code }: { code: string }) {
+export function ModuleCopyCode({
+  code,
+  lang = "EN",
+}: {
+  code: string;
+  lang?: "EN" | "PT" | "FR";
+}) {
   const [copied, setCopied] = useState(false);
   return (
     <div>
-      <h6 className="mb-4 text-xl font-bold">Module Code</h6>
+      <h6 className="mb-4 text-xl font-bold">
+        {lang === "EN"
+          ? `Module Code`
+          : lang === "PT"
+          ? `Código do Módulo`
+          : lang === "FR"
+          ? `Code du module`
+          : `Código do Módulo`}
+      </h6>
       {/* <button
         onMouseLeave={() => {
           setCopied(false);
@@ -28,7 +42,15 @@ export function ModuleCopyCode({ code }: { code: string }) {
           <span className="ml-auto block translate-y-0.5">{code}</span>
           {/* <div className="bg-red-300/ flex items-center rounded bg-interactiveBlue/20 p-1.5"> */}
           <button
-            aria-label={`Copy ${code}`}
+            aria-label={
+              lang === "EN"
+                ? `Copy ${code}`
+                : lang === "PT"
+                ? `Copiar ${code}`
+                : lang === "FR"
+                ? `Copier ${code}`
+                : `Copiar ${code}`
+            }
             onMouseLeave={() => {
               setCopied(false);
             }}
@@ -39,7 +61,21 @@ export function ModuleCopyCode({ code }: { code: string }) {
               navigator.clipboard.writeText(`${code}`);
               setCopied(true);
             }}
-            data-tip={copied ? `Copied!` : `Copy`}
+            data-tip={
+              lang === "EN"
+                ? copied
+                  ? `Copied!`
+                  : `Copy`
+                : lang === "PT"
+                ? copied
+                  ? `Copiado!`
+                  : `Copiar`
+                : lang === "FR"
+                ? copied
+                  ? `Copié!`
+                  : `Copier`
+                : `Copiar`
+            }
             // data-tip={copied ? `Copied! ${code}` : `Copy: ${code}`}
             className={`bg-red-300/ before:max-w-fit/ before:ring-interactiveBlue/ after:border-t-interactiveBlue/ before:ring-2/ border/ tooltip flex items-center rounded border-zinc-200 p-1 font-normal [--tooltip-color:#f4f4f4]  [--tooltip-tail:.5rem] [--tooltip-text-color:black] before:p-2 before:pb-1 before:text-sm before:transition-none after:transition-none hover:bg-zinc-200`}
           >

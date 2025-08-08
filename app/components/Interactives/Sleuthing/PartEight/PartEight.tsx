@@ -78,6 +78,7 @@ export default function PartEight({
   return (
     <div className="dark:fill-white/50">
       <InteractivePrompt
+        lang={lang}
         skippable={partEightCompletion[1]}
         complete={partEightCompletion[phase]}
         title={partEightPrompts[phase]?.title[lang]}

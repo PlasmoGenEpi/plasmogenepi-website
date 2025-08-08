@@ -21,7 +21,9 @@ import DragDropControlPanel from "../../../DragDrop/DragDropControlPanel";
 export default function InteractiveViewer3({
   module,
   dev,
+  lang = "EN",
 }: {
+  lang: "EN" | "PT" | "FR";
   dev?: boolean;
   module: "2.6" | "4.4" | "5.6";
 }) {
@@ -57,13 +59,13 @@ export default function InteractiveViewer3({
         Open Menu
       </button>
       <div className="flex w-full max-w-full grow overflow-clip">
-        <ResetPrompt currentModule="4.4" />
+        <ResetPrompt currentModule="4.4" lang={lang} />
         {/* <InteractiveSideBar
           module={module}
           currentView={currentView}
           setCurrentView={setCurrentView}
         /> */}
-        <InteractiveSideBar3 module={"4.4"} dev={dev} />
+        <InteractiveSideBar3 module={"4.4"} dev={dev} lang={lang} />
         <div
           className={`${
             isOpen ? "hidden md:flex" : ""
@@ -81,6 +83,7 @@ export default function InteractiveViewer3({
           )}
           {/* <DragDropViewMargin /> */}
           <DragDropPrimaryView
+            lang={lang}
             verticalScrollIntervalTimeoutRef={verticalScrollIntervalTimeoutRef}
             scrollIntervalTimeoutRef={scrollIntervalTimeoutRef}
             scrollRef={scrollRef}
@@ -88,7 +91,7 @@ export default function InteractiveViewer3({
           {/* <DragDropViewMargin /> */}
         </div>
       </div>
-      <DragDropControlPanel scrollRef={scrollRef} />
+      <DragDropControlPanel lang={lang} scrollRef={scrollRef} />
     </div>
   );
 }

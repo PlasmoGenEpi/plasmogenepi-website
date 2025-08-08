@@ -207,7 +207,7 @@ genome by ancestry – the blue part – IBD is 0.5 or 50%.`
               : lang === "FR"
               ? `Puisque l'hybride n'est pas du tout lié au clone 3, l'IBD serait de 0 et l'IBS serait le même que la comparaison de clones complètement non liés, généralement entre 0 et 4 correspondances pour ces loci de microhaplotypes divers.`
               : lang === "PT"
-              ? `Uma vez que o híbrido não está relacionado com o clone 3, o DII seria 0 e o SCI seria o mesmo que comparar quaisquer clones completamente não relacionados, normalmente entre 0 e 4 correspondências para estes diversos loci de microhaplótipos.`
+              ? `Uma vez que o híbrido não está relacionado com o clone 3, o DII seria 0 e o IBS seria o mesmo que comparar quaisquer clones completamente não relacionados, normalmente entre 0 e 4 correspondências para estes diversos loci de microhaplótipos.`
               : ""
           }
         />

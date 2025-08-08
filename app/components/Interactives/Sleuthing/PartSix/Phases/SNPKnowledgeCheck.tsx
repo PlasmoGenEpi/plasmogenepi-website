@@ -250,7 +250,7 @@ export default function SNPKnowledgeCheck({
                 : lang === "FR"
                 ? "Sur la base de vos résultats, avec quelle fiabilité pensez-vous pouvoir distinguer les parasites liés de manière identique de ceux qui ne sont pas liés en utilisant l'IBS ?"
                 : lang === "PT"
-                ? "Com base nos seus resultados, com que fiabilidade pensa que poderia distinguir parasitas relacionados de forma idêntica daqueles que não estão relacionados usando o SCI?"
+                ? "Com base nos seus resultados, com que fiabilidade pensa que poderia distinguir parasitas relacionados de forma idêntica daqueles que não estão relacionados usando o IBS?"
                 : "Based on your results, how reliably do you think you could distinguish identically related parasites from those that are completely unrelated using IBS?"
             }
           />
@@ -316,8 +316,8 @@ export default function SNPKnowledgeCheck({
                     parasitas perfeitamente relacionados de parasitas
                     completamente não relacionados com 12 SNPs perfeitamente
                     equilibrados. Isto porque os parasitas perfeitamente
-                    relacionados terão sempre um SCI de 1, enquanto os parasitas
-                    completamente não relacionados terão quase sempre um SCI
+                    relacionados terão sempre um IBS de 1, enquanto os parasitas
+                    completamente não relacionados terão quase sempre um IBS
                     pelo menos um pouco inferior a 1, como nestes dois
                     histogramas:
                   </p>
@@ -325,14 +325,14 @@ export default function SNPKnowledgeCheck({
                     className="dark:text-white"
                     path="/InteractiveAssets/M5_sluething_histogram_SNPs_MOI1_IBD1.svg"
                     id=""
-                    label="Distribuição SCI - SCI 1"
+                    label="Distribuição IBS - IBS 1"
                     alt=""
                   />
                   <ImageContainer
                     className="dark:text-white"
                     path="/InteractiveAssets/M5_sluething_histogram_SNPs_MOI1_IBD0.svg"
                     id=""
-                    label="Distribuição SCI - SCI 0"
+                    label="Distribuição IBS - IBS 0"
                     alt=""
                   />
                 </div>
@@ -404,7 +404,7 @@ export default function SNPKnowledgeCheck({
                     : lang === "FR"
                     ? `La distinction des parasites apparentés des parasites non apparentés semble raisonnablement simple avec les SNPs, mais qu'en est-il de la distinction des parasites frères (IBD 0,5) de ceux qui ne sont pas apparentés (IBD 0) ?`
                     : lang === "PT"
-                    ? `Distinguir parasitas relacionados de parasitas não relacionados parece razoavelmente simples com SNPs, mas que tal distinguir parasitas irmãos (SCI 0,5) daqueles que não estão relacionados (SCI 0)?`
+                    ? `Distinguir parasitas relacionados de parasitas não relacionados parece razoavelmente simples com SNPs, mas que tal distinguir parasitas irmãos (IBS 0,5) daqueles que não estão relacionados (IBS 0)?`
                     : `Distinguishing related parasites from unrelated parasites appears reasonably straightforward with SNPs, but what about
                   distinguishing sibling parasites (IBD 0.5) from those that are
                   unrelated (IBD 0)?`
@@ -503,14 +503,14 @@ export default function SNPKnowledgeCheck({
                         className="dark:text-white"
                         path="/InteractiveAssets/M5_sluething_histogram_SNPs_MOI1_IBD0.5.svg"
                         id=""
-                        label="Distribuição SCI - SCI 0,5"
+                        label="Distribuição IBS - IBS 0,5"
                         alt=""
                       />
                       <ImageContainer
                         className="dark:text-white"
                         path="/InteractiveAssets/M5_sluething_histogram_SNPs_MOI1_IBD0.svg"
                         id=""
-                        label="Distribuição SCI - SCI 0"
+                        label="Distribuição IBS - IBS 0"
                         alt=""
                       />
                       <p className="my-4">
@@ -522,7 +522,7 @@ export default function SNPKnowledgeCheck({
                         className="dark:text-white"
                         path="/InteractiveAssets/M5_sluething_histogram_SNPs_MOI1_IBD_0_0.5_1_together.svg"
                         id=""
-                        label="Distribuição SCI - SCI 0, 0,5, 1,0"
+                        label="Distribuição IBS - IBS 0, 0,5, 1,0"
                         alt=""
                       />
                     </div>
@@ -685,11 +685,11 @@ export default function SNPKnowledgeCheck({
                       <div className=" flex flex-col gap-4">
                         <p>
                           Quanto mais loci avaliar, mais fácil será distinguir a
-                          proporção de correspondências (SCI) consistente com
+                          proporção de correspondências (IBS) consistente com
                           parasitas relacionados vs. não relacionados. Da mesma
                           forma, quanto mais diversos forem os loci, menos
                           provável será que ocorram correspondências por acaso,
-                          pelo que o SCI refletirá mais de perto o SCI.
+                          pelo que o IBS refletirá mais de perto o IBS.
                         </p>
                         <p>
                           Aumentar tanto o número como a diversidade de loci

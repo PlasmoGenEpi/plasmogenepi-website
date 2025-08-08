@@ -183,7 +183,7 @@ export default function PartSix({ lang = "EN" }: { lang: "EN" | "FR" | "PT" }) {
                   : lang === "FR"
                   ? "Les deux premières comparaisons ont la même IBD - 0.5 - puisque le clone hybride est lié à 50 % à chaque parent. Avez-vous obtenu le même résultat d'IBS à chaque fois ? Que pensez-vous que vous trouveriez si vous faisiez des expériences similaires en examinant d'autres clones liés de la même manière ?"
                   : lang === "PT"
-                  ? "Ambas as comparações anteriores tiveram o mesmo IBD - 0,5 - uma vez que o clone híbrido está 50% relacionado com cada progenitor. Obteve o mesmo resultado de SCI em cada vez? O que pensa que encontraria se fizesse experiências semelhantes analisando outros clones relacionados de forma semelhante?"
+                  ? "Ambas as comparações anteriores tiveram o mesmo IBD - 0,5 - uma vez que o clone híbrido está 50% relacionado com cada progenitor. Obteve o mesmo resultado de IBS em cada vez? O que pensa que encontraria se fizesse experiências semelhantes analisando outros clones relacionados de forma semelhante?"
                   : ""
               }
               classNames={{
@@ -769,7 +769,7 @@ export default function PartSix({ lang = "EN" }: { lang: "EN" | "FR" | "PT" }) {
               Ao aumentar a resolução da sua genotipagem, pode mais facilmente
               dizer quais os parasitas que estão relacionados por ascendência e,
               portanto, por transmissão. Também tem agora uma boa noção do que
-              observa em termos de SCI significa em termos da verdadeira relação
+              observa em termos de IBS significa em termos da verdadeira relação
               dos parasitas. Está quase pronto para responder às perguntas do seu
               programa sobre estes surtos preocupantes! Só tem mais uma coisa a
               fazer primeiro…

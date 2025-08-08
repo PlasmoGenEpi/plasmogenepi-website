@@ -132,7 +132,7 @@ export default function CompareMHPHybridCloneQuestions({
                         : lang === "FR"
                         ? "Quel est l'IBS pour ces deux parasites?"
                         : lang === "PT"
-                        ? "Qual é o SCI para estes dois parasitas?"
+                        ? "Qual é o IBS para estes dois parasitas?"
                         : ""
                     }
                     classNames={{
@@ -346,7 +346,7 @@ export default function CompareMHPHybridCloneQuestions({
                             : lang === "FR"
                             ? "L'IBD serait de 0 et l'IBS serait le même que la comparaison de clones complètement non apparentés, généralement entre 0 et 4 correspondances"
                             : lang === "PT"
-                            ? "A DII seria 0 e o SCI seria o mesmo que comparar quaisquer clones completamente não relacionados, geralmente entre 0 e 4 correspondências"
+                            ? "A DII seria 0 e o IBS seria o mesmo que comparar quaisquer clones completamente não relacionados, geralmente entre 0 e 4 correspondências"
                             : "",
                       },
                       {
@@ -359,7 +359,7 @@ export default function CompareMHPHybridCloneQuestions({
                             : lang === "FR"
                             ? "L'IBD serait de 1 et l'IBS serait le même que la comparaison de clones complètement non apparentés, généralement entre 0 et 4 correspondances."
                             : lang === "PT"
-                            ? "A DII seria 1 e o SCI seria o mesmo que comparar quaisquer clones completamente não relacionados, geralmente entre 0 e 4 correspondências."
+                            ? "A DII seria 1 e o IBS seria o mesmo que comparar quaisquer clones completamente não relacionados, geralmente entre 0 e 4 correspondências."
                             : "",
                       },
                       {
@@ -372,7 +372,7 @@ export default function CompareMHPHybridCloneQuestions({
                             : lang === "FR"
                             ? "L'IBD serait de 0 et l'IBS serait légèrement plus élevé, quelque part entre 5 et 8 correspondances"
                             : lang === "PT"
-                            ? "A DII seria 0 e o SCI seria ligeiramente superior, algures entre 5 e 8 correspondências"
+                            ? "A DII seria 0 e o IBS seria ligeiramente superior, algures entre 5 e 8 correspondências"
                             : "",
                       },
                     ]}

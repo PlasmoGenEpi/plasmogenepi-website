@@ -84,7 +84,7 @@ export default function GenerateSNPCloneRows({
                     : lang === "FR"
                     ? "Les clones ne sont absolument pas liés par ascendance, donc probablement 0/12 (0%) des SNP entre deux clones quelconques correspondront. L'IBS sera de 0."
                     : lang === "PT"
-                    ? "Os clones não estão completamente relacionados por ascendência, pelo que provavelmente 0/12 (0%) dos SNPs entre quaisquer dois corresponderão. O SCI será 0."
+                    ? "Os clones não estão completamente relacionados por ascendência, pelo que provavelmente 0/12 (0%) dos SNPs entre quaisquer dois corresponderão. O IBS será 0."
                     : "",
                 correct: false,
                 checked: question === 1,
@@ -97,7 +97,7 @@ export default function GenerateSNPCloneRows({
                     : lang === "FR"
                     ? "Même si les clones ne sont pas apparentés, les SNP peuvent toujours correspondre par hasard. Puisqu'il y a deux allèles parfaitement équilibrés à chaque locus, la probabilité de correspondance sera la même que de lancer une pièce deux fois et d'obtenir le même résultat. Vous vous attendriez à ce qu'environ 6/12 (50%) des SNP correspondent. L'IBS sera probablement très proche de 0,5, mais peut varier."
                     : lang === "PT"
-                    ? "Apesar de os clones não estarem relacionados, os SNPs podem ainda assim corresponder por acaso. Uma vez que existem dois alelos perfeitamente equilibrados em cada locus, a probabilidade de correspondência será a mesma que lançar uma moeda duas vezes e obter o mesmo resultado. Esperaria que cerca de 6/12 (50%) dos SNPs correspondessem. O SCI será provavelmente muito próximo de 0,5, mas pode variar."
+                    ? "Apesar de os clones não estarem relacionados, os SNPs podem ainda assim corresponder por acaso. Uma vez que existem dois alelos perfeitamente equilibrados em cada locus, a probabilidade de correspondência será a mesma que lançar uma moeda duas vezes e obter o mesmo resultado. Esperaria que cerca de 6/12 (50%) dos SNPs correspondessem. O IBS será provavelmente muito próximo de 0,5, mas pode variar."
                     : "",
                 correct: true,
                 checked: question === 2,
@@ -110,7 +110,7 @@ export default function GenerateSNPCloneRows({
                     : lang === "FR"
                     ? "Puisque la simulation est aléatoire pour les 3 clones, il n'y a aucun moyen de prédire ce que sera l'IBS. Il est tout aussi probable qu'il se situe entre 0 et 1."
                     : lang === "PT"
-                    ? "Uma vez que a simulação é aleatória para os 3 clones, não há forma de prever qual será o SCI. É tão provável que seja em qualquer lugar de 0 a 1."
+                    ? "Uma vez que a simulação é aleatória para os 3 clones, não há forma de prever qual será o IBS. É tão provável que seja em qualquer lugar de 0 a 1."
                     : "",
                 correct: false,
                 checked: question === 3,
