@@ -147,7 +147,7 @@ Parabéns camarada!!!`}
                   </li>
                 </ul>
                 <div className="mt-8">
-                  <ModuleCopyCode code="HildrusPoindexter1901" />
+                  <ModuleCopyCode code="HildrusPoindexter1901" lang="FR" />
                 </div>
               </div>
             ) : (
@@ -181,7 +181,7 @@ Parabéns camarada!!!`}
                   </li>
                 </ul>
                 <div className="mt-8">
-                  <ModuleCopyCode code="HildrusPoindexter1901" />
+                  <ModuleCopyCode code="HildrusPoindexter1901" lang="PT" />
                 </div>
               </div>
             )}
