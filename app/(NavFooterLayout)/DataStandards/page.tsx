@@ -65,18 +65,6 @@ export default function DataStandards() {
         <h1 className="font-poppins text-2xl font-bold">
           Data & Analysis Standards
         </h1>
-        {/* <p className="mt-8 font-roboto">
-          Please provide your feedback, sign up to get involved, or stay
-          informed{" "}
-          <Link
-            rel="noopener noreferrer"
-            target="_blank"
-            className="font-medium text-blue-600 underline"
-            href={`https://forms.gle/Ke2fmd7oRwixgBnw8`}
-          >
-            using our feedback form here!
-          </Link>
-        </p> */}
         <div className="mt-8 flex flex-col flex-nowrap gap-x-24 gap-y-16 md:flex-row">
           <div className="max-w-xl basis-full">
             <p className=" text-pretty font-roboto">
@@ -144,33 +132,51 @@ export default function DataStandards() {
         </div>
       </div>
       <div className="mx-auto mt-16  max-w-6xl border-b-8 border-pge-dark-teal px-4 pb-16 text-lg md:px-8 md:text-base lg:px-16">
-        {" "}
         <h2 className="font-poppins text-xl font-bold">
           Proposed standards for targeted amplicon data and metadata
         </h2>
-        <div className="my-4 mb-8 flex flex-col gap-4">
-          <p className="font-roboto">
-            With generation of amplicon sequencing data for Plasmodium
-            accelerating, there is a timely opportunity to create shared
-            resources to disseminate, reuse, and analyze these data. However,
-            there is currently no standard for lossless representation of
-            microhaplotypes derived from these approaches nor for associated
-            laboratory, bioinformatic, and clinical metadata.
-          </p>
-          <p className="font-roboto">
-            A standardized format for microhaplotype data would facilitate data
-            sharing, including development of appropriate repositories, along
-            with transparency and reproducibility of analysis. Standardization
-            at this central step in analysis would also allow for alignment of
-            downstream tools, increasing incentives to develop robust, reusable
-            software and allow cross-study analyses.
-          </p>
-          <p className="font-roboto">
-            We propose the Portable Microhaplotype Object (PMO), a single,
-            relational data structure using JSON as a portable file. This
-            approach allows for a design which is efficient, lightweight, and
-            flexible, organizing metadata together with genetic data.
-          </p>
+        <div className="my-4 mb-8 flex flex-col flex-nowrap gap-x-24 gap-y-16 md:flex-row">
+          <div className="max-w-xl basis-full">
+            <p className="font-roboto">
+              With generation of amplicon sequencing data for Plasmodium
+              accelerating, there is a timely opportunity to create shared
+              resources to disseminate, reuse, and analyze these data. However,
+              there is currently no standard for lossless representation of
+              microhaplotypes derived from these approaches nor for associated
+              laboratory, bioinformatic, and clinical metadata.
+            </p>
+            <p className="mt-4 font-roboto">
+              A standardized format for microhaplotype data would facilitate data
+              sharing, including development of appropriate repositories, along
+              with transparency and reproducibility of analysis. Standardization
+              at this central step in analysis would also allow for alignment of
+              downstream tools, increasing incentives to develop robust, reusable
+              software and allow cross-study analyses.
+            </p>
+            <p className="mt-4 font-roboto">
+              We propose the Portable Microhaplotype Object (PMO), a single,
+              relational data structure using JSON as a portable file. This
+              approach allows for a design which is efficient, lightweight, and
+              flexible, organizing metadata together with genetic data.
+            </p>
+          </div>
+          <div className="flex shrink flex-col justify-between text-center">
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              className="m-auto block rounded-xl  border-2 p-4 font-roboto text-sm shadow-md transition-all hover:border-[#CC366B] hover:bg-white focus-visible:bg-white  focus-visible:outline-[#CC366B]"
+              href={`https://plasmogenepi.github.io/PMO_Docs/`}
+            >
+              <Image
+                className="mx-auto"
+                height={400}
+                width={300}
+                alt="PMO logo"
+                src={`/assets/DataStandards/PMO_logo.png`}
+              ></Image>
+              The PMO schema and documentation can be accessed here!
+            </Link>
+          </div>
         </div>
         <FullscreenImageWrapper
           unsharedClassName="mix-blend-multiply"
@@ -183,77 +189,14 @@ export default function DataStandards() {
           // className="mix-blend-multiply"
         >
           <Image
-            src={`/assets/DataStandards/pmo_erdiagram.png`}
+            src={`/assets/DataStandards/pmo_diagram.png`}
             height={600}
             width={1200}
             alt="PMO schema diagram"
             className="[view-transition-name:img]"
           />
         </FullscreenImageWrapper>
-        <div className="mt-8">
-          <p className="font-roboto">
-            Find more detailed information{" "}
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              className="font-medium text-blue-600 underline"
-              href={`https://plasmogenepi.github.io/PMO_Docs`}
-            >
-              here.
-            </Link>{" "}
-            An example PMO can be found{" "}
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              className="font-medium text-blue-600 underline"
-              href={`https://plasmogenepi.github.io/PMO_Docs/format/FormatExample.html`}
-            >
-              here.
-            </Link>
-            <p className="mt-4 font-roboto">
-              Please review information{" "}
-              <Link
-                rel="noopener noreferrer"
-                target="_blank"
-                className="font-medium text-blue-600 underline"
-                href={`https://docs.google.com/document/d/1EEqrFO2x8ntASAyprJVKmXcQw68qSFbOrjrBzF2ty4Y/edit?usp=sharing`}
-              >
-                found in this google doc
-              </Link>{" "}
-              together with{" "}
-              <Link
-                rel="noopener noreferrer"
-                target="_blank"
-                className="font-medium text-blue-600 underline"
-                href={`https://drive.google.com/file/d/193B1BBLagay_CYhJm4Nee7Fl4T4BFdL_/view?usp=sharing`}
-              >
-                this schema.
-              </Link>{" "}
-              Feedback can either be supplied through comments on the document
-              or through{" "}
-              <Link
-                rel="noopener noreferrer"
-                target="_blank"
-                className="font-medium text-blue-600 underline"
-                href={`https://forms.gle/Ke2fmd7oRwixgBnw8`}
-              >
-                this feedback form.
-              </Link>
-            </p>
-            <p className="mt-4 font-roboto">
-              Development is in progress to build a Python package to create and
-              interact with the PMO format. This can be found on{" "}
-              <Link
-                rel="noopener noreferrer"
-                target="_blank"
-                className="font-medium text-blue-600 underline"
-                href={`https://github.com/PlasmoGenEpi/pmotools-python `}
-              >
-                Github here.
-              </Link>
-            </p>
-          </p>
-        </div>
+
       </div>
       <div className="mx-auto mt-16  max-w-6xl border-pge-dark-teal px-4 pb-16 text-lg md:px-8 md:text-base lg:px-16">
         <h2 className="font-poppins text-xl font-bold">
