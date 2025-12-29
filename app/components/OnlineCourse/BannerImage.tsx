@@ -52,16 +52,28 @@ export default function BannerImage() {
           <span className="font-bold">Record of Completion</span>: available for
           download when you complete any of the four course learning paths.
         </p>
-        <div className="mt-8 flex justify-center">
-          <div>
-            <Link
-              prefetch
-              href="https://cppr.ucsfmoodle.org/course/view.php?id=99"
-              className="mx-auto block w-fit rounded bg-black/80 bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-8 py-3  text-xl font-medium text-white transition-all hover:scale-105"
-            >
-              Sign Up
-            </Link>
-          </div>
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6">
+          <Link
+            prefetch
+            href="https://cppr.ucsfmoodle.org/course/view.php?id=99"
+            className="block w-fit rounded bg-black/80 bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-8 py-3 text-xl font-medium text-white transition-all hover:scale-105"
+          >
+            Sign Up (English)
+          </Link>
+          <Link
+            prefetch
+            href="https://cppr.ucsfmoodle.org/course/view.php?id=116"
+            className="block w-fit rounded bg-black/80 bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-8 py-3 text-xl font-medium text-white transition-all hover:scale-105"
+          >
+            Sign Up (Portuguese)
+          </Link>
+          <Link
+            prefetch
+            href="https://cppr.ucsfmoodle.org/course/view.php?id=110"
+            className="block w-fit rounded bg-black/80 bg-gradient-to-b from-pge-dark-teal/60 via-pge-dark-teal to-pge-dark-teal/60 px-8 py-3 text-xl font-medium text-white transition-all hover:scale-105"
+          >
+            Sign Up (French)
+          </Link>
         </div>
       </div>
     </div>
